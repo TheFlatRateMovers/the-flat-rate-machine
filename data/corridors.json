@@ -2,7 +2,7 @@
   "dataset": "corridors",
   "generated": "2026-10-28",
   "source": "Live sitemap (route81 page) + service descriptions in the head graph + owner-verified service-area list in ../theflatratemovers/the-flat-rate-movers-data.txt",
-  "attestation": "Only I-81 has a dedicated page. I-66 and I-70 are recorded as gaps, never as pages.",
+  "attestation": "All three corridors have dedicated pages (I-81 route81; I-66 interstate-66-corridor; I-70 interstate-70-corridor), live 2026-10-28.",
   "corridors": [
     {
       "id": "i-81",
@@ -15,17 +15,17 @@
     {
       "id": "i-66",
       "name": "Interstate 66",
-      "page": null,
-      "status": "gap",
-      "source": "mentioned in head graph service descriptions + data txt service-area list; no dedicated page in sitemap",
+      "page": "interstate-66-corridor",
+      "status": "live",
+      "source": "Phase 3 corridor page + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
       "attested": "2026-10-28"
     },
     {
       "id": "i-70",
       "name": "Interstate 70",
-      "page": null,
-      "status": "gap",
-      "source": "mentioned in head graph service descriptions + data txt service-area list; no dedicated page in sitemap",
+      "page": "interstate-70-corridor",
+      "status": "live",
+      "source": "Phase 3 corridor page + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
       "attested": "2026-10-28"
     }
   ]

@@ -1258,5 +1258,245 @@
     "genericTemplate": false,
     "source": "pages.json + services.json + locations.json templates",
     "attested": "2026-10-28"
+  },
+  {
+    "slug": "commercial-movers-winchester-va",
+    "url": "https://theflatratemovers.com/commercial-movers-winchester-va/",
+    "title": "Commercial and Office Movers — Winchester VA",
+    "description": "Commercial and Office Movers — Winchester VA — Flat-rate commercial and office relocation. Flat-rate moving from Winchester, VA and Martinsburg, WV. Guaranteed Flat Rate or Your Move is Free!",
+    "template": "service",
+    "genericTemplate": false,
+    "source": "pages.json + services.json + locations.json templates",
+    "attested": "2026-10-28"
+  },
+  {
+    "slug": "local-regional-movers-winchester-va",
+    "url": "https://theflatratemovers.com/local-regional-movers-winchester-va/",
+    "title": "Local & Regional Movers — Winchester VA",
+    "description": "Local & Regional Movers — Winchester VA — Local and regional moves along the I-81, I-66 and I-70 corridors. Flat-rate moving from Winchester, VA and Martinsburg, WV. Guaranteed Flat Rate or Your Move is Free!",
+    "template": "service",
+    "genericTemplate": false,
+    "source": "pages.json + services.json + locations.json templates",
+    "attested": "2026-10-28"
+  },
+  {
+    "slug": "office-moving-movers-winchester-va",
+    "url": "https://theflatratemovers.com/office-moving-movers-winchester-va/",
+    "title": "Office Moving — Winchester VA",
+    "description": "Office Moving — Winchester VA — Complete office relocations — workstations, files and office equipment — planned and quoted flat. Flat-rate moving from Winchester, VA and Martinsburg, WV. Guaranteed Flat Rate or Your Move is Free!",
+    "template": "service",
+    "genericTemplate": false,
+    "source": "pages.json + services.json + locations.json templates",
+    "attested": "2026-10-28"
+  },
+  {
+    "slug": "industrial-offices-movers-winchester-va",
+    "url": "https://theflatratemovers.com/industrial-offices-movers-winchester-va/",
+    "title": "Industrial Offices Moving — Winchester VA",
+    "description": "Industrial Offices Moving — Winchester VA — Office moves for industrial and facility sites — office areas within plants, warehouses and industrial facilities. Flat-rate moving from Winchester, VA and Martinsburg, WV. Guaranteed Flat Rate or Your Move is Free!",
+    "template": "service",
+    "genericTemplate": false,
+    "source": "pages.json + services.json + locations.json templates",
+    "attested": "2026-10-28"
+  },
+  {
+    "slug": "government-movers-winchester-va",
+    "url": "https://theflatratemovers.com/government-movers-winchester-va/",
+    "title": "Government Movers — Winchester VA",
+    "description": "Government Movers — Winchester VA — Moving services for government offices and public-sector relocations. Flat-rate moving from Winchester, VA and Martinsburg, WV. Guaranteed Flat Rate or Your Move is Free!",
+    "template": "service",
+    "genericTemplate": false,
+    "source": "pages.json + services.json + locations.json templates",
+    "attested": "2026-10-28"
+  },
+  {
+    "slug": "military-movers-winchester-va",
+    "url": "https://theflatratemovers.com/military-movers-winchester-va/",
+    "title": "Military Movers — Winchester VA",
+    "description": "Military Movers — Winchester VA — Moving services for military households and service members relocating to or from the Winchester and Martinsburg area. Flat-rate moving from Winchester, VA and Martinsburg, WV. Guaranteed Flat Rate or Your Move is Free!",
+    "template": "service",
+    "genericTemplate": false,
+    "source": "pages.json + services.json + locations.json templates",
+    "attested": "2026-10-28"
+  },
+  {
+    "slug": "industrial-commercial-movers-winchester-va",
+    "url": "https://theflatratemovers.com/industrial-commercial-movers-winchester-va/",
+    "title": "Industrial & Commercial Services — Winchester VA",
+    "description": "Industrial & Commercial Services — Winchester VA — Industrial & Commercial Services — Trained, Supervised Moving and Warehouse Teams for industrial and commercial project support: warehouse and distribution, commercial relocation and logistics including white-glove/blanket-wrap, FF&E installation and project support, and flexible workforce deployment, priced per job with no required contract duration. Standard Job Pricing: Unload $8.00/CWT, Load $10.00/CWT, APU $12.00/CWT, Residential/Driver Meet $400-$425 per man. Flat-rate moving from Winchester, VA and Martinsburg, WV. Guaranteed Flat Rate or Your Move is Free!",
+    "template": "service",
+    "genericTemplate": false,
+    "source": "pages.json + services.json + locations.json templates",
+    "attested": "2026-10-28"
+  },
+  {
+    "slug": "local-regional-movers-martinsburg-wv",
+    "url": "https://theflatratemovers.com/local-regional-movers-martinsburg-wv/",
+    "title": "Local & Regional Movers — Martinsburg WV",
+    "description": "Local & Regional Movers — Martinsburg WV — Local and regional moves along the I-81, I-66 and I-70 corridors. Flat-rate moving from Winchester, VA and Martinsburg, WV. Guaranteed Flat Rate or Your Move is Free!",
+    "template": "service",
+    "genericTemplate": false,
+    "source": "pages.json + services.json + locations.json templates",
+    "attested": "2026-10-28"
+  },
+  {
+    "slug": "long-distance-movers-martinsburg-wv",
+    "url": "https://theflatratemovers.com/long-distance-movers-martinsburg-wv/",
+    "title": "Long-Distance Movers — Martinsburg WV",
+    "description": "Long-Distance Movers — Martinsburg WV — Flat-rate long-distance moving from Winchester, VA and Martinsburg, WV. Flat-rate moving from Winchester, VA and Martinsburg, WV. Guaranteed Flat Rate or Your Move is Free!",
+    "template": "service",
+    "genericTemplate": false,
+    "source": "pages.json + services.json + locations.json templates",
+    "attested": "2026-10-28"
+  },
+  {
+    "slug": "packing-movers-martinsburg-wv",
+    "url": "https://theflatratemovers.com/packing-movers-martinsburg-wv/",
+    "title": "Packing Movers — Martinsburg WV",
+    "description": "Packing Movers — Martinsburg WV — Full, partial and fragile-only packing and unpacking, including loading and unloading. Flat-rate moving from Winchester, VA and Martinsburg, WV. Guaranteed Flat Rate or Your Move is Free!",
+    "template": "service",
+    "genericTemplate": false,
+    "source": "pages.json + services.json + locations.json templates",
+    "attested": "2026-10-28"
+  },
+  {
+    "slug": "sir-heavy-movers-martinsburg-wv",
+    "url": "https://theflatratemovers.com/sir-heavy-movers-martinsburg-wv/",
+    "title": "SIR Heavy Movers — Martinsburg WV",
+    "description": "SIR Heavy Movers — Martinsburg WV — SIR Structural Integrity Relocation and the KIM-GS Protocol for high-mass assets of 1,500 to 3,500 lbs — safes, medical devices, cryogenic equipment, pianos and antiques — with floor deflection analysis to L/360. Flat-rate moving from Winchester, VA and Martinsburg, WV. Guaranteed Flat Rate or Your Move is Free!",
+    "template": "service",
+    "genericTemplate": false,
+    "source": "pages.json + services.json + locations.json templates",
+    "attested": "2026-10-28"
+  },
+  {
+    "slug": "gun-safe-movers-martinsburg-wv",
+    "url": "https://theflatratemovers.com/gun-safe-movers-martinsburg-wv/",
+    "title": "Gun Safe Movers — Martinsburg WV",
+    "description": "Gun Safe Movers — Martinsburg WV — Gun safe and high-mass safe moving under SIR Structural Integrity Relocation and the KIM-GS Protocol, for safes of 1,500 to 3,500 lbs — route and clearance survey, floor deflection analysis to L/360, load spreading, floor protection and verified placement, quoted at one flat rate in writing. Flat-rate moving from Winchester, VA and Martinsburg, WV. Guaranteed Flat Rate or Your Move is Free!",
+    "template": "service",
+    "genericTemplate": false,
+    "source": "pages.json + services.json + locations.json templates",
+    "attested": "2026-10-28"
+  },
+  {
+    "slug": "piano-antique-movers-martinsburg-wv",
+    "url": "https://theflatratemovers.com/piano-antique-movers-martinsburg-wv/",
+    "title": "Piano, Antique & White-Glove Movers — Martinsburg WV",
+    "description": "Piano, Antique & White-Glove Movers — Martinsburg WV — White-glove handling of pianos, antiques and high-value items, with custom crating when required. Flat-rate moving from Winchester, VA and Martinsburg, WV. Guaranteed Flat Rate or Your Move is Free!",
+    "template": "service",
+    "genericTemplate": false,
+    "source": "pages.json + services.json + locations.json templates",
+    "attested": "2026-10-28"
+  },
+  {
+    "slug": "ispm15-movers-martinsburg-wv",
+    "url": "https://theflatratemovers.com/ispm15-movers-martinsburg-wv/",
+    "title": "ISPM 15 Export Packing — Martinsburg WV",
+    "description": "ISPM 15 Export Packing — Martinsburg WV — Export packing to ISPM 15 (International Standards for Phytosanitary Measures No. 15) for international shipping. Flat-rate moving from Winchester, VA and Martinsburg, WV. Guaranteed Flat Rate or Your Move is Free!",
+    "template": "service",
+    "genericTemplate": false,
+    "source": "pages.json + services.json + locations.json templates",
+    "attested": "2026-10-28"
+  },
+  {
+    "slug": "crating-movers-martinsburg-wv",
+    "url": "https://theflatratemovers.com/crating-movers-martinsburg-wv/",
+    "title": "Custom Crating — Martinsburg WV",
+    "description": "Custom Crating — Martinsburg WV — Custom-built crates and high-value item protection for domestic and export moves. Flat-rate moving from Winchester, VA and Martinsburg, WV. Guaranteed Flat Rate or Your Move is Free!",
+    "template": "service",
+    "genericTemplate": false,
+    "source": "pages.json + services.json + locations.json templates",
+    "attested": "2026-10-28"
+  },
+  {
+    "slug": "transloading-movers-martinsburg-wv",
+    "url": "https://theflatratemovers.com/transloading-movers-martinsburg-wv/",
+    "title": "Loading, Transloading & Container Services — Martinsburg WV",
+    "description": "Loading, Transloading & Container Services — Martinsburg WV — Container loading and unloading, and transloading between truck, container and warehouse. Flat-rate moving from Winchester, VA and Martinsburg, WV. Guaranteed Flat Rate or Your Move is Free!",
+    "template": "service",
+    "genericTemplate": false,
+    "source": "pages.json + services.json + locations.json templates",
+    "attested": "2026-10-28"
+  },
+  {
+    "slug": "final-mile-movers-martinsburg-wv",
+    "url": "https://theflatratemovers.com/final-mile-movers-martinsburg-wv/",
+    "title": "Final-Mile Delivery — Martinsburg WV",
+    "description": "Final-Mile Delivery — Martinsburg WV — Final-mile delivery with in-home or in-business placement and verification. Flat-rate moving from Winchester, VA and Martinsburg, WV. Guaranteed Flat Rate or Your Move is Free!",
+    "template": "service",
+    "genericTemplate": false,
+    "source": "pages.json + services.json + locations.json templates",
+    "attested": "2026-10-28"
+  },
+  {
+    "slug": "office-moving-movers-martinsburg-wv",
+    "url": "https://theflatratemovers.com/office-moving-movers-martinsburg-wv/",
+    "title": "Office Moving — Martinsburg WV",
+    "description": "Office Moving — Martinsburg WV — Complete office relocations — workstations, files and office equipment — planned and quoted flat. Flat-rate moving from Winchester, VA and Martinsburg, WV. Guaranteed Flat Rate or Your Move is Free!",
+    "template": "service",
+    "genericTemplate": false,
+    "source": "pages.json + services.json + locations.json templates",
+    "attested": "2026-10-28"
+  },
+  {
+    "slug": "industrial-offices-movers-martinsburg-wv",
+    "url": "https://theflatratemovers.com/industrial-offices-movers-martinsburg-wv/",
+    "title": "Industrial Offices Moving — Martinsburg WV",
+    "description": "Industrial Offices Moving — Martinsburg WV — Office moves for industrial and facility sites — office areas within plants, warehouses and industrial facilities. Flat-rate moving from Winchester, VA and Martinsburg, WV. Guaranteed Flat Rate or Your Move is Free!",
+    "template": "service",
+    "genericTemplate": false,
+    "source": "pages.json + services.json + locations.json templates",
+    "attested": "2026-10-28"
+  },
+  {
+    "slug": "government-movers-martinsburg-wv",
+    "url": "https://theflatratemovers.com/government-movers-martinsburg-wv/",
+    "title": "Government Movers — Martinsburg WV",
+    "description": "Government Movers — Martinsburg WV — Moving services for government offices and public-sector relocations. Flat-rate moving from Winchester, VA and Martinsburg, WV. Guaranteed Flat Rate or Your Move is Free!",
+    "template": "service",
+    "genericTemplate": false,
+    "source": "pages.json + services.json + locations.json templates",
+    "attested": "2026-10-28"
+  },
+  {
+    "slug": "military-movers-martinsburg-wv",
+    "url": "https://theflatratemovers.com/military-movers-martinsburg-wv/",
+    "title": "Military Movers — Martinsburg WV",
+    "description": "Military Movers — Martinsburg WV — Moving services for military households and service members relocating to or from the Winchester and Martinsburg area. Flat-rate moving from Winchester, VA and Martinsburg, WV. Guaranteed Flat Rate or Your Move is Free!",
+    "template": "service",
+    "genericTemplate": false,
+    "source": "pages.json + services.json + locations.json templates",
+    "attested": "2026-10-28"
+  },
+  {
+    "slug": "industrial-commercial-movers-martinsburg-wv",
+    "url": "https://theflatratemovers.com/industrial-commercial-movers-martinsburg-wv/",
+    "title": "Industrial & Commercial Services — Martinsburg WV",
+    "description": "Industrial & Commercial Services — Martinsburg WV — Industrial & Commercial Services — Trained, Supervised Moving and Warehouse Teams for industrial and commercial project support: warehouse and distribution, commercial relocation and logistics including white-glove/blanket-wrap, FF&E installation and project support, and flexible workforce deployment, priced per job with no required contract duration. Standard Job Pricing: Unload $8.00/CWT, Load $10.00/CWT, APU $12.00/CWT, Residential/Driver Meet $400-$425 per man. Flat-rate moving from Winchester, VA and Martinsburg, WV. Guaranteed Flat Rate or Your Move is Free!",
+    "template": "service",
+    "genericTemplate": false,
+    "source": "pages.json + services.json + locations.json templates",
+    "attested": "2026-10-28"
+  },
+  {
+    "slug": "interstate-66-corridor",
+    "url": "https://theflatratemovers.com/interstate-66-corridor/",
+    "title": "Interstate 66 Corridor Moving",
+    "description": "Interstate 81 corridor moving — Moving and logistics dispatch along Interstate 81, I-66 and I-70 from Winchester, VA and Martinsburg, WV. Flat-rate moving from Winchester, VA and Martinsburg, WV. Guaranteed Flat Rate or Your Move is Free!",
+    "template": "corridor",
+    "genericTemplate": false,
+    "source": "pages.json + services.json + locations.json templates",
+    "attested": "2026-10-28"
+  },
+  {
+    "slug": "interstate-70-corridor",
+    "url": "https://theflatratemovers.com/interstate-70-corridor/",
+    "title": "Interstate 70 Corridor Moving",
+    "description": "Interstate 81 corridor moving — Moving and logistics dispatch along Interstate 81, I-66 and I-70 from Winchester, VA and Martinsburg, WV. Flat-rate moving from Winchester, VA and Martinsburg, WV. Guaranteed Flat Rate or Your Move is Free!",
+    "template": "corridor",
+    "genericTemplate": false,
+    "source": "pages.json + services.json + locations.json templates",
+    "attested": "2026-10-28"
   }
 ]

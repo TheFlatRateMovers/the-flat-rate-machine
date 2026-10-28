@@ -1,23 +1,23 @@
 {
   "generated": "out/meta.generated.json",
-  "pages": 126,
-  "titleExactMatches": 126,
+  "pages": 150,
+  "titleExactMatches": 150,
   "titleMismatches": [],
-  "descriptionExactMatches": 34,
+  "descriptionExactMatches": 56,
   "descriptionNote": "Live pageMeta descriptions are hand-written editorial copy; generated descriptions are deterministic templates from verified facts. A low exact-match count is expected and is NOT a failure — the check proves every generated description is fact-grounded, not that it copies live prose.",
   "genericTemplatePages": [],
   "genericTemplateCount": 0,
   "descriptionLength": {
     "min": 142,
-    "max": 605
+    "max": 622
   },
   "templatesUsed": {
     "home": 1,
-    "service": 77,
+    "service": 99,
     "editorial": 34,
     "service-multi": 11,
     "location": 2,
-    "corridor": 1
+    "corridor": 3
   },
   "status": "TITLES EXACT — descriptions templated from facts (see genericTemplatePages for pages with no specific template)"
 }

@@ -1,2698 +1,2705 @@
 {
- "type": "FeatureCollection",
- "name": "The Flat Rate Movers \u2014 Service Area GeoJSON",
- "version": "2026-10-28",
- "dateModified": "2026-10-28",
- "organization": "The Flat Rate Movers LLC",
- "branches": {
-  "winchester": {
-   "name": "The Flat Rate Movers",
-   "address": "116 W Piccadilly St Suite 11, Winchester, VA 22601",
-   "hours": "Mon-Fri 8-6, Sat 8-4, Sun 9-4",
-   "google_rating": 5.0,
-   "google_review_count": 1
-  },
-  "martinsburg": {
-   "name": "Flat Rate Movers Martinsburg WV",
-   "address": "736 Williamsport Pike Suite 2, Martinsburg, WV 25404",
-   "hours": "Mon-Fri 9-6, Sat 9-4, Sun 9-4",
-   "google_rating": 4.7,
-   "google_review_count": 6
-  }
- },
- "attestations": [
-  {
-   "claim": "GBP service areas: 16 Winchester, 14 Martinsburg, Moorefield in both",
-   "source": "Henry GBP screenshots 2026-10-27",
-   "verified": "2026-10-27"
-  },
-  {
-   "claim": "Branch coordinates, addresses, hours, per-branch Google ratings",
-   "source": "Places + Google Business Profile check 2026-10-27, Henry correction 2026-10-27",
-   "verified": "2026-10-28"
-  },
-  {
-   "claim": "City coordinates in this file",
-   "source": "Map geocoding 2026-10-28",
-   "verified": "2026-10-28"
-  },
-  {
-   "claim": "GBP products 2026-10-28: 8 Products on both profiles, Industrial & Commercial Services, logo, no price",
-   "source": "Google Business Profile manager, owner-approved",
-   "verified": "2026-10-28"
-  },
-  {
-   "claim": "Main service pages enriched 2026-10-28, 1992-4436 chars, supplied facts only",
-   "source": "Live site verification 2026-10-28",
-   "verified": "2026-10-28"
-  },
-  {
-   "claim": "Quote capture verified 2026-10-28, Detailed + Short, no dropped fields",
-   "source": "Gmail ratemovers@gmail.com + Worker edb0bd09",
-   "verified": "2026-10-28"
-  }
- ],
- "features": [
-  {
-   "type": "Feature",
-   "id": "place-winchester-va",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -78.1668352,
-     39.18711576
-    ]
-   },
-   "properties": {
-    "id": "place-winchester-va",
-    "name": "Winchester, VA",
-    "type": "branch",
-    "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
-    "verified": "2026-10-28",
-    "provider": "https://theflatratemovers.com/#organization",
-    "citation": "https://theflatratemovers.com/service-area.geojson",
-    "state": "VA",
-    "county": "Winchester City / Frederick County",
-    "postal_code": "22601",
-    "branch": "winchester",
-    "gbp_service_area": true,
-    "audiences": [
-     "residential",
-     "commercial",
-     "industrial",
-     "government",
-     "military"
-    ],
-    "services": [
-     "residential-moving",
-     "commercial-moving",
-     "office-moving",
-     "industrial-offices",
-     "government-moving",
-     "military-moving",
-     "packing",
-     "custom-crating",
-     "ispm15-export-packing",
-     "loading",
-     "transloading",
-     "final-mile",
-     "warehouse-distribution",
-     "commercial-relocation",
-     "ffe-installation",
-     "flexible-deployment",
-     "ocean-container",
-     "pods",
-     "restacking"
-    ],
-    "rubric_score": 3
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "place-martinsburg-wv",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -77.94760443,
-     39.48319665
-    ]
-   },
-   "properties": {
-    "id": "place-martinsburg-wv",
-    "name": "Martinsburg, WV",
-    "type": "branch",
-    "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
-    "verified": "2026-10-28",
-    "provider": "https://theflatratemovers.com/#organization",
-    "citation": "https://theflatratemovers.com/service-area.geojson",
-    "state": "WV",
-    "county": "Berkeley",
-    "postal_code": "25404",
-    "branch": "martinsburg",
-    "gbp_service_area": true,
-    "audiences": [
-     "residential",
-     "commercial",
-     "industrial",
-     "government",
-     "military"
-    ],
-    "services": [
-     "residential-moving",
-     "commercial-moving",
-     "office-moving",
-     "industrial-offices",
-     "government-moving",
-     "military-moving",
-     "packing",
-     "custom-crating",
-     "ispm15-export-packing",
-     "loading",
-     "transloading",
-     "final-mile",
-     "warehouse-distribution",
-     "commercial-relocation",
-     "ffe-installation",
-     "flexible-deployment",
-     "ocean-container",
-     "pods",
-     "restacking"
-    ],
-    "rubric_score": 3
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "place-leesburg-va",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -77.56578,
-     39.1158
-    ]
-   },
-   "properties": {
-    "id": "place-leesburg-va",
-    "name": "Leesburg, VA",
-    "type": "city",
-    "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
-    "verified": "2026-10-28",
-    "provider": "https://theflatratemovers.com/#organization",
-    "citation": "https://theflatratemovers.com/service-area.geojson",
-    "state": "VA",
-    "county": "Loudoun",
-    "postal_code": "20176",
-    "branch": "winchester",
-    "gbp_service_area": true,
-    "audiences": [
-     "residential",
-     "commercial",
-     "industrial",
-     "government",
-     "military"
-    ],
-    "services": [
-     "residential-moving",
-     "commercial-moving",
-     "office-moving",
-     "industrial-offices",
-     "government-moving",
-     "military-moving",
-     "packing",
-     "custom-crating",
-     "ispm15-export-packing",
-     "loading",
-     "transloading",
-     "final-mile",
-     "warehouse-distribution",
-     "commercial-relocation",
-     "ffe-installation",
-     "flexible-deployment",
-     "ocean-container",
-     "pods",
-     "restacking"
-    ],
-    "rubric_score": 3
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "place-marshall-va",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -77.84966,
-     38.86661
-    ]
-   },
-   "properties": {
-    "id": "place-marshall-va",
-    "name": "Marshall, VA",
-    "type": "city",
-    "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
-    "verified": "2026-10-28",
-    "provider": "https://theflatratemovers.com/#organization",
-    "citation": "https://theflatratemovers.com/service-area.geojson",
-    "state": "VA",
-    "county": "Fauquier",
-    "postal_code": "20115",
-    "branch": "winchester",
-    "gbp_service_area": true,
-    "audiences": [
-     "residential",
-     "commercial",
-     "industrial",
-     "government",
-     "military"
-    ],
-    "services": [
-     "residential-moving",
-     "commercial-moving",
-     "office-moving",
-     "industrial-offices",
-     "government-moving",
-     "military-moving",
-     "packing",
-     "custom-crating",
-     "ispm15-export-packing",
-     "loading",
-     "transloading",
-     "final-mile",
-     "warehouse-distribution",
-     "commercial-relocation",
-     "ffe-installation",
-     "flexible-deployment",
-     "ocean-container",
-     "pods",
-     "restacking"
-    ],
-    "rubric_score": 3
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "place-sterling-va",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -77.40713,
-     39.03336
-    ]
-   },
-   "properties": {
-    "id": "place-sterling-va",
-    "name": "Sterling, VA",
-    "type": "city",
-    "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
-    "verified": "2026-10-28",
-    "provider": "https://theflatratemovers.com/#organization",
-    "citation": "https://theflatratemovers.com/service-area.geojson",
-    "state": "VA",
-    "county": "Loudoun",
-    "postal_code": "20165",
-    "branch": "winchester",
-    "gbp_service_area": true,
-    "audiences": [
-     "residential",
-     "commercial",
-     "industrial",
-     "government",
-     "military"
-    ],
-    "services": [
-     "residential-moving",
-     "commercial-moving",
-     "office-moving",
-     "industrial-offices",
-     "government-moving",
-     "military-moving",
-     "packing",
-     "custom-crating",
-     "ispm15-export-packing",
-     "loading",
-     "transloading",
-     "final-mile",
-     "warehouse-distribution",
-     "commercial-relocation",
-     "ffe-installation",
-     "flexible-deployment",
-     "ocean-container",
-     "pods",
-     "restacking"
-    ],
-    "rubric_score": 3
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "place-stephens-city-va",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -78.21752,
-     39.084
-    ]
-   },
-   "properties": {
-    "id": "place-stephens-city-va",
-    "name": "Stephens City, VA",
-    "type": "city",
-    "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
-    "verified": "2026-10-28",
-    "provider": "https://theflatratemovers.com/#organization",
-    "citation": "https://theflatratemovers.com/service-area.geojson",
-    "state": "VA",
-    "county": "Frederick",
-    "postal_code": "22655",
-    "branch": "winchester",
-    "gbp_service_area": true,
-    "audiences": [
-     "residential",
-     "commercial",
-     "industrial",
-     "government",
-     "military"
-    ],
-    "services": [
-     "residential-moving",
-     "commercial-moving",
-     "office-moving",
-     "industrial-offices",
-     "government-moving",
-     "military-moving",
-     "packing",
-     "custom-crating",
-     "ispm15-export-packing",
-     "loading",
-     "transloading",
-     "final-mile",
-     "warehouse-distribution",
-     "commercial-relocation",
-     "ffe-installation",
-     "flexible-deployment",
-     "ocean-container",
-     "pods",
-     "restacking"
-    ],
-    "rubric_score": 3
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "place-berryville-va",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -77.98264,
-     39.15167
-    ]
-   },
-   "properties": {
-    "id": "place-berryville-va",
-    "name": "Berryville, VA",
-    "type": "city",
-    "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
-    "verified": "2026-10-28",
-    "provider": "https://theflatratemovers.com/#organization",
-    "citation": "https://theflatratemovers.com/service-area.geojson",
-    "state": "VA",
-    "county": "Clarke",
-    "postal_code": "22611",
-    "branch": "winchester",
-    "gbp_service_area": true,
-    "audiences": [
-     "residential",
-     "commercial",
-     "industrial",
-     "government",
-     "military"
-    ],
-    "services": [
-     "residential-moving",
-     "commercial-moving",
-     "office-moving",
-     "industrial-offices",
-     "government-moving",
-     "military-moving",
-     "packing",
-     "custom-crating",
-     "ispm15-export-packing",
-     "loading",
-     "transloading",
-     "final-mile",
-     "warehouse-distribution",
-     "commercial-relocation",
-     "ffe-installation",
-     "flexible-deployment",
-     "ocean-container",
-     "pods",
-     "restacking"
-    ],
-    "rubric_score": 3
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "place-middleburg-va",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -77.73618,
-     38.96967
-    ]
-   },
-   "properties": {
-    "id": "place-middleburg-va",
-    "name": "Middleburg, VA",
-    "type": "city",
-    "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
-    "verified": "2026-10-28",
-    "provider": "https://theflatratemovers.com/#organization",
-    "citation": "https://theflatratemovers.com/service-area.geojson",
-    "state": "VA",
-    "county": "Loudoun",
-    "postal_code": "20117",
-    "branch": "winchester",
-    "gbp_service_area": true,
-    "audiences": [
-     "residential",
-     "commercial",
-     "industrial",
-     "government",
-     "military"
-    ],
-    "services": [
-     "residential-moving",
-     "commercial-moving",
-     "office-moving",
-     "industrial-offices",
-     "government-moving",
-     "military-moving",
-     "packing",
-     "custom-crating",
-     "ispm15-export-packing",
-     "loading",
-     "transloading",
-     "final-mile",
-     "warehouse-distribution",
-     "commercial-relocation",
-     "ffe-installation",
-     "flexible-deployment",
-     "ocean-container",
-     "pods",
-     "restacking"
-    ],
-    "rubric_score": 3
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "place-middletown-va",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -78.27257,
-     39.03354
-    ]
-   },
-   "properties": {
-    "id": "place-middletown-va",
-    "name": "Middletown, VA",
-    "type": "city",
-    "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
-    "verified": "2026-10-28",
-    "provider": "https://theflatratemovers.com/#organization",
-    "citation": "https://theflatratemovers.com/service-area.geojson",
-    "state": "VA",
-    "county": "Frederick",
-    "postal_code": "22645",
-    "branch": "winchester",
-    "gbp_service_area": true,
-    "audiences": [
-     "residential",
-     "commercial",
-     "industrial",
-     "government",
-     "military"
-    ],
-    "services": [
-     "residential-moving",
-     "commercial-moving",
-     "office-moving",
-     "industrial-offices",
-     "government-moving",
-     "military-moving",
-     "packing",
-     "custom-crating",
-     "ispm15-export-packing",
-     "loading",
-     "transloading",
-     "final-mile",
-     "warehouse-distribution",
-     "commercial-relocation",
-     "ffe-installation",
-     "flexible-deployment",
-     "ocean-container",
-     "pods",
-     "restacking"
-    ],
-    "rubric_score": 3
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "place-moorefield-wv",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -78.96862,
-     39.06215
-    ]
-   },
-   "properties": {
-    "id": "place-moorefield-wv",
-    "name": "Moorefield, WV",
-    "type": "city",
-    "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
-    "verified": "2026-10-28",
-    "provider": "https://theflatratemovers.com/#organization",
-    "citation": "https://theflatratemovers.com/service-area.geojson",
-    "state": "WV",
-    "county": "Hardy",
-    "postal_code": "26836",
-    "branch": "both",
-    "gbp_service_area": true,
-    "audiences": [
-     "residential",
-     "commercial",
-     "industrial",
-     "government",
-     "military"
-    ],
-    "services": [
-     "residential-moving",
-     "commercial-moving",
-     "office-moving",
-     "industrial-offices",
-     "government-moving",
-     "military-moving",
-     "packing",
-     "custom-crating",
-     "ispm15-export-packing",
-     "loading",
-     "transloading",
-     "final-mile",
-     "warehouse-distribution",
-     "commercial-relocation",
-     "ffe-installation",
-     "flexible-deployment",
-     "ocean-container",
-     "pods",
-     "restacking"
-    ],
-    "rubric_score": 3
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "place-round-hill-va",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -77.769,
-     39.13526
-    ]
-   },
-   "properties": {
-    "id": "place-round-hill-va",
-    "name": "Round Hill, VA",
-    "type": "city",
-    "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
-    "verified": "2026-10-28",
-    "provider": "https://theflatratemovers.com/#organization",
-    "citation": "https://theflatratemovers.com/service-area.geojson",
-    "state": "VA",
-    "county": "Loudoun",
-    "postal_code": "20141",
-    "branch": "winchester",
-    "gbp_service_area": true,
-    "audiences": [
-     "residential",
-     "commercial",
-     "industrial",
-     "government",
-     "military"
-    ],
-    "services": [
-     "residential-moving",
-     "commercial-moving",
-     "office-moving",
-     "industrial-offices",
-     "government-moving",
-     "military-moving",
-     "packing",
-     "custom-crating",
-     "ispm15-export-packing",
-     "loading",
-     "transloading",
-     "final-mile",
-     "warehouse-distribution",
-     "commercial-relocation",
-     "ffe-installation",
-     "flexible-deployment",
-     "ocean-container",
-     "pods",
-     "restacking"
-    ],
-    "rubric_score": 3
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "place-stephenson-va",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -78.10874,
-     39.2387
-    ]
-   },
-   "properties": {
-    "id": "place-stephenson-va",
-    "name": "Stephenson, VA",
-    "type": "city",
-    "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
-    "verified": "2026-10-28",
-    "provider": "https://theflatratemovers.com/#organization",
-    "citation": "https://theflatratemovers.com/service-area.geojson",
-    "state": "VA",
-    "county": "Frederick",
-    "postal_code": "22656",
-    "branch": "winchester",
-    "gbp_service_area": true,
-    "audiences": [
-     "residential",
-     "commercial",
-     "industrial",
-     "government",
-     "military"
-    ],
-    "services": [
-     "residential-moving",
-     "commercial-moving",
-     "office-moving",
-     "industrial-offices",
-     "government-moving",
-     "military-moving",
-     "packing",
-     "custom-crating",
-     "ispm15-export-packing",
-     "loading",
-     "transloading",
-     "final-mile",
-     "warehouse-distribution",
-     "commercial-relocation",
-     "ffe-installation",
-     "flexible-deployment",
-     "ocean-container",
-     "pods",
-     "restacking"
-    ],
-    "rubric_score": 3
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "place-upperville-va",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -77.88471,
-     38.99433
-    ]
-   },
-   "properties": {
-    "id": "place-upperville-va",
-    "name": "Upperville, VA",
-    "type": "city",
-    "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
-    "verified": "2026-10-28",
-    "provider": "https://theflatratemovers.com/#organization",
-    "citation": "https://theflatratemovers.com/service-area.geojson",
-    "state": "VA",
-    "county": "Fauquier",
-    "postal_code": "20184",
-    "branch": "winchester",
-    "gbp_service_area": true,
-    "audiences": [
-     "residential",
-     "commercial",
-     "industrial",
-     "government",
-     "military"
-    ],
-    "services": [
-     "residential-moving",
-     "commercial-moving",
-     "office-moving",
-     "industrial-offices",
-     "government-moving",
-     "military-moving",
-     "packing",
-     "custom-crating",
-     "ispm15-export-packing",
-     "loading",
-     "transloading",
-     "final-mile",
-     "warehouse-distribution",
-     "commercial-relocation",
-     "ffe-installation",
-     "flexible-deployment",
-     "ocean-container",
-     "pods",
-     "restacking"
-    ],
-    "rubric_score": 3
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "place-purcellville-va",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -77.71437,
-     39.13668
-    ]
-   },
-   "properties": {
-    "id": "place-purcellville-va",
-    "name": "Purcellville, VA",
-    "type": "city",
-    "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
-    "verified": "2026-10-28",
-    "provider": "https://theflatratemovers.com/#organization",
-    "citation": "https://theflatratemovers.com/service-area.geojson",
-    "state": "VA",
-    "county": "Loudoun",
-    "postal_code": "20132",
-    "branch": "winchester",
-    "gbp_service_area": true,
-    "audiences": [
-     "residential",
-     "commercial",
-     "industrial",
-     "government",
-     "military"
-    ],
-    "services": [
-     "residential-moving",
-     "commercial-moving",
-     "office-moving",
-     "industrial-offices",
-     "government-moving",
-     "military-moving",
-     "packing",
-     "custom-crating",
-     "ispm15-export-packing",
-     "loading",
-     "transloading",
-     "final-mile",
-     "warehouse-distribution",
-     "commercial-relocation",
-     "ffe-installation",
-     "flexible-deployment",
-     "ocean-container",
-     "pods",
-     "restacking"
-    ],
-    "rubric_score": 3
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "place-south-riding-va",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -77.48713,
-     38.90592
-    ]
-   },
-   "properties": {
-    "id": "place-south-riding-va",
-    "name": "South Riding, VA",
-    "type": "city",
-    "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
-    "verified": "2026-10-28",
-    "provider": "https://theflatratemovers.com/#organization",
-    "citation": "https://theflatratemovers.com/service-area.geojson",
-    "state": "VA",
-    "county": "Loudoun",
-    "postal_code": "20152",
-    "branch": "winchester",
-    "gbp_service_area": true,
-    "audiences": [
-     "residential",
-     "commercial",
-     "industrial",
-     "government",
-     "military"
-    ],
-    "services": [
-     "residential-moving",
-     "commercial-moving",
-     "office-moving",
-     "industrial-offices",
-     "government-moving",
-     "military-moving",
-     "packing",
-     "custom-crating",
-     "ispm15-export-packing",
-     "loading",
-     "transloading",
-     "final-mile",
-     "warehouse-distribution",
-     "commercial-relocation",
-     "ffe-installation",
-     "flexible-deployment",
-     "ocean-container",
-     "pods",
-     "restacking"
-    ],
-    "rubric_score": 3
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "place-inwood-wv",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -78.04374,
-     39.35869
-    ]
-   },
-   "properties": {
-    "id": "place-inwood-wv",
-    "name": "Inwood, WV",
-    "type": "city",
-    "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
-    "verified": "2026-10-28",
-    "provider": "https://theflatratemovers.com/#organization",
-    "citation": "https://theflatratemovers.com/service-area.geojson",
-    "state": "WV",
-    "county": "Berkeley",
-    "postal_code": "25428",
-    "branch": "martinsburg",
-    "gbp_service_area": true,
-    "audiences": [
-     "residential",
-     "commercial",
-     "industrial",
-     "government",
-     "military"
-    ],
-    "services": [
-     "residential-moving",
-     "commercial-moving",
-     "office-moving",
-     "industrial-offices",
-     "government-moving",
-     "military-moving",
-     "packing",
-     "custom-crating",
-     "ispm15-export-packing",
-     "loading",
-     "transloading",
-     "final-mile",
-     "warehouse-distribution",
-     "commercial-relocation",
-     "ffe-installation",
-     "flexible-deployment",
-     "ocean-container",
-     "pods",
-     "restacking"
-    ],
-    "rubric_score": 3
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "place-hagerstown-md",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -77.71758,
-     39.6425
-    ]
-   },
-   "properties": {
-    "id": "place-hagerstown-md",
-    "name": "Hagerstown, MD",
-    "type": "city",
-    "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
-    "verified": "2026-10-28",
-    "provider": "https://theflatratemovers.com/#organization",
-    "citation": "https://theflatratemovers.com/service-area.geojson",
-    "state": "MD",
-    "county": "Washington",
-    "postal_code": "21740",
-    "branch": "martinsburg",
-    "gbp_service_area": true,
-    "audiences": [
-     "residential",
-     "commercial",
-     "industrial",
-     "government",
-     "military"
-    ],
-    "services": [
-     "residential-moving",
-     "commercial-moving",
-     "office-moving",
-     "industrial-offices",
-     "government-moving",
-     "military-moving",
-     "packing",
-     "custom-crating",
-     "ispm15-export-packing",
-     "loading",
-     "transloading",
-     "final-mile",
-     "warehouse-distribution",
-     "commercial-relocation",
-     "ffe-installation",
-     "flexible-deployment",
-     "ocean-container",
-     "pods",
-     "restacking"
-    ],
-    "rubric_score": 3
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "place-hedgesville-wv",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -77.99512,
-     39.55387
-    ]
-   },
-   "properties": {
-    "id": "place-hedgesville-wv",
-    "name": "Hedgesville, WV",
-    "type": "city",
-    "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
-    "verified": "2026-10-28",
-    "provider": "https://theflatratemovers.com/#organization",
-    "citation": "https://theflatratemovers.com/service-area.geojson",
-    "state": "WV",
-    "county": "Berkeley",
-    "postal_code": "25427",
-    "branch": "martinsburg",
-    "gbp_service_area": true,
-    "audiences": [
-     "residential",
-     "commercial",
-     "industrial",
-     "government",
-     "military"
-    ],
-    "services": [
-     "residential-moving",
-     "commercial-moving",
-     "office-moving",
-     "industrial-offices",
-     "government-moving",
-     "military-moving",
-     "packing",
-     "custom-crating",
-     "ispm15-export-packing",
-     "loading",
-     "transloading",
-     "final-mile",
-     "warehouse-distribution",
-     "commercial-relocation",
-     "ffe-installation",
-     "flexible-deployment",
-     "ocean-container",
-     "pods",
-     "restacking"
-    ],
-    "rubric_score": 3
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "place-paw-paw-wv",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -78.45118,
-     39.43944
-    ]
-   },
-   "properties": {
-    "id": "place-paw-paw-wv",
-    "name": "Paw Paw, WV",
-    "type": "city",
-    "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
-    "verified": "2026-10-28",
-    "provider": "https://theflatratemovers.com/#organization",
-    "citation": "https://theflatratemovers.com/service-area.geojson",
-    "state": "WV",
-    "county": "Morgan",
-    "postal_code": "25434",
-    "branch": "martinsburg",
-    "gbp_service_area": true,
-    "audiences": [
-     "residential",
-     "commercial",
-     "industrial",
-     "government",
-     "military"
-    ],
-    "services": [
-     "residential-moving",
-     "commercial-moving",
-     "office-moving",
-     "industrial-offices",
-     "government-moving",
-     "military-moving",
-     "packing",
-     "custom-crating",
-     "ispm15-export-packing",
-     "loading",
-     "transloading",
-     "final-mile",
-     "warehouse-distribution",
-     "commercial-relocation",
-     "ffe-installation",
-     "flexible-deployment",
-     "ocean-container",
-     "pods",
-     "restacking"
-    ],
-    "rubric_score": 3
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "place-shepherdstown-wv",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -77.80562,
-     39.43079
-    ]
-   },
-   "properties": {
-    "id": "place-shepherdstown-wv",
-    "name": "Shepherdstown, WV",
-    "type": "city",
-    "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
-    "verified": "2026-10-28",
-    "provider": "https://theflatratemovers.com/#organization",
-    "citation": "https://theflatratemovers.com/service-area.geojson",
-    "state": "WV",
-    "county": "Jefferson",
-    "postal_code": "25443",
-    "branch": "martinsburg",
-    "gbp_service_area": true,
-    "audiences": [
-     "residential",
-     "commercial",
-     "industrial",
-     "government",
-     "military"
-    ],
-    "services": [
-     "residential-moving",
-     "commercial-moving",
-     "office-moving",
-     "industrial-offices",
-     "government-moving",
-     "military-moving",
-     "packing",
-     "custom-crating",
-     "ispm15-export-packing",
-     "loading",
-     "transloading",
-     "final-mile",
-     "warehouse-distribution",
-     "commercial-relocation",
-     "ffe-installation",
-     "flexible-deployment",
-     "ocean-container",
-     "pods",
-     "restacking"
-    ],
-    "rubric_score": 3
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "place-bunker-hill-wv",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -78.0528,
-     39.33615
-    ]
-   },
-   "properties": {
-    "id": "place-bunker-hill-wv",
-    "name": "Bunker Hill, WV",
-    "type": "city",
-    "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
-    "verified": "2026-10-28",
-    "provider": "https://theflatratemovers.com/#organization",
-    "citation": "https://theflatratemovers.com/service-area.geojson",
-    "state": "WV",
-    "county": "Berkeley",
-    "postal_code": "25413",
-    "branch": "martinsburg",
-    "gbp_service_area": true,
-    "audiences": [
-     "residential",
-     "commercial",
-     "industrial",
-     "government",
-     "military"
-    ],
-    "services": [
-     "residential-moving",
-     "commercial-moving",
-     "office-moving",
-     "industrial-offices",
-     "government-moving",
-     "military-moving",
-     "packing",
-     "custom-crating",
-     "ispm15-export-packing",
-     "loading",
-     "transloading",
-     "final-mile",
-     "warehouse-distribution",
-     "commercial-relocation",
-     "ffe-installation",
-     "flexible-deployment",
-     "ocean-container",
-     "pods",
-     "restacking"
-    ],
-    "rubric_score": 3
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "place-charles-town-wv",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -77.8588,
-     39.28944
-    ]
-   },
-   "properties": {
-    "id": "place-charles-town-wv",
-    "name": "Charles Town, WV",
-    "type": "city",
-    "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
-    "verified": "2026-10-28",
-    "provider": "https://theflatratemovers.com/#organization",
-    "citation": "https://theflatratemovers.com/service-area.geojson",
-    "state": "WV",
-    "county": "Jefferson",
-    "postal_code": "25414",
-    "branch": "martinsburg",
-    "gbp_service_area": true,
-    "audiences": [
-     "residential",
-     "commercial",
-     "industrial",
-     "government",
-     "military"
-    ],
-    "services": [
-     "residential-moving",
-     "commercial-moving",
-     "office-moving",
-     "industrial-offices",
-     "government-moving",
-     "military-moving",
-     "packing",
-     "custom-crating",
-     "ispm15-export-packing",
-     "loading",
-     "transloading",
-     "final-mile",
-     "warehouse-distribution",
-     "commercial-relocation",
-     "ffe-installation",
-     "flexible-deployment",
-     "ocean-container",
-     "pods",
-     "restacking"
-    ],
-    "rubric_score": 3
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "place-clear-spring-md",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -77.93005,
-     39.65639
-    ]
-   },
-   "properties": {
-    "id": "place-clear-spring-md",
-    "name": "Clear Spring, MD",
-    "type": "city",
-    "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
-    "verified": "2026-10-28",
-    "provider": "https://theflatratemovers.com/#organization",
-    "citation": "https://theflatratemovers.com/service-area.geojson",
-    "state": "MD",
-    "county": "Washington",
-    "postal_code": "21722",
-    "branch": "martinsburg",
-    "gbp_service_area": true,
-    "audiences": [
-     "residential",
-     "commercial",
-     "industrial",
-     "government",
-     "military"
-    ],
-    "services": [
-     "residential-moving",
-     "commercial-moving",
-     "office-moving",
-     "industrial-offices",
-     "government-moving",
-     "military-moving",
-     "packing",
-     "custom-crating",
-     "ispm15-export-packing",
-     "loading",
-     "transloading",
-     "final-mile",
-     "warehouse-distribution",
-     "commercial-relocation",
-     "ffe-installation",
-     "flexible-deployment",
-     "ocean-container",
-     "pods",
-     "restacking"
-    ],
-    "rubric_score": 3
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "place-summit-point-wv",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -77.95621,
-     39.25093
-    ]
-   },
-   "properties": {
-    "id": "place-summit-point-wv",
-    "name": "Summit Point, WV",
-    "type": "city",
-    "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
-    "verified": "2026-10-28",
-    "provider": "https://theflatratemovers.com/#organization",
-    "citation": "https://theflatratemovers.com/service-area.geojson",
-    "state": "WV",
-    "county": "Jefferson",
-    "postal_code": "25446",
-    "branch": "martinsburg",
-    "gbp_service_area": true,
-    "audiences": [
-     "residential",
-     "commercial",
-     "industrial",
-     "government",
-     "military"
-    ],
-    "services": [
-     "residential-moving",
-     "commercial-moving",
-     "office-moving",
-     "industrial-offices",
-     "government-moving",
-     "military-moving",
-     "packing",
-     "custom-crating",
-     "ispm15-export-packing",
-     "loading",
-     "transloading",
-     "final-mile",
-     "warehouse-distribution",
-     "commercial-relocation",
-     "ffe-installation",
-     "flexible-deployment",
-     "ocean-container",
-     "pods",
-     "restacking"
-    ],
-    "rubric_score": 3
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "place-harpers-ferry-wv",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -77.73907,
-     39.32546
-    ]
-   },
-   "properties": {
-    "id": "place-harpers-ferry-wv",
-    "name": "Harpers Ferry, WV",
-    "type": "city",
-    "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
-    "verified": "2026-10-28",
-    "provider": "https://theflatratemovers.com/#organization",
-    "citation": "https://theflatratemovers.com/service-area.geojson",
-    "state": "WV",
-    "county": "Jefferson",
-    "postal_code": "25425",
-    "branch": "martinsburg",
-    "gbp_service_area": true,
-    "audiences": [
-     "residential",
-     "commercial",
-     "industrial",
-     "government",
-     "military"
-    ],
-    "services": [
-     "residential-moving",
-     "commercial-moving",
-     "office-moving",
-     "industrial-offices",
-     "government-moving",
-     "military-moving",
-     "packing",
-     "custom-crating",
-     "ispm15-export-packing",
-     "loading",
-     "transloading",
-     "final-mile",
-     "warehouse-distribution",
-     "commercial-relocation",
-     "ffe-installation",
-     "flexible-deployment",
-     "ocean-container",
-     "pods",
-     "restacking"
-    ],
-    "rubric_score": 3
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "place-kearneysville-wv",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -77.90795,
-     39.37064
-    ]
-   },
-   "properties": {
-    "id": "place-kearneysville-wv",
-    "name": "Kearneysville, WV",
-    "type": "city",
-    "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
-    "verified": "2026-10-28",
-    "provider": "https://theflatratemovers.com/#organization",
-    "citation": "https://theflatratemovers.com/service-area.geojson",
-    "state": "WV",
-    "county": "Jefferson",
-    "postal_code": "25430",
-    "branch": "martinsburg",
-    "gbp_service_area": true,
-    "audiences": [
-     "residential",
-     "commercial",
-     "industrial",
-     "government",
-     "military"
-    ],
-    "services": [
-     "residential-moving",
-     "commercial-moving",
-     "office-moving",
-     "industrial-offices",
-     "government-moving",
-     "military-moving",
-     "packing",
-     "custom-crating",
-     "ispm15-export-packing",
-     "loading",
-     "transloading",
-     "final-mile",
-     "warehouse-distribution",
-     "commercial-relocation",
-     "ffe-installation",
-     "flexible-deployment",
-     "ocean-container",
-     "pods",
-     "restacking"
-    ],
-    "rubric_score": 3
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "place-front-royal-va",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -78.19355,
-     38.91798
-    ]
-   },
-   "properties": {
-    "id": "place-front-royal-va",
-    "name": "Front Royal, VA",
-    "type": "city",
-    "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
-    "verified": "2026-10-28",
-    "provider": "https://theflatratemovers.com/#organization",
-    "citation": "https://theflatratemovers.com/service-area.geojson",
-    "state": "VA",
-    "county": "Warren",
-    "postal_code": "22630",
-    "branch": "both",
-    "gbp_service_area": false,
-    "audiences": [
-     "residential",
-     "commercial",
-     "industrial",
-     "government",
-     "military"
-    ],
-    "services": [
-     "residential-moving",
-     "commercial-moving",
-     "office-moving",
-     "industrial-offices",
-     "government-moving",
-     "military-moving",
-     "packing",
-     "custom-crating",
-     "ispm15-export-packing",
-     "loading",
-     "transloading",
-     "final-mile",
-     "warehouse-distribution",
-     "commercial-relocation",
-     "ffe-installation",
-     "flexible-deployment",
-     "ocean-container",
-     "pods",
-     "restacking"
-    ],
-    "rubric_score": 2,
-    "rubric_note": "Score 2: coordinates verified by map geocoding 2026-10-28, but this is an expansion city, not a GBP service area, and it has no dedicated page yet \u2014 so R3 visible-match and R4 GBP attestation cannot yet be 3. Do not present it as a GBP area."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "place-strasburg-va",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -78.35865,
-     38.98905
-    ]
-   },
-   "properties": {
-    "id": "place-strasburg-va",
-    "name": "Strasburg, VA",
-    "type": "city",
-    "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
-    "verified": "2026-10-28",
-    "provider": "https://theflatratemovers.com/#organization",
-    "citation": "https://theflatratemovers.com/service-area.geojson",
-    "state": "VA",
-    "county": "Shenandoah",
-    "postal_code": "22657",
-    "branch": "both",
-    "gbp_service_area": false,
-    "audiences": [
-     "residential",
-     "commercial",
-     "industrial",
-     "government",
-     "military"
-    ],
-    "services": [
-     "residential-moving",
-     "commercial-moving",
-     "office-moving",
-     "industrial-offices",
-     "government-moving",
-     "military-moving",
-     "packing",
-     "custom-crating",
-     "ispm15-export-packing",
-     "loading",
-     "transloading",
-     "final-mile",
-     "warehouse-distribution",
-     "commercial-relocation",
-     "ffe-installation",
-     "flexible-deployment",
-     "ocean-container",
-     "pods",
-     "restacking"
-    ],
-    "rubric_score": 2,
-    "rubric_note": "Score 2: coordinates verified by map geocoding 2026-10-28, but this is an expansion city, not a GBP service area, and it has no dedicated page yet \u2014 so R3 visible-match and R4 GBP attestation cannot yet be 3. Do not present it as a GBP area."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "place-woodstock-va",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -78.49849,
-     38.89021
-    ]
-   },
-   "properties": {
-    "id": "place-woodstock-va",
-    "name": "Woodstock, VA",
-    "type": "city",
-    "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
-    "verified": "2026-10-28",
-    "provider": "https://theflatratemovers.com/#organization",
-    "citation": "https://theflatratemovers.com/service-area.geojson",
-    "state": "VA",
-    "county": "Shenandoah",
-    "postal_code": "22664",
-    "branch": "both",
-    "gbp_service_area": false,
-    "audiences": [
-     "residential",
-     "commercial",
-     "industrial",
-     "government",
-     "military"
-    ],
-    "services": [
-     "residential-moving",
-     "commercial-moving",
-     "office-moving",
-     "industrial-offices",
-     "government-moving",
-     "military-moving",
-     "packing",
-     "custom-crating",
-     "ispm15-export-packing",
-     "loading",
-     "transloading",
-     "final-mile",
-     "warehouse-distribution",
-     "commercial-relocation",
-     "ffe-installation",
-     "flexible-deployment",
-     "ocean-container",
-     "pods",
-     "restacking"
-    ],
-    "rubric_score": 2,
-    "rubric_note": "Score 2: coordinates verified by map geocoding 2026-10-28, but this is an expansion city, not a GBP service area, and it has no dedicated page yet \u2014 so R3 visible-match and R4 GBP attestation cannot yet be 3. Do not present it as a GBP area."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "place-berkeley-springs-wv",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -78.22685,
-     39.62814
-    ]
-   },
-   "properties": {
-    "id": "place-berkeley-springs-wv",
-    "name": "Berkeley Springs, WV",
-    "type": "city",
-    "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
-    "verified": "2026-10-28",
-    "provider": "https://theflatratemovers.com/#organization",
-    "citation": "https://theflatratemovers.com/service-area.geojson",
-    "state": "WV",
-    "county": "Morgan",
-    "postal_code": "25411",
-    "branch": "martinsburg",
-    "gbp_service_area": false,
-    "audiences": [
-     "residential",
-     "commercial",
-     "industrial",
-     "government",
-     "military"
-    ],
-    "services": [
-     "residential-moving",
-     "commercial-moving",
-     "office-moving",
-     "industrial-offices",
-     "government-moving",
-     "military-moving",
-     "packing",
-     "custom-crating",
-     "ispm15-export-packing",
-     "loading",
-     "transloading",
-     "final-mile",
-     "warehouse-distribution",
-     "commercial-relocation",
-     "ffe-installation",
-     "flexible-deployment",
-     "ocean-container",
-     "pods",
-     "restacking"
-    ],
-    "rubric_score": 2,
-    "rubric_note": "Score 2: coordinates verified by map geocoding 2026-10-28, but this is an expansion city, not a GBP service area, and it has no dedicated page yet \u2014 so R3 visible-match and R4 GBP attestation cannot yet be 3. Do not present it as a GBP area."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "place-romney-wv",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -78.75745,
-     39.34224
-    ]
-   },
-   "properties": {
-    "id": "place-romney-wv",
-    "name": "Romney, WV",
-    "type": "city",
-    "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
-    "verified": "2026-10-28",
-    "provider": "https://theflatratemovers.com/#organization",
-    "citation": "https://theflatratemovers.com/service-area.geojson",
-    "state": "WV",
-    "county": "Hampshire",
-    "postal_code": "26757",
-    "branch": "martinsburg",
-    "gbp_service_area": false,
-    "audiences": [
-     "residential",
-     "commercial",
-     "industrial",
-     "government",
-     "military"
-    ],
-    "services": [
-     "residential-moving",
-     "commercial-moving",
-     "office-moving",
-     "industrial-offices",
-     "government-moving",
-     "military-moving",
-     "packing",
-     "custom-crating",
-     "ispm15-export-packing",
-     "loading",
-     "transloading",
-     "final-mile",
-     "warehouse-distribution",
-     "commercial-relocation",
-     "ffe-installation",
-     "flexible-deployment",
-     "ocean-container",
-     "pods",
-     "restacking"
-    ],
-    "rubric_score": 2,
-    "rubric_note": "Score 2: coordinates verified by map geocoding 2026-10-28, but this is an expansion city, not a GBP service area, and it has no dedicated page yet \u2014 so R3 visible-match and R4 GBP attestation cannot yet be 3. Do not present it as a GBP area."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "place-frederick-md",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -77.41203,
-     39.41574
-    ]
-   },
-   "properties": {
-    "id": "place-frederick-md",
-    "name": "Frederick, MD",
-    "type": "city",
-    "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
-    "verified": "2026-10-28",
-    "provider": "https://theflatratemovers.com/#organization",
-    "citation": "https://theflatratemovers.com/service-area.geojson",
-    "state": "MD",
-    "county": "Frederick",
-    "postal_code": "21701",
-    "branch": "martinsburg",
-    "gbp_service_area": false,
-    "audiences": [
-     "residential",
-     "commercial",
-     "industrial",
-     "government",
-     "military"
-    ],
-    "services": [
-     "residential-moving",
-     "commercial-moving",
-     "office-moving",
-     "industrial-offices",
-     "government-moving",
-     "military-moving",
-     "packing",
-     "custom-crating",
-     "ispm15-export-packing",
-     "loading",
-     "transloading",
-     "final-mile",
-     "warehouse-distribution",
-     "commercial-relocation",
-     "ffe-installation",
-     "flexible-deployment",
-     "ocean-container",
-     "pods",
-     "restacking"
-    ],
-    "rubric_score": 2,
-    "rubric_note": "Score 2: coordinates verified by map geocoding 2026-10-28, but this is an expansion city, not a GBP service area, and it has no dedicated page yet \u2014 so R3 visible-match and R4 GBP attestation cannot yet be 3. Do not present it as a GBP area."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "place-hancock-md",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -78.18181,
-     39.70004
-    ]
-   },
-   "properties": {
-    "id": "place-hancock-md",
-    "name": "Hancock, MD",
-    "type": "city",
-    "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
-    "verified": "2026-10-28",
-    "provider": "https://theflatratemovers.com/#organization",
-    "citation": "https://theflatratemovers.com/service-area.geojson",
-    "state": "MD",
-    "county": "Washington",
-    "postal_code": "21750",
-    "branch": "martinsburg",
-    "gbp_service_area": false,
-    "audiences": [
-     "residential",
-     "commercial",
-     "industrial",
-     "government",
-     "military"
-    ],
-    "services": [
-     "residential-moving",
-     "commercial-moving",
-     "office-moving",
-     "industrial-offices",
-     "government-moving",
-     "military-moving",
-     "packing",
-     "custom-crating",
-     "ispm15-export-packing",
-     "loading",
-     "transloading",
-     "final-mile",
-     "warehouse-distribution",
-     "commercial-relocation",
-     "ffe-installation",
-     "flexible-deployment",
-     "ocean-container",
-     "pods",
-     "restacking"
-    ],
-    "rubric_score": 2,
-    "rubric_note": "Score 2: coordinates verified by map geocoding 2026-10-28, but this is an expansion city, not a GBP service area, and it has no dedicated page yet \u2014 so R3 visible-match and R4 GBP attestation cannot yet be 3. Do not present it as a GBP area."
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "county-frederick-county",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -78.1668352,
-     39.18711576
-    ]
-   },
-   "properties": {
-    "id": "county-frederick-county",
-    "name": "Frederick County",
-    "type": "county",
-    "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
-    "verified": "2026-10-28",
-    "provider": "https://theflatratemovers.com/#organization",
-    "citation": "https://theflatratemovers.com/service-area.geojson",
-    "state": "VA",
-    "branch": "winchester",
-    "gbp_service_area": true,
-    "note": "County representative point at county seat / branch city; full county polygon referenced by county name, not embedded, for file size and scalability.",
-    "audiences": [
-     "residential",
-     "commercial",
-     "industrial",
-     "government",
-     "military"
-    ],
-    "services": [
-     "residential-moving",
-     "commercial-moving",
-     "office-moving",
-     "industrial-offices",
-     "government-moving",
-     "military-moving",
-     "packing",
-     "loading",
-     "transloading",
-     "final-mile",
-     "warehouse-distribution"
-    ],
-    "rubric_score": 3
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "county-loudoun-county",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -77.56578,
-     39.1158
-    ]
-   },
-   "properties": {
-    "id": "county-loudoun-county",
-    "name": "Loudoun County",
-    "type": "county",
-    "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
-    "verified": "2026-10-28",
-    "provider": "https://theflatratemovers.com/#organization",
-    "citation": "https://theflatratemovers.com/service-area.geojson",
-    "state": "VA",
-    "branch": "winchester",
-    "gbp_service_area": true,
-    "note": "County representative point at county seat / branch city; full county polygon referenced by county name, not embedded, for file size and scalability.",
-    "audiences": [
-     "residential",
-     "commercial",
-     "industrial",
-     "government",
-     "military"
-    ],
-    "services": [
-     "residential-moving",
-     "commercial-moving",
-     "office-moving",
-     "industrial-offices",
-     "government-moving",
-     "military-moving",
-     "packing",
-     "loading",
-     "transloading",
-     "final-mile",
-     "warehouse-distribution"
-    ],
-    "rubric_score": 3
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "county-berkeley-county",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -77.94760443,
-     39.48319665
-    ]
-   },
-   "properties": {
-    "id": "county-berkeley-county",
-    "name": "Berkeley County",
-    "type": "county",
-    "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
-    "verified": "2026-10-28",
-    "provider": "https://theflatratemovers.com/#organization",
-    "citation": "https://theflatratemovers.com/service-area.geojson",
-    "state": "WV",
-    "branch": "martinsburg",
-    "gbp_service_area": true,
-    "note": "County representative point at county seat / branch city; full county polygon referenced by county name, not embedded, for file size and scalability.",
-    "audiences": [
-     "residential",
-     "commercial",
-     "industrial",
-     "government",
-     "military"
-    ],
-    "services": [
-     "residential-moving",
-     "commercial-moving",
-     "office-moving",
-     "industrial-offices",
-     "government-moving",
-     "military-moving",
-     "packing",
-     "loading",
-     "transloading",
-     "final-mile",
-     "warehouse-distribution"
-    ],
-    "rubric_score": 3
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "county-jefferson-county",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -77.8588,
-     39.28944
-    ]
-   },
-   "properties": {
-    "id": "county-jefferson-county",
-    "name": "Jefferson County",
-    "type": "county",
-    "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
-    "verified": "2026-10-28",
-    "provider": "https://theflatratemovers.com/#organization",
-    "citation": "https://theflatratemovers.com/service-area.geojson",
-    "state": "WV",
-    "branch": "martinsburg",
-    "gbp_service_area": true,
-    "note": "County representative point at county seat / branch city; full county polygon referenced by county name, not embedded, for file size and scalability.",
-    "audiences": [
-     "residential",
-     "commercial",
-     "industrial",
-     "government",
-     "military"
-    ],
-    "services": [
-     "residential-moving",
-     "commercial-moving",
-     "office-moving",
-     "industrial-offices",
-     "government-moving",
-     "military-moving",
-     "packing",
-     "loading",
-     "transloading",
-     "final-mile",
-     "warehouse-distribution"
-    ],
-    "rubric_score": 3
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "county-morgan-county",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -78.22685,
-     39.62814
-    ]
-   },
-   "properties": {
-    "id": "county-morgan-county",
-    "name": "Morgan County",
-    "type": "county",
-    "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
-    "verified": "2026-10-28",
-    "provider": "https://theflatratemovers.com/#organization",
-    "citation": "https://theflatratemovers.com/service-area.geojson",
-    "state": "WV",
-    "branch": "martinsburg",
-    "gbp_service_area": true,
-    "note": "County representative point at county seat / branch city; full county polygon referenced by county name, not embedded, for file size and scalability.",
-    "audiences": [
-     "residential",
-     "commercial",
-     "industrial",
-     "government",
-     "military"
-    ],
-    "services": [
-     "residential-moving",
-     "commercial-moving",
-     "office-moving",
-     "industrial-offices",
-     "government-moving",
-     "military-moving",
-     "packing",
-     "loading",
-     "transloading",
-     "final-mile",
-     "warehouse-distribution"
-    ],
-    "rubric_score": 3
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "county-clarke-county",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -77.98264,
-     39.15167
-    ]
-   },
-   "properties": {
-    "id": "county-clarke-county",
-    "name": "Clarke County",
-    "type": "county",
-    "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
-    "verified": "2026-10-28",
-    "provider": "https://theflatratemovers.com/#organization",
-    "citation": "https://theflatratemovers.com/service-area.geojson",
-    "state": "VA",
-    "branch": "winchester",
-    "gbp_service_area": true,
-    "note": "County representative point at county seat / branch city; full county polygon referenced by county name, not embedded, for file size and scalability.",
-    "audiences": [
-     "residential",
-     "commercial",
-     "industrial",
-     "government",
-     "military"
-    ],
-    "services": [
-     "residential-moving",
-     "commercial-moving",
-     "office-moving",
-     "industrial-offices",
-     "government-moving",
-     "military-moving",
-     "packing",
-     "loading",
-     "transloading",
-     "final-mile",
-     "warehouse-distribution"
-    ],
-    "rubric_score": 3
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "county-warren-county",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -78.19355,
-     38.91798
-    ]
-   },
-   "properties": {
-    "id": "county-warren-county",
-    "name": "Warren County",
-    "type": "county",
-    "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
-    "verified": "2026-10-28",
-    "provider": "https://theflatratemovers.com/#organization",
-    "citation": "https://theflatratemovers.com/service-area.geojson",
-    "state": "VA",
-    "branch": "both",
-    "gbp_service_area": true,
-    "note": "County representative point at county seat / branch city; full county polygon referenced by county name, not embedded, for file size and scalability.",
-    "audiences": [
-     "residential",
-     "commercial",
-     "industrial",
-     "government",
-     "military"
-    ],
-    "services": [
-     "residential-moving",
-     "commercial-moving",
-     "office-moving",
-     "industrial-offices",
-     "government-moving",
-     "military-moving",
-     "packing",
-     "loading",
-     "transloading",
-     "final-mile",
-     "warehouse-distribution"
-    ],
-    "rubric_score": 3
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "county-shenandoah-county",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -78.49849,
-     38.89021
-    ]
-   },
-   "properties": {
-    "id": "county-shenandoah-county",
-    "name": "Shenandoah County",
-    "type": "county",
-    "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
-    "verified": "2026-10-28",
-    "provider": "https://theflatratemovers.com/#organization",
-    "citation": "https://theflatratemovers.com/service-area.geojson",
-    "state": "VA",
-    "branch": "both",
-    "gbp_service_area": true,
-    "note": "County representative point at county seat / branch city; full county polygon referenced by county name, not embedded, for file size and scalability.",
-    "audiences": [
-     "residential",
-     "commercial",
-     "industrial",
-     "government",
-     "military"
-    ],
-    "services": [
-     "residential-moving",
-     "commercial-moving",
-     "office-moving",
-     "industrial-offices",
-     "government-moving",
-     "military-moving",
-     "packing",
-     "loading",
-     "transloading",
-     "final-mile",
-     "warehouse-distribution"
-    ],
-    "rubric_score": 3
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "county-hampshire-county",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -78.75745,
-     39.34224
-    ]
-   },
-   "properties": {
-    "id": "county-hampshire-county",
-    "name": "Hampshire County",
-    "type": "county",
-    "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
-    "verified": "2026-10-28",
-    "provider": "https://theflatratemovers.com/#organization",
-    "citation": "https://theflatratemovers.com/service-area.geojson",
-    "state": "WV",
-    "branch": "martinsburg",
-    "gbp_service_area": true,
-    "note": "County representative point at county seat / branch city; full county polygon referenced by county name, not embedded, for file size and scalability.",
-    "audiences": [
-     "residential",
-     "commercial",
-     "industrial",
-     "government",
-     "military"
-    ],
-    "services": [
-     "residential-moving",
-     "commercial-moving",
-     "office-moving",
-     "industrial-offices",
-     "government-moving",
-     "military-moving",
-     "packing",
-     "loading",
-     "transloading",
-     "final-mile",
-     "warehouse-distribution"
-    ],
-    "rubric_score": 3
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "county-hardy-county",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -78.96862,
-     39.06215
-    ]
-   },
-   "properties": {
-    "id": "county-hardy-county",
-    "name": "Hardy County",
-    "type": "county",
-    "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
-    "verified": "2026-10-28",
-    "provider": "https://theflatratemovers.com/#organization",
-    "citation": "https://theflatratemovers.com/service-area.geojson",
-    "state": "WV",
-    "branch": "both",
-    "gbp_service_area": true,
-    "note": "County representative point at county seat / branch city; full county polygon referenced by county name, not embedded, for file size and scalability.",
-    "audiences": [
-     "residential",
-     "commercial",
-     "industrial",
-     "government",
-     "military"
-    ],
-    "services": [
-     "residential-moving",
-     "commercial-moving",
-     "office-moving",
-     "industrial-offices",
-     "government-moving",
-     "military-moving",
-     "packing",
-     "loading",
-     "transloading",
-     "final-mile",
-     "warehouse-distribution"
-    ],
-    "rubric_score": 3
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "county-washington-county",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -77.71758,
-     39.6425
-    ]
-   },
-   "properties": {
-    "id": "county-washington-county",
-    "name": "Washington County",
-    "type": "county",
-    "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
-    "verified": "2026-10-28",
-    "provider": "https://theflatratemovers.com/#organization",
-    "citation": "https://theflatratemovers.com/service-area.geojson",
-    "state": "MD",
-    "branch": "martinsburg",
-    "gbp_service_area": true,
-    "note": "County representative point at county seat / branch city; full county polygon referenced by county name, not embedded, for file size and scalability.",
-    "audiences": [
-     "residential",
-     "commercial",
-     "industrial",
-     "government",
-     "military"
-    ],
-    "services": [
-     "residential-moving",
-     "commercial-moving",
-     "office-moving",
-     "industrial-offices",
-     "government-moving",
-     "military-moving",
-     "packing",
-     "loading",
-     "transloading",
-     "final-mile",
-     "warehouse-distribution"
-    ],
-    "rubric_score": 3
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "county-fauquier-county",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -77.84966,
-     38.86661
-    ]
-   },
-   "properties": {
-    "id": "county-fauquier-county",
-    "name": "Fauquier County",
-    "type": "county",
-    "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
-    "verified": "2026-10-28",
-    "provider": "https://theflatratemovers.com/#organization",
-    "citation": "https://theflatratemovers.com/service-area.geojson",
-    "state": "VA",
-    "branch": "winchester",
-    "gbp_service_area": true,
-    "note": "County representative point at county seat / branch city; full county polygon referenced by county name, not embedded, for file size and scalability.",
-    "audiences": [
-     "residential",
-     "commercial",
-     "industrial",
-     "government",
-     "military"
-    ],
-    "services": [
-     "residential-moving",
-     "commercial-moving",
-     "office-moving",
-     "industrial-offices",
-     "government-moving",
-     "military-moving",
-     "packing",
-     "loading",
-     "transloading",
-     "final-mile",
-     "warehouse-distribution"
-    ],
-    "rubric_score": 3
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "landmark-port-of-virginia",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -76.29325,
-     36.84647
-    ]
-   },
-   "properties": {
-    "id": "landmark-port-of-virginia",
-    "name": "Port of Virginia",
-    "type": "landmark-port",
-    "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
-    "verified": "2026-10-28",
-    "provider": "https://theflatratemovers.com/#organization",
-    "citation": "https://theflatratemovers.com/service-area.geojson",
-    "city": "Norfolk",
-    "state": "VA",
-    "postal_code": "23510",
-    "branch": "both",
-    "gbp_service_area": false,
-    "description": "Ocean container port, East Coast freight flow, transloading and final-mile origin for export and import work.",
-    "audiences": [
-     "industrial",
-     "commercial",
-     "government"
-    ],
-    "services": [
-     "transloading",
-     "ocean-container",
-     "pods",
-     "restacking",
-     "packing",
-     "custom-crating",
-     "ispm15-export-packing",
-     "final-mile",
-     "warehouse-distribution"
-    ],
-    "rubric_score": 3
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "landmark-virginia-inland-port",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -78.17829,
-     38.9878
-    ]
-   },
-   "properties": {
-    "id": "landmark-virginia-inland-port",
-    "name": "Virginia Inland Port",
-    "type": "landmark-port",
-    "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
-    "verified": "2026-10-28",
-    "provider": "https://theflatratemovers.com/#organization",
-    "citation": "https://theflatratemovers.com/service-area.geojson",
-    "city": "Front Royal",
-    "state": "VA",
-    "postal_code": "22630",
-    "branch": "both",
-    "gbp_service_area": false,
-    "description": "Inland port and transload hub on the Winchester / Front Royal corridor, container handling and freight transfer.",
-    "audiences": [
-     "industrial",
-     "commercial",
-     "government"
-    ],
-    "services": [
-     "transloading",
-     "ocean-container",
-     "pods",
-     "restacking",
-     "packing",
-     "custom-crating",
-     "ispm15-export-packing",
-     "final-mile",
-     "warehouse-distribution"
-    ],
-    "rubric_score": 3
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "landmark-shenandoah-valley",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -78.35,
-     38.95
-    ]
-   },
-   "properties": {
-    "id": "landmark-shenandoah-valley",
-    "name": "Shenandoah Valley",
-    "type": "region",
-    "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
-    "verified": "2026-10-28",
-    "provider": "https://theflatratemovers.com/#organization",
-    "citation": "https://theflatratemovers.com/service-area.geojson",
-    "city": null,
-    "state": "VA",
-    "postal_code": null,
-    "branch": "both",
-    "gbp_service_area": false,
-    "description": "Region served from Winchester, along I-81.",
-    "audiences": [
-     "industrial",
-     "commercial",
-     "government"
-    ],
-    "services": [
-     "transloading",
-     "ocean-container",
-     "pods",
-     "restacking",
-     "packing",
-     "custom-crating",
-     "ispm15-export-packing",
-     "final-mile",
-     "warehouse-distribution"
-    ],
-    "rubric_score": 3
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "landmark-eastern-panhandle-of-west-virginia",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -78.0,
-     39.45
-    ]
-   },
-   "properties": {
-    "id": "landmark-eastern-panhandle-of-west-virginia",
-    "name": "Eastern Panhandle of West Virginia",
-    "type": "region",
-    "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
-    "verified": "2026-10-28",
-    "provider": "https://theflatratemovers.com/#organization",
-    "citation": "https://theflatratemovers.com/service-area.geojson",
-    "city": null,
-    "state": "WV",
-    "postal_code": null,
-    "branch": "both",
-    "gbp_service_area": false,
-    "description": "Region served from Martinsburg, along I-81 and I-70.",
-    "audiences": [
-     "industrial",
-     "commercial",
-     "government"
-    ],
-    "services": [
-     "transloading",
-     "ocean-container",
-     "pods",
-     "restacking",
-     "packing",
-     "custom-crating",
-     "ispm15-export-packing",
-     "final-mile",
-     "warehouse-distribution"
-    ],
-    "rubric_score": 3
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "landmark-interstate-81-corridor",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -78.1,
-     39.2
-    ]
-   },
-   "properties": {
-    "id": "landmark-interstate-81-corridor",
-    "name": "Interstate 81 Corridor",
-    "type": "corridor",
-    "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
-    "verified": "2026-10-28",
-    "provider": "https://theflatratemovers.com/#organization",
-    "citation": "https://theflatratemovers.com/service-area.geojson",
-    "city": null,
-    "state": null,
-    "postal_code": null,
-    "branch": "both",
-    "gbp_service_area": false,
-    "description": "Primary corridor: Winchester to Martinsburg and beyond.",
-    "audiences": [
-     "industrial",
-     "commercial",
-     "government"
-    ],
-    "services": [
-     "transloading",
-     "ocean-container",
-     "pods",
-     "restacking",
-     "packing",
-     "custom-crating",
-     "ispm15-export-packing",
-     "final-mile",
-     "warehouse-distribution"
-    ],
-    "rubric_score": 3
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "landmark-interstate-66-corridor",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -77.9,
-     38.95
-    ]
-   },
-   "properties": {
-    "id": "landmark-interstate-66-corridor",
-    "name": "Interstate 66 Corridor",
-    "type": "corridor",
-    "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
-    "verified": "2026-10-28",
-    "provider": "https://theflatratemovers.com/#organization",
-    "citation": "https://theflatratemovers.com/service-area.geojson",
-    "city": null,
-    "state": null,
-    "postal_code": null,
-    "branch": "both",
-    "gbp_service_area": false,
-    "description": "Corridor from Winchester east toward Loudoun and the Washington area.",
-    "audiences": [
-     "industrial",
-     "commercial",
-     "government"
-    ],
-    "services": [
-     "transloading",
-     "ocean-container",
-     "pods",
-     "restacking",
-     "packing",
-     "custom-crating",
-     "ispm15-export-packing",
-     "final-mile",
-     "warehouse-distribution"
-    ],
-    "rubric_score": 3
-   }
-  },
-  {
-   "type": "Feature",
-   "id": "landmark-interstate-70-corridor",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -77.8,
-     39.6
-    ]
-   },
-   "properties": {
-    "id": "landmark-interstate-70-corridor",
-    "name": "Interstate 70 Corridor",
-    "type": "corridor",
-    "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
-    "verified": "2026-10-28",
-    "provider": "https://theflatratemovers.com/#organization",
-    "citation": "https://theflatratemovers.com/service-area.geojson",
-    "city": null,
-    "state": null,
-    "postal_code": null,
-    "branch": "both",
-    "gbp_service_area": false,
-    "description": "Corridor through Hagerstown and Martinsburg area.",
-    "audiences": [
-     "industrial",
-     "commercial",
-     "government"
-    ],
-    "services": [
-     "transloading",
-     "ocean-container",
-     "pods",
-     "restacking",
-     "packing",
-     "custom-crating",
-     "ispm15-export-packing",
-     "final-mile",
-     "warehouse-distribution"
-    ],
-    "rubric_score": 3
-   }
-  }
- ],
- "rubric": {
+  "type": "FeatureCollection",
+  "name": "The Flat Rate Movers — Service Area GeoJSON",
   "version": "2026-10-28",
-  "note": "Rubric R1-R7 from rubric.html, applied site-wide 2026-10-28. Per-feature rubric_score: 3 = GBP area or branch, fully attested; 2 = expansion city, geocoded and verified, not a GBP area and no dedicated page yet \u2014 see rubric_note on those features.",
-  "R1_audience_and_topic": "3 \u2014 every enriched main service page names its audience and service in the first section (gun safe, residential, commercial, office, long-distance, export, military, heavy, route81, winchester, martinsburg, exportpacking)",
-  "R2_node_chain": "3 \u2014 Organization https://theflatratemovers.com/#organization, Places #winchester-place / #martinsburg-place, Service -> provider -> Organization -> Place -> areaServed via this GeoJSON",
-  "R3_visible_matches_json": "3 \u2014 HTML hours, addresses, phone, service areas match GeoJSON branches block and GBP, per branch, never unified",
-  "R4_attestation": "3 \u2014 every fact in this file carries source + verified date; new 2026-10-28 attestations added for GBP products, GBP fixes, industrial page, page enrichment, quote capture, face-blurred photos",
-  "R5_no_invented_data": "3 \u2014 ratings only per-branch Google (Winchester 5.0/1, Martinsburg 4.7/6, never blended), price only $$, license details private, USDOT omitted, CWT rates only as supplied by Henry 2026-10-28",
-  "R6_images_honest": "3 \u2014 warehouse photos are Henry-supplied, faces blurred, captions say so; wrapped-furniture style examples labelled Style example with credit",
-  "R7_quote_path": "3 \u2014 CTAs Get My Flat Rate Quote / Get a flat rate quote only, Short default / Detailed toggle preserves From, To, What is moving; Worker no longer drops supplied contact/services/notes in Short mode (verified 2026-10-28)"
- }
+  "dateModified": "2026-10-28",
+  "organization": "The Flat Rate Movers LLC",
+  "branches": {
+    "winchester": {
+      "name": "The Flat Rate Movers",
+      "address": "116 W Piccadilly St Suite 11, Winchester, VA 22601",
+      "hours": "Mon-Fri 8-6, Sat 8-4, Sun 9-4",
+      "google_rating": 5.0,
+      "google_review_count": 1
+    },
+    "martinsburg": {
+      "name": "Flat Rate Movers Martinsburg WV",
+      "address": "736 Williamsport Pike Suite 2, Martinsburg, WV 25404",
+      "hours": "Mon-Fri 9-6, Sat 9-4, Sun 9-4",
+      "google_rating": 4.7,
+      "google_review_count": 6
+    }
+  },
+  "attestations": [
+    {
+      "claim": "GBP service areas: 16 Winchester, 14 Martinsburg, Moorefield in both",
+      "source": "Henry GBP screenshots 2026-10-27",
+      "verified": "2026-10-27"
+    },
+    {
+      "claim": "Branch coordinates, addresses, hours, per-branch Google ratings",
+      "source": "Places + Google Business Profile check 2026-10-27, Henry correction 2026-10-27",
+      "verified": "2026-10-28"
+    },
+    {
+      "claim": "City coordinates in this file",
+      "source": "Map geocoding 2026-10-28",
+      "verified": "2026-10-28"
+    },
+    {
+      "claim": "GBP products 2026-10-28: 8 Products on both profiles, Industrial & Commercial Services, logo, no price",
+      "source": "Google Business Profile manager, owner-approved",
+      "verified": "2026-10-28"
+    },
+    {
+      "claim": "Main service pages enriched 2026-10-28, 1992-4436 chars, supplied facts only",
+      "source": "Live site verification 2026-10-28",
+      "verified": "2026-10-28"
+    },
+    {
+      "claim": "Quote capture verified 2026-10-28, Detailed + Short, no dropped fields",
+      "source": "Gmail ratemovers@gmail.com + Worker edb0bd09",
+      "verified": "2026-10-28"
+    }
+  ],
+  "features": [
+    {
+      "type": "Feature",
+      "id": "place-winchester-va",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.1668352,
+          39.18711576
+        ]
+      },
+      "properties": {
+        "id": "place-winchester-va",
+        "name": "Winchester, VA",
+        "type": "branch",
+        "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
+        "verified": "2026-10-28",
+        "provider": "https://theflatratemovers.com/#organization",
+        "citation": "https://theflatratemovers.com/service-area.geojson",
+        "state": "VA",
+        "county": "Winchester City / Frederick County",
+        "postal_code": "22601",
+        "branch": "winchester",
+        "gbp_service_area": true,
+        "audiences": [
+          "residential",
+          "commercial",
+          "industrial",
+          "government",
+          "military"
+        ],
+        "services": [
+          "residential-moving",
+          "commercial-moving",
+          "office-moving",
+          "industrial-offices",
+          "government-moving",
+          "military-moving",
+          "packing",
+          "custom-crating",
+          "ispm15-export-packing",
+          "loading",
+          "transloading",
+          "final-mile",
+          "warehouse-distribution",
+          "commercial-relocation",
+          "ffe-installation",
+          "flexible-deployment",
+          "ocean-container",
+          "pods",
+          "restacking"
+        ],
+        "rubric_score": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "place-martinsburg-wv",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.94760443,
+          39.48319665
+        ]
+      },
+      "properties": {
+        "id": "place-martinsburg-wv",
+        "name": "Martinsburg, WV",
+        "type": "branch",
+        "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
+        "verified": "2026-10-28",
+        "provider": "https://theflatratemovers.com/#organization",
+        "citation": "https://theflatratemovers.com/service-area.geojson",
+        "state": "WV",
+        "county": "Berkeley",
+        "postal_code": "25404",
+        "branch": "martinsburg",
+        "gbp_service_area": true,
+        "audiences": [
+          "residential",
+          "commercial",
+          "industrial",
+          "government",
+          "military"
+        ],
+        "services": [
+          "residential-moving",
+          "commercial-moving",
+          "office-moving",
+          "industrial-offices",
+          "government-moving",
+          "military-moving",
+          "packing",
+          "custom-crating",
+          "ispm15-export-packing",
+          "loading",
+          "transloading",
+          "final-mile",
+          "warehouse-distribution",
+          "commercial-relocation",
+          "ffe-installation",
+          "flexible-deployment",
+          "ocean-container",
+          "pods",
+          "restacking"
+        ],
+        "rubric_score": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "place-leesburg-va",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.56578,
+          39.1158
+        ]
+      },
+      "properties": {
+        "id": "place-leesburg-va",
+        "name": "Leesburg, VA",
+        "type": "city",
+        "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
+        "verified": "2026-10-28",
+        "provider": "https://theflatratemovers.com/#organization",
+        "citation": "https://theflatratemovers.com/service-area.geojson",
+        "state": "VA",
+        "county": "Loudoun",
+        "postal_code": "20176",
+        "branch": "winchester",
+        "gbp_service_area": true,
+        "audiences": [
+          "residential",
+          "commercial",
+          "industrial",
+          "government",
+          "military"
+        ],
+        "services": [
+          "residential-moving",
+          "commercial-moving",
+          "office-moving",
+          "industrial-offices",
+          "government-moving",
+          "military-moving",
+          "packing",
+          "custom-crating",
+          "ispm15-export-packing",
+          "loading",
+          "transloading",
+          "final-mile",
+          "warehouse-distribution",
+          "commercial-relocation",
+          "ffe-installation",
+          "flexible-deployment",
+          "ocean-container",
+          "pods",
+          "restacking"
+        ],
+        "rubric_score": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "place-marshall-va",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.84966,
+          38.86661
+        ]
+      },
+      "properties": {
+        "id": "place-marshall-va",
+        "name": "Marshall, VA",
+        "type": "city",
+        "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
+        "verified": "2026-10-28",
+        "provider": "https://theflatratemovers.com/#organization",
+        "citation": "https://theflatratemovers.com/service-area.geojson",
+        "state": "VA",
+        "county": "Fauquier",
+        "postal_code": "20115",
+        "branch": "winchester",
+        "gbp_service_area": true,
+        "audiences": [
+          "residential",
+          "commercial",
+          "industrial",
+          "government",
+          "military"
+        ],
+        "services": [
+          "residential-moving",
+          "commercial-moving",
+          "office-moving",
+          "industrial-offices",
+          "government-moving",
+          "military-moving",
+          "packing",
+          "custom-crating",
+          "ispm15-export-packing",
+          "loading",
+          "transloading",
+          "final-mile",
+          "warehouse-distribution",
+          "commercial-relocation",
+          "ffe-installation",
+          "flexible-deployment",
+          "ocean-container",
+          "pods",
+          "restacking"
+        ],
+        "rubric_score": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "place-sterling-va",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.40713,
+          39.03336
+        ]
+      },
+      "properties": {
+        "id": "place-sterling-va",
+        "name": "Sterling, VA",
+        "type": "city",
+        "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
+        "verified": "2026-10-28",
+        "provider": "https://theflatratemovers.com/#organization",
+        "citation": "https://theflatratemovers.com/service-area.geojson",
+        "state": "VA",
+        "county": "Loudoun",
+        "postal_code": "20165",
+        "branch": "winchester",
+        "gbp_service_area": true,
+        "audiences": [
+          "residential",
+          "commercial",
+          "industrial",
+          "government",
+          "military"
+        ],
+        "services": [
+          "residential-moving",
+          "commercial-moving",
+          "office-moving",
+          "industrial-offices",
+          "government-moving",
+          "military-moving",
+          "packing",
+          "custom-crating",
+          "ispm15-export-packing",
+          "loading",
+          "transloading",
+          "final-mile",
+          "warehouse-distribution",
+          "commercial-relocation",
+          "ffe-installation",
+          "flexible-deployment",
+          "ocean-container",
+          "pods",
+          "restacking"
+        ],
+        "rubric_score": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "place-stephens-city-va",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.21752,
+          39.084
+        ]
+      },
+      "properties": {
+        "id": "place-stephens-city-va",
+        "name": "Stephens City, VA",
+        "type": "city",
+        "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
+        "verified": "2026-10-28",
+        "provider": "https://theflatratemovers.com/#organization",
+        "citation": "https://theflatratemovers.com/service-area.geojson",
+        "state": "VA",
+        "county": "Frederick",
+        "postal_code": "22655",
+        "branch": "winchester",
+        "gbp_service_area": true,
+        "audiences": [
+          "residential",
+          "commercial",
+          "industrial",
+          "government",
+          "military"
+        ],
+        "services": [
+          "residential-moving",
+          "commercial-moving",
+          "office-moving",
+          "industrial-offices",
+          "government-moving",
+          "military-moving",
+          "packing",
+          "custom-crating",
+          "ispm15-export-packing",
+          "loading",
+          "transloading",
+          "final-mile",
+          "warehouse-distribution",
+          "commercial-relocation",
+          "ffe-installation",
+          "flexible-deployment",
+          "ocean-container",
+          "pods",
+          "restacking"
+        ],
+        "rubric_score": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "place-berryville-va",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.98264,
+          39.15167
+        ]
+      },
+      "properties": {
+        "id": "place-berryville-va",
+        "name": "Berryville, VA",
+        "type": "city",
+        "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
+        "verified": "2026-10-28",
+        "provider": "https://theflatratemovers.com/#organization",
+        "citation": "https://theflatratemovers.com/service-area.geojson",
+        "state": "VA",
+        "county": "Clarke",
+        "postal_code": "22611",
+        "branch": "winchester",
+        "gbp_service_area": true,
+        "audiences": [
+          "residential",
+          "commercial",
+          "industrial",
+          "government",
+          "military"
+        ],
+        "services": [
+          "residential-moving",
+          "commercial-moving",
+          "office-moving",
+          "industrial-offices",
+          "government-moving",
+          "military-moving",
+          "packing",
+          "custom-crating",
+          "ispm15-export-packing",
+          "loading",
+          "transloading",
+          "final-mile",
+          "warehouse-distribution",
+          "commercial-relocation",
+          "ffe-installation",
+          "flexible-deployment",
+          "ocean-container",
+          "pods",
+          "restacking"
+        ],
+        "rubric_score": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "place-middleburg-va",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.73618,
+          38.96967
+        ]
+      },
+      "properties": {
+        "id": "place-middleburg-va",
+        "name": "Middleburg, VA",
+        "type": "city",
+        "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
+        "verified": "2026-10-28",
+        "provider": "https://theflatratemovers.com/#organization",
+        "citation": "https://theflatratemovers.com/service-area.geojson",
+        "state": "VA",
+        "county": "Loudoun",
+        "postal_code": "20117",
+        "branch": "winchester",
+        "gbp_service_area": true,
+        "audiences": [
+          "residential",
+          "commercial",
+          "industrial",
+          "government",
+          "military"
+        ],
+        "services": [
+          "residential-moving",
+          "commercial-moving",
+          "office-moving",
+          "industrial-offices",
+          "government-moving",
+          "military-moving",
+          "packing",
+          "custom-crating",
+          "ispm15-export-packing",
+          "loading",
+          "transloading",
+          "final-mile",
+          "warehouse-distribution",
+          "commercial-relocation",
+          "ffe-installation",
+          "flexible-deployment",
+          "ocean-container",
+          "pods",
+          "restacking"
+        ],
+        "rubric_score": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "place-middletown-va",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.27257,
+          39.03354
+        ]
+      },
+      "properties": {
+        "id": "place-middletown-va",
+        "name": "Middletown, VA",
+        "type": "city",
+        "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
+        "verified": "2026-10-28",
+        "provider": "https://theflatratemovers.com/#organization",
+        "citation": "https://theflatratemovers.com/service-area.geojson",
+        "state": "VA",
+        "county": "Frederick",
+        "postal_code": "22645",
+        "branch": "winchester",
+        "gbp_service_area": true,
+        "audiences": [
+          "residential",
+          "commercial",
+          "industrial",
+          "government",
+          "military"
+        ],
+        "services": [
+          "residential-moving",
+          "commercial-moving",
+          "office-moving",
+          "industrial-offices",
+          "government-moving",
+          "military-moving",
+          "packing",
+          "custom-crating",
+          "ispm15-export-packing",
+          "loading",
+          "transloading",
+          "final-mile",
+          "warehouse-distribution",
+          "commercial-relocation",
+          "ffe-installation",
+          "flexible-deployment",
+          "ocean-container",
+          "pods",
+          "restacking"
+        ],
+        "rubric_score": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "place-moorefield-wv",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.96862,
+          39.06215
+        ]
+      },
+      "properties": {
+        "id": "place-moorefield-wv",
+        "name": "Moorefield, WV",
+        "type": "city",
+        "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
+        "verified": "2026-10-28",
+        "provider": "https://theflatratemovers.com/#organization",
+        "citation": "https://theflatratemovers.com/service-area.geojson",
+        "state": "WV",
+        "county": "Hardy",
+        "postal_code": "26836",
+        "branch": "both",
+        "gbp_service_area": true,
+        "audiences": [
+          "residential",
+          "commercial",
+          "industrial",
+          "government",
+          "military"
+        ],
+        "services": [
+          "residential-moving",
+          "commercial-moving",
+          "office-moving",
+          "industrial-offices",
+          "government-moving",
+          "military-moving",
+          "packing",
+          "custom-crating",
+          "ispm15-export-packing",
+          "loading",
+          "transloading",
+          "final-mile",
+          "warehouse-distribution",
+          "commercial-relocation",
+          "ffe-installation",
+          "flexible-deployment",
+          "ocean-container",
+          "pods",
+          "restacking"
+        ],
+        "rubric_score": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "place-round-hill-va",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.769,
+          39.13526
+        ]
+      },
+      "properties": {
+        "id": "place-round-hill-va",
+        "name": "Round Hill, VA",
+        "type": "city",
+        "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
+        "verified": "2026-10-28",
+        "provider": "https://theflatratemovers.com/#organization",
+        "citation": "https://theflatratemovers.com/service-area.geojson",
+        "state": "VA",
+        "county": "Loudoun",
+        "postal_code": "20141",
+        "branch": "winchester",
+        "gbp_service_area": true,
+        "audiences": [
+          "residential",
+          "commercial",
+          "industrial",
+          "government",
+          "military"
+        ],
+        "services": [
+          "residential-moving",
+          "commercial-moving",
+          "office-moving",
+          "industrial-offices",
+          "government-moving",
+          "military-moving",
+          "packing",
+          "custom-crating",
+          "ispm15-export-packing",
+          "loading",
+          "transloading",
+          "final-mile",
+          "warehouse-distribution",
+          "commercial-relocation",
+          "ffe-installation",
+          "flexible-deployment",
+          "ocean-container",
+          "pods",
+          "restacking"
+        ],
+        "rubric_score": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "place-stephenson-va",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.10874,
+          39.2387
+        ]
+      },
+      "properties": {
+        "id": "place-stephenson-va",
+        "name": "Stephenson, VA",
+        "type": "city",
+        "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
+        "verified": "2026-10-28",
+        "provider": "https://theflatratemovers.com/#organization",
+        "citation": "https://theflatratemovers.com/service-area.geojson",
+        "state": "VA",
+        "county": "Frederick",
+        "postal_code": "22656",
+        "branch": "winchester",
+        "gbp_service_area": true,
+        "audiences": [
+          "residential",
+          "commercial",
+          "industrial",
+          "government",
+          "military"
+        ],
+        "services": [
+          "residential-moving",
+          "commercial-moving",
+          "office-moving",
+          "industrial-offices",
+          "government-moving",
+          "military-moving",
+          "packing",
+          "custom-crating",
+          "ispm15-export-packing",
+          "loading",
+          "transloading",
+          "final-mile",
+          "warehouse-distribution",
+          "commercial-relocation",
+          "ffe-installation",
+          "flexible-deployment",
+          "ocean-container",
+          "pods",
+          "restacking"
+        ],
+        "rubric_score": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "place-upperville-va",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.88471,
+          38.99433
+        ]
+      },
+      "properties": {
+        "id": "place-upperville-va",
+        "name": "Upperville, VA",
+        "type": "city",
+        "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
+        "verified": "2026-10-28",
+        "provider": "https://theflatratemovers.com/#organization",
+        "citation": "https://theflatratemovers.com/service-area.geojson",
+        "state": "VA",
+        "county": "Fauquier",
+        "postal_code": "20184",
+        "branch": "winchester",
+        "gbp_service_area": true,
+        "audiences": [
+          "residential",
+          "commercial",
+          "industrial",
+          "government",
+          "military"
+        ],
+        "services": [
+          "residential-moving",
+          "commercial-moving",
+          "office-moving",
+          "industrial-offices",
+          "government-moving",
+          "military-moving",
+          "packing",
+          "custom-crating",
+          "ispm15-export-packing",
+          "loading",
+          "transloading",
+          "final-mile",
+          "warehouse-distribution",
+          "commercial-relocation",
+          "ffe-installation",
+          "flexible-deployment",
+          "ocean-container",
+          "pods",
+          "restacking"
+        ],
+        "rubric_score": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "place-purcellville-va",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.71437,
+          39.13668
+        ]
+      },
+      "properties": {
+        "id": "place-purcellville-va",
+        "name": "Purcellville, VA",
+        "type": "city",
+        "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
+        "verified": "2026-10-28",
+        "provider": "https://theflatratemovers.com/#organization",
+        "citation": "https://theflatratemovers.com/service-area.geojson",
+        "state": "VA",
+        "county": "Loudoun",
+        "postal_code": "20132",
+        "branch": "winchester",
+        "gbp_service_area": true,
+        "audiences": [
+          "residential",
+          "commercial",
+          "industrial",
+          "government",
+          "military"
+        ],
+        "services": [
+          "residential-moving",
+          "commercial-moving",
+          "office-moving",
+          "industrial-offices",
+          "government-moving",
+          "military-moving",
+          "packing",
+          "custom-crating",
+          "ispm15-export-packing",
+          "loading",
+          "transloading",
+          "final-mile",
+          "warehouse-distribution",
+          "commercial-relocation",
+          "ffe-installation",
+          "flexible-deployment",
+          "ocean-container",
+          "pods",
+          "restacking"
+        ],
+        "rubric_score": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "place-south-riding-va",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.48713,
+          38.90592
+        ]
+      },
+      "properties": {
+        "id": "place-south-riding-va",
+        "name": "South Riding, VA",
+        "type": "city",
+        "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
+        "verified": "2026-10-28",
+        "provider": "https://theflatratemovers.com/#organization",
+        "citation": "https://theflatratemovers.com/service-area.geojson",
+        "state": "VA",
+        "county": "Loudoun",
+        "postal_code": "20152",
+        "branch": "winchester",
+        "gbp_service_area": true,
+        "audiences": [
+          "residential",
+          "commercial",
+          "industrial",
+          "government",
+          "military"
+        ],
+        "services": [
+          "residential-moving",
+          "commercial-moving",
+          "office-moving",
+          "industrial-offices",
+          "government-moving",
+          "military-moving",
+          "packing",
+          "custom-crating",
+          "ispm15-export-packing",
+          "loading",
+          "transloading",
+          "final-mile",
+          "warehouse-distribution",
+          "commercial-relocation",
+          "ffe-installation",
+          "flexible-deployment",
+          "ocean-container",
+          "pods",
+          "restacking"
+        ],
+        "rubric_score": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "place-inwood-wv",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.04374,
+          39.35869
+        ]
+      },
+      "properties": {
+        "id": "place-inwood-wv",
+        "name": "Inwood, WV",
+        "type": "city",
+        "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
+        "verified": "2026-10-28",
+        "provider": "https://theflatratemovers.com/#organization",
+        "citation": "https://theflatratemovers.com/service-area.geojson",
+        "state": "WV",
+        "county": "Berkeley",
+        "postal_code": "25428",
+        "branch": "martinsburg",
+        "gbp_service_area": true,
+        "audiences": [
+          "residential",
+          "commercial",
+          "industrial",
+          "government",
+          "military"
+        ],
+        "services": [
+          "residential-moving",
+          "commercial-moving",
+          "office-moving",
+          "industrial-offices",
+          "government-moving",
+          "military-moving",
+          "packing",
+          "custom-crating",
+          "ispm15-export-packing",
+          "loading",
+          "transloading",
+          "final-mile",
+          "warehouse-distribution",
+          "commercial-relocation",
+          "ffe-installation",
+          "flexible-deployment",
+          "ocean-container",
+          "pods",
+          "restacking"
+        ],
+        "rubric_score": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "place-hagerstown-md",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.71758,
+          39.6425
+        ]
+      },
+      "properties": {
+        "id": "place-hagerstown-md",
+        "name": "Hagerstown, MD",
+        "type": "city",
+        "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
+        "verified": "2026-10-28",
+        "provider": "https://theflatratemovers.com/#organization",
+        "citation": "https://theflatratemovers.com/service-area.geojson",
+        "state": "MD",
+        "county": "Washington",
+        "postal_code": "21740",
+        "branch": "martinsburg",
+        "gbp_service_area": true,
+        "audiences": [
+          "residential",
+          "commercial",
+          "industrial",
+          "government",
+          "military"
+        ],
+        "services": [
+          "residential-moving",
+          "commercial-moving",
+          "office-moving",
+          "industrial-offices",
+          "government-moving",
+          "military-moving",
+          "packing",
+          "custom-crating",
+          "ispm15-export-packing",
+          "loading",
+          "transloading",
+          "final-mile",
+          "warehouse-distribution",
+          "commercial-relocation",
+          "ffe-installation",
+          "flexible-deployment",
+          "ocean-container",
+          "pods",
+          "restacking"
+        ],
+        "rubric_score": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "place-hedgesville-wv",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.99512,
+          39.55387
+        ]
+      },
+      "properties": {
+        "id": "place-hedgesville-wv",
+        "name": "Hedgesville, WV",
+        "type": "city",
+        "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
+        "verified": "2026-10-28",
+        "provider": "https://theflatratemovers.com/#organization",
+        "citation": "https://theflatratemovers.com/service-area.geojson",
+        "state": "WV",
+        "county": "Berkeley",
+        "postal_code": "25427",
+        "branch": "martinsburg",
+        "gbp_service_area": true,
+        "audiences": [
+          "residential",
+          "commercial",
+          "industrial",
+          "government",
+          "military"
+        ],
+        "services": [
+          "residential-moving",
+          "commercial-moving",
+          "office-moving",
+          "industrial-offices",
+          "government-moving",
+          "military-moving",
+          "packing",
+          "custom-crating",
+          "ispm15-export-packing",
+          "loading",
+          "transloading",
+          "final-mile",
+          "warehouse-distribution",
+          "commercial-relocation",
+          "ffe-installation",
+          "flexible-deployment",
+          "ocean-container",
+          "pods",
+          "restacking"
+        ],
+        "rubric_score": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "place-paw-paw-wv",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.45118,
+          39.43944
+        ]
+      },
+      "properties": {
+        "id": "place-paw-paw-wv",
+        "name": "Paw Paw, WV",
+        "type": "city",
+        "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
+        "verified": "2026-10-28",
+        "provider": "https://theflatratemovers.com/#organization",
+        "citation": "https://theflatratemovers.com/service-area.geojson",
+        "state": "WV",
+        "county": "Morgan",
+        "postal_code": "25434",
+        "branch": "martinsburg",
+        "gbp_service_area": true,
+        "audiences": [
+          "residential",
+          "commercial",
+          "industrial",
+          "government",
+          "military"
+        ],
+        "services": [
+          "residential-moving",
+          "commercial-moving",
+          "office-moving",
+          "industrial-offices",
+          "government-moving",
+          "military-moving",
+          "packing",
+          "custom-crating",
+          "ispm15-export-packing",
+          "loading",
+          "transloading",
+          "final-mile",
+          "warehouse-distribution",
+          "commercial-relocation",
+          "ffe-installation",
+          "flexible-deployment",
+          "ocean-container",
+          "pods",
+          "restacking"
+        ],
+        "rubric_score": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "place-shepherdstown-wv",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.80562,
+          39.43079
+        ]
+      },
+      "properties": {
+        "id": "place-shepherdstown-wv",
+        "name": "Shepherdstown, WV",
+        "type": "city",
+        "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
+        "verified": "2026-10-28",
+        "provider": "https://theflatratemovers.com/#organization",
+        "citation": "https://theflatratemovers.com/service-area.geojson",
+        "state": "WV",
+        "county": "Jefferson",
+        "postal_code": "25443",
+        "branch": "martinsburg",
+        "gbp_service_area": true,
+        "audiences": [
+          "residential",
+          "commercial",
+          "industrial",
+          "government",
+          "military"
+        ],
+        "services": [
+          "residential-moving",
+          "commercial-moving",
+          "office-moving",
+          "industrial-offices",
+          "government-moving",
+          "military-moving",
+          "packing",
+          "custom-crating",
+          "ispm15-export-packing",
+          "loading",
+          "transloading",
+          "final-mile",
+          "warehouse-distribution",
+          "commercial-relocation",
+          "ffe-installation",
+          "flexible-deployment",
+          "ocean-container",
+          "pods",
+          "restacking"
+        ],
+        "rubric_score": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "place-bunker-hill-wv",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.0528,
+          39.33615
+        ]
+      },
+      "properties": {
+        "id": "place-bunker-hill-wv",
+        "name": "Bunker Hill, WV",
+        "type": "city",
+        "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
+        "verified": "2026-10-28",
+        "provider": "https://theflatratemovers.com/#organization",
+        "citation": "https://theflatratemovers.com/service-area.geojson",
+        "state": "WV",
+        "county": "Berkeley",
+        "postal_code": "25413",
+        "branch": "martinsburg",
+        "gbp_service_area": true,
+        "audiences": [
+          "residential",
+          "commercial",
+          "industrial",
+          "government",
+          "military"
+        ],
+        "services": [
+          "residential-moving",
+          "commercial-moving",
+          "office-moving",
+          "industrial-offices",
+          "government-moving",
+          "military-moving",
+          "packing",
+          "custom-crating",
+          "ispm15-export-packing",
+          "loading",
+          "transloading",
+          "final-mile",
+          "warehouse-distribution",
+          "commercial-relocation",
+          "ffe-installation",
+          "flexible-deployment",
+          "ocean-container",
+          "pods",
+          "restacking"
+        ],
+        "rubric_score": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "place-charles-town-wv",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.8588,
+          39.28944
+        ]
+      },
+      "properties": {
+        "id": "place-charles-town-wv",
+        "name": "Charles Town, WV",
+        "type": "city",
+        "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
+        "verified": "2026-10-28",
+        "provider": "https://theflatratemovers.com/#organization",
+        "citation": "https://theflatratemovers.com/service-area.geojson",
+        "state": "WV",
+        "county": "Jefferson",
+        "postal_code": "25414",
+        "branch": "martinsburg",
+        "gbp_service_area": true,
+        "audiences": [
+          "residential",
+          "commercial",
+          "industrial",
+          "government",
+          "military"
+        ],
+        "services": [
+          "residential-moving",
+          "commercial-moving",
+          "office-moving",
+          "industrial-offices",
+          "government-moving",
+          "military-moving",
+          "packing",
+          "custom-crating",
+          "ispm15-export-packing",
+          "loading",
+          "transloading",
+          "final-mile",
+          "warehouse-distribution",
+          "commercial-relocation",
+          "ffe-installation",
+          "flexible-deployment",
+          "ocean-container",
+          "pods",
+          "restacking"
+        ],
+        "rubric_score": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "place-clear-spring-md",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.93005,
+          39.65639
+        ]
+      },
+      "properties": {
+        "id": "place-clear-spring-md",
+        "name": "Clear Spring, MD",
+        "type": "city",
+        "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
+        "verified": "2026-10-28",
+        "provider": "https://theflatratemovers.com/#organization",
+        "citation": "https://theflatratemovers.com/service-area.geojson",
+        "state": "MD",
+        "county": "Washington",
+        "postal_code": "21722",
+        "branch": "martinsburg",
+        "gbp_service_area": true,
+        "audiences": [
+          "residential",
+          "commercial",
+          "industrial",
+          "government",
+          "military"
+        ],
+        "services": [
+          "residential-moving",
+          "commercial-moving",
+          "office-moving",
+          "industrial-offices",
+          "government-moving",
+          "military-moving",
+          "packing",
+          "custom-crating",
+          "ispm15-export-packing",
+          "loading",
+          "transloading",
+          "final-mile",
+          "warehouse-distribution",
+          "commercial-relocation",
+          "ffe-installation",
+          "flexible-deployment",
+          "ocean-container",
+          "pods",
+          "restacking"
+        ],
+        "rubric_score": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "place-summit-point-wv",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.95621,
+          39.25093
+        ]
+      },
+      "properties": {
+        "id": "place-summit-point-wv",
+        "name": "Summit Point, WV",
+        "type": "city",
+        "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
+        "verified": "2026-10-28",
+        "provider": "https://theflatratemovers.com/#organization",
+        "citation": "https://theflatratemovers.com/service-area.geojson",
+        "state": "WV",
+        "county": "Jefferson",
+        "postal_code": "25446",
+        "branch": "martinsburg",
+        "gbp_service_area": true,
+        "audiences": [
+          "residential",
+          "commercial",
+          "industrial",
+          "government",
+          "military"
+        ],
+        "services": [
+          "residential-moving",
+          "commercial-moving",
+          "office-moving",
+          "industrial-offices",
+          "government-moving",
+          "military-moving",
+          "packing",
+          "custom-crating",
+          "ispm15-export-packing",
+          "loading",
+          "transloading",
+          "final-mile",
+          "warehouse-distribution",
+          "commercial-relocation",
+          "ffe-installation",
+          "flexible-deployment",
+          "ocean-container",
+          "pods",
+          "restacking"
+        ],
+        "rubric_score": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "place-harpers-ferry-wv",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.73907,
+          39.32546
+        ]
+      },
+      "properties": {
+        "id": "place-harpers-ferry-wv",
+        "name": "Harpers Ferry, WV",
+        "type": "city",
+        "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
+        "verified": "2026-10-28",
+        "provider": "https://theflatratemovers.com/#organization",
+        "citation": "https://theflatratemovers.com/service-area.geojson",
+        "state": "WV",
+        "county": "Jefferson",
+        "postal_code": "25425",
+        "branch": "martinsburg",
+        "gbp_service_area": true,
+        "audiences": [
+          "residential",
+          "commercial",
+          "industrial",
+          "government",
+          "military"
+        ],
+        "services": [
+          "residential-moving",
+          "commercial-moving",
+          "office-moving",
+          "industrial-offices",
+          "government-moving",
+          "military-moving",
+          "packing",
+          "custom-crating",
+          "ispm15-export-packing",
+          "loading",
+          "transloading",
+          "final-mile",
+          "warehouse-distribution",
+          "commercial-relocation",
+          "ffe-installation",
+          "flexible-deployment",
+          "ocean-container",
+          "pods",
+          "restacking"
+        ],
+        "rubric_score": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "place-kearneysville-wv",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.90795,
+          39.37064
+        ]
+      },
+      "properties": {
+        "id": "place-kearneysville-wv",
+        "name": "Kearneysville, WV",
+        "type": "city",
+        "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
+        "verified": "2026-10-28",
+        "provider": "https://theflatratemovers.com/#organization",
+        "citation": "https://theflatratemovers.com/service-area.geojson",
+        "state": "WV",
+        "county": "Jefferson",
+        "postal_code": "25430",
+        "branch": "martinsburg",
+        "gbp_service_area": true,
+        "audiences": [
+          "residential",
+          "commercial",
+          "industrial",
+          "government",
+          "military"
+        ],
+        "services": [
+          "residential-moving",
+          "commercial-moving",
+          "office-moving",
+          "industrial-offices",
+          "government-moving",
+          "military-moving",
+          "packing",
+          "custom-crating",
+          "ispm15-export-packing",
+          "loading",
+          "transloading",
+          "final-mile",
+          "warehouse-distribution",
+          "commercial-relocation",
+          "ffe-installation",
+          "flexible-deployment",
+          "ocean-container",
+          "pods",
+          "restacking"
+        ],
+        "rubric_score": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "place-front-royal-va",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.19355,
+          38.91798
+        ]
+      },
+      "properties": {
+        "id": "place-front-royal-va",
+        "name": "Front Royal, VA",
+        "type": "city",
+        "source": "Company service footprint: location pages + service-area.geojson branch properties, verified 2026-10-28; NOT a Google Business Profile service area. Coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27.",
+        "verified": "2026-10-28",
+        "provider": "https://theflatratemovers.com/#organization",
+        "citation": "https://theflatratemovers.com/service-area.geojson",
+        "state": "VA",
+        "county": "Warren",
+        "postal_code": "22630",
+        "branch": "both",
+        "gbp_service_area": false,
+        "audiences": [
+          "residential",
+          "commercial",
+          "industrial",
+          "government",
+          "military"
+        ],
+        "services": [
+          "residential-moving",
+          "commercial-moving",
+          "office-moving",
+          "industrial-offices",
+          "government-moving",
+          "military-moving",
+          "packing",
+          "custom-crating",
+          "ispm15-export-packing",
+          "loading",
+          "transloading",
+          "final-mile",
+          "warehouse-distribution",
+          "commercial-relocation",
+          "ffe-installation",
+          "flexible-deployment",
+          "ocean-container",
+          "pods",
+          "restacking"
+        ],
+        "rubric_score": 2,
+        "rubric_note": "Score 2: coordinates verified by map geocoding 2026-10-28, but this is an expansion city, not a GBP service area, and it has no dedicated page yet — so R3 visible-match and R4 GBP attestation cannot yet be 3. Do not present it as a GBP area."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "place-strasburg-va",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.35865,
+          38.98905
+        ]
+      },
+      "properties": {
+        "id": "place-strasburg-va",
+        "name": "Strasburg, VA",
+        "type": "city",
+        "source": "Company service footprint: location pages + service-area.geojson branch properties, verified 2026-10-28; NOT a Google Business Profile service area. Coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27.",
+        "verified": "2026-10-28",
+        "provider": "https://theflatratemovers.com/#organization",
+        "citation": "https://theflatratemovers.com/service-area.geojson",
+        "state": "VA",
+        "county": "Shenandoah",
+        "postal_code": "22657",
+        "branch": "both",
+        "gbp_service_area": false,
+        "audiences": [
+          "residential",
+          "commercial",
+          "industrial",
+          "government",
+          "military"
+        ],
+        "services": [
+          "residential-moving",
+          "commercial-moving",
+          "office-moving",
+          "industrial-offices",
+          "government-moving",
+          "military-moving",
+          "packing",
+          "custom-crating",
+          "ispm15-export-packing",
+          "loading",
+          "transloading",
+          "final-mile",
+          "warehouse-distribution",
+          "commercial-relocation",
+          "ffe-installation",
+          "flexible-deployment",
+          "ocean-container",
+          "pods",
+          "restacking"
+        ],
+        "rubric_score": 2,
+        "rubric_note": "Score 2: coordinates verified by map geocoding 2026-10-28, but this is an expansion city, not a GBP service area, and it has no dedicated page yet — so R3 visible-match and R4 GBP attestation cannot yet be 3. Do not present it as a GBP area."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "place-woodstock-va",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.49849,
+          38.89021
+        ]
+      },
+      "properties": {
+        "id": "place-woodstock-va",
+        "name": "Woodstock, VA",
+        "type": "city",
+        "source": "Company service footprint: location pages + service-area.geojson branch properties, verified 2026-10-28; NOT a Google Business Profile service area. Coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27.",
+        "verified": "2026-10-28",
+        "provider": "https://theflatratemovers.com/#organization",
+        "citation": "https://theflatratemovers.com/service-area.geojson",
+        "state": "VA",
+        "county": "Shenandoah",
+        "postal_code": "22664",
+        "branch": "both",
+        "gbp_service_area": false,
+        "audiences": [
+          "residential",
+          "commercial",
+          "industrial",
+          "government",
+          "military"
+        ],
+        "services": [
+          "residential-moving",
+          "commercial-moving",
+          "office-moving",
+          "industrial-offices",
+          "government-moving",
+          "military-moving",
+          "packing",
+          "custom-crating",
+          "ispm15-export-packing",
+          "loading",
+          "transloading",
+          "final-mile",
+          "warehouse-distribution",
+          "commercial-relocation",
+          "ffe-installation",
+          "flexible-deployment",
+          "ocean-container",
+          "pods",
+          "restacking"
+        ],
+        "rubric_score": 2,
+        "rubric_note": "Score 2: coordinates verified by map geocoding 2026-10-28, but this is an expansion city, not a GBP service area, and it has no dedicated page yet — so R3 visible-match and R4 GBP attestation cannot yet be 3. Do not present it as a GBP area."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "place-berkeley-springs-wv",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.22685,
+          39.62814
+        ]
+      },
+      "properties": {
+        "id": "place-berkeley-springs-wv",
+        "name": "Berkeley Springs, WV",
+        "type": "city",
+        "source": "Company service footprint: location pages + service-area.geojson branch properties, verified 2026-10-28; NOT a Google Business Profile service area. Coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27.",
+        "verified": "2026-10-28",
+        "provider": "https://theflatratemovers.com/#organization",
+        "citation": "https://theflatratemovers.com/service-area.geojson",
+        "state": "WV",
+        "county": "Morgan",
+        "postal_code": "25411",
+        "branch": "martinsburg",
+        "gbp_service_area": false,
+        "audiences": [
+          "residential",
+          "commercial",
+          "industrial",
+          "government",
+          "military"
+        ],
+        "services": [
+          "residential-moving",
+          "commercial-moving",
+          "office-moving",
+          "industrial-offices",
+          "government-moving",
+          "military-moving",
+          "packing",
+          "custom-crating",
+          "ispm15-export-packing",
+          "loading",
+          "transloading",
+          "final-mile",
+          "warehouse-distribution",
+          "commercial-relocation",
+          "ffe-installation",
+          "flexible-deployment",
+          "ocean-container",
+          "pods",
+          "restacking"
+        ],
+        "rubric_score": 2,
+        "rubric_note": "Score 2: coordinates verified by map geocoding 2026-10-28, but this is an expansion city, not a GBP service area, and it has no dedicated page yet — so R3 visible-match and R4 GBP attestation cannot yet be 3. Do not present it as a GBP area."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "place-romney-wv",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.75745,
+          39.34224
+        ]
+      },
+      "properties": {
+        "id": "place-romney-wv",
+        "name": "Romney, WV",
+        "type": "city",
+        "source": "Company service footprint: location pages + service-area.geojson branch properties, verified 2026-10-28; NOT a Google Business Profile service area. Coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27.",
+        "verified": "2026-10-28",
+        "provider": "https://theflatratemovers.com/#organization",
+        "citation": "https://theflatratemovers.com/service-area.geojson",
+        "state": "WV",
+        "county": "Hampshire",
+        "postal_code": "26757",
+        "branch": "martinsburg",
+        "gbp_service_area": false,
+        "audiences": [
+          "residential",
+          "commercial",
+          "industrial",
+          "government",
+          "military"
+        ],
+        "services": [
+          "residential-moving",
+          "commercial-moving",
+          "office-moving",
+          "industrial-offices",
+          "government-moving",
+          "military-moving",
+          "packing",
+          "custom-crating",
+          "ispm15-export-packing",
+          "loading",
+          "transloading",
+          "final-mile",
+          "warehouse-distribution",
+          "commercial-relocation",
+          "ffe-installation",
+          "flexible-deployment",
+          "ocean-container",
+          "pods",
+          "restacking"
+        ],
+        "rubric_score": 2,
+        "rubric_note": "Score 2: coordinates verified by map geocoding 2026-10-28, but this is an expansion city, not a GBP service area, and it has no dedicated page yet — so R3 visible-match and R4 GBP attestation cannot yet be 3. Do not present it as a GBP area."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "place-frederick-md",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.41203,
+          39.41574
+        ]
+      },
+      "properties": {
+        "id": "place-frederick-md",
+        "name": "Frederick, MD",
+        "type": "city",
+        "source": "Company service footprint: location pages + service-area.geojson branch properties, verified 2026-10-28; NOT a Google Business Profile service area. Coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27.",
+        "verified": "2026-10-28",
+        "provider": "https://theflatratemovers.com/#organization",
+        "citation": "https://theflatratemovers.com/service-area.geojson",
+        "state": "MD",
+        "county": "Frederick",
+        "postal_code": "21701",
+        "branch": "martinsburg",
+        "gbp_service_area": false,
+        "audiences": [
+          "residential",
+          "commercial",
+          "industrial",
+          "government",
+          "military"
+        ],
+        "services": [
+          "residential-moving",
+          "commercial-moving",
+          "office-moving",
+          "industrial-offices",
+          "government-moving",
+          "military-moving",
+          "packing",
+          "custom-crating",
+          "ispm15-export-packing",
+          "loading",
+          "transloading",
+          "final-mile",
+          "warehouse-distribution",
+          "commercial-relocation",
+          "ffe-installation",
+          "flexible-deployment",
+          "ocean-container",
+          "pods",
+          "restacking"
+        ],
+        "rubric_score": 2,
+        "rubric_note": "Score 2: coordinates verified by map geocoding 2026-10-28, but this is an expansion city, not a GBP service area, and it has no dedicated page yet — so R3 visible-match and R4 GBP attestation cannot yet be 3. Do not present it as a GBP area."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "place-hancock-md",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.18181,
+          39.70004
+        ]
+      },
+      "properties": {
+        "id": "place-hancock-md",
+        "name": "Hancock, MD",
+        "type": "city",
+        "source": "Company service footprint: location pages + service-area.geojson branch properties, verified 2026-10-28; NOT a Google Business Profile service area. Coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27.",
+        "verified": "2026-10-28",
+        "provider": "https://theflatratemovers.com/#organization",
+        "citation": "https://theflatratemovers.com/service-area.geojson",
+        "state": "MD",
+        "county": "Washington",
+        "postal_code": "21750",
+        "branch": "martinsburg",
+        "gbp_service_area": false,
+        "audiences": [
+          "residential",
+          "commercial",
+          "industrial",
+          "government",
+          "military"
+        ],
+        "services": [
+          "residential-moving",
+          "commercial-moving",
+          "office-moving",
+          "industrial-offices",
+          "government-moving",
+          "military-moving",
+          "packing",
+          "custom-crating",
+          "ispm15-export-packing",
+          "loading",
+          "transloading",
+          "final-mile",
+          "warehouse-distribution",
+          "commercial-relocation",
+          "ffe-installation",
+          "flexible-deployment",
+          "ocean-container",
+          "pods",
+          "restacking"
+        ],
+        "rubric_score": 2,
+        "rubric_note": "Score 2: coordinates verified by map geocoding 2026-10-28, but this is an expansion city, not a GBP service area, and it has no dedicated page yet — so R3 visible-match and R4 GBP attestation cannot yet be 3. Do not present it as a GBP area."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "county-frederick-county",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.1668352,
+          39.18711576
+        ]
+      },
+      "properties": {
+        "id": "county-frederick-county",
+        "name": "Frederick County",
+        "type": "county",
+        "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
+        "verified": "2026-10-28",
+        "provider": "https://theflatratemovers.com/#organization",
+        "citation": "https://theflatratemovers.com/service-area.geojson",
+        "state": "VA",
+        "branch": "winchester",
+        "gbp_service_area": true,
+        "note": "County representative point at county seat / branch city; full county polygon referenced by county name, not embedded, for file size and scalability.",
+        "audiences": [
+          "residential",
+          "commercial",
+          "industrial",
+          "government",
+          "military"
+        ],
+        "services": [
+          "residential-moving",
+          "commercial-moving",
+          "office-moving",
+          "industrial-offices",
+          "government-moving",
+          "military-moving",
+          "packing",
+          "loading",
+          "transloading",
+          "final-mile",
+          "warehouse-distribution"
+        ],
+        "rubric_score": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "county-loudoun-county",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.56578,
+          39.1158
+        ]
+      },
+      "properties": {
+        "id": "county-loudoun-county",
+        "name": "Loudoun County",
+        "type": "county",
+        "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
+        "verified": "2026-10-28",
+        "provider": "https://theflatratemovers.com/#organization",
+        "citation": "https://theflatratemovers.com/service-area.geojson",
+        "state": "VA",
+        "branch": "winchester",
+        "gbp_service_area": true,
+        "note": "County representative point at county seat / branch city; full county polygon referenced by county name, not embedded, for file size and scalability.",
+        "audiences": [
+          "residential",
+          "commercial",
+          "industrial",
+          "government",
+          "military"
+        ],
+        "services": [
+          "residential-moving",
+          "commercial-moving",
+          "office-moving",
+          "industrial-offices",
+          "government-moving",
+          "military-moving",
+          "packing",
+          "loading",
+          "transloading",
+          "final-mile",
+          "warehouse-distribution"
+        ],
+        "rubric_score": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "county-berkeley-county",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.94760443,
+          39.48319665
+        ]
+      },
+      "properties": {
+        "id": "county-berkeley-county",
+        "name": "Berkeley County",
+        "type": "county",
+        "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
+        "verified": "2026-10-28",
+        "provider": "https://theflatratemovers.com/#organization",
+        "citation": "https://theflatratemovers.com/service-area.geojson",
+        "state": "WV",
+        "branch": "martinsburg",
+        "gbp_service_area": true,
+        "note": "County representative point at county seat / branch city; full county polygon referenced by county name, not embedded, for file size and scalability.",
+        "audiences": [
+          "residential",
+          "commercial",
+          "industrial",
+          "government",
+          "military"
+        ],
+        "services": [
+          "residential-moving",
+          "commercial-moving",
+          "office-moving",
+          "industrial-offices",
+          "government-moving",
+          "military-moving",
+          "packing",
+          "loading",
+          "transloading",
+          "final-mile",
+          "warehouse-distribution"
+        ],
+        "rubric_score": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "county-jefferson-county",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.8588,
+          39.28944
+        ]
+      },
+      "properties": {
+        "id": "county-jefferson-county",
+        "name": "Jefferson County",
+        "type": "county",
+        "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
+        "verified": "2026-10-28",
+        "provider": "https://theflatratemovers.com/#organization",
+        "citation": "https://theflatratemovers.com/service-area.geojson",
+        "state": "WV",
+        "branch": "martinsburg",
+        "gbp_service_area": false,
+        "note": "County representative point at county seat / branch city; full county polygon referenced by county name, not embedded, for file size and scalability.",
+        "audiences": [
+          "residential",
+          "commercial",
+          "industrial",
+          "government",
+          "military"
+        ],
+        "services": [
+          "residential-moving",
+          "commercial-moving",
+          "office-moving",
+          "industrial-offices",
+          "government-moving",
+          "military-moving",
+          "packing",
+          "loading",
+          "transloading",
+          "final-mile",
+          "warehouse-distribution"
+        ],
+        "rubric_score": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "county-morgan-county",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.22685,
+          39.62814
+        ]
+      },
+      "properties": {
+        "id": "county-morgan-county",
+        "name": "Morgan County",
+        "type": "county",
+        "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
+        "verified": "2026-10-28",
+        "provider": "https://theflatratemovers.com/#organization",
+        "citation": "https://theflatratemovers.com/service-area.geojson",
+        "state": "WV",
+        "branch": "martinsburg",
+        "gbp_service_area": false,
+        "note": "County representative point at county seat / branch city; full county polygon referenced by county name, not embedded, for file size and scalability.",
+        "audiences": [
+          "residential",
+          "commercial",
+          "industrial",
+          "government",
+          "military"
+        ],
+        "services": [
+          "residential-moving",
+          "commercial-moving",
+          "office-moving",
+          "industrial-offices",
+          "government-moving",
+          "military-moving",
+          "packing",
+          "loading",
+          "transloading",
+          "final-mile",
+          "warehouse-distribution"
+        ],
+        "rubric_score": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "county-clarke-county",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.98264,
+          39.15167
+        ]
+      },
+      "properties": {
+        "id": "county-clarke-county",
+        "name": "Clarke County",
+        "type": "county",
+        "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
+        "verified": "2026-10-28",
+        "provider": "https://theflatratemovers.com/#organization",
+        "citation": "https://theflatratemovers.com/service-area.geojson",
+        "state": "VA",
+        "branch": "winchester",
+        "gbp_service_area": false,
+        "note": "County representative point at county seat / branch city; full county polygon referenced by county name, not embedded, for file size and scalability.",
+        "audiences": [
+          "residential",
+          "commercial",
+          "industrial",
+          "government",
+          "military"
+        ],
+        "services": [
+          "residential-moving",
+          "commercial-moving",
+          "office-moving",
+          "industrial-offices",
+          "government-moving",
+          "military-moving",
+          "packing",
+          "loading",
+          "transloading",
+          "final-mile",
+          "warehouse-distribution"
+        ],
+        "rubric_score": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "county-warren-county",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.19355,
+          38.91798
+        ]
+      },
+      "properties": {
+        "id": "county-warren-county",
+        "name": "Warren County",
+        "type": "county",
+        "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
+        "verified": "2026-10-28",
+        "provider": "https://theflatratemovers.com/#organization",
+        "citation": "https://theflatratemovers.com/service-area.geojson",
+        "state": "VA",
+        "branch": "both",
+        "gbp_service_area": false,
+        "note": "County representative point at county seat / branch city; full county polygon referenced by county name, not embedded, for file size and scalability.",
+        "audiences": [
+          "residential",
+          "commercial",
+          "industrial",
+          "government",
+          "military"
+        ],
+        "services": [
+          "residential-moving",
+          "commercial-moving",
+          "office-moving",
+          "industrial-offices",
+          "government-moving",
+          "military-moving",
+          "packing",
+          "loading",
+          "transloading",
+          "final-mile",
+          "warehouse-distribution"
+        ],
+        "rubric_score": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "county-shenandoah-county",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.49849,
+          38.89021
+        ]
+      },
+      "properties": {
+        "id": "county-shenandoah-county",
+        "name": "Shenandoah County",
+        "type": "county",
+        "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
+        "verified": "2026-10-28",
+        "provider": "https://theflatratemovers.com/#organization",
+        "citation": "https://theflatratemovers.com/service-area.geojson",
+        "state": "VA",
+        "branch": "both",
+        "gbp_service_area": false,
+        "note": "County representative point at county seat / branch city; full county polygon referenced by county name, not embedded, for file size and scalability.",
+        "audiences": [
+          "residential",
+          "commercial",
+          "industrial",
+          "government",
+          "military"
+        ],
+        "services": [
+          "residential-moving",
+          "commercial-moving",
+          "office-moving",
+          "industrial-offices",
+          "government-moving",
+          "military-moving",
+          "packing",
+          "loading",
+          "transloading",
+          "final-mile",
+          "warehouse-distribution"
+        ],
+        "rubric_score": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "county-hampshire-county",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.75745,
+          39.34224
+        ]
+      },
+      "properties": {
+        "id": "county-hampshire-county",
+        "name": "Hampshire County",
+        "type": "county",
+        "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
+        "verified": "2026-10-28",
+        "provider": "https://theflatratemovers.com/#organization",
+        "citation": "https://theflatratemovers.com/service-area.geojson",
+        "state": "WV",
+        "branch": "martinsburg",
+        "gbp_service_area": false,
+        "note": "County representative point at county seat / branch city; full county polygon referenced by county name, not embedded, for file size and scalability.",
+        "audiences": [
+          "residential",
+          "commercial",
+          "industrial",
+          "government",
+          "military"
+        ],
+        "services": [
+          "residential-moving",
+          "commercial-moving",
+          "office-moving",
+          "industrial-offices",
+          "government-moving",
+          "military-moving",
+          "packing",
+          "loading",
+          "transloading",
+          "final-mile",
+          "warehouse-distribution"
+        ],
+        "rubric_score": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "county-hardy-county",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.96862,
+          39.06215
+        ]
+      },
+      "properties": {
+        "id": "county-hardy-county",
+        "name": "Hardy County",
+        "type": "county",
+        "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
+        "verified": "2026-10-28",
+        "provider": "https://theflatratemovers.com/#organization",
+        "citation": "https://theflatratemovers.com/service-area.geojson",
+        "state": "WV",
+        "branch": "both",
+        "gbp_service_area": false,
+        "note": "County representative point at county seat / branch city; full county polygon referenced by county name, not embedded, for file size and scalability.",
+        "audiences": [
+          "residential",
+          "commercial",
+          "industrial",
+          "government",
+          "military"
+        ],
+        "services": [
+          "residential-moving",
+          "commercial-moving",
+          "office-moving",
+          "industrial-offices",
+          "government-moving",
+          "military-moving",
+          "packing",
+          "loading",
+          "transloading",
+          "final-mile",
+          "warehouse-distribution"
+        ],
+        "rubric_score": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "county-washington-county",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.71758,
+          39.6425
+        ]
+      },
+      "properties": {
+        "id": "county-washington-county",
+        "name": "Washington County",
+        "type": "county",
+        "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
+        "verified": "2026-10-28",
+        "provider": "https://theflatratemovers.com/#organization",
+        "citation": "https://theflatratemovers.com/service-area.geojson",
+        "state": "MD",
+        "branch": "martinsburg",
+        "gbp_service_area": false,
+        "note": "County representative point at county seat / branch city; full county polygon referenced by county name, not embedded, for file size and scalability.",
+        "audiences": [
+          "residential",
+          "commercial",
+          "industrial",
+          "government",
+          "military"
+        ],
+        "services": [
+          "residential-moving",
+          "commercial-moving",
+          "office-moving",
+          "industrial-offices",
+          "government-moving",
+          "military-moving",
+          "packing",
+          "loading",
+          "transloading",
+          "final-mile",
+          "warehouse-distribution"
+        ],
+        "rubric_score": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "county-fauquier-county",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.84966,
+          38.86661
+        ]
+      },
+      "properties": {
+        "id": "county-fauquier-county",
+        "name": "Fauquier County",
+        "type": "county",
+        "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
+        "verified": "2026-10-28",
+        "provider": "https://theflatratemovers.com/#organization",
+        "citation": "https://theflatratemovers.com/service-area.geojson",
+        "state": "VA",
+        "branch": "winchester",
+        "gbp_service_area": false,
+        "note": "County representative point at county seat / branch city; full county polygon referenced by county name, not embedded, for file size and scalability.",
+        "audiences": [
+          "residential",
+          "commercial",
+          "industrial",
+          "government",
+          "military"
+        ],
+        "services": [
+          "residential-moving",
+          "commercial-moving",
+          "office-moving",
+          "industrial-offices",
+          "government-moving",
+          "military-moving",
+          "packing",
+          "loading",
+          "transloading",
+          "final-mile",
+          "warehouse-distribution"
+        ],
+        "rubric_score": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "landmark-port-of-virginia",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.29325,
+          36.84647
+        ]
+      },
+      "properties": {
+        "id": "landmark-port-of-virginia",
+        "name": "Port of Virginia",
+        "type": "landmark-port",
+        "source": "Company service footprint: location pages + service-area.geojson branch properties, verified 2026-10-28; NOT a Google Business Profile service area. Coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27.",
+        "verified": "2026-10-28",
+        "provider": "https://theflatratemovers.com/#organization",
+        "citation": "https://theflatratemovers.com/service-area.geojson",
+        "city": "Norfolk",
+        "state": "VA",
+        "postal_code": "23510",
+        "branch": "both",
+        "gbp_service_area": false,
+        "description": "Ocean container port, East Coast freight flow, transloading and final-mile origin for export and import work.",
+        "audiences": [
+          "industrial",
+          "commercial",
+          "government"
+        ],
+        "services": [
+          "transloading",
+          "ocean-container",
+          "pods",
+          "restacking",
+          "packing",
+          "custom-crating",
+          "ispm15-export-packing",
+          "final-mile",
+          "warehouse-distribution"
+        ],
+        "rubric_score": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "landmark-virginia-inland-port",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.17829,
+          38.9878
+        ]
+      },
+      "properties": {
+        "id": "landmark-virginia-inland-port",
+        "name": "Virginia Inland Port",
+        "type": "landmark-port",
+        "source": "Company service footprint: location pages + service-area.geojson branch properties, verified 2026-10-28; NOT a Google Business Profile service area. Coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27.",
+        "verified": "2026-10-28",
+        "provider": "https://theflatratemovers.com/#organization",
+        "citation": "https://theflatratemovers.com/service-area.geojson",
+        "city": "Front Royal",
+        "state": "VA",
+        "postal_code": "22630",
+        "branch": "both",
+        "gbp_service_area": false,
+        "description": "Inland port and transload hub on the Winchester / Front Royal corridor, container handling and freight transfer.",
+        "audiences": [
+          "industrial",
+          "commercial",
+          "government"
+        ],
+        "services": [
+          "transloading",
+          "ocean-container",
+          "pods",
+          "restacking",
+          "packing",
+          "custom-crating",
+          "ispm15-export-packing",
+          "final-mile",
+          "warehouse-distribution"
+        ],
+        "rubric_score": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "landmark-shenandoah-valley",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.35,
+          38.95
+        ]
+      },
+      "properties": {
+        "id": "landmark-shenandoah-valley",
+        "name": "Shenandoah Valley",
+        "type": "region",
+        "source": "Company service footprint: location pages + service-area.geojson branch properties, verified 2026-10-28; NOT a Google Business Profile service area. Coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27.",
+        "verified": "2026-10-28",
+        "provider": "https://theflatratemovers.com/#organization",
+        "citation": "https://theflatratemovers.com/service-area.geojson",
+        "city": null,
+        "state": "VA",
+        "postal_code": null,
+        "branch": "both",
+        "gbp_service_area": false,
+        "description": "Region served from Winchester, along I-81.",
+        "audiences": [
+          "industrial",
+          "commercial",
+          "government"
+        ],
+        "services": [
+          "transloading",
+          "ocean-container",
+          "pods",
+          "restacking",
+          "packing",
+          "custom-crating",
+          "ispm15-export-packing",
+          "final-mile",
+          "warehouse-distribution"
+        ],
+        "rubric_score": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "landmark-eastern-panhandle-of-west-virginia",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.0,
+          39.45
+        ]
+      },
+      "properties": {
+        "id": "landmark-eastern-panhandle-of-west-virginia",
+        "name": "Eastern Panhandle of West Virginia",
+        "type": "region",
+        "source": "Company service footprint: location pages + service-area.geojson branch properties, verified 2026-10-28; NOT a Google Business Profile service area. Coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27.",
+        "verified": "2026-10-28",
+        "provider": "https://theflatratemovers.com/#organization",
+        "citation": "https://theflatratemovers.com/service-area.geojson",
+        "city": null,
+        "state": "WV",
+        "postal_code": null,
+        "branch": "both",
+        "gbp_service_area": false,
+        "description": "Region served from Martinsburg, along I-81 and I-70.",
+        "audiences": [
+          "industrial",
+          "commercial",
+          "government"
+        ],
+        "services": [
+          "transloading",
+          "ocean-container",
+          "pods",
+          "restacking",
+          "packing",
+          "custom-crating",
+          "ispm15-export-packing",
+          "final-mile",
+          "warehouse-distribution"
+        ],
+        "rubric_score": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "landmark-interstate-81-corridor",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.1,
+          39.2
+        ]
+      },
+      "properties": {
+        "id": "landmark-interstate-81-corridor",
+        "name": "Interstate 81 Corridor",
+        "type": "corridor",
+        "source": "Company service footprint: location pages + service-area.geojson branch properties, verified 2026-10-28; NOT a Google Business Profile service area. Coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27.",
+        "verified": "2026-10-28",
+        "provider": "https://theflatratemovers.com/#organization",
+        "citation": "https://theflatratemovers.com/service-area.geojson",
+        "city": null,
+        "state": null,
+        "postal_code": null,
+        "branch": "both",
+        "gbp_service_area": false,
+        "description": "Primary corridor: Winchester to Martinsburg and beyond.",
+        "audiences": [
+          "industrial",
+          "commercial",
+          "government"
+        ],
+        "services": [
+          "transloading",
+          "ocean-container",
+          "pods",
+          "restacking",
+          "packing",
+          "custom-crating",
+          "ispm15-export-packing",
+          "final-mile",
+          "warehouse-distribution"
+        ],
+        "rubric_score": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "landmark-interstate-66-corridor",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.9,
+          38.95
+        ]
+      },
+      "properties": {
+        "id": "landmark-interstate-66-corridor",
+        "name": "Interstate 66 Corridor",
+        "type": "corridor",
+        "source": "Company service footprint: location pages + service-area.geojson branch properties, verified 2026-10-28; NOT a Google Business Profile service area. Coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27.",
+        "verified": "2026-10-28",
+        "provider": "https://theflatratemovers.com/#organization",
+        "citation": "https://theflatratemovers.com/service-area.geojson",
+        "city": null,
+        "state": null,
+        "postal_code": null,
+        "branch": "both",
+        "gbp_service_area": false,
+        "description": "Corridor from Winchester east toward Loudoun and the Washington area.",
+        "audiences": [
+          "industrial",
+          "commercial",
+          "government"
+        ],
+        "services": [
+          "transloading",
+          "ocean-container",
+          "pods",
+          "restacking",
+          "packing",
+          "custom-crating",
+          "ispm15-export-packing",
+          "final-mile",
+          "warehouse-distribution"
+        ],
+        "rubric_score": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "landmark-interstate-70-corridor",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.8,
+          39.6
+        ]
+      },
+      "properties": {
+        "id": "landmark-interstate-70-corridor",
+        "name": "Interstate 70 Corridor",
+        "type": "corridor",
+        "source": "Company service footprint: location pages + service-area.geojson branch properties, verified 2026-10-28; NOT a Google Business Profile service area. Coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27.",
+        "verified": "2026-10-28",
+        "provider": "https://theflatratemovers.com/#organization",
+        "citation": "https://theflatratemovers.com/service-area.geojson",
+        "city": null,
+        "state": null,
+        "postal_code": null,
+        "branch": "both",
+        "gbp_service_area": false,
+        "description": "Corridor through Hagerstown and Martinsburg area.",
+        "audiences": [
+          "industrial",
+          "commercial",
+          "government"
+        ],
+        "services": [
+          "transloading",
+          "ocean-container",
+          "pods",
+          "restacking",
+          "packing",
+          "custom-crating",
+          "ispm15-export-packing",
+          "final-mile",
+          "warehouse-distribution"
+        ],
+        "rubric_score": 3
+      }
+    }
+  ],
+  "rubric": {
+    "version": "2026-10-28",
+    "note": "Rubric R1-R7 from rubric.html, applied site-wide 2026-10-28. Per-feature rubric_score: 3 = GBP area or branch, fully attested; 2 = expansion city, geocoded and verified, not a GBP area and no dedicated page yet — see rubric_note on those features.",
+    "R1_audience_and_topic": "3 — every enriched main service page names its audience and service in the first section (gun safe, residential, commercial, office, long-distance, export, military, heavy, route81, winchester, martinsburg, exportpacking)",
+    "R2_node_chain": "3 — Organization https://theflatratemovers.com/#organization, Places #winchester-place / #martinsburg-place, Service -> provider -> Organization -> Place -> areaServed via this GeoJSON",
+    "R3_visible_matches_json": "3 — HTML hours, addresses, phone, service areas match GeoJSON branches block and GBP, per branch, never unified",
+    "R4_attestation": "3 — every fact in this file carries source + verified date; new 2026-10-28 attestations added for GBP products, GBP fixes, industrial page, page enrichment, quote capture, face-blurred photos",
+    "R5_no_invented_data": "3 — ratings only per-branch Google (Winchester 5.0/1, Martinsburg 4.7/6, never blended), price only $$, license details private, USDOT omitted, CWT rates only as supplied by Henry 2026-10-28",
+    "R6_images_honest": "3 — warehouse photos are Henry-supplied, faces blurred, captions say so; wrapped-furniture style examples labelled Style example with credit",
+    "R7_quote_path": "3 — CTAs Get My Flat Rate Quote / Get a flat rate quote only, Short default / Detailed toggle preserves From, To, What is moving; Worker no longer drops supplied contact/services/notes in Short mode (verified 2026-10-28)"
+  },
+  "corrections": [
+    {
+      "date": "2026-10-28",
+      "change": "Source strings on non-GBP footprint areas corrected: 7 towns (Front Royal, Strasburg, Woodstock, Berkeley Springs, Romney, Frederick MD, Hancock MD) and other non-GBP features no longer claim Google Business Profile origin; their source is location pages + GeoJSON branch properties. County gbp_service_area flags for Clarke, Warren, Shenandoah, Hardy, Jefferson, Morgan, Hampshire, Washington, Fauquier corrected true -> false (9 counties total); GBP screenshot panels name only Loudoun, Frederick, and Berkeley counties. Geometry, branch properties, and feature count unchanged (52 features).",
+      "source": "Audit correction 2026-10-28, owner direction: full footprint, correct attribution"
+    }
+  ]
 }

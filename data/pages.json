@@ -4,7 +4,7 @@
   "source": "https://theflatratemovers.com/sitemap.xml joined to pageMeta in ../the-flat-rate-movers-pages/public/index.html",
   "attestation": "Every URL below was fetched from the live sitemap on 2026-10-28; titles and service links come from pageMeta in the live site source. No URL was hand-typed.",
   "typeRule": "home = site root; location = the two branch pages; corridor = route81; service = pageMeta svc non-empty; else page. The type is a registry classification, not a published claim.",
-  "count": 126,
+  "count": 150,
   "pages": [
     {
       "slug": "home",
@@ -20,7 +20,7 @@
     {
       "slug": "1600-lb-gun-safe-moving-winchester-va-to-las-vegas-nv",
       "url": "https://theflatratemovers.com/1600-lb-gun-safe-moving-winchester-va-to-las-vegas-nv/",
-      "title": "1,600 lb Gun Safe Moving — Winchester VA to Las Vegas NV",
+      "title": "1,600 lb Gun Safe Moving \u2014 Winchester VA to Las Vegas NV",
       "type": "service",
       "services": [
         "service-gun-safe"
@@ -33,7 +33,7 @@
     {
       "slug": "ai-license",
       "url": "https://theflatratemovers.com/ai-license/",
-      "title": "AI License — Use of Published Data",
+      "title": "AI License \u2014 Use of Published Data",
       "type": "page",
       "services": [],
       "lastmod": "2026-10-28",
@@ -66,7 +66,7 @@
     {
       "slug": "author/ratemoversgmail-com",
       "url": "https://theflatratemovers.com/author/ratemoversgmail-com/",
-      "title": "Author — The Flat Rate Movers",
+      "title": "Author \u2014 The Flat Rate Movers",
       "type": "page",
       "services": [],
       "lastmod": "2026-10-28",
@@ -77,7 +77,7 @@
     {
       "slug": "blog",
       "url": "https://theflatratemovers.com/blog/",
-      "title": "Blog — Articles & Guides",
+      "title": "Blog \u2014 Articles & Guides",
       "type": "page",
       "services": [],
       "lastmod": "2026-10-28",
@@ -101,7 +101,7 @@
     {
       "slug": "case-study-3500lb-safe-moving-winchester-va",
       "url": "https://theflatratemovers.com/case-study-3500lb-safe-moving-winchester-va/",
-      "title": "Case Study — 3,500 lb Safe Moving, Winchester VA",
+      "title": "Case Study \u2014 3,500 lb Safe Moving, Winchester VA",
       "type": "service",
       "services": [
         "service-gun-safe"
@@ -114,7 +114,7 @@
     {
       "slug": "category/freight-services",
       "url": "https://theflatratemovers.com/category/freight-services/",
-      "title": "Category — Freight Services",
+      "title": "Category \u2014 Freight Services",
       "type": "service",
       "services": [
         "service-transloading"
@@ -127,7 +127,7 @@
     {
       "slug": "category/logistics",
       "url": "https://theflatratemovers.com/category/logistics/",
-      "title": "Category — Logistics",
+      "title": "Category \u2014 Logistics",
       "type": "page",
       "services": [],
       "lastmod": "2026-10-28",
@@ -138,7 +138,7 @@
     {
       "slug": "category/long-distance-moving",
       "url": "https://theflatratemovers.com/category/long-distance-moving/",
-      "title": "Category — Long-Distance Moving",
+      "title": "Category \u2014 Long-Distance Moving",
       "type": "service",
       "services": [
         "service-long-distance"
@@ -151,7 +151,7 @@
     {
       "slug": "category/maritime-shipping",
       "url": "https://theflatratemovers.com/category/maritime-shipping/",
-      "title": "Category — Maritime Shipping",
+      "title": "Category \u2014 Maritime Shipping",
       "type": "service",
       "services": [
         "service-ispm15"
@@ -164,7 +164,7 @@
     {
       "slug": "category/military-government-moving",
       "url": "https://theflatratemovers.com/category/military-government-moving/",
-      "title": "Category — Military & Government Moving",
+      "title": "Category \u2014 Military & Government Moving",
       "type": "service",
       "services": [
         "service-government",
@@ -178,7 +178,7 @@
     {
       "slug": "category/office-commercial-moving",
       "url": "https://theflatratemovers.com/category/office-commercial-moving/",
-      "title": "Category — Office & Commercial Moving",
+      "title": "Category \u2014 Office & Commercial Moving",
       "type": "service",
       "services": [
         "service-commercial"
@@ -191,7 +191,7 @@
     {
       "slug": "category/port-logistics",
       "url": "https://theflatratemovers.com/category/port-logistics/",
-      "title": "Category — Port Logistics",
+      "title": "Category \u2014 Port Logistics",
       "type": "service",
       "services": [
         "service-transloading"
@@ -204,7 +204,7 @@
     {
       "slug": "category/rigging-sir-2026",
       "url": "https://theflatratemovers.com/category/rigging-sir-2026/",
-      "title": "Category — Rigging & SIR 2026",
+      "title": "Category \u2014 Rigging & SIR 2026",
       "type": "service",
       "services": [
         "service-sir-heavy"
@@ -217,7 +217,7 @@
     {
       "slug": "category/rigging-sir-2026/high-value-rigging",
       "url": "https://theflatratemovers.com/category/rigging-sir-2026/high-value-rigging/",
-      "title": "Category — High-Value Rigging",
+      "title": "Category \u2014 High-Value Rigging",
       "type": "service",
       "services": [
         "service-sir-heavy"
@@ -230,7 +230,7 @@
     {
       "slug": "category/shenandoah-valley-logistics",
       "url": "https://theflatratemovers.com/category/shenandoah-valley-logistics/",
-      "title": "Category — Shenandoah Valley Logistics",
+      "title": "Category \u2014 Shenandoah Valley Logistics",
       "type": "page",
       "services": [],
       "lastmod": "2026-10-28",
@@ -241,7 +241,7 @@
     {
       "slug": "category/vault-moving",
       "url": "https://theflatratemovers.com/category/vault-moving/",
-      "title": "Category — Vault Moving",
+      "title": "Category \u2014 Vault Moving",
       "type": "service",
       "services": [
         "service-gun-safe"
@@ -254,7 +254,7 @@
     {
       "slug": "category/winchester-va",
       "url": "https://theflatratemovers.com/category/winchester-va/",
-      "title": "Category — Winchester VA",
+      "title": "Category \u2014 Winchester VA",
       "type": "page",
       "services": [],
       "lastmod": "2026-10-28",
@@ -265,7 +265,7 @@
     {
       "slug": "category/winchester-va/residential-logistics",
       "url": "https://theflatratemovers.com/category/winchester-va/residential-logistics/",
-      "title": "Category — Residential Logistics",
+      "title": "Category \u2014 Residential Logistics",
       "type": "service",
       "services": [
         "service-residential"
@@ -278,7 +278,7 @@
     {
       "slug": "category/winchester-va/residential-logistics/relocation-services",
       "url": "https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/",
-      "title": "Category — Relocation Services",
+      "title": "Category \u2014 Relocation Services",
       "type": "page",
       "services": [],
       "lastmod": "2026-10-28",
@@ -289,7 +289,7 @@
     {
       "slug": "category/winchester-va/residential-logistics/relocation-services/moving",
       "url": "https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/moving/",
-      "title": "Category — Moving (Relocation Services)",
+      "title": "Category \u2014 Moving (Relocation Services)",
       "type": "service",
       "services": [
         "service-residential"
@@ -302,7 +302,7 @@
     {
       "slug": "category/winchester-va/residential-logistics/relocation-services/moving/eastern-panhandle-moving",
       "url": "https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/moving/eastern-panhandle-moving/",
-      "title": "Category — Eastern Panhandle Moving",
+      "title": "Category \u2014 Eastern Panhandle Moving",
       "type": "service",
       "services": [
         "service-residential"
@@ -315,7 +315,7 @@
     {
       "slug": "category/winchester-va/residential-logistics/relocation-services/moving/estate-relocation",
       "url": "https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/moving/estate-relocation/",
-      "title": "Category — Estate Relocation",
+      "title": "Category \u2014 Estate Relocation",
       "type": "service",
       "services": [
         "service-packing"
@@ -328,7 +328,7 @@
     {
       "slug": "category/winchester-va/residential-logistics/relocation-services/moving/long-distance",
       "url": "https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/moving/long-distance/",
-      "title": "Category — Long-Distance (Winchester VA)",
+      "title": "Category \u2014 Long-Distance (Winchester VA)",
       "type": "service",
       "services": [
         "service-long-distance"
@@ -341,7 +341,7 @@
     {
       "slug": "category/winchester-va/residential-logistics/relocation-services/moving/museum-logistics",
       "url": "https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/moving/museum-logistics/",
-      "title": "Category — Museum Logistics",
+      "title": "Category \u2014 Museum Logistics",
       "type": "service",
       "services": [
         "service-piano-antique"
@@ -354,7 +354,7 @@
     {
       "slug": "category/winchester-va/residential-logistics/relocation-services/moving/museum-logistics/logistics-transportation",
       "url": "https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/moving/museum-logistics/logistics-transportation/",
-      "title": "Category — Logistics Transportation",
+      "title": "Category \u2014 Logistics Transportation",
       "type": "service",
       "services": [
         "service-transloading"
@@ -367,7 +367,7 @@
     {
       "slug": "category/winchester-va/residential-logistics/relocation-services/paper-padding",
       "url": "https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/paper-padding/",
-      "title": "Category — Paper & Padding (Packing Materials)",
+      "title": "Category \u2014 Paper & Padding (Packing Materials)",
       "type": "service",
       "services": [
         "service-packing"
@@ -380,7 +380,7 @@
     {
       "slug": "category/winchester-va/top-rated-movers-winchester-va",
       "url": "https://theflatratemovers.com/category/winchester-va/top-rated-movers-winchester-va/",
-      "title": "Category — Movers in Winchester VA",
+      "title": "Category \u2014 Movers in Winchester VA",
       "type": "service",
       "services": [
         "service-residential"
@@ -447,7 +447,7 @@
     {
       "slug": "container-deconsolidation-cross-docking-transloading-services-virginia",
       "url": "https://theflatratemovers.com/container-deconsolidation-cross-docking-transloading-services-virginia/",
-      "title": "Container Deconsolidation, Cross-Docking & Transloading — Virginia",
+      "title": "Container Deconsolidation, Cross-Docking & Transloading \u2014 Virginia",
       "type": "service",
       "services": [
         "service-transloading"
@@ -460,7 +460,7 @@
     {
       "slug": "container-deconsolidation-services-virginia-mid-atlantic",
       "url": "https://theflatratemovers.com/container-deconsolidation-services-virginia-mid-atlantic/",
-      "title": "Container Deconsolidation Services — Virginia & Mid-Atlantic",
+      "title": "Container Deconsolidation Services \u2014 Virginia & Mid-Atlantic",
       "type": "service",
       "services": [
         "service-transloading"
@@ -473,7 +473,7 @@
     {
       "slug": "container-loading-unloading-services-port-transload-virginia",
       "url": "https://theflatratemovers.com/container-loading-unloading-services-port-transload-virginia/",
-      "title": "Container Loading & Unloading — Port Transload, Virginia",
+      "title": "Container Loading & Unloading \u2014 Port Transload, Virginia",
       "type": "service",
       "services": [
         "service-transloading"
@@ -497,7 +497,7 @@
     {
       "slug": "docs",
       "url": "https://theflatratemovers.com/docs/",
-      "title": "Docs — Reference Library",
+      "title": "Docs \u2014 Reference Library",
       "type": "page",
       "services": [],
       "lastmod": "2026-10-28",
@@ -508,7 +508,7 @@
     {
       "slug": "docs/container-deconsolidation",
       "url": "https://theflatratemovers.com/docs/container-deconsolidation/",
-      "title": "Docs — Container Deconsolidation",
+      "title": "Docs \u2014 Container Deconsolidation",
       "type": "service",
       "services": [
         "service-transloading"
@@ -521,7 +521,7 @@
     {
       "slug": "docs/data-center-logistics",
       "url": "https://theflatratemovers.com/docs/data-center-logistics/",
-      "title": "Docs — Data Center Logistics",
+      "title": "Docs \u2014 Data Center Logistics",
       "type": "service",
       "services": [
         "service-commercial"
@@ -534,7 +534,7 @@
     {
       "slug": "docs/logistics-event-protocol",
       "url": "https://theflatratemovers.com/docs/logistics-event-protocol/",
-      "title": "Docs — Logistics Event Protocol",
+      "title": "Docs \u2014 Logistics Event Protocol",
       "type": "page",
       "services": [],
       "lastmod": "2026-10-28",
@@ -545,7 +545,7 @@
     {
       "slug": "docs/logistics-ontology",
       "url": "https://theflatratemovers.com/docs/logistics-ontology/",
-      "title": "Docs — Logistics Ontology",
+      "title": "Docs \u2014 Logistics Ontology",
       "type": "page",
       "services": [],
       "lastmod": "2026-10-28",
@@ -556,7 +556,7 @@
     {
       "slug": "elite-asset-transition-white-glove-discreet-logistics",
       "url": "https://theflatratemovers.com/elite-asset-transition-white-glove-discreet-logistics/",
-      "title": "Elite Asset Transition — White-Glove, Discreet Logistics",
+      "title": "Elite Asset Transition \u2014 White-Glove, Discreet Logistics",
       "type": "service",
       "services": [
         "service-piano-antique"
@@ -569,7 +569,7 @@
     {
       "slug": "emergency-port-container-recovery-twic-labor-virginia",
       "url": "https://theflatratemovers.com/emergency-port-container-recovery-twic-labor-virginia/",
-      "title": "Emergency Port Container Recovery — Virginia",
+      "title": "Emergency Port Container Recovery \u2014 Virginia",
       "type": "service",
       "services": [
         "service-transloading"
@@ -582,7 +582,7 @@
     {
       "slug": "entities",
       "url": "https://theflatratemovers.com/entities/",
-      "title": "Entities — Index",
+      "title": "Entities \u2014 Index",
       "type": "page",
       "services": [],
       "lastmod": "2026-10-28",
@@ -617,7 +617,7 @@
     {
       "slug": "faq",
       "url": "https://theflatratemovers.com/faq/",
-      "title": "FAQ — Questions, Answered",
+      "title": "FAQ \u2014 Questions, Answered",
       "type": "page",
       "services": [],
       "lastmod": "2026-10-28",
@@ -628,7 +628,7 @@
     {
       "slug": "find-us",
       "url": "https://theflatratemovers.com/find-us/",
-      "title": "Find Us — Winchester VA & Martinsburg WV",
+      "title": "Find Us \u2014 Winchester VA & Martinsburg WV",
       "type": "page",
       "services": [],
       "lastmod": "2026-10-28",
@@ -639,7 +639,7 @@
     {
       "slug": "flat-rate-moving-quote-winchester",
       "url": "https://theflatratemovers.com/flat-rate-moving-quote-winchester/",
-      "title": "Flat Rate Moving Quote — Winchester",
+      "title": "Flat Rate Moving Quote \u2014 Winchester",
       "type": "page",
       "services": [],
       "lastmod": "2026-10-28",
@@ -650,7 +650,7 @@
     {
       "slug": "full-service-packing-unpacking-systematic-asset-encapsulation",
       "url": "https://theflatratemovers.com/full-service-packing-unpacking-systematic-asset-encapsulation/",
-      "title": "Full-Service Packing & Unpacking — Systematic Asset Encapsulation",
+      "title": "Full-Service Packing & Unpacking \u2014 Systematic Asset Encapsulation",
       "type": "service",
       "services": [
         "service-packing"
@@ -663,7 +663,7 @@
     {
       "slug": "gun-safe-movers-winchester-va",
       "url": "https://theflatratemovers.com/gun-safe-movers-winchester-va/",
-      "title": "Gun Safe Movers — Winchester VA",
+      "title": "Gun Safe Movers \u2014 Winchester VA",
       "type": "service",
       "services": [
         "service-gun-safe"
@@ -702,7 +702,7 @@
     {
       "slug": "high-mass-logistics-long-distance-moving-winchester-va",
       "url": "https://theflatratemovers.com/high-mass-logistics-long-distance-moving-winchester-va/",
-      "title": "High-Mass Logistics — Long-Distance Moving, Winchester VA",
+      "title": "High-Mass Logistics \u2014 Long-Distance Moving, Winchester VA",
       "type": "service",
       "services": [
         "service-sir-heavy"
@@ -715,7 +715,7 @@
     {
       "slug": "how-container-deconsolidation-cross-docking-transloading-supports-virginia-freight-networks",
       "url": "https://theflatratemovers.com/how-container-deconsolidation-cross-docking-transloading-supports-virginia-freight-networks/",
-      "title": "Container Deconsolidation, Cross-Docking & Transloading — Virginia Freight Networks",
+      "title": "Container Deconsolidation, Cross-Docking & Transloading \u2014 Virginia Freight Networks",
       "type": "service",
       "services": [
         "service-transloading"
@@ -808,7 +808,7 @@
     {
       "slug": "industrial-rigging-high-mass-logistics-hub-winchester-va",
       "url": "https://theflatratemovers.com/industrial-rigging-high-mass-logistics-hub-winchester-va/",
-      "title": "Industrial Rigging & High-Mass Logistics Hub — Winchester VA",
+      "title": "Industrial Rigging & High-Mass Logistics Hub \u2014 Winchester VA",
       "type": "service",
       "services": [
         "service-sir-heavy"
@@ -835,7 +835,7 @@
     {
       "slug": "interstate-moving-guide-winchester-va",
       "url": "https://theflatratemovers.com/interstate-moving-guide-winchester-va/",
-      "title": "Interstate Moving Guide — Winchester VA",
+      "title": "Interstate Moving Guide \u2014 Winchester VA",
       "type": "service",
       "services": [
         "service-long-distance"
@@ -861,7 +861,7 @@
     {
       "slug": "interstate-moving-winchester-va",
       "url": "https://theflatratemovers.com/interstate-moving-winchester-va/",
-      "title": "Interstate Moving — Winchester VA",
+      "title": "Interstate Moving \u2014 Winchester VA",
       "type": "service",
       "services": [
         "service-long-distance"
@@ -874,7 +874,7 @@
     {
       "slug": "it-equipment-moving-data-center-logistics-services-virginia",
       "url": "https://theflatratemovers.com/it-equipment-moving-data-center-logistics-services-virginia/",
-      "title": "IT Equipment Moving & Data Center Logistics — Virginia",
+      "title": "IT Equipment Moving & Data Center Logistics \u2014 Virginia",
       "type": "service",
       "services": [
         "service-commercial"
@@ -887,7 +887,7 @@
     {
       "slug": "knowledge-entities",
       "url": "https://theflatratemovers.com/knowledge-entities/",
-      "title": "Knowledge — Entities",
+      "title": "Knowledge \u2014 Entities",
       "type": "page",
       "services": [],
       "lastmod": "2026-10-28",
@@ -898,7 +898,7 @@
     {
       "slug": "knowledge-equipment",
       "url": "https://theflatratemovers.com/knowledge-equipment/",
-      "title": "Knowledge — Equipment",
+      "title": "Knowledge \u2014 Equipment",
       "type": "page",
       "services": [],
       "lastmod": "2026-10-28",
@@ -909,7 +909,7 @@
     {
       "slug": "knowledge-events",
       "url": "https://theflatratemovers.com/knowledge-events/",
-      "title": "Knowledge — Events",
+      "title": "Knowledge \u2014 Events",
       "type": "page",
       "services": [],
       "lastmod": "2026-10-28",
@@ -920,7 +920,7 @@
     {
       "slug": "knowledge-locations",
       "url": "https://theflatratemovers.com/knowledge-locations/",
-      "title": "Knowledge — Locations",
+      "title": "Knowledge \u2014 Locations",
       "type": "page",
       "services": [],
       "lastmod": "2026-10-28",
@@ -931,7 +931,7 @@
     {
       "slug": "knowledge-services",
       "url": "https://theflatratemovers.com/knowledge-services/",
-      "title": "Knowledge — Services",
+      "title": "Knowledge \u2014 Services",
       "type": "page",
       "services": [],
       "lastmod": "2026-10-28",
@@ -979,7 +979,7 @@
     {
       "slug": "long-distance-gun-safe-moving-winchester-va-to-las-vegas-nv",
       "url": "https://theflatratemovers.com/long-distance-gun-safe-moving-winchester-va-to-las-vegas-nv/",
-      "title": "Long-Distance Gun Safe Moving — Winchester VA to Las Vegas NV",
+      "title": "Long-Distance Gun Safe Moving \u2014 Winchester VA to Las Vegas NV",
       "type": "service",
       "services": [
         "service-gun-safe"
@@ -992,7 +992,7 @@
     {
       "slug": "long-distance-movers-miami",
       "url": "https://theflatratemovers.com/long-distance-movers-miami/",
-      "title": "Long-Distance Movers — Miami",
+      "title": "Long-Distance Movers \u2014 Miami",
       "type": "service",
       "services": [
         "service-long-distance"
@@ -1005,7 +1005,7 @@
     {
       "slug": "long-distance-movers-winchester-va-guide",
       "url": "https://theflatratemovers.com/long-distance-movers-winchester-va-guide/",
-      "title": "Long-Distance Movers — Winchester VA Guide",
+      "title": "Long-Distance Movers \u2014 Winchester VA Guide",
       "type": "service",
       "services": [
         "service-long-distance"
@@ -1018,7 +1018,7 @@
     {
       "slug": "long-distance-movers-winchester-va",
       "url": "https://theflatratemovers.com/long-distance-movers-winchester-va/",
-      "title": "Long-Distance Movers — Winchester, VA",
+      "title": "Long-Distance Movers \u2014 Winchester, VA",
       "type": "service",
       "services": [
         "service-long-distance"
@@ -1031,7 +1031,7 @@
     {
       "slug": "looking-for-the-best-movers-near-me-your-guide-to-stress-free-moving-in-winchester-and-martinsburg",
       "url": "https://theflatratemovers.com/looking-for-the-best-movers-near-me-your-guide-to-stress-free-moving-in-winchester-and-martinsburg/",
-      "title": "Best Movers Near Me — Guide for Winchester & Martinsburg",
+      "title": "Best Movers Near Me \u2014 Guide for Winchester & Martinsburg",
       "type": "service",
       "services": [
         "service-residential"
@@ -1044,7 +1044,7 @@
     {
       "slug": "martinsburg-wv-movers-full-service-guide",
       "url": "https://theflatratemovers.com/martinsburg-wv-movers-full-service-guide/",
-      "title": "Martinsburg WV Movers — Full-Service Guide",
+      "title": "Martinsburg WV Movers \u2014 Full-Service Guide",
       "type": "service",
       "services": [
         "service-residential",
@@ -1058,7 +1058,7 @@
     {
       "slug": "military-government-hhg-moving-requirements-contractors",
       "url": "https://theflatratemovers.com/military-government-hhg-moving-requirements-contractors/",
-      "title": "Military & Government HHG Moving — Requirements & Contractors",
+      "title": "Military & Government HHG Moving \u2014 Requirements & Contractors",
       "type": "service",
       "services": [
         "service-government",
@@ -1086,7 +1086,7 @@
     {
       "slug": "moving-company-martinsburg-wv",
       "url": "https://theflatratemovers.com/moving-company-martinsburg-wv/",
-      "title": "Moving Company — Martinsburg, WV",
+      "title": "Moving Company \u2014 Martinsburg, WV",
       "type": "location",
       "services": [],
       "lastmod": "2026-10-28",
@@ -1097,7 +1097,7 @@
     {
       "slug": "moving-company-winchester-va",
       "url": "https://theflatratemovers.com/moving-company-winchester-va/",
-      "title": "Moving Company — Winchester, VA",
+      "title": "Moving Company \u2014 Winchester, VA",
       "type": "location",
       "services": [],
       "lastmod": "2026-10-28",
@@ -1108,7 +1108,7 @@
     {
       "slug": "moving-cost-guide-winchester-va",
       "url": "https://theflatratemovers.com/moving-cost-guide-winchester-va/",
-      "title": "Moving Cost Guide — Winchester VA",
+      "title": "Moving Cost Guide \u2014 Winchester VA",
       "type": "page",
       "services": [],
       "lastmod": "2026-10-28",
@@ -1130,7 +1130,7 @@
     {
       "slug": "moving-tips-winchester-va",
       "url": "https://theflatratemovers.com/moving-tips-winchester-va/",
-      "title": "Moving Tips — Winchester VA",
+      "title": "Moving Tips \u2014 Winchester VA",
       "type": "service",
       "services": [
         "service-residential"
@@ -1154,7 +1154,7 @@
     {
       "slug": "packing-cost-winchester-va",
       "url": "https://theflatratemovers.com/packing-cost-winchester-va/",
-      "title": "Packing Cost — Winchester VA",
+      "title": "Packing Cost \u2014 Winchester VA",
       "type": "service",
       "services": [
         "service-packing"
@@ -1167,7 +1167,7 @@
     {
       "slug": "packing-services-winchester-va",
       "url": "https://theflatratemovers.com/packing-services-winchester-va/",
-      "title": "Packing Services — Winchester VA",
+      "title": "Packing Services \u2014 Winchester VA",
       "type": "service",
       "services": [
         "service-packing"
@@ -1193,7 +1193,7 @@
     {
       "slug": "port-of-virginia-container-loading-unloading-logistics-services",
       "url": "https://theflatratemovers.com/port-of-virginia-container-loading-unloading-logistics-services/",
-      "title": "Port of Virginia — Container & Logistics Services",
+      "title": "Port of Virginia \u2014 Container & Logistics Services",
       "type": "service",
       "services": [
         "service-transloading"
@@ -1330,7 +1330,7 @@
     {
       "slug": "service-areas-moving-company",
       "url": "https://theflatratemovers.com/service-areas-moving-company/",
-      "title": "Service Areas — Moving Company",
+      "title": "Service Areas \u2014 Moving Company",
       "type": "page",
       "services": [],
       "lastmod": "2026-10-28",
@@ -1352,7 +1352,7 @@
     {
       "slug": "sir-2026-protocol",
       "url": "https://theflatratemovers.com/sir-2026-protocol/",
-      "title": "SIR 2026 Protocol — The Steps",
+      "title": "SIR 2026 Protocol \u2014 The Steps",
       "type": "service",
       "services": [
         "service-sir-heavy"
@@ -1365,7 +1365,7 @@
     {
       "slug": "sir-2026-structural-integrity-relocation-protocol",
       "url": "https://theflatratemovers.com/sir-2026-structural-integrity-relocation-protocol/",
-      "title": "SIR 2026 — Structural Integrity Relocation Protocol",
+      "title": "SIR 2026 \u2014 Structural Integrity Relocation Protocol",
       "type": "service",
       "services": [
         "service-sir-heavy"
@@ -1378,7 +1378,7 @@
     {
       "slug": "sitemap",
       "url": "https://theflatratemovers.com/sitemap/",
-      "title": "Sitemap — All Pages & Redirects",
+      "title": "Sitemap \u2014 All Pages & Redirects",
       "type": "page",
       "services": [],
       "lastmod": "2026-10-28",
@@ -1389,7 +1389,7 @@
     {
       "slug": "technical-rigging-high-security-gun-safe-vault-relocation",
       "url": "https://theflatratemovers.com/technical-rigging-high-security-gun-safe-vault-relocation/",
-      "title": "Technical Rigging — High-Security Gun Safe & Vault Relocation",
+      "title": "Technical Rigging \u2014 High-Security Gun Safe & Vault Relocation",
       "type": "service",
       "services": [
         "service-gun-safe",
@@ -1416,7 +1416,7 @@
     {
       "slug": "the-data-science-of-displacement-how-predictive-analytics-is-redefining-the-mid-atlantic-relocation-path",
       "url": "https://theflatratemovers.com/the-data-science-of-displacement-how-predictive-analytics-is-redefining-the-mid-atlantic-relocation-path/",
-      "title": "The Data Science of Displacement — Planning the Mid-Atlantic Relocation Path",
+      "title": "The Data Science of Displacement \u2014 Planning the Mid-Atlantic Relocation Path",
       "type": "service",
       "services": [
         "service-long-distance"
@@ -1492,7 +1492,7 @@
     {
       "slug": "virginia-inland-port-freight-transloading-operations",
       "url": "https://theflatratemovers.com/virginia-inland-port-freight-transloading-operations/",
-      "title": "Virginia Inland Port — Freight & Transloading Operations",
+      "title": "Virginia Inland Port \u2014 Freight & Transloading Operations",
       "type": "service",
       "services": [
         "service-transloading"
@@ -1570,7 +1570,7 @@
     {
       "slug": "white-glove-delivery-winchester-va",
       "url": "https://theflatratemovers.com/white-glove-delivery-winchester-va/",
-      "title": "White-Glove Delivery — Winchester VA",
+      "title": "White-Glove Delivery \u2014 Winchester VA",
       "type": "service",
       "services": [
         "service-piano-antique",
@@ -1579,6 +1579,318 @@
       "lastmod": "2026-10-28",
       "status": "live",
       "source": "live sitemap.xml + pageMeta in live site source",
+      "attested": "2026-10-28"
+    },
+    {
+      "slug": "commercial-movers-winchester-va",
+      "url": "https://theflatratemovers.com/commercial-movers-winchester-va/",
+      "title": "Commercial and Office Movers \u2014 Winchester VA",
+      "type": "service",
+      "services": [
+        "service-commercial"
+      ],
+      "lastmod": "2026-10-28",
+      "status": "live",
+      "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
+      "attested": "2026-10-28"
+    },
+    {
+      "slug": "local-regional-movers-winchester-va",
+      "url": "https://theflatratemovers.com/local-regional-movers-winchester-va/",
+      "title": "Local & Regional Movers \u2014 Winchester VA",
+      "type": "service",
+      "services": [
+        "service-local-regional"
+      ],
+      "lastmod": "2026-10-28",
+      "status": "live",
+      "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
+      "attested": "2026-10-28"
+    },
+    {
+      "slug": "office-moving-movers-winchester-va",
+      "url": "https://theflatratemovers.com/office-moving-movers-winchester-va/",
+      "title": "Office Moving \u2014 Winchester VA",
+      "type": "service",
+      "services": [
+        "service-office-moving"
+      ],
+      "lastmod": "2026-10-28",
+      "status": "live",
+      "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
+      "attested": "2026-10-28"
+    },
+    {
+      "slug": "industrial-offices-movers-winchester-va",
+      "url": "https://theflatratemovers.com/industrial-offices-movers-winchester-va/",
+      "title": "Industrial Offices Moving \u2014 Winchester VA",
+      "type": "service",
+      "services": [
+        "service-industrial-offices"
+      ],
+      "lastmod": "2026-10-28",
+      "status": "live",
+      "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
+      "attested": "2026-10-28"
+    },
+    {
+      "slug": "government-movers-winchester-va",
+      "url": "https://theflatratemovers.com/government-movers-winchester-va/",
+      "title": "Government Movers \u2014 Winchester VA",
+      "type": "service",
+      "services": [
+        "service-government"
+      ],
+      "lastmod": "2026-10-28",
+      "status": "live",
+      "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
+      "attested": "2026-10-28"
+    },
+    {
+      "slug": "military-movers-winchester-va",
+      "url": "https://theflatratemovers.com/military-movers-winchester-va/",
+      "title": "Military Movers \u2014 Winchester VA",
+      "type": "service",
+      "services": [
+        "service-military"
+      ],
+      "lastmod": "2026-10-28",
+      "status": "live",
+      "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
+      "attested": "2026-10-28"
+    },
+    {
+      "slug": "industrial-commercial-movers-winchester-va",
+      "url": "https://theflatratemovers.com/industrial-commercial-movers-winchester-va/",
+      "title": "Industrial & Commercial Services \u2014 Winchester VA",
+      "type": "service",
+      "services": [
+        "service-industrial-commercial"
+      ],
+      "lastmod": "2026-10-28",
+      "status": "live",
+      "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
+      "attested": "2026-10-28"
+    },
+    {
+      "slug": "local-regional-movers-martinsburg-wv",
+      "url": "https://theflatratemovers.com/local-regional-movers-martinsburg-wv/",
+      "title": "Local & Regional Movers \u2014 Martinsburg WV",
+      "type": "service",
+      "services": [
+        "service-local-regional"
+      ],
+      "lastmod": "2026-10-28",
+      "status": "live",
+      "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
+      "attested": "2026-10-28"
+    },
+    {
+      "slug": "long-distance-movers-martinsburg-wv",
+      "url": "https://theflatratemovers.com/long-distance-movers-martinsburg-wv/",
+      "title": "Long-Distance Movers \u2014 Martinsburg WV",
+      "type": "service",
+      "services": [
+        "service-long-distance"
+      ],
+      "lastmod": "2026-10-28",
+      "status": "live",
+      "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
+      "attested": "2026-10-28"
+    },
+    {
+      "slug": "packing-movers-martinsburg-wv",
+      "url": "https://theflatratemovers.com/packing-movers-martinsburg-wv/",
+      "title": "Packing Movers \u2014 Martinsburg WV",
+      "type": "service",
+      "services": [
+        "service-packing"
+      ],
+      "lastmod": "2026-10-28",
+      "status": "live",
+      "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
+      "attested": "2026-10-28"
+    },
+    {
+      "slug": "sir-heavy-movers-martinsburg-wv",
+      "url": "https://theflatratemovers.com/sir-heavy-movers-martinsburg-wv/",
+      "title": "SIR Heavy Movers \u2014 Martinsburg WV",
+      "type": "service",
+      "services": [
+        "service-sir-heavy"
+      ],
+      "lastmod": "2026-10-28",
+      "status": "live",
+      "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
+      "attested": "2026-10-28"
+    },
+    {
+      "slug": "gun-safe-movers-martinsburg-wv",
+      "url": "https://theflatratemovers.com/gun-safe-movers-martinsburg-wv/",
+      "title": "Gun Safe Movers \u2014 Martinsburg WV",
+      "type": "service",
+      "services": [
+        "service-gun-safe"
+      ],
+      "lastmod": "2026-10-28",
+      "status": "live",
+      "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
+      "attested": "2026-10-28"
+    },
+    {
+      "slug": "piano-antique-movers-martinsburg-wv",
+      "url": "https://theflatratemovers.com/piano-antique-movers-martinsburg-wv/",
+      "title": "Piano, Antique & White-Glove Movers \u2014 Martinsburg WV",
+      "type": "service",
+      "services": [
+        "service-piano-antique"
+      ],
+      "lastmod": "2026-10-28",
+      "status": "live",
+      "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
+      "attested": "2026-10-28"
+    },
+    {
+      "slug": "ispm15-movers-martinsburg-wv",
+      "url": "https://theflatratemovers.com/ispm15-movers-martinsburg-wv/",
+      "title": "ISPM 15 Export Packing \u2014 Martinsburg WV",
+      "type": "service",
+      "services": [
+        "service-ispm15"
+      ],
+      "lastmod": "2026-10-28",
+      "status": "live",
+      "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
+      "attested": "2026-10-28"
+    },
+    {
+      "slug": "crating-movers-martinsburg-wv",
+      "url": "https://theflatratemovers.com/crating-movers-martinsburg-wv/",
+      "title": "Custom Crating \u2014 Martinsburg WV",
+      "type": "service",
+      "services": [
+        "service-crating"
+      ],
+      "lastmod": "2026-10-28",
+      "status": "live",
+      "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
+      "attested": "2026-10-28"
+    },
+    {
+      "slug": "transloading-movers-martinsburg-wv",
+      "url": "https://theflatratemovers.com/transloading-movers-martinsburg-wv/",
+      "title": "Loading, Transloading & Container Services \u2014 Martinsburg WV",
+      "type": "service",
+      "services": [
+        "service-transloading"
+      ],
+      "lastmod": "2026-10-28",
+      "status": "live",
+      "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
+      "attested": "2026-10-28"
+    },
+    {
+      "slug": "final-mile-movers-martinsburg-wv",
+      "url": "https://theflatratemovers.com/final-mile-movers-martinsburg-wv/",
+      "title": "Final-Mile Delivery \u2014 Martinsburg WV",
+      "type": "service",
+      "services": [
+        "service-final-mile"
+      ],
+      "lastmod": "2026-10-28",
+      "status": "live",
+      "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
+      "attested": "2026-10-28"
+    },
+    {
+      "slug": "office-moving-movers-martinsburg-wv",
+      "url": "https://theflatratemovers.com/office-moving-movers-martinsburg-wv/",
+      "title": "Office Moving \u2014 Martinsburg WV",
+      "type": "service",
+      "services": [
+        "service-office-moving"
+      ],
+      "lastmod": "2026-10-28",
+      "status": "live",
+      "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
+      "attested": "2026-10-28"
+    },
+    {
+      "slug": "industrial-offices-movers-martinsburg-wv",
+      "url": "https://theflatratemovers.com/industrial-offices-movers-martinsburg-wv/",
+      "title": "Industrial Offices Moving \u2014 Martinsburg WV",
+      "type": "service",
+      "services": [
+        "service-industrial-offices"
+      ],
+      "lastmod": "2026-10-28",
+      "status": "live",
+      "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
+      "attested": "2026-10-28"
+    },
+    {
+      "slug": "government-movers-martinsburg-wv",
+      "url": "https://theflatratemovers.com/government-movers-martinsburg-wv/",
+      "title": "Government Movers \u2014 Martinsburg WV",
+      "type": "service",
+      "services": [
+        "service-government"
+      ],
+      "lastmod": "2026-10-28",
+      "status": "live",
+      "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
+      "attested": "2026-10-28"
+    },
+    {
+      "slug": "military-movers-martinsburg-wv",
+      "url": "https://theflatratemovers.com/military-movers-martinsburg-wv/",
+      "title": "Military Movers \u2014 Martinsburg WV",
+      "type": "service",
+      "services": [
+        "service-military"
+      ],
+      "lastmod": "2026-10-28",
+      "status": "live",
+      "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
+      "attested": "2026-10-28"
+    },
+    {
+      "slug": "industrial-commercial-movers-martinsburg-wv",
+      "url": "https://theflatratemovers.com/industrial-commercial-movers-martinsburg-wv/",
+      "title": "Industrial & Commercial Services \u2014 Martinsburg WV",
+      "type": "service",
+      "services": [
+        "service-industrial-commercial"
+      ],
+      "lastmod": "2026-10-28",
+      "status": "live",
+      "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
+      "attested": "2026-10-28"
+    },
+    {
+      "slug": "interstate-66-corridor",
+      "url": "https://theflatratemovers.com/interstate-66-corridor/",
+      "title": "Interstate 66 Corridor Moving",
+      "type": "corridor",
+      "services": [
+        "service-route81"
+      ],
+      "lastmod": "2026-10-28",
+      "status": "live",
+      "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
+      "attested": "2026-10-28"
+    },
+    {
+      "slug": "interstate-70-corridor",
+      "url": "https://theflatratemovers.com/interstate-70-corridor/",
+      "title": "Interstate 70 Corridor Moving",
+      "type": "corridor",
+      "services": [
+        "service-route81"
+      ],
+      "lastmod": "2026-10-28",
+      "status": "live",
+      "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
       "attested": "2026-10-28"
     }
   ]

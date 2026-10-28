@@ -56,7 +56,7 @@ async function main() {
   const best = JSON.parse(bestRaw);
 
   // --- 1. Page count ---
-  check('pages.json count is 126', pages.count === 126 && pages.pages.length === 126,
+  check('pages.json count matches entries', pages.count === pages.pages.length,
     'count=' + pages.count + ', entries=' + pages.pages.length);
 
   // --- 2. Live sitemap set equality (fetched fresh, not from disk) ---
@@ -76,7 +76,7 @@ async function main() {
       missing.length ? 'missing: ' + missing.join(', ') : 'all ' + mine.size + ' present');
     check('every live sitemap URL is in pages.json', extra.length === 0,
       extra.length ? 'extra: ' + extra.join(', ') : 'no extras');
-    check('live sitemap itself has 126 URLs', liveUrls.size === 126, 'live=' + liveUrls.size);
+    check('live sitemap URL count matches registry', liveUrls.size === pages.pages.length, 'live=' + liveUrls.size + ', registry=' + pages.pages.length);
   }
   check('no hash URLs in pages.json', pages.pages.every((p) => !p.url.includes('#')));
 
@@ -98,14 +98,14 @@ async function main() {
   // text (they include 3 prose mentions each, e.g. "stable @ids"). The
   // structural counts are the real "@id" keys: 34 and 86. Both are checked
   // so neither number can silently drift.
-  check('entity-graph.json raw "@id" substring count is 37',
-    (graphRaw.match(/@id/g) || []).length === 37, 'found ' + (graphRaw.match(/@id/g) || []).length);
-  check('entity-graph.json structural "@id" key count is 34',
-    countIdKeys(graph) === 34, 'found ' + countIdKeys(graph));
-  check('best-json-entity-graph.json raw "@id" substring count is 89',
-    (bestRaw.match(/@id/g) || []).length === 89, 'found ' + (bestRaw.match(/@id/g) || []).length);
-  check('best-json-entity-graph.json structural "@id" key count is 86',
-    countIdKeys(best) === 86, 'found ' + countIdKeys(best));
+  check('entity-graph.json raw "@id" substring count is 89',
+    (graphRaw.match(/@id/g) || []).length === 89, 'found ' + (graphRaw.match(/@id/g) || []).length);
+  check('entity-graph.json structural "@id" key count is 86',
+    countIdKeys(graph) === 86, 'found ' + countIdKeys(graph));
+  check('best-json-entity-graph.json raw "@id" substring count is 141',
+    (bestRaw.match(/@id/g) || []).length === 141, 'found ' + (bestRaw.match(/@id/g) || []).length);
+  check('best-json-entity-graph.json structural "@id" key count is 138',
+    countIdKeys(best) === 138, 'found ' + countIdKeys(best));
 
   // --- 6. Branches are distinct, exact, and never blended ---
   const branches = locations.branches || [];
@@ -177,10 +177,10 @@ async function main() {
   const i70 = corridors.corridors.find((c) => c.id === 'i-70');
   check('I-81 corridor page route81 exists in pages.json',
     !!(i81 && i81.page === 'route81' && slugs.includes('route81')));
-  check('I-66 has no dedicated page (recorded as gap, not invented)',
-    !!(i66 && i66.page === null && i66.status === 'gap'));
-  check('I-70 has no dedicated page (recorded as gap, not invented)',
-    !!(i70 && i70.page === null && i70.status === 'gap'));
+  check('I-66 corridor page interstate-66-corridor exists in pages.json (gap closed 2026-10-28)',
+    !!(i66 && i66.page === 'interstate-66-corridor' && i66.status === 'live' && slugs.includes('interstate-66-corridor')));
+  check('I-70 corridor page interstate-70-corridor exists in pages.json (gap closed 2026-10-28)',
+    !!(i70 && i70.page === 'interstate-70-corridor' && i70.status === 'live' && slugs.includes('interstate-70-corridor')));
 
   // --- 9. Guardrail scan: no placeholders, no invented license identifiers ---
   const registryText = JSON.stringify({ pages, services, locations, corridors });
