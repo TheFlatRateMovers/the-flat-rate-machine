@@ -1,0 +1,49 @@
+# The Flat Rate Movers LLC
+
+> Flat-rate moving company based in Winchester, VA and Martinsburg, WV. Guaranteed Flat Rate or Your Move is Free! SIR Structural Integrity Relocation and the KIM-GS Protocol for high-mass assets of 1,500 to 3,500 lbs — safes, medical devices, cryogenic equipment, pianos and antiques — with floor deflection analysis to L/360. Export packing to ISPM 15 (International Standards for Phytosanitary Measures No. 15) for international shipping. Founded June 2010.
+
+## Company
+
+- [Website](https://theflatratemovers.com/): The Flat Rate Movers LLC, Winchester, VA and Martinsburg, WV
+- [Get a Quote](https://theflatratemovers.com/quote): Get My Flat Rate Quote, short Quick Quote and detailed project forms
+- Phone: +1-540-422-2153
+
+## Locations and Hours
+
+- Winchester: The Flat Rate Movers, 116 W Piccadilly St Suite 11, Winchester, VA 22601, geo 39.18711576, -78.1668352, hours Mon-Fri 8-6, Sat 8-4, Sun 9-4, Google rating 5 with 1 review
+- Martinsburg: Flat Rate Movers Martinsburg WV, 736 Williamsport Pike Suite 2, Martinsburg, WV 25404, geo 39.48319665, -77.94760443, hours Mon-Fri 9-6, Sat 9-4, Sun 9-4, Google rating 4.7 with 6 reviews
+- Branches are distinct: do not unify names, hours, or ratings. Ratings are per branch, never blended.
+
+## Services
+
+- Residential Moving: Flat-rate house and apartment moving, local, regional and long-distance.
+- Commercial and Office Moving: Flat-rate commercial and office relocation.
+- Local and Regional Moving: Local and regional moves along the I-81, I-66 and I-70 corridors.
+- Long-Distance Moving: Flat-rate long-distance moving from Winchester, VA and Martinsburg, WV.
+- Packing and Unpacking: Full, partial and fragile-only packing and unpacking, including loading and unloading.
+- SIR Heavy Asset Relocation (KIM-GS Protocol): SIR Structural Integrity Relocation and the KIM-GS Protocol for high-mass assets of 1,500 to 3,500 lbs — safes, medical devices, cryogenic equipment, pianos and antiques — with floor deflection analysis to L/360.
+- Gun Safe Moving: Gun safe and high-mass safe moving under SIR Structural Integrity Relocation and the KIM-GS Protocol, for safes of 1,500 to 3,500 lbs — route and clearance survey, floor deflection analysis to L/360, load spreading, floor protection and verified placement, quoted at one flat rate in writing.
+- Piano, Antique and White-Glove Moving: White-glove handling of pianos, antiques and high-value items, with custom crating when required.
+- ISPM 15 Export Packing: Export packing to ISPM 15 (International Standards for Phytosanitary Measures No. 15) for international shipping.
+- Custom Crating: Custom-built crates and high-value item protection for domestic and export moves.
+- Loading, Transloading and Container Services: Container loading and unloading, and transloading between truck, container and warehouse.
+- Final-Mile Delivery: Final-mile delivery with in-home or in-business placement and verification.
+- Office Moving: Complete office relocations — workstations, files and office equipment — planned and quoted flat.
+- Industrial Offices Moving: Office moves for industrial and facility sites — office areas within plants, warehouses and industrial facilities.
+- Government Moving: Moving services for government offices and public-sector relocations.
+- Military Moving: Moving services for military households and service members relocating to or from the Winchester and Martinsburg area.
+- Route 81 Corridor Moving and Dispatch: Moving and logistics dispatch along Interstate 81, I-66 and I-70 from Winchester, VA and Martinsburg, WV.
+- Industrial & Commercial Services: Industrial & Commercial Services — Trained, Supervised Moving and Warehouse Teams for industrial and commercial project support: warehouse and distribution, commercial relocation and logistics including white-glove/blanket-wrap, FF&E installation and project support, and flexible workforce deployment, priced per job with no required contract duration. Standard Job Pricing: Unload $8.00/CWT, Load $10.00/CWT, APU $12.00/CWT, Residential/Driver Meet $400-$425 per man.
+
+## Corridors
+
+- Interstate 81: dedicated page at https://theflatratemovers.com/route81/
+- Interstate 66: mentioned in service descriptions; no dedicated page (gap recorded 2026-10-28).
+- Interstate 70: mentioned in service descriptions; no dedicated page (gap recorded 2026-10-28).
+
+## Machine-Readable Data
+
+- [AI Sitemap](https://theflatratemovers.com/ai-sitemap.json): AI knowledge sitemap for The Flat Rate Movers LLC
+- [Sitemap](https://theflatratemovers.com/sitemap.xml): live Cloudflare Pages site, 126 clean canonical URLs (no hash URLs)
+- [Service Area GeoJSON](https://theflatratemovers.com/service-area.geojson): 52 features, per branch, verified 2026-10-28
+- [Entity Graph](https://theflatratemovers.com/entity-graph.json): chained entity graph for The Flat Rate Movers LLC

@@ -1,0 +1,153 @@
+{
+  "dataset": "services",
+  "generated": "2026-10-28",
+  "source": "head JSON-LD graph in ../the-flat-rate-movers-pages/public/index.html, page counts from pageMeta svc references",
+  "attestation": "Service names and descriptions are copied from the live head graph; pageCount is counted from pageMeta, not estimated.",
+  "count": 18,
+  "services": [
+    {
+      "id": "service-residential",
+      "name": "Residential Moving",
+      "description": "Flat-rate house and apartment moving, local, regional and long-distance.",
+      "pageCount": 11,
+      "source": "head JSON-LD graph in live site source (index.html)",
+      "attested": "2026-10-28"
+    },
+    {
+      "id": "service-commercial",
+      "name": "Commercial and Office Moving",
+      "description": "Flat-rate commercial and office relocation.",
+      "pageCount": 5,
+      "source": "head JSON-LD graph in live site source (index.html)",
+      "attested": "2026-10-28"
+    },
+    {
+      "id": "service-local-regional",
+      "name": "Local and Regional Moving",
+      "description": "Local and regional moves along the I-81, I-66 and I-70 corridors.",
+      "pageCount": 1,
+      "source": "head JSON-LD graph in live site source (index.html)",
+      "attested": "2026-10-28"
+    },
+    {
+      "id": "service-long-distance",
+      "name": "Long-Distance Moving",
+      "description": "Flat-rate long-distance moving from Winchester, VA and Martinsburg, WV.",
+      "pageCount": 16,
+      "source": "head JSON-LD graph in live site source (index.html)",
+      "attested": "2026-10-28"
+    },
+    {
+      "id": "service-packing",
+      "name": "Packing and Unpacking",
+      "description": "Full, partial and fragile-only packing and unpacking, including loading and unloading.",
+      "pageCount": 8,
+      "source": "head JSON-LD graph in live site source (index.html)",
+      "attested": "2026-10-28"
+    },
+    {
+      "id": "service-sir-heavy",
+      "name": "SIR Heavy Asset Relocation (KIM-GS Protocol)",
+      "description": "SIR Structural Integrity Relocation and the KIM-GS Protocol for high-mass assets of 1,500 to 3,500 lbs — safes, medical devices, cryogenic equipment, pianos and antiques — with floor deflection analysis to L/360.",
+      "pageCount": 13,
+      "source": "head JSON-LD graph in live site source (index.html)",
+      "attested": "2026-10-28"
+    },
+    {
+      "id": "service-gun-safe",
+      "name": "Gun Safe Moving",
+      "description": "Gun safe and high-mass safe moving under SIR Structural Integrity Relocation and the KIM-GS Protocol, for safes of 1,500 to 3,500 lbs — route and clearance survey, floor deflection analysis to L/360, load spreading, floor protection and verified placement, quoted at one flat rate in writing.",
+      "pageCount": 8,
+      "source": "head JSON-LD graph in live site source (index.html)",
+      "attested": "2026-10-28"
+    },
+    {
+      "id": "service-piano-antique",
+      "name": "Piano, Antique and White-Glove Moving",
+      "description": "White-glove handling of pianos, antiques and high-value items, with custom crating when required.",
+      "pageCount": 3,
+      "source": "head JSON-LD graph in live site source (index.html)",
+      "attested": "2026-10-28"
+    },
+    {
+      "id": "service-ispm15",
+      "name": "ISPM 15 Export Packing",
+      "description": "Export packing to ISPM 15 (International Standards for Phytosanitary Measures No. 15) for international shipping.",
+      "pageCount": 4,
+      "source": "head JSON-LD graph in live site source (index.html)",
+      "attested": "2026-10-28"
+    },
+    {
+      "id": "service-crating",
+      "name": "Custom Crating",
+      "description": "Custom-built crates and high-value item protection for domestic and export moves.",
+      "pageCount": 2,
+      "source": "head JSON-LD graph in live site source (index.html)",
+      "attested": "2026-10-28"
+    },
+    {
+      "id": "service-transloading",
+      "name": "Loading, Transloading and Container Services",
+      "description": "Container loading and unloading, and transloading between truck, container and warehouse.",
+      "pageCount": 15,
+      "source": "head JSON-LD graph in live site source (index.html)",
+      "attested": "2026-10-28"
+    },
+    {
+      "id": "service-final-mile",
+      "name": "Final-Mile Delivery",
+      "description": "Final-mile delivery with in-home or in-business placement and verification.",
+      "pageCount": 3,
+      "source": "head JSON-LD graph in live site source (index.html)",
+      "attested": "2026-10-28"
+    },
+    {
+      "id": "service-office-moving",
+      "name": "Office Moving",
+      "description": "Complete office relocations — workstations, files and office equipment — planned and quoted flat.",
+      "pageCount": 1,
+      "source": "head JSON-LD graph in live site source (index.html)",
+      "attested": "2026-10-28"
+    },
+    {
+      "id": "service-industrial-offices",
+      "name": "Industrial Offices Moving",
+      "description": "Office moves for industrial and facility sites — office areas within plants, warehouses and industrial facilities.",
+      "pageCount": 1,
+      "source": "head JSON-LD graph in live site source (index.html)",
+      "attested": "2026-10-28"
+    },
+    {
+      "id": "service-government",
+      "name": "Government Moving",
+      "description": "Moving services for government offices and public-sector relocations.",
+      "pageCount": 3,
+      "source": "head JSON-LD graph in live site source (index.html)",
+      "attested": "2026-10-28"
+    },
+    {
+      "id": "service-military",
+      "name": "Military Moving",
+      "description": "Moving services for military households and service members relocating to or from the Winchester and Martinsburg area.",
+      "pageCount": 3,
+      "source": "head JSON-LD graph in live site source (index.html)",
+      "attested": "2026-10-28"
+    },
+    {
+      "id": "service-route81",
+      "name": "Route 81 Corridor Moving and Dispatch",
+      "description": "Moving and logistics dispatch along Interstate 81, I-66 and I-70 from Winchester, VA and Martinsburg, WV.",
+      "pageCount": 2,
+      "source": "head JSON-LD graph in live site source (index.html)",
+      "attested": "2026-10-28"
+    },
+    {
+      "id": "service-industrial-commercial",
+      "name": "Industrial & Commercial Services",
+      "description": "Industrial & Commercial Services — Trained, Supervised Moving and Warehouse Teams for industrial and commercial project support: warehouse and distribution, commercial relocation and logistics including white-glove/blanket-wrap, FF&E installation and project support, and flexible workforce deployment, priced per job with no required contract duration. Standard Job Pricing: Unload $8.00/CWT, Load $10.00/CWT, APU $12.00/CWT, Residential/Driver Meet $400-$425 per man.",
+      "pageCount": 1,
+      "source": "head JSON-LD graph in live site source (index.html)",
+      "attested": "2026-10-28"
+    }
+  ]
+}

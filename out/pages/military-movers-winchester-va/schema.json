@@ -1,0 +1,167 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://theflatratemovers.com/#service-military",
+      "name": "Military Moving",
+      "description": "Moving services for military households and service members relocating to or from the Winchester and Martinsburg area.",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#winchester"
+      },
+      "areaServed": [
+        "Leesburg",
+        "Marshall",
+        "Sterling",
+        "Stephens City",
+        "Loudoun County",
+        "Berryville 22611",
+        "Frederick County",
+        "Middleburg 20117",
+        "Middletown 22645",
+        "Moorefield 26836",
+        "Round Hill 20141",
+        "Stephenson 22656",
+        "Upperville 20184",
+        "Winchester 22601",
+        "Purcellville 20132",
+        "South Riding 20152",
+        "Front Royal, VA",
+        "Strasburg, VA",
+        "Woodstock, VA",
+        "Clarke County",
+        "Warren County",
+        "Shenandoah County",
+        "Hardy County",
+        "Fauquier County",
+        "Port of Virginia",
+        "Virginia Inland Port",
+        "Shenandoah Valley",
+        "Eastern Panhandle of West Virginia",
+        "Interstate 81 Corridor",
+        "Interstate 66 Corridor",
+        "Interstate 70 Corridor"
+      ],
+      "url": "https://theflatratemovers.com/military-movers-winchester-va/"
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://theflatratemovers.com/#winchester",
+      "name": "The Flat Rate Movers",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "116 W Piccadilly St Suite 11",
+        "addressLocality": "Winchester",
+        "addressRegion": "VA",
+        "postalCode": "22601"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 39.18711576,
+        "longitude": -78.1668352
+      },
+      "telephone": "+1-540-422-2153",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Mon-Fri",
+          "opens": "08:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Sat",
+          "opens": "08:00",
+          "closes": "16:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Sun",
+          "opens": "09:00",
+          "closes": "16:00"
+        }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": 5,
+        "reviewCount": 1
+      },
+      "areaServed": [
+        "Leesburg",
+        "Marshall",
+        "Sterling",
+        "Stephens City",
+        "Loudoun County",
+        "Berryville 22611",
+        "Frederick County",
+        "Middleburg 20117",
+        "Middletown 22645",
+        "Moorefield 26836",
+        "Round Hill 20141",
+        "Stephenson 22656",
+        "Upperville 20184",
+        "Winchester 22601",
+        "Purcellville 20132",
+        "South Riding 20152",
+        "Front Royal, VA",
+        "Strasburg, VA",
+        "Woodstock, VA",
+        "Clarke County",
+        "Warren County",
+        "Shenandoah County",
+        "Hardy County",
+        "Fauquier County",
+        "Port of Virginia",
+        "Virginia Inland Port",
+        "Shenandoah Valley",
+        "Eastern Panhandle of West Virginia",
+        "Interstate 81 Corridor",
+        "Interstate 66 Corridor",
+        "Interstate 70 Corridor"
+      ],
+      "priceRange": "$$",
+      "parentOrganization": {
+        "@id": "https://theflatratemovers.com/#organization"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://theflatratemovers.com/#organization",
+      "name": "The Flat Rate Movers LLC",
+      "telephone": "+1-540-422-2153",
+      "foundingDate": "2010-06"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://theflatratemovers.com/military-movers-winchester-va/",
+      "url": "https://theflatratemovers.com/military-movers-winchester-va/",
+      "name": "Military Movers — Winchester VA",
+      "breadcrumb": {
+        "@id": "https://theflatratemovers.com/military-movers-winchester-va/#breadcrumb"
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://theflatratemovers.com/assets/img-01-9c77693ba66b.png",
+        "caption": "The Flat Rate Movers logo — company brand image, not a job photo."
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://theflatratemovers.com/military-movers-winchester-va/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://theflatratemovers.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Military Movers — Winchester VA",
+          "item": "https://theflatratemovers.com/military-movers-winchester-va/"
+        }
+      ]
+    }
+  ]
+}

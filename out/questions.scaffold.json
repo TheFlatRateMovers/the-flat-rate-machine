@@ -1,0 +1,249 @@
+{
+  "dataset": "questions-scaffold",
+  "generated": "2026-10-28",
+  "method": "Headings (h2-h4) ending with ? extracted from the live site source, split into page chunks at id=\"page-<slug>\" markers, deduplicated by normalized text. Verbatim only; no question was written, paraphrased, or inferred.",
+  "intentRule": "Whole-word match: commercial if the question contains price/flat/quote/cost/rate as a whole word; else navigational if it contains where/hours/serve/which base/find as a whole word; else informational. (Whole words only: \"crate\" and \"rated\" must not match \"rate\".)",
+  "answerNote": "Every answer is null. Answer text lives on the source pages and must be transcribed through the Phase 3 rubric gate; auto-pairing answers from stripped HTML is unreliable and was not attempted. A question with no answer on its source page stays null (a gap, not a draft).",
+  "count": 17,
+  "questions": [
+    {
+      "id": "q-001",
+      "question": "How heavy is heavy?",
+      "answer": null,
+      "intent": "informational",
+      "service": [
+        "service-sir-heavy"
+      ],
+      "locations": [],
+      "sourcePages": [
+        "heavy"
+      ],
+      "source": "Live site source h2-h4 headings ending with ? (verbatim)",
+      "attested": "2026-10-28"
+    },
+    {
+      "id": "q-002",
+      "question": "Is it really one flat rate?",
+      "answer": null,
+      "intent": "commercial",
+      "service": [],
+      "locations": [],
+      "sourcePages": [
+        "faq"
+      ],
+      "source": "Live site source h2-h4 headings ending with ? (verbatim)",
+      "attested": "2026-10-28"
+    },
+    {
+      "id": "q-003",
+      "question": "What weights need SIR?",
+      "answer": null,
+      "intent": "informational",
+      "service": [],
+      "locations": [],
+      "sourcePages": [
+        "faq"
+      ],
+      "source": "Live site source h2-h4 headings ending with ? (verbatim)",
+      "attested": "2026-10-28"
+    },
+    {
+      "id": "q-004",
+      "question": "What is ISPM 15?",
+      "answer": null,
+      "intent": "informational",
+      "service": [],
+      "locations": [],
+      "sourcePages": [
+        "faq"
+      ],
+      "source": "Live site source h2-h4 headings ending with ? (verbatim)",
+      "attested": "2026-10-28"
+    },
+    {
+      "id": "q-005",
+      "question": "Where do you serve?",
+      "answer": null,
+      "intent": "navigational",
+      "service": [],
+      "locations": [],
+      "sourcePages": [
+        "faq"
+      ],
+      "source": "Live site source h2-h4 headings ending with ? (verbatim)",
+      "attested": "2026-10-28"
+    },
+    {
+      "id": "q-006",
+      "question": "What are your hours?",
+      "answer": null,
+      "intent": "navigational",
+      "service": [],
+      "locations": [],
+      "sourcePages": [
+        "faq"
+      ],
+      "source": "Live site source h2-h4 headings ending with ? (verbatim)",
+      "attested": "2026-10-28"
+    },
+    {
+      "id": "q-007",
+      "question": "Short or Detailed quote?",
+      "answer": null,
+      "intent": "commercial",
+      "service": [],
+      "locations": [],
+      "sourcePages": [
+        "faq"
+      ],
+      "source": "Live site source h2-h4 headings ending with ? (verbatim)",
+      "attested": "2026-10-28"
+    },
+    {
+      "id": "q-008",
+      "question": "Do you pack and crate?",
+      "answer": null,
+      "intent": "informational",
+      "service": [],
+      "locations": [],
+      "sourcePages": [
+        "faq"
+      ],
+      "source": "Live site source h2-h4 headings ending with ? (verbatim)",
+      "attested": "2026-10-28"
+    },
+    {
+      "id": "q-009",
+      "question": "Do you move offices and industrial sites?",
+      "answer": null,
+      "intent": "informational",
+      "service": [],
+      "locations": [],
+      "sourcePages": [
+        "faq"
+      ],
+      "source": "Live site source h2-h4 headings ending with ? (verbatim)",
+      "attested": "2026-10-28"
+    },
+    {
+      "id": "q-010",
+      "question": "How are you rated on Google?",
+      "answer": null,
+      "intent": "informational",
+      "service": [],
+      "locations": [],
+      "sourcePages": [
+        "faq"
+      ],
+      "source": "Live site source h2-h4 headings ending with ? (verbatim)",
+      "attested": "2026-10-28"
+    },
+    {
+      "id": "q-011",
+      "question": "Is the price really flat, even for a short local move?",
+      "answer": null,
+      "intent": "commercial",
+      "service": [
+        "service-local-regional"
+      ],
+      "locations": [],
+      "sourcePages": [
+        "local-regional-moving"
+      ],
+      "source": "Live site source h2-h4 headings ending with ? (verbatim)",
+      "attested": "2026-10-28"
+    },
+    {
+      "id": "q-012",
+      "question": "Which base serves my move?",
+      "answer": null,
+      "intent": "navigational",
+      "service": [
+        "service-local-regional"
+      ],
+      "locations": [],
+      "sourcePages": [
+        "local-regional-moving"
+      ],
+      "source": "Live site source h2-h4 headings ending with ? (verbatim)",
+      "attested": "2026-10-28"
+    },
+    {
+      "id": "q-013",
+      "question": "What if my move includes a gun safe, piano or medical device?",
+      "answer": null,
+      "intent": "informational",
+      "service": [
+        "service-local-regional"
+      ],
+      "locations": [],
+      "sourcePages": [
+        "local-regional-moving"
+      ],
+      "source": "Live site source h2-h4 headings ending with ? (verbatim)",
+      "attested": "2026-10-28"
+    },
+    {
+      "id": "q-014",
+      "question": "How do I get the quote?",
+      "answer": null,
+      "intent": "commercial",
+      "service": [
+        "service-industrial-offices",
+        "service-local-regional"
+      ],
+      "locations": [],
+      "sourcePages": [
+        "local-regional-moving",
+        "industrial-offices-moving"
+      ],
+      "source": "Live site source h2-h4 headings ending with ? (verbatim)",
+      "attested": "2026-10-28"
+    },
+    {
+      "id": "q-015",
+      "question": "How is this different from a standard office move?",
+      "answer": null,
+      "intent": "informational",
+      "service": [
+        "service-industrial-offices"
+      ],
+      "locations": [],
+      "sourcePages": [
+        "industrial-offices-moving"
+      ],
+      "source": "Live site source h2-h4 headings ending with ? (verbatim)",
+      "attested": "2026-10-28"
+    },
+    {
+      "id": "q-016",
+      "question": "What about heavy equipment in the office area?",
+      "answer": null,
+      "intent": "informational",
+      "service": [
+        "service-industrial-offices"
+      ],
+      "locations": [],
+      "sourcePages": [
+        "industrial-offices-moving"
+      ],
+      "source": "Live site source h2-h4 headings ending with ? (verbatim)",
+      "attested": "2026-10-28"
+    },
+    {
+      "id": "q-017",
+      "question": "Can this run alongside warehouse or project work?",
+      "answer": null,
+      "intent": "informational",
+      "service": [
+        "service-industrial-offices"
+      ],
+      "locations": [],
+      "sourcePages": [
+        "industrial-offices-moving"
+      ],
+      "source": "Live site source h2-h4 headings ending with ? (verbatim)",
+      "attested": "2026-10-28"
+    }
+  ]
+}

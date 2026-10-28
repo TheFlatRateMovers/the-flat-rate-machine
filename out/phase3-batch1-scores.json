@@ -1,0 +1,121 @@
+{
+  "dataset": "phase3-batch1-scores",
+  "generated": "2026-10-28",
+  "pages": [
+    {
+      "slug": "local-regional-movers-martinsburg-wv",
+      "title": "Local & Regional Movers — Martinsburg WV",
+      "service": "service-local-regional",
+      "serviceName": "Local and Regional Moving",
+      "priority": "P1",
+      "rubric": {
+        "R1": 3,
+        "R2": 3,
+        "R3": 3,
+        "R4": 3,
+        "R5": 3,
+        "R6": 2,
+        "R7": 2
+      },
+      "verdict": "READY",
+      "missingSections": [],
+      "notes": [
+        "R6=2: no image assigned in staged content; publish step must assign a real credited photo (company photo with honest caption, or a labelled style example).",
+        "R7=2: quote card uses exact \"Get My Flat Rate Quote\" wording and describes the Short/Detailed toggle; toggle behavior lives in the verified live form and is re-checked at publish.",
+        "Service description used verbatim from the live head graph."
+      ]
+    },
+    {
+      "slug": "long-distance-movers-martinsburg-wv",
+      "title": "Long-Distance Movers — Martinsburg WV",
+      "service": "service-long-distance",
+      "serviceName": "Long-Distance Moving",
+      "priority": "P1",
+      "rubric": {
+        "R1": 3,
+        "R2": 3,
+        "R3": 3,
+        "R4": 3,
+        "R5": 3,
+        "R6": 2,
+        "R7": 2
+      },
+      "verdict": "READY",
+      "missingSections": [],
+      "notes": [
+        "R6=2: no image assigned in staged content; publish step must assign a real credited photo (company photo with honest caption, or a labelled style example).",
+        "R7=2: quote card uses exact \"Get My Flat Rate Quote\" wording and describes the Short/Detailed toggle; toggle behavior lives in the verified live form and is re-checked at publish.",
+        "Conservative note: the rubric VA destination list (FL/TX/NY/CA/NV) was NOT carried to this Martinsburg page — not attested for Martinsburg. Audience is stated from the service description instead."
+      ]
+    },
+    {
+      "slug": "packing-movers-martinsburg-wv",
+      "title": "Packing Movers — Martinsburg WV",
+      "service": "service-packing",
+      "serviceName": "Packing and Unpacking",
+      "priority": "P1",
+      "rubric": {
+        "R1": 3,
+        "R2": 3,
+        "R3": 3,
+        "R4": 3,
+        "R5": 3,
+        "R6": 2,
+        "R7": 2
+      },
+      "verdict": "READY",
+      "missingSections": [],
+      "notes": [
+        "R6=2: no image assigned in staged content; publish step must assign a real credited photo (company photo with honest caption, or a labelled style example).",
+        "R7=2: quote card uses exact \"Get My Flat Rate Quote\" wording and describes the Short/Detailed toggle; toggle behavior lives in the verified live form and is re-checked at publish.",
+        "Service description used verbatim from the live head graph."
+      ]
+    },
+    {
+      "slug": "sir-heavy-movers-martinsburg-wv",
+      "title": "SIR Heavy Movers — Martinsburg WV",
+      "service": "service-sir-heavy",
+      "serviceName": "SIR Heavy Asset Relocation (KIM-GS Protocol)",
+      "priority": "P1",
+      "rubric": {
+        "R1": 3,
+        "R2": 3,
+        "R3": 3,
+        "R4": 3,
+        "R5": 3,
+        "R6": 2,
+        "R7": 2
+      },
+      "verdict": "READY",
+      "missingSections": [],
+      "notes": [
+        "R6=2: no image assigned in staged content; publish step must assign a real credited photo (company photo with honest caption, or a labelled style example).",
+        "R7=2: quote card uses exact \"Get My Flat Rate Quote\" wording and describes the Short/Detailed toggle; toggle behavior lives in the verified live form and is re-checked at publish.",
+        "Service description used verbatim from the live head graph."
+      ]
+    },
+    {
+      "slug": "gun-safe-movers-martinsburg-wv",
+      "title": "Gun Safe Movers — Martinsburg WV",
+      "service": "service-gun-safe",
+      "serviceName": "Gun Safe Moving",
+      "priority": "P1",
+      "rubric": {
+        "R1": 3,
+        "R2": 3,
+        "R3": 3,
+        "R4": 3,
+        "R5": 3,
+        "R6": 2,
+        "R7": 2
+      },
+      "verdict": "READY",
+      "missingSections": [],
+      "notes": [
+        "R6=2: no image assigned in staged content; publish step must assign a real credited photo (company photo with honest caption, or a labelled style example).",
+        "R7=2: quote card uses exact \"Get My Flat Rate Quote\" wording and describes the Short/Detailed toggle; toggle behavior lives in the verified live form and is re-checked at publish.",
+        "Service description used verbatim from the live head graph."
+      ]
+    }
+  ]
+}

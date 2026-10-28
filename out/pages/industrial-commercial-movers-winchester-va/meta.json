@@ -1,0 +1,15 @@
+{
+  "slug": "industrial-commercial-movers-winchester-va",
+  "url": "https://theflatratemovers.com/industrial-commercial-movers-winchester-va/",
+  "title": "Industrial & Commercial Services — Winchester VA",
+  "description": "Industrial & Commercial Services — Winchester VA — Industrial & Commercial Services — Trained, Supervised Moving and Warehouse Teams for industrial and commercial project support: warehouse and distribution, commercial relocation and logistics including white-glove/blanket-wrap, FF&E installation and project support, and flexible workforce deployment, priced per job with no required contract duration. Standard Job Pricing: Unload $8.00/CWT, Load $10.00/CWT, APU $12.00/CWT, Residential/Driver Meet $400-$425 per man. Flat-rate moving from Winchester, VA and Martinsburg, WV. Guaranteed Flat Rate or Your Move is Free!",
+  "template": "service",
+  "genericTemplate": false,
+  "image": {
+    "file": "assets/img-01-9c77693ba66b.png",
+    "url": "https://theflatratemovers.com/assets/img-01-9c77693ba66b.png",
+    "caption": "The Flat Rate Movers logo — company brand image, not a job photo."
+  },
+  "source": "Phase 1 service template (scripts/build-meta.js) + data/services.json + data/locations.json + data/service-area.geojson",
+  "attested": "2026-10-28"
+}

@@ -1,0 +1,404 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://theflatratemovers.com/#organization",
+      "@type": [
+        "Organization",
+        "LocalBusiness",
+        "MovingCompany"
+      ],
+      "address": {
+        "@id": "https://theflatratemovers.com/#winchester-address"
+      },
+      "email": "ratemovers@gmail.com",
+      "foundingDate": "2010-06",
+      "hasOfferCatalog": {
+        "@id": "https://theflatratemovers.com/#service-catalog"
+      },
+      "location": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester-place"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg-place"
+        }
+      ],
+      "name": "The Flat Rate Movers LLC",
+      "priceRange": "$$",
+      "sameAs": [
+        "https://www.instagram.com/theflatratemovers/",
+        "https://www.threads.com/@theflatratemovers",
+        "https://x.com/ratemovers",
+        "https://www.youtube.com/@theflatratemovers",
+        "https://github.com/TheFlatRateMovers",
+        "https://medium.com/@ratemovers"
+      ],
+      "slogan": "Guaranteed Flat Rate or Your Move is Free!",
+      "telephone": "+1-540-422-2153",
+      "url": "https://theflatratemovers.com/"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#winchester-place",
+      "@type": "Place",
+      "address": {
+        "@id": "https://theflatratemovers.com/#winchester-address"
+      },
+      "areaServed": [
+        "Leesburg, VA, USA",
+        "Marshall, VA, USA",
+        "Sterling, VA, USA",
+        "Stephens City, VA, USA",
+        "Loudoun County, VA, USA",
+        "Berryville, VA 22611, USA",
+        "Frederick County, VA, USA",
+        "Middleburg, VA 20117, USA",
+        "Middletown, VA 22645, USA",
+        "Moorefield, WV 26836, USA",
+        "Round Hill, VA 20141, USA",
+        "Stephenson, VA 22656, USA",
+        "Upperville, VA 20184, USA",
+        "Winchester, VA 22601, USA",
+        "Purcellville, VA 20132, USA",
+        "South Riding, VA 20152, USA"
+      ],
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 39.18711576,
+        "longitude": -78.1668352
+      },
+      "name": "The Flat Rate Movers \u2014 Winchester",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "closes": "18:00",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "08:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "closes": "16:00",
+          "dayOfWeek": "Saturday",
+          "opens": "08:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "closes": "16:00",
+          "dayOfWeek": "Sunday",
+          "opens": "09:00"
+        }
+      ]
+    },
+    {
+      "@id": "https://theflatratemovers.com/#winchester-address",
+      "@type": "PostalAddress",
+      "addressCountry": "US",
+      "addressLocality": "Winchester",
+      "addressRegion": "VA",
+      "postalCode": "22601",
+      "streetAddress": "116 W Piccadilly St Suite 11"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#martinsburg-place",
+      "@type": "Place",
+      "address": {
+        "@id": "https://theflatratemovers.com/#martinsburg-address"
+      },
+      "areaServed": [
+        "Inwood, WV, USA",
+        "Hagerstown, MD, USA",
+        "Hedgesville, WV, USA",
+        "Paw Paw, WV 25434, USA",
+        "Shepherdstown, WV, USA",
+        "Berkeley County, WV, USA",
+        "Moorefield, WV 26836, USA",
+        "Bunker Hill, WV 25413, USA",
+        "Charles Town, WV 25414, USA",
+        "Clear Spring, MD 21722, USA",
+        "Summit Point, WV 25446, USA",
+        "Harpers Ferry, WV 25425, USA",
+        "Kearneysville, WV 25430, USA",
+        "Eastern Panhandle of West Virginia, WV, USA"
+      ],
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 39.48319665,
+        "longitude": -77.94760443
+      },
+      "name": "Flat Rate Movers Martinsburg WV",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "09:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "09:00",
+          "closes": "16:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Sunday",
+          "opens": "09:00",
+          "closes": "16:00"
+        }
+      ]
+    },
+    {
+      "@id": "https://theflatratemovers.com/#martinsburg-address",
+      "@type": "PostalAddress",
+      "addressCountry": "US",
+      "addressLocality": "Martinsburg",
+      "addressRegion": "WV",
+      "postalCode": "25404",
+      "streetAddress": "736 Williamsport Pike Suite 2"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#service-catalog",
+      "@type": "OfferCatalog",
+      "itemListElement": [
+        {
+          "@id": "https://theflatratemovers.com/residential-moving/#service"
+        },
+        {
+          "@id": "https://theflatratemovers.com/commercial-moving/#service"
+        },
+        {
+          "@id": "https://theflatratemovers.com/commercial-office-moving-2/#service"
+        },
+        {
+          "@id": "https://theflatratemovers.com/gun-safe-movers/#service"
+        },
+        {
+          "@id": "https://theflatratemovers.com/military-government-moving/#service"
+        },
+        {
+          "@id": "https://theflatratemovers.com/international-export-packing-crating-winchester-va/#service"
+        },
+        {
+          "@id": "https://theflatratemovers.com/long-distance-movers-winchester-va/#service"
+        }
+      ],
+      "name": "The Flat Rate Movers Services"
+    },
+    {
+      "@id": "https://theflatratemovers.com/gun-safe-movers/#service",
+      "@type": "Service",
+      "areaServed": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester-place"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg-place"
+        }
+      ],
+      "description": "Flat-rate gun safe moving with SIR Structural Integrity Relocation and KIM-GS Kinetic Integrity Method for high-mass assets 1,500-3,500 lbs, with L/360 floor deflection analysis, substrate and load-path protection.",
+      "name": "Gun Safe Moving",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "serviceType": "Gun Safe Moving"
+    },
+    {
+      "@id": "https://theflatratemovers.com/residential-moving/#service",
+      "@type": "Service",
+      "areaServed": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester-place"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg-place"
+        }
+      ],
+      "name": "Residential Moving",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      }
+    },
+    {
+      "@id": "https://theflatratemovers.com/commercial-moving/#service",
+      "@type": "Service",
+      "areaServed": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester-place"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg-place"
+        }
+      ],
+      "name": "Commercial Moving",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      }
+    },
+    {
+      "@id": "https://theflatratemovers.com/international-export-packing-crating-winchester-va/#service",
+      "@type": "Service",
+      "description": "ISPM 15 International Standards for Phytosanitary Measures No. 15 export packing, custom crates, loading, transloading, final mile delivery, and high-value protection.",
+      "name": "ISPM 15 Export Packing and Custom Crating",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      }
+    }
+  ],
+  "@id": "https://theflatratemovers.com/entity-graph.json",
+  "@type": "Dataset",
+  "attestations": [
+    {
+      "claim": "Founding date June 2010",
+      "evidence": "https://theflatratemovers.com/",
+      "source": "Henry confirmation 2026-10-27 and live site Upperville page: family-owned established 2010",
+      "verified": "2026-10-27"
+    },
+    {
+      "claim": "Winchester address, geo, phone, hours",
+      "evidence": "https://theflatratemovers.com/",
+      "source": "Places record and Google Business Profile Winchester, hours Mon-Fri 8-6, Sat 8-4, Sun 9-4",
+      "verified": "2026-10-27"
+    },
+    {
+      "claim": "Martinsburg address, geo, phone",
+      "evidence": "https://theflatratemovers.com/",
+      "source": "Places record and Google Business Profile Martinsburg",
+      "verified": "2026-10-27"
+    },
+    {
+      "claim": "Martinsburg hours are distinct: Mon-Fri 9-6, Sat 9-4, Sun 9-4, name Flat Rate Movers Martinsburg WV, Google rating 4.7 with 6 reviews",
+      "source": "Henry correction 2026-10-27, superseding earlier same-day unified-hours note; Google Business Profile Martinsburg, verified 2026-10-27",
+      "verified": "2026-10-28"
+    },
+    {
+      "claim": "Winchester GBP service area list, 16 entries",
+      "source": "Google Business Profile Business information, Location, screenshot supplied by Henry 2026-10-27",
+      "verified": "2026-10-27"
+    },
+    {
+      "claim": "Martinsburg GBP service area list, 14 entries",
+      "source": "Google Business Profile Business information, Hours/Location, screenshot supplied by Henry 2026-10-27",
+      "verified": "2026-10-27"
+    },
+    {
+      "claim": "Winchester Google rating 5.0 with 1 review; Martinsburg Google rating 4.7 with 6 reviews",
+      "source": "Google Business Profile check 2026-10-27, read-only, per branch, not blended, not in this graph's Organization node pending Henry's approval to add per-branch aggregateRating",
+      "verified": "2026-10-27"
+    },
+    {
+      "claim": "SIR/KIM-GS, 1,500-3,500 lbs, L/360",
+      "source": "The Flat Rate Movers live site and GitHub SIR authority repos",
+      "verified": "2026-10-27"
+    },
+    {
+      "claim": "ISPM 15 export packing, custom crating, transloading, final mile, high-value protection",
+      "source": "Henry addition 2026-10-27 and live ai-sitemap.json",
+      "verified": "2026-10-27"
+    },
+    {
+      "claim": "License details are private and are NOT attested publicly in this graph",
+      "source": "Henry instruction 2026-10-27",
+      "verified": "2026-10-27"
+    }
+  ],
+  "chain": [
+    {
+      "from": "https://theflatratemovers.com/#organization",
+      "relation": "location",
+      "to": "https://theflatratemovers.com/#winchester-place"
+    },
+    {
+      "from": "https://theflatratemovers.com/#organization",
+      "relation": "location",
+      "to": "https://theflatratemovers.com/#martinsburg-place"
+    },
+    {
+      "from": "https://theflatratemovers.com/#winchester-place",
+      "relation": "address",
+      "to": "https://theflatratemovers.com/#winchester-address"
+    },
+    {
+      "from": "https://theflatratemovers.com/#martinsburg-place",
+      "relation": "address",
+      "to": "https://theflatratemovers.com/#martinsburg-address"
+    },
+    {
+      "from": "https://theflatratemovers.com/#winchester-place",
+      "relation": "areaServed",
+      "to": "Winchester GBP service area list, 16 towns/counties"
+    },
+    {
+      "from": "https://theflatratemovers.com/#martinsburg-place",
+      "relation": "areaServed",
+      "to": "Martinsburg GBP service area list, 14 towns/counties/regions"
+    },
+    {
+      "from": "https://theflatratemovers.com/gun-safe-movers/#service",
+      "relation": "provider",
+      "to": "https://theflatratemovers.com/#organization"
+    },
+    {
+      "from": "https://theflatratemovers.com/gun-safe-movers/#service",
+      "relation": "areaServed",
+      "to": "https://theflatratemovers.com/#winchester-place"
+    },
+    {
+      "from": "https://theflatratemovers.com/gun-safe-movers/#service",
+      "relation": "areaServed",
+      "to": "https://theflatratemovers.com/#martinsburg-place"
+    },
+    {
+      "from": "https://theflatratemovers.com/#service-catalog",
+      "relation": "itemListElement",
+      "to": "https://theflatratemovers.com/gun-safe-movers/#service"
+    },
+    {
+      "from": "https://theflatratemovers.com/#organization",
+      "relation": "sameAs",
+      "to": "https://www.instagram.com/theflatratemovers/"
+    },
+    {
+      "from": "https://theflatratemovers.com/#organization",
+      "relation": "sameAs",
+      "to": "https://www.threads.com/@theflatratemovers"
+    },
+    {
+      "from": "https://theflatratemovers.com/#organization",
+      "relation": "sameAs",
+      "to": "https://x.com/ratemovers"
+    },
+    {
+      "from": "https://theflatratemovers.com/#organization",
+      "relation": "sameAs",
+      "to": "https://www.youtube.com/@theflatratemovers"
+    }
+  ],
+  "dateModified": "2026-10-28",
+  "description": "Machine-readable entity graph for The Flat Rate Movers LLC. Every node has a stable @id, every Service and Place chains to the Organization by @id, every service area chains to its branch Place, and every fact carries an attestation with source and verification date. No rating, price, license detail, or USDOT number is included. License details are private.",
+  "name": "The Flat Rate Movers \u2014 Entity Graph, Nodes, Chains, and Attestations",
+  "rubric": {
+    "checks": [
+      "Every page has Organization, WebPage, BreadcrumbList, and Service nodes, all linked by stable @id, not by copied text",
+      "Every Place chains Organization -> Place -> PostalAddress -> GeoCoordinates -> OpeningHoursSpecification -> areaServed",
+      "Every Service chains Service -> provider Organization -> Place -> areaServed",
+      "Every fact in a node appears in an attestation with source and date, or it is omitted",
+      "No rating, price, license detail, USDOT number, testimonial, or move count appears without a named, visible, verified source",
+      "Service areas match the GBP service area lists per branch, not a generic county list",
+      "Captions and credits are honest: style examples are labelled Style example, Henry's own photos are labelled as his, no competitor photo is presented as his work"
+    ],
+    "purpose": "Use this rubric to check any page, node, or graph before go-live: does it chain, does it cite, does it attestate?"
+  },
+  "version": "2026-10-28"
+}

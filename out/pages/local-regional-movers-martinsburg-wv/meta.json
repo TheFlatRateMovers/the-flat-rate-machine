@@ -1,0 +1,17 @@
+{
+  "slug": "local-regional-movers-martinsburg-wv",
+  "url": "https://theflatratemovers.com/local-regional-movers-martinsburg-wv/",
+  "title": "Local & Regional Movers — Martinsburg WV",
+  "description": "Local & Regional Movers — Martinsburg WV — Local and regional moves along the I-81, I-66 and I-70 corridors. Flat-rate moving from Winchester, VA and Martinsburg, WV. Guaranteed Flat Rate or Your Move is Free!",
+  "template": "service",
+  "genericTemplate": false,
+  "source": "Phase 1 service template (scripts/build-meta.js) + data/services.json + data/locations.json",
+  "attested": "2026-10-28",
+  "image": {
+    "file": "assets/img-01-9c77693ba66b.png",
+    "url": "https://theflatratemovers.com/assets/img-01-9c77693ba66b.png",
+    "caption": "The Flat Rate Movers logo — company brand image, not a job photo."
+  },
+  "revised": "2026-10-28",
+  "revisionNote": "Expanded from GBP-only to the full footprint per owner decision 2026-10-28; prior content approval does not carry over."
+}

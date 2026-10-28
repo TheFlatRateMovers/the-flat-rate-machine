@@ -1,0 +1,15 @@
+{
+  "slug": "ispm15-movers-martinsburg-wv",
+  "url": "https://theflatratemovers.com/ispm15-movers-martinsburg-wv/",
+  "title": "ISPM 15 Export Packing — Martinsburg WV",
+  "description": "ISPM 15 Export Packing — Martinsburg WV — Export packing to ISPM 15 (International Standards for Phytosanitary Measures No. 15) for international shipping. Flat-rate moving from Winchester, VA and Martinsburg, WV. Guaranteed Flat Rate or Your Move is Free!",
+  "template": "service",
+  "genericTemplate": false,
+  "image": {
+    "file": "assets/img-01-9c77693ba66b.png",
+    "url": "https://theflatratemovers.com/assets/img-01-9c77693ba66b.png",
+    "caption": "The Flat Rate Movers logo — company brand image, not a job photo."
+  },
+  "source": "Phase 1 service template (scripts/build-meta.js) + data/services.json + data/locations.json + data/service-area.geojson",
+  "attested": "2026-10-28"
+}

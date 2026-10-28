@@ -1,0 +1,430 @@
+{
+  "generated": "out/entity-graph.generated.json",
+  "generatedNodeCount": 52,
+  "generatedNodeTypes": {
+    "Organization": 1,
+    "LocalBusiness": 2,
+    "City": 30,
+    "Service": 18,
+    "OfferCatalog": 1
+  },
+  "dataVersion": "2026-10-28",
+  "vsEntityGraph": {
+    "generatedNodes": 52,
+    "referenceNodes": 10,
+    "generatedOnly": [
+      "https://theflatratemovers.com/#winchester",
+      "https://theflatratemovers.com/#martinsburg",
+      "https://theflatratemovers.com/#area-winchester-leesburg",
+      "https://theflatratemovers.com/#area-winchester-marshall",
+      "https://theflatratemovers.com/#area-winchester-sterling",
+      "https://theflatratemovers.com/#area-winchester-stephens-city",
+      "https://theflatratemovers.com/#area-winchester-loudoun-county",
+      "https://theflatratemovers.com/#area-winchester-berryville",
+      "https://theflatratemovers.com/#area-winchester-frederick-county",
+      "https://theflatratemovers.com/#area-winchester-middleburg",
+      "https://theflatratemovers.com/#area-winchester-middletown",
+      "https://theflatratemovers.com/#area-winchester-moorefield",
+      "https://theflatratemovers.com/#area-winchester-round-hill",
+      "https://theflatratemovers.com/#area-winchester-stephenson",
+      "https://theflatratemovers.com/#area-winchester-upperville",
+      "https://theflatratemovers.com/#area-winchester-winchester",
+      "https://theflatratemovers.com/#area-winchester-purcellville",
+      "https://theflatratemovers.com/#area-winchester-south-riding",
+      "https://theflatratemovers.com/#area-martinsburg-inwood",
+      "https://theflatratemovers.com/#area-martinsburg-hagerstown",
+      "https://theflatratemovers.com/#area-martinsburg-hedgesville",
+      "https://theflatratemovers.com/#area-martinsburg-paw-paw",
+      "https://theflatratemovers.com/#area-martinsburg-shepherdstown",
+      "https://theflatratemovers.com/#area-martinsburg-berkeley-county",
+      "https://theflatratemovers.com/#area-martinsburg-moorefield",
+      "https://theflatratemovers.com/#area-martinsburg-bunker-hill",
+      "https://theflatratemovers.com/#area-martinsburg-charles-town",
+      "https://theflatratemovers.com/#area-martinsburg-clear-spring",
+      "https://theflatratemovers.com/#area-martinsburg-summit-point",
+      "https://theflatratemovers.com/#area-martinsburg-harpers-ferry",
+      "https://theflatratemovers.com/#area-martinsburg-kearneysville",
+      "https://theflatratemovers.com/#area-martinsburg-eastern-panhandle",
+      "https://theflatratemovers.com/#service-residential",
+      "https://theflatratemovers.com/#service-commercial",
+      "https://theflatratemovers.com/#service-local-regional",
+      "https://theflatratemovers.com/#service-long-distance",
+      "https://theflatratemovers.com/#service-packing",
+      "https://theflatratemovers.com/#service-sir-heavy",
+      "https://theflatratemovers.com/#service-gun-safe",
+      "https://theflatratemovers.com/#service-piano-antique",
+      "https://theflatratemovers.com/#service-ispm15",
+      "https://theflatratemovers.com/#service-crating",
+      "https://theflatratemovers.com/#service-transloading",
+      "https://theflatratemovers.com/#service-final-mile",
+      "https://theflatratemovers.com/#service-office-moving",
+      "https://theflatratemovers.com/#service-industrial-offices",
+      "https://theflatratemovers.com/#service-government",
+      "https://theflatratemovers.com/#service-military",
+      "https://theflatratemovers.com/#service-route81",
+      "https://theflatratemovers.com/#service-industrial-commercial"
+    ],
+    "referenceOnly": [
+      "https://theflatratemovers.com/#winchester-place",
+      "https://theflatratemovers.com/#winchester-address",
+      "https://theflatratemovers.com/#martinsburg-place",
+      "https://theflatratemovers.com/#martinsburg-address",
+      "https://theflatratemovers.com/gun-safe-movers/#service",
+      "https://theflatratemovers.com/residential-moving/#service",
+      "https://theflatratemovers.com/commercial-moving/#service",
+      "https://theflatratemovers.com/international-export-packing-crating-winchester-va/#service"
+    ],
+    "sharedDiffs": {
+      "https://theflatratemovers.com/#organization": [
+        {
+          "path": "$.legalName",
+          "left": "The Flat Rate Movers LLC"
+        },
+        {
+          "path": "$.location[0].@id",
+          "left": "https://theflatratemovers.com/#winchester",
+          "right": "https://theflatratemovers.com/#winchester-place"
+        },
+        {
+          "path": "$.location[1].@id",
+          "left": "https://theflatratemovers.com/#martinsburg",
+          "right": "https://theflatratemovers.com/#martinsburg-place"
+        },
+        {
+          "path": "$.address",
+          "right": {
+            "@id": "https://theflatratemovers.com/#winchester-address"
+          }
+        },
+        {
+          "path": "$.email",
+          "right": "ratemovers@gmail.com"
+        },
+        {
+          "path": "$.priceRange",
+          "right": "$$"
+        },
+        {
+          "path": "$.sameAs",
+          "right": [
+            "https://www.instagram.com/theflatratemovers/",
+            "https://www.threads.com/@theflatratemovers",
+            "https://x.com/ratemovers",
+            "https://www.youtube.com/@theflatratemovers",
+            "https://github.com/TheFlatRateMovers",
+            "https://medium.com/@ratemovers"
+          ]
+        }
+      ],
+      "https://theflatratemovers.com/#service-catalog": [
+        {
+          "path": "$.itemListElement.length",
+          "left": 18,
+          "right": 7
+        },
+        {
+          "path": "$.itemListElement[0].@id",
+          "left": "https://theflatratemovers.com/#service-residential",
+          "right": "https://theflatratemovers.com/residential-moving/#service"
+        },
+        {
+          "path": "$.itemListElement[1].@id",
+          "left": "https://theflatratemovers.com/#service-commercial",
+          "right": "https://theflatratemovers.com/commercial-moving/#service"
+        },
+        {
+          "path": "$.itemListElement[2].@id",
+          "left": "https://theflatratemovers.com/#service-local-regional",
+          "right": "https://theflatratemovers.com/commercial-office-moving-2/#service"
+        },
+        {
+          "path": "$.itemListElement[3].@id",
+          "left": "https://theflatratemovers.com/#service-long-distance",
+          "right": "https://theflatratemovers.com/gun-safe-movers/#service"
+        },
+        {
+          "path": "$.itemListElement[4].@id",
+          "left": "https://theflatratemovers.com/#service-packing",
+          "right": "https://theflatratemovers.com/military-government-moving/#service"
+        },
+        {
+          "path": "$.itemListElement[5].@id",
+          "left": "https://theflatratemovers.com/#service-sir-heavy",
+          "right": "https://theflatratemovers.com/international-export-packing-crating-winchester-va/#service"
+        },
+        {
+          "path": "$.itemListElement[6].@id",
+          "left": "https://theflatratemovers.com/#service-gun-safe",
+          "right": "https://theflatratemovers.com/long-distance-movers-winchester-va/#service"
+        },
+        {
+          "path": "$.name",
+          "right": "The Flat Rate Movers Services"
+        }
+      ]
+    }
+  },
+  "vsBestGraph": {
+    "generatedNodes": 52,
+    "referenceNodes": 45,
+    "generatedOnly": [
+      "https://theflatratemovers.com/#winchester",
+      "https://theflatratemovers.com/#martinsburg",
+      "https://theflatratemovers.com/#service-residential",
+      "https://theflatratemovers.com/#service-commercial",
+      "https://theflatratemovers.com/#service-local-regional",
+      "https://theflatratemovers.com/#service-long-distance",
+      "https://theflatratemovers.com/#service-packing",
+      "https://theflatratemovers.com/#service-sir-heavy",
+      "https://theflatratemovers.com/#service-gun-safe",
+      "https://theflatratemovers.com/#service-piano-antique",
+      "https://theflatratemovers.com/#service-ispm15",
+      "https://theflatratemovers.com/#service-crating",
+      "https://theflatratemovers.com/#service-transloading",
+      "https://theflatratemovers.com/#service-final-mile",
+      "https://theflatratemovers.com/#service-office-moving",
+      "https://theflatratemovers.com/#service-industrial-offices",
+      "https://theflatratemovers.com/#service-government",
+      "https://theflatratemovers.com/#service-military",
+      "https://theflatratemovers.com/#service-route81",
+      "https://theflatratemovers.com/#service-industrial-commercial"
+    ],
+    "referenceOnly": [
+      "https://theflatratemovers.com/#winchester-place",
+      "https://theflatratemovers.com/#martinsburg-place",
+      "https://theflatratemovers.com/#website",
+      "https://theflatratemovers.com/#webpage",
+      "https://theflatratemovers.com/#breadcrumb",
+      "https://theflatratemovers.com/gun-safe-movers/#service",
+      "https://theflatratemovers.com/residential-moving/#service",
+      "https://theflatratemovers.com/commercial-moving/#service",
+      "https://theflatratemovers.com/commercial-office-moving-2/#service",
+      "https://theflatratemovers.com/military-government-moving/#service",
+      "https://theflatratemovers.com/long-distance-movers-winchester-va/#service",
+      "https://theflatratemovers.com/international-export-packing-crating-winchester-va/#service",
+      "https://theflatratemovers.com/container-loading-unloading-services-port-transload-virginia/#service"
+    ],
+    "sharedDiffs": {
+      "https://theflatratemovers.com/#organization": [
+        {
+          "path": "$.location[0].@id",
+          "left": "https://theflatratemovers.com/#winchester",
+          "right": "https://theflatratemovers.com/#winchester-place"
+        },
+        {
+          "path": "$.location[1].@id",
+          "left": "https://theflatratemovers.com/#martinsburg",
+          "right": "https://theflatratemovers.com/#martinsburg-place"
+        },
+        {
+          "path": "$.alternateName",
+          "right": "The Flat Rate Movers"
+        },
+        {
+          "path": "$.description",
+          "right": "Flat-rate, no-hourly moving company founded June 2010 in Winchester, VA and Martinsburg, WV. Specialists in SIR Structural Integrity Relocation and KIM-GS Kinetic Integrity Method for high-mass assets 1,500-3,500 lbs, plus ISPM 15 export packing, custom crating, transloading, and final mile delivery."
+        },
+        {
+          "path": "$.email",
+          "right": "ratemovers@gmail.com"
+        },
+        {
+          "path": "$.priceRange",
+          "right": "$$"
+        },
+        {
+          "path": "$.logo",
+          "right": "https://theflatratemovers.com/assets/logo.png"
+        },
+        {
+          "path": "$.image",
+          "right": "https://theflatratemovers.com/assets/i81-winchester.jpg"
+        },
+        {
+          "path": "$.knowsAbout",
+          "right": [
+            "Flat-rate moving",
+            "SIR Structural Integrity Relocation",
+            "KIM-GS Kinetic Integrity Method",
+            "Gun safe moving",
+            "ISPM 15 export packing",
+            "Transloading",
+            "Final mile delivery"
+          ]
+        },
+        {
+          "path": "$.areaServed",
+          "right": [
+            "Leesburg, VA",
+            "Marshall, VA",
+            "Sterling, VA",
+            "Stephens City, VA",
+            "Loudoun County, VA",
+            "Berryville, VA",
+            "Frederick County, VA",
+            "Middleburg, VA",
+            "Middletown, VA",
+            "Moorefield, WV",
+            "Round Hill, VA",
+            "Stephenson, VA",
+            "Upperville, VA",
+            "Winchester, VA",
+            "Purcellville, VA",
+            "South Riding, VA",
+            "Inwood, WV",
+            "Hagerstown, MD",
+            "Hedgesville, WV",
+            "Paw Paw, WV",
+            "Shepherdstown, WV",
+            "Berkeley County, WV",
+            "Moorefield, WV",
+            "Bunker Hill, WV",
+            "Charles Town, WV",
+            "Clear Spring, MD",
+            "Summit Point, WV",
+            "Harpers Ferry, WV",
+            "Kearneysville, WV",
+            "Eastern Panhandle, WV"
+          ]
+        },
+        {
+          "path": "$.sameAs",
+          "right": [
+            "https://www.instagram.com/theflatratemovers/",
+            "https://www.threads.com/@theflatratemovers",
+            "https://x.com/ratemovers",
+            "https://www.youtube.com/@theflatratemovers",
+            "https://github.com/TheFlatRateMovers",
+            "https://medium.com/@ratemovers"
+          ]
+        },
+        {
+          "path": "$.contactPoint",
+          "right": {
+            "@type": "ContactPoint",
+            "telephone": "+1-540-422-2153",
+            "email": "ratemovers@gmail.com",
+            "contactType": "customer service",
+            "areaServed": "US-VA, US-WV, US-MD",
+            "availableLanguage": "en-US"
+          }
+        }
+      ],
+      "https://theflatratemovers.com/#service-catalog": [
+        {
+          "path": "$.itemListElement.length",
+          "left": 18,
+          "right": 8
+        },
+        {
+          "path": "$.itemListElement[0].@id",
+          "left": "https://theflatratemovers.com/#service-residential",
+          "right": "https://theflatratemovers.com/gun-safe-movers/#service"
+        },
+        {
+          "path": "$.itemListElement[1].@id",
+          "left": "https://theflatratemovers.com/#service-commercial",
+          "right": "https://theflatratemovers.com/residential-moving/#service"
+        },
+        {
+          "path": "$.itemListElement[2].@id",
+          "left": "https://theflatratemovers.com/#service-local-regional",
+          "right": "https://theflatratemovers.com/commercial-moving/#service"
+        },
+        {
+          "path": "$.itemListElement[3].@id",
+          "left": "https://theflatratemovers.com/#service-long-distance",
+          "right": "https://theflatratemovers.com/commercial-office-moving-2/#service"
+        },
+        {
+          "path": "$.itemListElement[4].@id",
+          "left": "https://theflatratemovers.com/#service-packing",
+          "right": "https://theflatratemovers.com/military-government-moving/#service"
+        },
+        {
+          "path": "$.itemListElement[5].@id",
+          "left": "https://theflatratemovers.com/#service-sir-heavy",
+          "right": "https://theflatratemovers.com/long-distance-movers-winchester-va/#service"
+        },
+        {
+          "path": "$.itemListElement[6].@id",
+          "left": "https://theflatratemovers.com/#service-gun-safe",
+          "right": "https://theflatratemovers.com/international-export-packing-crating-winchester-va/#service"
+        },
+        {
+          "path": "$.itemListElement[7].@id",
+          "left": "https://theflatratemovers.com/#service-piano-antique",
+          "right": "https://theflatratemovers.com/container-loading-unloading-services-port-transload-virginia/#service"
+        },
+        {
+          "path": "$.name",
+          "right": "The Flat Rate Movers Services"
+        }
+      ]
+    }
+  },
+  "gaps": [
+    {
+      "field": "Organization.email / contactPoint.email",
+      "foundIn": "entity-graph.json, best-json-entity-graph.json, live ai-sitemap creator",
+      "reason": "Not present in any Phase 0 dataset (locations.json company record has no email). Omitted, not copied in. Phase 0 amendment needed for byte-equivalence."
+    },
+    {
+      "field": "Organization.sameAs (social profiles)",
+      "foundIn": "entity-graph.json, best-json-entity-graph.json",
+      "reason": "Social URLs are not in any Phase 0 dataset. Omitted, not copied in. Phase 0 amendment needed."
+    },
+    {
+      "field": "Organization.priceRange",
+      "foundIn": "entity-graph.json, best-json-entity-graph.json",
+      "reason": "Not in any Phase 0 dataset. Omitted."
+    },
+    {
+      "field": "Organization.description (prose)",
+      "foundIn": "best-json-entity-graph.json",
+      "reason": "Hand-written prose, not a dataset fact. The generated graph carries the same facts as structured fields instead."
+    },
+    {
+      "field": "Organization.knowsAbout, logo, image",
+      "foundIn": "best-json-entity-graph.json",
+      "reason": "knowsAbout is an editorial topic list; logo/image paths in the old copy do not match live asset filenames (media dataset is schema-only). Omitted."
+    },
+    {
+      "field": "Organization.contactPoint.areaServed / availableLanguage",
+      "foundIn": "best-json-entity-graph.json",
+      "reason": "Contact-point detail not in any Phase 0 dataset. Telephone is carried on the Organization and branch nodes instead."
+    },
+    {
+      "field": "WebSite / WebPage / BreadcrumbList nodes",
+      "foundIn": "best-json-entity-graph.json",
+      "reason": "Page-structure nodes, not entity data. They belong to the Phase 3 page builder, not the entity graph."
+    },
+    {
+      "field": "Standalone PostalAddress nodes (#winchester-address, #martinsburg-address)",
+      "foundIn": "entity-graph.json",
+      "reason": "Canonical pattern change: branch addresses are inline PostalAddress objects on the LocalBusiness nodes, so no second copy of the same address exists in the file."
+    },
+    {
+      "field": "Branch node type Place vs LocalBusiness",
+      "foundIn": "entity-graph.json, best-json-entity-graph.json",
+      "reason": "Phase 1 spec models branches as LocalBusiness (with hours, rating, areaServed as chained refs). Same facts, different node type; old #winchester-place / #martinsburg-place @ids are therefore reference-only."
+    },
+    {
+      "field": "Service @id pattern (page-slug #service vs #service-* fragments)",
+      "foundIn": "entity-graph.json, best-json-entity-graph.json",
+      "reason": "Canonical pattern change: services use the head-graph fragment @ids from services.json. Old page-slug @ids are reference-only; the generated graph carries all 18 services where the old copies carried 4 and 8."
+    },
+    {
+      "field": "Service description wording",
+      "foundIn": "best-json-entity-graph.json",
+      "reason": "Generated descriptions are services.json (head-graph) descriptions, the dataset truth. Best-graph descriptions are an alternate wording not present in any dataset."
+    },
+    {
+      "field": "Dataset wrapper (attestations, chain, rubric, version)",
+      "foundIn": "entity-graph.json",
+      "reason": "Provenance wrapper, not graph data. Provenance for the generated graph lives in out/graph.diff.json and DATA_MODEL.md, not inside the JSON-LD."
+    }
+  ],
+  "byteEquivalent": false,
+  "status": "EXPLAINED — every difference is listed above or in the node diffs; no fact was invented to force an empty diff."
+}

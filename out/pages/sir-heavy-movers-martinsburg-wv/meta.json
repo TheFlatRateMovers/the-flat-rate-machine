@@ -1,0 +1,17 @@
+{
+  "slug": "sir-heavy-movers-martinsburg-wv",
+  "url": "https://theflatratemovers.com/sir-heavy-movers-martinsburg-wv/",
+  "title": "SIR Heavy Movers — Martinsburg WV",
+  "description": "SIR Heavy Movers — Martinsburg WV — SIR Structural Integrity Relocation and the KIM-GS Protocol for high-mass assets of 1,500 to 3,500 lbs — safes, medical devices, cryogenic equipment, pianos and antiques — with floor deflection analysis to L/360. Flat-rate moving from Winchester, VA and Martinsburg, WV. Guaranteed Flat Rate or Your Move is Free!",
+  "template": "service",
+  "genericTemplate": false,
+  "source": "Phase 1 service template (scripts/build-meta.js) + data/services.json + data/locations.json",
+  "attested": "2026-10-28",
+  "image": {
+    "file": "assets/img-01-9c77693ba66b.png",
+    "url": "https://theflatratemovers.com/assets/img-01-9c77693ba66b.png",
+    "caption": "The Flat Rate Movers logo — company brand image, not a job photo."
+  },
+  "revised": "2026-10-28",
+  "revisionNote": "Expanded from GBP-only to the full footprint per owner decision 2026-10-28; prior content approval does not carry over."
+}

@@ -1,0 +1,849 @@
+{
+  "dataset": "phase3-full-scores",
+  "generated": "2026-10-28",
+  "pages": [
+    {
+      "slug": "local-regional-movers-martinsburg-wv",
+      "title": "Local & Regional Movers — Martinsburg WV",
+      "service": "service-local-regional",
+      "serviceName": "Local and Regional Moving",
+      "branch": "martinsburg",
+      "priority": "P1",
+      "rubric": {
+        "R1": 3,
+        "R2": 3,
+        "R3": 3,
+        "R4": 3,
+        "R5": 3,
+        "R6": 3,
+        "R7": 2
+      },
+      "verdict": "READY",
+      "revised": true,
+      "missingSections": [],
+      "notes": [
+        "R6=3: company logo assigned per owner approval 2026-10-28 (assets/img-01-9c77693ba66b.png), captioned as a brand image, not a job photo.",
+        "R7=2: quote card uses exact \"Get My Flat Rate Quote\" wording and describes the Short/Detailed toggle; toggle behavior lives in the verified live form and is re-checked at publish.",
+        "REVISED 2026-10-28 from GBP-only to full footprint; prior content approval does NOT carry over.",
+        "Footprint: GBP 14 + extended 21 = 35 areas; shared areas noted, never silently single-branch."
+      ]
+    },
+    {
+      "slug": "long-distance-movers-martinsburg-wv",
+      "title": "Long-Distance Movers — Martinsburg WV",
+      "service": "service-long-distance",
+      "serviceName": "Long-Distance Moving",
+      "branch": "martinsburg",
+      "priority": "P1",
+      "rubric": {
+        "R1": 3,
+        "R2": 3,
+        "R3": 3,
+        "R4": 3,
+        "R5": 3,
+        "R6": 3,
+        "R7": 2
+      },
+      "verdict": "READY",
+      "revised": true,
+      "missingSections": [],
+      "notes": [
+        "R6=3: company logo assigned per owner approval 2026-10-28 (assets/img-01-9c77693ba66b.png), captioned as a brand image, not a job photo.",
+        "R7=2: quote card uses exact \"Get My Flat Rate Quote\" wording and describes the Short/Detailed toggle; toggle behavior lives in the verified live form and is re-checked at publish.",
+        "REVISED 2026-10-28 from GBP-only to full footprint; prior content approval does NOT carry over.",
+        "Footprint: GBP 14 + extended 21 = 35 areas; shared areas noted, never silently single-branch."
+      ]
+    },
+    {
+      "slug": "packing-movers-martinsburg-wv",
+      "title": "Packing Movers — Martinsburg WV",
+      "service": "service-packing",
+      "serviceName": "Packing and Unpacking",
+      "branch": "martinsburg",
+      "priority": "P1",
+      "rubric": {
+        "R1": 3,
+        "R2": 3,
+        "R3": 3,
+        "R4": 3,
+        "R5": 3,
+        "R6": 3,
+        "R7": 2
+      },
+      "verdict": "READY",
+      "revised": true,
+      "missingSections": [],
+      "notes": [
+        "R6=3: company logo assigned per owner approval 2026-10-28 (assets/img-01-9c77693ba66b.png), captioned as a brand image, not a job photo.",
+        "R7=2: quote card uses exact \"Get My Flat Rate Quote\" wording and describes the Short/Detailed toggle; toggle behavior lives in the verified live form and is re-checked at publish.",
+        "REVISED 2026-10-28 from GBP-only to full footprint; prior content approval does NOT carry over.",
+        "Footprint: GBP 14 + extended 21 = 35 areas; shared areas noted, never silently single-branch."
+      ]
+    },
+    {
+      "slug": "sir-heavy-movers-martinsburg-wv",
+      "title": "SIR Heavy Movers — Martinsburg WV",
+      "service": "service-sir-heavy",
+      "serviceName": "SIR Heavy Asset Relocation (KIM-GS Protocol)",
+      "branch": "martinsburg",
+      "priority": "P1",
+      "rubric": {
+        "R1": 3,
+        "R2": 3,
+        "R3": 3,
+        "R4": 3,
+        "R5": 3,
+        "R6": 3,
+        "R7": 2
+      },
+      "verdict": "READY",
+      "revised": true,
+      "missingSections": [],
+      "notes": [
+        "R6=3: company logo assigned per owner approval 2026-10-28 (assets/img-01-9c77693ba66b.png), captioned as a brand image, not a job photo.",
+        "R7=2: quote card uses exact \"Get My Flat Rate Quote\" wording and describes the Short/Detailed toggle; toggle behavior lives in the verified live form and is re-checked at publish.",
+        "REVISED 2026-10-28 from GBP-only to full footprint; prior content approval does NOT carry over.",
+        "Footprint: GBP 14 + extended 21 = 35 areas; shared areas noted, never silently single-branch."
+      ]
+    },
+    {
+      "slug": "gun-safe-movers-martinsburg-wv",
+      "title": "Gun Safe Movers — Martinsburg WV",
+      "service": "service-gun-safe",
+      "serviceName": "Gun Safe Moving",
+      "branch": "martinsburg",
+      "priority": "P1",
+      "rubric": {
+        "R1": 3,
+        "R2": 3,
+        "R3": 3,
+        "R4": 3,
+        "R5": 3,
+        "R6": 3,
+        "R7": 2
+      },
+      "verdict": "READY",
+      "revised": true,
+      "missingSections": [],
+      "notes": [
+        "R6=3: company logo assigned per owner approval 2026-10-28 (assets/img-01-9c77693ba66b.png), captioned as a brand image, not a job photo.",
+        "R7=2: quote card uses exact \"Get My Flat Rate Quote\" wording and describes the Short/Detailed toggle; toggle behavior lives in the verified live form and is re-checked at publish.",
+        "REVISED 2026-10-28 from GBP-only to full footprint; prior content approval does NOT carry over.",
+        "Footprint: GBP 14 + extended 21 = 35 areas; shared areas noted, never silently single-branch."
+      ]
+    },
+    {
+      "slug": "interstate-66-corridor",
+      "title": "Interstate 66 Corridor Moving",
+      "service": "service-route81",
+      "serviceName": "Route 81 Corridor Moving and Dispatch",
+      "branch": "both",
+      "priority": "P1",
+      "rubric": {
+        "R1": 3,
+        "R2": 3,
+        "R3": 3,
+        "R4": 3,
+        "R5": 3,
+        "R6": 3,
+        "R7": 2
+      },
+      "verdict": "READY",
+      "revised": true,
+      "missingSections": [],
+      "notes": [
+        "R6=3: company logo assigned per owner approval 2026-10-28 (assets/img-01-9c77693ba66b.png), captioned as a brand image, not a job photo.",
+        "R7=2: quote card uses exact \"Get My Flat Rate Quote\" wording and describes the Short/Detailed toggle; toggle behavior lives in the verified live form and is re-checked at publish.",
+        "REVISED 2026-10-28 from GBP-only (16/14) to full footprint (31/35); prior content approval does NOT carry over.",
+        "Schema: Service attaches to #service-route81 (its description covers all three corridors); areaServed via branch @ids, never a merged list."
+      ]
+    },
+    {
+      "slug": "interstate-70-corridor",
+      "title": "Interstate 70 Corridor Moving",
+      "service": "service-route81",
+      "serviceName": "Route 81 Corridor Moving and Dispatch",
+      "branch": "both",
+      "priority": "P1",
+      "rubric": {
+        "R1": 3,
+        "R2": 3,
+        "R3": 3,
+        "R4": 3,
+        "R5": 3,
+        "R6": 3,
+        "R7": 2
+      },
+      "verdict": "READY",
+      "revised": true,
+      "missingSections": [],
+      "notes": [
+        "R6=3: company logo assigned per owner approval 2026-10-28 (assets/img-01-9c77693ba66b.png), captioned as a brand image, not a job photo.",
+        "R7=2: quote card uses exact \"Get My Flat Rate Quote\" wording and describes the Short/Detailed toggle; toggle behavior lives in the verified live form and is re-checked at publish.",
+        "REVISED 2026-10-28 from GBP-only (16/14) to full footprint (31/35); prior content approval does NOT carry over.",
+        "Schema: Service attaches to #service-route81 (its description covers all three corridors); areaServed via branch @ids, never a merged list."
+      ]
+    },
+    {
+      "slug": "commercial-movers-winchester-va",
+      "title": "Commercial and Office Movers — Winchester VA",
+      "service": "service-commercial",
+      "serviceName": "Commercial and Office Moving",
+      "branch": "winchester",
+      "priority": "P2",
+      "rubric": {
+        "R1": 3,
+        "R2": 3,
+        "R3": 3,
+        "R4": 3,
+        "R5": 3,
+        "R6": 3,
+        "R7": 2
+      },
+      "verdict": "READY",
+      "revised": false,
+      "missingSections": [],
+      "notes": [
+        "R6=3: company logo assigned per owner approval 2026-10-28 (assets/img-01-9c77693ba66b.png), captioned as a brand image, not a job photo.",
+        "R7=2: quote card uses exact \"Get My Flat Rate Quote\" wording and describes the Short/Detailed toggle; toggle behavior lives in the verified live form and is re-checked at publish.",
+        "New page; full footprint (GBP + extended) from the start.",
+        "Footprint: GBP 16 + extended 15 = 31 areas; shared areas noted, never silently single-branch."
+      ]
+    },
+    {
+      "slug": "local-regional-movers-winchester-va",
+      "title": "Local & Regional Movers — Winchester VA",
+      "service": "service-local-regional",
+      "serviceName": "Local and Regional Moving",
+      "branch": "winchester",
+      "priority": "P2",
+      "rubric": {
+        "R1": 3,
+        "R2": 3,
+        "R3": 3,
+        "R4": 3,
+        "R5": 3,
+        "R6": 3,
+        "R7": 2
+      },
+      "verdict": "READY",
+      "revised": false,
+      "missingSections": [],
+      "notes": [
+        "R6=3: company logo assigned per owner approval 2026-10-28 (assets/img-01-9c77693ba66b.png), captioned as a brand image, not a job photo.",
+        "R7=2: quote card uses exact \"Get My Flat Rate Quote\" wording and describes the Short/Detailed toggle; toggle behavior lives in the verified live form and is re-checked at publish.",
+        "New page; full footprint (GBP + extended) from the start.",
+        "Footprint: GBP 16 + extended 15 = 31 areas; shared areas noted, never silently single-branch."
+      ]
+    },
+    {
+      "slug": "piano-antique-movers-martinsburg-wv",
+      "title": "Piano, Antique & White-Glove Movers — Martinsburg WV",
+      "service": "service-piano-antique",
+      "serviceName": "Piano, Antique and White-Glove Moving",
+      "branch": "martinsburg",
+      "priority": "P1",
+      "rubric": {
+        "R1": 3,
+        "R2": 3,
+        "R3": 3,
+        "R4": 3,
+        "R5": 3,
+        "R6": 3,
+        "R7": 2
+      },
+      "verdict": "READY",
+      "revised": false,
+      "missingSections": [],
+      "notes": [
+        "R6=3: company logo assigned per owner approval 2026-10-28 (assets/img-01-9c77693ba66b.png), captioned as a brand image, not a job photo.",
+        "R7=2: quote card uses exact \"Get My Flat Rate Quote\" wording and describes the Short/Detailed toggle; toggle behavior lives in the verified live form and is re-checked at publish.",
+        "New page; full footprint (GBP + extended) from the start.",
+        "Footprint: GBP 14 + extended 21 = 35 areas; shared areas noted, never silently single-branch."
+      ]
+    },
+    {
+      "slug": "ispm15-movers-martinsburg-wv",
+      "title": "ISPM 15 Export Packing — Martinsburg WV",
+      "service": "service-ispm15",
+      "serviceName": "ISPM 15 Export Packing",
+      "branch": "martinsburg",
+      "priority": "P1",
+      "rubric": {
+        "R1": 3,
+        "R2": 3,
+        "R3": 3,
+        "R4": 3,
+        "R5": 3,
+        "R6": 3,
+        "R7": 2
+      },
+      "verdict": "READY",
+      "revised": false,
+      "missingSections": [],
+      "notes": [
+        "R6=3: company logo assigned per owner approval 2026-10-28 (assets/img-01-9c77693ba66b.png), captioned as a brand image, not a job photo.",
+        "R7=2: quote card uses exact \"Get My Flat Rate Quote\" wording and describes the Short/Detailed toggle; toggle behavior lives in the verified live form and is re-checked at publish.",
+        "New page; full footprint (GBP + extended) from the start.",
+        "Footprint: GBP 14 + extended 21 = 35 areas; shared areas noted, never silently single-branch."
+      ]
+    },
+    {
+      "slug": "crating-movers-martinsburg-wv",
+      "title": "Custom Crating — Martinsburg WV",
+      "service": "service-crating",
+      "serviceName": "Custom Crating",
+      "branch": "martinsburg",
+      "priority": "P1",
+      "rubric": {
+        "R1": 3,
+        "R2": 3,
+        "R3": 3,
+        "R4": 3,
+        "R5": 3,
+        "R6": 3,
+        "R7": 2
+      },
+      "verdict": "READY",
+      "revised": false,
+      "missingSections": [],
+      "notes": [
+        "R6=3: company logo assigned per owner approval 2026-10-28 (assets/img-01-9c77693ba66b.png), captioned as a brand image, not a job photo.",
+        "R7=2: quote card uses exact \"Get My Flat Rate Quote\" wording and describes the Short/Detailed toggle; toggle behavior lives in the verified live form and is re-checked at publish.",
+        "New page; full footprint (GBP + extended) from the start.",
+        "Footprint: GBP 14 + extended 21 = 35 areas; shared areas noted, never silently single-branch."
+      ]
+    },
+    {
+      "slug": "transloading-movers-martinsburg-wv",
+      "title": "Loading, Transloading & Container Services — Martinsburg WV",
+      "service": "service-transloading",
+      "serviceName": "Loading, Transloading and Container Services",
+      "branch": "martinsburg",
+      "priority": "P1",
+      "rubric": {
+        "R1": 3,
+        "R2": 3,
+        "R3": 3,
+        "R4": 3,
+        "R5": 3,
+        "R6": 3,
+        "R7": 2
+      },
+      "verdict": "READY",
+      "revised": false,
+      "missingSections": [],
+      "notes": [
+        "R6=3: company logo assigned per owner approval 2026-10-28 (assets/img-01-9c77693ba66b.png), captioned as a brand image, not a job photo.",
+        "R7=2: quote card uses exact \"Get My Flat Rate Quote\" wording and describes the Short/Detailed toggle; toggle behavior lives in the verified live form and is re-checked at publish.",
+        "New page; full footprint (GBP + extended) from the start.",
+        "Footprint: GBP 14 + extended 21 = 35 areas; shared areas noted, never silently single-branch."
+      ]
+    },
+    {
+      "slug": "final-mile-movers-martinsburg-wv",
+      "title": "Final-Mile Delivery — Martinsburg WV",
+      "service": "service-final-mile",
+      "serviceName": "Final-Mile Delivery",
+      "branch": "martinsburg",
+      "priority": "P1",
+      "rubric": {
+        "R1": 3,
+        "R2": 3,
+        "R3": 3,
+        "R4": 3,
+        "R5": 3,
+        "R6": 3,
+        "R7": 2
+      },
+      "verdict": "READY",
+      "revised": false,
+      "missingSections": [],
+      "notes": [
+        "R6=3: company logo assigned per owner approval 2026-10-28 (assets/img-01-9c77693ba66b.png), captioned as a brand image, not a job photo.",
+        "R7=2: quote card uses exact \"Get My Flat Rate Quote\" wording and describes the Short/Detailed toggle; toggle behavior lives in the verified live form and is re-checked at publish.",
+        "New page; full footprint (GBP + extended) from the start.",
+        "Footprint: GBP 14 + extended 21 = 35 areas; shared areas noted, never silently single-branch."
+      ]
+    },
+    {
+      "slug": "office-moving-movers-winchester-va",
+      "title": "Office Moving — Winchester VA",
+      "service": "service-office-moving",
+      "serviceName": "Office Moving",
+      "branch": "winchester",
+      "priority": "P2",
+      "rubric": {
+        "R1": 3,
+        "R2": 3,
+        "R3": 3,
+        "R4": 3,
+        "R5": 3,
+        "R6": 3,
+        "R7": 2
+      },
+      "verdict": "READY",
+      "revised": false,
+      "missingSections": [],
+      "notes": [
+        "R6=3: company logo assigned per owner approval 2026-10-28 (assets/img-01-9c77693ba66b.png), captioned as a brand image, not a job photo.",
+        "R7=2: quote card uses exact \"Get My Flat Rate Quote\" wording and describes the Short/Detailed toggle; toggle behavior lives in the verified live form and is re-checked at publish.",
+        "New page; full footprint (GBP + extended) from the start.",
+        "Footprint: GBP 16 + extended 15 = 31 areas; shared areas noted, never silently single-branch."
+      ]
+    },
+    {
+      "slug": "office-moving-movers-martinsburg-wv",
+      "title": "Office Moving — Martinsburg WV",
+      "service": "service-office-moving",
+      "serviceName": "Office Moving",
+      "branch": "martinsburg",
+      "priority": "P1",
+      "rubric": {
+        "R1": 3,
+        "R2": 3,
+        "R3": 3,
+        "R4": 3,
+        "R5": 3,
+        "R6": 3,
+        "R7": 2
+      },
+      "verdict": "READY",
+      "revised": false,
+      "missingSections": [],
+      "notes": [
+        "R6=3: company logo assigned per owner approval 2026-10-28 (assets/img-01-9c77693ba66b.png), captioned as a brand image, not a job photo.",
+        "R7=2: quote card uses exact \"Get My Flat Rate Quote\" wording and describes the Short/Detailed toggle; toggle behavior lives in the verified live form and is re-checked at publish.",
+        "New page; full footprint (GBP + extended) from the start.",
+        "Footprint: GBP 14 + extended 21 = 35 areas; shared areas noted, never silently single-branch."
+      ]
+    },
+    {
+      "slug": "industrial-offices-movers-winchester-va",
+      "title": "Industrial Offices Moving — Winchester VA",
+      "service": "service-industrial-offices",
+      "serviceName": "Industrial Offices Moving",
+      "branch": "winchester",
+      "priority": "P2",
+      "rubric": {
+        "R1": 3,
+        "R2": 3,
+        "R3": 3,
+        "R4": 3,
+        "R5": 3,
+        "R6": 3,
+        "R7": 2
+      },
+      "verdict": "READY",
+      "revised": false,
+      "missingSections": [],
+      "notes": [
+        "R6=3: company logo assigned per owner approval 2026-10-28 (assets/img-01-9c77693ba66b.png), captioned as a brand image, not a job photo.",
+        "R7=2: quote card uses exact \"Get My Flat Rate Quote\" wording and describes the Short/Detailed toggle; toggle behavior lives in the verified live form and is re-checked at publish.",
+        "New page; full footprint (GBP + extended) from the start.",
+        "Footprint: GBP 16 + extended 15 = 31 areas; shared areas noted, never silently single-branch."
+      ]
+    },
+    {
+      "slug": "industrial-offices-movers-martinsburg-wv",
+      "title": "Industrial Offices Moving — Martinsburg WV",
+      "service": "service-industrial-offices",
+      "serviceName": "Industrial Offices Moving",
+      "branch": "martinsburg",
+      "priority": "P1",
+      "rubric": {
+        "R1": 3,
+        "R2": 3,
+        "R3": 3,
+        "R4": 3,
+        "R5": 3,
+        "R6": 3,
+        "R7": 2
+      },
+      "verdict": "READY",
+      "revised": false,
+      "missingSections": [],
+      "notes": [
+        "R6=3: company logo assigned per owner approval 2026-10-28 (assets/img-01-9c77693ba66b.png), captioned as a brand image, not a job photo.",
+        "R7=2: quote card uses exact \"Get My Flat Rate Quote\" wording and describes the Short/Detailed toggle; toggle behavior lives in the verified live form and is re-checked at publish.",
+        "New page; full footprint (GBP + extended) from the start.",
+        "Footprint: GBP 14 + extended 21 = 35 areas; shared areas noted, never silently single-branch."
+      ]
+    },
+    {
+      "slug": "government-movers-winchester-va",
+      "title": "Government Movers — Winchester VA",
+      "service": "service-government",
+      "serviceName": "Government Moving",
+      "branch": "winchester",
+      "priority": "P2",
+      "rubric": {
+        "R1": 3,
+        "R2": 3,
+        "R3": 3,
+        "R4": 3,
+        "R5": 3,
+        "R6": 3,
+        "R7": 2
+      },
+      "verdict": "READY",
+      "revised": false,
+      "missingSections": [],
+      "notes": [
+        "R6=3: company logo assigned per owner approval 2026-10-28 (assets/img-01-9c77693ba66b.png), captioned as a brand image, not a job photo.",
+        "R7=2: quote card uses exact \"Get My Flat Rate Quote\" wording and describes the Short/Detailed toggle; toggle behavior lives in the verified live form and is re-checked at publish.",
+        "New page; full footprint (GBP + extended) from the start.",
+        "Footprint: GBP 16 + extended 15 = 31 areas; shared areas noted, never silently single-branch."
+      ]
+    },
+    {
+      "slug": "government-movers-martinsburg-wv",
+      "title": "Government Movers — Martinsburg WV",
+      "service": "service-government",
+      "serviceName": "Government Moving",
+      "branch": "martinsburg",
+      "priority": "P1",
+      "rubric": {
+        "R1": 3,
+        "R2": 3,
+        "R3": 3,
+        "R4": 3,
+        "R5": 3,
+        "R6": 3,
+        "R7": 2
+      },
+      "verdict": "READY",
+      "revised": false,
+      "missingSections": [],
+      "notes": [
+        "R6=3: company logo assigned per owner approval 2026-10-28 (assets/img-01-9c77693ba66b.png), captioned as a brand image, not a job photo.",
+        "R7=2: quote card uses exact \"Get My Flat Rate Quote\" wording and describes the Short/Detailed toggle; toggle behavior lives in the verified live form and is re-checked at publish.",
+        "New page; full footprint (GBP + extended) from the start.",
+        "Footprint: GBP 14 + extended 21 = 35 areas; shared areas noted, never silently single-branch."
+      ]
+    },
+    {
+      "slug": "military-movers-winchester-va",
+      "title": "Military Movers — Winchester VA",
+      "service": "service-military",
+      "serviceName": "Military Moving",
+      "branch": "winchester",
+      "priority": "P2",
+      "rubric": {
+        "R1": 3,
+        "R2": 3,
+        "R3": 3,
+        "R4": 3,
+        "R5": 3,
+        "R6": 3,
+        "R7": 2
+      },
+      "verdict": "READY",
+      "revised": false,
+      "missingSections": [],
+      "notes": [
+        "R6=3: company logo assigned per owner approval 2026-10-28 (assets/img-01-9c77693ba66b.png), captioned as a brand image, not a job photo.",
+        "R7=2: quote card uses exact \"Get My Flat Rate Quote\" wording and describes the Short/Detailed toggle; toggle behavior lives in the verified live form and is re-checked at publish.",
+        "New page; full footprint (GBP + extended) from the start.",
+        "Footprint: GBP 16 + extended 15 = 31 areas; shared areas noted, never silently single-branch."
+      ]
+    },
+    {
+      "slug": "military-movers-martinsburg-wv",
+      "title": "Military Movers — Martinsburg WV",
+      "service": "service-military",
+      "serviceName": "Military Moving",
+      "branch": "martinsburg",
+      "priority": "P1",
+      "rubric": {
+        "R1": 3,
+        "R2": 3,
+        "R3": 3,
+        "R4": 3,
+        "R5": 3,
+        "R6": 3,
+        "R7": 2
+      },
+      "verdict": "READY",
+      "revised": false,
+      "missingSections": [],
+      "notes": [
+        "R6=3: company logo assigned per owner approval 2026-10-28 (assets/img-01-9c77693ba66b.png), captioned as a brand image, not a job photo.",
+        "R7=2: quote card uses exact \"Get My Flat Rate Quote\" wording and describes the Short/Detailed toggle; toggle behavior lives in the verified live form and is re-checked at publish.",
+        "New page; full footprint (GBP + extended) from the start.",
+        "Footprint: GBP 14 + extended 21 = 35 areas; shared areas noted, never silently single-branch."
+      ]
+    },
+    {
+      "slug": "industrial-commercial-movers-winchester-va",
+      "title": "Industrial & Commercial Services — Winchester VA",
+      "service": "service-industrial-commercial",
+      "serviceName": "Industrial & Commercial Services",
+      "branch": "winchester",
+      "priority": "P2",
+      "rubric": {
+        "R1": 3,
+        "R2": 3,
+        "R3": 3,
+        "R4": 3,
+        "R5": 3,
+        "R6": 3,
+        "R7": 2
+      },
+      "verdict": "READY",
+      "revised": false,
+      "missingSections": [],
+      "notes": [
+        "R6=3: company logo assigned per owner approval 2026-10-28 (assets/img-01-9c77693ba66b.png), captioned as a brand image, not a job photo.",
+        "R7=2: quote card uses exact \"Get My Flat Rate Quote\" wording and describes the Short/Detailed toggle; toggle behavior lives in the verified live form and is re-checked at publish.",
+        "New page; full footprint (GBP + extended) from the start.",
+        "Footprint: GBP 16 + extended 15 = 31 areas; shared areas noted, never silently single-branch."
+      ]
+    },
+    {
+      "slug": "industrial-commercial-movers-martinsburg-wv",
+      "title": "Industrial & Commercial Services — Martinsburg WV",
+      "service": "service-industrial-commercial",
+      "serviceName": "Industrial & Commercial Services",
+      "branch": "martinsburg",
+      "priority": "P1",
+      "rubric": {
+        "R1": 3,
+        "R2": 3,
+        "R3": 3,
+        "R4": 3,
+        "R5": 3,
+        "R6": 3,
+        "R7": 2
+      },
+      "verdict": "READY",
+      "revised": false,
+      "missingSections": [],
+      "notes": [
+        "R6=3: company logo assigned per owner approval 2026-10-28 (assets/img-01-9c77693ba66b.png), captioned as a brand image, not a job photo.",
+        "R7=2: quote card uses exact \"Get My Flat Rate Quote\" wording and describes the Short/Detailed toggle; toggle behavior lives in the verified live form and is re-checked at publish.",
+        "New page; full footprint (GBP + extended) from the start.",
+        "Footprint: GBP 14 + extended 21 = 35 areas; shared areas noted, never silently single-branch."
+      ]
+    }
+  ],
+  "linkGraph": {
+    "local-regional-movers-martinsburg-wv": [
+      "https://theflatratemovers.com/",
+      "https://theflatratemovers.com/moving-company-martinsburg-wv/",
+      "https://theflatratemovers.com/moving-company-winchester-va/",
+      "https://theflatratemovers.com/route81/",
+      "https://theflatratemovers.com/interstate-66-corridor/",
+      "https://theflatratemovers.com/interstate-70-corridor/",
+      "https://theflatratemovers.com/local-regional-movers-winchester-va/",
+      "https://theflatratemovers.com/local-regional-moving/"
+    ],
+    "long-distance-movers-martinsburg-wv": [
+      "https://theflatratemovers.com/",
+      "https://theflatratemovers.com/moving-company-martinsburg-wv/",
+      "https://theflatratemovers.com/moving-company-winchester-va/",
+      "https://theflatratemovers.com/route81/",
+      "https://theflatratemovers.com/interstate-66-corridor/",
+      "https://theflatratemovers.com/interstate-70-corridor/",
+      "https://theflatratemovers.com/long-distance-cross-country-moving/"
+    ],
+    "packing-movers-martinsburg-wv": [
+      "https://theflatratemovers.com/",
+      "https://theflatratemovers.com/moving-company-martinsburg-wv/",
+      "https://theflatratemovers.com/moving-company-winchester-va/",
+      "https://theflatratemovers.com/route81/",
+      "https://theflatratemovers.com/interstate-66-corridor/",
+      "https://theflatratemovers.com/interstate-70-corridor/"
+    ],
+    "sir-heavy-movers-martinsburg-wv": [
+      "https://theflatratemovers.com/",
+      "https://theflatratemovers.com/moving-company-martinsburg-wv/",
+      "https://theflatratemovers.com/moving-company-winchester-va/",
+      "https://theflatratemovers.com/route81/",
+      "https://theflatratemovers.com/interstate-66-corridor/",
+      "https://theflatratemovers.com/interstate-70-corridor/"
+    ],
+    "gun-safe-movers-martinsburg-wv": [
+      "https://theflatratemovers.com/",
+      "https://theflatratemovers.com/moving-company-martinsburg-wv/",
+      "https://theflatratemovers.com/moving-company-winchester-va/",
+      "https://theflatratemovers.com/route81/",
+      "https://theflatratemovers.com/interstate-66-corridor/",
+      "https://theflatratemovers.com/interstate-70-corridor/",
+      "https://theflatratemovers.com/gun-safe-movers/"
+    ],
+    "interstate-66-corridor": [
+      "https://theflatratemovers.com/",
+      "https://theflatratemovers.com/route81/",
+      "https://theflatratemovers.com/moving-company-winchester-va/",
+      "https://theflatratemovers.com/moving-company-martinsburg-wv/",
+      "https://theflatratemovers.com/local-regional-moving/",
+      "https://theflatratemovers.com/interstate-70-corridor/"
+    ],
+    "interstate-70-corridor": [
+      "https://theflatratemovers.com/",
+      "https://theflatratemovers.com/route81/",
+      "https://theflatratemovers.com/moving-company-winchester-va/",
+      "https://theflatratemovers.com/moving-company-martinsburg-wv/",
+      "https://theflatratemovers.com/local-regional-moving/",
+      "https://theflatratemovers.com/interstate-66-corridor/"
+    ],
+    "commercial-movers-winchester-va": [
+      "https://theflatratemovers.com/",
+      "https://theflatratemovers.com/moving-company-winchester-va/",
+      "https://theflatratemovers.com/moving-company-martinsburg-wv/",
+      "https://theflatratemovers.com/route81/",
+      "https://theflatratemovers.com/interstate-66-corridor/",
+      "https://theflatratemovers.com/interstate-70-corridor/",
+      "https://theflatratemovers.com/commercial-moving/"
+    ],
+    "local-regional-movers-winchester-va": [
+      "https://theflatratemovers.com/",
+      "https://theflatratemovers.com/moving-company-winchester-va/",
+      "https://theflatratemovers.com/moving-company-martinsburg-wv/",
+      "https://theflatratemovers.com/route81/",
+      "https://theflatratemovers.com/interstate-66-corridor/",
+      "https://theflatratemovers.com/interstate-70-corridor/",
+      "https://theflatratemovers.com/local-regional-movers-martinsburg-wv/",
+      "https://theflatratemovers.com/local-regional-moving/"
+    ],
+    "piano-antique-movers-martinsburg-wv": [
+      "https://theflatratemovers.com/",
+      "https://theflatratemovers.com/moving-company-martinsburg-wv/",
+      "https://theflatratemovers.com/moving-company-winchester-va/",
+      "https://theflatratemovers.com/route81/",
+      "https://theflatratemovers.com/interstate-66-corridor/",
+      "https://theflatratemovers.com/interstate-70-corridor/"
+    ],
+    "ispm15-movers-martinsburg-wv": [
+      "https://theflatratemovers.com/",
+      "https://theflatratemovers.com/moving-company-martinsburg-wv/",
+      "https://theflatratemovers.com/moving-company-winchester-va/",
+      "https://theflatratemovers.com/route81/",
+      "https://theflatratemovers.com/interstate-66-corridor/",
+      "https://theflatratemovers.com/interstate-70-corridor/"
+    ],
+    "crating-movers-martinsburg-wv": [
+      "https://theflatratemovers.com/",
+      "https://theflatratemovers.com/moving-company-martinsburg-wv/",
+      "https://theflatratemovers.com/moving-company-winchester-va/",
+      "https://theflatratemovers.com/route81/",
+      "https://theflatratemovers.com/interstate-66-corridor/",
+      "https://theflatratemovers.com/interstate-70-corridor/"
+    ],
+    "transloading-movers-martinsburg-wv": [
+      "https://theflatratemovers.com/",
+      "https://theflatratemovers.com/moving-company-martinsburg-wv/",
+      "https://theflatratemovers.com/moving-company-winchester-va/",
+      "https://theflatratemovers.com/route81/",
+      "https://theflatratemovers.com/interstate-66-corridor/",
+      "https://theflatratemovers.com/interstate-70-corridor/"
+    ],
+    "final-mile-movers-martinsburg-wv": [
+      "https://theflatratemovers.com/",
+      "https://theflatratemovers.com/moving-company-martinsburg-wv/",
+      "https://theflatratemovers.com/moving-company-winchester-va/",
+      "https://theflatratemovers.com/route81/",
+      "https://theflatratemovers.com/interstate-66-corridor/",
+      "https://theflatratemovers.com/interstate-70-corridor/"
+    ],
+    "office-moving-movers-winchester-va": [
+      "https://theflatratemovers.com/",
+      "https://theflatratemovers.com/moving-company-winchester-va/",
+      "https://theflatratemovers.com/moving-company-martinsburg-wv/",
+      "https://theflatratemovers.com/route81/",
+      "https://theflatratemovers.com/interstate-66-corridor/",
+      "https://theflatratemovers.com/interstate-70-corridor/",
+      "https://theflatratemovers.com/office-moving-movers-martinsburg-wv/"
+    ],
+    "office-moving-movers-martinsburg-wv": [
+      "https://theflatratemovers.com/",
+      "https://theflatratemovers.com/moving-company-martinsburg-wv/",
+      "https://theflatratemovers.com/moving-company-winchester-va/",
+      "https://theflatratemovers.com/route81/",
+      "https://theflatratemovers.com/interstate-66-corridor/",
+      "https://theflatratemovers.com/interstate-70-corridor/",
+      "https://theflatratemovers.com/office-moving-movers-winchester-va/"
+    ],
+    "industrial-offices-movers-winchester-va": [
+      "https://theflatratemovers.com/",
+      "https://theflatratemovers.com/moving-company-winchester-va/",
+      "https://theflatratemovers.com/moving-company-martinsburg-wv/",
+      "https://theflatratemovers.com/route81/",
+      "https://theflatratemovers.com/interstate-66-corridor/",
+      "https://theflatratemovers.com/interstate-70-corridor/",
+      "https://theflatratemovers.com/industrial-offices-movers-martinsburg-wv/",
+      "https://theflatratemovers.com/industrial-offices-moving/"
+    ],
+    "industrial-offices-movers-martinsburg-wv": [
+      "https://theflatratemovers.com/",
+      "https://theflatratemovers.com/moving-company-martinsburg-wv/",
+      "https://theflatratemovers.com/moving-company-winchester-va/",
+      "https://theflatratemovers.com/route81/",
+      "https://theflatratemovers.com/interstate-66-corridor/",
+      "https://theflatratemovers.com/interstate-70-corridor/",
+      "https://theflatratemovers.com/industrial-offices-movers-winchester-va/",
+      "https://theflatratemovers.com/industrial-offices-moving/"
+    ],
+    "government-movers-winchester-va": [
+      "https://theflatratemovers.com/",
+      "https://theflatratemovers.com/moving-company-winchester-va/",
+      "https://theflatratemovers.com/moving-company-martinsburg-wv/",
+      "https://theflatratemovers.com/route81/",
+      "https://theflatratemovers.com/interstate-66-corridor/",
+      "https://theflatratemovers.com/interstate-70-corridor/",
+      "https://theflatratemovers.com/government-movers-martinsburg-wv/",
+      "https://theflatratemovers.com/military-government-moving/"
+    ],
+    "government-movers-martinsburg-wv": [
+      "https://theflatratemovers.com/",
+      "https://theflatratemovers.com/moving-company-martinsburg-wv/",
+      "https://theflatratemovers.com/moving-company-winchester-va/",
+      "https://theflatratemovers.com/route81/",
+      "https://theflatratemovers.com/interstate-66-corridor/",
+      "https://theflatratemovers.com/interstate-70-corridor/",
+      "https://theflatratemovers.com/government-movers-winchester-va/",
+      "https://theflatratemovers.com/military-government-moving/"
+    ],
+    "military-movers-winchester-va": [
+      "https://theflatratemovers.com/",
+      "https://theflatratemovers.com/moving-company-winchester-va/",
+      "https://theflatratemovers.com/moving-company-martinsburg-wv/",
+      "https://theflatratemovers.com/route81/",
+      "https://theflatratemovers.com/interstate-66-corridor/",
+      "https://theflatratemovers.com/interstate-70-corridor/",
+      "https://theflatratemovers.com/military-movers-martinsburg-wv/",
+      "https://theflatratemovers.com/military-government-moving/"
+    ],
+    "military-movers-martinsburg-wv": [
+      "https://theflatratemovers.com/",
+      "https://theflatratemovers.com/moving-company-martinsburg-wv/",
+      "https://theflatratemovers.com/moving-company-winchester-va/",
+      "https://theflatratemovers.com/route81/",
+      "https://theflatratemovers.com/interstate-66-corridor/",
+      "https://theflatratemovers.com/interstate-70-corridor/",
+      "https://theflatratemovers.com/military-movers-winchester-va/",
+      "https://theflatratemovers.com/military-government-moving/"
+    ],
+    "industrial-commercial-movers-winchester-va": [
+      "https://theflatratemovers.com/",
+      "https://theflatratemovers.com/moving-company-winchester-va/",
+      "https://theflatratemovers.com/moving-company-martinsburg-wv/",
+      "https://theflatratemovers.com/route81/",
+      "https://theflatratemovers.com/interstate-66-corridor/",
+      "https://theflatratemovers.com/interstate-70-corridor/",
+      "https://theflatratemovers.com/industrial-commercial-movers-martinsburg-wv/",
+      "https://theflatratemovers.com/industrial-commercial-services/"
+    ],
+    "industrial-commercial-movers-martinsburg-wv": [
+      "https://theflatratemovers.com/",
+      "https://theflatratemovers.com/moving-company-martinsburg-wv/",
+      "https://theflatratemovers.com/moving-company-winchester-va/",
+      "https://theflatratemovers.com/route81/",
+      "https://theflatratemovers.com/interstate-66-corridor/",
+      "https://theflatratemovers.com/interstate-70-corridor/",
+      "https://theflatratemovers.com/industrial-commercial-movers-winchester-va/",
+      "https://theflatratemovers.com/industrial-commercial-services/"
+    ]
+  }
+}

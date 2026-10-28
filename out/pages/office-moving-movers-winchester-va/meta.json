@@ -1,0 +1,15 @@
+{
+  "slug": "office-moving-movers-winchester-va",
+  "url": "https://theflatratemovers.com/office-moving-movers-winchester-va/",
+  "title": "Office Moving — Winchester VA",
+  "description": "Office Moving — Winchester VA — Complete office relocations — workstations, files and office equipment — planned and quoted flat. Flat-rate moving from Winchester, VA and Martinsburg, WV. Guaranteed Flat Rate or Your Move is Free!",
+  "template": "service",
+  "genericTemplate": false,
+  "image": {
+    "file": "assets/img-01-9c77693ba66b.png",
+    "url": "https://theflatratemovers.com/assets/img-01-9c77693ba66b.png",
+    "caption": "The Flat Rate Movers logo — company brand image, not a job photo."
+  },
+  "source": "Phase 1 service template (scripts/build-meta.js) + data/services.json + data/locations.json + data/service-area.geojson",
+  "attested": "2026-10-28"
+}

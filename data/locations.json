@@ -1,0 +1,124 @@
+{
+  "dataset": "locations",
+  "generated": "2026-10-28",
+  "company": {
+    "name": "The Flat Rate Movers LLC",
+    "tagline": "Guaranteed Flat Rate or Your Move is Free!",
+    "foundingDate": "2010-06",
+    "phone": "+1-540-422-2153",
+    "source": "Owner confirmation 2026-10-27 (founding June 2010; no day invented)",
+    "attested": "2026-10-28"
+  },
+  "attestation": "The two branches below are distinct records. Names, hours, service areas, and ratings are never merged, averaged, or copied across branches.",
+  "branches": [
+    {
+      "id": "winchester",
+      "name": "The Flat Rate Movers",
+      "street": "116 W Piccadilly St Suite 11",
+      "city": "Winchester",
+      "state": "VA",
+      "zip": "22601",
+      "geo": {
+        "lat": 39.18711576,
+        "lng": -78.1668352
+      },
+      "phone": "+1-540-422-2153",
+      "hours": [
+        {
+          "days": "Mon-Fri",
+          "opens": "08:00",
+          "closes": "18:00"
+        },
+        {
+          "days": "Sat",
+          "opens": "08:00",
+          "closes": "16:00"
+        },
+        {
+          "days": "Sun",
+          "opens": "09:00",
+          "closes": "16:00"
+        }
+      ],
+      "hoursDisplay": "Mon-Fri 8-6, Sat 8-4, Sun 9-4",
+      "googleRating": {
+        "ratingValue": 5,
+        "reviewCount": 1
+      },
+      "serviceArea": [
+        "Leesburg",
+        "Marshall",
+        "Sterling",
+        "Stephens City",
+        "Loudoun County",
+        "Berryville 22611",
+        "Frederick County",
+        "Middleburg 20117",
+        "Middletown 22645",
+        "Moorefield 26836",
+        "Round Hill 20141",
+        "Stephenson 22656",
+        "Upperville 20184",
+        "Winchester 22601",
+        "Purcellville 20132",
+        "South Riding 20152"
+      ],
+      "source": "Google Business Profile check 2026-10-28 (rating) + GBP Business information screenshots supplied by owner 2026-10-27 (service area) + Places verification 2026-10-27 (address, geo)",
+      "attested": "2026-10-28"
+    },
+    {
+      "id": "martinsburg",
+      "name": "Flat Rate Movers Martinsburg WV",
+      "street": "736 Williamsport Pike Suite 2",
+      "city": "Martinsburg",
+      "state": "WV",
+      "zip": "25404",
+      "geo": {
+        "lat": 39.48319665,
+        "lng": -77.94760443
+      },
+      "phone": "+1-540-422-2153",
+      "hours": [
+        {
+          "days": "Mon-Fri",
+          "opens": "09:00",
+          "closes": "18:00"
+        },
+        {
+          "days": "Sat",
+          "opens": "09:00",
+          "closes": "16:00"
+        },
+        {
+          "days": "Sun",
+          "opens": "09:00",
+          "closes": "16:00"
+        }
+      ],
+      "hoursDisplay": "Mon-Fri 9-6, Sat 9-4, Sun 9-4",
+      "googleRating": {
+        "ratingValue": 4.7,
+        "reviewCount": 6,
+        "breakdown": "4 at 5 stars, 2 at 4 stars"
+      },
+      "serviceArea": [
+        "Inwood",
+        "Hagerstown MD",
+        "Hedgesville",
+        "Paw Paw 25434",
+        "Shepherdstown",
+        "Berkeley County",
+        "Moorefield 26836",
+        "Bunker Hill 25413",
+        "Charles Town 25414",
+        "Clear Spring MD 21722",
+        "Summit Point 25446",
+        "Harpers Ferry 25425",
+        "Kearneysville 25430",
+        "Eastern Panhandle of West Virginia"
+      ],
+      "source": "Google Business Profile check 2026-10-28 (rating) + GBP Business information screenshots supplied by owner 2026-10-27 (service area) + Places verification 2026-10-27 (address, geo)",
+      "attested": "2026-10-28"
+    }
+  ]
+}

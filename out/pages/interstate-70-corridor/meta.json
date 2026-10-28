@@ -1,0 +1,17 @@
+{
+  "slug": "interstate-70-corridor",
+  "url": "https://theflatratemovers.com/interstate-70-corridor/",
+  "title": "Interstate 70 Corridor Moving",
+  "description": "Interstate 70 corridor moving — Moving and logistics dispatch along Interstate 81, I-66 and I-70 from Winchester, VA and Martinsburg, WV. Flat-rate moving from Winchester, VA and Martinsburg, WV. Guaranteed Flat Rate or Your Move is Free!",
+  "template": "corridor",
+  "genericTemplate": false,
+  "source": "Phase 1 corridor template (scripts/build-meta.js, route81 entry) + data/services.json + data/locations.json",
+  "attested": "2026-10-28",
+  "image": {
+    "file": "assets/img-01-9c77693ba66b.png",
+    "url": "https://theflatratemovers.com/assets/img-01-9c77693ba66b.png",
+    "caption": "The Flat Rate Movers logo — company brand image, not a job photo."
+  },
+  "revised": "2026-10-28",
+  "revisionNote": "Expanded from GBP-only to the full footprint per owner decision 2026-10-28; prior content approval does not carry over."
+}

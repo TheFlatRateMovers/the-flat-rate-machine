@@ -1,0 +1,649 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://theflatratemovers.com/#organization",
+      "@type": [
+        "Organization",
+        "LocalBusiness",
+        "MovingCompany"
+      ],
+      "name": "The Flat Rate Movers LLC",
+      "legalName": "The Flat Rate Movers LLC",
+      "alternateName": "The Flat Rate Movers",
+      "slogan": "Guaranteed Flat Rate or Your Move is Free!",
+      "description": "Flat-rate, no-hourly moving company founded June 2010 in Winchester, VA and Martinsburg, WV. Specialists in SIR Structural Integrity Relocation and KIM-GS Kinetic Integrity Method for high-mass assets 1,500-3,500 lbs, plus ISPM 15 export packing, custom crating, transloading, and final mile delivery.",
+      "url": "https://theflatratemovers.com/",
+      "telephone": "+1-540-422-2153",
+      "email": "ratemovers@gmail.com",
+      "priceRange": "$$",
+      "foundingDate": "2010-06",
+      "logo": "https://theflatratemovers.com/assets/logo.png",
+      "image": "https://theflatratemovers.com/assets/i81-winchester.jpg",
+      "knowsAbout": [
+        "Flat-rate moving",
+        "SIR Structural Integrity Relocation",
+        "KIM-GS Kinetic Integrity Method",
+        "Gun safe moving",
+        "ISPM 15 export packing",
+        "Transloading",
+        "Final mile delivery"
+      ],
+      "areaServed": [
+        "Leesburg, VA",
+        "Marshall, VA",
+        "Sterling, VA",
+        "Stephens City, VA",
+        "Loudoun County, VA",
+        "Berryville, VA",
+        "Frederick County, VA",
+        "Middleburg, VA",
+        "Middletown, VA",
+        "Moorefield, WV",
+        "Round Hill, VA",
+        "Stephenson, VA",
+        "Upperville, VA",
+        "Winchester, VA",
+        "Purcellville, VA",
+        "South Riding, VA",
+        "Inwood, WV",
+        "Hagerstown, MD",
+        "Hedgesville, WV",
+        "Paw Paw, WV",
+        "Shepherdstown, WV",
+        "Berkeley County, WV",
+        "Moorefield, WV",
+        "Bunker Hill, WV",
+        "Charles Town, WV",
+        "Clear Spring, MD",
+        "Summit Point, WV",
+        "Harpers Ferry, WV",
+        "Kearneysville, WV",
+        "Eastern Panhandle, WV"
+      ],
+      "location": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester-place"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg-place"
+        }
+      ],
+      "sameAs": [
+        "https://www.instagram.com/theflatratemovers/",
+        "https://www.threads.com/@theflatratemovers",
+        "https://x.com/ratemovers",
+        "https://www.youtube.com/@theflatratemovers",
+        "https://github.com/TheFlatRateMovers",
+        "https://medium.com/@ratemovers"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-540-422-2153",
+        "email": "ratemovers@gmail.com",
+        "contactType": "customer service",
+        "areaServed": "US-VA, US-WV, US-MD",
+        "availableLanguage": "en-US"
+      },
+      "hasOfferCatalog": {
+        "@id": "https://theflatratemovers.com/#service-catalog"
+      }
+    },
+    {
+      "@id": "https://theflatratemovers.com/#winchester-place",
+      "@type": "Place",
+      "name": "The Flat Rate Movers \u2014 Winchester",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "116 W Piccadilly St Suite 11",
+        "addressLocality": "Winchester",
+        "addressRegion": "VA",
+        "postalCode": "22601",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 39.18711576,
+        "longitude": -78.1668352
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "closes": "18:00",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "08:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "closes": "16:00",
+          "dayOfWeek": "Saturday",
+          "opens": "08:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "closes": "16:00",
+          "dayOfWeek": "Sunday",
+          "opens": "09:00"
+        }
+      ],
+      "telephone": "+1-540-422-2153",
+      "url": "https://theflatratemovers.com/",
+      "areaServed": [
+        "Leesburg, VA",
+        "Marshall, VA",
+        "Sterling, VA",
+        "Stephens City, VA",
+        "Loudoun County, VA",
+        "Berryville, VA",
+        "Frederick County, VA",
+        "Middleburg, VA",
+        "Middletown, VA",
+        "Moorefield, WV",
+        "Round Hill, VA",
+        "Stephenson, VA",
+        "Upperville, VA",
+        "Winchester, VA",
+        "Purcellville, VA",
+        "South Riding, VA"
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": 5.0,
+        "reviewCount": 1,
+        "bestRating": 5,
+        "worstRating": 1,
+        "itemReviewed": {
+          "@id": "https://theflatratemovers.com/#winchester-place"
+        }
+      }
+    },
+    {
+      "@id": "https://theflatratemovers.com/#area-winchester-leesburg",
+      "@type": "City",
+      "addressRegion": "VA",
+      "name": "Leesburg"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#area-winchester-marshall",
+      "@type": "City",
+      "addressRegion": "VA",
+      "name": "Marshall"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#area-winchester-sterling",
+      "@type": "City",
+      "addressRegion": "VA",
+      "name": "Sterling"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#area-winchester-stephens-city",
+      "@type": "City",
+      "addressRegion": "VA",
+      "name": "Stephens City"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#area-winchester-loudoun-county",
+      "@type": "City",
+      "addressRegion": "VA",
+      "name": "Loudoun County"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#area-winchester-berryville",
+      "@type": "City",
+      "addressRegion": "VA",
+      "name": "Berryville"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#area-winchester-frederick-county",
+      "@type": "City",
+      "addressRegion": "VA",
+      "name": "Frederick County"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#area-winchester-middleburg",
+      "@type": "City",
+      "addressRegion": "VA",
+      "name": "Middleburg"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#area-winchester-middletown",
+      "@type": "City",
+      "addressRegion": "VA",
+      "name": "Middletown"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#area-winchester-moorefield",
+      "@type": "City",
+      "addressRegion": "WV",
+      "name": "Moorefield"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#area-winchester-round-hill",
+      "@type": "City",
+      "addressRegion": "VA",
+      "name": "Round Hill"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#area-winchester-stephenson",
+      "@type": "City",
+      "addressRegion": "VA",
+      "name": "Stephenson"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#area-winchester-upperville",
+      "@type": "City",
+      "addressRegion": "VA",
+      "name": "Upperville"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#area-winchester-winchester",
+      "@type": "City",
+      "addressRegion": "VA",
+      "name": "Winchester"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#area-winchester-purcellville",
+      "@type": "City",
+      "addressRegion": "VA",
+      "name": "Purcellville"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#area-winchester-south-riding",
+      "@type": "City",
+      "addressRegion": "VA",
+      "name": "South Riding"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#martinsburg-place",
+      "@type": "Place",
+      "name": "Flat Rate Movers Martinsburg WV",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "736 Williamsport Pike Suite 2",
+        "addressLocality": "Martinsburg",
+        "addressRegion": "WV",
+        "postalCode": "25404",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 39.48319665,
+        "longitude": -77.94760443
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "09:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "09:00",
+          "closes": "16:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Sunday",
+          "opens": "09:00",
+          "closes": "16:00"
+        }
+      ],
+      "telephone": "+1-540-422-2153",
+      "url": "https://theflatratemovers.com/",
+      "areaServed": [
+        "Inwood, WV",
+        "Hagerstown, MD",
+        "Hedgesville, WV",
+        "Paw Paw, WV",
+        "Shepherdstown, WV",
+        "Berkeley County, WV",
+        "Moorefield, WV",
+        "Bunker Hill, WV",
+        "Charles Town, WV",
+        "Clear Spring, MD",
+        "Summit Point, WV",
+        "Harpers Ferry, WV",
+        "Kearneysville, WV",
+        "Eastern Panhandle, WV"
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": 4.7,
+        "reviewCount": 6,
+        "bestRating": 5,
+        "worstRating": 1,
+        "itemReviewed": {
+          "@id": "https://theflatratemovers.com/#martinsburg-place"
+        }
+      }
+    },
+    {
+      "@id": "https://theflatratemovers.com/#area-martinsburg-inwood",
+      "@type": "City",
+      "addressRegion": "WV",
+      "name": "Inwood"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#area-martinsburg-hagerstown",
+      "@type": "City",
+      "addressRegion": "MD",
+      "name": "Hagerstown"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#area-martinsburg-hedgesville",
+      "@type": "City",
+      "addressRegion": "WV",
+      "name": "Hedgesville"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#area-martinsburg-paw-paw",
+      "@type": "City",
+      "addressRegion": "WV",
+      "name": "Paw Paw"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#area-martinsburg-shepherdstown",
+      "@type": "City",
+      "addressRegion": "WV",
+      "name": "Shepherdstown"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#area-martinsburg-berkeley-county",
+      "@type": "City",
+      "addressRegion": "WV",
+      "name": "Berkeley County"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#area-martinsburg-moorefield",
+      "@type": "City",
+      "addressRegion": "WV",
+      "name": "Moorefield"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#area-martinsburg-bunker-hill",
+      "@type": "City",
+      "addressRegion": "WV",
+      "name": "Bunker Hill"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#area-martinsburg-charles-town",
+      "@type": "City",
+      "addressRegion": "WV",
+      "name": "Charles Town"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#area-martinsburg-clear-spring",
+      "@type": "City",
+      "addressRegion": "MD",
+      "name": "Clear Spring"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#area-martinsburg-summit-point",
+      "@type": "City",
+      "addressRegion": "WV",
+      "name": "Summit Point"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#area-martinsburg-harpers-ferry",
+      "@type": "City",
+      "addressRegion": "WV",
+      "name": "Harpers Ferry"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#area-martinsburg-kearneysville",
+      "@type": "City",
+      "addressRegion": "WV",
+      "name": "Kearneysville"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#area-martinsburg-eastern-panhandle",
+      "@type": "City",
+      "addressRegion": "WV",
+      "name": "Eastern Panhandle"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#website",
+      "@type": "WebSite",
+      "url": "https://theflatratemovers.com/",
+      "name": "The Flat Rate Movers",
+      "publisher": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "inLanguage": "en-US"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#webpage",
+      "@type": "WebPage",
+      "url": "https://theflatratemovers.com/",
+      "name": "The Flat Rate Movers | Guaranteed Flat Rate or Your Move is Free!",
+      "isPartOf": {
+        "@id": "https://theflatratemovers.com/#website"
+      },
+      "about": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "breadcrumb": {
+        "@id": "https://theflatratemovers.com/#breadcrumb"
+      },
+      "inLanguage": "en-US",
+      "datePublished": "2026-10-27",
+      "dateModified": "2026-10-27"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#breadcrumb",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://theflatratemovers.com/"
+        }
+      ]
+    },
+    {
+      "@id": "https://theflatratemovers.com/gun-safe-movers/#service",
+      "@type": "Service",
+      "name": "Gun Safe Moving",
+      "serviceType": "Gun Safe Moving",
+      "description": "Flat-rate gun safe moving with SIR and KIM-GS for high-mass assets 1,500-3,500 lbs, L/360 floor deflection analysis, substrate and load-path protection.",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "areaServed": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester-place"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg-place"
+        }
+      ],
+      "url": "https://theflatratemovers.com/gun-safe-movers/"
+    },
+    {
+      "@id": "https://theflatratemovers.com/residential-moving/#service",
+      "@type": "Service",
+      "name": "Residential Moving",
+      "serviceType": "Residential Moving",
+      "description": "Flat-rate residential moving, local and regional, in Winchester, Martinsburg, Shenandoah Valley, and Eastern Panhandle.",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "areaServed": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester-place"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg-place"
+        }
+      ],
+      "url": "https://theflatratemovers.com/residential-moving/"
+    },
+    {
+      "@id": "https://theflatratemovers.com/commercial-moving/#service",
+      "@type": "Service",
+      "name": "Commercial Moving",
+      "serviceType": "Commercial Moving",
+      "description": "Flat-rate commercial moving for businesses, offices, and industrial sites.",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "areaServed": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester-place"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg-place"
+        }
+      ],
+      "url": "https://theflatratemovers.com/commercial-moving/"
+    },
+    {
+      "@id": "https://theflatratemovers.com/commercial-office-moving-2/#service",
+      "@type": "Service",
+      "name": "Office Moving",
+      "serviceType": "Office Moving",
+      "description": "Flat-rate office moving, including industrial offices, government, and military moves, with no hourly charges.",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "areaServed": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester-place"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg-place"
+        }
+      ],
+      "url": "https://theflatratemovers.com/commercial-office-moving-2/"
+    },
+    {
+      "@id": "https://theflatratemovers.com/military-government-moving/#service",
+      "@type": "Service",
+      "name": "Military and Government Moving",
+      "serviceType": "Military and Government Moving",
+      "description": "Military and government moving at a guaranteed flat rate. No contracts, clearances, or discounts are claimed in this schema.",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "areaServed": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester-place"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg-place"
+        }
+      ],
+      "url": "https://theflatratemovers.com/military-government-moving/"
+    },
+    {
+      "@id": "https://theflatratemovers.com/long-distance-movers-winchester-va/#service",
+      "@type": "Service",
+      "name": "Long-Distance Moving",
+      "serviceType": "Long-Distance Moving",
+      "description": "Flat-rate long-distance moving on I-81, I-66, and I-70 corridors.",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "areaServed": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester-place"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg-place"
+        }
+      ],
+      "url": "https://theflatratemovers.com/long-distance-movers-winchester-va/"
+    },
+    {
+      "@id": "https://theflatratemovers.com/international-export-packing-crating-winchester-va/#service",
+      "@type": "Service",
+      "name": "ISPM 15 Export Packing and Custom Crating",
+      "serviceType": "ISPM 15 Export Packing and Custom Crating",
+      "description": "ISPM 15 export packing, custom crates, loading, transloading, final mile delivery, and high-value protection.",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "areaServed": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester-place"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg-place"
+        }
+      ],
+      "url": "https://theflatratemovers.com/international-export-packing-crating-winchester-va/"
+    },
+    {
+      "@id": "https://theflatratemovers.com/container-loading-unloading-services-port-transload-virginia/#service",
+      "@type": "Service",
+      "name": "Packing and Transloading",
+      "serviceType": "Packing and Transloading",
+      "description": "Packing, loading, container loading and unloading, transloading, and final mile delivery.",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "areaServed": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester-place"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg-place"
+        }
+      ],
+      "url": "https://theflatratemovers.com/container-loading-unloading-services-port-transload-virginia/"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#service-catalog",
+      "@type": "OfferCatalog",
+      "name": "The Flat Rate Movers Services",
+      "itemListElement": [
+        {
+          "@id": "https://theflatratemovers.com/gun-safe-movers/#service"
+        },
+        {
+          "@id": "https://theflatratemovers.com/residential-moving/#service"
+        },
+        {
+          "@id": "https://theflatratemovers.com/commercial-moving/#service"
+        },
+        {
+          "@id": "https://theflatratemovers.com/commercial-office-moving-2/#service"
+        },
+        {
+          "@id": "https://theflatratemovers.com/military-government-moving/#service"
+        },
+        {
+          "@id": "https://theflatratemovers.com/long-distance-movers-winchester-va/#service"
+        },
+        {
+          "@id": "https://theflatratemovers.com/international-export-packing-crating-winchester-va/#service"
+        },
+        {
+          "@id": "https://theflatratemovers.com/container-loading-unloading-services-port-transload-virginia/#service"
+        }
+      ]
+    }
+  ],
+  "_humanSummary": "This is the best JSON for The Flat Rate Movers: one @graph, stable @ids, Organization chained to two Places, each Place chained to its GBP service-area City nodes, each Service chained to the Organization and to both Places, per-branch Google aggregateRating only (Winchester 5.0/1, Martinsburg 4.7/6, never blended), founding June 2010, geo, hours, sameAs, and no license, price, USDOT, testimonial, or move count. Humans read the names, addresses, and service lists; machines follow the @ids.",
+  "_machineNotes": {
+    "attestation": "See entity-graph.json attestations for source and date for every fact. License details are private and are not in this JSON.",
+    "dateModified": "2026-10-27",
+    "howToUse": "Paste this whole script as application/ld+json in the <head> of every rebuilt page, changing only the WebPage name/url, Breadcrumb, and the main Service for that page. Keep Organization, Places, and Catalog identical on every page.",
+    "rubric": "See rubric-database-query-model.md: every node must chain by @id, every fact must attest, no unverified field may appear."
+  }
+}

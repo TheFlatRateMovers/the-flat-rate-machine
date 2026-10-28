@@ -1,0 +1,40 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "The Flat Rate Movers LLC",
+    "identifier": "did:web:theflatratemovers.com",
+    "documentationUrl": "https://theflatratemovers.com/developer/"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:theflatratemovers.com:data:ai-sitemap",
+      "displayName": "The Flat Rate Movers AI Sitemap",
+      "type": "application/json",
+      "url": "https://theflatratemovers.com/ai-sitemap.json",
+      "description": "AI sitemap (JSON, Dataset) for The Flat Rate Movers LLC.",
+      "tags": [
+        "ai-sitemap"
+      ]
+    },
+    {
+      "identifier": "urn:air:theflatratemovers.com:data:service-area-geojson",
+      "displayName": "The Flat Rate Movers Service Area GeoJSON",
+      "type": "application/geo+json",
+      "url": "https://theflatratemovers.com/service-area.geojson",
+      "description": "Service areas as GeoJSON: 52 features, per branch (Winchester, VA and Martinsburg, WV), verified 2026-10-28.",
+      "tags": [
+        "geojson"
+      ]
+    },
+    {
+      "identifier": "urn:air:theflatratemovers.com:data:entity-graph",
+      "displayName": "The Flat Rate Movers Entity Graph",
+      "type": "application/ld+json",
+      "url": "https://theflatratemovers.com/entity-graph.json",
+      "description": "Chained entity graph for The Flat Rate Movers LLC: organization, both branches, services, and corridors linked by stable @id.",
+      "tags": [
+        "entity-graph"
+      ]
+    }
+  ]
+}

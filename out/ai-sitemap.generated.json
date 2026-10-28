@@ -1,0 +1,160 @@
+{
+  "$schema": "https://json.schemastore.org/jsonld.json",
+  "@context": "https://schema.org",
+  "@id": "https://theflatratemovers.com/ai-sitemap.json",
+  "@type": "Dataset",
+  "name": "The Flat Rate Movers · AI Sitemap",
+  "url": "https://theflatratemovers.com/ai-sitemap.json",
+  "dateModified": "2026-10-28",
+  "version": "2026-10-28",
+  "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers LLC",
+    "slogan": "Guaranteed Flat Rate or Your Move is Free!",
+    "foundingDate": "2010-06",
+    "telephone": "+1-540-422-2153",
+    "address": [
+      {
+        "@type": "PostalAddress",
+        "addressCountry": "US",
+        "addressLocality": "Winchester",
+        "addressRegion": "VA",
+        "postalCode": "22601",
+        "streetAddress": "116 W Piccadilly St Suite 11"
+      },
+      {
+        "@type": "PostalAddress",
+        "addressCountry": "US",
+        "addressLocality": "Martinsburg",
+        "addressRegion": "WV",
+        "postalCode": "25404",
+        "streetAddress": "736 Williamsport Pike Suite 2"
+      }
+    ],
+    "location": [
+      {
+        "@id": "https://theflatratemovers.com/#winchester"
+      },
+      {
+        "@id": "https://theflatratemovers.com/#martinsburg"
+      }
+    ]
+  },
+  "about": [
+    "Residential Moving",
+    "Commercial and Office Moving",
+    "Local and Regional Moving",
+    "Long-Distance Moving",
+    "Packing and Unpacking",
+    "SIR Heavy Asset Relocation (KIM-GS Protocol)",
+    "Gun Safe Moving",
+    "Piano, Antique and White-Glove Moving",
+    "ISPM 15 Export Packing",
+    "Custom Crating",
+    "Loading, Transloading and Container Services",
+    "Final-Mile Delivery",
+    "Office Moving",
+    "Industrial Offices Moving",
+    "Government Moving",
+    "Military Moving",
+    "Route 81 Corridor Moving and Dispatch",
+    "Industrial & Commercial Services"
+  ],
+  "services": [
+    {
+      "name": "Residential Moving",
+      "description": "Flat-rate house and apartment moving, local, regional and long-distance."
+    },
+    {
+      "name": "Commercial and Office Moving",
+      "description": "Flat-rate commercial and office relocation."
+    },
+    {
+      "name": "Local and Regional Moving",
+      "description": "Local and regional moves along the I-81, I-66 and I-70 corridors."
+    },
+    {
+      "name": "Long-Distance Moving",
+      "description": "Flat-rate long-distance moving from Winchester, VA and Martinsburg, WV."
+    },
+    {
+      "name": "Packing and Unpacking",
+      "description": "Full, partial and fragile-only packing and unpacking, including loading and unloading."
+    },
+    {
+      "name": "SIR Heavy Asset Relocation (KIM-GS Protocol)",
+      "description": "SIR Structural Integrity Relocation and the KIM-GS Protocol for high-mass assets of 1,500 to 3,500 lbs — safes, medical devices, cryogenic equipment, pianos and antiques — with floor deflection analysis to L/360."
+    },
+    {
+      "name": "Gun Safe Moving",
+      "description": "Gun safe and high-mass safe moving under SIR Structural Integrity Relocation and the KIM-GS Protocol, for safes of 1,500 to 3,500 lbs — route and clearance survey, floor deflection analysis to L/360, load spreading, floor protection and verified placement, quoted at one flat rate in writing."
+    },
+    {
+      "name": "Piano, Antique and White-Glove Moving",
+      "description": "White-glove handling of pianos, antiques and high-value items, with custom crating when required."
+    },
+    {
+      "name": "ISPM 15 Export Packing",
+      "description": "Export packing to ISPM 15 (International Standards for Phytosanitary Measures No. 15) for international shipping."
+    },
+    {
+      "name": "Custom Crating",
+      "description": "Custom-built crates and high-value item protection for domestic and export moves."
+    },
+    {
+      "name": "Loading, Transloading and Container Services",
+      "description": "Container loading and unloading, and transloading between truck, container and warehouse."
+    },
+    {
+      "name": "Final-Mile Delivery",
+      "description": "Final-mile delivery with in-home or in-business placement and verification."
+    },
+    {
+      "name": "Office Moving",
+      "description": "Complete office relocations — workstations, files and office equipment — planned and quoted flat."
+    },
+    {
+      "name": "Industrial Offices Moving",
+      "description": "Office moves for industrial and facility sites — office areas within plants, warehouses and industrial facilities."
+    },
+    {
+      "name": "Government Moving",
+      "description": "Moving services for government offices and public-sector relocations."
+    },
+    {
+      "name": "Military Moving",
+      "description": "Moving services for military households and service members relocating to or from the Winchester and Martinsburg area."
+    },
+    {
+      "name": "Route 81 Corridor Moving and Dispatch",
+      "description": "Moving and logistics dispatch along Interstate 81, I-66 and I-70 from Winchester, VA and Martinsburg, WV."
+    },
+    {
+      "name": "Industrial & Commercial Services",
+      "description": "Industrial & Commercial Services — Trained, Supervised Moving and Warehouse Teams for industrial and commercial project support: warehouse and distribution, commercial relocation and logistics including white-glove/blanket-wrap, FF&E installation and project support, and flexible workforce deployment, priced per job with no required contract duration. Standard Job Pricing: Unload $8.00/CWT, Load $10.00/CWT, APU $12.00/CWT, Residential/Driver Meet $400-$425 per man."
+    }
+  ],
+  "distribution": [
+    {
+      "url": "https://theflatratemovers.com/sitemap.xml",
+      "mediaType": "application/xml"
+    },
+    {
+      "url": "https://theflatratemovers.com/ai-sitemap.json",
+      "mediaType": "application/json"
+    },
+    {
+      "url": "https://theflatratemovers.com/service-area.geojson",
+      "mediaType": "application/geo+json"
+    },
+    {
+      "url": "https://theflatratemovers.com/entity-graph.json",
+      "mediaType": "application/ld+json"
+    },
+    {
+      "url": "https://theflatratemovers.com/llms.txt",
+      "mediaType": "text/markdown"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "dataset": "corridors",
+  "generated": "2026-10-28",
+  "source": "Live sitemap (route81 page) + service descriptions in the head graph + owner-verified service-area list in ../theflatratemovers/the-flat-rate-movers-data.txt",
+  "attestation": "Only I-81 has a dedicated page. I-66 and I-70 are recorded as gaps, never as pages.",
+  "corridors": [
+    {
+      "id": "i-81",
+      "name": "Interstate 81",
+      "page": "route81",
+      "status": "live",
+      "source": "live sitemap + head graph service-route81",
+      "attested": "2026-10-28"
+    },
+    {
+      "id": "i-66",
+      "name": "Interstate 66",
+      "page": null,
+      "status": "gap",
+      "source": "mentioned in head graph service descriptions + data txt service-area list; no dedicated page in sitemap",
+      "attested": "2026-10-28"
+    },
+    {
+      "id": "i-70",
+      "name": "Interstate 70",
+      "page": null,
+      "status": "gap",
+      "source": "mentioned in head graph service descriptions + data txt service-area list; no dedicated page in sitemap",
+      "attested": "2026-10-28"
+    }
+  ]
+}

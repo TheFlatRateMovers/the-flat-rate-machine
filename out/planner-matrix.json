@@ -1,0 +1,1452 @@
+{
+  "dataset": "planner-matrix",
+  "generated": "2026-10-28",
+  "source": "data/locations.json + data/services.json + data/pages.json + data/corridors.json + live site source (corridor facts only)",
+  "attested": "2026-10-28",
+  "method": {
+    "branchInference": "A registry page counts as branch-specific when its slug or title contains 'winchester' or 'martinsburg' (both when both appear); otherwise it is company-wide. This is a planning heuristic, documented here, not a published claim.",
+    "intentRule": "Intent follows the existing registry page type: service -> commercial, location/home -> navigational, corridor/page -> informational.",
+    "requiredQuestionsRule": "Required questions are templates from the site's own full-format page structure (What it includes / Who it is for / Where we serve / Questions, answered + quote). They are questions a page must answer, not answers and not claims.",
+    "proposedSlugRule": "Proposed slugs follow the live branch-page pattern <service>-movers-<city>-<state>; a colliding candidate yields proposedSlug null and an editorial-slug note.",
+    "corridorOutlineRule": "Outline sections carry verified content with a source, or content null with a missingNote. Nothing is filled from general knowledge.",
+    "approvalRule": "Planned pages need owner approval per batch (Phase 3 rubric gate). Live rows need no action."
+  },
+  "summary": {
+    "totalRows": 39,
+    "byStatus": {
+      "live-branch": 12,
+      "gap-branch-page": 22,
+      "corridor-service": 2,
+      "live": 1,
+      "gap-corridor-page": 2
+    },
+    "byPriority": {
+      "P2": 7,
+      "P1": 17
+    },
+    "plannedPages": 24,
+    "plannedByBranch": {
+      "martinsburg": 15,
+      "winchester": 7,
+      "corridor": 2
+    }
+  },
+  "locationPages": {
+    "martinsburg": "moving-company-martinsburg-wv",
+    "winchester": "moving-company-winchester-va"
+  },
+  "rows": [
+    {
+      "kind": "service-branch",
+      "service": "service-residential",
+      "serviceName": "Residential Moving",
+      "branch": "winchester",
+      "branchName": "The Flat Rate Movers",
+      "intent": "commercial",
+      "status": "live-branch",
+      "action": "none",
+      "existingBranchPages": [
+        "category/winchester-va/residential-logistics",
+        "category/winchester-va/residential-logistics/relocation-services/moving",
+        "category/winchester-va/residential-logistics/relocation-services/moving/eastern-panhandle-moving",
+        "category/winchester-va/top-rated-movers-winchester-va",
+        "looking-for-the-best-movers-near-me-your-guide-to-stress-free-moving-in-winchester-and-martinsburg",
+        "moving-tips-winchester-va"
+      ],
+      "existingCompanyPages": [
+        "residential-moving",
+        "top-10-moving-tips-for-a-stress-free-move-in-2026",
+        "top-rated-movers-mid-atlantic"
+      ],
+      "proposedSlug": null,
+      "slugNote": "Branch-specific page already live; no page proposed.",
+      "requiredQuestions": [
+        "What does Residential Moving include?",
+        "Who is Residential Moving for?",
+        "Where does the Winchester branch serve Residential Moving?",
+        "How do I get a flat-rate quote for Residential Moving?",
+        "What are the Winchester branch hours?"
+      ],
+      "internalLinks": [
+        "home",
+        "moving-company-winchester-va"
+      ],
+      "priority": null,
+      "approval": "none",
+      "source": "data/services.json + data/pages.json + data/locations.json",
+      "attested": "2026-10-28"
+    },
+    {
+      "kind": "service-branch",
+      "service": "service-residential",
+      "serviceName": "Residential Moving",
+      "branch": "martinsburg",
+      "branchName": "Flat Rate Movers Martinsburg WV",
+      "intent": "commercial",
+      "status": "live-branch",
+      "action": "none",
+      "existingBranchPages": [
+        "looking-for-the-best-movers-near-me-your-guide-to-stress-free-moving-in-winchester-and-martinsburg",
+        "martinsburg-wv-movers-full-service-guide",
+        "reliable-movers-in-martinsburg-wv"
+      ],
+      "existingCompanyPages": [
+        "residential-moving",
+        "top-10-moving-tips-for-a-stress-free-move-in-2026",
+        "top-rated-movers-mid-atlantic"
+      ],
+      "proposedSlug": null,
+      "slugNote": "Branch-specific page already live; no page proposed.",
+      "requiredQuestions": [
+        "What does Residential Moving include?",
+        "Who is Residential Moving for?",
+        "Where does the Martinsburg branch serve Residential Moving?",
+        "How do I get a flat-rate quote for Residential Moving?",
+        "What are the Martinsburg branch hours?"
+      ],
+      "internalLinks": [
+        "home",
+        "moving-company-martinsburg-wv"
+      ],
+      "priority": null,
+      "approval": "none",
+      "source": "data/services.json + data/pages.json + data/locations.json",
+      "attested": "2026-10-28"
+    },
+    {
+      "kind": "service-branch",
+      "service": "service-commercial",
+      "serviceName": "Commercial and Office Moving",
+      "branch": "winchester",
+      "branchName": "The Flat Rate Movers",
+      "intent": "commercial",
+      "status": "gap-branch-page",
+      "action": "plan-page",
+      "existingBranchPages": [],
+      "existingCompanyPages": [
+        "category/office-commercial-moving",
+        "commercial-moving",
+        "docs/data-center-logistics",
+        "it-equipment-moving-data-center-logistics-services-virginia"
+      ],
+      "proposedSlug": "commercial-movers-winchester-va",
+      "slugNote": "Proposed slug follows the live branch-page pattern (<service>-movers-<city>-<state>); Phase 3 confirms it through the rubric gate.",
+      "requiredQuestions": [
+        "What does Commercial and Office Moving include?",
+        "Who is Commercial and Office Moving for?",
+        "Where does the Winchester branch serve Commercial and Office Moving?",
+        "How do I get a flat-rate quote for Commercial and Office Moving?",
+        "What are the Winchester branch hours?"
+      ],
+      "internalLinks": [
+        "home",
+        "moving-company-winchester-va"
+      ],
+      "priority": "P2",
+      "approval": "owner-approval-per-batch",
+      "source": "data/services.json + data/pages.json + data/locations.json",
+      "attested": "2026-10-28"
+    },
+    {
+      "kind": "service-branch",
+      "service": "service-commercial",
+      "serviceName": "Commercial and Office Moving",
+      "branch": "martinsburg",
+      "branchName": "Flat Rate Movers Martinsburg WV",
+      "intent": "commercial",
+      "status": "live-branch",
+      "action": "none",
+      "existingBranchPages": [
+        "martinsburg-wv-movers-full-service-guide"
+      ],
+      "existingCompanyPages": [
+        "category/office-commercial-moving",
+        "commercial-moving",
+        "docs/data-center-logistics",
+        "it-equipment-moving-data-center-logistics-services-virginia"
+      ],
+      "proposedSlug": null,
+      "slugNote": "Branch-specific page already live; no page proposed.",
+      "requiredQuestions": [
+        "What does Commercial and Office Moving include?",
+        "Who is Commercial and Office Moving for?",
+        "Where does the Martinsburg branch serve Commercial and Office Moving?",
+        "How do I get a flat-rate quote for Commercial and Office Moving?",
+        "What are the Martinsburg branch hours?"
+      ],
+      "internalLinks": [
+        "home",
+        "moving-company-martinsburg-wv"
+      ],
+      "priority": null,
+      "approval": "none",
+      "source": "data/services.json + data/pages.json + data/locations.json",
+      "attested": "2026-10-28"
+    },
+    {
+      "kind": "service-branch",
+      "service": "service-local-regional",
+      "serviceName": "Local and Regional Moving",
+      "branch": "winchester",
+      "branchName": "The Flat Rate Movers",
+      "intent": "commercial",
+      "status": "gap-branch-page",
+      "action": "plan-page",
+      "existingBranchPages": [],
+      "existingCompanyPages": [
+        "local-regional-moving"
+      ],
+      "proposedSlug": "local-regional-movers-winchester-va",
+      "slugNote": "Proposed slug follows the live branch-page pattern (<service>-movers-<city>-<state>); Phase 3 confirms it through the rubric gate.",
+      "requiredQuestions": [
+        "What does Local and Regional Moving include?",
+        "Who is Local and Regional Moving for?",
+        "Where does the Winchester branch serve Local and Regional Moving?",
+        "How do I get a flat-rate quote for Local and Regional Moving?",
+        "What are the Winchester branch hours?"
+      ],
+      "internalLinks": [
+        "home",
+        "moving-company-winchester-va"
+      ],
+      "priority": "P2",
+      "approval": "owner-approval-per-batch",
+      "source": "data/services.json + data/pages.json + data/locations.json",
+      "attested": "2026-10-28"
+    },
+    {
+      "kind": "service-branch",
+      "service": "service-local-regional",
+      "serviceName": "Local and Regional Moving",
+      "branch": "martinsburg",
+      "branchName": "Flat Rate Movers Martinsburg WV",
+      "intent": "commercial",
+      "status": "gap-branch-page",
+      "action": "plan-page",
+      "existingBranchPages": [],
+      "existingCompanyPages": [
+        "local-regional-moving"
+      ],
+      "proposedSlug": "local-regional-movers-martinsburg-wv",
+      "slugNote": "Proposed slug follows the live branch-page pattern (<service>-movers-<city>-<state>); Phase 3 confirms it through the rubric gate.",
+      "requiredQuestions": [
+        "What does Local and Regional Moving include?",
+        "Who is Local and Regional Moving for?",
+        "Where does the Martinsburg branch serve Local and Regional Moving?",
+        "How do I get a flat-rate quote for Local and Regional Moving?",
+        "What are the Martinsburg branch hours?"
+      ],
+      "internalLinks": [
+        "home",
+        "moving-company-martinsburg-wv"
+      ],
+      "priority": "P1",
+      "approval": "owner-approval-per-batch",
+      "source": "data/services.json + data/pages.json + data/locations.json",
+      "attested": "2026-10-28"
+    },
+    {
+      "kind": "service-branch",
+      "service": "service-long-distance",
+      "serviceName": "Long-Distance Moving",
+      "branch": "winchester",
+      "branchName": "The Flat Rate Movers",
+      "intent": "commercial",
+      "status": "live-branch",
+      "action": "none",
+      "existingBranchPages": [
+        "category/winchester-va/residential-logistics/relocation-services/moving/long-distance",
+        "interstate-moving-guide-winchester-va",
+        "interstate-moving-winchester-va",
+        "long-distance-movers-winchester-va-guide",
+        "long-distance-movers-winchester-va"
+      ],
+      "existingCompanyPages": [
+        "category/long-distance-moving",
+        "interstate-moving-network",
+        "long-distance-cross-country-moving",
+        "long-distance-movers-miami",
+        "the-data-science-of-displacement-how-predictive-analytics-is-redefining-the-mid-atlantic-relocation-path",
+        "the-strategic-roadmap-for-long-distance-residential-relocation",
+        "virginia-to-california-movers",
+        "virginia-to-florida-movers",
+        "virginia-to-nevada-movers",
+        "virginia-to-new-york-movers",
+        "virginia-to-texas-movers"
+      ],
+      "proposedSlug": null,
+      "slugNote": "Branch-specific page already live; no page proposed.",
+      "requiredQuestions": [
+        "What does Long-Distance Moving include?",
+        "Who is Long-Distance Moving for?",
+        "Where does the Winchester branch serve Long-Distance Moving?",
+        "How do I get a flat-rate quote for Long-Distance Moving?",
+        "What are the Winchester branch hours?"
+      ],
+      "internalLinks": [
+        "home",
+        "moving-company-winchester-va"
+      ],
+      "priority": null,
+      "approval": "none",
+      "source": "data/services.json + data/pages.json + data/locations.json",
+      "attested": "2026-10-28"
+    },
+    {
+      "kind": "service-branch",
+      "service": "service-long-distance",
+      "serviceName": "Long-Distance Moving",
+      "branch": "martinsburg",
+      "branchName": "Flat Rate Movers Martinsburg WV",
+      "intent": "commercial",
+      "status": "gap-branch-page",
+      "action": "plan-page",
+      "existingBranchPages": [],
+      "existingCompanyPages": [
+        "category/long-distance-moving",
+        "interstate-moving-network",
+        "long-distance-cross-country-moving",
+        "long-distance-movers-miami",
+        "the-data-science-of-displacement-how-predictive-analytics-is-redefining-the-mid-atlantic-relocation-path",
+        "the-strategic-roadmap-for-long-distance-residential-relocation",
+        "virginia-to-california-movers",
+        "virginia-to-florida-movers",
+        "virginia-to-nevada-movers",
+        "virginia-to-new-york-movers",
+        "virginia-to-texas-movers"
+      ],
+      "proposedSlug": "long-distance-movers-martinsburg-wv",
+      "slugNote": "Proposed slug follows the live branch-page pattern (<service>-movers-<city>-<state>); Phase 3 confirms it through the rubric gate.",
+      "requiredQuestions": [
+        "What does Long-Distance Moving include?",
+        "Who is Long-Distance Moving for?",
+        "Where does the Martinsburg branch serve Long-Distance Moving?",
+        "How do I get a flat-rate quote for Long-Distance Moving?",
+        "What are the Martinsburg branch hours?"
+      ],
+      "internalLinks": [
+        "home",
+        "moving-company-martinsburg-wv"
+      ],
+      "priority": "P1",
+      "approval": "owner-approval-per-batch",
+      "source": "data/services.json + data/pages.json + data/locations.json",
+      "attested": "2026-10-28"
+    },
+    {
+      "kind": "service-branch",
+      "service": "service-packing",
+      "serviceName": "Packing and Unpacking",
+      "branch": "winchester",
+      "branchName": "The Flat Rate Movers",
+      "intent": "commercial",
+      "status": "live-branch",
+      "action": "none",
+      "existingBranchPages": [
+        "category/winchester-va/residential-logistics/relocation-services/moving/estate-relocation",
+        "category/winchester-va/residential-logistics/relocation-services/paper-padding",
+        "packing-cost-winchester-va",
+        "packing-services-winchester-va"
+      ],
+      "existingCompanyPages": [
+        "full-service-packing-unpacking-systematic-asset-encapsulation",
+        "how-to-pack-for-interstate-move",
+        "packing-unpacking-services-2",
+        "professional-packing-services-moving-cost-estimator"
+      ],
+      "proposedSlug": null,
+      "slugNote": "Branch-specific page already live; no page proposed.",
+      "requiredQuestions": [
+        "What does Packing and Unpacking include?",
+        "Who is Packing and Unpacking for?",
+        "Where does the Winchester branch serve Packing and Unpacking?",
+        "How do I get a flat-rate quote for Packing and Unpacking?",
+        "What are the Winchester branch hours?"
+      ],
+      "internalLinks": [
+        "home",
+        "moving-company-winchester-va"
+      ],
+      "priority": null,
+      "approval": "none",
+      "source": "data/services.json + data/pages.json + data/locations.json",
+      "attested": "2026-10-28"
+    },
+    {
+      "kind": "service-branch",
+      "service": "service-packing",
+      "serviceName": "Packing and Unpacking",
+      "branch": "martinsburg",
+      "branchName": "Flat Rate Movers Martinsburg WV",
+      "intent": "commercial",
+      "status": "gap-branch-page",
+      "action": "plan-page",
+      "existingBranchPages": [],
+      "existingCompanyPages": [
+        "full-service-packing-unpacking-systematic-asset-encapsulation",
+        "how-to-pack-for-interstate-move",
+        "packing-unpacking-services-2",
+        "professional-packing-services-moving-cost-estimator"
+      ],
+      "proposedSlug": "packing-movers-martinsburg-wv",
+      "slugNote": "Proposed slug follows the live branch-page pattern (<service>-movers-<city>-<state>); Phase 3 confirms it through the rubric gate.",
+      "requiredQuestions": [
+        "What does Packing and Unpacking include?",
+        "Who is Packing and Unpacking for?",
+        "Where does the Martinsburg branch serve Packing and Unpacking?",
+        "How do I get a flat-rate quote for Packing and Unpacking?",
+        "What are the Martinsburg branch hours?"
+      ],
+      "internalLinks": [
+        "home",
+        "moving-company-martinsburg-wv"
+      ],
+      "priority": "P1",
+      "approval": "owner-approval-per-batch",
+      "source": "data/services.json + data/pages.json + data/locations.json",
+      "attested": "2026-10-28"
+    },
+    {
+      "kind": "service-branch",
+      "service": "service-sir-heavy",
+      "serviceName": "SIR Heavy Asset Relocation (KIM-GS Protocol)",
+      "branch": "winchester",
+      "branchName": "The Flat Rate Movers",
+      "intent": "commercial",
+      "status": "live-branch",
+      "action": "none",
+      "existingBranchPages": [
+        "high-mass-logistics-long-distance-moving-winchester-va",
+        "industrial-rigging-high-mass-logistics-hub-winchester-va"
+      ],
+      "existingCompanyPages": [
+        "calibration-safe-moving",
+        "category/rigging-sir-2026",
+        "category/rigging-sir-2026/high-value-rigging",
+        "heavy",
+        "relocation-engineering-framework",
+        "relocation-engineering-standards-portal",
+        "sir-2026-protocol",
+        "sir-2026-structural-integrity-relocation-protocol",
+        "technical-rigging-high-security-gun-safe-vault-relocation",
+        "technical-rigging-standards",
+        "the-invisible-risk-of-high-mass-relocation"
+      ],
+      "proposedSlug": null,
+      "slugNote": "Branch-specific page already live; no page proposed.",
+      "requiredQuestions": [
+        "What does SIR Heavy Asset Relocation (KIM-GS Protocol) include?",
+        "Who is SIR Heavy Asset Relocation (KIM-GS Protocol) for?",
+        "Where does the Winchester branch serve SIR Heavy Asset Relocation (KIM-GS Protocol)?",
+        "How do I get a flat-rate quote for SIR Heavy Asset Relocation (KIM-GS Protocol)?",
+        "What are the Winchester branch hours?"
+      ],
+      "internalLinks": [
+        "home",
+        "moving-company-winchester-va"
+      ],
+      "priority": null,
+      "approval": "none",
+      "source": "data/services.json + data/pages.json + data/locations.json",
+      "attested": "2026-10-28"
+    },
+    {
+      "kind": "service-branch",
+      "service": "service-sir-heavy",
+      "serviceName": "SIR Heavy Asset Relocation (KIM-GS Protocol)",
+      "branch": "martinsburg",
+      "branchName": "Flat Rate Movers Martinsburg WV",
+      "intent": "commercial",
+      "status": "gap-branch-page",
+      "action": "plan-page",
+      "existingBranchPages": [],
+      "existingCompanyPages": [
+        "calibration-safe-moving",
+        "category/rigging-sir-2026",
+        "category/rigging-sir-2026/high-value-rigging",
+        "heavy",
+        "relocation-engineering-framework",
+        "relocation-engineering-standards-portal",
+        "sir-2026-protocol",
+        "sir-2026-structural-integrity-relocation-protocol",
+        "technical-rigging-high-security-gun-safe-vault-relocation",
+        "technical-rigging-standards",
+        "the-invisible-risk-of-high-mass-relocation"
+      ],
+      "proposedSlug": "sir-heavy-movers-martinsburg-wv",
+      "slugNote": "Proposed slug follows the live branch-page pattern (<service>-movers-<city>-<state>); Phase 3 confirms it through the rubric gate.",
+      "requiredQuestions": [
+        "What does SIR Heavy Asset Relocation (KIM-GS Protocol) include?",
+        "Who is SIR Heavy Asset Relocation (KIM-GS Protocol) for?",
+        "Where does the Martinsburg branch serve SIR Heavy Asset Relocation (KIM-GS Protocol)?",
+        "How do I get a flat-rate quote for SIR Heavy Asset Relocation (KIM-GS Protocol)?",
+        "What are the Martinsburg branch hours?"
+      ],
+      "internalLinks": [
+        "home",
+        "moving-company-martinsburg-wv"
+      ],
+      "priority": "P1",
+      "approval": "owner-approval-per-batch",
+      "source": "data/services.json + data/pages.json + data/locations.json",
+      "attested": "2026-10-28"
+    },
+    {
+      "kind": "service-branch",
+      "service": "service-gun-safe",
+      "serviceName": "Gun Safe Moving",
+      "branch": "winchester",
+      "branchName": "The Flat Rate Movers",
+      "intent": "commercial",
+      "status": "live-branch",
+      "action": "none",
+      "existingBranchPages": [
+        "1600-lb-gun-safe-moving-winchester-va-to-las-vegas-nv",
+        "case-study-3500lb-safe-moving-winchester-va",
+        "gun-safe-movers-winchester-va",
+        "long-distance-gun-safe-moving-winchester-va-to-las-vegas-nv"
+      ],
+      "existingCompanyPages": [
+        "category/vault-moving",
+        "gun-safe-movers",
+        "safe-moving-protocol",
+        "technical-rigging-high-security-gun-safe-vault-relocation"
+      ],
+      "proposedSlug": null,
+      "slugNote": "Branch-specific page already live; no page proposed.",
+      "requiredQuestions": [
+        "What does Gun Safe Moving include?",
+        "Who is Gun Safe Moving for?",
+        "Where does the Winchester branch serve Gun Safe Moving?",
+        "How do I get a flat-rate quote for Gun Safe Moving?",
+        "What are the Winchester branch hours?"
+      ],
+      "internalLinks": [
+        "home",
+        "moving-company-winchester-va"
+      ],
+      "priority": null,
+      "approval": "none",
+      "source": "data/services.json + data/pages.json + data/locations.json",
+      "attested": "2026-10-28"
+    },
+    {
+      "kind": "service-branch",
+      "service": "service-gun-safe",
+      "serviceName": "Gun Safe Moving",
+      "branch": "martinsburg",
+      "branchName": "Flat Rate Movers Martinsburg WV",
+      "intent": "commercial",
+      "status": "gap-branch-page",
+      "action": "plan-page",
+      "existingBranchPages": [],
+      "existingCompanyPages": [
+        "category/vault-moving",
+        "gun-safe-movers",
+        "safe-moving-protocol",
+        "technical-rigging-high-security-gun-safe-vault-relocation"
+      ],
+      "proposedSlug": "gun-safe-movers-martinsburg-wv",
+      "slugNote": "Proposed slug follows the live branch-page pattern (<service>-movers-<city>-<state>); Phase 3 confirms it through the rubric gate.",
+      "requiredQuestions": [
+        "What does Gun Safe Moving include?",
+        "Who is Gun Safe Moving for?",
+        "Where does the Martinsburg branch serve Gun Safe Moving?",
+        "How do I get a flat-rate quote for Gun Safe Moving?",
+        "What are the Martinsburg branch hours?"
+      ],
+      "internalLinks": [
+        "home",
+        "moving-company-martinsburg-wv"
+      ],
+      "priority": "P1",
+      "approval": "owner-approval-per-batch",
+      "source": "data/services.json + data/pages.json + data/locations.json",
+      "attested": "2026-10-28"
+    },
+    {
+      "kind": "service-branch",
+      "service": "service-piano-antique",
+      "serviceName": "Piano, Antique and White-Glove Moving",
+      "branch": "winchester",
+      "branchName": "The Flat Rate Movers",
+      "intent": "commercial",
+      "status": "live-branch",
+      "action": "none",
+      "existingBranchPages": [
+        "category/winchester-va/residential-logistics/relocation-services/moving/museum-logistics",
+        "white-glove-delivery-winchester-va"
+      ],
+      "existingCompanyPages": [
+        "elite-asset-transition-white-glove-discreet-logistics"
+      ],
+      "proposedSlug": null,
+      "slugNote": "Branch-specific page already live; no page proposed.",
+      "requiredQuestions": [
+        "What does Piano, Antique and White-Glove Moving include?",
+        "Who is Piano, Antique and White-Glove Moving for?",
+        "Where does the Winchester branch serve Piano, Antique and White-Glove Moving?",
+        "How do I get a flat-rate quote for Piano, Antique and White-Glove Moving?",
+        "What are the Winchester branch hours?"
+      ],
+      "internalLinks": [
+        "home",
+        "moving-company-winchester-va"
+      ],
+      "priority": null,
+      "approval": "none",
+      "source": "data/services.json + data/pages.json + data/locations.json",
+      "attested": "2026-10-28"
+    },
+    {
+      "kind": "service-branch",
+      "service": "service-piano-antique",
+      "serviceName": "Piano, Antique and White-Glove Moving",
+      "branch": "martinsburg",
+      "branchName": "Flat Rate Movers Martinsburg WV",
+      "intent": "commercial",
+      "status": "gap-branch-page",
+      "action": "plan-page",
+      "existingBranchPages": [],
+      "existingCompanyPages": [
+        "elite-asset-transition-white-glove-discreet-logistics"
+      ],
+      "proposedSlug": "piano-antique-movers-martinsburg-wv",
+      "slugNote": "Proposed slug follows the live branch-page pattern (<service>-movers-<city>-<state>); Phase 3 confirms it through the rubric gate.",
+      "requiredQuestions": [
+        "What does Piano, Antique and White-Glove Moving include?",
+        "Who is Piano, Antique and White-Glove Moving for?",
+        "Where does the Martinsburg branch serve Piano, Antique and White-Glove Moving?",
+        "How do I get a flat-rate quote for Piano, Antique and White-Glove Moving?",
+        "What are the Martinsburg branch hours?"
+      ],
+      "internalLinks": [
+        "home",
+        "moving-company-martinsburg-wv"
+      ],
+      "priority": "P1",
+      "approval": "owner-approval-per-batch",
+      "source": "data/services.json + data/pages.json + data/locations.json",
+      "attested": "2026-10-28"
+    },
+    {
+      "kind": "service-branch",
+      "service": "service-ispm15",
+      "serviceName": "ISPM 15 Export Packing",
+      "branch": "winchester",
+      "branchName": "The Flat Rate Movers",
+      "intent": "commercial",
+      "status": "live-branch",
+      "action": "none",
+      "existingBranchPages": [
+        "international-export-packing-crating-winchester-va"
+      ],
+      "existingCompanyPages": [
+        "category/maritime-shipping",
+        "export",
+        "how-international-export-packing-crating-protects-global-shipments"
+      ],
+      "proposedSlug": null,
+      "slugNote": "Branch-specific page already live; no page proposed.",
+      "requiredQuestions": [
+        "What does ISPM 15 Export Packing include?",
+        "Who is ISPM 15 Export Packing for?",
+        "Where does the Winchester branch serve ISPM 15 Export Packing?",
+        "How do I get a flat-rate quote for ISPM 15 Export Packing?",
+        "What are the Winchester branch hours?"
+      ],
+      "internalLinks": [
+        "home",
+        "moving-company-winchester-va"
+      ],
+      "priority": null,
+      "approval": "none",
+      "source": "data/services.json + data/pages.json + data/locations.json",
+      "attested": "2026-10-28"
+    },
+    {
+      "kind": "service-branch",
+      "service": "service-ispm15",
+      "serviceName": "ISPM 15 Export Packing",
+      "branch": "martinsburg",
+      "branchName": "Flat Rate Movers Martinsburg WV",
+      "intent": "commercial",
+      "status": "gap-branch-page",
+      "action": "plan-page",
+      "existingBranchPages": [],
+      "existingCompanyPages": [
+        "category/maritime-shipping",
+        "export",
+        "how-international-export-packing-crating-protects-global-shipments"
+      ],
+      "proposedSlug": "ispm15-movers-martinsburg-wv",
+      "slugNote": "Proposed slug follows the live branch-page pattern (<service>-movers-<city>-<state>); Phase 3 confirms it through the rubric gate.",
+      "requiredQuestions": [
+        "What does ISPM 15 Export Packing include?",
+        "Who is ISPM 15 Export Packing for?",
+        "Where does the Martinsburg branch serve ISPM 15 Export Packing?",
+        "How do I get a flat-rate quote for ISPM 15 Export Packing?",
+        "What are the Martinsburg branch hours?"
+      ],
+      "internalLinks": [
+        "home",
+        "moving-company-martinsburg-wv"
+      ],
+      "priority": "P1",
+      "approval": "owner-approval-per-batch",
+      "source": "data/services.json + data/pages.json + data/locations.json",
+      "attested": "2026-10-28"
+    },
+    {
+      "kind": "service-branch",
+      "service": "service-crating",
+      "serviceName": "Custom Crating",
+      "branch": "winchester",
+      "branchName": "The Flat Rate Movers",
+      "intent": "commercial",
+      "status": "live-branch",
+      "action": "none",
+      "existingBranchPages": [
+        "international-export-packing-crating-winchester-va"
+      ],
+      "existingCompanyPages": [
+        "how-international-export-packing-crating-protects-global-shipments"
+      ],
+      "proposedSlug": null,
+      "slugNote": "Branch-specific page already live; no page proposed.",
+      "requiredQuestions": [
+        "What does Custom Crating include?",
+        "Who is Custom Crating for?",
+        "Where does the Winchester branch serve Custom Crating?",
+        "How do I get a flat-rate quote for Custom Crating?",
+        "What are the Winchester branch hours?"
+      ],
+      "internalLinks": [
+        "home",
+        "moving-company-winchester-va"
+      ],
+      "priority": null,
+      "approval": "none",
+      "source": "data/services.json + data/pages.json + data/locations.json",
+      "attested": "2026-10-28"
+    },
+    {
+      "kind": "service-branch",
+      "service": "service-crating",
+      "serviceName": "Custom Crating",
+      "branch": "martinsburg",
+      "branchName": "Flat Rate Movers Martinsburg WV",
+      "intent": "commercial",
+      "status": "gap-branch-page",
+      "action": "plan-page",
+      "existingBranchPages": [],
+      "existingCompanyPages": [
+        "how-international-export-packing-crating-protects-global-shipments"
+      ],
+      "proposedSlug": "crating-movers-martinsburg-wv",
+      "slugNote": "Proposed slug follows the live branch-page pattern (<service>-movers-<city>-<state>); Phase 3 confirms it through the rubric gate.",
+      "requiredQuestions": [
+        "What does Custom Crating include?",
+        "Who is Custom Crating for?",
+        "Where does the Martinsburg branch serve Custom Crating?",
+        "How do I get a flat-rate quote for Custom Crating?",
+        "What are the Martinsburg branch hours?"
+      ],
+      "internalLinks": [
+        "home",
+        "moving-company-martinsburg-wv"
+      ],
+      "priority": "P1",
+      "approval": "owner-approval-per-batch",
+      "source": "data/services.json + data/pages.json + data/locations.json",
+      "attested": "2026-10-28"
+    },
+    {
+      "kind": "service-branch",
+      "service": "service-transloading",
+      "serviceName": "Loading, Transloading and Container Services",
+      "branch": "winchester",
+      "branchName": "The Flat Rate Movers",
+      "intent": "commercial",
+      "status": "live-branch",
+      "action": "none",
+      "existingBranchPages": [
+        "category/winchester-va/residential-logistics/relocation-services/moving/museum-logistics/logistics-transportation"
+      ],
+      "existingCompanyPages": [
+        "category/freight-services",
+        "category/port-logistics",
+        "commercial-freight-handling-solutions",
+        "commercial-freight-handling-white-glove-final-mile-services",
+        "container-deconsolidation-cross-docking-transloading-services-virginia",
+        "container-deconsolidation-services-virginia-mid-atlantic",
+        "container-loading-unloading-services-port-transload-virginia",
+        "docs/container-deconsolidation",
+        "emergency-port-container-recovery-twic-labor-virginia",
+        "how-container-deconsolidation-cross-docking-transloading-supports-virginia-freight-networks",
+        "how-container-loading-unloading-services-improve-port-logistics",
+        "how-port-of-virginia-logistics-supports-east-coast-freight-movement",
+        "port-of-virginia-container-loading-unloading-logistics-services",
+        "virginia-inland-port-freight-transloading-operations"
+      ],
+      "proposedSlug": null,
+      "slugNote": "Branch-specific page already live; no page proposed.",
+      "requiredQuestions": [
+        "What does Loading, Transloading and Container Services include?",
+        "Who is Loading, Transloading and Container Services for?",
+        "Where does the Winchester branch serve Loading, Transloading and Container Services?",
+        "How do I get a flat-rate quote for Loading, Transloading and Container Services?",
+        "What are the Winchester branch hours?"
+      ],
+      "internalLinks": [
+        "home",
+        "moving-company-winchester-va"
+      ],
+      "priority": null,
+      "approval": "none",
+      "source": "data/services.json + data/pages.json + data/locations.json",
+      "attested": "2026-10-28"
+    },
+    {
+      "kind": "service-branch",
+      "service": "service-transloading",
+      "serviceName": "Loading, Transloading and Container Services",
+      "branch": "martinsburg",
+      "branchName": "Flat Rate Movers Martinsburg WV",
+      "intent": "commercial",
+      "status": "gap-branch-page",
+      "action": "plan-page",
+      "existingBranchPages": [],
+      "existingCompanyPages": [
+        "category/freight-services",
+        "category/port-logistics",
+        "commercial-freight-handling-solutions",
+        "commercial-freight-handling-white-glove-final-mile-services",
+        "container-deconsolidation-cross-docking-transloading-services-virginia",
+        "container-deconsolidation-services-virginia-mid-atlantic",
+        "container-loading-unloading-services-port-transload-virginia",
+        "docs/container-deconsolidation",
+        "emergency-port-container-recovery-twic-labor-virginia",
+        "how-container-deconsolidation-cross-docking-transloading-supports-virginia-freight-networks",
+        "how-container-loading-unloading-services-improve-port-logistics",
+        "how-port-of-virginia-logistics-supports-east-coast-freight-movement",
+        "port-of-virginia-container-loading-unloading-logistics-services",
+        "virginia-inland-port-freight-transloading-operations"
+      ],
+      "proposedSlug": "transloading-movers-martinsburg-wv",
+      "slugNote": "Proposed slug follows the live branch-page pattern (<service>-movers-<city>-<state>); Phase 3 confirms it through the rubric gate.",
+      "requiredQuestions": [
+        "What does Loading, Transloading and Container Services include?",
+        "Who is Loading, Transloading and Container Services for?",
+        "Where does the Martinsburg branch serve Loading, Transloading and Container Services?",
+        "How do I get a flat-rate quote for Loading, Transloading and Container Services?",
+        "What are the Martinsburg branch hours?"
+      ],
+      "internalLinks": [
+        "home",
+        "moving-company-martinsburg-wv"
+      ],
+      "priority": "P1",
+      "approval": "owner-approval-per-batch",
+      "source": "data/services.json + data/pages.json + data/locations.json",
+      "attested": "2026-10-28"
+    },
+    {
+      "kind": "service-branch",
+      "service": "service-final-mile",
+      "serviceName": "Final-Mile Delivery",
+      "branch": "winchester",
+      "branchName": "The Flat Rate Movers",
+      "intent": "commercial",
+      "status": "live-branch",
+      "action": "none",
+      "existingBranchPages": [
+        "white-glove-delivery-winchester-va"
+      ],
+      "existingCompanyPages": [
+        "commercial-freight-handling-solutions",
+        "commercial-freight-handling-white-glove-final-mile-services"
+      ],
+      "proposedSlug": null,
+      "slugNote": "Branch-specific page already live; no page proposed.",
+      "requiredQuestions": [
+        "What does Final-Mile Delivery include?",
+        "Who is Final-Mile Delivery for?",
+        "Where does the Winchester branch serve Final-Mile Delivery?",
+        "How do I get a flat-rate quote for Final-Mile Delivery?",
+        "What are the Winchester branch hours?"
+      ],
+      "internalLinks": [
+        "home",
+        "moving-company-winchester-va"
+      ],
+      "priority": null,
+      "approval": "none",
+      "source": "data/services.json + data/pages.json + data/locations.json",
+      "attested": "2026-10-28"
+    },
+    {
+      "kind": "service-branch",
+      "service": "service-final-mile",
+      "serviceName": "Final-Mile Delivery",
+      "branch": "martinsburg",
+      "branchName": "Flat Rate Movers Martinsburg WV",
+      "intent": "commercial",
+      "status": "gap-branch-page",
+      "action": "plan-page",
+      "existingBranchPages": [],
+      "existingCompanyPages": [
+        "commercial-freight-handling-solutions",
+        "commercial-freight-handling-white-glove-final-mile-services"
+      ],
+      "proposedSlug": "final-mile-movers-martinsburg-wv",
+      "slugNote": "Proposed slug follows the live branch-page pattern (<service>-movers-<city>-<state>); Phase 3 confirms it through the rubric gate.",
+      "requiredQuestions": [
+        "What does Final-Mile Delivery include?",
+        "Who is Final-Mile Delivery for?",
+        "Where does the Martinsburg branch serve Final-Mile Delivery?",
+        "How do I get a flat-rate quote for Final-Mile Delivery?",
+        "What are the Martinsburg branch hours?"
+      ],
+      "internalLinks": [
+        "home",
+        "moving-company-martinsburg-wv"
+      ],
+      "priority": "P1",
+      "approval": "owner-approval-per-batch",
+      "source": "data/services.json + data/pages.json + data/locations.json",
+      "attested": "2026-10-28"
+    },
+    {
+      "kind": "service-branch",
+      "service": "service-office-moving",
+      "serviceName": "Office Moving",
+      "branch": "winchester",
+      "branchName": "The Flat Rate Movers",
+      "intent": "commercial",
+      "status": "gap-branch-page",
+      "action": "plan-page",
+      "existingBranchPages": [],
+      "existingCompanyPages": [
+        "commercial-office-moving-2"
+      ],
+      "proposedSlug": "office-moving-movers-winchester-va",
+      "slugNote": "Proposed slug follows the live branch-page pattern (<service>-movers-<city>-<state>); Phase 3 confirms it through the rubric gate.",
+      "requiredQuestions": [
+        "What does Office Moving include?",
+        "Who is Office Moving for?",
+        "Where does the Winchester branch serve Office Moving?",
+        "How do I get a flat-rate quote for Office Moving?",
+        "What are the Winchester branch hours?"
+      ],
+      "internalLinks": [
+        "home",
+        "moving-company-winchester-va"
+      ],
+      "priority": "P2",
+      "approval": "owner-approval-per-batch",
+      "source": "data/services.json + data/pages.json + data/locations.json",
+      "attested": "2026-10-28"
+    },
+    {
+      "kind": "service-branch",
+      "service": "service-office-moving",
+      "serviceName": "Office Moving",
+      "branch": "martinsburg",
+      "branchName": "Flat Rate Movers Martinsburg WV",
+      "intent": "commercial",
+      "status": "gap-branch-page",
+      "action": "plan-page",
+      "existingBranchPages": [],
+      "existingCompanyPages": [
+        "commercial-office-moving-2"
+      ],
+      "proposedSlug": "office-moving-movers-martinsburg-wv",
+      "slugNote": "Proposed slug follows the live branch-page pattern (<service>-movers-<city>-<state>); Phase 3 confirms it through the rubric gate.",
+      "requiredQuestions": [
+        "What does Office Moving include?",
+        "Who is Office Moving for?",
+        "Where does the Martinsburg branch serve Office Moving?",
+        "How do I get a flat-rate quote for Office Moving?",
+        "What are the Martinsburg branch hours?"
+      ],
+      "internalLinks": [
+        "home",
+        "moving-company-martinsburg-wv"
+      ],
+      "priority": "P1",
+      "approval": "owner-approval-per-batch",
+      "source": "data/services.json + data/pages.json + data/locations.json",
+      "attested": "2026-10-28"
+    },
+    {
+      "kind": "service-branch",
+      "service": "service-industrial-offices",
+      "serviceName": "Industrial Offices Moving",
+      "branch": "winchester",
+      "branchName": "The Flat Rate Movers",
+      "intent": "commercial",
+      "status": "gap-branch-page",
+      "action": "plan-page",
+      "existingBranchPages": [],
+      "existingCompanyPages": [
+        "industrial-offices-moving"
+      ],
+      "proposedSlug": "industrial-offices-movers-winchester-va",
+      "slugNote": "Proposed slug follows the live branch-page pattern (<service>-movers-<city>-<state>); Phase 3 confirms it through the rubric gate.",
+      "requiredQuestions": [
+        "What does Industrial Offices Moving include?",
+        "Who is Industrial Offices Moving for?",
+        "Where does the Winchester branch serve Industrial Offices Moving?",
+        "How do I get a flat-rate quote for Industrial Offices Moving?",
+        "What are the Winchester branch hours?"
+      ],
+      "internalLinks": [
+        "home",
+        "moving-company-winchester-va"
+      ],
+      "priority": "P2",
+      "approval": "owner-approval-per-batch",
+      "source": "data/services.json + data/pages.json + data/locations.json",
+      "attested": "2026-10-28"
+    },
+    {
+      "kind": "service-branch",
+      "service": "service-industrial-offices",
+      "serviceName": "Industrial Offices Moving",
+      "branch": "martinsburg",
+      "branchName": "Flat Rate Movers Martinsburg WV",
+      "intent": "commercial",
+      "status": "gap-branch-page",
+      "action": "plan-page",
+      "existingBranchPages": [],
+      "existingCompanyPages": [
+        "industrial-offices-moving"
+      ],
+      "proposedSlug": "industrial-offices-movers-martinsburg-wv",
+      "slugNote": "Proposed slug follows the live branch-page pattern (<service>-movers-<city>-<state>); Phase 3 confirms it through the rubric gate.",
+      "requiredQuestions": [
+        "What does Industrial Offices Moving include?",
+        "Who is Industrial Offices Moving for?",
+        "Where does the Martinsburg branch serve Industrial Offices Moving?",
+        "How do I get a flat-rate quote for Industrial Offices Moving?",
+        "What are the Martinsburg branch hours?"
+      ],
+      "internalLinks": [
+        "home",
+        "moving-company-martinsburg-wv"
+      ],
+      "priority": "P1",
+      "approval": "owner-approval-per-batch",
+      "source": "data/services.json + data/pages.json + data/locations.json",
+      "attested": "2026-10-28"
+    },
+    {
+      "kind": "service-branch",
+      "service": "service-government",
+      "serviceName": "Government Moving",
+      "branch": "winchester",
+      "branchName": "The Flat Rate Movers",
+      "intent": "commercial",
+      "status": "gap-branch-page",
+      "action": "plan-page",
+      "existingBranchPages": [],
+      "existingCompanyPages": [
+        "category/military-government-moving",
+        "military-government-hhg-moving-requirements-contractors",
+        "military-government-moving"
+      ],
+      "proposedSlug": "government-movers-winchester-va",
+      "slugNote": "Proposed slug follows the live branch-page pattern (<service>-movers-<city>-<state>); Phase 3 confirms it through the rubric gate.",
+      "requiredQuestions": [
+        "What does Government Moving include?",
+        "Who is Government Moving for?",
+        "Where does the Winchester branch serve Government Moving?",
+        "How do I get a flat-rate quote for Government Moving?",
+        "What are the Winchester branch hours?"
+      ],
+      "internalLinks": [
+        "home",
+        "moving-company-winchester-va"
+      ],
+      "priority": "P2",
+      "approval": "owner-approval-per-batch",
+      "source": "data/services.json + data/pages.json + data/locations.json",
+      "attested": "2026-10-28"
+    },
+    {
+      "kind": "service-branch",
+      "service": "service-government",
+      "serviceName": "Government Moving",
+      "branch": "martinsburg",
+      "branchName": "Flat Rate Movers Martinsburg WV",
+      "intent": "commercial",
+      "status": "gap-branch-page",
+      "action": "plan-page",
+      "existingBranchPages": [],
+      "existingCompanyPages": [
+        "category/military-government-moving",
+        "military-government-hhg-moving-requirements-contractors",
+        "military-government-moving"
+      ],
+      "proposedSlug": "government-movers-martinsburg-wv",
+      "slugNote": "Proposed slug follows the live branch-page pattern (<service>-movers-<city>-<state>); Phase 3 confirms it through the rubric gate.",
+      "requiredQuestions": [
+        "What does Government Moving include?",
+        "Who is Government Moving for?",
+        "Where does the Martinsburg branch serve Government Moving?",
+        "How do I get a flat-rate quote for Government Moving?",
+        "What are the Martinsburg branch hours?"
+      ],
+      "internalLinks": [
+        "home",
+        "moving-company-martinsburg-wv"
+      ],
+      "priority": "P1",
+      "approval": "owner-approval-per-batch",
+      "source": "data/services.json + data/pages.json + data/locations.json",
+      "attested": "2026-10-28"
+    },
+    {
+      "kind": "service-branch",
+      "service": "service-military",
+      "serviceName": "Military Moving",
+      "branch": "winchester",
+      "branchName": "The Flat Rate Movers",
+      "intent": "commercial",
+      "status": "gap-branch-page",
+      "action": "plan-page",
+      "existingBranchPages": [],
+      "existingCompanyPages": [
+        "category/military-government-moving",
+        "military-government-hhg-moving-requirements-contractors",
+        "military-government-moving"
+      ],
+      "proposedSlug": "military-movers-winchester-va",
+      "slugNote": "Proposed slug follows the live branch-page pattern (<service>-movers-<city>-<state>); Phase 3 confirms it through the rubric gate.",
+      "requiredQuestions": [
+        "What does Military Moving include?",
+        "Who is Military Moving for?",
+        "Where does the Winchester branch serve Military Moving?",
+        "How do I get a flat-rate quote for Military Moving?",
+        "What are the Winchester branch hours?"
+      ],
+      "internalLinks": [
+        "home",
+        "moving-company-winchester-va"
+      ],
+      "priority": "P2",
+      "approval": "owner-approval-per-batch",
+      "source": "data/services.json + data/pages.json + data/locations.json",
+      "attested": "2026-10-28"
+    },
+    {
+      "kind": "service-branch",
+      "service": "service-military",
+      "serviceName": "Military Moving",
+      "branch": "martinsburg",
+      "branchName": "Flat Rate Movers Martinsburg WV",
+      "intent": "commercial",
+      "status": "gap-branch-page",
+      "action": "plan-page",
+      "existingBranchPages": [],
+      "existingCompanyPages": [
+        "category/military-government-moving",
+        "military-government-hhg-moving-requirements-contractors",
+        "military-government-moving"
+      ],
+      "proposedSlug": "military-movers-martinsburg-wv",
+      "slugNote": "Proposed slug follows the live branch-page pattern (<service>-movers-<city>-<state>); Phase 3 confirms it through the rubric gate.",
+      "requiredQuestions": [
+        "What does Military Moving include?",
+        "Who is Military Moving for?",
+        "Where does the Martinsburg branch serve Military Moving?",
+        "How do I get a flat-rate quote for Military Moving?",
+        "What are the Martinsburg branch hours?"
+      ],
+      "internalLinks": [
+        "home",
+        "moving-company-martinsburg-wv"
+      ],
+      "priority": "P1",
+      "approval": "owner-approval-per-batch",
+      "source": "data/services.json + data/pages.json + data/locations.json",
+      "attested": "2026-10-28"
+    },
+    {
+      "kind": "service-branch",
+      "service": "service-route81",
+      "serviceName": "Route 81 Corridor Moving and Dispatch",
+      "branch": "winchester",
+      "branchName": "The Flat Rate Movers",
+      "intent": "commercial",
+      "status": "corridor-service",
+      "action": "none",
+      "existingBranchPages": [],
+      "existingCompanyPages": [
+        "how-port-of-virginia-logistics-supports-east-coast-freight-movement",
+        "route81"
+      ],
+      "proposedSlug": null,
+      "slugNote": "route81 is a corridor service; see corridor rows, not branch pages.",
+      "requiredQuestions": [
+        "What does Route 81 Corridor Moving and Dispatch include?",
+        "Who is Route 81 Corridor Moving and Dispatch for?",
+        "Where does the Winchester branch serve Route 81 Corridor Moving and Dispatch?",
+        "How do I get a flat-rate quote for Route 81 Corridor Moving and Dispatch?",
+        "What are the Winchester branch hours?"
+      ],
+      "internalLinks": [
+        "home",
+        "moving-company-winchester-va"
+      ],
+      "priority": null,
+      "approval": "none",
+      "source": "data/services.json + data/pages.json + data/locations.json",
+      "attested": "2026-10-28"
+    },
+    {
+      "kind": "service-branch",
+      "service": "service-route81",
+      "serviceName": "Route 81 Corridor Moving and Dispatch",
+      "branch": "martinsburg",
+      "branchName": "Flat Rate Movers Martinsburg WV",
+      "intent": "commercial",
+      "status": "corridor-service",
+      "action": "none",
+      "existingBranchPages": [],
+      "existingCompanyPages": [
+        "how-port-of-virginia-logistics-supports-east-coast-freight-movement",
+        "route81"
+      ],
+      "proposedSlug": null,
+      "slugNote": "route81 is a corridor service; see corridor rows, not branch pages.",
+      "requiredQuestions": [
+        "What does Route 81 Corridor Moving and Dispatch include?",
+        "Who is Route 81 Corridor Moving and Dispatch for?",
+        "Where does the Martinsburg branch serve Route 81 Corridor Moving and Dispatch?",
+        "How do I get a flat-rate quote for Route 81 Corridor Moving and Dispatch?",
+        "What are the Martinsburg branch hours?"
+      ],
+      "internalLinks": [
+        "home",
+        "moving-company-martinsburg-wv"
+      ],
+      "priority": null,
+      "approval": "none",
+      "source": "data/services.json + data/pages.json + data/locations.json",
+      "attested": "2026-10-28"
+    },
+    {
+      "kind": "service-branch",
+      "service": "service-industrial-commercial",
+      "serviceName": "Industrial & Commercial Services",
+      "branch": "winchester",
+      "branchName": "The Flat Rate Movers",
+      "intent": "commercial",
+      "status": "gap-branch-page",
+      "action": "plan-page",
+      "existingBranchPages": [],
+      "existingCompanyPages": [
+        "industrial-commercial-services"
+      ],
+      "proposedSlug": "industrial-commercial-movers-winchester-va",
+      "slugNote": "Proposed slug follows the live branch-page pattern (<service>-movers-<city>-<state>); Phase 3 confirms it through the rubric gate.",
+      "requiredQuestions": [
+        "What does Industrial & Commercial Services include?",
+        "Who is Industrial & Commercial Services for?",
+        "Where does the Winchester branch serve Industrial & Commercial Services?",
+        "How do I get a flat-rate quote for Industrial & Commercial Services?",
+        "What are the Winchester branch hours?"
+      ],
+      "internalLinks": [
+        "home",
+        "moving-company-winchester-va"
+      ],
+      "priority": "P2",
+      "approval": "owner-approval-per-batch",
+      "source": "data/services.json + data/pages.json + data/locations.json",
+      "attested": "2026-10-28"
+    },
+    {
+      "kind": "service-branch",
+      "service": "service-industrial-commercial",
+      "serviceName": "Industrial & Commercial Services",
+      "branch": "martinsburg",
+      "branchName": "Flat Rate Movers Martinsburg WV",
+      "intent": "commercial",
+      "status": "gap-branch-page",
+      "action": "plan-page",
+      "existingBranchPages": [],
+      "existingCompanyPages": [
+        "industrial-commercial-services"
+      ],
+      "proposedSlug": "industrial-commercial-movers-martinsburg-wv",
+      "slugNote": "Proposed slug follows the live branch-page pattern (<service>-movers-<city>-<state>); Phase 3 confirms it through the rubric gate.",
+      "requiredQuestions": [
+        "What does Industrial & Commercial Services include?",
+        "Who is Industrial & Commercial Services for?",
+        "Where does the Martinsburg branch serve Industrial & Commercial Services?",
+        "How do I get a flat-rate quote for Industrial & Commercial Services?",
+        "What are the Martinsburg branch hours?"
+      ],
+      "internalLinks": [
+        "home",
+        "moving-company-martinsburg-wv"
+      ],
+      "priority": "P1",
+      "approval": "owner-approval-per-batch",
+      "source": "data/services.json + data/pages.json + data/locations.json",
+      "attested": "2026-10-28"
+    },
+    {
+      "kind": "corridor",
+      "corridor": "i-81",
+      "corridorName": "Interstate 81",
+      "intent": "informational",
+      "status": "live",
+      "action": "none",
+      "existingPage": "route81",
+      "proposedSlug": null,
+      "outline": null,
+      "requiredQuestions": [],
+      "internalLinks": [
+        "home",
+        "moving-company-winchester-va",
+        "moving-company-martinsburg-wv"
+      ],
+      "priority": null,
+      "approval": "none",
+      "source": "live sitemap + head graph service-route81",
+      "attested": "2026-10-28"
+    },
+    {
+      "kind": "corridor",
+      "corridor": "i-66",
+      "corridorName": "Interstate 66",
+      "intent": "informational",
+      "status": "gap-corridor-page",
+      "action": "plan-page",
+      "existingPage": null,
+      "proposedSlug": "interstate-66-corridor",
+      "outline": [
+        {
+          "section": "What it includes",
+          "status": "verified",
+          "content": "Local and regional moves along the I-81, I-66 and I-70 corridors (service-local-regional description, head graph); flat-rate long-distance moving from Winchester, VA and Martinsburg, WV (service-long-distance description); I-81, I-66 & I-70 dispatch from Winchester and Martinsburg (live Route 81 page card).",
+          "source": "data/services.json + live site source (Route 81 page)"
+        },
+        {
+          "section": "Who it is for",
+          "status": "missing",
+          "content": null,
+          "missingNote": "No verified I-66-specific audience fact exists in any dataset. Do not infer an audience from the Winchester service area. Owner input required.",
+          "source": null
+        },
+        {
+          "section": "Where we serve",
+          "status": "verified",
+          "content": "Winchester home base: 116 W Piccadilly St, Suite 11 — at the I-81 × I-66 junction (live site, Winchester card). Branch service areas as published: Winchester 16 areas, Martinsburg 14 areas (data/locations.json). These are branch areas, NOT a claim that any listed town sits on I-66.",
+          "source": "data/locations.json + live site source (Winchester card)"
+        },
+        {
+          "section": "Route description (path, exits, stops)",
+          "status": "missing",
+          "content": null,
+          "missingNote": "No verified description of the I-66 route path, exits, or stops exists in any dataset. Owner input required; never fill from general geographic knowledge.",
+          "source": null
+        },
+        {
+          "section": "Questions, answered",
+          "status": "verified",
+          "content": "Required questions (templates from the full-format page structure): What is the Interstate 66 corridor service? Which branch serves moves on Interstate 66? Where does the Winchester branch serve? How do I get a flat-rate quote for a corridor move?",
+          "source": "Full-format page structure (What it includes / Who it is for / Where we serve / Questions, answered)"
+        },
+        {
+          "section": "Quote",
+          "status": "verified",
+          "content": "Standard quote card: Get My Flat Rate Quote, Short / Detailed toggle preserving From, To and What is moving.",
+          "source": "Live quote form (site-wide)"
+        }
+      ],
+      "requiredQuestions": [
+        "What is the Interstate 66 corridor service?",
+        "Which branch serves moves on Interstate 66?",
+        "How do I get a flat-rate quote for a corridor move?"
+      ],
+      "internalLinks": [
+        "home",
+        "moving-company-winchester-va",
+        "moving-company-martinsburg-wv"
+      ],
+      "priority": "P1",
+      "approval": "owner-approval-per-batch",
+      "source": "mentioned in head graph service descriptions + data txt service-area list; no dedicated page in sitemap",
+      "attested": "2026-10-28"
+    },
+    {
+      "kind": "corridor",
+      "corridor": "i-70",
+      "corridorName": "Interstate 70",
+      "intent": "informational",
+      "status": "gap-corridor-page",
+      "action": "plan-page",
+      "existingPage": null,
+      "proposedSlug": "interstate-70-corridor",
+      "outline": [
+        {
+          "section": "What it includes",
+          "status": "verified",
+          "content": "Local and regional moves along the I-81, I-66 and I-70 corridors (service-local-regional description, head graph); flat-rate long-distance moving from Winchester, VA and Martinsburg, WV (service-long-distance description); I-81, I-66 & I-70 dispatch from Winchester and Martinsburg (live Route 81 page card).",
+          "source": "data/services.json + live site source (Route 81 page)"
+        },
+        {
+          "section": "Who it is for",
+          "status": "missing",
+          "content": null,
+          "missingNote": "No verified I-70-specific audience fact exists in any dataset. Do not infer an audience from the Martinsburg service area. Owner input required.",
+          "source": null
+        },
+        {
+          "section": "Where we serve",
+          "status": "verified",
+          "content": "Martinsburg hub is tagged \"Eastern Panhandle base · I-81 × I-70 side\" in the live Route 81 stops data (quoted as published copy, not a geographic claim). Branch service areas as published: Winchester 16 areas, Martinsburg 14 areas (data/locations.json). These are branch areas, NOT a claim that any listed town sits on I-70.",
+          "source": "data/locations.json + live site source (Route 81 stops data)"
+        },
+        {
+          "section": "Route description (path, exits, stops)",
+          "status": "missing",
+          "content": null,
+          "missingNote": "No verified description of the I-70 route path, exits, or stops exists in any dataset. Owner input required; never fill from general geographic knowledge.",
+          "source": null
+        },
+        {
+          "section": "Questions, answered",
+          "status": "verified",
+          "content": "Required questions (templates from the full-format page structure): What is the Interstate 70 corridor service? Which branch serves moves on Interstate 70? Where does the Martinsburg branch serve? How do I get a flat-rate quote for a corridor move?",
+          "source": "Full-format page structure (What it includes / Who it is for / Where we serve / Questions, answered)"
+        },
+        {
+          "section": "Quote",
+          "status": "verified",
+          "content": "Standard quote card: Get My Flat Rate Quote, Short / Detailed toggle preserving From, To and What is moving.",
+          "source": "Live quote form (site-wide)"
+        }
+      ],
+      "requiredQuestions": [
+        "What is the Interstate 70 corridor service?",
+        "Which branch serves moves on Interstate 70?",
+        "How do I get a flat-rate quote for a corridor move?"
+      ],
+      "internalLinks": [
+        "home",
+        "moving-company-winchester-va",
+        "moving-company-martinsburg-wv"
+      ],
+      "priority": "P1",
+      "approval": "owner-approval-per-batch",
+      "source": "mentioned in head graph service descriptions + data txt service-area list; no dedicated page in sitemap",
+      "attested": "2026-10-28"
+    }
+  ]
+}

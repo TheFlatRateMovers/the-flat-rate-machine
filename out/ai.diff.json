@@ -1,0 +1,621 @@
+{
+  "llms": {
+    "generatedLines": 38,
+    "liveLines": 66,
+    "generatedLinesFoundVerbatimInLive": 8,
+    "generatedLinesNotInLive": [
+      "> Flat-rate moving company based in Winchester, VA and Martinsburg, WV. Guaranteed Flat Rate or Your Move is Free! SIR Structural Integrity Relocation and the KIM-GS Protocol for high-mass assets of 1,500 to 3,500 lbs — safes, medical devices, cryogenic equipment, pianos and antiques — with floor deflection analysis to L/360. Export packing to ISPM 15 (International Standards for Phytosanitary Measures No. 15) for international shipping. Founded June 2010.",
+      "- Phone: +1-540-422-2153",
+      "- Winchester: The Flat Rate Movers, 116 W Piccadilly St Suite 11, Winchester, VA 22601, geo 39.18711576, -78.1668352, hours Mon-Fri 8-6, Sat 8-4, Sun 9-4, Google rating 5 with 1 review",
+      "- Martinsburg: Flat Rate Movers Martinsburg WV, 736 Williamsport Pike Suite 2, Martinsburg, WV 25404, geo 39.48319665, -77.94760443, hours Mon-Fri 9-6, Sat 9-4, Sun 9-4, Google rating 4.7 with 6 reviews",
+      "- Residential Moving: Flat-rate house and apartment moving, local, regional and long-distance.",
+      "- Commercial and Office Moving: Flat-rate commercial and office relocation.",
+      "- Local and Regional Moving: Local and regional moves along the I-81, I-66 and I-70 corridors.",
+      "- Long-Distance Moving: Flat-rate long-distance moving from Winchester, VA and Martinsburg, WV.",
+      "- Packing and Unpacking: Full, partial and fragile-only packing and unpacking, including loading and unloading.",
+      "- SIR Heavy Asset Relocation (KIM-GS Protocol): SIR Structural Integrity Relocation and the KIM-GS Protocol for high-mass assets of 1,500 to 3,500 lbs — safes, medical devices, cryogenic equipment, pianos and antiques — with floor deflection analysis to L/360.",
+      "- Gun Safe Moving: Gun safe and high-mass safe moving under SIR Structural Integrity Relocation and the KIM-GS Protocol, for safes of 1,500 to 3,500 lbs — route and clearance survey, floor deflection analysis to L/360, load spreading, floor protection and verified placement, quoted at one flat rate in writing.",
+      "- Piano, Antique and White-Glove Moving: White-glove handling of pianos, antiques and high-value items, with custom crating when required.",
+      "- ISPM 15 Export Packing: Export packing to ISPM 15 (International Standards for Phytosanitary Measures No. 15) for international shipping.",
+      "- Custom Crating: Custom-built crates and high-value item protection for domestic and export moves.",
+      "- Loading, Transloading and Container Services: Container loading and unloading, and transloading between truck, container and warehouse.",
+      "- Final-Mile Delivery: Final-mile delivery with in-home or in-business placement and verification.",
+      "- Office Moving: Complete office relocations — workstations, files and office equipment — planned and quoted flat.",
+      "- Industrial Offices Moving: Office moves for industrial and facility sites — office areas within plants, warehouses and industrial facilities.",
+      "- Government Moving: Moving services for government offices and public-sector relocations.",
+      "- Military Moving: Moving services for military households and service members relocating to or from the Winchester and Martinsburg area.",
+      "- Route 81 Corridor Moving and Dispatch: Moving and logistics dispatch along Interstate 81, I-66 and I-70 from Winchester, VA and Martinsburg, WV.",
+      "- Industrial & Commercial Services: Industrial & Commercial Services — Trained, Supervised Moving and Warehouse Teams for industrial and commercial project support: warehouse and distribution, commercial relocation and logistics including white-glove/blanket-wrap, FF&E installation and project support, and flexible workforce deployment, priced per job with no required contract duration. Standard Job Pricing: Unload $8.00/CWT, Load $10.00/CWT, APU $12.00/CWT, Residential/Driver Meet $400-$425 per man.",
+      "## Corridors",
+      "- Interstate 81: dedicated page at https://theflatratemovers.com/route81/",
+      "- Interstate 66: mentioned in service descriptions; no dedicated page (gap recorded 2026-10-28).",
+      "- Interstate 70: mentioned in service descriptions; no dedicated page (gap recorded 2026-10-28).",
+      "- [AI Sitemap](https://theflatratemovers.com/ai-sitemap.json): AI knowledge sitemap for The Flat Rate Movers LLC",
+      "- [Sitemap](https://theflatratemovers.com/sitemap.xml): live Cloudflare Pages site, 126 clean canonical URLs (no hash URLs)",
+      "- [Service Area GeoJSON](https://theflatratemovers.com/service-area.geojson): 52 features, per branch, verified 2026-10-28",
+      "- [Entity Graph](https://theflatratemovers.com/entity-graph.json): chained entity graph for The Flat Rate Movers LLC"
+    ],
+    "liveSections": [
+      "## Company",
+      "## Locations and Hours",
+      "## Services",
+      "## Machine-Readable Data",
+      "## Optional",
+      "## Live site, 2026-10-28",
+      "## Update 2026-10-28 — GBP, products, images, gun safe page",
+      "## Update — 2026-10-28 (later, same day)",
+      "## Update — 2026-10-28 (search visibility, later same day)"
+    ],
+    "status": "CORE REGENERATED — live-only content is editorial (see gaps)"
+  },
+  "aiSitemap": {
+    "keyDiff": {
+      "$schema": {
+        "status": "equal"
+      },
+      "@context": {
+        "status": "equal"
+      },
+      "@id": {
+        "status": "equal"
+      },
+      "@type": {
+        "status": "equal"
+      },
+      "name": {
+        "status": "equal"
+      },
+      "url": {
+        "status": "differs",
+        "leafDiffs": [
+          {
+            "path": "$",
+            "left": "https://theflatratemovers.com/ai-sitemap.json",
+            "right": "https://theflatratemovers.com/"
+          }
+        ],
+        "leafDiffCount": 1
+      },
+      "dateModified": {
+        "status": "equal"
+      },
+      "version": {
+        "status": "differs",
+        "leafDiffs": [
+          {
+            "path": "$",
+            "left": "2026-10-28",
+            "right": "2026-10-27"
+          }
+        ],
+        "leafDiffCount": 1
+      },
+      "creator": {
+        "status": "differs",
+        "leafDiffs": [
+          {
+            "path": "$.location[0].@id",
+            "left": "https://theflatratemovers.com/#winchester"
+          },
+          {
+            "path": "$.location[0].@type",
+            "right": "Place"
+          },
+          {
+            "path": "$.location[0].name",
+            "right": "The Flat Rate Movers — Winchester"
+          },
+          {
+            "path": "$.location[0].address",
+            "right": {
+              "@type": "PostalAddress",
+              "addressCountry": "US",
+              "addressLocality": "Winchester",
+              "addressRegion": "VA",
+              "postalCode": "22601",
+              "streetAddress": "116 W Piccadilly St Suite 11"
+            }
+          },
+          {
+            "path": "$.location[0].geo",
+            "right": {
+              "@type": "GeoCoordinates",
+              "latitude": 39.18711576,
+              "longitude": -78.1668352
+            }
+          },
+          {
+            "path": "$.location[1].@id",
+            "left": "https://theflatratemovers.com/#martinsburg"
+          },
+          {
+            "path": "$.location[1].@type",
+            "right": "Place"
+          },
+          {
+            "path": "$.location[1].name",
+            "right": "The Flat Rate Movers — Martinsburg"
+          },
+          {
+            "path": "$.location[1].address",
+            "right": {
+              "@type": "PostalAddress",
+              "addressCountry": "US",
+              "addressLocality": "Martinsburg",
+              "addressRegion": "WV",
+              "postalCode": "25404",
+              "streetAddress": "736 Williamsport Pike Suite 2"
+            }
+          },
+          {
+            "path": "$.location[1].geo",
+            "right": {
+              "@type": "GeoCoordinates",
+              "latitude": 39.48319665,
+              "longitude": -77.94760443
+            }
+          },
+          {
+            "path": "$.areaServed",
+            "right": [
+              "Winchester, VA",
+              "Frederick County, VA",
+              "Martinsburg, WV",
+              "Berkeley County, WV",
+              "Shenandoah Valley",
+              "Eastern Panhandle, WV",
+              "I-81 corridor",
+              "I-66 corridor",
+              "I-70 corridor",
+              "Loudoun County, VA",
+              "Jefferson County, WV",
+              "Morgan County, WV",
+              "Leesburg, VA",
+              "Marshall, VA",
+              "Sterling, VA",
+              "Stephens City, VA",
+              "Berryville, VA",
+              "Middleburg, VA",
+              "Middletown, VA",
+              "Round Hill, VA",
+              "Stephenson, VA",
+              "Upperville, VA",
+              "Purcellville, VA",
+              "South Riding, VA",
+              "Inwood, WV",
+              "Hagerstown, MD",
+              "Hedgesville, WV",
+              "Paw Paw, WV",
+              "Shepherdstown, WV",
+              "Bunker Hill, WV",
+              "Charles Town, WV",
+              "Clear Spring, MD",
+              "Summit Point, WV",
+              "Harpers Ferry, WV",
+              "Kearneysville, WV",
+              "Eastern Panhandle of West Virginia"
+            ]
+          },
+          {
+            "path": "$.email",
+            "right": "ratemovers@gmail.com"
+          },
+          {
+            "path": "$.sameAs",
+            "right": [
+              "https://github.com/TheFlatRateMovers/theflatratemovers-ai",
+              "https://github.com/TheFlatRateMovers/TheFlatRateMovers",
+              "https://theflatratemovers.com/developer/",
+              "https://www.instagram.com/theflatratemovers/",
+              "https://www.threads.com/@theflatratemovers",
+              "https://x.com/ratemovers",
+              "https://www.youtube.com/@theflatratemovers"
+            ]
+          },
+          {
+            "path": "$.url",
+            "right": "https://theflatratemovers.com/"
+          },
+          {
+            "path": "$.openingHours",
+            "right": [
+              "Mo-Fr 08:00-18:00",
+              "Sa 08:00-16:00",
+              "Su 09:00-16:00"
+            ]
+          }
+        ],
+        "leafDiffCount": 15
+      },
+      "about": {
+        "status": "differs",
+        "leafDiffs": [
+          {
+            "path": "$.length",
+            "left": 18,
+            "right": 9
+          },
+          {
+            "path": "$[0]",
+            "left": "Residential Moving",
+            "right": "Flat-rate, no-hourly moving"
+          },
+          {
+            "path": "$[1]",
+            "left": "Commercial and Office Moving",
+            "right": "SIR Structural Integrity Relocation"
+          },
+          {
+            "path": "$[2]",
+            "left": "Local and Regional Moving",
+            "right": "KIM-GS Kinetic Integrity Method for high-mass assets 1,500-3,500 lbs"
+          },
+          {
+            "path": "$[3]",
+            "left": "Long-Distance Moving",
+            "right": "Floor deflection L/360 analysis"
+          },
+          {
+            "path": "$[4]",
+            "left": "Packing and Unpacking",
+            "right": "Safes, medical devices, cryogenic assets, pianos, antiques"
+          },
+          {
+            "path": "$[5]",
+            "left": "SIR Heavy Asset Relocation (KIM-GS Protocol)",
+            "right": "ISPM 15 International Standards for Phytosanitary Measures No. 15 export packing"
+          },
+          {
+            "path": "$[6]",
+            "left": "Gun Safe Moving",
+            "right": "Export packing and custom crating"
+          },
+          {
+            "path": "$[7]",
+            "left": "Piano, Antique and White-Glove Moving",
+            "right": "Loading, packing, transloading, and final mile delivery"
+          },
+          {
+            "path": "$[8]",
+            "left": "ISPM 15 Export Packing",
+            "right": "Protection of high-value items"
+          }
+        ],
+        "leafDiffCount": 10
+      },
+      "services": {
+        "status": "differs",
+        "leafDiffs": [
+          {
+            "path": "$.length",
+            "left": 18,
+            "right": 6
+          },
+          {
+            "path": "$[0].name",
+            "left": "Residential Moving",
+            "right": "ISPM 15 export packing"
+          },
+          {
+            "path": "$[0].description",
+            "left": "Flat-rate house and apartment moving, local, regional and long-distance.",
+            "right": "International Standards for Phytosanitary Measures No. 15 compliant wood packaging for export shipments"
+          },
+          {
+            "path": "$[0].@type",
+            "right": "Service"
+          },
+          {
+            "path": "$[1].name",
+            "left": "Commercial and Office Moving",
+            "right": "Custom crating"
+          },
+          {
+            "path": "$[1].description",
+            "left": "Flat-rate commercial and office relocation.",
+            "right": "Custom-built crates protecting items of high value"
+          },
+          {
+            "path": "$[1].@type",
+            "right": "Service"
+          },
+          {
+            "path": "$[2].name",
+            "left": "Local and Regional Moving",
+            "right": "Loading and packing"
+          },
+          {
+            "path": "$[2].description",
+            "left": "Local and regional moves along the I-81, I-66 and I-70 corridors.",
+            "right": "Professional loading and packing for residential, commercial, and industrial moves"
+          },
+          {
+            "path": "$[2].@type",
+            "right": "Service"
+          },
+          {
+            "path": "$[3].name",
+            "left": "Long-Distance Moving",
+            "right": "Transloading"
+          },
+          {
+            "path": "$[3].description",
+            "left": "Flat-rate long-distance moving from Winchester, VA and Martinsburg, WV.",
+            "right": "Transload between truck, container, and port operations, including Port of Virginia and Virginia Inland Port corridors"
+          },
+          {
+            "path": "$[3].@type",
+            "right": "Service"
+          },
+          {
+            "path": "$[4].name",
+            "left": "Packing and Unpacking",
+            "right": "Final mile delivery"
+          },
+          {
+            "path": "$[4].description",
+            "left": "Full, partial and fragile-only packing and unpacking, including loading and unloading.",
+            "right": "Final mile delivery after long-distance, interstate, and freight movement"
+          },
+          {
+            "path": "$[4].@type",
+            "right": "Service"
+          },
+          {
+            "path": "$[5].name",
+            "left": "SIR Heavy Asset Relocation (KIM-GS Protocol)",
+            "right": "High-value protection"
+          },
+          {
+            "path": "$[5].description",
+            "left": "SIR Structural Integrity Relocation and the KIM-GS Protocol for high-mass assets of 1,500 to 3,500 lbs — safes, medical devices, cryogenic equipment, pianos and antiques — with floor deflection analysis to L/360.",
+            "right": "Protection, load-path, and substrate protection for safes, medical devices, cryogenic assets, pianos, and antiques"
+          },
+          {
+            "path": "$[5].@type",
+            "right": "Service"
+          }
+        ],
+        "leafDiffCount": 19
+      },
+      "distribution": {
+        "status": "differs",
+        "leafDiffs": [
+          {
+            "path": "$.length",
+            "left": 5,
+            "right": 11
+          },
+          {
+            "path": "$[0].url",
+            "left": "https://theflatratemovers.com/sitemap.xml"
+          },
+          {
+            "path": "$[0].mediaType",
+            "left": "application/xml"
+          },
+          {
+            "path": "$[0].@type",
+            "right": "DataDownload"
+          },
+          {
+            "path": "$[0].contentUrl",
+            "right": "https://gist.githubusercontent.com/TheFlatRateMovers/1f2c88c991262af3334be2e28a456efb/raw/c864382591870138e1b3f82d1776dffd10601ee6/ai-sitemap.json"
+          },
+          {
+            "path": "$[0].encodingFormat",
+            "right": "application/json"
+          },
+          {
+            "path": "$[0].name",
+            "right": "AI Sitemap"
+          },
+          {
+            "path": "$[1].url",
+            "left": "https://theflatratemovers.com/ai-sitemap.json"
+          },
+          {
+            "path": "$[1].mediaType",
+            "left": "application/json"
+          },
+          {
+            "path": "$[1].@type",
+            "right": "DataDownload"
+          },
+          {
+            "path": "$[1].contentUrl",
+            "right": "https://gist.githubusercontent.com/TheFlatRateMovers/c15653839f47da9ae00aa6c9c9fea998/raw/512675772f5fd59b7bf36e113ed018efc3bb3f23/developer-feed.json"
+          },
+          {
+            "path": "$[1].encodingFormat",
+            "right": "application/json"
+          },
+          {
+            "path": "$[1].name",
+            "right": "Developer Feed"
+          },
+          {
+            "path": "$[2].url",
+            "left": "https://theflatratemovers.com/service-area.geojson"
+          },
+          {
+            "path": "$[2].mediaType",
+            "left": "application/geo+json"
+          },
+          {
+            "path": "$[2].@type",
+            "right": "DataDownload"
+          },
+          {
+            "path": "$[2].contentUrl",
+            "right": "https://gist.githubusercontent.com/TheFlatRateMovers/5d474742724e7e0151e17451f6e09652/raw/fadb4af5efce50efdba0c2319dd3b2d657b6304e/openapi.json"
+          },
+          {
+            "path": "$[2].encodingFormat",
+            "right": "application/json"
+          },
+          {
+            "path": "$[2].name",
+            "right": "OpenAPI Specification"
+          },
+          {
+            "path": "$[3].url",
+            "left": "https://theflatratemovers.com/entity-graph.json"
+          },
+          {
+            "path": "$[3].mediaType",
+            "left": "application/ld+json"
+          },
+          {
+            "path": "$[3].@type",
+            "right": "DataDownload"
+          },
+          {
+            "path": "$[3].contentUrl",
+            "right": "https://gist.githubusercontent.com/TheFlatRateMovers/f922ee25f68d2a944689fe8dd7cd1edb/raw/f90c28a11649e0dc5db39dfa8cee0881a4112fd3/actions.json"
+          },
+          {
+            "path": "$[3].encodingFormat",
+            "right": "application/json"
+          },
+          {
+            "path": "$[3].name",
+            "right": "AI Actions Manifest"
+          },
+          {
+            "path": "$[4].url",
+            "left": "https://theflatratemovers.com/llms.txt"
+          },
+          {
+            "path": "$[4].mediaType",
+            "left": "text/markdown"
+          },
+          {
+            "path": "$[4].@type",
+            "right": "DataDownload"
+          },
+          {
+            "path": "$[4].contentUrl",
+            "right": "https://gist.githubusercontent.com/TheFlatRateMovers/240d3fc9da2ba8c7b4df68ab41cf40b8/raw/e01e912fcfe52b5fc669c58eaba25552c0b013fa/capabilities.json"
+          },
+          {
+            "path": "$[4].encodingFormat",
+            "right": "application/json"
+          },
+          {
+            "path": "$[4].name",
+            "right": "AI Capabilities"
+          }
+        ],
+        "leafDiffCount": 31
+      },
+      "description": {
+        "status": "live-only"
+      },
+      "hasPart": {
+        "status": "live-only"
+      },
+      "mainEntity": {
+        "status": "live-only"
+      },
+      "keywords": {
+        "status": "live-only"
+      }
+    },
+    "status": "CORE REGENERATED — live-only keys are editorial/curated (see gaps)"
+  },
+  "ard": {
+    "hostDiff": [
+      {
+        "path": "$.displayName",
+        "left": "The Flat Rate Movers LLC",
+        "right": "The Flat Rate Movers"
+      },
+      {
+        "path": "$.logoUrl",
+        "right": "https://theflatratemovers.com/assets/img-01-9c77693ba66b.webp"
+      }
+    ],
+    "entries": [
+      {
+        "identifier": "urn:air:theflatratemovers.com:data:ai-sitemap",
+        "urlEqual": true,
+        "typeEqual": true,
+        "descriptionDiffers": true,
+        "liveHasTags": true,
+        "liveHasRepresentativeQueries": true
+      },
+      {
+        "identifier": "urn:air:theflatratemovers.com:data:service-area-geojson",
+        "urlEqual": true,
+        "typeEqual": true,
+        "descriptionDiffers": true,
+        "liveHasTags": true,
+        "liveHasRepresentativeQueries": true
+      },
+      {
+        "identifier": "urn:air:theflatratemovers.com:data:entity-graph",
+        "urlEqual": true,
+        "typeEqual": true,
+        "descriptionDiffers": true,
+        "liveHasTags": true,
+        "liveHasRepresentativeQueries": true
+      }
+    ],
+    "status": "CORE REGENERATED — live prose/tags/queries are editorial (see gaps)"
+  },
+  "gaps": [
+    {
+      "field": "llms.txt dated update narratives (GBP updates, image work, GSC stats, page character counts)",
+      "reason": "Editorial changelog prose, not dataset facts. No changelog/statistics dataset exists in Phase 0. A notes dataset is Phase 2 work."
+    },
+    {
+      "field": "llms.txt social links + company email",
+      "reason": "Social URLs and email are not in any Phase 0 dataset (same gap as the graph builder). Phase 0 amendment needed."
+    },
+    {
+      "field": "llms.txt service page links",
+      "reason": "No canonical-page mapping exists in services.json (pages reference services, not the reverse). Generated services list carries names + descriptions without page links."
+    },
+    {
+      "field": "ai-sitemap description (1522-char prose)",
+      "reason": "Hand-written prose, not a dataset fact."
+    },
+    {
+      "field": "ai-sitemap hasPart[17], keywords[11]",
+      "reason": "Curated lists, not derivable from data/ without editorial selection."
+    },
+    {
+      "field": "ai-sitemap areaServed (merged list)",
+      "reason": "Live list merges both branches into one list. The branch rule forbids merging; per-branch areas live in locations.json and the GeoJSON."
+    },
+    {
+      "field": "ai-sitemap mainEntity (sitemap_index.xml)",
+      "reason": "Live mainEntity points to sitemap_index.xml, a stale WordPress-era artifact, not the current sitemap.xml. Deliberately not reproduced."
+    },
+    {
+      "field": "ai-sitemap creator.email / sameAs / openingHours",
+      "reason": "Not in any Phase 0 dataset (same gap as the graph builder). Note: live creator.openingHours equals Winchester hours only (Mo-Fr 08:00-18:00) — the generator deliberately omits company-level hours because the branches differ (Martinsburg opens 09:00 weekdays); reproducing the live value would bake in a Winchester-only blend."
+    },
+    {
+      "field": "ai-sitemap url (site root vs file URL)",
+      "reason": "Live points url at the site root; generated points url at the ai-sitemap file itself. A convention difference, both defensible; the @id (file URL) matches exactly."
+    },
+    {
+      "field": "ai-sitemap version (2026-10-27 vs 2026-10-28)",
+      "reason": "Live version stamp predates the dataset attestation date by one day. Generated stamps the dataset version (2026-10-28) so the file version always tracks the data it was built from."
+    },
+    {
+      "field": "ARD host.logoUrl",
+      "reason": "Media filenames are not in any Phase 0 dataset (media is schema-only)."
+    },
+    {
+      "field": "ARD representativeQueries",
+      "reason": "Questions dataset is schema-only in Phase 0. Queries come from Phase 2 sources (GSC, quote inquiries, GBP)."
+    },
+    {
+      "field": "ARD descriptions / tags (live prose)",
+      "reason": "Hand-written prose and curated tags. Generated entries carry mechanical factual descriptions and minimal tags."
+    }
+  ]
+}

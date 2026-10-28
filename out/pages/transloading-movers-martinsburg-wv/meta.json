@@ -1,0 +1,15 @@
+{
+  "slug": "transloading-movers-martinsburg-wv",
+  "url": "https://theflatratemovers.com/transloading-movers-martinsburg-wv/",
+  "title": "Loading, Transloading & Container Services — Martinsburg WV",
+  "description": "Loading, Transloading & Container Services — Martinsburg WV — Container loading and unloading, and transloading between truck, container and warehouse. Flat-rate moving from Winchester, VA and Martinsburg, WV. Guaranteed Flat Rate or Your Move is Free!",
+  "template": "service",
+  "genericTemplate": false,
+  "image": {
+    "file": "assets/img-01-9c77693ba66b.png",
+    "url": "https://theflatratemovers.com/assets/img-01-9c77693ba66b.png",
+    "caption": "The Flat Rate Movers logo — company brand image, not a job photo."
+  },
+  "source": "Phase 1 service template (scripts/build-meta.js) + data/services.json + data/locations.json + data/service-area.geojson",
+  "attested": "2026-10-28"
+}
