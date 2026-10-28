@@ -22,6 +22,10 @@ function main() {
   const locations = load('data/locations.json');
   const servicesById = new Map(load('data/services.json').services.map((s) => [s.id, s]));
   const pages = load('data/pages.json').pages;
+  // Editorial descriptions (generic-34 batch, 2026-10-28): owner-approved live
+  // copy for pages with no service signal. Checked before the generic fallback
+  // so regeneration reproduces specific copy instead of boilerplate.
+  const editorialDescriptions = load('data/descriptions.json');
   const company = locations.company;
   const branches = locations.branches;
 
@@ -62,6 +66,9 @@ function main() {
         description += ' Also: ' + rest.join(', ') + '.';
       }
       description += BASE_SUFFIX;
+    } else if (editorialDescriptions[p.slug]) {
+      template = 'editorial';
+      description = editorialDescriptions[p.slug];
     } else {
       template = 'generic';
       genericPages.push(p.slug);
