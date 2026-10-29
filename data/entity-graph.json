@@ -691,7 +691,8 @@
       "provider": {
         "@id": "https://theflatratemovers.com/#organization"
       },
-      "serviceType": "IT Relocation & Setup"
+      "serviceType": "IT Relocation & Setup",
+      "url": "https://theflatratemovers.com/it-equipment-moving-data-center-logistics-services-virginia/"
     },
     {
       "@id": "https://theflatratemovers.com/#service-transloading-winchester-va",
