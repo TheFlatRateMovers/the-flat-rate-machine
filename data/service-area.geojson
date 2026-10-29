@@ -1,8 +1,8 @@
 {
   "type": "FeatureCollection",
   "name": "The Flat Rate Movers — Service Area GeoJSON",
-  "version": "2026-10-28",
-  "dateModified": "2026-10-28",
+  "version": "2026-10-29",
+  "dateModified": "2026-10-29",
   "organization": "The Flat Rate Movers LLC",
   "branches": {
     "winchester": {
@@ -122,14 +122,15 @@
         "name": "Martinsburg, WV",
         "type": "branch",
         "source": "Google Business Profile service areas supplied by Henry 2026-10-27; coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27",
-        "verified": "2026-10-28",
+        "verified": "2026-10-29",
         "provider": "https://theflatratemovers.com/#organization",
         "citation": "https://theflatratemovers.com/service-area.geojson",
         "state": "WV",
         "county": "Berkeley",
         "postal_code": "25404",
         "branch": "martinsburg",
-        "gbp_service_area": true,
+        "gbp_service_area": false,
+        "gbp_branches": [],
         "audiences": [
           "residential",
           "commercial",
@@ -2525,15 +2526,18 @@
         "id": "landmark-eastern-panhandle-of-west-virginia",
         "name": "Eastern Panhandle of West Virginia",
         "type": "region",
-        "source": "Company service footprint: location pages + service-area.geojson branch properties, verified 2026-10-28; NOT a Google Business Profile service area. Coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27.",
-        "verified": "2026-10-28",
+        "source": "Company service footprint: location pages + service-area.geojson branch properties, verified 2026-10-28; a Google Business Profile service area for the Martinsburg branch (owner GBP service-area list, 2026-10-27), within the wider company footprint of both branches. Coordinates via map geocoding 2026-10-28; branch coordinates via Places 2026-10-27.",
+        "verified": "2026-10-29",
         "provider": "https://theflatratemovers.com/#organization",
         "citation": "https://theflatratemovers.com/service-area.geojson",
         "city": null,
         "state": "WV",
         "postal_code": null,
         "branch": "both",
-        "gbp_service_area": false,
+        "gbp_service_area": true,
+        "gbp_branches": [
+          "martinsburg"
+        ],
         "description": "Region served from Martinsburg, along I-81 and I-70.",
         "audiences": [
           "industrial",
@@ -2700,6 +2704,11 @@
       "date": "2026-10-28",
       "change": "Source strings on non-GBP footprint areas corrected: 7 towns (Front Royal, Strasburg, Woodstock, Berkeley Springs, Romney, Frederick MD, Hancock MD) and other non-GBP features no longer claim Google Business Profile origin; their source is location pages + GeoJSON branch properties. County gbp_service_area flags for Clarke, Warren, Shenandoah, Hardy, Jefferson, Morgan, Hampshire, Washington, Fauquier corrected true -> false (9 counties total); GBP screenshot panels name only Loudoun, Frederick, and Berkeley counties. Geometry, branch properties, and feature count unchanged (52 features).",
       "source": "Audit correction 2026-10-28, owner direction: full footprint, correct attribution"
+    },
+    {
+      "date": "2026-10-29",
+      "change": "GBP flags reconciled to the owner Google Business Profile service-area lists (footprint record): place-martinsburg-wv gbp_service_area true -> false (the branch city itself is not named in the Martinsburg GBP list; gbp_branches [] added); landmark-eastern-panhandle-of-west-virginia gbp_service_area false -> true with gbp_branches [martinsburg] (Eastern Panhandle IS named in the Martinsburg GBP list; the feature branch stays both - it sits in the wider footprint of both branches). Branch properties, geometry, and counts unchanged: Winchester 31 / Martinsburg 35 / shared 14 / 52 features; GBP lists stay 16 Winchester / 14 Martinsburg.",
+      "source": "Full-format gap inventory 2026-10-29 (F1), owner GBP lists as recorded in footprint.json"
     }
   ]
 }
