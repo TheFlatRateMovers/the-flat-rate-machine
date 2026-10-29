@@ -1,0 +1,475 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://theflatratemovers.com/#dataset-commercial-operations",
+      "@type": "Dataset",
+      "name": "Commercial Move Operations",
+      "description": "Commercial move operations for business relocations, planned around the operation. The published hero framing is verbatim: Business moves, planned around your operation. Commercial relocations are quoted flat and agreed in writing before move day, planned around the hours, the site, and the equipment, with the warehouse and transload operation behind the job. The operation chain runs survey, quote, phased plan, pack and label, sequenced move, install and place, verify, and close-out, with a plan core of what moves first, what moves last, and what works on day one. Survey runs through the quote form Short (Quick Quote) default and Detailed Project toggle with inputs preserved, and a film-only video walkthrough where a walkthrough fits: film only, never lift, move, open, or climb anything heavy or locked, with a human-made estimate. The freight chain is container loading and unloading, transloading, and final-mile delivery; high-mass or sensitive devices to 3,500 lbs ride the SIR and KIM-GS method conditionally, with floor deflection analysis to L/360. Shops, professional offices, and commercial spaces are the published audience; industrial offices, government offices, and military households are cross-references to their own categories, never duplicated here. Gated and omitted, not guessed: after-hours or weekend as a named offering, a dedicated coordinator, crew sizing or minimums, debris scope, and client proof.",
+      "keywords": [
+        "commercial moving",
+        "commercial movers winchester va",
+        "corporate movers winchester va",
+        "business moving companies near me",
+        "office moving winchester va"
+      ],
+      "about": [
+        {
+          "@id": "https://theflatratemovers.com/#service-commercial"
+        }
+      ],
+      "spatialCoverage": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg"
+        }
+      ],
+      "temporalCoverage": "2010/2026",
+      "dateModified": "2026-10-29",
+      "creator": {
+        "@id": "https://theflatratemovers.com/#organization",
+        "sameAs": [
+          "https://www.instagram.com/theflatratemovers/",
+          "https://www.threads.com/@theflatratemovers",
+          "https://x.com/ratemovers",
+          "https://www.youtube.com/@theflatratemovers",
+          "https://github.com/TheFlatRateMovers",
+          "https://medium.com/@ratemovers"
+        ]
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "distribution": [
+        {
+          "contentUrl": "https://theflatratemovers.com/ai-sitemap.json",
+          "encodingFormat": "application/json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/service-area.geojson",
+          "encodingFormat": "application/json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/entity-graph.json",
+          "encodingFormat": "application/ld+json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/best-json-entity-graph.json",
+          "encodingFormat": "application/ld+json"
+        }
+      ],
+      "sameAs": "https://theflatratemovers.com/commercial-moving/"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#dataset-commercial-premises-access",
+      "@type": "Dataset",
+      "name": "Commercial Premises and Access Operations",
+      "description": "Premises and access operations for commercial moves. Premises in scope: shops, professional offices, and commercial spaces, with industrial offices and warehouses as cross-references to their own categories. Moves are two-building coordination: origin and destination, each with its own freight elevator and reservation window, loading dock or bay and hours, parking and permits, security protocol, move hours, floor and rail protection, and off-hours building services as budget lines. Access items are quote inputs that change quote scope and phasing, never capability claims: no elevator-booking capability, no after-hours capability, and no building-access promise is stated here. The warehouse and transload operation is the published staging base, with staggered furniture delivery as a domain model. Dispatch runs the I-81, I-66, and I-70 corridor network from both branches, and listed areas are the coverage pool, never a claim that a listed town sits on a particular highway. Domain patterns, labeled: most commercial buildings restrict moves to evenings or weekends; some buildings want building paperwork a week ahead; leases commonly turn on the 1st, so month-end and quarter-end fill first; Friday-evening and weekend mid-month windows are the preferred domain window. Whether the company issues building paperwork is gated and not stated.",
+      "keywords": [
+        "commercial movers winchester va",
+        "corporate movers winchester va",
+        "office moving winchester va",
+        "business relocation virginia"
+      ],
+      "about": [
+        {
+          "@id": "https://theflatratemovers.com/#service-commercial"
+        }
+      ],
+      "spatialCoverage": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg"
+        }
+      ],
+      "temporalCoverage": "2010/2026",
+      "dateModified": "2026-10-29",
+      "creator": {
+        "@id": "https://theflatratemovers.com/#organization",
+        "sameAs": [
+          "https://www.instagram.com/theflatratemovers/",
+          "https://www.threads.com/@theflatratemovers",
+          "https://x.com/ratemovers",
+          "https://www.youtube.com/@theflatratemovers",
+          "https://github.com/TheFlatRateMovers",
+          "https://medium.com/@ratemovers"
+        ]
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "distribution": [
+        {
+          "contentUrl": "https://theflatratemovers.com/ai-sitemap.json",
+          "encodingFormat": "application/json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/service-area.geojson",
+          "encodingFormat": "application/json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/entity-graph.json",
+          "encodingFormat": "application/ld+json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/best-json-entity-graph.json",
+          "encodingFormat": "application/ld+json"
+        }
+      ],
+      "sameAs": "https://theflatratemovers.com/commercial-moving/"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#dataset-commercial-asset-taxonomy",
+      "@type": "Dataset",
+      "name": "Business Asset Taxonomy",
+      "description": "Business asset taxonomy for commercial moves. Asset classes: desks and workstations, chairs, filing, files and records, IT gear, printers and copiers, commercial equipment, safes and sensitive devices, freight and pallets, and FF&E. Handling: disassembly and reassembly, department labeling, floor-plan placement, sealed and tracked containers for records as domain practice, anti-static packaging for IT as domain practice, blanket and stretch wrap, and the SIR conditional for high-mass assets. Cross-references are links, never duplicated content: office-moving owns office scope, industrial-offices owns industrial office scope, it-relocation owns IT scope, FF&E installation owns installation scope, warehouse-relocation owns warehouse goods, transloading and final-mile own freight, sir-heavy owns high-mass method, packing owns packing options, crating owns custom crates. No CWT pricing from the industrial service is borrowed into commercial pricing anywhere in this dataset. Every asset class maps to a commercial-page sentence or a labeled cross-reference.",
+      "keywords": [
+        "commercial moving",
+        "office moving winchester va",
+        "business relocation",
+        "commercial equipment movers",
+        "corporate movers winchester va"
+      ],
+      "about": [
+        {
+          "@id": "https://theflatratemovers.com/#service-commercial"
+        }
+      ],
+      "spatialCoverage": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg"
+        }
+      ],
+      "temporalCoverage": "2010/2026",
+      "dateModified": "2026-10-29",
+      "creator": {
+        "@id": "https://theflatratemovers.com/#organization",
+        "sameAs": [
+          "https://www.instagram.com/theflatratemovers/",
+          "https://www.threads.com/@theflatratemovers",
+          "https://x.com/ratemovers",
+          "https://www.youtube.com/@theflatratemovers",
+          "https://github.com/TheFlatRateMovers",
+          "https://medium.com/@ratemovers"
+        ]
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "distribution": [
+        {
+          "contentUrl": "https://theflatratemovers.com/ai-sitemap.json",
+          "encodingFormat": "application/json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/service-area.geojson",
+          "encodingFormat": "application/json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/entity-graph.json",
+          "encodingFormat": "application/ld+json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/best-json-entity-graph.json",
+          "encodingFormat": "application/ld+json"
+        }
+      ],
+      "sameAs": "https://theflatratemovers.com/commercial-moving/"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#dataset-commercial-dispatch",
+      "@type": "Dataset",
+      "name": "Commercial Branch Dispatch Network",
+      "description": "Branch dispatch network for commercial moves. Winchester: The Flat Rate Movers, 116 W Piccadilly St Suite 11, Winchester VA 22601, hours Mon-Fri 8-6, Sat 8-4, Sun 9-4, Google rating 5.0 from 1 review. Martinsburg: Flat Rate Movers Martinsburg WV, 736 Williamsport Pike Suite 2, Martinsburg WV 25404, hours Mon-Fri 9-6, Sat 9-4, Sun 9-4, Google rating 4.7 from 6 reviews. Branches are never merged and ratings are never blended. Coverage is the full footprint of 52 GeoJSON service-area features: Winchester 31 areas, Martinsburg 35 areas, 14 shared, dispatched across the I-81, I-66, and I-70 corridor network from both branches. The freight chain runs warehouse and transload staging, then container and transload handling, then final-mile delivery, with an export and port chain via the Virginia Inland Port and Port of Virginia chain as published on the commercial page. Corridor pages attach to the route81 service node as a separate category, cross-referenced, not duplicated.",
+      "keywords": [
+        "commercial movers winchester va",
+        "business relocation virginia",
+        "movers martinsburg wv",
+        "moving companies winchester va"
+      ],
+      "about": [
+        {
+          "@id": "https://theflatratemovers.com/#service-commercial"
+        }
+      ],
+      "spatialCoverage": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg"
+        }
+      ],
+      "temporalCoverage": "2010/2026",
+      "dateModified": "2026-10-29",
+      "creator": {
+        "@id": "https://theflatratemovers.com/#organization",
+        "sameAs": [
+          "https://www.instagram.com/theflatratemovers/",
+          "https://www.threads.com/@theflatratemovers",
+          "https://x.com/ratemovers",
+          "https://www.youtube.com/@theflatratemovers",
+          "https://github.com/TheFlatRateMovers",
+          "https://medium.com/@ratemovers"
+        ]
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "distribution": [
+        {
+          "contentUrl": "https://theflatratemovers.com/ai-sitemap.json",
+          "encodingFormat": "application/json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/service-area.geojson",
+          "encodingFormat": "application/json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/entity-graph.json",
+          "encodingFormat": "application/ld+json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/best-json-entity-graph.json",
+          "encodingFormat": "application/ld+json"
+        }
+      ],
+      "sameAs": "https://theflatratemovers.com/commercial-moving/"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#dataset-commercial-terms",
+      "@type": "Dataset",
+      "name": "Commercial Terms and Cost Drivers",
+      "description": "Commercial terms and cost drivers. The only company pricing claim is one flat rate quoted and agreed in writing before move day, with no hourly meter on the company model, under the tagline Guaranteed Flat Rate or Your Move is Free. No company price, hourly rate, premium, discount, deposit, or fee is stated anywhere in this dataset. Domain education, labeled domain and never company terms: flat-rate-in-writing versus hourly labor by the hour versus binding estimate (a fixed total for listed scope and inventory) versus non-binding estimate (approximate, final follows actual conditions) versus not-to-exceed (a capped maximum); market domain rates of 90 to 150 dollars per hour for a 2 to 3-person team in mover guides, explicitly NOT this company rates; downtime-math examples used only to explain why downtime-first planning matters, including 80 employees at 50 dollars per hour loaded equal to 32,000 dollars per lost business day in an American Van Lines example, an after-hours premium example of 20 percent on a 60,000 dollar project equal to 12,000 dollars against avoided-downtime gain exceeding 20,000 dollars from the same source, industry estimates cited by relocation guides of 5,600 to 9,000 dollars per minute for smaller firms and 300,000 to 1,000,000 dollars per hour for larger firms, and a worksheet example of a 2,000,000 dollar sales firm at 10 percent profit at about 450 dollars per hour of IT downtime, 10 hours about 4,500 dollars. Domain budget lines, labeled: labor differentials for off-hours teams, IT, and security; building fees for elevator reservations, dock access, and HVAC outside normal hours; parking, permits, and building paperwork; packing and crating materials and specialty services; temporary storage to bridge lease gaps; coverage levels. Coverage education, domain: Full Value Protection versus Released Value at 0.60 dollars per pound; any company coverage offering is gated and NOT claimed. Domain booking windows, labeled: plan 8 to 12 weeks out for most business relocations, 3 to 6 months for larger offices, more lead time in peak season May through September.",
+      "keywords": [
+        "commercial moving",
+        "corporate movers winchester va",
+        "business moving companies near me",
+        "flat rate office moving",
+        "office relocation cost"
+      ],
+      "about": [
+        {
+          "@id": "https://theflatratemovers.com/#service-commercial"
+        }
+      ],
+      "spatialCoverage": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg"
+        }
+      ],
+      "temporalCoverage": "2010/2026",
+      "dateModified": "2026-10-29",
+      "creator": {
+        "@id": "https://theflatratemovers.com/#organization",
+        "sameAs": [
+          "https://www.instagram.com/theflatratemovers/",
+          "https://www.threads.com/@theflatratemovers",
+          "https://x.com/ratemovers",
+          "https://www.youtube.com/@theflatratemovers",
+          "https://github.com/TheFlatRateMovers",
+          "https://medium.com/@ratemovers"
+        ]
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "distribution": [
+        {
+          "contentUrl": "https://theflatratemovers.com/ai-sitemap.json",
+          "encodingFormat": "application/json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/service-area.geojson",
+          "encodingFormat": "application/json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/entity-graph.json",
+          "encodingFormat": "application/ld+json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/best-json-entity-graph.json",
+          "encodingFormat": "application/ld+json"
+        }
+      ],
+      "sameAs": "https://theflatratemovers.com/commercial-moving/"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#dataset-commercial-personas",
+      "@type": "Dataset",
+      "name": "Commercial Buyer Personas and Trigger Events",
+      "description": "Buyer personas and trigger events for commercial moves. Personas: business owners, operations managers, facility managers, project managers, and office managers. Triggers: lease end or renewal, expansion, consolidation, renovation or build-out gap, new-premises opening, growth beyond the current space, and multi-site rationalization. Buying criteria in order: downtime first, hidden-cost fear second, coordination gaps third (movers versus IT versus building management, the pattern the commercial page planning sentence answers), price certainty fourth (flat in writing), and one accountable plan fifth (what moves first, what moves last, what works on day one). Timing, domain: leases turn on the 1st so month-end and quarter-end fill first; Friday-evening and weekend mid-month windows are preferred; plan 8 to 12 weeks out, 3 to 6 months for larger offices; peak season May through September. Audience framing on the commercial page covers business owners, office managers, and operations teams relocating a shop, office, or commercial space, including industrial offices, government offices, and military households on the same basis as cross-references. Quote path per persona: the quote toggle plus the film-only survey room where a walkthrough fits, verified on the pattern, never by test post.",
+      "keywords": [
+        "commercial moving",
+        "corporate movers winchester va",
+        "business moving companies near me",
+        "office relocation virginia",
+        "business relocation"
+      ],
+      "about": [
+        {
+          "@id": "https://theflatratemovers.com/#service-commercial"
+        }
+      ],
+      "spatialCoverage": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg"
+        }
+      ],
+      "temporalCoverage": "2010/2026",
+      "dateModified": "2026-10-29",
+      "creator": {
+        "@id": "https://theflatratemovers.com/#organization",
+        "sameAs": [
+          "https://www.instagram.com/theflatratemovers/",
+          "https://www.threads.com/@theflatratemovers",
+          "https://x.com/ratemovers",
+          "https://www.youtube.com/@theflatratemovers",
+          "https://github.com/TheFlatRateMovers",
+          "https://medium.com/@ratemovers"
+        ]
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "distribution": [
+        {
+          "contentUrl": "https://theflatratemovers.com/ai-sitemap.json",
+          "encodingFormat": "application/json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/service-area.geojson",
+          "encodingFormat": "application/json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/entity-graph.json",
+          "encodingFormat": "application/ld+json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/best-json-entity-graph.json",
+          "encodingFormat": "application/ld+json"
+        }
+      ],
+      "sameAs": "https://theflatratemovers.com/commercial-moving/"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#dataset-commercial-protection-compliance",
+      "@type": "Dataset",
+      "name": "Commercial Protection, IT Coordination and Building Compliance",
+      "description": "Protection, IT coordination, and building compliance for commercial moves. Protection: blanket wrap, stretch wrap, floor and rail protection on the path, padded transport, and custom crating for pieces that need it as a cross-reference to crating. IT coordination is a domain pattern, labeled, and company IT scope is NEVER claimed here: IT as its own workstream, backup before disconnection, cable photos and labels, anti-static packaging, no flat stacking, new-site network, power, and internet ready before moving day, and old internet overlap of at least 2 weeks as domain guidance; the separate IT category owns IT scope. Building compliance items are planning inputs or domain requirements, labeled: freight-elevator reservation, dock access, move hours, advance notice, security protocol, building paperwork where buildings require it (company issuance gated, not stated), parking and permits, and HVAC off-hours as a domain budget line. Sensitive material practice, domain: files and records in sealed, tracked containers with chain of custody as domain practice, with no company chain-of-custody claim, and confidential disposal of unnecessary documents as a domain option. Liability education, domain: valuation is not insurance; Full Value Protection versus Released Value is explained in the commercial terms dataset; no company coverage claim is made here. Survey walkthroughs follow the film-only rule: never lift, move, open, or climb anything heavy or locked. The commercial page photos are honestly described: a credited Downtown Winchester photo and a company-supplied warehouse and transload staging photo, never mislabeled as job photos they are not; the node package uses the approved logo as brand image.",
+      "keywords": [
+        "commercial moving",
+        "office relocation",
+        "business moving companies near me",
+        "IT equipment moving",
+        "corporate movers winchester va"
+      ],
+      "about": [
+        {
+          "@id": "https://theflatratemovers.com/#service-commercial"
+        }
+      ],
+      "spatialCoverage": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg"
+        }
+      ],
+      "temporalCoverage": "2010/2026",
+      "dateModified": "2026-10-29",
+      "creator": {
+        "@id": "https://theflatratemovers.com/#organization",
+        "sameAs": [
+          "https://www.instagram.com/theflatratemovers/",
+          "https://www.threads.com/@theflatratemovers",
+          "https://x.com/ratemovers",
+          "https://www.youtube.com/@theflatratemovers",
+          "https://github.com/TheFlatRateMovers",
+          "https://medium.com/@ratemovers"
+        ]
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "distribution": [
+        {
+          "contentUrl": "https://theflatratemovers.com/ai-sitemap.json",
+          "encodingFormat": "application/json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/service-area.geojson",
+          "encodingFormat": "application/json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/entity-graph.json",
+          "encodingFormat": "application/ld+json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/best-json-entity-graph.json",
+          "encodingFormat": "application/ld+json"
+        }
+      ],
+      "sameAs": "https://theflatratemovers.com/commercial-moving/"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#dataset-commercial-areas-quote",
+      "@type": "Dataset",
+      "name": "Commercial Service Areas, Dispatch and Quote Path",
+      "description": "Service areas, dispatch, and quote path for commercial moves. Full footprint at merge, branches distinct: 52 GeoJSON service-area features, Winchester 31 areas, Martinsburg 35 areas, 14 shared. Winchester branch: The Flat Rate Movers, 116 W Piccadilly St Suite 11, Winchester VA 22601, Mon-Fri 8-6, Sat 8-4, Sun 9-4, Google 5.0 from 1 review. Martinsburg branch: Flat Rate Movers Martinsburg WV, 736 Williamsport Pike Suite 2, Martinsburg WV 25404, Mon-Fri 9-6, Sat 9-4, Sun 9-4, Google 4.7 from 6 reviews. Phone +1-540-422-2153. Founded June 2010. Dispatch across the I-81, I-66, and I-70 corridor network from both branches, with warehouse and transload staging, the freight chain, and the export and port chain as published. Six pages carry the service: the commercial-moving hub, the commercial-movers-winchester-va branch page, the category index, the docs data-center-logistics page, the IT page, and the Martinsburg guide. Quote path: Short (Quick Quote) default and Detailed Project toggle with inputs preserved, main call to action Get My Flat Rate Quote and pill Get a flat rate quote, film-only video walkthrough where a walkthrough fits with a human-made estimate, and no test posts ever. Search demand behind this category: commercial-moving at 2,013 impressions at position 53.4 with AI-feature 34, and the single clearest upside query corporate movers winchester va at 123 impressions at position 32.1.",
+      "keywords": [
+        "commercial moving",
+        "commercial movers winchester va",
+        "business moving companies near me",
+        "corporate movers winchester va",
+        "movers martinsburg wv"
+      ],
+      "about": [
+        {
+          "@id": "https://theflatratemovers.com/#service-commercial"
+        }
+      ],
+      "spatialCoverage": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg"
+        }
+      ],
+      "temporalCoverage": "2010/2026",
+      "dateModified": "2026-10-29",
+      "creator": {
+        "@id": "https://theflatratemovers.com/#organization",
+        "sameAs": [
+          "https://www.instagram.com/theflatratemovers/",
+          "https://www.threads.com/@theflatratemovers",
+          "https://x.com/ratemovers",
+          "https://www.youtube.com/@theflatratemovers",
+          "https://github.com/TheFlatRateMovers",
+          "https://medium.com/@ratemovers"
+        ]
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "distribution": [
+        {
+          "contentUrl": "https://theflatratemovers.com/ai-sitemap.json",
+          "encodingFormat": "application/json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/service-area.geojson",
+          "encodingFormat": "application/json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/entity-graph.json",
+          "encodingFormat": "application/ld+json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/best-json-entity-graph.json",
+          "encodingFormat": "application/ld+json"
+        }
+      ],
+      "sameAs": "https://theflatratemovers.com/commercial-moving/"
+    }
+  ]
+}
