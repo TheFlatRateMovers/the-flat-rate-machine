@@ -1,0 +1,144 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://theflatratemovers.com/#service-office-moving",
+      "name": "Office Moving",
+      "description": "Complete office relocations — workstations, files, and office equipment — planned and quoted flat. The operation runs survey, quote, phased plan, pack and label, sequenced move, install and place, verify, and close-out, with a plan core of what moves first, what moves last, and what works on day one. Building requirements such as freight-elevator reservation, dock access, move hours, advance notice, security protocol, and parking and permits are confirmed as quote inputs before move day. From Flat Rate Movers Martinsburg WV, 736 Williamsport Pike Suite 2, Martinsburg WV 25404. Quoted at one flat rate quoted and agreed in writing before move day. Guaranteed Flat Rate or Your Move is Free!",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#martinsburg"
+      },
+      "areaServed": [
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg"
+        }
+      ],
+      "url": "https://theflatratemovers.com/office-moving-movers-martinsburg-wv/",
+      "serviceType": "Office Moving"
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://theflatratemovers.com/#martinsburg",
+      "name": "Flat Rate Movers Martinsburg WV",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "736 Williamsport Pike Suite 2",
+        "addressLocality": "Martinsburg",
+        "addressRegion": "WV",
+        "postalCode": "25404"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 39.48319665,
+        "longitude": -77.94760443
+      },
+      "telephone": "+1-540-422-2153",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Mon-Fri",
+          "opens": "09:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Sat",
+          "opens": "09:00",
+          "closes": "16:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Sun",
+          "opens": "09:00",
+          "closes": "16:00"
+        }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": 4.7,
+        "reviewCount": 6
+      },
+      "areaServed": [
+        "Inwood",
+        "Hagerstown MD",
+        "Hedgesville",
+        "Paw Paw 25434",
+        "Shepherdstown",
+        "Berkeley County",
+        "Moorefield 26836",
+        "Bunker Hill 25413",
+        "Charles Town 25414",
+        "Clear Spring MD 21722",
+        "Summit Point 25446",
+        "Harpers Ferry 25425",
+        "Kearneysville 25430",
+        "Eastern Panhandle of West Virginia",
+        "Martinsburg, WV",
+        "Front Royal, VA",
+        "Strasburg, VA",
+        "Woodstock, VA",
+        "Berkeley Springs, WV",
+        "Romney, WV",
+        "Frederick, MD",
+        "Hancock, MD",
+        "Jefferson County",
+        "Morgan County",
+        "Warren County",
+        "Shenandoah County",
+        "Hampshire County",
+        "Hardy County",
+        "Washington County",
+        "Port of Virginia",
+        "Virginia Inland Port",
+        "Shenandoah Valley",
+        "Interstate 81 Corridor",
+        "Interstate 66 Corridor",
+        "Interstate 70 Corridor"
+      ],
+      "priceRange": "$$",
+      "parentOrganization": {
+        "@id": "https://theflatratemovers.com/#organization"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://theflatratemovers.com/#organization",
+      "name": "The Flat Rate Movers LLC",
+      "telephone": "+1-540-422-2153",
+      "foundingDate": "2010-06"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://theflatratemovers.com/office-moving-movers-martinsburg-wv/",
+      "url": "https://theflatratemovers.com/office-moving-movers-martinsburg-wv/",
+      "name": "Office Moving — Martinsburg WV",
+      "breadcrumb": {
+        "@id": "https://theflatratemovers.com/office-moving-movers-martinsburg-wv/#breadcrumb"
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://theflatratemovers.com/assets/img-01-9c77693ba66b.png",
+        "caption": "The Flat Rate Movers logo — company brand image, not a job photo."
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://theflatratemovers.com/office-moving-movers-martinsburg-wv/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://theflatratemovers.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Office Moving — Martinsburg WV",
+          "item": "https://theflatratemovers.com/office-moving-movers-martinsburg-wv/"
+        }
+      ]
+    }
+  ]
+}

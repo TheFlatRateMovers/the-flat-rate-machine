@@ -8,7 +8,7 @@
     {
       "id": "service-residential",
       "name": "Residential Moving",
-      "description": "Flat-rate house and apartment moving, local, regional and long-distance.",
+      "description": "Flat-rate residential moving from Winchester, VA and Martinsburg, WV — houses and apartments, full or partial packing, and heavy pieces under SIR/KIM-GS, local, regional and long-distance, surveyed in advance and quoted at one price in writing before move day.",
       "pageCount": 11,
       "source": "head JSON-LD graph in live site source (index.html)",
       "attested": "2026-10-28"
@@ -16,7 +16,7 @@
     {
       "id": "service-commercial",
       "name": "Commercial and Office Moving",
-      "description": "Flat-rate commercial and office relocation.",
+      "description": "Business moves, planned around your operation. Commercial relocations quoted flat and agreed in writing before move day — planned around your hours, your site and your equipment, with our own warehouse and transload operation behind the job.",
       "pageCount": 6,
       "source": "head JSON-LD graph in live site source (index.html)",
       "attested": "2026-10-28"
@@ -24,7 +24,7 @@
     {
       "id": "service-local-regional",
       "name": "Local and Regional Moving",
-      "description": "Local and regional moves along the I-81, I-66 and I-70 corridors.",
+      "description": "Local and regional moves across the Shenandoah Valley and Eastern Panhandle along the I-81, I-66 and I-70 corridors, surveyed and quoted at one flat rate in writing before move day.",
       "pageCount": 3,
       "source": "head JSON-LD graph in live site source (index.html)",
       "attested": "2026-10-28"
@@ -32,7 +32,7 @@
     {
       "id": "service-long-distance",
       "name": "Long-Distance Moving",
-      "description": "Flat-rate long-distance moving from Winchester, VA and Martinsburg, WV.",
+      "description": "Flat-rate long-distance moving from Winchester, VA and Martinsburg, WV along the I-81, I-66 and I-70 corridors, planned door to door and quoted at one price in writing before move day.",
       "pageCount": 17,
       "source": "head JSON-LD graph in live site source (index.html)",
       "attested": "2026-10-28"
@@ -40,7 +40,7 @@
     {
       "id": "service-packing",
       "name": "Packing and Unpacking",
-      "description": "Full, partial and fragile-only packing and unpacking, including loading and unloading.",
+      "description": "Full, partial and fragile-only packing and unpacking, including loading and unloading — rooms packed and labelled in sequence, fragile and high-value pieces protected, so unpacking lands in order.",
       "pageCount": 9,
       "source": "head JSON-LD graph in live site source (index.html)",
       "attested": "2026-10-28"
@@ -64,7 +64,7 @@
     {
       "id": "service-piano-antique",
       "name": "Piano, Antique and White-Glove Moving",
-      "description": "White-glove handling of pianos, antiques and high-value items, with custom crating when required.",
+      "description": "White-glove handling of pianos, antiques and high-value items — surveyed, protected, and moved with custom crating when the piece requires it, at one flat rate agreed in writing.",
       "pageCount": 4,
       "source": "head JSON-LD graph in live site source (index.html)",
       "attested": "2026-10-28"
@@ -72,7 +72,7 @@
     {
       "id": "service-ispm15",
       "name": "ISPM 15 Export Packing",
-      "description": "Export packing to ISPM 15 (International Standards for Phytosanitary Measures No. 15) for international shipping.",
+      "description": "Export packing to ISPM 15 (International Standards for Phytosanitary Measures No. 15) for international shipping, with crates built and marked to the ISPM 15 standard.",
       "pageCount": 5,
       "source": "head JSON-LD graph in live site source (index.html)",
       "attested": "2026-10-28"
@@ -80,7 +80,7 @@
     {
       "id": "service-crating",
       "name": "Custom Crating",
-      "description": "Custom-built crates and high-value item protection for domestic and export moves.",
+      "description": "Custom-built crates and high-value item protection for domestic and export moves — measured, built and fitted to the piece, not a stock box.",
       "pageCount": 3,
       "source": "head JSON-LD graph in live site source (index.html)",
       "attested": "2026-10-28"
@@ -88,7 +88,7 @@
     {
       "id": "service-transloading",
       "name": "Loading, Transloading and Container Services",
-      "description": "Container loading and unloading, and transloading between truck, container and warehouse.",
+      "description": "Container loading and unloading, and transloading between truck, container and warehouse — counted, sorted and restacked for the inland leg, with cross-docking and warehouse staging.",
       "pageCount": 16,
       "source": "head JSON-LD graph in live site source (index.html)",
       "attested": "2026-10-28"
@@ -96,7 +96,7 @@
     {
       "id": "service-final-mile",
       "name": "Final-Mile Delivery",
-      "description": "Final-mile delivery with in-home or in-business placement and verification.",
+      "description": "Final-mile delivery with in-home or in-business placement and verification — delivered to the room, placed, and confirmed on site.",
       "pageCount": 4,
       "source": "head JSON-LD graph in live site source (index.html)",
       "attested": "2026-10-28"
@@ -104,7 +104,7 @@
     {
       "id": "service-office-moving",
       "name": "Office Moving",
-      "description": "Complete office relocations — workstations, files and office equipment — planned and quoted flat.",
+      "description": "Complete office relocations — workstations, files and office equipment — planned around business hours and quoted flat in writing before move day.",
       "pageCount": 3,
       "source": "head JSON-LD graph in live site source (index.html)",
       "attested": "2026-10-28"
@@ -112,7 +112,7 @@
     {
       "id": "service-industrial-offices",
       "name": "Industrial Offices Moving",
-      "description": "Office moves for industrial and facility sites — office areas within plants, warehouses and industrial facilities.",
+      "description": "Office moves for industrial and facility sites — office areas within plants, warehouses and industrial facilities — planned around production and site access, quoted flat.",
       "pageCount": 3,
       "source": "head JSON-LD graph in live site source (index.html)",
       "attested": "2026-10-28"
@@ -120,7 +120,7 @@
     {
       "id": "service-government",
       "name": "Government Moving",
-      "description": "Moving services for government offices and public-sector relocations.",
+      "description": "Moving services for government offices and public-sector relocations — planned, documented and quoted flat, around the agency’s schedule and site requirements.",
       "pageCount": 5,
       "source": "head JSON-LD graph in live site source (index.html)",
       "attested": "2026-10-28"
@@ -128,7 +128,7 @@
     {
       "id": "service-military",
       "name": "Military Moving",
-      "description": "Moving services for military households and service members relocating to or from the Winchester and Martinsburg area.",
+      "description": "Moving services for military households and service members relocating to or from the Winchester and Martinsburg area, quoted flat in writing before move day.",
       "pageCount": 5,
       "source": "head JSON-LD graph in live site source (index.html)",
       "attested": "2026-10-28"
@@ -136,7 +136,7 @@
     {
       "id": "service-route81",
       "name": "Route 81 Corridor Moving and Dispatch",
-      "description": "Moving and logistics dispatch along Interstate 81, I-66 and I-70 from Winchester, VA and Martinsburg, WV.",
+      "description": "Moving and logistics dispatch along Interstate 81, I-66 and I-70 from Winchester, VA and Martinsburg, WV — corridor moves run from two dispatch branches on one flat-rate standard.",
       "pageCount": 4,
       "source": "head JSON-LD graph in live site source (index.html)",
       "attested": "2026-10-28"

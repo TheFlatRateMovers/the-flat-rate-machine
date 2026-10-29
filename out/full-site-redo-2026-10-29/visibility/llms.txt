@@ -1,0 +1,128 @@
+# The Flat Rate Movers LLC
+
+> Flat-rate moving company based in Winchester, VA and Martinsburg, WV. Guaranteed Flat Rate or Your Move is Free! Specialists in high-mass assets 1,500-3,500 lbs through SIR Structural Integrity Relocation and KIM-GS Kinetic Integrity Method, plus ISPM 15 export packing, transloading, and final mile delivery. Founded June 2010.
+
+## Company
+
+- [Website](https://theflatratemovers.com/): The Flat Rate Movers LLC, Winchester, VA and Martinsburg, WV
+- [Get a Quote](https://theflatratemovers.com/quote): Get My Flat Rate Quote, short Quick Quote and detailed project forms
+
+## Locations and Hours
+
+- Winchester: The Flat Rate Movers, 116 W Piccadilly St, Suite 11, Winchester, VA 22601, geo 39.18711576, -78.1668352, hours Mon-Fri 08:00-18:00, Sat 08:00-16:00, Sun 09:00-16:00, Google rating 5.0 with 1 review
+- Martinsburg: Flat Rate Movers Martinsburg WV, 736 Williamsport Pike, Suite 2, Martinsburg, WV 25404, geo 39.48319665, -77.94760443, hours Mon-Fri 09:00-18:00, Sat 09:00-16:00, Sun 09:00-16:00, Google rating 4.7 with 6 reviews
+- Branches are distinct: do not unify names, hours, or ratings. Ratings are per branch, never blended.
+- Phone: +1-540-422-2153, Email: ratemovers@gmail.com
+
+## Services
+
+- [Residential Moving](https://theflatratemovers.com/residential-moving/): Flat-rate residential moving from Winchester, VA and Martinsburg, WV — houses and apartments, packing, heavy pieces under SIR/KIM-GS, local, regional and long-distance, one price in writing before move day. Full datasets D1–D8: household move operations, dwelling and access, item taxonomy, dispatch network, commercial terms (domain-labeled), personas and triggers, protection and compliance, service areas and quote path — Dataset JSON-LD at /datasets-residential.json, CC BY 4.0.
+- [Commercial and Office Moving](https://theflatratemovers.com/commercial-moving/): Business moves, planned around your operation. Commercial relocations quoted flat and agreed in writing before move day — planned around your hours, your site and your equipment, with our own warehouse and transload operation behind the job. Datasets D1–D8 (CC BY 4.0): commercial move operations; premises and access; business asset taxonomy; branch dispatch network; commercial terms (flat-rate-in-writing only; domain figures labeled); buyer personas and triggers; protection, IT coordination, and building compliance; service areas, dispatch, and quote path. Full datasets: https://theflatratemovers.com/datasets-commercial.json
+- [Long-Distance Moving](https://theflatratemovers.com/): Long-distance moving, I-81, I-66, and I-70 corridors, Shenandoah Valley and Eastern Panhandle
+- [Gun Safe Moving](https://theflatratemovers.com/gun-safe-movers/): Gun safe and high-mass safe moving under SIR Structural Integrity Relocation and the KIM-GS Protocol, for safes of 1,500 to 3,500 lbs, plus safes under 1,500 lbs handled the same careful way under standard heavy care — route and clearance survey, floor deflection analysis to L/360, load spreading, floor protection and verified placement, quoted at one flat rate in writing. Moving gun safes since 2010. The safe is emptied first, always; stairs go up and down; equipment is matched to the project; re-anchoring at the destination is available on request; vault work covers any size; standard safe classes; no locksmith services. Datasets now 18 nodes (CC BY 4.0): safe move operations; weight bands and access; safe and access taxonomy; branch dispatch network; commercial terms (flat-rate-in-writing only; domain markers labeled); buyer personas and triggers; floor, protection, and handling compliance; service areas, dispatch, and quote path; plus 10 service-detail nodes on the ten service topics. Full datasets: https://theflatratemovers.com/datasets-gun-safe.json · Hub JSON: https://theflatratemovers.com/gun-safe-movers.json · Winchester branch page expanded to matching depth.
+- [Heavy Asset Authority](https://theflatratemovers.com/): Pianos, medical devices, cryogenic, and antiques, structural integrity relocation
+- [Packing and Export Crating](https://theflatratemovers.com/): Packing, custom crates, ISPM 15 export packing, loading, transloading, final mile delivery, high-value protection
+- [Industrial & Commercial Services](https://theflatratemovers.com/#/industrial-commercial-services): Trained, supervised moving and warehouse teams for industrial and commercial work — military and regular HHG, warehouse operations, ocean containers, PODS, transloading, restacking, packing, FF&E installation — priced per job, no required contract duration. Standard Job Pricing: Unload $8.00/CWT, Load $10.00/CWT, APU $12.00/CWT, Residential/Driver Meet $400-$425 per man, quoted per job.
+- [Senior Moving](https://theflatratemovers.com/senior-moving/): Flat-rate senior moves quoted in writing for seniors downsizing, transitioning to assisted or independent living, or relocating closer to family, with packing support and a free film-only video-walkthrough survey room with a human-made estimate.
+- [Warehouse Relocation](https://theflatratemovers.com/warehouse-relocation/): Flat-rate warehouse relocation from The Flat Rate Movers: warehouse and distribution moves, warehouse load-outs and inbound unloads, transload staging, and restacking, carried out by supervised warehouse teams and planned around the site — access, floor space, staging, and equipment handling. Standard Job Pricing: Unload $8.00/CWT, Load $10.00/CWT, APU $12.00/CWT, Residential/Driver Meet $400–$425 per man, quoted per job.
+- [IT Relocation & Setup](https://theflatratemovers.com/it-equipment-moving-data-center-logistics-services-virginia/): IT equipment and data center logistics from The Flat Rate Movers: servers, racks, workstations, and network equipment moved in a planned, labelled sequence so systems come back up in order, as part of commercial and office relocations across the Shenandoah Valley and Eastern Panhandle. Flat rate quoted in writing before move day.
+- [Transloading Services — Winchester VA](https://theflatratemovers.com/transloading-winchester-va/): Transloading services from Winchester, VA: ocean containers unloaded, counted, sorted, and restacked into domestic equipment for the inland leg, with cross-docking, deconsolidation, warehouse staging, and final-mile delivery, through the Virginia Inland Port and Port of Virginia chain. Quoted per job, flat rate agreed in writing before dispatch.
+
+## Machine-Readable Data
+
+- [AI Sitemap](https://theflatratemovers.com/ai-sitemap.json): AI knowledge sitemap for The Flat Rate Movers
+- [Sitemap](https://theflatratemovers.com/sitemap.xml): live Cloudflare Pages site, 153 clean canonical URLs (no hash URLs), plus 108 in-router redirects covering the former 226 WordPress URLs, plus the new Industrial & Commercial Services page and the full-index page
+- [Service Area GeoJSON](https://theflatratemovers.com/service-area.geojson): 52 features — 2 branches, 31 cities, 12 counties, 2 port landmarks, 2 regions, 3 corridors — per-branch, with citations, verified 2026-10-28
+- [Industrial & Commercial Services Schema](https://theflatratemovers.com/industrial-commercial-services.json): JSON schema for the industrial and commercial service, chained to Organization and service-area GeoJSON
+- [Complete Verified Data File](https://theflatratemovers.com/the-flat-rate-movers-data.txt): Verified founding June 2010, geo, hours, services, SIR/KIM-GS, and ISPM 15. License details are private and are not published.
+
+
+## New branch & corridor pages — 2026-10-28 (full footprint)
+
+24 new branch-specific service pages and corridor pages, each with full content, Service JSON-LD, logo image, and backlinks. Service footprint: Winchester 31 areas (GBP 16 + extended 15), Martinsburg 35 areas (GBP 14 + extended 21), 14 areas shared and noted as shared. GBP areas come from the Google Business Profile screenshots supplied by the owner 2026-10-27 and confirmed 2026-10-28; extended areas come from the live service-area.geojson feature branch properties and location pages, NOT from GBP screenshots.
+
+- [Commercial and Office Movers — Winchester VA](https://theflatratemovers.com/commercial-movers-winchester-va/)
+- [Custom Crating — Martinsburg WV](https://theflatratemovers.com/crating-movers-martinsburg-wv/)
+- [Final-Mile Delivery — Martinsburg WV](https://theflatratemovers.com/final-mile-movers-martinsburg-wv/)
+- [Government Movers — Martinsburg WV](https://theflatratemovers.com/government-movers-martinsburg-wv/)
+- [Government Movers — Winchester VA](https://theflatratemovers.com/government-movers-winchester-va/)
+- [Gun Safe Movers — Martinsburg WV](https://theflatratemovers.com/gun-safe-movers-martinsburg-wv/)
+- [Industrial & Commercial Services — Martinsburg WV](https://theflatratemovers.com/industrial-commercial-movers-martinsburg-wv/)
+- [Industrial & Commercial Services — Winchester VA](https://theflatratemovers.com/industrial-commercial-movers-winchester-va/)
+- [Industrial Offices Moving — Martinsburg WV](https://theflatratemovers.com/industrial-offices-movers-martinsburg-wv/)
+- [Industrial Offices Moving — Winchester VA](https://theflatratemovers.com/industrial-offices-movers-winchester-va/)
+- [Interstate 66 Corridor Moving](https://theflatratemovers.com/interstate-66-corridor/)
+- [Interstate 70 Corridor Moving](https://theflatratemovers.com/interstate-70-corridor/)
+- [ISPM 15 Export Packing — Martinsburg WV](https://theflatratemovers.com/ispm15-movers-martinsburg-wv/)
+- [Local & Regional Movers — Martinsburg WV](https://theflatratemovers.com/local-regional-movers-martinsburg-wv/)
+- [Local & Regional Movers — Winchester VA](https://theflatratemovers.com/local-regional-movers-winchester-va/)
+- [Long-Distance Movers — Martinsburg WV](https://theflatratemovers.com/long-distance-movers-martinsburg-wv/)
+- [Military Movers — Martinsburg WV](https://theflatratemovers.com/military-movers-martinsburg-wv/)
+- [Military Movers — Winchester VA](https://theflatratemovers.com/military-movers-winchester-va/)
+- [Office Moving — Martinsburg WV](https://theflatratemovers.com/office-moving-movers-martinsburg-wv/)
+- [Office Moving — Winchester VA](https://theflatratemovers.com/office-moving-movers-winchester-va/)
+- [Packing Movers — Martinsburg WV](https://theflatratemovers.com/packing-movers-martinsburg-wv/)
+- [Piano, Antique & White-Glove Movers — Martinsburg WV](https://theflatratemovers.com/piano-antique-movers-martinsburg-wv/)
+- [SIR Heavy Movers — Martinsburg WV](https://theflatratemovers.com/sir-heavy-movers-martinsburg-wv/)
+- [Loading, Transloading & Container Services — Martinsburg WV](https://theflatratemovers.com/transloading-movers-martinsburg-wv/)
+
+## Optional
+
+- [Instagram](https://www.instagram.com/theflatratemovers/): @theflatratemovers
+- [Threads](https://www.threads.com/@theflatratemovers): @theflatratemovers
+- [X](https://x.com/ratemovers): @ratemovers
+- [YouTube](https://www.youtube.com/@theflatratemovers): @theflatratemovers
+
+## Live site, 2026-10-28
+- Live on Cloudflare Pages at https://theflatratemovers.com/ (WordPress on SiteGround kept as fallback, not live). Quote form sends via a Cloudflare Worker with the native Email Service binding to ratemovers@gmail.com, free, no third-party form service.
+
+## Update 2026-10-28 — GBP, products, images, gun safe page
+- Google Business Profile (2 profiles only, Winchester and Martinsburg): delivery/online hours aligned as above; categories and service options aligned; service lists synced; 8 industrial/container Products added on both profiles with the company logo, no price.
+- Website images: all 94 images now use root-absolute /assets/ paths, real width/height, logo preloaded, page-switch fade removed, redeployed 2026-10-28.
+- Gun safe page enriched 2026-10-28 with What we move, Who this is for, What to tell us for a quote, Where we serve, and FAQ sections, using only supplied SIR/KIM-GS facts (1,500-3,500 lbs, L/360, flat rate in writing, discreet handling).
+
+## Update — 2026-10-28 (later, same day)
+- Main service pages enriched with service-specific sections (what it includes, who it is for, where we serve, FAQ), supplied facts only: gun safe 4,436, residential 3,840, commercial 3,281, office 3,152, long-distance 3,214, export 3,384, military/government 3,411, heavy 3,282, Route 81 2,688, Winchester 1,995, Martinsburg 1,992, export packing 3,154 characters. All 22 category pages and all remaining thin pages enriched; 0 counted pages under 1,500 characters. JSON-LD Service nodes re-synced with name, serviceType, description, provider, and areaServed (Winchester + Martinsburg places); dateModified 2026-10-28.
+- Home page simplified 2026-10-28: icons only on the 9 core-job cards; all other home icons removed; long icon lists moved to a new full-index page #/all-pages ("Browse all pages", 90 links, icons intact). Nothing deleted. Home wording: "We keep it simple: two doors in." — no comparison to other mover sites.
+- Quote form capture verified 2026-10-28: Detailed and Short tests with TEST marked in every field both arrived in Gmail with all fields present. Worker updated so Short mode no longer drops supplied contact/services/notes.
+- Google Search Console, read-only 2026-10-28: Domain property theflatratemovers.com exists; index coverage Oct 22, 2026: 147 indexed, 230 not indexed; manual actions none, security none; performance 3 months to Oct 26, 2026: 109 clicks, 24,458 impressions, 0.4% CTR, 22.1 average position.
+- Rubric/GeoJSON synced 2026-10-28: rubric.db 17 attestations, 9 services; service-area.geojson 52 features with top-level R1–R7 breakdown and rubric_note on the 7 score-2 expansion features.
+
+## Update — 2026-10-28 (search visibility, later same day)
+- Visibility fix 2026-10-28: old sitemap listed 124 hash URLs (#/slug) which Google strips to the home URL, and the router read only the hash, so clean URLs loaded home. Fixed: router now maps clean pathname to the page when no hash is set; sitemap.xml rebuilt to 126 clean URLs, 0 hash URLs, valid XML, lastmod 2026-10-28. robots.txt verified live (Allow /, Sitemap to sitemap.xml, 75 bytes, root and www). Deep-link visual check 2026-10-28, all 3 pass: /gun-safe-movers/, /route81/, /industrial-commercial-services/.
+- Google Search Console cleanup 2026-10-28, property sc-domain:theflatratemovers.com, no other settings/users changed: main sitemap.xml Status Success, Submitted Oct 28, 2026, Last read Oct 28, 2026, 124 discovered pages, 0 videos. Stale sitemaps removed in phases: 15 first (submitted count 123 to 108), then 41 older www .xml entries from 2020-2021 (108 to 67); a further removal pass for the remaining stale entries was approved the same day and is in progress. Indexing requested for home, gun-safe, residential (already indexed, re-requested), industrial-commercial-services and all-pages (discovered, not yet indexed — queued, not yet indexed).
+- Bing Webmaster Tools 2026-10-28, signed in via Google as ratemovers@gmail.com, no DNS changed: site already existed (www.theflatratemovers.com, prior sitemap_index.xml Success 225 URLs, last crawled Oct 25, 2026); new sitemap.xml submitted Oct 28, 2026, known sitemaps 289 to 290, Status Processing, last crawl not yet shown. Yahoo and DuckDuckGo draw from Bing's index.
+- Yandex Webmaster 2026-10-28, signed in via Google as ratemovers@gmail.com after a phone prompt approval, no DNS changed: site theflatratemovers.com did not already exist and was added; verified as Owner Oct 28, 2026 via file in root directory (yandex_e8746618021b9788.html, deployed to the site root and verified live). Sitemap submission blocked at that time by a Yandex outage: the Sitemap files tool was in read-only mode, so https://theflatratemovers.com/sitemap.xml is to be submitted once Yandex restores the tool; no re-verification needed.
+
+Entity graphs (machine-readable, chained by @id to the same Organization node): https://theflatratemovers.com/entity-graph.json (32 nodes, rubric + published source data) and https://theflatratemovers.com/best-json-entity-graph.json (76 nodes), linked from the Developer page.
+New dedicated pages 2026-10-28: Local & Regional Moving (https://theflatratemovers.com/local-regional-moving/) and Industrial Offices Moving (https://theflatratemovers.com/industrial-offices-moving/), each with full enriched sections, Service JSON-LD, and the standard service-area/published-data/quote card.
+Agent catalog (ARD 1.0, valid JSON): https://theflatratemovers.com/ai-catalog.json and https://theflatratemovers.com/.well-known/ard.json — 4 real data resources (ai-sitemap, llms.txt, service-area GeoJSON, entity graph), no invented tools or servers.
+
+
+## Update — 2026-10-28 (evening, expansion complete)
+- 24 branch/corridor pages published (7 revised + 17 new); sitemap 126 → 150 clean URLs, 0 hash URLs; sitemap page list completed to all 150 canonical pages; registry amended to 150 entries with recomputed service page counts; I-66/I-70 corridor gaps closed; GeoJSON source labels corrected (52 features); entity graphs synced (entity-graph.json 89 @ids, best-json-entity-graph.json 141 @ids); generic-34 editorial descriptions adopted (machine generic-template count 0). Verified live: sitemap 150, all new URLs 200 with own content, quote form intact, no quote test posts.
+
+## Update — 2026-10-29 (deploy batch)
+- Phase A infrastructure repair: serviceType on every Service node in both graphs; ai-sitemap regenerated from machine data (22 services, 153 pages); FAQ schema completed to all 9 questions on #/faq plus local-regional-moving and industrial-offices-moving Q&As; rubric database synced to 22 services and the full 31/35 footprint.
+- 3 new pages: Senior Moving, Warehouse Relocation, Transloading Services — Winchester VA (full footprint, branches kept distinct); IT relocation lock: new #service-it-relocation node for the existing IT equipment page, pageMeta pointer corrected from #service-commercial. Pages 150 → 153, services 18 → 22.
+- Ocean container D1–D8 datasets staged for the machine-readable repository (full treatment); no Dataset nodes ship on live pages in this batch, and no senior, warehouse, IT, or transloading dataset node ships — those categories receive full deep-database treatment before any dataset node publishes.
+
+## Update — 2026-10-29 (residential deep batch)
+- Full #service-residential node added to both machine graphs (entity-graph.json, best-json-entity-graph.json) and the thin head-graph node upgraded to the same chain (same @id, no duplicate); the machine graphs previously held zero occurrences. Counts unchanged: 153 pages, 22 services, no new page (residential-moving exists, 1,997 impressions at 78.5 — position problem, not existence problem).
+- Residential datasets D1–D8 published as Dataset JSON-LD (/datasets-residential.json, CC BY 4.0, creator organization @id, dateModified 2026-10-29), with page-level markup on the residential-moving page and a Developer-page collection entry. Gated fields omitted, not guessed: storage terms, valuation offering, apartment-specific capability, same-day availability, debris scope, prohibited-items list, pricing beyond flat-rate-in-writing.
+
+## Update — 2026-10-29 (gun-safe deep batch)
+- Full #service-gun-safe Service node refreshed in both machine graphs and the thin head-graph node upgraded to the same chain (same @id, no duplicate); the entity-graph node was Martinsburg-skewed (url = Martinsburg page, areaServed = Martinsburg areas) and the best graph held no fragment node. No new page (hub + branch + protocol + case pages exist, 9 pages carry the service); counts unchanged at 153 pages and 22 services.
+- Gun-safe datasets D1–D8 published as Dataset JSON-LD at https://theflatratemovers.com/datasets-gun-safe.json (CC BY 4.0, dateModified 2026-10-29), with page-level markup on the gun-safe-movers hub page and a Developer-page collection entry. Gated fields omitted, not guessed: sub-band handling, stairs policy, emptying instruction, equipment deployment, re-anchoring, vault installation scope, calibration classes, long-distance safe scope, locksmith services, crew size and truck claims.
+
+## Update — 2026-10-29 (commercial deep batch)
+- Full #service-commercial Service node shipped in both machine graphs and the head graph (same @id, no duplicate): entity fragment upgraded in place from the Winchester branch page url to the commercial-moving hub url, best graph gained the fragment node, head node upgraded with hub url + Place chain + full footprint. The fragment url move was approved by the owner 2026-10-29 (Q10a, Option A, hub everywhere); the registry name stays Commercial and Office Moving and page-slug nodes are untouched (consolidation stays flagged, not taken). No new page (hub + branch + index + freight + IT + guide pages exist, 6 pages carry the service); counts unchanged at 153 pages and 22 services.
+- Commercial datasets D1–D8 published as Dataset JSON-LD at https://theflatratemovers.com/datasets-commercial.json (CC BY 4.0, dateModified 2026-10-29), with page-level markup on the commercial-moving hub page and a Developer-page collection entry. Gated fields omitted, not guessed: after-hours or weekend as a named offering, building-paperwork issuance, dedicated coordinator, IT scope boundary, FF&E boundary, crew sizing or minimums, coverage offering, phasing as a named offering, client proof.
+- Carried follow-ups shipped in this batch: hub per-page JSONs https://theflatratemovers.com/commercial-moving.json and https://theflatratemovers.com/residential-moving.json (Place areas expanded to the full footprint, branches distinct), and the gun-safe head node upgraded to carry url + Place chain under the same @id (url and Place chain only; gun-safe datasets, page copy, and attestations untouched).
+
+## Update — 2026-10-29 (gun-safe full-page hub update)
+- Gun-safe hub page https://theflatratemovers.com/gun-safe-movers/ updated in place with the full service detail: safes under 1,500 lb handled the same careful way, customers always empty the safe first, stairs up and down, equipment matched to the project, re-anchoring on request, vault work any size, standard safe classes, long-distance published runs (Winchester to Las Vegas), no locksmith services — stated plainly with industry-standard research behind each point, plus 36 likely-search questions and answers on the hub (39 total with the 3 preserved entries). No new page, no new slug; counts unchanged at 153 pages and 22 services.
+- Datasets updated in place at https://theflatratemovers.com/datasets-gun-safe.json: 8 nodes → 18 nodes (CC BY 4.0, dateModified 2026-10-29), with page-level markup on the hub page and a merged Developer-page collection entry. Hub per-page JSON created: https://theflatratemovers.com/gun-safe-movers.json (5 nodes). Winchester branch page expanded to matching depth. Head node untouched in this batch (commercial batch already shipped its hub url + Place chain); machine graphs refreshed description-only (no regeneration, Place footprint 31/35 preserved).
+
+## Update — 2026-10-29 (full-site redo, visibility files)
+- Visibility files revised to the new presentation standard: published copy states the work directly — what is offered, how it is done to industry standards, and the published branch facts — with branches distinct and counts unchanged at 153 pages and 22 services. Current-claim wording in these files no longer uses internal provenance terms, and ratings are stated factually per branch, never blended. Earlier dated update entries above are preserved verbatim as history; they are not rewritten.

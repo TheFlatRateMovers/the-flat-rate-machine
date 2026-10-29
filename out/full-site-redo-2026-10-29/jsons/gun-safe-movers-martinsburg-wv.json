@@ -1,0 +1,144 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://theflatratemovers.com/#service-gun-safe",
+      "name": "Gun Safe Moving",
+      "description": "Gun safe and high-mass safe moving under SIR Structural Integrity Relocation and the KIM-GS Protocol, for safes of 1,500 to 3,500 lbs, plus safes under 1,500 lbs handled the same careful way under standard heavy care — route and clearance survey, floor deflection analysis to L/360, load spreading, floor protection and verified placement, quoted at one flat rate in writing. Moving gun safes since 2010. The safe is emptied first, always; stairs go up and down; equipment is matched to the project; re-anchoring at the destination is available on request; vault work covers any size; standard safe classes; no locksmith services. From Flat Rate Movers Martinsburg WV, 736 Williamsport Pike Suite 2, Martinsburg WV 25404. Guaranteed Flat Rate or Your Move is Free!",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#martinsburg"
+      },
+      "areaServed": [
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg"
+        }
+      ],
+      "url": "https://theflatratemovers.com/gun-safe-movers-martinsburg-wv/",
+      "serviceType": "Gun Safe Moving"
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://theflatratemovers.com/#martinsburg",
+      "name": "Flat Rate Movers Martinsburg WV",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "736 Williamsport Pike Suite 2",
+        "addressLocality": "Martinsburg",
+        "addressRegion": "WV",
+        "postalCode": "25404"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 39.48319665,
+        "longitude": -77.94760443
+      },
+      "telephone": "+1-540-422-2153",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Mon-Fri",
+          "opens": "09:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Sat",
+          "opens": "09:00",
+          "closes": "16:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Sun",
+          "opens": "09:00",
+          "closes": "16:00"
+        }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": 4.7,
+        "reviewCount": 6
+      },
+      "areaServed": [
+        "Inwood",
+        "Hagerstown MD",
+        "Hedgesville",
+        "Paw Paw 25434",
+        "Shepherdstown",
+        "Berkeley County",
+        "Moorefield 26836",
+        "Bunker Hill 25413",
+        "Charles Town 25414",
+        "Clear Spring MD 21722",
+        "Summit Point 25446",
+        "Harpers Ferry 25425",
+        "Kearneysville 25430",
+        "Eastern Panhandle of West Virginia",
+        "Martinsburg, WV",
+        "Front Royal, VA",
+        "Strasburg, VA",
+        "Woodstock, VA",
+        "Berkeley Springs, WV",
+        "Romney, WV",
+        "Frederick, MD",
+        "Hancock, MD",
+        "Jefferson County",
+        "Morgan County",
+        "Warren County",
+        "Shenandoah County",
+        "Hampshire County",
+        "Hardy County",
+        "Washington County",
+        "Port of Virginia",
+        "Virginia Inland Port",
+        "Shenandoah Valley",
+        "Interstate 81 Corridor",
+        "Interstate 66 Corridor",
+        "Interstate 70 Corridor"
+      ],
+      "priceRange": "$$",
+      "parentOrganization": {
+        "@id": "https://theflatratemovers.com/#organization"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://theflatratemovers.com/#organization",
+      "name": "The Flat Rate Movers LLC",
+      "telephone": "+1-540-422-2153",
+      "foundingDate": "2010-06"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://theflatratemovers.com/gun-safe-movers-martinsburg-wv/",
+      "url": "https://theflatratemovers.com/gun-safe-movers-martinsburg-wv/",
+      "name": "Gun Safe Movers — Martinsburg WV",
+      "breadcrumb": {
+        "@id": "https://theflatratemovers.com/gun-safe-movers-martinsburg-wv/#breadcrumb"
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://theflatratemovers.com/assets/img-01-9c77693ba66b.png",
+        "caption": "The Flat Rate Movers logo — company brand image, not a job photo."
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://theflatratemovers.com/gun-safe-movers-martinsburg-wv/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://theflatratemovers.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Gun Safe Movers — Martinsburg WV",
+          "item": "https://theflatratemovers.com/gun-safe-movers-martinsburg-wv/"
+        }
+      ]
+    }
+  ]
+}

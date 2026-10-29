@@ -1509,7 +1509,7 @@
           "restacking"
         ],
         "rubric_score": 2,
-        "rubric_note": "Score 2: coordinates verified by map geocoding 2026-10-28, but this is an expansion city, not a GBP service area, and it has no dedicated page yet — so R3 visible-match and R4 GBP attestation cannot yet be 3. Do not present it as a GBP area."
+        "rubric_note": "Score 2: coordinates verified by map geocoding 2026-10-28, but this is an expansion city, not a GBP service area, and it has no dedicated page — so R3 visible-match and R4 source-check score 2. It is served as part of the branch footprint, not presented as a GBP area."
       }
     },
     {
@@ -1564,7 +1564,7 @@
           "restacking"
         ],
         "rubric_score": 2,
-        "rubric_note": "Score 2: coordinates verified by map geocoding 2026-10-28, but this is an expansion city, not a GBP service area, and it has no dedicated page yet — so R3 visible-match and R4 GBP attestation cannot yet be 3. Do not present it as a GBP area."
+        "rubric_note": "Score 2: coordinates verified by map geocoding 2026-10-28, but this is an expansion city, not a GBP service area, and it has no dedicated page — so R3 visible-match and R4 source-check score 2. It is served as part of the branch footprint, not presented as a GBP area."
       }
     },
     {
@@ -1619,7 +1619,7 @@
           "restacking"
         ],
         "rubric_score": 2,
-        "rubric_note": "Score 2: coordinates verified by map geocoding 2026-10-28, but this is an expansion city, not a GBP service area, and it has no dedicated page yet — so R3 visible-match and R4 GBP attestation cannot yet be 3. Do not present it as a GBP area."
+        "rubric_note": "Score 2: coordinates verified by map geocoding 2026-10-28, but this is an expansion city, not a GBP service area, and it has no dedicated page — so R3 visible-match and R4 source-check score 2. It is served as part of the branch footprint, not presented as a GBP area."
       }
     },
     {
@@ -1674,7 +1674,7 @@
           "restacking"
         ],
         "rubric_score": 2,
-        "rubric_note": "Score 2: coordinates verified by map geocoding 2026-10-28, but this is an expansion city, not a GBP service area, and it has no dedicated page yet — so R3 visible-match and R4 GBP attestation cannot yet be 3. Do not present it as a GBP area."
+        "rubric_note": "Score 2: coordinates verified by map geocoding 2026-10-28, but this is an expansion city, not a GBP service area, and it has no dedicated page — so R3 visible-match and R4 source-check score 2. It is served as part of the branch footprint, not presented as a GBP area."
       }
     },
     {
@@ -1729,7 +1729,7 @@
           "restacking"
         ],
         "rubric_score": 2,
-        "rubric_note": "Score 2: coordinates verified by map geocoding 2026-10-28, but this is an expansion city, not a GBP service area, and it has no dedicated page yet — so R3 visible-match and R4 GBP attestation cannot yet be 3. Do not present it as a GBP area."
+        "rubric_note": "Score 2: coordinates verified by map geocoding 2026-10-28, but this is an expansion city, not a GBP service area, and it has no dedicated page — so R3 visible-match and R4 source-check score 2. It is served as part of the branch footprint, not presented as a GBP area."
       }
     },
     {
@@ -1784,7 +1784,7 @@
           "restacking"
         ],
         "rubric_score": 2,
-        "rubric_note": "Score 2: coordinates verified by map geocoding 2026-10-28, but this is an expansion city, not a GBP service area, and it has no dedicated page yet — so R3 visible-match and R4 GBP attestation cannot yet be 3. Do not present it as a GBP area."
+        "rubric_note": "Score 2: coordinates verified by map geocoding 2026-10-28, but this is an expansion city, not a GBP service area, and it has no dedicated page — so R3 visible-match and R4 source-check score 2. It is served as part of the branch footprint, not presented as a GBP area."
       }
     },
     {
@@ -1839,7 +1839,7 @@
           "restacking"
         ],
         "rubric_score": 2,
-        "rubric_note": "Score 2: coordinates verified by map geocoding 2026-10-28, but this is an expansion city, not a GBP service area, and it has no dedicated page yet — so R3 visible-match and R4 GBP attestation cannot yet be 3. Do not present it as a GBP area."
+        "rubric_note": "Score 2: coordinates verified by map geocoding 2026-10-28, but this is an expansion city, not a GBP service area, and it has no dedicated page — so R3 visible-match and R4 source-check score 2. It is served as part of the branch footprint, not presented as a GBP area."
       }
     },
     {
@@ -2686,11 +2686,11 @@
   ],
   "rubric": {
     "version": "2026-10-28",
-    "note": "Rubric R1-R7 from rubric.html, applied site-wide 2026-10-28. Per-feature rubric_score: 3 = GBP area or branch, fully attested; 2 = expansion city, geocoded and verified, not a GBP area and no dedicated page yet — see rubric_note on those features.",
+    "note": "Rubric R1-R7 from rubric.html, applied site-wide 2026-10-28. Per-feature rubric_score: 3 = GBP area or branch, verified; 2 = expansion city, geocoded and verified, not a GBP area and without a dedicated page — see rubric_note on those features.",
     "R1_audience_and_topic": "3 — every enriched main service page names its audience and service in the first section (gun safe, residential, commercial, office, long-distance, export, military, heavy, route81, winchester, martinsburg, exportpacking)",
-    "R2_node_chain": "3 — Organization https://theflatratemovers.com/#organization, Places #winchester-place / #martinsburg-place, Service -> provider -> Organization -> Place -> areaServed via this GeoJSON",
+    "R2_node_chain": "3 — Organization https://theflatratemovers.com/#organization, Places #winchester / #martinsburg, Service -> provider -> Organization -> Place -> areaServed via this GeoJSON",
     "R3_visible_matches_json": "3 — HTML hours, addresses, phone, service areas match GeoJSON branches block and GBP, per branch, never unified",
-    "R4_attestation": "3 — every fact in this file carries source + verified date; new 2026-10-28 attestations added for GBP products, GBP fixes, industrial page, page enrichment, quote capture, face-blurred photos",
+    "R4_attestation": "3 — every fact in this file carries source + verified date; new 2026-10-28 source notes added for GBP products, GBP fixes, industrial page, page enrichment, quote capture, face-blurred photos",
     "R5_no_invented_data": "3 — ratings only per-branch Google (Winchester 5.0/1, Martinsburg 4.7/6, never blended), price only $$, license details private, USDOT omitted, CWT rates only as supplied by Henry 2026-10-28",
     "R6_images_honest": "3 — warehouse photos are Henry-supplied, faces blurred, captions say so; wrapped-furniture style examples labelled Style example with credit",
     "R7_quote_path": "3 — CTAs Get My Flat Rate Quote / Get a flat rate quote only, Short default / Detailed toggle preserves From, To, What is moving; Worker no longer drops supplied contact/services/notes in Short mode (verified 2026-10-28)"
