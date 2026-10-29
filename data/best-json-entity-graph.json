@@ -1779,6 +1779,25 @@
       },
       "serviceType": "Transloading",
       "url": "https://theflatratemovers.com/transloading-winchester-va/"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#service-residential",
+      "@type": "Service",
+      "areaServed": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester-place"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg-place"
+        }
+      ],
+      "description": "Flat-rate residential moving from Winchester, VA and Martinsburg, WV — houses and apartments, packing, heavy pieces under SIR/KIM-GS, local, regional and long-distance, one price in writing before move day.",
+      "name": "Residential Moving",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "serviceType": "Residential Moving",
+      "url": "https://theflatratemovers.com/residential-moving/"
     }
   ],
   "_humanSummary": "This is the best JSON for The Flat Rate Movers: one @graph, stable @ids, Organization chained to two Places, each Place chained to its GBP service-area City nodes, each Service chained to the Organization and to both Places, per-branch Google aggregateRating only (Winchester 5.0/1, Martinsburg 4.7/6, never blended), founding June 2010, geo, hours, sameAs, and no license, price, USDOT, testimonial, or move count. Humans read the names, addresses, and service lists; machines follow the @ids. 2026-10-28: 24 new branch & corridor pages added (full footprint Winchester 31, Martinsburg 35, shared 14), each with Service JSON-LD, logo image, and backlinks.",

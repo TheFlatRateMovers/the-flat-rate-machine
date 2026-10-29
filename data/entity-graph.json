@@ -1371,6 +1371,24 @@
         "@id": "https://theflatratemovers.com/#organization"
       },
       "serviceType": "Transloading"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#service-residential",
+      "@type": "Service",
+      "areaServed": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester-place"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg-place"
+        }
+      ],
+      "description": "Flat-rate residential moving from Winchester, VA and Martinsburg, WV — houses and apartments, packing, heavy pieces under SIR/KIM-GS, local, regional and long-distance, one price in writing before move day.",
+      "name": "Residential Moving",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "serviceType": "Residential Moving"
     }
   ],
   "@id": "https://theflatratemovers.com/entity-graph.json",
