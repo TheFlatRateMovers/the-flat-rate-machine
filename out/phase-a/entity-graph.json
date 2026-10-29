@@ -1,0 +1,1454 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://theflatratemovers.com/#organization",
+      "@type": [
+        "Organization",
+        "LocalBusiness",
+        "MovingCompany"
+      ],
+      "address": {
+        "@id": "https://theflatratemovers.com/#winchester-address"
+      },
+      "email": "ratemovers@gmail.com",
+      "foundingDate": "2010-06",
+      "hasOfferCatalog": {
+        "@id": "https://theflatratemovers.com/#service-catalog"
+      },
+      "location": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester-place"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg-place"
+        }
+      ],
+      "name": "The Flat Rate Movers LLC",
+      "priceRange": "$$",
+      "sameAs": [
+        "https://www.instagram.com/theflatratemovers/",
+        "https://www.threads.com/@theflatratemovers",
+        "https://x.com/ratemovers",
+        "https://www.youtube.com/@theflatratemovers",
+        "https://github.com/TheFlatRateMovers",
+        "https://medium.com/@ratemovers"
+      ],
+      "slogan": "Guaranteed Flat Rate or Your Move is Free!",
+      "telephone": "+1-540-422-2153",
+      "url": "https://theflatratemovers.com/"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#winchester-place",
+      "@type": "Place",
+      "address": {
+        "@id": "https://theflatratemovers.com/#winchester-address"
+      },
+      "areaServed": [
+        "Leesburg, VA, USA",
+        "Marshall, VA, USA",
+        "Sterling, VA, USA",
+        "Stephens City, VA, USA",
+        "Loudoun County, VA, USA",
+        "Berryville, VA 22611, USA",
+        "Frederick County, VA, USA",
+        "Middleburg, VA 20117, USA",
+        "Middletown, VA 22645, USA",
+        "Moorefield, WV 26836, USA",
+        "Round Hill, VA 20141, USA",
+        "Stephenson, VA 22656, USA",
+        "Upperville, VA 20184, USA",
+        "Winchester, VA 22601, USA",
+        "Purcellville, VA 20132, USA",
+        "South Riding, VA 20152, USA"
+      ],
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 39.18711576,
+        "longitude": -78.1668352
+      },
+      "name": "The Flat Rate Movers — Winchester",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "closes": "18:00",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "08:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "closes": "16:00",
+          "dayOfWeek": "Saturday",
+          "opens": "08:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "closes": "16:00",
+          "dayOfWeek": "Sunday",
+          "opens": "09:00"
+        }
+      ]
+    },
+    {
+      "@id": "https://theflatratemovers.com/#winchester-address",
+      "@type": "PostalAddress",
+      "addressCountry": "US",
+      "addressLocality": "Winchester",
+      "addressRegion": "VA",
+      "postalCode": "22601",
+      "streetAddress": "116 W Piccadilly St Suite 11"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#martinsburg-place",
+      "@type": "Place",
+      "address": {
+        "@id": "https://theflatratemovers.com/#martinsburg-address"
+      },
+      "areaServed": [
+        "Inwood, WV, USA",
+        "Hagerstown, MD, USA",
+        "Hedgesville, WV, USA",
+        "Paw Paw, WV 25434, USA",
+        "Shepherdstown, WV, USA",
+        "Berkeley County, WV, USA",
+        "Moorefield, WV 26836, USA",
+        "Bunker Hill, WV 25413, USA",
+        "Charles Town, WV 25414, USA",
+        "Clear Spring, MD 21722, USA",
+        "Summit Point, WV 25446, USA",
+        "Harpers Ferry, WV 25425, USA",
+        "Kearneysville, WV 25430, USA",
+        "Eastern Panhandle of West Virginia, WV, USA"
+      ],
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 39.48319665,
+        "longitude": -77.94760443
+      },
+      "name": "Flat Rate Movers Martinsburg WV",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "09:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "09:00",
+          "closes": "16:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Sunday",
+          "opens": "09:00",
+          "closes": "16:00"
+        }
+      ]
+    },
+    {
+      "@id": "https://theflatratemovers.com/#martinsburg-address",
+      "@type": "PostalAddress",
+      "addressCountry": "US",
+      "addressLocality": "Martinsburg",
+      "addressRegion": "WV",
+      "postalCode": "25404",
+      "streetAddress": "736 Williamsport Pike Suite 2"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#service-catalog",
+      "@type": "OfferCatalog",
+      "itemListElement": [
+        {
+          "@id": "https://theflatratemovers.com/residential-moving/#service"
+        },
+        {
+          "@id": "https://theflatratemovers.com/commercial-moving/#service"
+        },
+        {
+          "@id": "https://theflatratemovers.com/commercial-office-moving-2/#service"
+        },
+        {
+          "@id": "https://theflatratemovers.com/gun-safe-movers/#service"
+        },
+        {
+          "@id": "https://theflatratemovers.com/military-government-moving/#service"
+        },
+        {
+          "@id": "https://theflatratemovers.com/international-export-packing-crating-winchester-va/#service"
+        },
+        {
+          "@id": "https://theflatratemovers.com/long-distance-movers-winchester-va/#service"
+        }
+      ],
+      "name": "The Flat Rate Movers Services"
+    },
+    {
+      "@id": "https://theflatratemovers.com/gun-safe-movers/#service",
+      "@type": "Service",
+      "areaServed": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester-place"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg-place"
+        }
+      ],
+      "description": "Flat-rate gun safe moving with SIR Structural Integrity Relocation and KIM-GS Kinetic Integrity Method for high-mass assets 1,500-3,500 lbs, with L/360 floor deflection analysis, substrate and load-path protection.",
+      "name": "Gun Safe Moving",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "serviceType": "Gun Safe Moving"
+    },
+    {
+      "@id": "https://theflatratemovers.com/residential-moving/#service",
+      "@type": "Service",
+      "areaServed": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester-place"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg-place"
+        }
+      ],
+      "name": "Residential Moving",
+      "serviceType": "Residential Moving",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      }
+    },
+    {
+      "@id": "https://theflatratemovers.com/commercial-moving/#service",
+      "@type": "Service",
+      "areaServed": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester-place"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg-place"
+        }
+      ],
+      "name": "Commercial Moving",
+      "serviceType": "Commercial Moving",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      }
+    },
+    {
+      "@id": "https://theflatratemovers.com/international-export-packing-crating-winchester-va/#service",
+      "@type": "Service",
+      "description": "ISPM 15 International Standards for Phytosanitary Measures No. 15 export packing, custom crates, loading, transloading, final mile delivery, and high-value protection.",
+      "name": "ISPM 15 Export Packing and Custom Crating",
+      "serviceType": "ISPM 15 Export Packing and Custom Crating",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      }
+    },
+    {
+      "@id": "https://theflatratemovers.com/#service-commercial",
+      "@type": "Service",
+      "name": "Commercial and Office Moving",
+      "serviceType": "Commercial and Office Moving",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "url": "https://theflatratemovers.com/commercial-movers-winchester-va/",
+      "areaServed": [
+        "Leesburg",
+        "Marshall",
+        "Sterling",
+        "Stephens City",
+        "Loudoun County",
+        "Berryville 22611",
+        "Frederick County",
+        "Middleburg 20117",
+        "Middletown 22645",
+        "Moorefield 26836",
+        "Round Hill 20141",
+        "Stephenson 22656",
+        "Upperville 20184",
+        "Winchester 22601",
+        "Purcellville 20132",
+        "South Riding 20152",
+        "Front Royal, VA",
+        "Strasburg, VA",
+        "Woodstock, VA",
+        "Clarke County",
+        "Warren County",
+        "Shenandoah County",
+        "Hardy County",
+        "Fauquier County",
+        "Port of Virginia",
+        "Virginia Inland Port",
+        "Shenandoah Valley",
+        "Eastern Panhandle of West Virginia",
+        "Interstate 81 Corridor",
+        "Interstate 66 Corridor",
+        "Interstate 70 Corridor"
+      ]
+    },
+    {
+      "@id": "https://theflatratemovers.com/#service-crating",
+      "@type": "Service",
+      "name": "Custom Crating",
+      "serviceType": "Custom Crating",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "url": "https://theflatratemovers.com/crating-movers-martinsburg-wv/",
+      "areaServed": [
+        "Inwood",
+        "Hagerstown MD",
+        "Hedgesville",
+        "Paw Paw 25434",
+        "Shepherdstown",
+        "Berkeley County",
+        "Moorefield 26836",
+        "Bunker Hill 25413",
+        "Charles Town 25414",
+        "Clear Spring MD 21722",
+        "Summit Point 25446",
+        "Harpers Ferry 25425",
+        "Kearneysville 25430",
+        "Eastern Panhandle of West Virginia",
+        "Martinsburg, WV",
+        "Front Royal, VA",
+        "Strasburg, VA",
+        "Woodstock, VA",
+        "Berkeley Springs, WV",
+        "Romney, WV",
+        "Frederick, MD",
+        "Hancock, MD",
+        "Jefferson County",
+        "Morgan County",
+        "Warren County",
+        "Shenandoah County",
+        "Hampshire County",
+        "Hardy County",
+        "Washington County",
+        "Port of Virginia",
+        "Virginia Inland Port",
+        "Shenandoah Valley",
+        "Interstate 81 Corridor",
+        "Interstate 66 Corridor",
+        "Interstate 70 Corridor"
+      ]
+    },
+    {
+      "@id": "https://theflatratemovers.com/#service-final-mile",
+      "@type": "Service",
+      "name": "Final-Mile Delivery",
+      "serviceType": "Final-Mile Delivery",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "url": "https://theflatratemovers.com/final-mile-movers-martinsburg-wv/",
+      "areaServed": [
+        "Inwood",
+        "Hagerstown MD",
+        "Hedgesville",
+        "Paw Paw 25434",
+        "Shepherdstown",
+        "Berkeley County",
+        "Moorefield 26836",
+        "Bunker Hill 25413",
+        "Charles Town 25414",
+        "Clear Spring MD 21722",
+        "Summit Point 25446",
+        "Harpers Ferry 25425",
+        "Kearneysville 25430",
+        "Eastern Panhandle of West Virginia",
+        "Martinsburg, WV",
+        "Front Royal, VA",
+        "Strasburg, VA",
+        "Woodstock, VA",
+        "Berkeley Springs, WV",
+        "Romney, WV",
+        "Frederick, MD",
+        "Hancock, MD",
+        "Jefferson County",
+        "Morgan County",
+        "Warren County",
+        "Shenandoah County",
+        "Hampshire County",
+        "Hardy County",
+        "Washington County",
+        "Port of Virginia",
+        "Virginia Inland Port",
+        "Shenandoah Valley",
+        "Interstate 81 Corridor",
+        "Interstate 66 Corridor",
+        "Interstate 70 Corridor"
+      ]
+    },
+    {
+      "@id": "https://theflatratemovers.com/#service-government",
+      "@type": "Service",
+      "name": "Government Moving",
+      "serviceType": "Government Moving",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "url": "https://theflatratemovers.com/government-movers-martinsburg-wv/",
+      "areaServed": [
+        "Inwood",
+        "Hagerstown MD",
+        "Hedgesville",
+        "Paw Paw 25434",
+        "Shepherdstown",
+        "Berkeley County",
+        "Moorefield 26836",
+        "Bunker Hill 25413",
+        "Charles Town 25414",
+        "Clear Spring MD 21722",
+        "Summit Point 25446",
+        "Harpers Ferry 25425",
+        "Kearneysville 25430",
+        "Eastern Panhandle of West Virginia",
+        "Martinsburg, WV",
+        "Front Royal, VA",
+        "Strasburg, VA",
+        "Woodstock, VA",
+        "Berkeley Springs, WV",
+        "Romney, WV",
+        "Frederick, MD",
+        "Hancock, MD",
+        "Jefferson County",
+        "Morgan County",
+        "Warren County",
+        "Shenandoah County",
+        "Hampshire County",
+        "Hardy County",
+        "Washington County",
+        "Port of Virginia",
+        "Virginia Inland Port",
+        "Shenandoah Valley",
+        "Interstate 81 Corridor",
+        "Interstate 66 Corridor",
+        "Interstate 70 Corridor"
+      ]
+    },
+    {
+      "@id": "https://theflatratemovers.com/#service-government",
+      "@type": "Service",
+      "name": "Government Moving",
+      "serviceType": "Government Moving",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "url": "https://theflatratemovers.com/government-movers-winchester-va/",
+      "areaServed": [
+        "Leesburg",
+        "Marshall",
+        "Sterling",
+        "Stephens City",
+        "Loudoun County",
+        "Berryville 22611",
+        "Frederick County",
+        "Middleburg 20117",
+        "Middletown 22645",
+        "Moorefield 26836",
+        "Round Hill 20141",
+        "Stephenson 22656",
+        "Upperville 20184",
+        "Winchester 22601",
+        "Purcellville 20132",
+        "South Riding 20152",
+        "Front Royal, VA",
+        "Strasburg, VA",
+        "Woodstock, VA",
+        "Clarke County",
+        "Warren County",
+        "Shenandoah County",
+        "Hardy County",
+        "Fauquier County",
+        "Port of Virginia",
+        "Virginia Inland Port",
+        "Shenandoah Valley",
+        "Eastern Panhandle of West Virginia",
+        "Interstate 81 Corridor",
+        "Interstate 66 Corridor",
+        "Interstate 70 Corridor"
+      ]
+    },
+    {
+      "@id": "https://theflatratemovers.com/#service-gun-safe",
+      "@type": "Service",
+      "name": "Gun Safe Moving",
+      "serviceType": "Gun Safe Moving",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "url": "https://theflatratemovers.com/gun-safe-movers-martinsburg-wv/",
+      "areaServed": [
+        "Inwood",
+        "Hagerstown MD",
+        "Hedgesville",
+        "Paw Paw 25434",
+        "Shepherdstown",
+        "Berkeley County",
+        "Moorefield 26836",
+        "Bunker Hill 25413",
+        "Charles Town 25414",
+        "Clear Spring MD 21722",
+        "Summit Point 25446",
+        "Harpers Ferry 25425",
+        "Kearneysville 25430",
+        "Eastern Panhandle of West Virginia",
+        "Martinsburg, WV",
+        "Front Royal, VA",
+        "Strasburg, VA",
+        "Woodstock, VA",
+        "Berkeley Springs, WV",
+        "Romney, WV",
+        "Frederick, MD",
+        "Hancock, MD",
+        "Jefferson County",
+        "Morgan County",
+        "Warren County",
+        "Shenandoah County",
+        "Hampshire County",
+        "Hardy County",
+        "Washington County",
+        "Port of Virginia",
+        "Virginia Inland Port",
+        "Shenandoah Valley",
+        "Interstate 81 Corridor",
+        "Interstate 66 Corridor",
+        "Interstate 70 Corridor"
+      ]
+    },
+    {
+      "@id": "https://theflatratemovers.com/#service-industrial-commercial",
+      "@type": "Service",
+      "name": "Industrial & Commercial Services",
+      "serviceType": "Industrial & Commercial Services",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "url": "https://theflatratemovers.com/industrial-commercial-movers-martinsburg-wv/",
+      "areaServed": [
+        "Inwood",
+        "Hagerstown MD",
+        "Hedgesville",
+        "Paw Paw 25434",
+        "Shepherdstown",
+        "Berkeley County",
+        "Moorefield 26836",
+        "Bunker Hill 25413",
+        "Charles Town 25414",
+        "Clear Spring MD 21722",
+        "Summit Point 25446",
+        "Harpers Ferry 25425",
+        "Kearneysville 25430",
+        "Eastern Panhandle of West Virginia",
+        "Martinsburg, WV",
+        "Front Royal, VA",
+        "Strasburg, VA",
+        "Woodstock, VA",
+        "Berkeley Springs, WV",
+        "Romney, WV",
+        "Frederick, MD",
+        "Hancock, MD",
+        "Jefferson County",
+        "Morgan County",
+        "Warren County",
+        "Shenandoah County",
+        "Hampshire County",
+        "Hardy County",
+        "Washington County",
+        "Port of Virginia",
+        "Virginia Inland Port",
+        "Shenandoah Valley",
+        "Interstate 81 Corridor",
+        "Interstate 66 Corridor",
+        "Interstate 70 Corridor"
+      ]
+    },
+    {
+      "@id": "https://theflatratemovers.com/#service-industrial-commercial",
+      "@type": "Service",
+      "name": "Industrial & Commercial Services",
+      "serviceType": "Industrial & Commercial Services",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "url": "https://theflatratemovers.com/industrial-commercial-movers-winchester-va/",
+      "areaServed": [
+        "Leesburg",
+        "Marshall",
+        "Sterling",
+        "Stephens City",
+        "Loudoun County",
+        "Berryville 22611",
+        "Frederick County",
+        "Middleburg 20117",
+        "Middletown 22645",
+        "Moorefield 26836",
+        "Round Hill 20141",
+        "Stephenson 22656",
+        "Upperville 20184",
+        "Winchester 22601",
+        "Purcellville 20132",
+        "South Riding 20152",
+        "Front Royal, VA",
+        "Strasburg, VA",
+        "Woodstock, VA",
+        "Clarke County",
+        "Warren County",
+        "Shenandoah County",
+        "Hardy County",
+        "Fauquier County",
+        "Port of Virginia",
+        "Virginia Inland Port",
+        "Shenandoah Valley",
+        "Eastern Panhandle of West Virginia",
+        "Interstate 81 Corridor",
+        "Interstate 66 Corridor",
+        "Interstate 70 Corridor"
+      ]
+    },
+    {
+      "@id": "https://theflatratemovers.com/#service-industrial-offices",
+      "@type": "Service",
+      "name": "Industrial Offices Moving",
+      "serviceType": "Industrial Offices Moving",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "url": "https://theflatratemovers.com/industrial-offices-movers-martinsburg-wv/",
+      "areaServed": [
+        "Inwood",
+        "Hagerstown MD",
+        "Hedgesville",
+        "Paw Paw 25434",
+        "Shepherdstown",
+        "Berkeley County",
+        "Moorefield 26836",
+        "Bunker Hill 25413",
+        "Charles Town 25414",
+        "Clear Spring MD 21722",
+        "Summit Point 25446",
+        "Harpers Ferry 25425",
+        "Kearneysville 25430",
+        "Eastern Panhandle of West Virginia",
+        "Martinsburg, WV",
+        "Front Royal, VA",
+        "Strasburg, VA",
+        "Woodstock, VA",
+        "Berkeley Springs, WV",
+        "Romney, WV",
+        "Frederick, MD",
+        "Hancock, MD",
+        "Jefferson County",
+        "Morgan County",
+        "Warren County",
+        "Shenandoah County",
+        "Hampshire County",
+        "Hardy County",
+        "Washington County",
+        "Port of Virginia",
+        "Virginia Inland Port",
+        "Shenandoah Valley",
+        "Interstate 81 Corridor",
+        "Interstate 66 Corridor",
+        "Interstate 70 Corridor"
+      ]
+    },
+    {
+      "@id": "https://theflatratemovers.com/#service-industrial-offices",
+      "@type": "Service",
+      "name": "Industrial Offices Moving",
+      "serviceType": "Industrial Offices Moving",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "url": "https://theflatratemovers.com/industrial-offices-movers-winchester-va/",
+      "areaServed": [
+        "Leesburg",
+        "Marshall",
+        "Sterling",
+        "Stephens City",
+        "Loudoun County",
+        "Berryville 22611",
+        "Frederick County",
+        "Middleburg 20117",
+        "Middletown 22645",
+        "Moorefield 26836",
+        "Round Hill 20141",
+        "Stephenson 22656",
+        "Upperville 20184",
+        "Winchester 22601",
+        "Purcellville 20132",
+        "South Riding 20152",
+        "Front Royal, VA",
+        "Strasburg, VA",
+        "Woodstock, VA",
+        "Clarke County",
+        "Warren County",
+        "Shenandoah County",
+        "Hardy County",
+        "Fauquier County",
+        "Port of Virginia",
+        "Virginia Inland Port",
+        "Shenandoah Valley",
+        "Eastern Panhandle of West Virginia",
+        "Interstate 81 Corridor",
+        "Interstate 66 Corridor",
+        "Interstate 70 Corridor"
+      ]
+    },
+    {
+      "@id": "https://theflatratemovers.com/#service-route81",
+      "@type": "Service",
+      "name": "Route 81 Corridor Moving and Dispatch",
+      "serviceType": "Route 81 Corridor Moving and Dispatch",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "url": "https://theflatratemovers.com/interstate-66-corridor/",
+      "areaServed": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg"
+        }
+      ]
+    },
+    {
+      "@id": "https://theflatratemovers.com/#service-route81",
+      "@type": "Service",
+      "name": "Route 81 Corridor Moving and Dispatch",
+      "serviceType": "Route 81 Corridor Moving and Dispatch",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "url": "https://theflatratemovers.com/interstate-70-corridor/",
+      "areaServed": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg"
+        }
+      ]
+    },
+    {
+      "@id": "https://theflatratemovers.com/#service-ispm15",
+      "@type": "Service",
+      "name": "ISPM 15 Export Packing",
+      "serviceType": "ISPM 15 Export Packing",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "url": "https://theflatratemovers.com/ispm15-movers-martinsburg-wv/",
+      "areaServed": [
+        "Inwood",
+        "Hagerstown MD",
+        "Hedgesville",
+        "Paw Paw 25434",
+        "Shepherdstown",
+        "Berkeley County",
+        "Moorefield 26836",
+        "Bunker Hill 25413",
+        "Charles Town 25414",
+        "Clear Spring MD 21722",
+        "Summit Point 25446",
+        "Harpers Ferry 25425",
+        "Kearneysville 25430",
+        "Eastern Panhandle of West Virginia",
+        "Martinsburg, WV",
+        "Front Royal, VA",
+        "Strasburg, VA",
+        "Woodstock, VA",
+        "Berkeley Springs, WV",
+        "Romney, WV",
+        "Frederick, MD",
+        "Hancock, MD",
+        "Jefferson County",
+        "Morgan County",
+        "Warren County",
+        "Shenandoah County",
+        "Hampshire County",
+        "Hardy County",
+        "Washington County",
+        "Port of Virginia",
+        "Virginia Inland Port",
+        "Shenandoah Valley",
+        "Interstate 81 Corridor",
+        "Interstate 66 Corridor",
+        "Interstate 70 Corridor"
+      ]
+    },
+    {
+      "@id": "https://theflatratemovers.com/#service-local-regional",
+      "@type": "Service",
+      "name": "Local and Regional Moving",
+      "serviceType": "Local and Regional Moving",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "url": "https://theflatratemovers.com/local-regional-movers-martinsburg-wv/",
+      "areaServed": [
+        "Inwood",
+        "Hagerstown MD",
+        "Hedgesville",
+        "Paw Paw 25434",
+        "Shepherdstown",
+        "Berkeley County",
+        "Moorefield 26836",
+        "Bunker Hill 25413",
+        "Charles Town 25414",
+        "Clear Spring MD 21722",
+        "Summit Point 25446",
+        "Harpers Ferry 25425",
+        "Kearneysville 25430",
+        "Eastern Panhandle of West Virginia",
+        "Martinsburg, WV",
+        "Front Royal, VA",
+        "Strasburg, VA",
+        "Woodstock, VA",
+        "Berkeley Springs, WV",
+        "Romney, WV",
+        "Frederick, MD",
+        "Hancock, MD",
+        "Jefferson County",
+        "Morgan County",
+        "Warren County",
+        "Shenandoah County",
+        "Hampshire County",
+        "Hardy County",
+        "Washington County",
+        "Port of Virginia",
+        "Virginia Inland Port",
+        "Shenandoah Valley",
+        "Interstate 81 Corridor",
+        "Interstate 66 Corridor",
+        "Interstate 70 Corridor"
+      ]
+    },
+    {
+      "@id": "https://theflatratemovers.com/#service-local-regional",
+      "@type": "Service",
+      "name": "Local and Regional Moving",
+      "serviceType": "Local and Regional Moving",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "url": "https://theflatratemovers.com/local-regional-movers-winchester-va/",
+      "areaServed": [
+        "Leesburg",
+        "Marshall",
+        "Sterling",
+        "Stephens City",
+        "Loudoun County",
+        "Berryville 22611",
+        "Frederick County",
+        "Middleburg 20117",
+        "Middletown 22645",
+        "Moorefield 26836",
+        "Round Hill 20141",
+        "Stephenson 22656",
+        "Upperville 20184",
+        "Winchester 22601",
+        "Purcellville 20132",
+        "South Riding 20152",
+        "Front Royal, VA",
+        "Strasburg, VA",
+        "Woodstock, VA",
+        "Clarke County",
+        "Warren County",
+        "Shenandoah County",
+        "Hardy County",
+        "Fauquier County",
+        "Port of Virginia",
+        "Virginia Inland Port",
+        "Shenandoah Valley",
+        "Eastern Panhandle of West Virginia",
+        "Interstate 81 Corridor",
+        "Interstate 66 Corridor",
+        "Interstate 70 Corridor"
+      ]
+    },
+    {
+      "@id": "https://theflatratemovers.com/#service-long-distance",
+      "@type": "Service",
+      "name": "Long-Distance Moving",
+      "serviceType": "Long-Distance Moving",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "url": "https://theflatratemovers.com/long-distance-movers-martinsburg-wv/",
+      "areaServed": [
+        "Inwood",
+        "Hagerstown MD",
+        "Hedgesville",
+        "Paw Paw 25434",
+        "Shepherdstown",
+        "Berkeley County",
+        "Moorefield 26836",
+        "Bunker Hill 25413",
+        "Charles Town 25414",
+        "Clear Spring MD 21722",
+        "Summit Point 25446",
+        "Harpers Ferry 25425",
+        "Kearneysville 25430",
+        "Eastern Panhandle of West Virginia",
+        "Martinsburg, WV",
+        "Front Royal, VA",
+        "Strasburg, VA",
+        "Woodstock, VA",
+        "Berkeley Springs, WV",
+        "Romney, WV",
+        "Frederick, MD",
+        "Hancock, MD",
+        "Jefferson County",
+        "Morgan County",
+        "Warren County",
+        "Shenandoah County",
+        "Hampshire County",
+        "Hardy County",
+        "Washington County",
+        "Port of Virginia",
+        "Virginia Inland Port",
+        "Shenandoah Valley",
+        "Interstate 81 Corridor",
+        "Interstate 66 Corridor",
+        "Interstate 70 Corridor"
+      ]
+    },
+    {
+      "@id": "https://theflatratemovers.com/#service-military",
+      "@type": "Service",
+      "name": "Military Moving",
+      "serviceType": "Military Moving",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "url": "https://theflatratemovers.com/military-movers-martinsburg-wv/",
+      "areaServed": [
+        "Inwood",
+        "Hagerstown MD",
+        "Hedgesville",
+        "Paw Paw 25434",
+        "Shepherdstown",
+        "Berkeley County",
+        "Moorefield 26836",
+        "Bunker Hill 25413",
+        "Charles Town 25414",
+        "Clear Spring MD 21722",
+        "Summit Point 25446",
+        "Harpers Ferry 25425",
+        "Kearneysville 25430",
+        "Eastern Panhandle of West Virginia",
+        "Martinsburg, WV",
+        "Front Royal, VA",
+        "Strasburg, VA",
+        "Woodstock, VA",
+        "Berkeley Springs, WV",
+        "Romney, WV",
+        "Frederick, MD",
+        "Hancock, MD",
+        "Jefferson County",
+        "Morgan County",
+        "Warren County",
+        "Shenandoah County",
+        "Hampshire County",
+        "Hardy County",
+        "Washington County",
+        "Port of Virginia",
+        "Virginia Inland Port",
+        "Shenandoah Valley",
+        "Interstate 81 Corridor",
+        "Interstate 66 Corridor",
+        "Interstate 70 Corridor"
+      ]
+    },
+    {
+      "@id": "https://theflatratemovers.com/#service-military",
+      "@type": "Service",
+      "name": "Military Moving",
+      "serviceType": "Military Moving",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "url": "https://theflatratemovers.com/military-movers-winchester-va/",
+      "areaServed": [
+        "Leesburg",
+        "Marshall",
+        "Sterling",
+        "Stephens City",
+        "Loudoun County",
+        "Berryville 22611",
+        "Frederick County",
+        "Middleburg 20117",
+        "Middletown 22645",
+        "Moorefield 26836",
+        "Round Hill 20141",
+        "Stephenson 22656",
+        "Upperville 20184",
+        "Winchester 22601",
+        "Purcellville 20132",
+        "South Riding 20152",
+        "Front Royal, VA",
+        "Strasburg, VA",
+        "Woodstock, VA",
+        "Clarke County",
+        "Warren County",
+        "Shenandoah County",
+        "Hardy County",
+        "Fauquier County",
+        "Port of Virginia",
+        "Virginia Inland Port",
+        "Shenandoah Valley",
+        "Eastern Panhandle of West Virginia",
+        "Interstate 81 Corridor",
+        "Interstate 66 Corridor",
+        "Interstate 70 Corridor"
+      ]
+    },
+    {
+      "@id": "https://theflatratemovers.com/#service-office-moving",
+      "@type": "Service",
+      "name": "Office Moving",
+      "serviceType": "Office Moving",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "url": "https://theflatratemovers.com/office-moving-movers-martinsburg-wv/",
+      "areaServed": [
+        "Inwood",
+        "Hagerstown MD",
+        "Hedgesville",
+        "Paw Paw 25434",
+        "Shepherdstown",
+        "Berkeley County",
+        "Moorefield 26836",
+        "Bunker Hill 25413",
+        "Charles Town 25414",
+        "Clear Spring MD 21722",
+        "Summit Point 25446",
+        "Harpers Ferry 25425",
+        "Kearneysville 25430",
+        "Eastern Panhandle of West Virginia",
+        "Martinsburg, WV",
+        "Front Royal, VA",
+        "Strasburg, VA",
+        "Woodstock, VA",
+        "Berkeley Springs, WV",
+        "Romney, WV",
+        "Frederick, MD",
+        "Hancock, MD",
+        "Jefferson County",
+        "Morgan County",
+        "Warren County",
+        "Shenandoah County",
+        "Hampshire County",
+        "Hardy County",
+        "Washington County",
+        "Port of Virginia",
+        "Virginia Inland Port",
+        "Shenandoah Valley",
+        "Interstate 81 Corridor",
+        "Interstate 66 Corridor",
+        "Interstate 70 Corridor"
+      ]
+    },
+    {
+      "@id": "https://theflatratemovers.com/#service-office-moving",
+      "@type": "Service",
+      "name": "Office Moving",
+      "serviceType": "Office Moving",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "url": "https://theflatratemovers.com/office-moving-movers-winchester-va/",
+      "areaServed": [
+        "Leesburg",
+        "Marshall",
+        "Sterling",
+        "Stephens City",
+        "Loudoun County",
+        "Berryville 22611",
+        "Frederick County",
+        "Middleburg 20117",
+        "Middletown 22645",
+        "Moorefield 26836",
+        "Round Hill 20141",
+        "Stephenson 22656",
+        "Upperville 20184",
+        "Winchester 22601",
+        "Purcellville 20132",
+        "South Riding 20152",
+        "Front Royal, VA",
+        "Strasburg, VA",
+        "Woodstock, VA",
+        "Clarke County",
+        "Warren County",
+        "Shenandoah County",
+        "Hardy County",
+        "Fauquier County",
+        "Port of Virginia",
+        "Virginia Inland Port",
+        "Shenandoah Valley",
+        "Eastern Panhandle of West Virginia",
+        "Interstate 81 Corridor",
+        "Interstate 66 Corridor",
+        "Interstate 70 Corridor"
+      ]
+    },
+    {
+      "@id": "https://theflatratemovers.com/#service-packing",
+      "@type": "Service",
+      "name": "Packing and Unpacking",
+      "serviceType": "Packing and Unpacking",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "url": "https://theflatratemovers.com/packing-movers-martinsburg-wv/",
+      "areaServed": [
+        "Inwood",
+        "Hagerstown MD",
+        "Hedgesville",
+        "Paw Paw 25434",
+        "Shepherdstown",
+        "Berkeley County",
+        "Moorefield 26836",
+        "Bunker Hill 25413",
+        "Charles Town 25414",
+        "Clear Spring MD 21722",
+        "Summit Point 25446",
+        "Harpers Ferry 25425",
+        "Kearneysville 25430",
+        "Eastern Panhandle of West Virginia",
+        "Martinsburg, WV",
+        "Front Royal, VA",
+        "Strasburg, VA",
+        "Woodstock, VA",
+        "Berkeley Springs, WV",
+        "Romney, WV",
+        "Frederick, MD",
+        "Hancock, MD",
+        "Jefferson County",
+        "Morgan County",
+        "Warren County",
+        "Shenandoah County",
+        "Hampshire County",
+        "Hardy County",
+        "Washington County",
+        "Port of Virginia",
+        "Virginia Inland Port",
+        "Shenandoah Valley",
+        "Interstate 81 Corridor",
+        "Interstate 66 Corridor",
+        "Interstate 70 Corridor"
+      ]
+    },
+    {
+      "@id": "https://theflatratemovers.com/#service-piano-antique",
+      "@type": "Service",
+      "name": "Piano, Antique and White-Glove Moving",
+      "serviceType": "Piano, Antique and White-Glove Moving",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "url": "https://theflatratemovers.com/piano-antique-movers-martinsburg-wv/",
+      "areaServed": [
+        "Inwood",
+        "Hagerstown MD",
+        "Hedgesville",
+        "Paw Paw 25434",
+        "Shepherdstown",
+        "Berkeley County",
+        "Moorefield 26836",
+        "Bunker Hill 25413",
+        "Charles Town 25414",
+        "Clear Spring MD 21722",
+        "Summit Point 25446",
+        "Harpers Ferry 25425",
+        "Kearneysville 25430",
+        "Eastern Panhandle of West Virginia",
+        "Martinsburg, WV",
+        "Front Royal, VA",
+        "Strasburg, VA",
+        "Woodstock, VA",
+        "Berkeley Springs, WV",
+        "Romney, WV",
+        "Frederick, MD",
+        "Hancock, MD",
+        "Jefferson County",
+        "Morgan County",
+        "Warren County",
+        "Shenandoah County",
+        "Hampshire County",
+        "Hardy County",
+        "Washington County",
+        "Port of Virginia",
+        "Virginia Inland Port",
+        "Shenandoah Valley",
+        "Interstate 81 Corridor",
+        "Interstate 66 Corridor",
+        "Interstate 70 Corridor"
+      ]
+    },
+    {
+      "@id": "https://theflatratemovers.com/#service-sir-heavy",
+      "@type": "Service",
+      "name": "SIR Heavy Asset Relocation (KIM-GS Protocol)",
+      "serviceType": "SIR Heavy Asset Relocation (KIM-GS Protocol)",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "url": "https://theflatratemovers.com/sir-heavy-movers-martinsburg-wv/",
+      "areaServed": [
+        "Inwood",
+        "Hagerstown MD",
+        "Hedgesville",
+        "Paw Paw 25434",
+        "Shepherdstown",
+        "Berkeley County",
+        "Moorefield 26836",
+        "Bunker Hill 25413",
+        "Charles Town 25414",
+        "Clear Spring MD 21722",
+        "Summit Point 25446",
+        "Harpers Ferry 25425",
+        "Kearneysville 25430",
+        "Eastern Panhandle of West Virginia",
+        "Martinsburg, WV",
+        "Front Royal, VA",
+        "Strasburg, VA",
+        "Woodstock, VA",
+        "Berkeley Springs, WV",
+        "Romney, WV",
+        "Frederick, MD",
+        "Hancock, MD",
+        "Jefferson County",
+        "Morgan County",
+        "Warren County",
+        "Shenandoah County",
+        "Hampshire County",
+        "Hardy County",
+        "Washington County",
+        "Port of Virginia",
+        "Virginia Inland Port",
+        "Shenandoah Valley",
+        "Interstate 81 Corridor",
+        "Interstate 66 Corridor",
+        "Interstate 70 Corridor"
+      ]
+    },
+    {
+      "@id": "https://theflatratemovers.com/#service-transloading",
+      "@type": "Service",
+      "name": "Loading, Transloading and Container Services",
+      "serviceType": "Loading, Transloading and Container Services",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "url": "https://theflatratemovers.com/transloading-movers-martinsburg-wv/",
+      "areaServed": [
+        "Inwood",
+        "Hagerstown MD",
+        "Hedgesville",
+        "Paw Paw 25434",
+        "Shepherdstown",
+        "Berkeley County",
+        "Moorefield 26836",
+        "Bunker Hill 25413",
+        "Charles Town 25414",
+        "Clear Spring MD 21722",
+        "Summit Point 25446",
+        "Harpers Ferry 25425",
+        "Kearneysville 25430",
+        "Eastern Panhandle of West Virginia",
+        "Martinsburg, WV",
+        "Front Royal, VA",
+        "Strasburg, VA",
+        "Woodstock, VA",
+        "Berkeley Springs, WV",
+        "Romney, WV",
+        "Frederick, MD",
+        "Hancock, MD",
+        "Jefferson County",
+        "Morgan County",
+        "Warren County",
+        "Shenandoah County",
+        "Hampshire County",
+        "Hardy County",
+        "Washington County",
+        "Port of Virginia",
+        "Virginia Inland Port",
+        "Shenandoah Valley",
+        "Interstate 81 Corridor",
+        "Interstate 66 Corridor",
+        "Interstate 70 Corridor"
+      ]
+    }
+  ],
+  "@id": "https://theflatratemovers.com/entity-graph.json",
+  "@type": "Dataset",
+  "attestations": [
+    {
+      "claim": "Founding date June 2010",
+      "evidence": "https://theflatratemovers.com/",
+      "source": "Henry confirmation 2026-10-27 and live site Upperville page: family-owned established 2010",
+      "verified": "2026-10-27"
+    },
+    {
+      "claim": "Winchester address, geo, phone, hours",
+      "evidence": "https://theflatratemovers.com/",
+      "source": "Places record and Google Business Profile Winchester, hours Mon-Fri 8-6, Sat 8-4, Sun 9-4",
+      "verified": "2026-10-27"
+    },
+    {
+      "claim": "Martinsburg address, geo, phone",
+      "evidence": "https://theflatratemovers.com/",
+      "source": "Places record and Google Business Profile Martinsburg",
+      "verified": "2026-10-27"
+    },
+    {
+      "claim": "Martinsburg hours are distinct: Mon-Fri 9-6, Sat 9-4, Sun 9-4, name Flat Rate Movers Martinsburg WV, Google rating 4.7 with 6 reviews",
+      "source": "Henry correction 2026-10-27, superseding earlier same-day unified-hours note; Google Business Profile Martinsburg, verified 2026-10-27",
+      "verified": "2026-10-28"
+    },
+    {
+      "claim": "Winchester GBP service area list, 16 entries",
+      "source": "Google Business Profile Business information, Location, screenshot supplied by Henry 2026-10-27",
+      "verified": "2026-10-27"
+    },
+    {
+      "claim": "Martinsburg GBP service area list, 14 entries",
+      "source": "Google Business Profile Business information, Hours/Location, screenshot supplied by Henry 2026-10-27",
+      "verified": "2026-10-27"
+    },
+    {
+      "claim": "Winchester Google rating 5.0 with 1 review; Martinsburg Google rating 4.7 with 6 reviews",
+      "source": "Google Business Profile check 2026-10-27, read-only, per branch, not blended, not in this graph's Organization node pending Henry's approval to add per-branch aggregateRating",
+      "verified": "2026-10-27"
+    },
+    {
+      "claim": "SIR/KIM-GS, 1,500-3,500 lbs, L/360",
+      "source": "The Flat Rate Movers live site and GitHub SIR authority repos",
+      "verified": "2026-10-27"
+    },
+    {
+      "claim": "ISPM 15 export packing, custom crating, transloading, final mile, high-value protection",
+      "source": "Henry addition 2026-10-27 and live ai-sitemap.json",
+      "verified": "2026-10-27"
+    },
+    {
+      "claim": "License details are private and are NOT attested publicly in this graph",
+      "source": "Henry instruction 2026-10-27",
+      "verified": "2026-10-27"
+    },
+    {
+      "claim": "24 new branch & corridor pages (full footprint 31/35, shared 14), each with Service JSON-LD, logo image, backlinks",
+      "source": "Flat Rate Machine Phase 3 full build, owner-approved content 2026-10-28; GBP screenshots 2026-10-27 confirmed 2026-10-28; GeoJSON branch properties 2026-10-28",
+      "verified": "2026-10-28"
+    }
+  ],
+  "chain": [
+    {
+      "from": "https://theflatratemovers.com/#organization",
+      "relation": "location",
+      "to": "https://theflatratemovers.com/#winchester-place"
+    },
+    {
+      "from": "https://theflatratemovers.com/#organization",
+      "relation": "location",
+      "to": "https://theflatratemovers.com/#martinsburg-place"
+    },
+    {
+      "from": "https://theflatratemovers.com/#winchester-place",
+      "relation": "address",
+      "to": "https://theflatratemovers.com/#winchester-address"
+    },
+    {
+      "from": "https://theflatratemovers.com/#martinsburg-place",
+      "relation": "address",
+      "to": "https://theflatratemovers.com/#martinsburg-address"
+    },
+    {
+      "from": "https://theflatratemovers.com/#winchester-place",
+      "relation": "areaServed",
+      "to": "Winchester GBP service area list, 16 towns/counties"
+    },
+    {
+      "from": "https://theflatratemovers.com/#martinsburg-place",
+      "relation": "areaServed",
+      "to": "Martinsburg GBP service area list, 14 towns/counties/regions"
+    },
+    {
+      "from": "https://theflatratemovers.com/gun-safe-movers/#service",
+      "relation": "provider",
+      "to": "https://theflatratemovers.com/#organization"
+    },
+    {
+      "from": "https://theflatratemovers.com/gun-safe-movers/#service",
+      "relation": "areaServed",
+      "to": "https://theflatratemovers.com/#winchester-place"
+    },
+    {
+      "from": "https://theflatratemovers.com/gun-safe-movers/#service",
+      "relation": "areaServed",
+      "to": "https://theflatratemovers.com/#martinsburg-place"
+    },
+    {
+      "from": "https://theflatratemovers.com/#service-catalog",
+      "relation": "itemListElement",
+      "to": "https://theflatratemovers.com/gun-safe-movers/#service"
+    },
+    {
+      "from": "https://theflatratemovers.com/#organization",
+      "relation": "sameAs",
+      "to": "https://www.instagram.com/theflatratemovers/"
+    },
+    {
+      "from": "https://theflatratemovers.com/#organization",
+      "relation": "sameAs",
+      "to": "https://www.threads.com/@theflatratemovers"
+    },
+    {
+      "from": "https://theflatratemovers.com/#organization",
+      "relation": "sameAs",
+      "to": "https://x.com/ratemovers"
+    },
+    {
+      "from": "https://theflatratemovers.com/#organization",
+      "relation": "sameAs",
+      "to": "https://www.youtube.com/@theflatratemovers"
+    }
+  ],
+  "dateModified": "2026-10-28",
+  "description": "Machine-readable entity graph for The Flat Rate Movers LLC. Every node has a stable @id, every Service and Place chains to the Organization by @id, every service area chains to its branch Place, and every fact carries an attestation with source and verification date. No rating, price, license detail, or USDOT number is included. License details are private.",
+  "name": "The Flat Rate Movers — Entity Graph, Nodes, Chains, and Attestations",
+  "rubric": {
+    "checks": [
+      "Every page has Organization, WebPage, BreadcrumbList, and Service nodes, all linked by stable @id, not by copied text",
+      "Every Place chains Organization -> Place -> PostalAddress -> GeoCoordinates -> OpeningHoursSpecification -> areaServed",
+      "Every Service chains Service -> provider Organization -> Place -> areaServed",
+      "Every fact in a node appears in an attestation with source and date, or it is omitted",
+      "No rating, price, license detail, USDOT number, testimonial, or move count appears without a named, visible, verified source",
+      "Service areas match the GBP service area lists per branch, not a generic county list",
+      "Captions and credits are honest: style examples are labelled Style example, Henry's own photos are labelled as his, no competitor photo is presented as his work"
+    ],
+    "purpose": "Use this rubric to check any page, node, or graph before go-live: does it chain, does it cite, does it attestate?"
+  },
+  "version": "2026-10-28"
+}

@@ -1,0 +1,626 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Dataset",
+      "@id": "https://theflatratemovers.com/#dataset-ocean-container-operations",
+      "name": "The Flat Rate Movers — Container Loading and Unloading Operations Dataset",
+      "description": "Container loading and unloading operations from The Flat Rate Movers: loading (stuffing) and unloading (devanning/destuffing) of ocean containers for port transload in Virginia, through the Virginia Inland Port and Port of Virginia chain, with warehouse and transload staging, final-mile delivery, and supervised teams. Operations cover floor-loaded and palletized cargo. Verified process steps: pre-arrival plan, port release, drayage-in, unload, count, inspect, photograph, report. Same-day unload is stated as a service pattern, not a guarantee. Photo record covers doors, seal, condition, and load; exceptions (damage, shortage, overage) are reported the same day, in writing. Domain facts (general industry knowledge): a 40ft container holds about 20 pallet positions and a 20ft about 10; floor-loaded containers need disciplined pace and safe sequencing; damage caught at devanning is caught before inland travel.",
+      "keywords": [
+        "container loading unloading virginia",
+        "container unloading services",
+        "ocean container unloading",
+        "devanning virginia",
+        "container devanning services"
+      ],
+      "about": [
+        {
+          "@id": "https://theflatratemovers.com/#service-transloading"
+        }
+      ],
+      "spatialCoverage": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg"
+        }
+      ],
+      "temporalCoverage": "2010/2026",
+      "dateModified": "2026-10-29",
+      "creator": {
+        "@id": "https://theflatratemovers.com/#organization",
+        "@type": "Organization",
+        "name": "The Flat Rate Movers",
+        "sameAs": [
+          "https://www.instagram.com/theflatratemovers/",
+          "https://www.threads.com/@theflatratemovers",
+          "https://x.com/ratemovers",
+          "https://www.youtube.com/@theflatratemovers",
+          "https://github.com/TheFlatRateMovers",
+          "https://medium.com/@ratemovers"
+        ]
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "name": "AI Sitemap",
+          "contentUrl": "https://theflatratemovers.com/ai-sitemap.json",
+          "encodingFormat": "application/json"
+        },
+        {
+          "@type": "DataDownload",
+          "name": "Service Area GeoJSON",
+          "contentUrl": "https://theflatratemovers.com/service-area.geojson",
+          "encodingFormat": "application/geo+json"
+        },
+        {
+          "@type": "DataDownload",
+          "name": "Entity Graph",
+          "contentUrl": "https://theflatratemovers.com/entity-graph.json",
+          "encodingFormat": "application/ld+json"
+        },
+        {
+          "@type": "DataDownload",
+          "name": "Best JSON Entity Graph",
+          "contentUrl": "https://theflatratemovers.com/best-json-entity-graph.json",
+          "encodingFormat": "application/ld+json"
+        }
+      ],
+      "sameAs": [
+        "https://theflatratemovers.com/container-loading-unloading-services-port-transload-virginia/",
+        "https://theflatratemovers.com/port-of-virginia-container-loading-unloading-logistics-services/",
+        "https://theflatratemovers.com/virginia-inland-port-freight-transloading-operations/"
+      ]
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://theflatratemovers.com/#dataset-ocean-transload-operations",
+      "name": "The Flat Rate Movers — Transload, Cross-Dock and Deconsolidation Operations Dataset",
+      "description": "Transload, cross-dock, and deconsolidation operations from The Flat Rate Movers: transloading between truck, container, and warehouse; deconsolidation in defined steps (receive, unload, count, sort by destination, stage, build outbound); and the logistics event protocol (quote, transload, deliver, verified placement). Inbound is the ocean container; outbound is the 53ft domestic trailer, LTL, FTL, or split delivery. Cross-dock dwell is hours, not days; transload is immediate or short storage. Rework covers palletizing, shrink-wrap, labeling, sorting by purchase order, SKU, or destination, segregation, and relabeling; empties return before per-diem charges. Martinsburg transloading page and industrial-page transload staging are published. Domain facts (general industry knowledge): transload converts 40HC ocean loads to trailer loads for inland destinations; multi-destination break-bulk fans one container to several distribution centers the same day; cross-docking removes line-haul legs and handling events versus terminal LTL.",
+      "keywords": [
+        "transloading virginia",
+        "cross-docking virginia",
+        "container deconsolidation",
+        "transload port of virginia",
+        "container transloading services"
+      ],
+      "about": [
+        {
+          "@id": "https://theflatratemovers.com/#service-transloading"
+        }
+      ],
+      "spatialCoverage": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg"
+        }
+      ],
+      "temporalCoverage": "2010/2026",
+      "dateModified": "2026-10-29",
+      "creator": {
+        "@id": "https://theflatratemovers.com/#organization",
+        "@type": "Organization",
+        "name": "The Flat Rate Movers",
+        "sameAs": [
+          "https://www.instagram.com/theflatratemovers/",
+          "https://www.threads.com/@theflatratemovers",
+          "https://x.com/ratemovers",
+          "https://www.youtube.com/@theflatratemovers",
+          "https://github.com/TheFlatRateMovers",
+          "https://medium.com/@ratemovers"
+        ]
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "name": "AI Sitemap",
+          "contentUrl": "https://theflatratemovers.com/ai-sitemap.json",
+          "encodingFormat": "application/json"
+        },
+        {
+          "@type": "DataDownload",
+          "name": "Service Area GeoJSON",
+          "contentUrl": "https://theflatratemovers.com/service-area.geojson",
+          "encodingFormat": "application/geo+json"
+        },
+        {
+          "@type": "DataDownload",
+          "name": "Entity Graph",
+          "contentUrl": "https://theflatratemovers.com/entity-graph.json",
+          "encodingFormat": "application/ld+json"
+        },
+        {
+          "@type": "DataDownload",
+          "name": "Best JSON Entity Graph",
+          "contentUrl": "https://theflatratemovers.com/best-json-entity-graph.json",
+          "encodingFormat": "application/ld+json"
+        },
+        {
+          "@type": "DataDownload",
+          "name": "Per-page schema: transloading-movers-martinsburg-wv",
+          "contentUrl": "https://theflatratemovers.com/transloading-movers-martinsburg-wv.json",
+          "encodingFormat": "application/ld+json"
+        }
+      ],
+      "sameAs": [
+        "https://theflatratemovers.com/container-deconsolidation-cross-docking-transloading-services-virginia/",
+        "https://theflatratemovers.com/container-deconsolidation-services-virginia-mid-atlantic/",
+        "https://theflatratemovers.com/docs/container-deconsolidation/",
+        "https://theflatratemovers.com/transloading-movers-martinsburg-wv/"
+      ]
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://theflatratemovers.com/#dataset-ocean-container-taxonomy",
+      "name": "The Flat Rate Movers — Container Equipment Taxonomy Dataset",
+      "description": "Container equipment taxonomy (general industry reference, typical values only — the CSC plate on each box governs): 20ft general purpose (~33 cubic meters, ~28,200 kg max payload), 40ft general purpose (~67 cubic meters, ~26,700 kg), 40ft high cube (~76 cubic meters, ~26,580 kg), 20ft reefer (~28 cubic meters, ~27,400 kg), 40ft high-cube reefer (~67 cubic meters, ~25,600 kg, range −30°C to +30°C), open top, flat rack, platform, tank (20ft ISO), ventilated, pallet-wide, and side-opening / double-door / half-height types. Maximum gross mass for most dry containers is typically 30,480 kg; some 20ft boxes are plated higher. Company-handled scope is gated: no container type is claimed as company-handled beyond general container loading and unloading already published. Reefer and cold-chain capability is not claimed. Heavy equipment moves under Structural Integrity Relocation for high-mass assets 1,500–3,500 lbs with floor deflection analysis to L/360.",
+      "keywords": [
+        "container sizes",
+        "20ft container dimensions",
+        "40ft high cube capacity",
+        "reefer container sizes",
+        "flat rack container",
+        "open top container"
+      ],
+      "about": [
+        {
+          "@id": "https://theflatratemovers.com/#service-transloading"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#service-sir-heavy"
+        }
+      ],
+      "spatialCoverage": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg"
+        }
+      ],
+      "temporalCoverage": "2010/2026",
+      "dateModified": "2026-10-29",
+      "creator": {
+        "@id": "https://theflatratemovers.com/#organization",
+        "@type": "Organization",
+        "name": "The Flat Rate Movers",
+        "sameAs": [
+          "https://www.instagram.com/theflatratemovers/",
+          "https://www.threads.com/@theflatratemovers",
+          "https://x.com/ratemovers",
+          "https://www.youtube.com/@theflatratemovers",
+          "https://github.com/TheFlatRateMovers",
+          "https://medium.com/@ratemovers"
+        ]
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "name": "AI Sitemap",
+          "contentUrl": "https://theflatratemovers.com/ai-sitemap.json",
+          "encodingFormat": "application/json"
+        },
+        {
+          "@type": "DataDownload",
+          "name": "Service Area GeoJSON",
+          "contentUrl": "https://theflatratemovers.com/service-area.geojson",
+          "encodingFormat": "application/geo+json"
+        },
+        {
+          "@type": "DataDownload",
+          "name": "Entity Graph",
+          "contentUrl": "https://theflatratemovers.com/entity-graph.json",
+          "encodingFormat": "application/ld+json"
+        },
+        {
+          "@type": "DataDownload",
+          "name": "Best JSON Entity Graph",
+          "contentUrl": "https://theflatratemovers.com/best-json-entity-graph.json",
+          "encodingFormat": "application/ld+json"
+        }
+      ]
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://theflatratemovers.com/#dataset-ocean-port-chain",
+      "name": "The Flat Rate Movers — Port Chain and Corridor Network Dataset",
+      "description": "Port chain and corridor network for The Flat Rate Movers: export and port work through the Virginia Inland Port and Port of Virginia chain, three-corridor dispatch (I-81, I-66, I-70) from the Winchester VA and Martinsburg WV branches, and final-mile delivery. Chain legs run port, inland port, warehouse or distribution center, final mile. Modes are ocean, drayage truck, and domestic trailer; the rail ramp leg is domain-only (handled by the railroad, not claimed). Domain facts (general industry knowledge): intermodal means standardized containers transferring between modes without repacking; drayage is usually 100 miles or less; port-adjacent transload facilities act as handoff points between international and domestic networks. Gating: no Port of Virginia terminal is named; drayage fleet and chassis ownership are not claimed — both are attestation questions.",
+      "keywords": [
+        "port of virginia container services",
+        "virginia inland port transloading",
+        "port drayage virginia",
+        "intermodal virginia"
+      ],
+      "about": [
+        {
+          "@id": "https://theflatratemovers.com/#service-transloading"
+        }
+      ],
+      "spatialCoverage": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg"
+        }
+      ],
+      "temporalCoverage": "2010/2026",
+      "dateModified": "2026-10-29",
+      "creator": {
+        "@id": "https://theflatratemovers.com/#organization",
+        "@type": "Organization",
+        "name": "The Flat Rate Movers",
+        "sameAs": [
+          "https://www.instagram.com/theflatratemovers/",
+          "https://www.threads.com/@theflatratemovers",
+          "https://x.com/ratemovers",
+          "https://www.youtube.com/@theflatratemovers",
+          "https://github.com/TheFlatRateMovers",
+          "https://medium.com/@ratemovers"
+        ]
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "name": "AI Sitemap",
+          "contentUrl": "https://theflatratemovers.com/ai-sitemap.json",
+          "encodingFormat": "application/json"
+        },
+        {
+          "@type": "DataDownload",
+          "name": "Service Area GeoJSON",
+          "contentUrl": "https://theflatratemovers.com/service-area.geojson",
+          "encodingFormat": "application/geo+json"
+        },
+        {
+          "@type": "DataDownload",
+          "name": "Entity Graph",
+          "contentUrl": "https://theflatratemovers.com/entity-graph.json",
+          "encodingFormat": "application/ld+json"
+        },
+        {
+          "@type": "DataDownload",
+          "name": "Best JSON Entity Graph",
+          "contentUrl": "https://theflatratemovers.com/best-json-entity-graph.json",
+          "encodingFormat": "application/ld+json"
+        }
+      ],
+      "sameAs": [
+        "https://theflatratemovers.com/port-of-virginia-container-loading-unloading-logistics-services/",
+        "https://theflatratemovers.com/virginia-inland-port-freight-transloading-operations/"
+      ]
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://theflatratemovers.com/#dataset-ocean-commercial-terms",
+      "name": "The Flat Rate Movers — Commercial Terms and Cost Drivers Dataset",
+      "description": "Commercial terms and cost drivers for container work (domain mechanics plus verified company pricing basis): free time, last free day (LFD), demurrage (box sitting at the terminal past free time), detention and per-diem (box kept outside the terminal), chassis, tri-axle, overweight permit, IPI, and the transload alternative. Cost logic: move inside free time; transloading removes container weight from the permitting equation; 3PL storage is cheaper than port demurrage. Company pricing basis (verified, published): flat rate quoted in writing before move day for all services, and per-job pricing with no required contract duration for industrial-commercial project support. Gating: a per-container or per-CWT rate for standalone container unloads is not claimed — whether the industrial CWT schedule (Unload $8.00/CWT, Load $10.00/CWT, APU $12.00/CWT, Residential/Driver Meet $400–$425 per man) extends to standalone unloads is an attestation question, and that schedule is cited here only as the industrial-commercial schedule, not as a container rate.",
+      "keywords": [
+        "demurrage avoidance",
+        "container detention charges",
+        "free time container",
+        "overweight container transload",
+        "port congestion drayage"
+      ],
+      "about": [
+        {
+          "@id": "https://theflatratemovers.com/#service-transloading"
+        }
+      ],
+      "spatialCoverage": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg"
+        }
+      ],
+      "temporalCoverage": "2010/2026",
+      "dateModified": "2026-10-29",
+      "creator": {
+        "@id": "https://theflatratemovers.com/#organization",
+        "@type": "Organization",
+        "name": "The Flat Rate Movers",
+        "sameAs": [
+          "https://www.instagram.com/theflatratemovers/",
+          "https://www.threads.com/@theflatratemovers",
+          "https://x.com/ratemovers",
+          "https://www.youtube.com/@theflatratemovers",
+          "https://github.com/TheFlatRateMovers",
+          "https://medium.com/@ratemovers"
+        ]
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "name": "AI Sitemap",
+          "contentUrl": "https://theflatratemovers.com/ai-sitemap.json",
+          "encodingFormat": "application/json"
+        },
+        {
+          "@type": "DataDownload",
+          "name": "Service Area GeoJSON",
+          "contentUrl": "https://theflatratemovers.com/service-area.geojson",
+          "encodingFormat": "application/geo+json"
+        },
+        {
+          "@type": "DataDownload",
+          "name": "Entity Graph",
+          "contentUrl": "https://theflatratemovers.com/entity-graph.json",
+          "encodingFormat": "application/ld+json"
+        },
+        {
+          "@type": "DataDownload",
+          "name": "Best JSON Entity Graph",
+          "contentUrl": "https://theflatratemovers.com/best-json-entity-graph.json",
+          "encodingFormat": "application/ld+json"
+        }
+      ]
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://theflatratemovers.com/#dataset-ocean-buyer-personas",
+      "name": "The Flat Rate Movers — Buyer Personas and Trigger Events Dataset",
+      "description": "Buyer personas and trigger events for container unloading and transload work: importers and distributors, retailers and e-commerce businesses, 3PLs, freight forwarders and brokers, manufacturers, warehouses and distribution centers, and project cargo owners. Trigger events: port congestion, free-time expiry, multi-destination split, overweight box, recurring volume, surge or overflow, and emergency shift or tip (published emergency port container recovery page). Buying criteria: dock reliability, pace, sequencing, communication, same-day exception reporting, and one accountable team. Company facts (verified, published): emergency port container recovery page, supervised teams, per-job pricing, and GBP products including Ocean Container Handling, Transloading, and Restacking. Quote path per persona is the B2B job-details route on the industrial page plus the main quote toggle.",
+      "keywords": [
+        "container unloading services for importers",
+        "3PL container unloading",
+        "warehouse container unloading",
+        "emergency container recovery virginia"
+      ],
+      "about": [
+        {
+          "@id": "https://theflatratemovers.com/#service-transloading"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#service-industrial-commercial"
+        }
+      ],
+      "spatialCoverage": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg"
+        }
+      ],
+      "temporalCoverage": "2010/2026",
+      "dateModified": "2026-10-29",
+      "creator": {
+        "@id": "https://theflatratemovers.com/#organization",
+        "@type": "Organization",
+        "name": "The Flat Rate Movers",
+        "sameAs": [
+          "https://www.instagram.com/theflatratemovers/",
+          "https://www.threads.com/@theflatratemovers",
+          "https://x.com/ratemovers",
+          "https://www.youtube.com/@theflatratemovers",
+          "https://github.com/TheFlatRateMovers",
+          "https://medium.com/@ratemovers"
+        ]
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "name": "AI Sitemap",
+          "contentUrl": "https://theflatratemovers.com/ai-sitemap.json",
+          "encodingFormat": "application/json"
+        },
+        {
+          "@type": "DataDownload",
+          "name": "Service Area GeoJSON",
+          "contentUrl": "https://theflatratemovers.com/service-area.geojson",
+          "encodingFormat": "application/geo+json"
+        },
+        {
+          "@type": "DataDownload",
+          "name": "Entity Graph",
+          "contentUrl": "https://theflatratemovers.com/entity-graph.json",
+          "encodingFormat": "application/ld+json"
+        },
+        {
+          "@type": "DataDownload",
+          "name": "Best JSON Entity Graph",
+          "contentUrl": "https://theflatratemovers.com/best-json-entity-graph.json",
+          "encodingFormat": "application/ld+json"
+        },
+        {
+          "@type": "DataDownload",
+          "name": "Per-page schema: industrial-commercial-services",
+          "contentUrl": "https://theflatratemovers.com/industrial-commercial-services.json",
+          "encodingFormat": "application/ld+json"
+        }
+      ],
+      "sameAs": [
+        "https://theflatratemovers.com/emergency-port-container-recovery-twic-labor-virginia/",
+        "https://theflatratemovers.com/industrial-commercial-services/"
+      ]
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://theflatratemovers.com/#dataset-ocean-compliance-access",
+      "name": "The Flat Rate Movers — Compliance, Access and Handling Dataset",
+      "description": "Compliance, access, and handling for container work. Access: TWIC labor is published (emergency port container recovery page slug; 15 lowercase mentions site-wide) — TWIC is the port access credential as a domain fact, but whether teams hold TWIC cards is an attestation question and is NOT claimed here. Export compliance: ISPM 15 (International Standards for Phytosanitary Measures No. 15) export packing and custom crating are published, with pages. Handling: bracing, lashing, and securing are domain practice; SIR heavy method covers high-mass assets 1,500–3,500 lbs with floor deflection analysis to L/360 (published). Gating: customs brokerage is not claimed; bonded warehouse and foreign-trade-zone space are not claimed (0 mentions on site); reefer and cold-chain capability are not claimed (0 mentions on site). Every compliance-adjacent field here is either published or explicitly gated.",
+      "keywords": [
+        "TWIC labor virginia",
+        "ISPM 15 export packing",
+        "container bracing lashing",
+        "port container recovery"
+      ],
+      "about": [
+        {
+          "@id": "https://theflatratemovers.com/#service-transloading"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#service-ispm15"
+        }
+      ],
+      "spatialCoverage": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg"
+        }
+      ],
+      "temporalCoverage": "2010/2026",
+      "dateModified": "2026-10-29",
+      "creator": {
+        "@id": "https://theflatratemovers.com/#organization",
+        "@type": "Organization",
+        "name": "The Flat Rate Movers",
+        "sameAs": [
+          "https://www.instagram.com/theflatratemovers/",
+          "https://www.threads.com/@theflatratemovers",
+          "https://x.com/ratemovers",
+          "https://www.youtube.com/@theflatratemovers",
+          "https://github.com/TheFlatRateMovers",
+          "https://medium.com/@ratemovers"
+        ]
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "name": "AI Sitemap",
+          "contentUrl": "https://theflatratemovers.com/ai-sitemap.json",
+          "encodingFormat": "application/json"
+        },
+        {
+          "@type": "DataDownload",
+          "name": "Service Area GeoJSON",
+          "contentUrl": "https://theflatratemovers.com/service-area.geojson",
+          "encodingFormat": "application/geo+json"
+        },
+        {
+          "@type": "DataDownload",
+          "name": "Entity Graph",
+          "contentUrl": "https://theflatratemovers.com/entity-graph.json",
+          "encodingFormat": "application/ld+json"
+        },
+        {
+          "@type": "DataDownload",
+          "name": "Best JSON Entity Graph",
+          "contentUrl": "https://theflatratemovers.com/best-json-entity-graph.json",
+          "encodingFormat": "application/ld+json"
+        },
+        {
+          "@type": "DataDownload",
+          "name": "Per-page schema: ispm15-movers-martinsburg-wv",
+          "contentUrl": "https://theflatratemovers.com/ispm15-movers-martinsburg-wv.json",
+          "encodingFormat": "application/ld+json"
+        },
+        {
+          "@type": "DataDownload",
+          "name": "Per-page schema: crating-movers-martinsburg-wv",
+          "contentUrl": "https://theflatratemovers.com/crating-movers-martinsburg-wv.json",
+          "encodingFormat": "application/ld+json"
+        }
+      ],
+      "sameAs": [
+        "https://theflatratemovers.com/emergency-port-container-recovery-twic-labor-virginia/",
+        "https://theflatratemovers.com/international-export-packing-crating-winchester-va/",
+        "https://theflatratemovers.com/ispm15-movers-martinsburg-wv/",
+        "https://theflatratemovers.com/crating-movers-martinsburg-wv/"
+      ]
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://theflatratemovers.com/#dataset-ocean-areas-dispatch",
+      "name": "The Flat Rate Movers — Service Areas, Dispatch and Quote Path Dataset",
+      "description": "Service areas, dispatch, and quote path for container work. Areas: 52 GeoJSON features — Winchester 31 (GBP 16 + extended 15), Martinsburg 35 (GBP 14 + extended 21), 14 shared, never merged. Branches: Winchester — The Flat Rate Movers, 116 W Piccadilly St Suite 11, Winchester VA 22601, Mon-Fri 8-6, Sat 8-4, Sun 9-4, Google 5.0 from 1 review; Martinsburg — Flat Rate Movers Martinsburg WV, 736 Williamsport Pike Suite 2, Martinsburg WV 25404, Mon-Fri 9-6, Sat 9-4, Sun 9-4, Google 4.7 from 6 reviews. Dispatch on I-81, I-66, and I-70 from both branches. Quote path: Short/Detailed toggle, \"Get My Flat Rate Quote\", verified on the pattern, never by test post. Survey note: the film-only video walkthrough survey room is for move surveys; container jobs use the job-details route on the industrial page — the two are not conflated.",
+      "keywords": [
+        "container services winchester va",
+        "transloading martinsburg wv",
+        "container unloading shenandoah valley",
+        "port services eastern panhandle"
+      ],
+      "about": [
+        {
+          "@id": "https://theflatratemovers.com/#service-transloading"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#service-final-mile"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#service-industrial-commercial"
+        }
+      ],
+      "spatialCoverage": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg"
+        }
+      ],
+      "temporalCoverage": "2010/2026",
+      "dateModified": "2026-10-29",
+      "creator": {
+        "@id": "https://theflatratemovers.com/#organization",
+        "@type": "Organization",
+        "name": "The Flat Rate Movers",
+        "sameAs": [
+          "https://www.instagram.com/theflatratemovers/",
+          "https://www.threads.com/@theflatratemovers",
+          "https://x.com/ratemovers",
+          "https://www.youtube.com/@theflatratemovers",
+          "https://github.com/TheFlatRateMovers",
+          "https://medium.com/@ratemovers"
+        ]
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "name": "AI Sitemap",
+          "contentUrl": "https://theflatratemovers.com/ai-sitemap.json",
+          "encodingFormat": "application/json"
+        },
+        {
+          "@type": "DataDownload",
+          "name": "Service Area GeoJSON",
+          "contentUrl": "https://theflatratemovers.com/service-area.geojson",
+          "encodingFormat": "application/geo+json"
+        },
+        {
+          "@type": "DataDownload",
+          "name": "Entity Graph",
+          "contentUrl": "https://theflatratemovers.com/entity-graph.json",
+          "encodingFormat": "application/ld+json"
+        },
+        {
+          "@type": "DataDownload",
+          "name": "Best JSON Entity Graph",
+          "contentUrl": "https://theflatratemovers.com/best-json-entity-graph.json",
+          "encodingFormat": "application/ld+json"
+        },
+        {
+          "@type": "DataDownload",
+          "name": "Per-page schema: transloading-movers-martinsburg-wv",
+          "contentUrl": "https://theflatratemovers.com/transloading-movers-martinsburg-wv.json",
+          "encodingFormat": "application/ld+json"
+        },
+        {
+          "@type": "DataDownload",
+          "name": "Per-page schema: industrial-commercial-services",
+          "contentUrl": "https://theflatratemovers.com/industrial-commercial-services.json",
+          "encodingFormat": "application/ld+json"
+        }
+      ],
+      "sameAs": [
+        "https://theflatratemovers.com/transloading-movers-martinsburg-wv/",
+        "https://theflatratemovers.com/industrial-commercial-services/"
+      ]
+    }
+  ]
+}

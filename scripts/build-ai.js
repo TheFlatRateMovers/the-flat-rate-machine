@@ -72,6 +72,11 @@ async function main() {
   writeOut('llms.generated.txt', llmsText);
 
   // ---------- ai-sitemap.json (deterministic core) ----------
+  // Phase A (2026-10-29): services = all services.json entries (was 6
+  // curated in the live file), hasPart = all pages.json entries (was 41
+  // curated), keywords = the service names. All three derive from data/
+  // only — no editorial selection. The live file's curated lists are
+  // therefore superseded by this generated parity, not copied.
   const ai = {
     $schema: 'https://json.schemastore.org/jsonld.json',
     '@context': 'https://schema.org',
@@ -79,6 +84,7 @@ async function main() {
     '@type': 'Dataset',
     name: 'The Flat Rate Movers · AI Sitemap',
     url: SITE + '/ai-sitemap.json',
+    description: 'Machine-readable index of AI, developer, and operational JSON endpoints for ' + company.name + ', plus the core pages, services, and SIR / KIM-GS authority for theflatratemovers.com. ' + pages.length + ' clean canonical URLs in sitemap.xml, ' + services.length + ' services, 52 service-area features, branches distinct (Winchester: The Flat Rate Movers; Martinsburg: Flat Rate Movers Martinsburg WV), founded June 2010. No USDOT/MC number is listed (unconfirmed).',
     dateModified: DATA_VERSION,
     version: DATA_VERSION,
     creator: {
@@ -100,6 +106,18 @@ async function main() {
     },
     about: services.map((s) => s.name),
     services: services.map((s) => ({ name: s.name, description: s.description })),
+    keywords: services.map((s) => s.name),
+    hasPart: pages.map((p) => ({ '@type': 'WebPage', name: p.title, url: p.url })),
+    // Phase A: per-branch areas derived from the GeoJSON branch property
+    // (winchester / martinsburg / both) — 31 / 35 incl. shared, matching
+    // the footprint counts. The live file additionally appends conceptual
+    // labels (ports, corridors, region names) that are not GeoJSON
+    // features; those are NOT reproduced here.
+    areaServedByBranch: {
+      winchester: (geojson.features || []).filter((f) => ['winchester', 'both'].includes(f.properties && f.properties.branch)).map((f) => f.properties.name),
+      martinsburg: (geojson.features || []).filter((f) => ['martinsburg', 'both'].includes(f.properties && f.properties.branch)).map((f) => f.properties.name),
+    },
+    mainEntity: { '@type': 'WebSite', name: company.name, sitemap: SITE + '/sitemap.xml', url: SITE + '/' },
     distribution: [
       { url: SITE + '/sitemap.xml', mediaType: 'application/xml' },
       { url: SITE + '/ai-sitemap.json', mediaType: 'application/json' },
@@ -178,10 +196,11 @@ async function main() {
       { field: 'llms.txt dated update narratives (GBP updates, image work, GSC stats, page character counts)', reason: 'Editorial changelog prose, not dataset facts. No changelog/statistics dataset exists in Phase 0. A notes dataset is Phase 2 work.' },
       { field: 'llms.txt social links + company email', reason: 'Social URLs and email are not in any Phase 0 dataset (same gap as the graph builder). Phase 0 amendment needed.' },
       { field: 'llms.txt service page links', reason: 'No canonical-page mapping exists in services.json (pages reference services, not the reverse). Generated services list carries names + descriptions without page links.' },
-      { field: 'ai-sitemap description (1522-char prose)', reason: 'Hand-written prose, not a dataset fact.' },
-      { field: 'ai-sitemap hasPart[17], keywords[11]', reason: 'Curated lists, not derivable from data/ without editorial selection.' },
+      { field: 'ai-sitemap description (1522-char prose)', reason: 'Hand-written prose, not a dataset fact. The Phase A generated file carries a factual description composed from data/ (page count, service count, geo features, branch distinction, founding) instead of copying the live prose.' },
+      { field: 'ai-sitemap hasPart / keywords (live: 41 curated pages, 11 curated keywords)', reason: 'RESOLVED in Phase A (2026-10-29): the generator now emits hasPart = all pages.json entries and keywords = all services.json names, so the staged file has full parity by construction. The live file keeps its curated lists until the Phase A deploy batch.' },
       { field: 'ai-sitemap areaServed (merged list)', reason: 'Live list merges both branches into one list. The branch rule forbids merging; per-branch areas live in locations.json and the GeoJSON.' },
-      { field: 'ai-sitemap mainEntity (sitemap_index.xml)', reason: 'Live mainEntity points to sitemap_index.xml, a stale WordPress-era artifact, not the current sitemap.xml. Deliberately not reproduced.' },
+      { field: 'ai-sitemap mainEntity (live: WebSite + sitemap.xml)', reason: 'RESOLVED in Phase A (2026-10-29): the generator now emits the same WebSite mainEntity. (The old gap note about sitemap_index.xml is stale — the live file was fixed 2026-10-28 to point at sitemap.xml; verified 2026-10-29.)' },
+      { field: 'ai-sitemap areaServedByBranch conceptual labels (live appends Port of Virginia, Virginia Inland Port, Shenandoah Valley, Eastern Panhandle, corridor names)', reason: 'Not GeoJSON features, so not generated. The staged areaServedByBranch lists are exactly the 52 geo features per branch (31 / 35 incl. shared).' },
       { field: 'ai-sitemap creator.email / sameAs / openingHours', reason: 'Not in any Phase 0 dataset (same gap as the graph builder). Note: live creator.openingHours equals Winchester hours only (Mo-Fr 08:00-18:00) — the generator deliberately omits company-level hours because the branches differ (Martinsburg opens 09:00 weekdays); reproducing the live value would bake in a Winchester-only blend.' },
       { field: 'ai-sitemap url (site root vs file URL)', reason: 'Live points url at the site root; generated points url at the ai-sitemap file itself. A convention difference, both defensible; the @id (file URL) matches exactly.' },
       { field: 'ai-sitemap version (2026-10-27 vs 2026-10-28)', reason: 'Live version stamp predates the dataset attestation date by one day. Generated stamps the dataset version (2026-10-28) so the file version always tracks the data it was built from.' },

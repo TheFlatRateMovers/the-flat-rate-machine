@@ -226,6 +226,7 @@
         }
       ],
       "name": "Residential Moving",
+      "serviceType": "Residential Moving",
       "provider": {
         "@id": "https://theflatratemovers.com/#organization"
       }
@@ -242,6 +243,7 @@
         }
       ],
       "name": "Commercial Moving",
+      "serviceType": "Commercial Moving",
       "provider": {
         "@id": "https://theflatratemovers.com/#organization"
       }
@@ -251,6 +253,7 @@
       "@type": "Service",
       "description": "ISPM 15 International Standards for Phytosanitary Measures No. 15 export packing, custom crates, loading, transloading, final mile delivery, and high-value protection.",
       "name": "ISPM 15 Export Packing and Custom Crating",
+      "serviceType": "ISPM 15 Export Packing and Custom Crating",
       "provider": {
         "@id": "https://theflatratemovers.com/#organization"
       }
@@ -259,6 +262,7 @@
       "@id": "https://theflatratemovers.com/#service-commercial",
       "@type": "Service",
       "name": "Commercial and Office Moving",
+      "serviceType": "Commercial and Office Moving",
       "provider": {
         "@id": "https://theflatratemovers.com/#organization"
       },
@@ -301,6 +305,7 @@
       "@id": "https://theflatratemovers.com/#service-crating",
       "@type": "Service",
       "name": "Custom Crating",
+      "serviceType": "Custom Crating",
       "provider": {
         "@id": "https://theflatratemovers.com/#organization"
       },
@@ -347,6 +352,7 @@
       "@id": "https://theflatratemovers.com/#service-final-mile",
       "@type": "Service",
       "name": "Final-Mile Delivery",
+      "serviceType": "Final-Mile Delivery",
       "provider": {
         "@id": "https://theflatratemovers.com/#organization"
       },
@@ -393,6 +399,7 @@
       "@id": "https://theflatratemovers.com/#service-government",
       "@type": "Service",
       "name": "Government Moving",
+      "serviceType": "Government Moving",
       "provider": {
         "@id": "https://theflatratemovers.com/#organization"
       },
@@ -439,6 +446,7 @@
       "@id": "https://theflatratemovers.com/#service-government",
       "@type": "Service",
       "name": "Government Moving",
+      "serviceType": "Government Moving",
       "provider": {
         "@id": "https://theflatratemovers.com/#organization"
       },
@@ -481,6 +489,7 @@
       "@id": "https://theflatratemovers.com/#service-gun-safe",
       "@type": "Service",
       "name": "Gun Safe Moving",
+      "serviceType": "Gun Safe Moving",
       "provider": {
         "@id": "https://theflatratemovers.com/#organization"
       },
@@ -527,6 +536,7 @@
       "@id": "https://theflatratemovers.com/#service-industrial-commercial",
       "@type": "Service",
       "name": "Industrial & Commercial Services",
+      "serviceType": "Industrial & Commercial Services",
       "provider": {
         "@id": "https://theflatratemovers.com/#organization"
       },
@@ -573,6 +583,7 @@
       "@id": "https://theflatratemovers.com/#service-industrial-commercial",
       "@type": "Service",
       "name": "Industrial & Commercial Services",
+      "serviceType": "Industrial & Commercial Services",
       "provider": {
         "@id": "https://theflatratemovers.com/#organization"
       },
@@ -615,6 +626,7 @@
       "@id": "https://theflatratemovers.com/#service-industrial-offices",
       "@type": "Service",
       "name": "Industrial Offices Moving",
+      "serviceType": "Industrial Offices Moving",
       "provider": {
         "@id": "https://theflatratemovers.com/#organization"
       },
@@ -661,6 +673,7 @@
       "@id": "https://theflatratemovers.com/#service-industrial-offices",
       "@type": "Service",
       "name": "Industrial Offices Moving",
+      "serviceType": "Industrial Offices Moving",
       "provider": {
         "@id": "https://theflatratemovers.com/#organization"
       },
@@ -703,6 +716,7 @@
       "@id": "https://theflatratemovers.com/#service-route81",
       "@type": "Service",
       "name": "Route 81 Corridor Moving and Dispatch",
+      "serviceType": "Route 81 Corridor Moving and Dispatch",
       "provider": {
         "@id": "https://theflatratemovers.com/#organization"
       },
@@ -720,6 +734,7 @@
       "@id": "https://theflatratemovers.com/#service-route81",
       "@type": "Service",
       "name": "Route 81 Corridor Moving and Dispatch",
+      "serviceType": "Route 81 Corridor Moving and Dispatch",
       "provider": {
         "@id": "https://theflatratemovers.com/#organization"
       },
@@ -737,6 +752,7 @@
       "@id": "https://theflatratemovers.com/#service-ispm15",
       "@type": "Service",
       "name": "ISPM 15 Export Packing",
+      "serviceType": "ISPM 15 Export Packing",
       "provider": {
         "@id": "https://theflatratemovers.com/#organization"
       },
@@ -783,6 +799,7 @@
       "@id": "https://theflatratemovers.com/#service-local-regional",
       "@type": "Service",
       "name": "Local and Regional Moving",
+      "serviceType": "Local and Regional Moving",
       "provider": {
         "@id": "https://theflatratemovers.com/#organization"
       },
@@ -829,6 +846,7 @@
       "@id": "https://theflatratemovers.com/#service-local-regional",
       "@type": "Service",
       "name": "Local and Regional Moving",
+      "serviceType": "Local and Regional Moving",
       "provider": {
         "@id": "https://theflatratemovers.com/#organization"
       },
@@ -871,6 +889,7 @@
       "@id": "https://theflatratemovers.com/#service-long-distance",
       "@type": "Service",
       "name": "Long-Distance Moving",
+      "serviceType": "Long-Distance Moving",
       "provider": {
         "@id": "https://theflatratemovers.com/#organization"
       },
@@ -917,6 +936,7 @@
       "@id": "https://theflatratemovers.com/#service-military",
       "@type": "Service",
       "name": "Military Moving",
+      "serviceType": "Military Moving",
       "provider": {
         "@id": "https://theflatratemovers.com/#organization"
       },
@@ -963,6 +983,7 @@
       "@id": "https://theflatratemovers.com/#service-military",
       "@type": "Service",
       "name": "Military Moving",
+      "serviceType": "Military Moving",
       "provider": {
         "@id": "https://theflatratemovers.com/#organization"
       },
@@ -1005,6 +1026,7 @@
       "@id": "https://theflatratemovers.com/#service-office-moving",
       "@type": "Service",
       "name": "Office Moving",
+      "serviceType": "Office Moving",
       "provider": {
         "@id": "https://theflatratemovers.com/#organization"
       },
@@ -1051,6 +1073,7 @@
       "@id": "https://theflatratemovers.com/#service-office-moving",
       "@type": "Service",
       "name": "Office Moving",
+      "serviceType": "Office Moving",
       "provider": {
         "@id": "https://theflatratemovers.com/#organization"
       },
@@ -1093,6 +1116,7 @@
       "@id": "https://theflatratemovers.com/#service-packing",
       "@type": "Service",
       "name": "Packing and Unpacking",
+      "serviceType": "Packing and Unpacking",
       "provider": {
         "@id": "https://theflatratemovers.com/#organization"
       },
@@ -1139,6 +1163,7 @@
       "@id": "https://theflatratemovers.com/#service-piano-antique",
       "@type": "Service",
       "name": "Piano, Antique and White-Glove Moving",
+      "serviceType": "Piano, Antique and White-Glove Moving",
       "provider": {
         "@id": "https://theflatratemovers.com/#organization"
       },
@@ -1185,6 +1210,7 @@
       "@id": "https://theflatratemovers.com/#service-sir-heavy",
       "@type": "Service",
       "name": "SIR Heavy Asset Relocation (KIM-GS Protocol)",
+      "serviceType": "SIR Heavy Asset Relocation (KIM-GS Protocol)",
       "provider": {
         "@id": "https://theflatratemovers.com/#organization"
       },
@@ -1231,6 +1257,7 @@
       "@id": "https://theflatratemovers.com/#service-transloading",
       "@type": "Service",
       "name": "Loading, Transloading and Container Services",
+      "serviceType": "Loading, Transloading and Container Services",
       "provider": {
         "@id": "https://theflatratemovers.com/#organization"
       },
@@ -1272,6 +1299,78 @@
         "Interstate 66 Corridor",
         "Interstate 70 Corridor"
       ]
+    },
+    {
+      "@id": "https://theflatratemovers.com/#service-senior-moving",
+      "@type": "Service",
+      "areaServed": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester-place"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg-place"
+        }
+      ],
+      "description": "Flat-rate senior moves quoted in writing for seniors downsizing, transitioning to assisted or independent living, or relocating closer to family, with packing support and a free film-only video-walkthrough survey room with a human-made estimate. Served from Winchester, VA and Martinsburg, WV across the Shenandoah Valley and Eastern Panhandle.",
+      "name": "Senior Moving",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "serviceType": "Senior Moving"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#service-warehouse-relocation",
+      "@type": "Service",
+      "areaServed": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester-place"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg-place"
+        }
+      ],
+      "description": "Flat-rate warehouse relocation from The Flat Rate Movers: warehouse and distribution moves, warehouse load-outs and inbound unloads, transload staging, and restacking, carried out by supervised warehouse teams and planned around the site — access, floor space, staging, and equipment handling. Standard Job Pricing: Unload $8.00/CWT, Load $10.00/CWT, APU $12.00/CWT, Residential/Driver Meet $400–$425 per man, quoted per job. Served from Winchester, VA and Martinsburg, WV across the Shenandoah Valley and Eastern Panhandle.",
+      "name": "Warehouse Relocation",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "serviceType": "Warehouse Relocation"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#service-it-relocation",
+      "@type": "Service",
+      "areaServed": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester-place"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg-place"
+        }
+      ],
+      "description": "IT equipment and data center logistics from The Flat Rate Movers: servers, racks, workstations, and network equipment moved in a planned, labelled sequence so systems come back up in order, as part of commercial and office relocations across the Shenandoah Valley and Eastern Panhandle. Commercial moves are planned around the operation: what moves first, what moves last, and what must be working on day one. Flat rate quoted in writing before move day. Heavy racks and cabinets in the 1,500–3,500 lb band are surveyed under SIR/KIM-GS with an L/360 floor check, like any high-mass asset.",
+      "name": "IT Relocation & Setup",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "serviceType": "IT Relocation & Setup"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#service-transloading-winchester-va",
+      "@type": "Service",
+      "areaServed": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester-place"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg-place"
+        }
+      ],
+      "description": "Transloading services from Winchester, VA: ocean containers unloaded, counted, sorted, and restacked into domestic equipment for the inland leg, with cross-docking, deconsolidation, warehouse staging, and final-mile delivery, through the Virginia Inland Port and Port of Virginia chain. Quoted per job, flat rate agreed in writing before dispatch.",
+      "name": "Transloading Services — Winchester VA",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "serviceType": "Transloading"
     }
   ],
   "@id": "https://theflatratemovers.com/entity-graph.json",

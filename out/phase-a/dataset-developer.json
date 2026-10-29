@@ -1,0 +1,71 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "https://theflatratemovers.com/developer/#dataset",
+  "name": "The Flat Rate Movers — Service, Area, and Authority Datasets",
+  "description": "Machine-readable service, service-area, and entity data for The Flat Rate Movers, a flat-rate moving company founded June 2010, based in Winchester, VA and Martinsburg, WV. Guaranteed Flat Rate or Your Move is Free. Services include residential, commercial, office, long-distance, military and government, packing, ISPM 15 export packing and custom crating, transloading, final-mile delivery, gun-safe, piano, antique, medical, cryogenic, senior, industrial relocation, warehouse relocation, IT relocation, FF&E installation, and supervised workforce deployment, with Structural Integrity Relocation (SIR) for high-mass assets 1,500–3,500 lbs and floor deflection analysis to L/360. Coverage: 52 service areas across the Shenandoah Valley and Eastern Panhandle, dispatched on I-81, I-66, and I-70, with export and port work through the Virginia Inland Port and Port of Virginia chain. Branches are distinct: The Flat Rate Movers, Winchester VA (116 W Piccadilly St Suite 11, Mon-Fri 8-6, Sat 8-4, Sun 9-4, Google 5.0 from 1 review) and Flat Rate Movers Martinsburg WV (736 Williamsport Pike Suite 2, Mon-Fri 9-6, Sat 9-4, Sun 9-4, Google 4.7 from 6 reviews). Phone +1-540-422-2153.",
+  "keywords": [
+    "flat rate movers",
+    "moving companies winchester va",
+    "movers martinsburg wv",
+    "SIR",
+    "KIM-GS",
+    "ISPM 15",
+    "transloading",
+    "gun safe movers",
+    "senior moving",
+    "industrial relocation",
+    "warehouse relocation"
+  ],
+  "spatialCoverage": [
+    {
+      "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+  ],
+  "temporalCoverage": "2010/2026",
+  "dateModified": "2026-10-29",
+  "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "sameAs": [
+      "https://www.instagram.com/theflatratemovers/",
+      "https://www.threads.com/@theflatratemovers",
+      "https://x.com/ratemovers",
+      "https://www.youtube.com/@theflatratemovers",
+      "https://github.com/TheFlatRateMovers",
+      "https://medium.com/@ratemovers"
+    ]
+  },
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "name": "AI Sitemap",
+      "contentUrl": "https://theflatratemovers.com/ai-sitemap.json",
+      "encodingFormat": "application/json"
+    },
+    {
+      "@type": "DataDownload",
+      "name": "Service Area GeoJSON",
+      "contentUrl": "https://theflatratemovers.com/service-area.geojson",
+      "encodingFormat": "application/geo+json"
+    },
+    {
+      "@type": "DataDownload",
+      "name": "Entity Graph",
+      "contentUrl": "https://theflatratemovers.com/entity-graph.json",
+      "encodingFormat": "application/ld+json"
+    },
+    {
+      "@type": "DataDownload",
+      "name": "Best JSON Entity Graph",
+      "contentUrl": "https://theflatratemovers.com/best-json-entity-graph.json",
+      "encodingFormat": "application/ld+json"
+    }
+  ],
+  "url": "https://theflatratemovers.com/developer/"
+}

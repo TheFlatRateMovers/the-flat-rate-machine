@@ -1,9 +1,9 @@
 {
   "dataset": "services",
-  "generated": "2026-10-28",
+  "generated": "2026-10-29",
   "source": "head JSON-LD graph in ../the-flat-rate-movers-pages/public/index.html, page counts from pageMeta svc references",
   "attestation": "Service names and descriptions are copied from the live head graph; pageCount is counted from pageMeta, not estimated.",
-  "count": 18,
+  "count": 22,
   "services": [
     {
       "id": "service-residential",
@@ -48,7 +48,7 @@
     {
       "id": "service-sir-heavy",
       "name": "SIR Heavy Asset Relocation (KIM-GS Protocol)",
-      "description": "SIR Structural Integrity Relocation and the KIM-GS Protocol for high-mass assets of 1,500 to 3,500 lbs \u2014 safes, medical devices, cryogenic equipment, pianos and antiques \u2014 with floor deflection analysis to L/360.",
+      "description": "SIR Structural Integrity Relocation and the KIM-GS Protocol for high-mass assets of 1,500 to 3,500 lbs — safes, medical devices, cryogenic equipment, pianos and antiques — with floor deflection analysis to L/360.",
       "pageCount": 14,
       "source": "head JSON-LD graph in live site source (index.html)",
       "attested": "2026-10-28"
@@ -56,7 +56,7 @@
     {
       "id": "service-gun-safe",
       "name": "Gun Safe Moving",
-      "description": "Gun safe and high-mass safe moving under SIR Structural Integrity Relocation and the KIM-GS Protocol, for safes of 1,500 to 3,500 lbs \u2014 route and clearance survey, floor deflection analysis to L/360, load spreading, floor protection and verified placement, quoted at one flat rate in writing.",
+      "description": "Gun safe and high-mass safe moving under SIR Structural Integrity Relocation and the KIM-GS Protocol, for safes of 1,500 to 3,500 lbs — route and clearance survey, floor deflection analysis to L/360, load spreading, floor protection and verified placement, quoted at one flat rate in writing.",
       "pageCount": 9,
       "source": "head JSON-LD graph in live site source (index.html)",
       "attested": "2026-10-28"
@@ -104,7 +104,7 @@
     {
       "id": "service-office-moving",
       "name": "Office Moving",
-      "description": "Complete office relocations \u2014 workstations, files and office equipment \u2014 planned and quoted flat.",
+      "description": "Complete office relocations — workstations, files and office equipment — planned and quoted flat.",
       "pageCount": 3,
       "source": "head JSON-LD graph in live site source (index.html)",
       "attested": "2026-10-28"
@@ -112,7 +112,7 @@
     {
       "id": "service-industrial-offices",
       "name": "Industrial Offices Moving",
-      "description": "Office moves for industrial and facility sites \u2014 office areas within plants, warehouses and industrial facilities.",
+      "description": "Office moves for industrial and facility sites — office areas within plants, warehouses and industrial facilities.",
       "pageCount": 3,
       "source": "head JSON-LD graph in live site source (index.html)",
       "attested": "2026-10-28"
@@ -144,10 +144,42 @@
     {
       "id": "service-industrial-commercial",
       "name": "Industrial & Commercial Services",
-      "description": "Industrial & Commercial Services \u2014 Trained, Supervised Moving and Warehouse Teams for industrial and commercial project support: warehouse and distribution, commercial relocation and logistics including white-glove/blanket-wrap, FF&E installation and project support, and flexible workforce deployment, priced per job with no required contract duration. Standard Job Pricing: Unload $8.00/CWT, Load $10.00/CWT, APU $12.00/CWT, Residential/Driver Meet $400-$425 per man.",
+      "description": "Industrial & Commercial Services — Trained, Supervised Moving and Warehouse Teams for industrial and commercial project support: warehouse and distribution, commercial relocation and logistics including white-glove/blanket-wrap, FF&E installation and project support, and flexible workforce deployment, priced per job with no required contract duration. Standard Job Pricing: Unload $8.00/CWT, Load $10.00/CWT, APU $12.00/CWT, Residential/Driver Meet $400-$425 per man.",
       "pageCount": 3,
       "source": "head JSON-LD graph in live site source (index.html)",
       "attested": "2026-10-28"
+    },
+    {
+      "id": "service-senior-moving",
+      "name": "Senior Moving",
+      "description": "Flat-rate senior moves quoted in writing for seniors downsizing, transitioning to assisted or independent living, or relocating closer to family, with packing support and a free film-only video-walkthrough survey room with a human-made estimate.",
+      "source": "Phase B senior-moving package 2026-10-29 (GSC 'senior moving' 75 impressions, position 1.0; 'senior movers near me' position 1.0, 3-month pull to 2026-10-27)",
+      "attested": "2026-10-29",
+      "pageCount": 1
+    },
+    {
+      "id": "service-warehouse-relocation",
+      "name": "Warehouse Relocation",
+      "description": "Flat-rate warehouse relocation from The Flat Rate Movers: warehouse and distribution moves, warehouse load-outs and inbound unloads, transload staging, and restacking, carried out by supervised warehouse teams and planned around the site — access, floor space, staging, and equipment handling. Standard Job Pricing: Unload $8.00/CWT, Load $10.00/CWT, APU $12.00/CWT, Residential/Driver Meet $400–$425 per man, quoted per job.",
+      "source": "Phase C warehouse-relocation lock package 2026-10-29 (SERP #1 'warehouse relocation services Virginia' via industrial page, SERP check 2026-10-29)",
+      "attested": "2026-10-29",
+      "pageCount": 1
+    },
+    {
+      "id": "service-it-relocation",
+      "name": "IT Relocation & Setup",
+      "description": "IT equipment and data center logistics from The Flat Rate Movers: servers, racks, workstations, and network equipment moved in a planned, labelled sequence so systems come back up in order, as part of commercial and office relocations across the Shenandoah Valley and Eastern Panhandle. Flat rate quoted in writing before move day.",
+      "source": "Phase C IT-relocation lock package 2026-10-29 (SERP #1 'IT equipment moving setup Winchester VA'; live page fetched 2026-10-29)",
+      "attested": "2026-10-29",
+      "pageCount": 1
+    },
+    {
+      "id": "service-transloading-winchester-va",
+      "name": "Transloading Services — Winchester VA",
+      "description": "Transloading services from Winchester, VA: ocean containers unloaded, counted, sorted, and restacked into domestic equipment for the inland leg, with cross-docking, deconsolidation, warehouse staging, and final-mile delivery, through the Virginia Inland Port and Port of Virginia chain. Quoted per job, flat rate agreed in writing before dispatch.",
+      "source": "Phase C transloading-winchester-va package 2026-10-29 (SERP #3 'transloading services Virginia port container', first mover; ocean container datasets doc 2026-10-29)",
+      "attested": "2026-10-29",
+      "pageCount": 1
     }
   ]
 }

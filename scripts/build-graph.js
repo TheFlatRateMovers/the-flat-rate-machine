@@ -110,6 +110,7 @@ for (const s of services) {
     '@id': SITE + '/#' + s.id,
     '@type': 'Service',
     name: s.name,
+    serviceType: s.name,
     description: s.description,
     provider: { '@id': ORG },
     areaServed: branches.map((b) => ({ '@id': SITE + '/#' + b.id })),

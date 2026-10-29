@@ -1,0 +1,204 @@
+{
+  "note": "STAGED Phase A 2026-10-29 — Dataset drafts per datasets-research-and-formulation-2026-10-29.md. NOTHING HERE IS LIVE. The master node deploys to the Developer page only with Henry batch approval; each per-category node deploys to its category page in its own batch. dateModified 2026-10-29 is the DRAFT date and must be re-stamped to the actual deploy date at deploy time. Attribution for CC BY 4.0 reuse: \"The Flat Rate Movers, https://theflatratemovers.com/\". Proprietary carve-out: SIR/KIM-GS method internals, authority book content, and non-public business data are NOT in these datasets.",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "licenseNote": "CC BY 4.0 decided 2026-10-29 (research doc §1). CC0 rejected (waives attribution); CC BY-NC rejected (excludes commercial AI systems). Henry may change the license at batch approval time; until then it is decided, not blank.",
+  "master": {
+    "file": "out/phase-a/dataset-developer.json",
+    "name": "The Flat Rate Movers — Service, Area, and Authority Datasets",
+    "shipsWith": "Phase A review + deploy batch (Developer page)"
+  },
+  "categories": [
+    {
+      "slug": "senior-moving",
+      "name": "The Flat Rate Movers — Senior Moving Dataset",
+      "status": "staged",
+      "sameAs": "PENDING — assigned when the page is built; node ships with its page batch, never before",
+      "distributionFiles": 4,
+      "shipsWith": "Phase B senior package"
+    },
+    {
+      "slug": "industrial-relocation",
+      "name": "The Flat Rate Movers — Industrial Relocation Dataset",
+      "status": "staged",
+      "sameAs": "PENDING — assigned when the page is built; node ships with its page batch, never before",
+      "distributionFiles": 4,
+      "shipsWith": "Phase D industrial relocation package"
+    },
+    {
+      "slug": "warehouse-relocation",
+      "name": "The Flat Rate Movers — Warehouse Relocation Dataset",
+      "status": "staged",
+      "sameAs": "PENDING — assigned when the page is built; node ships with its page batch, never before",
+      "distributionFiles": 4,
+      "shipsWith": "Phase C warehouse relocation package"
+    },
+    {
+      "slug": "it-relocation",
+      "name": "The Flat Rate Movers — IT Relocation Dataset",
+      "status": "ready",
+      "sameAs": [
+        "https://theflatratemovers.com/it-equipment-moving-data-center-logistics-services-virginia/"
+      ],
+      "distributionFiles": 4,
+      "shipsWith": "Phase C IT relocation package (page already live; node ships with that batch)"
+    },
+    {
+      "slug": "medical-equipment-moving",
+      "name": "The Flat Rate Movers — Medical Equipment Moving Dataset",
+      "status": "staged",
+      "sameAs": "PENDING — assigned when the page is built; node ships with its page batch, never before",
+      "distributionFiles": 4,
+      "shipsWith": "Phase D medical package"
+    },
+    {
+      "slug": "cryogenic-moving",
+      "name": "The Flat Rate Movers — Cryogenic Moving Dataset",
+      "status": "staged",
+      "sameAs": "PENDING — assigned when the page is built; node ships with its page batch, never before",
+      "distributionFiles": 4,
+      "shipsWith": "Phase D cryogenic package"
+    },
+    {
+      "slug": "ffe-installation",
+      "name": "The Flat Rate Movers — FF&E Installation Dataset",
+      "status": "staged",
+      "sameAs": "PENDING — assigned when the page is built; node ships with its page batch, never before",
+      "distributionFiles": 4,
+      "shipsWith": "Phase D FF&E package"
+    },
+    {
+      "slug": "workforce-deployment",
+      "name": "The Flat Rate Movers — Flexible Workforce Deployment Dataset",
+      "status": "staged",
+      "sameAs": "PENDING — assigned when the page is built; node ships with its page batch, never before",
+      "distributionFiles": 4,
+      "shipsWith": "Phase D workforce package"
+    },
+    {
+      "slug": "ispm15-crating",
+      "name": "The Flat Rate Movers — ISPM 15 Export Packing and Custom Crating Dataset",
+      "status": "ready",
+      "sameAs": [
+        "https://theflatratemovers.com/international-export-packing-crating-winchester-va/",
+        "https://theflatratemovers.com/ispm15-movers-martinsburg-wv/",
+        "https://theflatratemovers.com/crating-movers-martinsburg-wv/"
+      ],
+      "distributionFiles": 6,
+      "shipsWith": "Phase D combined-crating package (pages already live; node ships with that batch)"
+    },
+    {
+      "slug": "office-moving",
+      "name": "The Flat Rate Movers — Office Moving Dataset",
+      "status": "ready",
+      "sameAs": [
+        "https://theflatratemovers.com/office-moving-movers-winchester-va/",
+        "https://theflatratemovers.com/office-moving-movers-martinsburg-wv/"
+      ],
+      "distributionFiles": 6,
+      "shipsWith": "Phase E office push (pages already live; node ships with that batch)"
+    },
+    {
+      "slug": "packing-services",
+      "name": "The Flat Rate Movers — Packing Services Dataset",
+      "status": "ready",
+      "sameAs": [
+        "https://theflatratemovers.com/packing-services-winchester-va/",
+        "https://theflatratemovers.com/packing-movers-martinsburg-wv/"
+      ],
+      "distributionFiles": 5,
+      "shipsWith": "Phase D Winchester packing page (new format) batch — Martinsburg page live; Winchester new-format page joins then"
+    },
+    {
+      "slug": "transloading",
+      "name": "The Flat Rate Movers — Transloading Dataset",
+      "status": "ready",
+      "sameAs": [
+        "https://theflatratemovers.com/transloading-movers-martinsburg-wv/",
+        "https://theflatratemovers.com/container-loading-unloading-services-port-transload-virginia/"
+      ],
+      "distributionFiles": 5,
+      "shipsWith": "Phase C Winchester transloading page batch — Martinsburg page live; Winchester page joins then"
+    },
+    {
+      "slug": "gun-safe-moving",
+      "name": "The Flat Rate Movers — Gun Safe Moving Dataset",
+      "status": "ready",
+      "sameAs": [
+        "https://theflatratemovers.com/gun-safe-movers/",
+        "https://theflatratemovers.com/gun-safe-movers-winchester-va/",
+        "https://theflatratemovers.com/gun-safe-movers-martinsburg-wv/"
+      ],
+      "distributionFiles": 5,
+      "shipsWith": "Phase E gun-safe push (pages already live; node ships with that batch)"
+    },
+    {
+      "slug": "commercial-moving",
+      "name": "The Flat Rate Movers — Commercial Moving Dataset",
+      "status": "ready",
+      "sameAs": [
+        "https://theflatratemovers.com/commercial-moving/",
+        "https://theflatratemovers.com/commercial-movers-winchester-va/"
+      ],
+      "distributionFiles": 5,
+      "shipsWith": "Phase E commercial depth (pages already live; node ships with that batch)",
+      "derivation": "Description formulated from the doc §4 dataset line (commercial relocation planned around the operation, flat rate in writing, SIR to 3,500 lbs, I-81/I-66/I-70) using only verified company facts."
+    },
+    {
+      "slug": "local-residential-moving",
+      "name": "The Flat Rate Movers — Local and Residential Moving Dataset",
+      "status": "ready",
+      "sameAs": [
+        "https://theflatratemovers.com/residential-moving/",
+        "https://theflatratemovers.com/local-regional-moving/",
+        "https://theflatratemovers.com/local-regional-movers-winchester-va/",
+        "https://theflatratemovers.com/local-regional-movers-martinsburg-wv/"
+      ],
+      "distributionFiles": 6,
+      "shipsWith": "Phase E local/residential depth (pages already live; node ships with that batch)",
+      "derivation": "Description formulated from the doc §4 dataset line (residential and local moves, flat rate, both branches, near-me intent) using only verified company facts."
+    },
+    {
+      "slug": "long-distance-moving",
+      "name": "The Flat Rate Movers — Long-Distance Moving Dataset",
+      "status": "ready",
+      "sameAs": [
+        "https://theflatratemovers.com/long-distance-movers-winchester-va/",
+        "https://theflatratemovers.com/long-distance-movers-martinsburg-wv/"
+      ],
+      "distributionFiles": 5,
+      "shipsWith": "Phase E long-distance depth (pages already live; node ships with that batch)",
+      "derivation": "Description formulated from the doc §4 dataset line (long-distance and interstate moves on a flat rate agreed in writing, I-81/I-66/I-70 corridors) using only verified company facts."
+    },
+    {
+      "slug": "military-government-moving",
+      "name": "The Flat Rate Movers — Military and Government Moving Dataset",
+      "status": "ready",
+      "sameAs": [
+        "https://theflatratemovers.com/military-government-moving/",
+        "https://theflatratemovers.com/military-movers-winchester-va/",
+        "https://theflatratemovers.com/military-movers-martinsburg-wv/",
+        "https://theflatratemovers.com/government-movers-winchester-va/",
+        "https://theflatratemovers.com/government-movers-martinsburg-wv/"
+      ],
+      "distributionFiles": 8,
+      "shipsWith": "Phase E military/government depth (pages already live; node ships with that batch)",
+      "derivation": "Description formulated from the doc §4 dataset line (military household goods and government office moves, flat rate; no contracts/clearances/discounts claimed) using only verified company facts."
+    },
+    {
+      "slug": "junk-removal",
+      "name": "The Flat Rate Movers — Junk Removal Dataset",
+      "status": "staged",
+      "sameAs": "PENDING — assigned when the page is built; node ships with its page batch, never before",
+      "distributionFiles": 4,
+      "shipsWith": "Phase B junk light package — dataset line only; full page only if Henry wants it",
+      "derivation": "Description formulated from the doc §4 dataset line (junk and debris removal as part of downsizing and commercial clear-outs, Winchester VA and Martinsburg WV) using only verified company facts. Keywords limited to the single cited GSC query."
+    }
+  ],
+  "excludedAttestations": [
+    "Senior single-provider / no-subcontracted-crew-swap sentence — NOT claimed (attestation question, research doc §4).",
+    "Medical device classes, facility types, handling procedures — NOT claimed (attestation question).",
+    "Cryogenic item classes, handling procedures — NOT claimed (attestation question).",
+    "Military/government contracts, clearances, discounts — NOT claimed.",
+    "No USDOT/MC number, no license details, no invented prices anywhere."
+  ]
+}

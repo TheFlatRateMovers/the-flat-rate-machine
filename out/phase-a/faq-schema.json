@@ -1,0 +1,168 @@
+{
+  "note": "STAGED Phase A 2026-10-29 — FAQPage JSON-LD for pages carrying visible FAQs. Answers are verbatim visible page text (markup stripped, entities decoded). The live head graph currently injects FAQPage only for #/faq (6 of 9 questions); this staged file completes #/faq to all 9 and adds the two other pages with visible Q&A sections. NOT deployed; live index.html untouched.",
+  "faqPages": [
+    {
+      "pageDiv": "page-faq",
+      "pageUrl": "https://theflatratemovers.com/faq/",
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "@id": "https://theflatratemovers.com/faq/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is it really one flat rate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Your move is quoted as one flat price, agreed in writing before move day — we do not bill by the hour. Our guarantee: Guaranteed Flat Rate or Your Move is Free!"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What weights need SIR?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Assets of 1,500 to 3,500 lbs — safes, medical devices, cryogenic equipment, pianos and antiques — are planned under SIR and the KIM-GS Protocol, with a floor-deflection check to L/360 before anything lifts."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is ISPM 15?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The International Standards for Phytosanitary Measures No. 15 — the global rule for wood packaging in export. Our export crates are built from compliant, treated, marked wood so shipments clear customs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where do you serve?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "From two home bases — Winchester, VA and Martinsburg, WV — across the Shenandoah Valley and Eastern Panhandle, with 16 published service areas from Winchester and 14 from Martinsburg, plus long-distance runs on I-81, I-66 and I-70. Full list on our Service Areas page."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are your hours?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Winchester (The Flat Rate Movers): Mon–Fri 8am–6pm, Sat 8am–4pm, Sun 9am–4pm. Martinsburg (Flat Rate Movers Martinsburg WV): Mon–Fri 9am–6pm, Sat 9am–4pm, Sun 9am–4pm. Phone +1-540-422-2153, email ratemovers@gmail.com."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Short or Detailed quote?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Short (Quick Quote) is the default and is enough for most moves. Toggle Detailed on the quote button itself when your project needs full detail — nothing you typed is lost when you switch."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you pack and crate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — full, partial and fragile-only packing and unpacking, custom crates, ISPM 15 export packing, loading, transloading and final-mile delivery."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you move offices and industrial sites?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — office moving, industrial offices, commercial, government and military relocations, planned around your operation and quoted flat in writing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How are you rated on Google?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Winchester: 5.0 from 1 review. Martinsburg: 4.7 from 6 reviews — listed per branch, never blended. Many high-value clients choose not to review, which we respect."
+          }
+        }
+      ]
+    },
+    {
+      "pageDiv": "page-local-regional-moving",
+      "pageUrl": "https://theflatratemovers.com/local-regional-moving/",
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "@id": "https://theflatratemovers.com/local-regional-moving/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is the price really flat, even for a short local move?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The Flat Rate Movers price by the job, not by the hour — the rate is agreed in writing before move day, and the tagline is the guarantee: Guaranteed Flat Rate or Your Move is Free!"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which base serves my move?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Both bases dispatch across the region. Winchester serves the Shenandoah Valley side and Martinsburg serves the Eastern Panhandle side, and the service areas overlap at Moorefield — the quote form settles which crew and route fit your move."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if my move includes a gun safe, piano or medical device?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "High-mass assets of 1,500 to 3,500 lbs move under SIR and the KIM-GS Protocol, with floor-deflection analysis to L/360 — the same standard as our dedicated heavy-asset work, applied inside a local or regional move."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I get the quote?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Get My Flat Rate Quote — Short Quick Quote by default, Detailed Project one toggle away, preserving From, To and What’s moving. Phone +1-540-422-2153, email ratemovers@gmail.com."
+          }
+        }
+      ]
+    },
+    {
+      "pageDiv": "page-industrial-offices-moving",
+      "pageUrl": "https://theflatratemovers.com/industrial-offices-moving/",
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "@id": "https://theflatratemovers.com/industrial-offices-moving/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How is this different from a standard office move?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The setting. A standard office move is a commercial office; an industrial offices move is the office area inside a plant, warehouse or industrial facility — same flat-rate standard, planned for the site it sits in."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What about heavy equipment in the office area?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Any item of 1,500 to 3,500 lbs moves under SIR Structural Integrity Relocation and the KIM-GS Protocol, with floor-deflection analysis to L/360, before anything is lifted."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can this run alongside warehouse or project work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Industrial & Commercial Services covers warehouse and distribution, commercial relocation and logistics, FF&E installation and project support, and flexible workforce deployment — priced per job, with no required contract duration."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I get the quote?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Get My Flat Rate Quote — Short Quick Quote by default, Detailed Project one toggle away, preserving From, To and What’s moving. Phone +1-540-422-2153, email ratemovers@gmail.com."
+          }
+        }
+      ]
+    }
+  ]
+}

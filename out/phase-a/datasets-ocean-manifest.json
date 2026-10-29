@@ -1,0 +1,106 @@
+{
+  "note": "STAGED Phase A 2026-10-29 — Ocean container D1–D8 Dataset drafts per ocean-container-datasets-2026-10-29.md §6. NOTHING HERE IS LIVE. Each node deploys to its category page in its own batch; staged nodes (D3, D5) ship only with their Phase D pages. dateModified 2026-10-29 is the DRAFT date and must be re-stamped to the actual deploy date at deploy time. Attribution for CC BY 4.0 reuse: \"The Flat Rate Movers, https://theflatratemovers.com/\".",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "correctionsApplied": [
+    "Old container pages have NO standalone per-page JSON: their .json URLs return HTTP 200 with Content-Type text/html (SPA fallback, ~1MB index.html, verified live 2026-10-29). Distribution therefore includes per-page JSONs ONLY where a real file exists on disk (transloading-movers-martinsburg-wv.json, industrial-commercial-services.json). Status 200 alone never counts as a JSON file.",
+    "TWIC coverage EXISTS and is not reported as missing: TWIC labor is published (emergency page slug; 15 lowercase mentions site-wide, verified by grep 2026-10-29). Only TWIC-card credential detail is gated (attestation question Q2).",
+    "Gated fields omitted, never guessed: no Port of Virginia terminal names (NIT/VIG/PMT/RMT), no bonded/FTZ claim, no customs-brokerage claim, no reefer/cold-chain capability claim, no drayage fleet or chassis-ownership claim, no standalone-container rate, no container type claimed as company-handled beyond general handling already published. D3/D4/D5/D7 descriptions state these boundaries explicitly."
+  ],
+  "nodes": [
+    {
+      "code": "D1",
+      "slug": "container-operations",
+      "name": "The Flat Rate Movers — Container Loading and Unloading Operations Dataset",
+      "status": "ready",
+      "sameAs": [
+        "https://theflatratemovers.com/container-loading-unloading-services-port-transload-virginia/",
+        "https://theflatratemovers.com/port-of-virginia-container-loading-unloading-logistics-services/",
+        "https://theflatratemovers.com/virginia-inland-port-freight-transloading-operations/"
+      ],
+      "distributionFiles": 4,
+      "shipsWith": "Ocean container batch (pages already live; node ships with that batch). Note: the three pages have NO standalone per-page JSON (their .json URLs return SPA-fallback HTML) — distribution therefore carries only the 4 machine files until Phase D adds real per-page JSONs."
+    },
+    {
+      "code": "D2",
+      "slug": "transload-operations",
+      "name": "The Flat Rate Movers — Transload, Cross-Dock and Deconsolidation Operations Dataset",
+      "status": "ready",
+      "sameAs": [
+        "https://theflatratemovers.com/container-deconsolidation-cross-docking-transloading-services-virginia/",
+        "https://theflatratemovers.com/container-deconsolidation-services-virginia-mid-atlantic/",
+        "https://theflatratemovers.com/docs/container-deconsolidation/",
+        "https://theflatratemovers.com/transloading-movers-martinsburg-wv/"
+      ],
+      "distributionFiles": 5,
+      "shipsWith": "Ocean container batch (pages already live; node ships with that batch)"
+    },
+    {
+      "code": "D3",
+      "slug": "container-taxonomy",
+      "name": "The Flat Rate Movers — Container Equipment Taxonomy Dataset",
+      "status": "staged",
+      "sameAs": "PENDING — assigned when the page is built; node ships with its page batch, never before",
+      "distributionFiles": 4,
+      "shipsWith": "Phase D container types/sizes reference page (page proposal (c)) — node ships with that page, never before"
+    },
+    {
+      "code": "D4",
+      "slug": "port-chain",
+      "name": "The Flat Rate Movers — Port Chain and Corridor Network Dataset",
+      "status": "ready",
+      "sameAs": [
+        "https://theflatratemovers.com/port-of-virginia-container-loading-unloading-logistics-services/",
+        "https://theflatratemovers.com/virginia-inland-port-freight-transloading-operations/"
+      ],
+      "distributionFiles": 4,
+      "shipsWith": "Ocean container batch (pages already live; node ships with that batch)"
+    },
+    {
+      "code": "D5",
+      "slug": "commercial-terms",
+      "name": "The Flat Rate Movers — Commercial Terms and Cost Drivers Dataset",
+      "status": "staged",
+      "sameAs": "PENDING — assigned when the page is built; node ships with its page batch, never before",
+      "distributionFiles": 4,
+      "shipsWith": "Phase D demurrage/detention/free-time cost-avoidance page (page proposal (d)) — node ships with that page, never before"
+    },
+    {
+      "code": "D6",
+      "slug": "buyer-personas",
+      "name": "The Flat Rate Movers — Buyer Personas and Trigger Events Dataset",
+      "status": "ready",
+      "sameAs": [
+        "https://theflatratemovers.com/emergency-port-container-recovery-twic-labor-virginia/",
+        "https://theflatratemovers.com/industrial-commercial-services/"
+      ],
+      "distributionFiles": 5,
+      "shipsWith": "Ocean container batch (pages already live; node ships with that batch)"
+    },
+    {
+      "code": "D7",
+      "slug": "compliance-access",
+      "name": "The Flat Rate Movers — Compliance, Access and Handling Dataset",
+      "status": "ready",
+      "sameAs": [
+        "https://theflatratemovers.com/emergency-port-container-recovery-twic-labor-virginia/",
+        "https://theflatratemovers.com/international-export-packing-crating-winchester-va/",
+        "https://theflatratemovers.com/ispm15-movers-martinsburg-wv/",
+        "https://theflatratemovers.com/crating-movers-martinsburg-wv/"
+      ],
+      "distributionFiles": 6,
+      "shipsWith": "Ocean container batch (pages already live; node ships with that batch)"
+    },
+    {
+      "code": "D8",
+      "slug": "areas-dispatch",
+      "name": "The Flat Rate Movers — Service Areas, Dispatch and Quote Path Dataset",
+      "status": "ready",
+      "sameAs": [
+        "https://theflatratemovers.com/transloading-movers-martinsburg-wv/",
+        "https://theflatratemovers.com/industrial-commercial-services/"
+      ],
+      "distributionFiles": 6,
+      "shipsWith": "Ocean container batch (pages already live; node ships with that batch). Note: the Winchester new-format transloading page joins in Phase D."
+    }
+  ]
+}

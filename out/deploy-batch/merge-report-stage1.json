@@ -1,0 +1,38 @@
+{
+  "services_count": 22,
+  "pages_count": 153,
+  "new_services": [
+    "service-senior-moving",
+    "service-warehouse-relocation",
+    "service-it-relocation",
+    "service-transloading-winchester-va"
+  ],
+  "new_pages": [
+    "senior-moving",
+    "warehouse-relocation",
+    "transloading-winchester-va"
+  ],
+  "it_entry_services": [
+    "service-commercial",
+    "service-it-relocation"
+  ],
+  "pageCounts_new": {
+    "service-senior-moving": 1,
+    "service-warehouse-relocation": 1,
+    "service-it-relocation": 1,
+    "service-transloading-winchester-va": 1
+  },
+  "rubric_db": {
+    "canonical_before": 18,
+    "canonical_after": 22,
+    "attestations_before": 18,
+    "attestations_after": 22,
+    "service_area_total": 66,
+    "service_area_extended_inserted": {
+      "winchester": 15,
+      "martinsburg": 22
+    },
+    "service_area_dedupe": "Removed redundant martinsburg-place row \"Eastern Panhandle, WV\" (GBP spelling) in favor of GeoJSON \"Eastern Panhandle of West Virginia\"; winchester 31, martinsburg 35, no normalized dupes"
+  },
+  "ocean_nodes_restamped": 8
+}
