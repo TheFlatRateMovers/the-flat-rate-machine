@@ -1276,6 +1276,25 @@
           "@id": "https://theflatratemovers.com/#martinsburg"
         }
       ]
+    },
+    {
+      "@id": "https://theflatratemovers.com/#service-local-regional",
+      "@type": "Service",
+      "name": "Local and Regional Moving",
+      "description": "Local and regional moves along the I-81, I-66 and I-70 corridors, from our two home bases in Winchester, VA and Martinsburg, WV — homes and businesses across the Shenandoah Valley and the Eastern Panhandle, at a flat rate agreed in writing before move day. Packing and unpacking, loading and unloading, priced by the job, not by the hour. Where a move includes a high-mass piece, that item moves under SIR Structural Integrity Relocation with L/360 floor-deflection analysis, as part of the same flat-rate move.",
+      "serviceType": "Local and Regional Moving",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "url": "https://theflatratemovers.com/local-regional-moving/",
+      "areaServed": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg"
+        }
+      ]
     }
   ],
   "_humanSummary": "This is the best JSON for The Flat Rate Movers: one @graph, stable @ids, Organization chained to two Places, each Place carrying its full footprint (Winchester 31 areas, Martinsburg 35, shared 14) with the Google Business Profile subset (Winchester 16, Martinsburg 14) also carried as named City nodes, each Service chained to the Organization and to its branch Place or Places, per-branch Google ratings (Winchester 5.0 with 1 review, Martinsburg 4.7 with 6 reviews, never blended), founding June 2010, geo, hours, sameAs, and no license, price, testimonial, or move count. Humans read the names, addresses, and service lists; machines follow the @ids. 2026-10-28: 24 new branch and corridor pages added, each with Service JSON-LD, logo image, and backlinks.",
