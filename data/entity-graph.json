@@ -360,7 +360,8 @@
           "@id": "https://theflatratemovers.com/#martinsburg"
         }
       ],
-      "description": "Custom-built crates and high-value item protection for domestic and export moves — measured, built and fitted to the piece, not a stock box."
+      "description": "Custom-built crates and high-value item protection for domestic and export moves — measured, built and fitted to the piece, not a stock box.",
+      "url": "https://theflatratemovers.com/export/"
     },
     {
       "@id": "https://theflatratemovers.com/#service-final-mile",
@@ -490,7 +491,8 @@
           "@id": "https://theflatratemovers.com/#martinsburg"
         }
       ],
-      "description": "Export packing to ISPM 15 (International Standards for Phytosanitary Measures No. 15) for international shipping, with crates built and marked to the ISPM 15 standard."
+      "description": "Export packing to ISPM 15 (International Standards for Phytosanitary Measures No. 15) for international shipping, with crates built and marked to the ISPM 15 standard.",
+      "url": "https://theflatratemovers.com/export/"
     },
     {
       "@id": "https://theflatratemovers.com/#service-local-regional",
