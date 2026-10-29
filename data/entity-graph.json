@@ -396,7 +396,8 @@
           "@id": "https://theflatratemovers.com/#martinsburg"
         }
       ],
-      "description": "Moving services for government offices and public-sector relocations — planned, documented and quoted flat, around the agency’s schedule and site requirements."
+      "description": "Moving services for government offices and public-sector relocations — planned, documented and quoted flat, around the agency’s schedule and site requirements.",
+      "url": "https://theflatratemovers.com/military-government-moving/"
     },
     {
       "@id": "https://theflatratemovers.com/#service-gun-safe",
@@ -545,7 +546,8 @@
           "@id": "https://theflatratemovers.com/#martinsburg"
         }
       ],
-      "description": "Moving services for military households and service members relocating to or from the Winchester and Martinsburg area, quoted flat in writing before move day."
+      "description": "Moving services for military households and service members relocating to or from the Winchester and Martinsburg area, quoted flat in writing before move day.",
+      "url": "https://theflatratemovers.com/military-government-moving/"
     },
     {
       "@id": "https://theflatratemovers.com/#service-office-moving",
