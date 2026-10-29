@@ -38,6 +38,7 @@
 - Warehouse Relocation: Flat-rate warehouse relocation from The Flat Rate Movers: warehouse and distribution moves, warehouse load-outs and inbound unloads, transload staging, and restacking, carried out by supervised warehouse teams and planned around the site — access, floor space, staging, and equipment handling. Standard Job Pricing: Unload $8.00/CWT, Load $10.00/CWT, APU $12.00/CWT, Residential/Driver Meet $400–$425 per man, quoted per job.
 - IT Relocation & Setup: IT equipment and data center logistics from The Flat Rate Movers: servers, racks, workstations, and network equipment moved in a planned, labelled sequence so systems come back up in order, as part of commercial and office relocations across the Shenandoah Valley and Eastern Panhandle. Flat rate quoted in writing before move day.
 - Transloading Services — Winchester VA: Transloading services from Winchester, VA: ocean containers unloaded, counted, sorted, and restacked into domestic equipment for the inland leg, with cross-docking, deconsolidation, warehouse staging, and final-mile delivery, through the Virginia Inland Port and Port of Virginia chain. Quoted per job, flat rate agreed in writing before dispatch.
+- Moving and Storage: Moves with a storage interval between move-out and move-in, in leased storage for any type of items — containers, household goods, machines including robotic arms — with a 30-day minimum stay and customer access while stored; lease terms vary. Storage is quoted per job, monthly, or by volume. Quoted flat in writing.
 
 ## Corridors
 
@@ -48,6 +49,6 @@
 ## Machine-Readable Data
 
 - [AI Sitemap](https://theflatratemovers.com/ai-sitemap.json): AI knowledge sitemap for The Flat Rate Movers LLC
-- [Sitemap](https://theflatratemovers.com/sitemap.xml): live Cloudflare Pages site, 154 clean canonical URLs (no hash URLs)
+- [Sitemap](https://theflatratemovers.com/sitemap.xml): live Cloudflare Pages site, 155 clean canonical URLs (no hash URLs)
 - [Service Area GeoJSON](https://theflatratemovers.com/service-area.geojson): 52 features, per branch, verified 2026-10-28
 - [Entity Graph](https://theflatratemovers.com/entity-graph.json): chained entity graph for The Flat Rate Movers LLC

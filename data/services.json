@@ -3,7 +3,7 @@
   "generated": "2026-10-29",
   "source": "head JSON-LD graph in ../the-flat-rate-movers-pages/public/index.html, page counts from pageMeta svc references",
   "attestation": "Service names and descriptions are copied from the live head graph; pageCount is counted from pageMeta, not estimated.",
-  "count": 22,
+  "count": 23,
   "services": [
     {
       "id": "service-residential",
@@ -178,6 +178,14 @@
       "name": "Transloading Services — Winchester VA",
       "description": "Transloading services from Winchester, VA: ocean containers unloaded, counted, sorted, and restacked into domestic equipment for the inland leg, with cross-docking, deconsolidation, warehouse staging, and final-mile delivery, through the Virginia Inland Port and Port of Virginia chain. Quoted per job, flat rate agreed in writing before dispatch.",
       "source": "Phase C transloading-winchester-va package 2026-10-29 (SERP #3 'transloading services Virginia port container', first mover; ocean container datasets doc 2026-10-29)",
+      "attested": "2026-10-29",
+      "pageCount": 1
+    },
+    {
+      "id": "service-moving-and-storage",
+      "name": "Moving and Storage",
+      "description": "Moves with a storage interval between move-out and move-in, in leased storage for any type of items — containers, household goods, machines including robotic arms — with a 30-day minimum stay and customer access while stored; lease terms vary. Storage is quoted per job, monthly, or by volume. Quoted flat in writing.",
+      "source": "Moving-and-storage activation package 2026-10-29 + owner-confirmed terms 2026-10-29 (leased storage; any item type + examples; 30-day minimum stay; customer access while stored; lease terms vary; storage quoted per job, monthly, or by volume)",
       "attested": "2026-10-29",
       "pageCount": 1
     }

@@ -726,6 +726,25 @@
       },
       "url": "https://theflatratemovers.com/residential-moving/",
       "serviceType": "Residential Moving"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#service-moving-and-storage",
+      "@type": "Service",
+      "name": "Moving and Storage",
+      "description": "Moves with a storage interval between move-out and move-in, in leased storage for any type of items — including containers, household goods, and machines such as robotic arms — 30-day minimum stay, customers can access stored items while stored. Storage is quoted per job, monthly, or by volume, agreed flat in writing through the same flat-rate quote path, from Winchester VA and Martinsburg WV.",
+      "serviceType": "Moving and Storage",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "url": "https://theflatratemovers.com/moving-and-storage/",
+      "areaServed": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg"
+        }
+      ]
     }
   ],
   "@id": "https://theflatratemovers.com/entity-graph.json",

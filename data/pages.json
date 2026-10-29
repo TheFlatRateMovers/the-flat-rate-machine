@@ -4,7 +4,7 @@
   "source": "https://theflatratemovers.com/sitemap.xml joined to pageMeta in ../the-flat-rate-movers-pages/public/index.html",
   "attestation": "Every URL below was fetched from the live sitemap on 2026-10-28; titles and service links come from pageMeta in the live site source. No URL was hand-typed.",
   "typeRule": "home = site root; location = the two branch pages; corridor = route81; service = pageMeta svc non-empty; else page. The type is a registry classification, not a published claim.",
-  "count": 154,
+  "count": 155,
   "pages": [
     {
       "slug": "home",
@@ -1942,6 +1942,19 @@
       "lastmod": "2026-10-29",
       "status": "live",
       "source": "live sitemap.xml + pageMeta in live site source",
+      "attested": "2026-10-29"
+    },
+    {
+      "slug": "moving-and-storage",
+      "url": "https://theflatratemovers.com/moving-and-storage/",
+      "title": "Moving and Storage — Winchester VA & Martinsburg WV",
+      "type": "service",
+      "services": [
+        "service-moving-and-storage"
+      ],
+      "lastmod": "2026-10-29",
+      "status": "live",
+      "source": "Moving-and-storage activation package 2026-10-29 + owner-confirmed storage terms 2026-10-29 (leased; any item type + examples)",
       "attested": "2026-10-29"
     }
   ]
