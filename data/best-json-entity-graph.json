@@ -1135,8 +1135,9 @@
           "@id": "https://theflatratemovers.com/#martinsburg"
         }
       ],
-      "description": "Flat-rate senior moves quoted in writing for seniors downsizing, transitioning to assisted or independent living, or relocating closer to family, with packing support and a free film-only video-walkthrough survey room with a human-made estimate. Served from Winchester, VA and Martinsburg, WV across the Shenandoah Valley and Eastern Panhandle.",
+      "description": "Flat-rate senior moves quoted in writing for seniors downsizing, transitioning to assisted or independent living, or relocating closer to family, with families coordinating — including adult children coordinating from out of town. Packing support, including fragile items and keepsakes, and a free film-only video-walkthrough survey room with a human-made estimate. One flat price agreed in writing before move day, no hourly clock. Where a senior move actually involves a high-mass asset of 1,500 to 3,500 lbs, that item moves under SIR with floor deflection analysis to L/360, as part of the same flat-rate move. Served from Winchester, VA and Martinsburg, WV across the Shenandoah Valley and Eastern Panhandle.",
       "name": "Senior Moving",
+      "alternateName": "Senior Advocacy Logistics",
       "provider": {
         "@id": "https://theflatratemovers.com/#organization"
       },
