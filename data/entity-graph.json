@@ -498,6 +498,7 @@
       "@id": "https://theflatratemovers.com/#service-gun-safe",
       "@type": "Service",
       "name": "Gun Safe Moving",
+      "description": "Gun safe and high-mass safe moving under SIR Structural Integrity Relocation and the KIM-GS Protocol, for safes of 1,500 to 3,500 lbs, plus safes under 1,500 lbs handled the same careful way under standard heavy care \u2014 route and clearance survey, floor deflection analysis to L/360, load spreading, floor protection and verified placement, quoted at one flat rate in writing. Moving gun safes since 2010. The safe is emptied first, always; stairs go up and down; equipment is matched to the project; re-anchoring at the destination is available on request; vault work covers any size; standard safe classes; no locksmith services.",
       "serviceType": "Gun Safe Moving",
       "provider": {
         "@id": "https://theflatratemovers.com/#organization"

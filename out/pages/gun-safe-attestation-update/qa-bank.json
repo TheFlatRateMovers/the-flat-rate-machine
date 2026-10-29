@@ -1,0 +1,186 @@
+{
+ "@context": "https://schema.org",
+ "note": "STAGED question bank for the gun-safe service-detail update, 2026-10-29, WORDING-CORRECTED version. Customer-facing answers use confident industry-standard statements: company practice stated plainly, industry standard behind it. Provenance (owner vs research) lives only in the research doc and rubric notes, never here. Short answers feed schema.json FAQPage and hub-div-draft.html identically. Full answers live in the research doc.",
+ "questions": [
+  {
+   "answer": "Yes. Safes under 1,500 lb are handled the same careful way as the 1,500 to 3,500 lb SIR band, under standard heavy care. Industry standard: entry-level safes typically weigh 200 to 600 lb and mid-range safes 600 to 1,000 lb, and even a lighter safe is top-heavy with a small footprint, so floor concentration and tipping risk do not disappear with lower weight. For your quote, tell us the make, model, or approximate weight, or the size and where the safe sits.",
+   "question": "Can you move a gun safe under 1,500 pounds?",
+   "topic": "T1 Sub-band under 1,500 lb"
+  },
+  {
+   "answer": "It is handled the same careful way, not as a lesser service. Industry standard: a 500 lb safe still needs a trained team and rated equipment, and its whole load still concentrates on a few square inches of floor, which is why the floor check matters more than the lifting. For your quote, the intake is the same: weight or size, route, stairs, and floors at both ends.",
+   "question": "Is a 500-pound safe easier to move than a 1,500-pound safe?",
+   "topic": "T1 Sub-band under 1,500 lb"
+  },
+  {
+   "answer": "Under 1,500 lb, yes, handled the same careful way. The SIR band is 1,500 to 3,500 lb. Industry standard: commercial-grade safes can weigh 2,000 to 5,000 lb, a different weight class from a residential gun safe. For your quote, tell us the exact weight or the make and model so the job is scoped from facts, not from a band label.",
+   "question": "Do you move safes outside the 1,500 to 3,500 pound range?",
+   "topic": "T1 Sub-band under 1,500 lb"
+  },
+  {
+   "answer": "There is no published minimum weight. Safes under 1,500 lb are handled the same careful way as the SIR band. Industry standard: small handgun safes can weigh as little as 20 to 50 lb, while a small rifle safe typically weighs 80 to 300 lb, so size and weight come from the safe itself. For your quote, tell us the make, model, or approximate weight, or the size and location.",
+   "question": "What is the smallest safe you will move?",
+   "topic": "T1 Sub-band under 1,500 lb"
+  },
+  {
+   "answer": "Yes, always. The safe is emptied first, before move day. Industry standard: safe contents typically add 100 to 300 lb, and loose contents shift in transit, which is why mover guides advise emptying completely. For your quote, confirm the safe is empty before move day.",
+   "question": "Do I need to empty my gun safe before movers come?",
+   "topic": "T2 Emptying"
+  },
+  {
+   "answer": "No. The safe is always emptied first, so everything comes out. Industry standard: mover guides advise owners to transport firearms and ammunition themselves, separately, following applicable law, and movers generally do not carry ammunition. This is general guidance, not legal advice. For your quote, plan to move firearms and ammunition yourself, and confirm the safe is empty before move day.",
+   "question": "Can my guns stay inside the safe during the move?",
+   "topic": "T2 Emptying"
+  },
+  {
+   "answer": "Everything, always. The safe is emptied first. Industry standard: that means firearms, ammunition, documents, valuables, and loose items, and loose interior parts should be secured following the manufacturer's instructions, so nothing shifts or is damaged in transit. For your quote, confirm the safe is empty and the door can be secured.",
+   "question": "What should I take out of my safe before moving day?",
+   "topic": "T2 Emptying"
+  },
+  {
+   "answer": "Your quote is one flat rate in writing before move day, and emptying is part of preparation for move day. Industry standard: emptying reduces total weight and removes the shifting-load risk, which is why it is standard preparation across mover guides. For your quote, your flat rate is agreed in writing after weight, size, route, and floors are known.",
+   "question": "Does emptying the safe change my flat rate quote?",
+   "topic": "T2 Emptying"
+  },
+  {
+   "answer": "Yes. We go up and down stairs. Industry standard: stairs are the highest-risk part of a safe move, handled one step at a time with control from above and below, and stair-climbing equipment is the equipment class for stair work. For your quote, tell us the number of steps, turns, landings, and doorway widths at both ends.",
+   "question": "Can you move a gun safe upstairs?",
+   "topic": "T3 Stairs"
+  },
+  {
+   "answer": "Yes. We go up and down, including down to a basement. Industry standard: basement moves add bulkhead entries, turns, headroom, and landing size to the plan, and the route is surveyed before move day. For your quote, tell us the basement entry type, steps, turns, and the floor at placement.",
+   "question": "Can you move a gun safe down to the basement?",
+   "topic": "T3 Stairs"
+  },
+  {
+   "answer": "We go up and down stairs, and staircases and landings are planned step by step. Industry standard: a turn changes the plan because landing size must fit the safe's dimensions plus swing room, and a tight turn can matter more than the step count. For your quote, tell us about every turn and landing at both ends, not just the number of steps.",
+   "question": "What about stairs with turns or landings?",
+   "topic": "T3 Stairs"
+  },
+  {
+   "answer": "We go up and down stairs. Industry standard: some older wooden staircases cannot support the concentrated load of a heavy safe, which is why the staircase is assessed during the pre-move survey. For your quote, the route is surveyed before move day, and if a route cannot carry the safe safely, we tell you straight and work out a route that can, before anything is attempted.",
+   "question": "What if my stairs are narrow, steep, or old?",
+   "topic": "T3 Stairs"
+  },
+  {
+   "answer": "Equipment is matched to the project. Industry standard for safe work includes a heavy-duty appliance dolly, a powered stair-climbing hand truck, a safe jack, machine rollers or skates, straps, ramps, blankets, and plywood for load spreading. What fits a job follows weight, stairs, access, flooring, and doorways. For your quote, tell us weight, stairs, access, flooring, and doorways, and the project is planned from those facts.",
+   "question": "What equipment do you use to move a gun safe?",
+   "topic": "T4 Equipment"
+  },
+  {
+   "answer": "Equipment is matched to the project, and stair work uses the stair-climbing equipment class. Industry standard: a powered stair-climbing hand truck is the equipment class guides name for stair work, and a conventional dolly is not a stair tool regardless of its weight rating. For your quote, tell us about stairs at both ends so the project plan reflects them.",
+   "question": "Do you use a stair climber for gun safes?",
+   "topic": "T4 Equipment"
+  },
+  {
+   "answer": "Under the SIR method, floor deflection is assessed against an L/360 standard, with load spreading where the structure needs it, and floors, walls, and door frames are protected before any lift. Industry standard protection includes moving blankets, plywood sheets over soft or crushable surfaces to spread the load, and sliders on hard surfaces. For your quote, tell us the flooring type at both ends.",
+   "question": "How do you protect my floors when moving a safe?",
+   "topic": "T4 Equipment"
+  },
+  {
+   "answer": "Equipment is matched to the project, and rigging follows the job. Industry standard: rigging choices follow weight, access, ground conditions, and distance from the truck, and are planned from a route survey. For your quote, tell us about access, ground, and distance from the truck so the plan reflects the real job.",
+   "question": "Do you bring a crane, forklift, or special rigging?",
+   "topic": "T4 Equipment"
+  },
+  {
+   "answer": "Re-anchoring at the destination is available on request. Industry standard: anchoring resists theft and tipping, most safes have pre-drilled base holes, concrete takes wedge or sleeve anchors, and a wood subfloor takes lag bolts into the joists. For your quote, say at quote time that you want re-anchoring, and tell us the floor type at the destination.",
+   "question": "Will you re-anchor my safe at the new house?",
+   "topic": "T5 Re-anchoring"
+  },
+  {
+   "answer": "Tell us the safe is bolted down when you ask for a quote, so it is in the plan, and re-anchoring at the destination is available on request. Industry standard: unbolting precedes any move of a bolted safe, and the anchor type follows the floor. For your quote, tell us the safe is bolted down, and the floor type, at quote time.",
+   "question": "Do you unbolt a safe that is bolted to the floor?",
+   "topic": "T5 Re-anchoring"
+  },
+  {
+   "answer": "The anchor follows the floor. Industry standard: concrete takes a hammer drill and concrete anchors, wood takes lag bolts reaching the joists, bolting into tile can crack the tile, and a post-tension slab must not be drilled blind because its cables are under high tension. Re-anchoring at the destination is available on request. For your quote, tell us the floor type at the destination when you ask about re-anchoring.",
+   "question": "Should a gun safe be anchored to concrete or wood floors?",
+   "topic": "T5 Re-anchoring"
+  },
+  {
+   "answer": "Vault work covers any size. Industry standard forms: a walk-in vault room, a modular panel vault, and a vault door fitted to an existing room. For your quote, tell us the vault or door dimensions, the room, and the wall type.",
+   "question": "Do you move and install vaults?",
+   "topic": "T6 Vault"
+  },
+  {
+   "answer": "Any size. Industry standard examples of sizes that exist: modular vaults of 7 by 8 by 8 feet and 7 by 8 by 12 feet, and residential vault doors roughly 30 to 36 inches wide and about 80 inches high. Those are examples of what exists, not a company capacity list. For your quote, tell us your measurements so the job is scoped from them.",
+   "question": "What size vault can you handle?",
+   "topic": "T6 Vault"
+  },
+  {
+   "answer": "Yes, vault work covers any size, including vault doors. Industry standard: fit follows the finished opening measured at several points, the swing direction, the threshold, and the frame and wall thickness, and walls and floors are rarely perfectly square or level. For your quote, tell us the opening measurements, the swing, and the wall type.",
+   "question": "Do you install a vault door?",
+   "topic": "T6 Vault"
+  },
+  {
+   "answer": "We move standard classes. Industry standard spectrum: RSC and B-rate and C-rate construction ratings up to UL TL-15, TL-30, and TL-30x6 tested ratings. Ratings vary from safe to safe, so the job is scoped from the safe in front of us. For your quote, tell us the rating from the safe label or manual, plus weight and dimensions.",
+   "question": "What safe classes do you move, standard or high-security?",
+   "topic": "T7 Classes"
+  },
+  {
+   "answer": "Our gun-safe service covers standard classes. Industry standard: TL-15 means a 15-minute net working time against power tools under UL testing, and TL-30 means 30 minutes. For your quote, tell us the rating, weight, and dimensions so the job is scoped from facts.",
+   "question": "Do you move TL-15 or TL-30 safes?",
+   "topic": "T7 Classes"
+  },
+  {
+   "answer": "Industry standard: RSC means UL Residential Security Container, a safe that resisted common hand tools for a five-minute net working time in testing. It is a real third-party baseline, not a fortress rating. We move standard classes. For your quote, the rating on the label or in the manual helps scope the quote.",
+   "question": "What does RSC mean on my gun safe?",
+   "topic": "T7 Classes"
+  },
+  {
+   "answer": "Standard classes, including precision-equipment safes under the SIR method on our calibration-safe page. Industry standard: tell us the class and what the safe holds, and the job is scoped from those facts. For your quote, tell us the class and what the safe holds.",
+   "question": "Do you move calibration safes, and what classes?",
+   "topic": "T7 Classes"
+  },
+  {
+   "answer": "The Flat Rate Movers, 116 W Piccadilly St Suite 11, Winchester VA 22601, Mon-Fri 8-6, Sat 8-4, Sun 9-4, Google rating 5.0 with 1 review. Gun safes moved since 2010 under SIR Structural Integrity Relocation and the KIM-GS Protocol, quoted at one flat rate in writing. For your quote, ask through the Winchester branch path.",
+   "question": "Who are the gun safe movers in Winchester, VA?",
+   "topic": "T8 Winchester parity"
+  },
+  {
+   "answer": "Yes. Gun safe moves in Winchester and Frederick County run under the SIR method: route surveyed, floor checked to L/360, load spreading where needed, floor protection, verified placement, quoted at one flat rate in writing. Winchester branch: The Flat Rate Movers, 116 W Piccadilly St Suite 11, Winchester VA 22601, Mon-Fri 8-6, Sat 8-4, Sun 9-4, Google rating 5.0 with 1 review. For your quote, the intake is the same: weight or size, route, stairs, and floors.",
+   "question": "Do you move gun safes in Winchester and Frederick County?",
+   "topic": "T8 Winchester parity"
+  },
+  {
+   "answer": "The same method applies at both branches: SIR Structural Integrity Relocation and the KIM-GS Protocol, quoted at one flat rate in writing. The branches stay distinct: Winchester is The Flat Rate Movers with its own hours, areas, and Google rating, and Martinsburg is Flat Rate Movers Martinsburg WV with its own hours, areas, and Google rating. For your quote, use the branch path for the branch serving your move.",
+   "question": "Do Winchester and Martinsburg offer the same gun safe service?",
+   "topic": "T8 Winchester parity"
+  },
+  {
+   "answer": "Our published long-distance safe runs include Winchester to Las Vegas. Industry standard: long-distance safe moves commonly travel with household relocations and with collectors, dealers, and estates. For your quote, tell us From, To, weight, and access at both ends, and the job is scoped from those facts.",
+   "question": "Can you move my gun safe long distance?",
+   "topic": "T9 Long distance"
+  },
+  {
+   "answer": "Industry standard audience: collectors with multi-safe collections, dealers moving inventory, estates handling single or multiple safes discreetly, relocating households moving a safe with the household, and high-value households moving a safe alongside other high-value items. For your quote, tell us the collection size and any companion items so the job is scoped from facts.",
+   "question": "Who moves gun safes long distance, collectors, dealers, or estates?",
+   "topic": "T9 Long distance"
+  },
+  {
+   "answer": "Yes, a safe moving with the household is a common long-distance job, and the safe and the household are planned together. For your quote, tell us From, To, and what is moving, including the safe and the household scope.",
+   "question": "Can my safe move with the rest of my household long distance?",
+   "topic": "T9 Long distance"
+  },
+  {
+   "answer": "The published footprint is Winchester 31 areas and Martinsburg 35 areas in the full footprint, from the Google Business Profile lists of 16 and 14 plus extended areas, branches kept distinct. Industry standard audience base: the Shenandoah Valley and the Eastern Panhandle, including collectors and high-value households. For your quote, From and To determine the scope of your job.",
+   "question": "What areas do you serve for long-distance gun safe moves?",
+   "topic": "T9 Long distance"
+  },
+  {
+   "answer": "We do not offer locksmith services. Combination changes are not part of the move. Industry standard: combination changes are locksmith work, mechanical dial recombination and digital code resets following the manufacturer's manual. For your quote, arrange lock work separately with a locksmith; no locksmith is named or referred here, and the move quote covers moving, not lock work.",
+   "question": "Do gun safe movers change combinations?",
+   "topic": "T10 Locksmith"
+  },
+  {
+   "answer": "We do not offer locksmith services, so lock opening is not part of the move. Industry standard: owners typically go to the manufacturer with proof of ownership and the serial number, or to a locksmith, who tries manipulation first and drills only when needed, then repairs the drill point. For your quote, lock work comes before move day, because the safe is always emptied first, which means you open it before the move.",
+   "question": "I forgot my gun safe combination, can you open it?",
+   "topic": "T10 Locksmith"
+  },
+  {
+   "answer": "We do not offer locksmith services, so lock replacement is not part of the move. Industry standard: lock and keypad replacement is locksmith or manufacturer work, and a first check for a dead keypad is fresh batteries following the manufacturer's guidance. For your quote, tell us the lock condition at quote time so the move plan reflects a working lock.",
+   "question": "Do you replace a broken safe lock?",
+   "topic": "T10 Locksmith"
+  }
+ ]
+}
