@@ -1334,6 +1334,25 @@
           "@id": "https://theflatratemovers.com/#martinsburg"
         }
       ]
+    },
+    {
+      "@id": "https://theflatratemovers.com/#service-packing",
+      "@type": "Service",
+      "areaServed": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg"
+        }
+      ],
+      "description": "Packing and unpacking services from Winchester, VA and Martinsburg, WV — full, partial and fragile-only packing, furniture fully covered in blue padded blankets and sealed with clear stretch wrap, staged cleanly in the room, plus unpacking and placement at destination, quoted inside one flat rate in writing before move day. High-value and fragile pieces receive white-glove handling or a custom crate, and export pieces are packed to ISPM 15 when the journey crosses a border.",
+      "name": "Packing and Unpacking",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "serviceType": "Packing and Unpacking",
+      "url": "https://theflatratemovers.com/packing-unpacking-services-2/"
     }
   ],
   "_humanSummary": "This is the best JSON for The Flat Rate Movers: one @graph, stable @ids, Organization chained to two Places, each Place carrying its full footprint (Winchester 31 areas, Martinsburg 35, shared 14) with the Google Business Profile subset (Winchester 16, Martinsburg 14) also carried as named City nodes, each Service chained to the Organization and to its branch Place or Places, per-branch Google ratings (Winchester 5.0 with 1 review, Martinsburg 4.7 with 6 reviews, never blended), founding June 2010, geo, hours, sameAs, and no license, price, testimonial, or move count. Humans read the names, addresses, and service lists; machines follow the @ids. 2026-10-28: 24 new branch and corridor pages added, each with Service JSON-LD, logo image, and backlinks.",
