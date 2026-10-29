@@ -705,12 +705,13 @@
           "@id": "https://theflatratemovers.com/#martinsburg"
         }
       ],
-      "description": "Transloading services from Winchester, VA: ocean containers unloaded, counted, sorted, and restacked into domestic equipment for the inland leg, with cross-docking, deconsolidation, warehouse staging, and final-mile delivery, through the Virginia Inland Port and Port of Virginia chain. Quoted per job, flat rate agreed in writing before dispatch.",
+      "description": "Winchester transloading from The Flat Rate Movers: ocean containers devanned and destuffed, counted, inspected and photographed with same-day written exception reporting, reworked (palletized, wrapped, labeled, sorted by destination, purchase order or SKU), restacked into 53ft domestic trailers, dispatched on I-81, I-66 and I-70 through the Virginia Inland Port and Port of Virginia chain, empty returned before per-diem, final mile by appointment. Container transloading jobs are quoted per job, agreed in writing before dispatch. Heavy assets in the 1,500–3,500 lb range move under SIR (Structural Integrity Relocation, L/360 floor deflection) as part of the same flat-rate job.",
       "name": "Transloading Services — Winchester VA",
       "provider": {
         "@id": "https://theflatratemovers.com/#organization"
       },
-      "serviceType": "Transloading"
+      "serviceType": "Transloading",
+      "url": "https://theflatratemovers.com/transloading-winchester-va/"
     },
     {
       "@id": "https://theflatratemovers.com/#service-residential",
