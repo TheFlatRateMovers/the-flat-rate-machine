@@ -425,6 +425,7 @@
       "provider": {
         "@id": "https://theflatratemovers.com/#organization"
       },
+      "url": "https://theflatratemovers.com/industrial-commercial-services/",
       "areaServed": [
         {
           "@id": "https://theflatratemovers.com/#winchester"
@@ -443,6 +444,7 @@
       "provider": {
         "@id": "https://theflatratemovers.com/#organization"
       },
+      "url": "https://theflatratemovers.com/industrial-offices-moving/",
       "areaServed": [
         {
           "@id": "https://theflatratemovers.com/#winchester"
