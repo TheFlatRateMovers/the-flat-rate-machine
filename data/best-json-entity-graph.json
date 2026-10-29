@@ -1410,6 +1410,25 @@
         }
       ],
       "serviceType": "Industrial & Commercial Services"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#service-transloading",
+      "@type": "Service",
+      "name": "Loading, Transloading and Container Services",
+      "serviceType": "Transloading",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "description": "Container loading and unloading, and transloading between truck, container and warehouse \u2014 counted, sorted and restacked for the inland leg, with cross-docking and warehouse staging.",
+      "areaServed": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg"
+        }
+      ],
+      "url": "https://theflatratemovers.com/container-deconsolidation-cross-docking-transloading-services-virginia/"
     }
   ],
   "_humanSummary": "This is the best JSON for The Flat Rate Movers: one @graph, stable @ids, Organization chained to two Places, each Place carrying its full footprint (Winchester 31 areas, Martinsburg 35, shared 14) with the Google Business Profile subset (Winchester 16, Martinsburg 14) also carried as named City nodes, each Service chained to the Organization and to its branch Place or Places, per-branch Google ratings (Winchester 5.0 with 1 review, Martinsburg 4.7 with 6 reviews, never blended), founding June 2010, geo, hours, sameAs, and no license, price, testimonial, or move count. Humans read the names, addresses, and service lists; machines follow the @ids. 2026-10-28: 24 new branch and corridor pages added, each with Service JSON-LD, logo image, and backlinks.",

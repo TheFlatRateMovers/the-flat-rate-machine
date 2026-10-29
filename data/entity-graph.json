@@ -626,7 +626,7 @@
       "@id": "https://theflatratemovers.com/#service-transloading",
       "@type": "Service",
       "name": "Loading, Transloading and Container Services",
-      "serviceType": "Loading, Transloading and Container Services",
+      "serviceType": "Transloading",
       "provider": {
         "@id": "https://theflatratemovers.com/#organization"
       },
@@ -638,7 +638,8 @@
           "@id": "https://theflatratemovers.com/#martinsburg"
         }
       ],
-      "description": "Container loading and unloading, and transloading between truck, container and warehouse — counted, sorted and restacked for the inland leg, with cross-docking and warehouse staging."
+      "description": "Container loading and unloading, and transloading between truck, container and warehouse — counted, sorted and restacked for the inland leg, with cross-docking and warehouse staging.",
+      "url": "https://theflatratemovers.com/container-deconsolidation-cross-docking-transloading-services-virginia/"
     },
     {
       "@id": "https://theflatratemovers.com/#service-senior-moving",
