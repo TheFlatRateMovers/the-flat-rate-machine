@@ -1353,6 +1353,25 @@
       },
       "serviceType": "Packing and Unpacking",
       "url": "https://theflatratemovers.com/packing-unpacking-services-2/"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#service-sir-heavy",
+      "@type": "Service",
+      "areaServed": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg"
+        }
+      ],
+      "description": "SIR Structural Integrity Relocation and the KIM-GS Protocol for high-mass assets of 1,500 to 3,500 lbs — safes, medical devices, cryogenic equipment, pianos and antiques — with floor deflection analysis to L/360. Every SIR move starts with the building, not the item: the asset is assessed, the route and stair clearances are surveyed, the floor is checked against L/360 before any lift, the load path is spread and protected, the crew and rigging are matched to the plan, the move runs controlled and supervised along the planned path, and the asset is placed, levelled and verified with the client — at the flat rate agreed in writing.",
+      "name": "SIR Heavy Asset Relocation (KIM-GS Protocol)",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "serviceType": "SIR Heavy Asset Relocation (KIM-GS Protocol)",
+      "url": "https://theflatratemovers.com/heavy/"
     }
   ],
   "_humanSummary": "This is the best JSON for The Flat Rate Movers: one @graph, stable @ids, Organization chained to two Places, each Place carrying its full footprint (Winchester 31 areas, Martinsburg 35, shared 14) with the Google Business Profile subset (Winchester 16, Martinsburg 14) also carried as named City nodes, each Service chained to the Organization and to its branch Place or Places, per-branch Google ratings (Winchester 5.0 with 1 review, Martinsburg 4.7 with 6 reviews, never blended), founding June 2010, geo, hours, sameAs, and no license, price, testimonial, or move count. Humans read the names, addresses, and service lists; machines follow the @ids. 2026-10-28: 24 new branch and corridor pages added, each with Service JSON-LD, logo image, and backlinks.",
