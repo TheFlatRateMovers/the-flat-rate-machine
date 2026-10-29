@@ -1,0 +1,55 @@
+# Merge note — Office Moving deep-data package (PROPOSAL ONLY — do not apply without the merge agent's review)
+
+Staged: 2026-10-29. This note proposes exact `data/` and graph additions. **Nothing in this note has been applied.** A deploy batch owns `data/`, `scripts/`, and `verify.js` right now; the merge agent applies these, recomputes counts, and re-runs verify.js. Do NOT hand-edit counts anywhere.
+
+## 1. data/services.json — NO new entry (verify, do not add)
+
+service-office-moving already exists ("Office Moving", "Complete office relocations — workstations, files and office equipment — planned and quoted flat.", pageCount 3, attested 2026-10-28). Verify pageCount recomputes to 3 from pages.json (hub + 2 branch pages). If a future batch adds office pages, recompute then. Do NOT create a duplicate service entry.
+
+## 2. data/pages.json — NO new entry (verify, do not add)
+
+The hub page (commercial-office-moving-2) and both branch pages already exist (status "live"). No new slug is staged by this package (see content-note.md for the evidence). Verify the 3 service-office-moving page entries are present and unchanged.
+
+## 3. Entity graph nodes (for the merge agent's graph builder — proposal, not applied)
+
+- REPLACE the TWO duplicate #service-office-moving nodes in entity-graph.json with ONE canonical node: @id https://theflatratemovers.com/#service-office-moving, serviceType "Office Moving", provider #organization, areaServed [#winchester, #martinsburg], url https://theflatratemovers.com/commercial-office-moving-2/. The full node is staged as schema.json in this package dir (Service node is the first @graph entry; the Organization/Place/BreadcrumbList entries mirror the existing graph conventions and the residential package's schema shape). DELETE both duplicates as part of the replacement — do not keep either branch-flavored node, do not end with two nodes sharing one @id.
+- ADD the same canonical node to best-json-entity-graph.json (currently ZERO #service-office-moving occurrences; page-scoped nodes like office-moving-movers-winchester-va/#service stay untouched).
+- VERIFY the head-graph JSON-LD office node (if any) at merge and upgrade it to the canonical chain under the same @id. Do NOT create a second #service-office-moving node anywhere. Do NOT remove any other @id.
+- AreaServed on the Place nodes: EXPAND to the full footprint at merge (Winchester 31, Martinsburg 35, shared 14) per the full-build authorization, branches kept distinct. The staged schema.json carries GBP lists only (16/14) as the draft baseline.
+- Do NOT modify the Organization node, the Place names/addresses/hours/ratings, or any other Service node. Do NOT touch the remote gist graph (data/entity-graph.json) — new path only (data/entity-graph-full.json convention).
+- Cross-reference edges (no new nodes): the canonical office node cross-references the commercial hub, industrial-offices node, IT node, and packing node by @id where the graph models cross-refs; do NOT duplicate those nodes' claims into the office node.
+
+## 4. Rubric DB rows (~/workspace/theflatratemovers/rubric.db — proposal; verify table shapes at merge)
+
+- **service row:** VERIFY the service-office-moving canonical row exists (Phase A synced canonical rows; office should be among them). If missing, add one row ("Office Moving", description from services.json, attested 2026-10-29). Do not duplicate an existing row.
+- **attestation rows (one per fact group, only if not already covered by Phase A rows):** (a) branch facts Winchester (address/geo/hours/rating 5.0/1); (b) branch facts Martinsburg (address/geo/hours/rating 4.7/6); (c) GBP areas 16 + 14 + full footprint 31/35; (d) GSC office demand (corporate query 123 @ 32.1; flat-rate + near-me queries @ 1.0; pack 3rd); (e) hub/branch page scope (planned order, workstations/files/equipment, full/partial packing, warehouse staging, flat rate in writing, Detailed Project scope input); (f) graph defect (entity graph duplicate @id ×2, no Place chain; best graph zero canonical occurrences) + fix (this refresh + dedup).
+- **edge rows:** service-office-moving → provider → #organization; #organization → location → #winchester; #organization → location → #martinsburg; service-office-moving → areaServed → #winchester; service-office-moving → areaServed → #martinsburg. Verify against existing edges; do not duplicate. REMOVE any edge rows that pointed at the deleted duplicate nodes' branch-flavored areaServed strings, replacing them with the branch-@id edges above.
+- **opening_hours rows:** NONE new — both branches' hours rows already exist. Verify distinctness; do not add a merged/company-level hours row.
+- **service_area rows:** NONE new for the GBP lists if existing rows cover them; ADD rows for the extended-footprint areas only if the merge expands Place areaServed to the full footprint (source: footprint.json/GeoJSON, never the GBP source).
+- **rubric_check row:** one row for office-moving with R1 = 3, R2 = 3, R3 = 3, R4 = 3, R5 = 3, R6 = 3, R7 = 2, verdict READY (pending deploy-time R7 re-check), dated 2026-10-29, referencing rubric.md in this package dir.
+
+## 5. Machine-readable files (merge-time, proposal)
+
+- **llms.txt:** refresh the Office Moving section from D1–D8 (planned order, phasing vocabulary domain-labeled, day-one rule, commercial terms labeled domain, personas, areas, quote path); keep history lines intact; dated changelog entry.
+- **data txt:** same Office Moving section refresh.
+- **ai-sitemap.json:** REFRESH the existing office service entry from D1–D8 (it already exists — refresh, don't duplicate) + keyword additions from real GSC/SERP queries ("corporate movers winchester va", "office moving company winchester va", "business moving companies near me", "virginia flat rate office moving company"). No new hasPart entry (no new page). Counts recomputed across the batch at merge.
+- **ARD catalog:** refresh the office Dataset entry from D1–D8 if the ARD builder supports per-category entries; otherwise leave ARD unchanged and note it.
+- **Dataset JSON-LD:** convert research doc §6 D1–D8 to Dataset JSON-LD at merge: page-level markup on the hub page + Developer-page collection entry, CC BY 4.0, creator organization @id, dateModified = deploy date. Gated fields (§8) stay OMITTED. No light node file is created at any point.
+
+## 6. Live-site deploy artifacts (merge-time, proposal — NOT done here)
+
+- NO new page div. NO new pageMeta entry (hub + branch entries already exist; verify their svc already points at #service-office-moving — confirmed live 2026-10-29, 5 pointers in index.html).
+- UPGRADE the graph nodes per §3 above (dedup in entity graph, addition in best graph, head-graph verification). node --check on both inline scripts before any deploy.
+- Per-page JSON: deploy the office Dataset JSON-LD + schema to the verified new-page JSON serving path (verify against a live new-page JSON first; old .json URLs return SPA fallback HTML and do not count).
+- Sitemap: NO count change for this package alone (no new page). Reconcile at merge across the full batch.
+- Breadcrumb: existing trail Home › Office Moving — verify, do not duplicate.
+- GitHub (same batch, after the test/check gate): theflatratemovers-ai (schema JSON, datasets JSON-LD, llms.txt, data txt, ai-sitemap.json, graphs) + the-flat-rate-machine (this package dir + research doc + data/ + scripts/ + verify.js changes). NEVER overwrite remote data/entity-graph.json (gist graph).
+- GBP: NO edit in this package (Phase G batch, owner-approved).
+
+## 7. Explicitly NOT in this package (left for their own batches)
+
+- Any live-site edit, deploy, GitHub push, quote test post, GBP edit, DNS change, or license wording change.
+- A new office hub page (rejected with evidence — see content-note.md).
+- A dedicated corporate page (follow-up proposal; depth first on existing pages, page only if the query stays stuck after a Phase H re-pull).
+- Phase E depth sections for the existing office pages (staged as content-note.md guidance only; the live page copy does not change in this package).
+- Any gated field from research doc §8 (after-hours/weekend scheduling scope, COI issuance, coordinator assignment, size scope, IT coordination scope beyond the IT page, confidential-handling claim, cubicle/systems-furniture scope, debris scope, enterprise-program scope).

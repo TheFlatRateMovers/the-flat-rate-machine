@@ -1257,6 +1257,25 @@
           "@id": "https://theflatratemovers.com/#martinsburg"
         }
       ]
+    },
+    {
+      "@id": "https://theflatratemovers.com/#service-office-moving",
+      "@type": "Service",
+      "name": "Office Moving",
+      "description": "Complete office relocations, quoted flat and agreed in writing: desks and workstations, files and records runs, and office equipment, moved in a planned, phased sequence — what leaves first, what arrives first, and where each workstation, file run and piece of equipment lands — so your team can sit down and work at the new address. Professional, shop and industrial offices are served, with full or partial packing and staging when the dates do not line up neatly. One agreed price before move day, no hourly meter running over a weekend move.",
+      "serviceType": "Office Moving",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "url": "https://theflatratemovers.com/commercial-office-moving-2/",
+      "areaServed": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg"
+        }
+      ]
     }
   ],
   "_humanSummary": "This is the best JSON for The Flat Rate Movers: one @graph, stable @ids, Organization chained to two Places, each Place carrying its full footprint (Winchester 31 areas, Martinsburg 35, shared 14) with the Google Business Profile subset (Winchester 16, Martinsburg 14) also carried as named City nodes, each Service chained to the Organization and to its branch Place or Places, per-branch Google ratings (Winchester 5.0 with 1 review, Martinsburg 4.7 with 6 reviews, never blended), founding June 2010, geo, hours, sameAs, and no license, price, testimonial, or move count. Humans read the names, addresses, and service lists; machines follow the @ids. 2026-10-28: 24 new branch and corridor pages added, each with Service JSON-LD, logo image, and backlinks.",
