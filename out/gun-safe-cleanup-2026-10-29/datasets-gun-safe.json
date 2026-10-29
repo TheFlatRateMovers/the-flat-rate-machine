@@ -1,0 +1,1089 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://theflatratemovers.com/#dataset-gun-safe-operations",
+      "@type": "Service",
+      "name": "Gun Safe Move Operations",
+      "description": "Gun safe and high-mass safe moving under SIR Structural Integrity Relocation and the KIM-GS Protocol, for safes of 1,500 to 3,500 lbs. The published operation chain runs quote intake (make, model, or approximate weight; pickup and delivery addresses; access at both ends) to route and clearance survey, floor deflection analysis to L/360 with a load-spreading plan, floor protection, controlled move, secured upright transport, and verified placement exactly where the owner wants it, quoted at one flat rate in writing before move day. The protocol page states the same five steps in order: survey and floor check, protect and move, place and verify. Quote intake runs through the Short (Quick Quote) default and Detailed Project toggle, inputs preserved, and a film-only video walkthrough where a walkthrough fits: film only, never lift, move, open, or climb anything heavy or locked, with a human-made estimate. Published service practice: safes under 1,500 lbs handled the same careful way; the safe is emptied first, always; stairs go up and down; equipment matched to the project; re-anchoring at the destination available on request; vault work covers any size; standard safe classes; no locksmith services. Published long-distance safe runs include Winchester to Las Vegas; long-distance research covers high-value items and demographics as audience depth. Full per-topic detail is in the ten service-detail nodes appended to this file.",
+      "keywords": [
+        "gun safe movers",
+        "gun safe movers winchester va",
+        "gun safe moving",
+        "safe movers",
+        "heavy safe moving"
+      ],
+      "about": [
+        {
+          "@id": "https://theflatratemovers.com/#service-gun-safe"
+        }
+      ],
+      "spatialCoverage": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg"
+        }
+      ],
+      "temporalCoverage": "2010/2026",
+      "dateModified": "2026-10-29",
+      "creator": {
+        "@id": "https://theflatratemovers.com/#organization",
+        "sameAs": [
+          "https://www.instagram.com/theflatratemovers/",
+          "https://www.threads.com/@theflatratemovers",
+          "https://x.com/ratemovers",
+          "https://www.youtube.com/@theflatratemovers",
+          "https://github.com/TheFlatRateMovers",
+          "https://medium.com/@ratemovers"
+        ]
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "distribution": [
+        {
+          "contentUrl": "https://theflatratemovers.com/ai-sitemap.json",
+          "encodingFormat": "application/json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/service-area.geojson",
+          "encodingFormat": "application/json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/entity-graph.json",
+          "encodingFormat": "application/ld+json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/best-json-entity-graph.json",
+          "encodingFormat": "application/ld+json"
+        }
+      ],
+      "sameAs": "https://theflatratemovers.com/gun-safe-movers/",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://theflatratemovers.com/#organization"
+      }
+    },
+    {
+      "@id": "https://theflatratemovers.com/#dataset-gun-safe-weight-access",
+      "@type": "Dataset",
+      "name": "Gun Safe Weight Bands and Access Operations",
+      "description": "Weight bands and access operations for gun safe moving. The published SIR band covers safes of 1,500 to 3,500 lbs; the hub notes most gun safes it is called about land in that band. Domain weight context, labeled: quick-access pistol safes 15 to 100 lbs, entry-level rifle safes 200 to 600 lbs, mid-range 600 to 1,000 lbs, large and high-end 1,000 to 1,600 plus lbs, commercial and vault units 1,500 to 5,000 lbs; manufacturer specs govern each safe, never size-class guesses. Safes below 1,500 lbs are handled the same careful way; units above the band are scoped from weight at quote. Access operations are quote inputs, not capability claims: ground floor and garage, basement down-stairs descent, upper-floor up-stairs ascent, elevator-served upper floors where the elevator is rated for the weight, tight turns and narrow doorways including handle and hinge footprint, truck-to-door carry distance, and floor type (concrete slab versus wood joist upper floors). The published floor check is deflection analysis to L/360 with load spreading; domain context, labeled: typical living areas designed for a 40 pounds-per-square-foot live load with a 300-pound concentrated load on a six-inch square, and domain placement guidance to set the safe perpendicular across joists near a load-bearing wall with a plywood pad. Stairs are the highest-risk step in any safe move in domain consensus; stairs go up and down, and the route is surveyed before move day. Service practice: safes under 1,500 lbs are handled the same careful way as the 1,500 to 3,500 lb SIR band; stairs go up and down.",
+      "keywords": [
+        "gun safe movers",
+        "heavy gun safe moving",
+        "gun safe moving stairs",
+        "basement gun safe moving",
+        "safe movers winchester va"
+      ],
+      "about": [
+        {
+          "@id": "https://theflatratemovers.com/#service-gun-safe"
+        }
+      ],
+      "spatialCoverage": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg"
+        }
+      ],
+      "temporalCoverage": "2010/2026",
+      "dateModified": "2026-10-29",
+      "creator": {
+        "@id": "https://theflatratemovers.com/#organization",
+        "sameAs": [
+          "https://www.instagram.com/theflatratemovers/",
+          "https://www.threads.com/@theflatratemovers",
+          "https://x.com/ratemovers",
+          "https://www.youtube.com/@theflatratemovers",
+          "https://github.com/TheFlatRateMovers",
+          "https://medium.com/@ratemovers"
+        ]
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "distribution": [
+        {
+          "contentUrl": "https://theflatratemovers.com/ai-sitemap.json",
+          "encodingFormat": "application/json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/service-area.geojson",
+          "encodingFormat": "application/json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/entity-graph.json",
+          "encodingFormat": "application/ld+json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/best-json-entity-graph.json",
+          "encodingFormat": "application/ld+json"
+        }
+      ],
+      "sameAs": "https://theflatratemovers.com/gun-safe-movers/"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#dataset-gun-safe-taxonomy",
+      "@type": "Dataset",
+      "name": "Gun Safe and Access Taxonomy",
+      "description": "Safe and access taxonomy for gun safe moving. Safe types: home gun safes (the core category), commercial safes (published via high-mass safe moving and the 3,500 lb case), vaults and vault doors (relocation under SIR on the technical-rigging page; vault work covers any size), calibration-sensitive safes and precision equipment (SIR-method handling on the calibration page; standard classes), and fire safes as a domain class only with no dedicated company page. Access types: stairs, basements, upper floors, elevator-served routes, doorways and hallways, parking and loading zones, floor types, and floor transitions. Equipment taxonomy is industry-standard background only: heavy-duty appliance dollies, stair-climbing dollies and motorized stair climbers, safe jacks, J-bars, pipe rollers, furniture sliders, ratchet and lifting straps, ramps, Masonite floor protection, door-jamb guards, moving blankets, plywood sheets, and rubber mats. Equipment is matched to the project. Cross-references, never duplications: piano moving, whole-home moves with a safe inside, custom crating where a piece needs more, and SIR method authority.",
+      "keywords": [
+        "gun safe moving",
+        "gun safe movers winchester va",
+        "vault relocation",
+        "safe moving",
+        "heavy safe movers"
+      ],
+      "about": [
+        {
+          "@id": "https://theflatratemovers.com/#service-gun-safe"
+        }
+      ],
+      "spatialCoverage": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg"
+        }
+      ],
+      "temporalCoverage": "2010/2026",
+      "dateModified": "2026-10-29",
+      "creator": {
+        "@id": "https://theflatratemovers.com/#organization",
+        "sameAs": [
+          "https://www.instagram.com/theflatratemovers/",
+          "https://www.threads.com/@theflatratemovers",
+          "https://x.com/ratemovers",
+          "https://www.youtube.com/@theflatratemovers",
+          "https://github.com/TheFlatRateMovers",
+          "https://medium.com/@ratemovers"
+        ]
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "distribution": [
+        {
+          "contentUrl": "https://theflatratemovers.com/ai-sitemap.json",
+          "encodingFormat": "application/json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/service-area.geojson",
+          "encodingFormat": "application/json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/entity-graph.json",
+          "encodingFormat": "application/ld+json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/best-json-entity-graph.json",
+          "encodingFormat": "application/ld+json"
+        }
+      ],
+      "sameAs": "https://theflatratemovers.com/gun-safe-movers/"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#dataset-gun-safe-dispatch",
+      "@type": "Dataset",
+      "name": "Gun Safe Branch Dispatch Network",
+      "description": "Branch dispatch network for gun safe moving. Winchester: The Flat Rate Movers, 116 W Piccadilly St Suite 11, Winchester VA 22601, hours Mon-Fri 8-6, Sat 8-4, Sun 9-4, Google rating 5.0 from 1 review. Martinsburg: Flat Rate Movers Martinsburg WV, 736 Williamsport Pike Suite 2, Martinsburg WV 25404, hours Mon-Fri 9-6, Sat 9-4, Sun 9-4, Google rating 4.7 from 6 reviews. Branches are never merged and ratings are never blended. Coverage is the full footprint of 52 GeoJSON service-area features: Winchester 31 areas, Martinsburg 35 areas, 14 shared, dispatched across the I-81, I-66, and I-70 corridor network from both branches; listed areas are the coverage pool, never a claim that a listed town sits on a particular highway. Long-distance safe scope published today is the Winchester to Las Vegas case pages (1,600 lb and long-distance versions); Published long-distance safe runs include Winchester to Las Vegas.",
+      "keywords": [
+        "gun safe movers winchester va",
+        "gun safe movers martinsburg wv",
+        "gun safe moving virginia",
+        "safe movers near me"
+      ],
+      "about": [
+        {
+          "@id": "https://theflatratemovers.com/#service-gun-safe"
+        }
+      ],
+      "spatialCoverage": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg"
+        }
+      ],
+      "temporalCoverage": "2010/2026",
+      "dateModified": "2026-10-29",
+      "creator": {
+        "@id": "https://theflatratemovers.com/#organization",
+        "sameAs": [
+          "https://www.instagram.com/theflatratemovers/",
+          "https://www.threads.com/@theflatratemovers",
+          "https://x.com/ratemovers",
+          "https://www.youtube.com/@theflatratemovers",
+          "https://github.com/TheFlatRateMovers",
+          "https://medium.com/@ratemovers"
+        ]
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "distribution": [
+        {
+          "contentUrl": "https://theflatratemovers.com/ai-sitemap.json",
+          "encodingFormat": "application/json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/service-area.geojson",
+          "encodingFormat": "application/json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/entity-graph.json",
+          "encodingFormat": "application/ld+json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/best-json-entity-graph.json",
+          "encodingFormat": "application/ld+json"
+        }
+      ],
+      "sameAs": "https://theflatratemovers.com/gun-safe-movers/"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#dataset-gun-safe-commercial-terms",
+      "@type": "Article",
+      "name": "Gun Safe Commercial Terms and Cost Drivers",
+      "description": "Commercial terms and cost drivers for gun safe moving. The only company pricing claim is one flat rate quoted in writing before move day, with no hourly clock, under the tagline Guaranteed Flat Rate or Your Move is Free. No company price, discount, deposit, fee, surcharge, or stair charge is stated anywhere in this dataset. Domain market markers, labeled domain and never company prices: bulky-item handling 150 to 400 dollars per item in mover pricing data; stairs and long carries 75 to 500 plus dollars in domain guides; local hourly crews 135 to 225 dollars for two to four movers in domain guides; a standard local safe move range of 175 to 1,000 plus dollars by complication in a domain guide. Domain cost drivers, labeled: weight and size, distance, stairs, tight doorways, long carry, access at both ends, surface protection, and whether the safe moves as part of a larger move. Risk transfer in the published model: the price is settled before move day, so the customer does not pay for every slow stair, parking hunt, or delay; in the hourly domain model the customer does. Every safe move is quoted at one flat rate in writing. Historical figures from private threads are never published and appear nowhere here.",
+      "keywords": [
+        "gun safe movers",
+        "gun safe moving cost",
+        "flat rate gun safe moving",
+        "safe movers winchester va"
+      ],
+      "about": [
+        {
+          "@id": "https://theflatratemovers.com/#service-gun-safe"
+        }
+      ],
+      "spatialCoverage": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg"
+        }
+      ],
+      "temporalCoverage": "2010/2026",
+      "dateModified": "2026-10-29",
+      "creator": {
+        "@id": "https://theflatratemovers.com/#organization",
+        "sameAs": [
+          "https://www.instagram.com/theflatratemovers/",
+          "https://www.threads.com/@theflatratemovers",
+          "https://x.com/ratemovers",
+          "https://www.youtube.com/@theflatratemovers",
+          "https://github.com/TheFlatRateMovers",
+          "https://medium.com/@ratemovers"
+        ]
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "distribution": [
+        {
+          "contentUrl": "https://theflatratemovers.com/ai-sitemap.json",
+          "encodingFormat": "application/json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/service-area.geojson",
+          "encodingFormat": "application/json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/entity-graph.json",
+          "encodingFormat": "application/ld+json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/best-json-entity-graph.json",
+          "encodingFormat": "application/ld+json"
+        }
+      ],
+      "sameAs": "https://theflatratemovers.com/gun-safe-movers/",
+      "headline": "Gun Safe Commercial Terms and Cost Drivers",
+      "author": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://theflatratemovers.com/#organization"
+      }
+    },
+    {
+      "@id": "https://theflatratemovers.com/#dataset-gun-safe-personas",
+      "@type": "Article",
+      "name": "Gun Safe Buyer Personas and Trigger Events",
+      "description": "Buyer personas and trigger events for gun safe moving. Personas: homeowners with a heavy safe already in the home (the core buyer, usually a single-item job), collectors and high-value households, new-purchase buyers needing dealer delivery and placement, home movers with a safe in the inventory (the residential category owns the move, this category owns the safe), renovators moving a safe out and back, estate handlers, and long-distance relocators. Triggers: new safe purchase or delivery, home purchase or sale, renovation, estate settlement, job relocation, and dealer delivery. Buying criteria: method over muscle (survey and floor check before anything lifts), discretion (strangers in the home, exact placement, no public review afterward), exact placement in the chosen room and spot verified, one flat price in writing, and no damage to floors, stairs, or trim. Review asymmetry, stated as mechanism: high-value clients do not post public reviews for privacy, so pack position trails on review volume while organic and AI strength hold; pack position is never a quality signal here. The actual searcher asks three questions in order: will my floor hold it, will my stairs carry it, and can I trust strangers in my home with it.",
+      "keywords": [
+        "gun safe movers",
+        "gun safe movers winchester va",
+        "safe movers",
+        "gun safe moving winchester va"
+      ],
+      "about": [
+        {
+          "@id": "https://theflatratemovers.com/#service-gun-safe"
+        }
+      ],
+      "spatialCoverage": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg"
+        }
+      ],
+      "temporalCoverage": "2010/2026",
+      "dateModified": "2026-10-29",
+      "creator": {
+        "@id": "https://theflatratemovers.com/#organization",
+        "sameAs": [
+          "https://www.instagram.com/theflatratemovers/",
+          "https://www.threads.com/@theflatratemovers",
+          "https://x.com/ratemovers",
+          "https://www.youtube.com/@theflatratemovers",
+          "https://github.com/TheFlatRateMovers",
+          "https://medium.com/@ratemovers"
+        ]
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "distribution": [
+        {
+          "contentUrl": "https://theflatratemovers.com/ai-sitemap.json",
+          "encodingFormat": "application/json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/service-area.geojson",
+          "encodingFormat": "application/json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/entity-graph.json",
+          "encodingFormat": "application/ld+json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/best-json-entity-graph.json",
+          "encodingFormat": "application/ld+json"
+        }
+      ],
+      "sameAs": "https://theflatratemovers.com/gun-safe-movers/",
+      "headline": "Gun Safe Buyer Personas and Trigger Events",
+      "author": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://theflatratemovers.com/#organization"
+      }
+    },
+    {
+      "@id": "https://theflatratemovers.com/#dataset-gun-safe-compliance",
+      "@type": "Service",
+      "name": "Gun Safe Floor, Protection and Handling Compliance",
+      "description": "Floor, protection, and handling compliance for gun safe moving. Published company checks: floor deflection analysis to L/360, load spreading, floor protection, and verified placement, with route, stairs, and floor checked before the safe moves. Domain context, labeled: International Residential Code typical living areas designed for a 40 pounds-per-square-foot live load with a 300-pound concentrated load on a six-inch square; concrete slab foundations support virtually any residential safe in domain guidance; domain placement guidance sets the safe perpendicular across joists near a load-bearing wall with a plywood pad. Domain handling process, labeled: straps and rated dollies secure the safe, no risky free-lifting, stairs taken one step at a time with a spotter and constant communication, stopping immediately if the safe shifts or tilts, secured upright transport, and placement adjusted so the owner can re-anchor or have a specialist secure it. Protection materials in domain practice: floor protection, corner and doorway guards, blankets, and runners. Service practice: the safe is emptied first, always; re-anchoring at the destination is available on request; standard safe classes. No engineering certification is claimed. Survey walkthroughs follow the film-only rule: never lift, move, open, or climb anything heavy or locked.",
+      "keywords": [
+        "gun safe moving",
+        "safe floor check",
+        "gun safe stairs",
+        "safe movers winchester va",
+        "vault relocation"
+      ],
+      "about": [
+        {
+          "@id": "https://theflatratemovers.com/#service-gun-safe"
+        }
+      ],
+      "spatialCoverage": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg"
+        }
+      ],
+      "temporalCoverage": "2010/2026",
+      "dateModified": "2026-10-29",
+      "creator": {
+        "@id": "https://theflatratemovers.com/#organization",
+        "sameAs": [
+          "https://www.instagram.com/theflatratemovers/",
+          "https://www.threads.com/@theflatratemovers",
+          "https://x.com/ratemovers",
+          "https://www.youtube.com/@theflatratemovers",
+          "https://github.com/TheFlatRateMovers",
+          "https://medium.com/@ratemovers"
+        ]
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "distribution": [
+        {
+          "contentUrl": "https://theflatratemovers.com/ai-sitemap.json",
+          "encodingFormat": "application/json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/service-area.geojson",
+          "encodingFormat": "application/json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/entity-graph.json",
+          "encodingFormat": "application/ld+json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/best-json-entity-graph.json",
+          "encodingFormat": "application/ld+json"
+        }
+      ],
+      "sameAs": "https://theflatratemovers.com/gun-safe-movers/",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://theflatratemovers.com/#organization"
+      }
+    },
+    {
+      "@id": "https://theflatratemovers.com/#dataset-gun-safe-areas-quote",
+      "@type": "Dataset",
+      "name": "Gun Safe Service Areas, Dispatch and Quote Path",
+      "description": "Service areas, dispatch, and quote path for gun safe moving. Full footprint at merge, branches distinct: 52 GeoJSON service-area features, Winchester 31 areas, Martinsburg 35 areas, 14 shared. Winchester branch: The Flat Rate Movers, 116 W Piccadilly St Suite 11, Winchester VA 22601, Mon-Fri 8-6, Sat 8-4, Sun 9-4, Google 5.0 from 1 review. Martinsburg branch: Flat Rate Movers Martinsburg WV, 736 Williamsport Pike Suite 2, Martinsburg WV 25404, Mon-Fri 9-6, Sat 9-4, Sun 9-4, Google 4.7 from 6 reviews. Phone +1-540-422-2153. Founded June 2010. Dispatch across the I-81, I-66, and I-70 corridor network from both branches. Nine pages carry the service: the gun-safe-movers hub, two branch pages, the safe-moving-protocol page, two case pages, the long-distance Winchester to Las Vegas page, the vault-moving category page, and the technical-rigging vault relocation page, with SIR method docs and the heavy hub as authority cross-references. Quote path: Short (Quick Quote) default and Detailed Project toggle with inputs preserved, main call to action Get My Flat Rate Quote and pill Get a flat rate quote, intake asking make, model, or approximate weight, film-only video walkthrough where a walkthrough fits, and no test posts ever. Quote-path practice: confirm the safe is empty before move day; state whether the safe is bolted down and whether re-anchoring at the destination is wanted; give the safe rating from its label or manual where known; state the lock condition. Winchester branch page depth matches Martinsburg depth in this batch as a branch-page update, distinct from the hub update.",
+      "keywords": [
+        "gun safe movers",
+        "gun safe movers winchester va",
+        "gun safe movers martinsburg wv",
+        "safe movers near me",
+        "gun safe moving virginia"
+      ],
+      "about": [
+        {
+          "@id": "https://theflatratemovers.com/#service-gun-safe"
+        }
+      ],
+      "spatialCoverage": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg"
+        }
+      ],
+      "temporalCoverage": "2010/2026",
+      "dateModified": "2026-10-29",
+      "creator": {
+        "@id": "https://theflatratemovers.com/#organization",
+        "sameAs": [
+          "https://www.instagram.com/theflatratemovers/",
+          "https://www.threads.com/@theflatratemovers",
+          "https://x.com/ratemovers",
+          "https://www.youtube.com/@theflatratemovers",
+          "https://github.com/TheFlatRateMovers",
+          "https://medium.com/@ratemovers"
+        ]
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "distribution": [
+        {
+          "contentUrl": "https://theflatratemovers.com/ai-sitemap.json",
+          "encodingFormat": "application/json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/service-area.geojson",
+          "encodingFormat": "application/json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/entity-graph.json",
+          "encodingFormat": "application/ld+json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/best-json-entity-graph.json",
+          "encodingFormat": "application/ld+json"
+        }
+      ],
+      "sameAs": "https://theflatratemovers.com/gun-safe-movers/"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#dataset-gun-safe-service-subband",
+      "@type": "Service",
+      "name": "Gun Safe Service Detail: Safes Under 1,500 Lb Handled the Same Careful Way",
+      "description": "Service practice: safes under 1,500 lb are handled the same careful way as the 1,500 to 3,500 lb SIR band, under standard heavy care. No published minimum weight. Industry standard background: entry-level safes typically weigh 200 to 600 lb and mid-range safes 600 to 1,000 lb, and a lighter safe remains top-heavy with a small footprint, so floor concentration and tipping risk do not disappear with lower weight. Likely-search questions: can you move a gun safe under 1,500 pounds; is a 500-pound safe easier to move; safes outside the 1,500 to 3,500 pound range; smallest safe moved.",
+      "keywords": [
+        "gun safe movers",
+        "safes under 1500 pounds",
+        "small gun safe movers",
+        "gun safe under 1500 lb"
+      ],
+      "about": [
+        {
+          "@id": "https://theflatratemovers.com/#service-gun-safe"
+        }
+      ],
+      "spatialCoverage": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg"
+        }
+      ],
+      "temporalCoverage": "2010/2026",
+      "creator": {
+        "@id": "https://theflatratemovers.com/#organization",
+        "sameAs": [
+          "https://www.instagram.com/theflatratemovers/",
+          "https://www.threads.com/@theflatratemovers",
+          "https://x.com/ratemovers",
+          "https://www.youtube.com/@theflatratemovers",
+          "https://github.com/TheFlatRateMovers",
+          "https://medium.com/@ratemovers"
+        ]
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "distribution": [
+        {
+          "contentUrl": "https://theflatratemovers.com/ai-sitemap.json",
+          "encodingFormat": "application/json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/service-area.geojson",
+          "encodingFormat": "application/json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/gun-safe-movers/",
+          "encodingFormat": "text/html"
+        }
+      ],
+      "sameAs": "https://theflatratemovers.com/gun-safe-movers/",
+      "dateModified": "2026-10-29",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://theflatratemovers.com/#organization"
+      }
+    },
+    {
+      "@id": "https://theflatratemovers.com/#dataset-gun-safe-service-emptying",
+      "@type": "Service",
+      "name": "Gun Safe Service Detail: Customers Always Empty the Safe First",
+      "description": "Service practice: the safe is emptied first, always, before move day; everything comes out. Industry standard background: safe contents typically add 100 to 300 lb and loose contents shift in transit; mover guides advise owners to transport firearms and ammunition themselves, separately, following applicable law. The flat rate quote is agreed in writing before move day; emptying is part of preparation for move day. Likely-search questions: do I need to empty my gun safe before movers come; can guns stay inside the safe during the move; what to take out before moving day; does emptying change the flat rate quote.",
+      "keywords": [
+        "do i need to empty my gun safe",
+        "empty gun safe before moving",
+        "can guns stay in safe during move"
+      ],
+      "about": [
+        {
+          "@id": "https://theflatratemovers.com/#service-gun-safe"
+        }
+      ],
+      "spatialCoverage": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg"
+        }
+      ],
+      "temporalCoverage": "2010/2026",
+      "creator": {
+        "@id": "https://theflatratemovers.com/#organization",
+        "sameAs": [
+          "https://www.instagram.com/theflatratemovers/",
+          "https://www.threads.com/@theflatratemovers",
+          "https://x.com/ratemovers",
+          "https://www.youtube.com/@theflatratemovers",
+          "https://github.com/TheFlatRateMovers",
+          "https://medium.com/@ratemovers"
+        ]
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "distribution": [
+        {
+          "contentUrl": "https://theflatratemovers.com/ai-sitemap.json",
+          "encodingFormat": "application/json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/service-area.geojson",
+          "encodingFormat": "application/json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/gun-safe-movers/",
+          "encodingFormat": "text/html"
+        }
+      ],
+      "sameAs": "https://theflatratemovers.com/gun-safe-movers/",
+      "dateModified": "2026-10-29",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://theflatratemovers.com/#organization"
+      }
+    },
+    {
+      "@id": "https://theflatratemovers.com/#dataset-gun-safe-service-stairs",
+      "@type": "Service",
+      "name": "Gun Safe Service Detail: Stairs Go Up and Down",
+      "description": "Service practice: stairs go up and down; staircases and landings are planned step by step. Industry standard background: stairs are the highest-risk part of a safe move, moved one step at a time with control from above and below; turns change the plan because landing size must fit safe dimensions plus swing room; some older wooden staircases cannot support a concentrated heavy load, which is why the staircase is assessed in the pre-move survey. If a route cannot carry the safe safely, the published hub line applies: we tell you straight and work out a route that can, before anything is attempted. Likely-search questions: move a gun safe upstairs; move a gun safe down to the basement; stairs with turns or landings; narrow, steep, or old stairs.",
+      "keywords": [
+        "gun safe movers stairs",
+        "move gun safe upstairs",
+        "gun safe down to basement",
+        "gun safe movers basement"
+      ],
+      "about": [
+        {
+          "@id": "https://theflatratemovers.com/#service-gun-safe"
+        }
+      ],
+      "spatialCoverage": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg"
+        }
+      ],
+      "temporalCoverage": "2010/2026",
+      "creator": {
+        "@id": "https://theflatratemovers.com/#organization",
+        "sameAs": [
+          "https://www.instagram.com/theflatratemovers/",
+          "https://www.threads.com/@theflatratemovers",
+          "https://x.com/ratemovers",
+          "https://www.youtube.com/@theflatratemovers",
+          "https://github.com/TheFlatRateMovers",
+          "https://medium.com/@ratemovers"
+        ]
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "distribution": [
+        {
+          "contentUrl": "https://theflatratemovers.com/ai-sitemap.json",
+          "encodingFormat": "application/json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/service-area.geojson",
+          "encodingFormat": "application/json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/gun-safe-movers/",
+          "encodingFormat": "text/html"
+        }
+      ],
+      "sameAs": "https://theflatratemovers.com/gun-safe-movers/",
+      "dateModified": "2026-10-29",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://theflatratemovers.com/#organization"
+      }
+    },
+    {
+      "@id": "https://theflatratemovers.com/#dataset-gun-safe-service-equipment",
+      "@type": "Service",
+      "name": "Gun Safe Service Detail: Equipment Varies by Project",
+      "description": "Service practice: equipment is matched to the project. Industry standard taxonomy only: heavy-duty appliance dolly, powered stair-climbing hand truck, safe jack, machine rollers or skates, straps, ramps, blankets, plywood for load spreading; selection follows weight, stairs, access, flooring, and doorways. Published floor practice: floor deflection assessed to L/360, load spreading where needed, floors, walls, and door frames protected before any lift. Likely-search questions: what equipment do you use to move a gun safe; stair climber for gun safes; floor protection when moving a safe; crane or forklift or rigging.",
+      "keywords": [
+        "gun safe moving equipment",
+        "stair climber gun safe",
+        "protect floors moving safe"
+      ],
+      "about": [
+        {
+          "@id": "https://theflatratemovers.com/#service-gun-safe"
+        }
+      ],
+      "spatialCoverage": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg"
+        }
+      ],
+      "temporalCoverage": "2010/2026",
+      "creator": {
+        "@id": "https://theflatratemovers.com/#organization",
+        "sameAs": [
+          "https://www.instagram.com/theflatratemovers/",
+          "https://www.threads.com/@theflatratemovers",
+          "https://x.com/ratemovers",
+          "https://www.youtube.com/@theflatratemovers",
+          "https://github.com/TheFlatRateMovers",
+          "https://medium.com/@ratemovers"
+        ]
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "distribution": [
+        {
+          "contentUrl": "https://theflatratemovers.com/ai-sitemap.json",
+          "encodingFormat": "application/json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/service-area.geojson",
+          "encodingFormat": "application/json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/gun-safe-movers/",
+          "encodingFormat": "text/html"
+        }
+      ],
+      "sameAs": "https://theflatratemovers.com/gun-safe-movers/",
+      "dateModified": "2026-10-29",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://theflatratemovers.com/#organization"
+      }
+    },
+    {
+      "@id": "https://theflatratemovers.com/#dataset-gun-safe-service-anchoring",
+      "@type": "Service",
+      "name": "Gun Safe Service Detail: Re-Anchoring on Request",
+      "description": "Service practice: re-anchoring at the destination is available on request. For the origin, the quote asks whether the safe is bolted down so it is in the plan. Industry standard background: anchoring resists theft and tipping; most safes have pre-drilled base holes; concrete takes wedge or sleeve anchors, wood subfloors take lag bolts into joists; bolting into tile can crack tile; post-tension slabs must not be drilled blind. Likely-search questions: re-anchor safe at new house; unbolt a safe bolted to the floor; anchor a gun safe to concrete or wood floors.",
+      "keywords": [
+        "re-anchor gun safe",
+        "bolt gun safe to floor",
+        "anchor gun safe concrete"
+      ],
+      "about": [
+        {
+          "@id": "https://theflatratemovers.com/#service-gun-safe"
+        }
+      ],
+      "spatialCoverage": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg"
+        }
+      ],
+      "temporalCoverage": "2010/2026",
+      "creator": {
+        "@id": "https://theflatratemovers.com/#organization",
+        "sameAs": [
+          "https://www.instagram.com/theflatratemovers/",
+          "https://www.threads.com/@theflatratemovers",
+          "https://x.com/ratemovers",
+          "https://www.youtube.com/@theflatratemovers",
+          "https://github.com/TheFlatRateMovers",
+          "https://medium.com/@ratemovers"
+        ]
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "distribution": [
+        {
+          "contentUrl": "https://theflatratemovers.com/ai-sitemap.json",
+          "encodingFormat": "application/json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/service-area.geojson",
+          "encodingFormat": "application/json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/gun-safe-movers/",
+          "encodingFormat": "text/html"
+        }
+      ],
+      "sameAs": "https://theflatratemovers.com/gun-safe-movers/",
+      "dateModified": "2026-10-29",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://theflatratemovers.com/#organization"
+      }
+    },
+    {
+      "@id": "https://theflatratemovers.com/#dataset-gun-safe-service-vault",
+      "@type": "Service",
+      "name": "Gun Safe Service Detail: Vault Installation Scope Any Size",
+      "description": "Service practice: vault work covers any size. Industry standard forms: walk-in vault room, modular panel vault, vault door fitted to an existing room; industry examples include modular vaults of 7 by 8 by 8 feet and 7 by 8 by 12 feet and residential vault doors roughly 30 to 36 inches wide and about 80 inches high. Fit follows the finished opening measured at several points, swing, threshold, and frame and wall thickness. Likely-search questions: move and install vaults; what size vault can you handle; install a vault door.",
+      "keywords": [
+        "vault installation",
+        "vault door installation",
+        "modular vault room",
+        "walk-in vault"
+      ],
+      "about": [
+        {
+          "@id": "https://theflatratemovers.com/#service-gun-safe"
+        }
+      ],
+      "spatialCoverage": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg"
+        }
+      ],
+      "temporalCoverage": "2010/2026",
+      "creator": {
+        "@id": "https://theflatratemovers.com/#organization",
+        "sameAs": [
+          "https://www.instagram.com/theflatratemovers/",
+          "https://www.threads.com/@theflatratemovers",
+          "https://x.com/ratemovers",
+          "https://www.youtube.com/@theflatratemovers",
+          "https://github.com/TheFlatRateMovers",
+          "https://medium.com/@ratemovers"
+        ]
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "distribution": [
+        {
+          "contentUrl": "https://theflatratemovers.com/ai-sitemap.json",
+          "encodingFormat": "application/json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/service-area.geojson",
+          "encodingFormat": "application/json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/gun-safe-movers/",
+          "encodingFormat": "text/html"
+        }
+      ],
+      "sameAs": "https://theflatratemovers.com/gun-safe-movers/",
+      "dateModified": "2026-10-29",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://theflatratemovers.com/#organization"
+      }
+    },
+    {
+      "@id": "https://theflatratemovers.com/#dataset-gun-safe-service-classes",
+      "@type": "Dataset",
+      "name": "Gun Safe Service Detail: Standard Safe Classes",
+      "description": "Service practice: standard safe classes. Industry standard spectrum: RSC is a five-minute net working time against common hand tools under UL testing; B-rate is about 1/4-inch walls with a 1/2-inch door and C-rate steps up from there; TL-15 is 15 minutes and TL-30 is 30 minutes of net working time against power tools. The job is scoped from the safe in front of us: rating from the label or manual, plus weight and dimensions. Likely-search questions: standard vs high-security safe classes; TL-15 or TL-30 safes; what RSC means; calibration safes and classes.",
+      "keywords": [
+        "safe classes standard",
+        "TL-15 TL-30 safe movers",
+        "what does RSC mean",
+        "calibration safe classes"
+      ],
+      "about": [
+        {
+          "@id": "https://theflatratemovers.com/#service-gun-safe"
+        }
+      ],
+      "spatialCoverage": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg"
+        }
+      ],
+      "temporalCoverage": "2010/2026",
+      "creator": {
+        "@id": "https://theflatratemovers.com/#organization",
+        "sameAs": [
+          "https://www.instagram.com/theflatratemovers/",
+          "https://www.threads.com/@theflatratemovers",
+          "https://x.com/ratemovers",
+          "https://www.youtube.com/@theflatratemovers",
+          "https://github.com/TheFlatRateMovers",
+          "https://medium.com/@ratemovers"
+        ]
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "distribution": [
+        {
+          "contentUrl": "https://theflatratemovers.com/ai-sitemap.json",
+          "encodingFormat": "application/json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/service-area.geojson",
+          "encodingFormat": "application/json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/gun-safe-movers/",
+          "encodingFormat": "text/html"
+        }
+      ],
+      "sameAs": "https://theflatratemovers.com/gun-safe-movers/",
+      "dateModified": "2026-10-29"
+    },
+    {
+      "@id": "https://theflatratemovers.com/#dataset-gun-safe-service-winchester",
+      "@type": "Article",
+      "name": "Gun Safe Service Detail: Winchester Branch Coverage",
+      "description": "Winchester branch gun safe coverage matches Martinsburg depth, with Winchester-only facts: what it includes, who it is for, where it serves across the Winchester 16 Google Business Profile areas, questions answered, sources and method note, and the quote card. Branches stay distinct: Winchester is The Flat Rate Movers (Mon-Fri 8-6, Sat 8-4, Sun 9-4, Google 5.0 with 1 review) and Martinsburg is Flat Rate Movers Martinsburg WV (Mon-Fri 9-6, Sat 9-4, Sun 9-4, Google 4.7 with 6 reviews). Likely-search questions: gun safe movers Winchester VA; gun safe moves in Winchester and Frederick County; same service in Winchester and Martinsburg.",
+      "keywords": [
+        "gun safe movers winchester va",
+        "winchester va safe movers"
+      ],
+      "about": [
+        {
+          "@id": "https://theflatratemovers.com/#service-gun-safe"
+        }
+      ],
+      "spatialCoverage": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg"
+        }
+      ],
+      "temporalCoverage": "2010/2026",
+      "creator": {
+        "@id": "https://theflatratemovers.com/#organization",
+        "sameAs": [
+          "https://www.instagram.com/theflatratemovers/",
+          "https://www.threads.com/@theflatratemovers",
+          "https://x.com/ratemovers",
+          "https://www.youtube.com/@theflatratemovers",
+          "https://github.com/TheFlatRateMovers",
+          "https://medium.com/@ratemovers"
+        ]
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "distribution": [
+        {
+          "contentUrl": "https://theflatratemovers.com/ai-sitemap.json",
+          "encodingFormat": "application/json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/service-area.geojson",
+          "encodingFormat": "application/json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/gun-safe-movers/",
+          "encodingFormat": "text/html"
+        }
+      ],
+      "sameAs": "https://theflatratemovers.com/gun-safe-movers/",
+      "dateModified": "2026-10-29",
+      "headline": "Gun Safe Service Detail: Winchester Branch Coverage",
+      "author": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://theflatratemovers.com/#organization"
+      }
+    },
+    {
+      "@id": "https://theflatratemovers.com/#dataset-gun-safe-service-longdistance",
+      "@type": "Article",
+      "name": "Gun Safe Service Detail: Long-Distance Research, No Broader Scope Claim",
+      "description": "Published long-distance safe runs include Winchester to Las Vegas. Industry standard audience depth: collectors with multi-safe collections; dealers moving inventory; estates handling single or multiple safes discreetly; relocating households moving a safe with the household; high-value households moving a safe alongside other high-value items. Audience base described, not routed: the Shenandoah Valley and the Eastern Panhandle within the published Winchester 31-area and Martinsburg 35-area footprint. No new routes and no authority claim appear here. Likely-search questions: move a gun safe long distance; long-distance safe movers collectors dealers estates; safe with household long distance; long-distance gun safe areas.",
+      "keywords": [
+        "long distance gun safe movers",
+        "move gun safe long distance",
+        "gun safe collectors movers"
+      ],
+      "about": [
+        {
+          "@id": "https://theflatratemovers.com/#service-gun-safe"
+        }
+      ],
+      "spatialCoverage": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg"
+        }
+      ],
+      "temporalCoverage": "2010/2026",
+      "creator": {
+        "@id": "https://theflatratemovers.com/#organization",
+        "sameAs": [
+          "https://www.instagram.com/theflatratemovers/",
+          "https://www.threads.com/@theflatratemovers",
+          "https://x.com/ratemovers",
+          "https://www.youtube.com/@theflatratemovers",
+          "https://github.com/TheFlatRateMovers",
+          "https://medium.com/@ratemovers"
+        ]
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "distribution": [
+        {
+          "contentUrl": "https://theflatratemovers.com/ai-sitemap.json",
+          "encodingFormat": "application/json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/service-area.geojson",
+          "encodingFormat": "application/json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/gun-safe-movers/",
+          "encodingFormat": "text/html"
+        }
+      ],
+      "sameAs": "https://theflatratemovers.com/gun-safe-movers/",
+      "dateModified": "2026-10-29",
+      "headline": "Gun Safe Service Detail: Long-Distance Research, No Broader Scope Claim",
+      "author": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://theflatratemovers.com/#organization"
+      }
+    },
+    {
+      "@id": "https://theflatratemovers.com/#dataset-gun-safe-service-locksmith",
+      "@type": "Service",
+      "name": "Gun Safe Service Detail: No Locksmith Services",
+      "description": "Service practice: no locksmith services are offered. Combination changes, lock opening, and lock replacement are not part of the move. Industry standard background: combination changes are locksmith work (mechanical dial recombination, digital code resets per manufacturer manual); forgotten-combination recovery runs through the manufacturer with proof of ownership and serial number, or through a locksmith (manipulation first, drilling only when needed, then repair); a first check for a dead keypad is fresh batteries per manufacturer guidance. No locksmith is named or referred here. Sequencing follows from the emptying rule: lock work that prevents opening the safe comes before move day, arranged separately by the owner. Likely-search questions: do gun safe movers change combinations; forgot gun safe combination; replace a broken safe lock.",
+      "keywords": [
+        "gun safe locksmith",
+        "gun safe combination change",
+        "forgot gun safe combination"
+      ],
+      "about": [
+        {
+          "@id": "https://theflatratemovers.com/#service-gun-safe"
+        }
+      ],
+      "spatialCoverage": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg"
+        }
+      ],
+      "temporalCoverage": "2010/2026",
+      "creator": {
+        "@id": "https://theflatratemovers.com/#organization",
+        "sameAs": [
+          "https://www.instagram.com/theflatratemovers/",
+          "https://www.threads.com/@theflatratemovers",
+          "https://x.com/ratemovers",
+          "https://www.youtube.com/@theflatratemovers",
+          "https://github.com/TheFlatRateMovers",
+          "https://medium.com/@ratemovers"
+        ]
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "distribution": [
+        {
+          "contentUrl": "https://theflatratemovers.com/ai-sitemap.json",
+          "encodingFormat": "application/json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/service-area.geojson",
+          "encodingFormat": "application/json"
+        },
+        {
+          "contentUrl": "https://theflatratemovers.com/gun-safe-movers/",
+          "encodingFormat": "text/html"
+        }
+      ],
+      "sameAs": "https://theflatratemovers.com/gun-safe-movers/",
+      "dateModified": "2026-10-29",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://theflatratemovers.com/#organization"
+      }
+    }
+  ]
+}
