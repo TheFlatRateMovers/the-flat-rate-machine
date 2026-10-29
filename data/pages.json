@@ -4,7 +4,7 @@
   "source": "https://theflatratemovers.com/sitemap.xml joined to pageMeta in ../the-flat-rate-movers-pages/public/index.html",
   "attestation": "Every URL below was fetched from the live sitemap on 2026-10-28; titles and service links come from pageMeta in the live site source. No URL was hand-typed.",
   "typeRule": "home = site root; location = the two branch pages; corridor = route81; service = pageMeta svc non-empty; else page. The type is a registry classification, not a published claim.",
-  "count": 153,
+  "count": 154,
   "pages": [
     {
       "slug": "home",
@@ -1931,6 +1931,17 @@
       "lastmod": "2026-10-29",
       "status": "live",
       "source": "Phase C transloading-winchester-va package 2026-10-29 + deploy batch 2026-10-29",
+      "attested": "2026-10-29"
+    },
+    {
+      "slug": "videos",
+      "url": "https://theflatratemovers.com/videos/",
+      "title": "Videos — Moving & Heavy-Asset Work on Video",
+      "type": "page",
+      "services": [],
+      "lastmod": "2026-10-29",
+      "status": "live",
+      "source": "live sitemap.xml + pageMeta in live site source",
       "attested": "2026-10-29"
     }
   ]

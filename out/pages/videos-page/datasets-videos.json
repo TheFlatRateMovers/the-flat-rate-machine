@@ -1,0 +1,95 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "VideoObject",
+      "@id": "https://theflatratemovers.com/videos/#video-29L981tzn5E",
+      "name": "DMV Moving Made Easy: Top-Rated Movers in Winchester & Beyond! (#WinchesterVA #MoversVA #DMVMovers)",
+      "description": "Moving to a new home in the DMV area (DC, Maryland, Virginia)? The Flat Rate Movers, a top-rated moving company in Winchester, VA, is here to make your relocation smooth, secure, and worry-free — including white-glove protection for doors, floors, and banisters/rails, serving Winchester and surrounding areas including Loudoun County, VA, Moorefield, WV, Shepherdstown, WV, Lake Frederick, VA, Summit Point, WV, Berryville, VA, and Potomac, MD.",
+      "thumbnailUrl": "https://i.ytimg.com/vi/29L981tzn5E/hqdefault.jpg",
+      "contentUrl": "https://www.youtube.com/watch?v=29L981tzn5E",
+      "embedUrl": "https://www.youtube.com/embed/29L981tzn5E",
+      "publisher": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      }
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://theflatratemovers.com/videos/#video-Z7Im5nR--AQ",
+      "name": "Moving a Heavy Gun Safe? We Can Help! Flat Rate Movers (VA)",
+      "description": "Move a 1,500 lb gun safe up a hill in Northern Virginia with Flat Rate Movers. Our experienced movers can handle even the most challenging moves, like getting your gun safe up a steep slope.",
+      "thumbnailUrl": "https://i.ytimg.com/vi/Z7Im5nR--AQ/hqdefault.jpg",
+      "contentUrl": "https://www.youtube.com/watch?v=Z7Im5nR--AQ",
+      "embedUrl": "https://www.youtube.com/embed/Z7Im5nR--AQ",
+      "publisher": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      }
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://theflatratemovers.com/videos/#video-HLGSTQ5byxM",
+      "name": "The Flat Rate Movers of Winchester: Safe and Reliable Gun Safe Moving in Northern Virginia",
+      "description": "Looking for a safe and reliable gun safe moving company in Northern Virginia? The Flat Rate Movers of Winchester shows how we safely and securely move gun safes in Northern Virginia, with the experience and expertise to move your gun safe safely and efficiently, regardless of its size or weight.",
+      "thumbnailUrl": "https://i.ytimg.com/vi/HLGSTQ5byxM/hqdefault.jpg",
+      "contentUrl": "https://www.youtube.com/watch?v=HLGSTQ5byxM",
+      "embedUrl": "https://www.youtube.com/embed/HLGSTQ5byxM",
+      "publisher": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      }
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://theflatratemovers.com/videos/#video-1S5Tux0-4lM",
+      "name": "Final Mile Delivery & White Glove Safe Installation | 1,800 lb Locker System (Full Process)",
+      "description": "Watch a complete final mile delivery and white glove installation performed by The Flat Rate Movers: a 1,800 lb custom locker safe system, delivered in 5 crates from a tractor trailer, received, unloaded by pallet jack, uncrated, and fully installed on site for a commercial client — from receiving to final placement and full system setup.",
+      "thumbnailUrl": "https://i.ytimg.com/vi/1S5Tux0-4lM/hqdefault.jpg",
+      "contentUrl": "https://www.youtube.com/watch?v=1S5Tux0-4lM",
+      "embedUrl": "https://www.youtube.com/embed/1S5Tux0-4lM",
+      "publisher": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      }
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://theflatratemovers.com/videos/#video-AX4oWENjxJo",
+      "name": "Medical Tank Relocation: Experts for Your Sensitive Equipment",
+      "description": "Moving sensitive medical equipment, especially large tanks, requires a specialized touch. Our team possesses the expertise and specialized equipment to ensure the safe and efficient relocation of your vital medical resources — with tailored solutions, streamlined logistics coordinated with your facility, and an unwavering commitment to safety.",
+      "thumbnailUrl": "https://i.ytimg.com/vi/AX4oWENjxJo/hqdefault.jpg",
+      "contentUrl": "https://www.youtube.com/watch?v=AX4oWENjxJo",
+      "embedUrl": "https://www.youtube.com/embed/AX4oWENjxJo",
+      "publisher": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      }
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://theflatratemovers.com/videos/#video-_W6wheqTGIE",
+      "name": "Gun Safe Movers Moving a 900 lb Gun Safe BROWNING PROSTEEL 1878 SERIES",
+      "description": "Gun Safe Movers, Gun Safe Moving: a 900 lb Browning ProSteel 1878 Series gun safe moved by The Flat Rate Movers — the Winchester, VA local and long-distance moving company providing professional care since 2010.",
+      "thumbnailUrl": "https://i.ytimg.com/vi/_W6wheqTGIE/hqdefault.jpg",
+      "contentUrl": "https://www.youtube.com/watch?v=_W6wheqTGIE",
+      "embedUrl": "https://www.youtube.com/embed/_W6wheqTGIE",
+      "publisher": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      }
+    }
+  ]
+}
