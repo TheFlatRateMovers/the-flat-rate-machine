@@ -380,9 +380,14 @@ async function main() {
   }
 
   // Live .json content-type proof (the SPA-fallback trap, verified 2026-10-29).
-  // The first check is EXPECTED to flip when Phase D adds real per-page
-  // JSONs for the old container pages — a flip there is good news, and
-  // the D-node distributions must then be regenerated.
+  // DOCUMENTED EXCEPTION to the banner rule above (recorded 2026-10-29):
+  // checks are never weakened to force a pass — but this check was not
+  // weakened; the DATA's intended state changed by an approved batch.
+  // Full-format Batch 3 (manifest item 6) deliberately created a standalone
+  // per-page JSON for the old container page, deployed and live-verified
+  // (200, application/json, 3,081 bytes, 4 nodes), so the original premise
+  // ("SPA fallback — NO standalone JSON file") is dead. The first check now
+  // asserts the current intended state instead; nothing was deleted or waived.
   try {
     const fetchContentType = (url) => new Promise((resolve, reject) => {
       https.get(url, (res) => {
@@ -391,9 +396,27 @@ async function main() {
         res.on('end', () => resolve(ct));
       }).on('error', reject);
     });
-    const oldCt = await fetchContentType('https://theflatratemovers.com/container-loading-unloading-services-port-transload-virginia.json');
-    check('old container .json URL returns text/html (SPA fallback — NO standalone JSON file)',
-      oldCt.includes('text/html'), 'content-type=' + oldCt);
+    const fetchBody = (url) => new Promise((resolve, reject) => {
+      https.get(url, (res) => {
+        const ct = res.headers['content-type'] || '';
+        let body = '';
+        res.on('data', (c) => { body += c; });
+        res.on('end', () => resolve({ ct, body }));
+      }).on('error', reject);
+    });
+    const oldSlug = 'container-loading-unloading-services-port-transload-virginia';
+    const oldRes = await fetchBody('https://theflatratemovers.com/' + oldSlug + '.json');
+    let oldGraph = [];
+    try { oldGraph = JSON.parse(oldRes.body)['@graph'] || []; } catch (_) { oldGraph = []; }
+    const nodeTypes = (n) => Array.isArray(n['@type']) ? n['@type'] : [n['@type']];
+    const hasTransloadService = oldGraph.some((n) =>
+      nodeTypes(n).includes('Service') && n['@id'] === 'https://theflatratemovers.com/#service-transloading');
+    const hasOldWebPage = oldGraph.some((n) =>
+      nodeTypes(n).includes('WebPage') && typeof n['@id'] === 'string' &&
+      n['@id'].replace(/\/$/, '').endsWith(oldSlug));
+    check('old container .json URL returns application/json with Service #service-transloading + its WebPage node (standalone per-page JSON, Batch 3)',
+      oldRes.ct.includes('application/json') && hasTransloadService && hasOldWebPage,
+      'content-type=' + oldRes.ct + ', service=' + hasTransloadService + ', webpage=' + hasOldWebPage);
     const realCt = await fetchContentType('https://theflatratemovers.com/transloading-movers-martinsburg-wv.json');
     check('Martinsburg transloading .json URL returns application/json (real per-page JSON)',
       realCt.includes('application/json'), 'content-type=' + realCt);
