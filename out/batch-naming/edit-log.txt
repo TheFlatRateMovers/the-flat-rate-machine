@@ -1,0 +1,178 @@
+R01_CD_GOV | site/index.html | x2
+R01_CD_GOV | site/military-government-moving.json | x1
+R01_CD_GOV | site/entity-graph.json | x1
+R01_CD_GOV | site/best-json-entity-graph.json | x1
+R01_CD_GOV | machine/services.json | x1
+R01_CD_GOV | machine/entity-graph.json | x1
+R01_CD_GOV | machine/best-json-entity-graph.json | x1
+R01_CD_GOV | ai/data/best-full.json | x1
+R01_CD_GOV | ai/data/entity-full.json | x1
+R02_CD_MIL | site/index.html | x2
+R02_CD_MIL | site/military-government-moving.json | x1
+R02_CD_MIL | site/entity-graph.json | x1
+R02_CD_MIL | site/best-json-entity-graph.json | x1
+R02_CD_MIL | machine/services.json | x1
+R02_CD_MIL | machine/entity-graph.json | x1
+R02_CD_MIL | machine/best-json-entity-graph.json | x1
+R02_CD_MIL | ai/data/best-full.json | x1
+R02_CD_MIL | ai/data/entity-full.json | x1
+R03_MIL_SENT | site/index.html | x8
+R03_MIL_SENT | site/military-movers-winchester-va.json | x1
+R03_MIL_SENT | site/military-movers-martinsburg-wv.json | x1
+R03_MIL_SENT | site/best-json-entity-graph.json | x2
+R03_MIL_SENT | site/ai-sitemap.json | x1
+R03_MIL_SENT | functions/head-data.js | x6
+R03_MIL_SENT | machine/best-json-entity-graph.json | x2
+R03_MIL_SENT | ai/data/best-full.json | x2
+R03_MIL_SENT | ai/schemas/mil-win.json | x1
+R03_MIL_SENT | ai/schemas/mil-mar.json | x1
+R03_MIL_SENT | ai/ai-sitemap.json | x1
+R04_GOV_SHORT_FLAT | site/index.html | x2
+R04_GOV_SHORT_FLAT | site/best-json-entity-graph.json | x2
+R04_GOV_SHORT_FLAT | functions/head-data.js | x6
+R04_GOV_SHORT_FLAT | machine/best-json-entity-graph.json | x2
+R04_GOV_SHORT_FLAT | ai/data/best-full.json | x2
+R05_GOV_BRANCH_JSON | site/government-movers-winchester-va.json | x1
+R05_GOV_BRANCH_JSON | site/government-movers-martinsburg-wv.json | x1
+R05_GOV_BRANCH_JSON | ai/schemas/gov-win.json | x1
+R05_GOV_BRANCH_JSON | ai/schemas/gov-mar.json | x1
+R06_HUB_WEBPAGE | site/military-government-moving.json | x1
+R07_GOV_WHO | site/index.html | x4
+R08_MIL_WHO | site/index.html | x4
+R09_HUB_CARD | site/index.html | x1
+R10_MIL_INTRO | site/index.html | x2
+R11_HHG_SENT | site/index.html | x1
+R11_HHG_SENT | site/hhg.json | x1
+R12_HHG_JSON | site/hhg.json | x1
+R13_CAT_HTML | site/index.html | x1
+R14_CAT_JSON | site/category.json | x1
+R15_GOV_DS_A | site/index.html | x2
+R15_GOV_DS_A | site/datasets-government.json | x1
+R15_GOV_DS_A | ai/data/datasets-government.json | x1
+R16_GOV_DS_B | site/index.html | x2
+R16_GOV_DS_B | site/datasets-government.json | x1
+R16_GOV_DS_B | ai/data/datasets-government.json | x1
+R17_GOV_DS_C | site/index.html | x1
+R17_GOV_DS_C | site/datasets-government.json | x1
+R17_GOV_DS_C | ai/data/datasets-government.json | x1
+R18_GOV_DS_D | site/index.html | x1
+R18_GOV_DS_D | site/datasets-government.json | x1
+R18_GOV_DS_D | ai/data/datasets-government.json | x1
+R19_GOV_DS_E | site/index.html | x2
+R19_GOV_DS_E | site/datasets-government.json | x1
+R19_GOV_DS_E | ai/data/datasets-government.json | x1
+R20_MIL_DS_A | site/index.html | x2
+R20_MIL_DS_A | site/datasets-military.json | x1
+R20_MIL_DS_A | ai/data/datasets-military.json | x1
+R21_MIL_DS_B | site/index.html | x2
+R21_MIL_DS_B | site/datasets-military.json | x1
+R21_MIL_DS_B | ai/data/datasets-military.json | x1
+R22_MIL_DS_C | site/index.html | x2
+R22_MIL_DS_C | site/datasets-military.json | x1
+R22_MIL_DS_C | ai/data/datasets-military.json | x1
+R23_LLMS_GOV | site/llms.txt | x1
+R23_LLMS_GOV | ai/llms.txt | x1
+R24_LLMS_MIL | site/llms.txt | x1
+R24_LLMS_MIL | ai/llms.txt | x1
+R25_DATATXT_GOV | site/data.txt | x1
+R25_DATATXT_GOV | ai/data.txt | x1
+R26_DATATXT_MIL | site/data.txt | x1
+R26_DATATXT_MIL | ai/data.txt | x1
+R27_BEST_HUB | site/best-json-entity-graph.json | x1
+R27_BEST_HUB | machine/best-json-entity-graph.json | x1
+R27_BEST_HUB | ai/data/best-full.json | x1
+R28_SITEMAP_GOV | site/ai-sitemap.json | x1
+R28_SITEMAP_GOV | ai/ai-sitemap.json | x1
+R10_HUB_COUNTIES | site/index.html | x1 (segment-scoped)
+embed block 13 == datasets-government.json (parse-equal)
+embed block 14 == datasets-military.json (parse-equal)
+embed block 17 == datasets-military.json (parse-equal)
+mirror copy: site/llms.txt -> /home/hatch/workspace/theflatratemovers/llms.txt
+mirror copy: site/ai-sitemap.json -> /home/hatch/workspace/theflatratemovers/ai-sitemap.json
+mirror copy: machine/entity-graph.json -> /home/hatch/workspace/theflatratemovers/entity-graph.json
+mirror copy: machine/best-json-entity-graph.json -> /home/hatch/workspace/theflatratemovers/best-json-entity-graph.json
+
+JSON changed leaf paths:
+site/datasets-government.json:
+  /@graph[0]/description
+  /@graph[4]/description
+  /@graph[5]/description
+  /@graph[6]/description
+site/datasets-military.json:
+  /@graph[0]/description
+  /@graph[6]/description
+site/military-government-moving.json:
+  /@graph[0]/description
+  /@graph[1]/description
+  /@graph[3]/description
+site/government-movers-winchester-va.json:
+  /@graph[0]/description
+site/government-movers-martinsburg-wv.json:
+  /@graph[0]/description
+site/military-movers-winchester-va.json:
+  /@graph[0]/description
+site/military-movers-martinsburg-wv.json:
+  /@graph[0]/description
+site/hhg.json:
+  /@graph[0]/description
+  /@graph[2]/description
+site/category.json:
+  /@graph[0]/description
+site/entity-graph.json:
+  /@graph[13]/description
+  /@graph[21]/description
+site/best-json-entity-graph.json:
+  /@graph[40]/description
+  /@graph[48]/description
+  /@graph[49]/description
+  /@graph[61]/description
+  /@graph[62]/description
+  /@graph[85]/description
+  /@graph[86]/description
+site/ai-sitemap.json:
+  /services[14]/description
+  /services[15]/description
+machine/services.json:
+  /services[14]/description
+  /services[15]/description
+machine/entity-graph.json:
+  /@graph[13]/description
+  /@graph[21]/description
+machine/best-json-entity-graph.json:
+  /@graph[40]/description
+  /@graph[48]/description
+  /@graph[49]/description
+  /@graph[61]/description
+  /@graph[62]/description
+  /@graph[85]/description
+  /@graph[86]/description
+ai/data/datasets-government.json:
+  /@graph[0]/description
+  /@graph[4]/description
+  /@graph[5]/description
+  /@graph[6]/description
+ai/data/datasets-military.json:
+  /@graph[0]/description
+  /@graph[6]/description
+ai/data/best-full.json:
+  /@graph[40]/description
+  /@graph[48]/description
+  /@graph[49]/description
+  /@graph[61]/description
+  /@graph[62]/description
+  /@graph[85]/description
+  /@graph[86]/description
+ai/data/entity-full.json:
+  /@graph[13]/description
+  /@graph[21]/description
+ai/schemas/gov-win.json:
+  /@graph[0]/description
+ai/schemas/gov-mar.json:
+  /@graph[0]/description
+ai/schemas/mil-win.json:
+  /@graph[0]/description
+ai/schemas/mil-mar.json:
+  /@graph[0]/description
+ai/ai-sitemap.json:
+  /services[14]/description
+  /services[15]/description
