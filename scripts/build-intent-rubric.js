@@ -91,7 +91,10 @@ const DB_PATH = path.join(FLAT, 'rubric.db');
 const QB_PATH = path.join(FLAT, 'blog-project', '04-question-bank.md');
 const RUBRIC_DATE = '2026-10-30';
 const GENERATOR = 'build-intent-rubric.js';
-const GENERATOR_VERSION = '1.2.0';
+// 2026-10-30 (Batch Inland Port Transloading): service-transloading rows gain the
+// Virginia Inland Port datasets file as backing data (the new hub's own rows
+// resolve through the existing transloading patterns; no pattern changes).
+const GENERATOR_VERSION = '1.2.1';
 const KID = 'theflatratemovers-2026-10-29-1';
 
 // --- Generator configuration (validated against the registries) ---
@@ -169,7 +172,7 @@ const DATASETS = {
   'service-piano-antique': ['datasets-piano-antique.json'],
   'service-ispm15': ['datasets-ispm15.json'],
   'service-crating': ['datasets-crating.json'],
-  'service-transloading': ['datasets-transloading.json', 'datasets-ocean-container.json'],
+  'service-transloading': ['datasets-transloading.json', 'datasets-transloading-inland-port.json', 'datasets-ocean-container.json'],
   'service-final-mile': ['datasets-final-mile.json'],
   'service-office-moving': ['datasets-office.json'],
   'service-industrial-offices': ['datasets-industrial-offices.json'],

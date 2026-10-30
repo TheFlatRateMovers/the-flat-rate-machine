@@ -610,6 +610,16 @@ async function main() {
     // same batch with the new service's rows). The assertion stays
     // exact-count. Record:
     // out/verify-fix-2026-10-30-ffe-logistics.md.
+    // Extended by Batch Inland Port Transloading, 2026-10-30 (takeover
+    // category #3, same motion): totals move to 165 per-page JSON files
+    // and 216 distributions (40 data + 165 pages + 11 shell/code — the
+    // new datasets-transloading-inland-port.json joins the data set, the
+    // new virginia-inland-port-transloading.json joins the page set, and
+    // datasets-intent-coverage.json is regenerated + re-sealed in the
+    // same batch with the transloading rows now backed by the new
+    // dataset file). Services stay 26 (the hub attaches to the existing
+    // transloading service). The assertion stays exact-count. Record:
+    // out/verify-fix-2026-10-30-inland-port-transloading.md.
     const P2_CODE_URLS = [
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/code/site-shell/index.html',
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/code/pages-functions/_middleware.js',
@@ -631,12 +641,12 @@ async function main() {
       const distUrls = new Set((servedIndex.distribution || []).map((e) => e.contentUrl));
       const missingPages = pageFiles.filter((f) => !distUrls.has('https://theflatratemovers.com/' + f));
       const missingCode = P2_CODE_URLS.filter((u) => !distUrls.has(u));
-      p5ok = !!servedIndex && pageFiles.length === 164 && missingPages.length === 0 && missingCode.length === 0 &&
-        (servedIndex.distribution || []).length === 214;
+      p5ok = !!servedIndex && pageFiles.length === 165 && missingPages.length === 0 && missingCode.length === 0 &&
+        (servedIndex.distribution || []).length === 216;
       p5detail = 'pageFiles=' + pageFiles.length + ', missingPages=' + (missingPages.join(',') || '0') +
         ', missingCode=' + (missingCode.join(',') || '0') + ', distributions=' + (servedIndex ? (servedIndex.distribution || []).length : 0);
     } catch (e) { p5ok = false; p5detail = e.message; }
-    check('P-5 certificate covers all 164 per-page JSONs + the site shell + the deployed code sets (214 distributions)',
+    check('P-5 certificate covers all 165 per-page JSONs + the site shell + the deployed code sets (216 distributions)',
       p5ok, p5detail);
 
     // P-6: repo-served distribution digests re-computed over live bytes

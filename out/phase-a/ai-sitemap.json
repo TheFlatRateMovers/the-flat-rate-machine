@@ -145,7 +145,7 @@
     "telephone": "+1-540-422-2153"
   },
   "dateModified": "2026-10-30",
-  "description": "Machine-readable index of AI, developer, and operational JSON endpoints for The Flat Rate Movers LLC, plus the core pages, services, and SIR / KIM-GS authority for theflatratemovers.com. 164 clean canonical URLs in sitemap.xml, 26 services, 53 service-area features, branches distinct (Winchester: The Flat Rate Movers; Martinsburg: Flat Rate Movers Martinsburg WV), founded June 2010. No USDOT/MC number is listed (unconfirmed).",
+  "description": "Machine-readable index of AI, developer, and operational JSON endpoints for The Flat Rate Movers LLC, plus the core pages, services, and SIR / KIM-GS authority for theflatratemovers.com. 165 clean canonical URLs in sitemap.xml, 26 services, 53 service-area features, branches distinct (Winchester: The Flat Rate Movers; Martinsburg: Flat Rate Movers Martinsburg WV), founded June 2010. No USDOT/MC number is listed (unconfirmed).",
   "distribution": [
     {
       "mediaType": "application/xml",
@@ -992,6 +992,11 @@
       "@type": "WebPage",
       "name": "FF&E Logistics — Winchester VA & Martinsburg WV",
       "url": "https://theflatratemovers.com/ffe-logistics/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Virginia Inland Port Transloading",
+      "url": "https://theflatratemovers.com/virginia-inland-port-transloading/"
     }
   ],
   "keywords": [
@@ -1021,7 +1026,8 @@
     "specialized workforce labor 48 contiguous states deployment coverage",
     "Junk Removal",
     "Warehouse Racking Relocation",
-    "FF&E Logistics"
+    "FF&E Logistics",
+    "Virginia Inland Port Transloading"
   ],
   "mainEntity": {
     "@type": "WebSite",
