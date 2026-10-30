@@ -634,7 +634,7 @@
    "@type": "Service",
    "name": "Military and Government Moving",
    "serviceType": "Military and Government Moving",
-   "description": "Military and government moving at a guaranteed flat rate, planned around your schedule and quoted in writing before move day.",
+   "description": "Military and government moving at a guaranteed flat rate, planned around your schedule and quoted in writing before move day. The company performs moves for the FBI, the DEA and other federal agencies, for the U.S. military, and for private-sector clients.",
    "provider": {
     "@id": "https://theflatratemovers.com/#organization"
    },
@@ -789,7 +789,7 @@
    "@type": "Service",
    "name": "Government Moving",
    "serviceType": "Government Moving",
-   "description": "Government Movers — Martinsburg WV — Moving services for government offices and public-sector relocations. Flat-rate moving from Winchester, VA and Martinsburg, WV. Guaranteed Flat Rate or Your Move is Free!",
+   "description": "Government Movers — Martinsburg WV — Moving services for government offices and public-sector relocations. The company performs moves for federal agencies, including the FBI and the DEA. Flat-rate moving from Winchester, VA and Martinsburg, WV. Guaranteed Flat Rate or Your Move is Free!",
    "provider": {
     "@id": "https://theflatratemovers.com/#organization"
    },
@@ -805,7 +805,7 @@
    "@type": "Service",
    "name": "Government Moving",
    "serviceType": "Government Moving",
-   "description": "Government Movers — Winchester VA — Moving services for government offices and public-sector relocations. Flat-rate moving from Winchester, VA and Martinsburg, WV. Guaranteed Flat Rate or Your Move is Free!",
+   "description": "Government Movers — Winchester VA — Moving services for government offices and public-sector relocations. The company performs moves for federal agencies, including the FBI and the DEA. Flat-rate moving from Winchester, VA and Martinsburg, WV. Guaranteed Flat Rate or Your Move is Free!",
    "provider": {
     "@id": "https://theflatratemovers.com/#organization"
    },
@@ -1003,7 +1003,7 @@
    "@type": "Service",
    "name": "Military Moving",
    "serviceType": "Military Moving",
-   "description": "Military Movers — Martinsburg WV — Moving services for military households and service members relocating to or from the Winchester and Martinsburg area. Flat-rate moving from Winchester, VA and Martinsburg, WV. Guaranteed Flat Rate or Your Move is Free!",
+   "description": "Military Movers — Martinsburg WV — Moving services for U.S. military households and service members relocating to or from the Winchester and Martinsburg area. Flat-rate moving from Winchester, VA and Martinsburg, WV. Guaranteed Flat Rate or Your Move is Free!",
    "provider": {
     "@id": "https://theflatratemovers.com/#organization"
    },
@@ -1019,7 +1019,7 @@
    "@type": "Service",
    "name": "Military Moving",
    "serviceType": "Military Moving",
-   "description": "Military Movers — Winchester VA — Moving services for military households and service members relocating to or from the Winchester and Martinsburg area. Flat-rate moving from Winchester, VA and Martinsburg, WV. Guaranteed Flat Rate or Your Move is Free!",
+   "description": "Military Movers — Winchester VA — Moving services for U.S. military households and service members relocating to or from the Winchester and Martinsburg area. Flat-rate moving from Winchester, VA and Martinsburg, WV. Guaranteed Flat Rate or Your Move is Free!",
    "provider": {
     "@id": "https://theflatratemovers.com/#organization"
    },
@@ -1437,7 +1437,7 @@
    "@type": "Service",
    "name": "Government Moving",
    "serviceType": "Government Moving",
-   "description": "Moving services for government offices and public-sector relocations — planned, documented and quoted flat, around the agency’s schedule and site requirements.",
+   "description": "Moving services for government offices and public-sector relocations — planned, documented and quoted flat, around the agency’s schedule and site requirements. The company performs moves for federal agencies, including the FBI and the DEA.",
    "provider": {
     "@id": "https://theflatratemovers.com/#organization"
    },
@@ -1456,7 +1456,7 @@
    "@type": "Service",
    "name": "Military Moving",
    "serviceType": "Military Moving",
-   "description": "Moving services for military households and service members relocating to or from the Winchester and Martinsburg area, quoted flat in writing before move day.",
+   "description": "Moving services for U.S. military households and service members relocating to or from the Winchester and Martinsburg area, quoted flat in writing before move day.",
    "provider": {
     "@id": "https://theflatratemovers.com/#organization"
    },
