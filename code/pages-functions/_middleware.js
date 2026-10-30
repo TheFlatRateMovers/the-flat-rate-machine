@@ -60,8 +60,18 @@ function transformHead(headHtml, entry, pageJsonText) {
 
 export async function onRequest(context) {
   const { request, env } = context;
-  if (request.method !== 'GET') return context.next();
   const url = new URL(request.url);
+  // Phase F (2026-10-30) — www consolidation: every www request (GET or
+  // HEAD) permanently redirects to the same path on the apex domain, so
+  // the estate's signals consolidate on https://theflatratemovers.com.
+  // Other methods pass through untouched — a redirected POST would drop
+  // its body — and no other host is matched.
+  if (url.hostname === 'www.theflatratemovers.com' &&
+      (request.method === 'GET' || request.method === 'HEAD')) {
+    return Response.redirect(
+      'https://theflatratemovers.com' + url.pathname + url.search, 301);
+  }
+  if (request.method !== 'GET') return context.next();
   let p = url.pathname;
   if (p.length > 1 && p.endsWith('/')) p = p.slice(0, -1);
   const entry = HEAD[p === '' ? '/' : p];
