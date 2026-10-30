@@ -547,6 +547,100 @@ async function main() {
     check('provenance layer (P-1..P-4) fetched and evaluated', false, e.message);
   }
 
+  // --- 12. Structural — Batch 9 (2026-10-29; checks S-1..S-6) ---
+  // Added in the same motion as the structural batch shipped (record:
+  // out/verify-fix-2026-10-29-batch9.md). Batch 9 gave every canonical URL
+  // its own served head (Pages middleware + generated head-data), real
+  // per-URL sitemap lastmod values, explicit AI-crawler robots groups,
+  // and the R8/R9 rubric gates. These checks assert the SERVED and
+  // RECORDED state so a silent regression fails the suite.
+  try {
+    const PAGES_PROJECT = path.resolve(ROOT, '..', 'the-flat-rate-movers-pages');
+    // S-1: the deployed head-data module covers the whole registry.
+    const headSrc = fs.readFileSync(path.join(PAGES_PROJECT, 'functions', 'head-data.js'), 'utf8');
+    const headJson = headSrc.replace(/^\/\/[^\n]*\n/gm, '').replace('export const HEAD = ', '').replace(/;\s*$/, '');
+    const HEADMAP = JSON.parse(headJson);
+    const regUrls = new Set(pages.pages.map((p) => p.url));
+    const headEntries = Object.values(HEADMAP);
+    const headBad = headEntries.filter((e) => !e.t || !e.d || !e.c || !regUrls.has(e.c) || !e.jf || !e.ld ||
+      !String(e.ld).includes('"@id":"' + e.c + '#webpage"'));
+    check('S-1 functions/head-data.js covers every registry URL with title, description, canonical, page JSON and a WebPage node',
+      headEntries.length === pages.pages.length && headBad.length === 0 &&
+      pages.pages.every((p) => headEntries.some((e) => e.c === p.url)),
+      'entries=' + headEntries.length + ', registry=' + pages.pages.length + (headBad.length ? ', bad: ' + headBad.map((e) => e.slug).join(', ') : ''));
+    // S-2: the middleware that applies the head data is deployed.
+    const mwSrc = fs.readFileSync(path.join(PAGES_PROJECT, 'functions', '_middleware.js'), 'utf8');
+    check('S-2 functions/_middleware.js present and driven by head-data (per-URL head resolver)',
+      mwSrc.includes("from './head-data.js'") && mwSrc.includes('onRequest'),
+      'middleware ' + mwSrc.length + ' bytes');
+    // S-3: live per-URL heads on a defined route set (home, branch service,
+    // article, workforce, category, faq, services index, developer).
+    const routeSet = ['/', '/gun-safe-movers-winchester-va/', '/the-invisible-risk-of-high-mass-relocation/',
+      '/specialized-workforce-labor/', '/category/logistics/', '/faq/', '/services/', '/developer/'];
+    const headByPath = {};
+    for (const [k, v] of Object.entries(HEADMAP)) headByPath[k === '/' ? '/' : k + '/'] = v;
+    let s3bad = [];
+    for (const route of routeSet) {
+      const e = headByPath[route];
+      try {
+        const body = await fetchText('https://theflatratemovers.com' + route);
+        const headPart = body.slice(0, body.indexOf('</head>'));
+        const title = (headPart.match(/<title>(.*?)<\/title>/s) || [])[1];
+        const canon = (headPart.match(/<link rel="canonical" id="canonicalLink" href="([^"]*)"/) || [])[1];
+        const ld = (headPart.match(/<script type="application\/ld\+json" id="page-jsonld">(.*?)<\/script>/s) || [])[1];
+        let ldOk = false;
+        try { ldOk = !!ld && JSON.stringify(JSON.parse(ld)) === JSON.stringify(JSON.parse(e.ld)); } catch (_) {}
+        if (title !== e.t || canon !== e.c || !ldOk || !headPart.includes('data-page-json="' + e.jf + '"')) s3bad.push(route);
+      } catch (err) { s3bad.push(route + ' (' + err.message + ')'); }
+    }
+    check('S-3 live routes serve their own head (title + canonical + page JSON-LD + per-page JSON) on the defined route set',
+      s3bad.length === 0, routeSet.length + ' routes' + (s3bad.length ? ', bad: ' + s3bad.join(', ') : ''));
+    // S-4: sitemap lastmod sanity — format, real dates, not in the future,
+    // not one blanket date.
+    try {
+      const xml = await fetchText(LIVE_SITEMAP);
+      const mods = [...xml.matchAll(/<lastmod>(.*?)<\/lastmod>/g)].map((m) => m[1].trim());
+      const todayET = new Date().toLocaleDateString('en-CA', { timeZone: 'America/New_York' });
+      const fmtOk = mods.every((d) => /^\d{4}-\d{2}-\d{2}$/.test(d) && !isNaN(Date.parse(d)));
+      const rangeOk = mods.every((d) => d >= '2026-10-28' && d <= todayET);
+      check('S-4 live sitemap lastmod values are real per-URL dates (valid format, 2026-10-28..today ET, not one blanket date)',
+        mods.length === pages.pages.length && fmtOk && rangeOk && new Set(mods).size >= 2,
+        mods.length + ' values, distinct=' + new Set(mods).size + ', range ' + (mods.length ? [...mods].sort()[0] + '..' + [...mods].sort()[mods.length - 1] : 'n/a'));
+    } catch (e) {
+      check('S-4 live sitemap lastmod sanity', false, e.message);
+    }
+    // S-5: robots.txt carries the explicit AI-crawler groups.
+    try {
+      const robots = await fetchText('https://theflatratemovers.com/robots.txt');
+      const agents = ['GPTBot', 'ChatGPT-User', 'OAI-SearchBot', 'ClaudeBot', 'Claude-User', 'anthropic-ai',
+        'Google-Extended', 'PerplexityBot', 'Perplexity-User', 'CCBot', 'Applebot-Extended',
+        'Meta-ExternalAgent', 'cohere-ai', 'YouBot', 'DuckAssistBot', 'MistralAI-User'];
+      const missingAgents = agents.filter((a) => !robots.includes('User-agent: ' + a));
+      check('S-5 live robots.txt states explicit Allow groups for the 16 AI crawlers + wildcard + sitemap + llms.txt reference',
+        missingAgents.length === 0 && robots.includes('User-agent: *') && robots.includes('Allow: /') &&
+        robots.includes('Sitemap: https://theflatratemovers.com/sitemap.xml') && robots.includes('llms.txt'),
+        missingAgents.length ? 'missing: ' + missingAgents.join(', ') : 'all 16 groups present');
+    } catch (e) {
+      check('S-5 live robots.txt AI-crawler groups', false, e.message);
+    }
+    // S-6: rubric gates recorded (R8/R9 definitions + 23 + 23 scored rows).
+    try {
+      const { execSync } = require('child_process');
+      const dbPath = path.resolve(ROOT, '..', 'theflatratemovers', 'rubric.db');
+      const q = (sql) => execSync('sqlite3 "' + dbPath + '" "' + sql + '"').toString().trim();
+      const gateDefs = parseInt(q("SELECT COUNT(*) FROM rubric_check WHERE check_id IN ('R8','R9');"), 10);
+      const crawlRows = parseInt(q("SELECT COUNT(*) FROM attestation WHERE claim LIKE 'Crawlability gate —%';"), 10);
+      const provRows = parseInt(q("SELECT COUNT(*) FROM attestation WHERE claim LIKE 'Provenance & integrity gate —%';"), 10);
+      check('S-6 rubric.db carries the R8 crawlability + R9 provenance gate definitions and 23 + 23 scored gate rows',
+        gateDefs === 2 && crawlRows === services.services.length && provRows === services.services.length,
+        'defs=' + gateDefs + ', crawlability rows=' + crawlRows + ', provenance rows=' + provRows);
+    } catch (e) {
+      check('S-6 rubric gate rows present', false, e.message);
+    }
+  } catch (e) {
+    check('structural Batch 9 checks (S-1..S-6) evaluated', false, e.message);
+  }
+
   // --- 9. Guardrail scan: no placeholders, no invented license identifiers ---
   const registryText = JSON.stringify({ pages, services, locations, corridors });
   check('registry files contain no placeholder text',
