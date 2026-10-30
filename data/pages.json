@@ -4,7 +4,7 @@
   "source": "https://theflatratemovers.com/sitemap.xml joined to pageMeta in ../the-flat-rate-movers-pages/public/index.html",
   "attestation": "Every URL below was fetched from the live sitemap on 2026-10-28; titles and service links come from pageMeta in the live site source. No URL was hand-typed.",
   "typeRule": "home = site root; location = the two branch pages; corridor = route81; service = pageMeta svc non-empty; else page. The type is a registry classification, not a published claim.",
-  "count": 155,
+  "count": 156,
   "pages": [
     {
       "slug": "home",
@@ -791,6 +791,19 @@
       "status": "live",
       "source": "live sitemap.xml + pageMeta in live site source",
       "attested": "2026-10-28"
+    },
+    {
+      "slug": "specialized-workforce-labor",
+      "url": "https://theflatratemovers.com/specialized-workforce-labor/",
+      "title": "Specialized Workforce Labor",
+      "type": "service",
+      "services": [
+        "service-industrial-commercial"
+      ],
+      "lastmod": "2026-10-29",
+      "status": "live",
+      "source": "Batch 7c new page build 2026-10-29 (Henry instruction 2026-10-29: specialized workforce labor page from the 2026-10-28 supplied service data and datasets-industrial-commercial.json; workforce deployment coverage all 48 contiguous states, owner-stated 2026-10-29)",
+      "attested": "2026-10-29"
     },
     {
       "slug": "industrial-offices-moving",

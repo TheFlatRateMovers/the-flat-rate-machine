@@ -49,6 +49,6 @@
 ## Machine-Readable Data
 
 - [AI Sitemap](https://theflatratemovers.com/ai-sitemap.json): AI knowledge sitemap for The Flat Rate Movers LLC
-- [Sitemap](https://theflatratemovers.com/sitemap.xml): live Cloudflare Pages site, 155 clean canonical URLs (no hash URLs)
+- [Sitemap](https://theflatratemovers.com/sitemap.xml): live Cloudflare Pages site, 156 clean canonical URLs (no hash URLs)
 - [Service Area GeoJSON](https://theflatratemovers.com/service-area.geojson): 52 features, per branch, verified 2026-10-28
 - [Entity Graph](https://theflatratemovers.com/entity-graph.json): chained entity graph for The Flat Rate Movers LLC
