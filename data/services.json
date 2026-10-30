@@ -41,7 +41,7 @@
       "id": "service-packing",
       "name": "Packing and Unpacking",
       "description": "Full, partial and fragile-only packing and unpacking, including loading and unloading — rooms packed and labelled in sequence, fragile and high-value pieces protected, so unpacking lands in order.",
-      "pageCount": 9,
+      "pageCount": 10,
       "source": "head JSON-LD graph in live site source (index.html)",
       "attested": "2026-10-28"
     },
@@ -73,7 +73,7 @@
       "id": "service-ispm15",
       "name": "ISPM 15 Export Packing",
       "description": "Export packing to ISPM 15 (International Standards for Phytosanitary Measures No. 15) for international shipping, with crates built and marked to the ISPM 15 standard.",
-      "pageCount": 5,
+      "pageCount": 6,
       "source": "head JSON-LD graph in live site source (index.html)",
       "attested": "2026-10-28"
     },
