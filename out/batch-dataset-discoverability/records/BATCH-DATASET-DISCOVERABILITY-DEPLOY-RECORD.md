@@ -1,0 +1,171 @@
+# Batch Dataset Discoverability — Deploy Record (2026-10-30)
+
+Outlet program item: Google Dataset Search + the Zenodo DOI, executed
+per the 2026-10-30 audit
+(`~/workspace/theflatratemovers/outlets-verification-2026-10-30.md`):
+Dataset Search returned NOT FOUND on all five audit queries; Common
+Crawl held only the pre-cutover homepage. This batch closed the six
+controllable gaps and stamped the DOI.
+
+## The six gaps → the fixes
+
+1. **No `url` on any Dataset node (0/148); datasets had no HTML home,
+   only raw .json.** → 33 new canonical landing pages: a hub at
+   `/datasets/` plus one page per dataset file at `/datasets/<short>/`;
+   every Dataset node now carries `url` = its landing page. Content
+   generated from the dataset files themselves: primary-node name +
+   full description, complete node inventory, license, coverage,
+   keywords, download link, backing service page, and a certificate
+   block printing the file's SHA-256 + kid
+   `theflatratemovers-2026-10-29-1`.
+2. **`distribution` never pointed at the dataset itself (0 of ~591).**
+   → Every Dataset node's distribution now includes a self-referencing
+   DataDownload whose contentUrl is the dataset's own file (inserted
+   at the head where absent).
+3. **Untyped distribution entries (215 of ~591).** → Every
+   distribution entry estate-wide is now typed `DataDownload`
+   (inserted as the entry's first key; no entry removed).
+4. **`sameAs` shared across different datasets.** → `sameAs` = the
+   dataset's own landing page URL, unique per dataset FILE (nodes of
+   one file share that file's landing identity — that is the dataset).
+5. **No `identifier`, no `isAccessibleForFree` (0/148).** → Every
+   Dataset node carries `isAccessibleForFree: true` and an
+   `identifier`: the landing page URL — except the collection-level
+   nodes, which carry the DOI (below).
+6. **Dataset files absent from sitemap.xml (0).** → sitemap.xml now
+   lists all 200 pages + all 32 dataset files (232 locs); ai-sitemap,
+   llms.txt (both copies), the data txt and the on-site sitemap page
+   updated in the same motion.
+
+## The DOI
+
+Zenodo archived GitHub release **v1.1.0** of
+`TheFlatRateMovers/theflatratemovers-ai` (record
+https://zenodo.org/records/23818767). Concept DOI
+**10.5281/zenodo.23818766** (always resolves to the latest version);
+version DOI 10.5281/zenodo.23818767. It is stamped as a
+PropertyValue identifier (`propertyID: "DOI"`) on exactly five
+holders: the intent-coverage dataset's four collection nodes
+(scope, taxonomy, resolution, totals — in the dataset file and,
+through the landing page's embed, in the shell) and the root of the
+signed AI master index. It is NEVER stamped on individual service
+datasets. The intent landing page and the datasets hub print both
+DOIs with doi.org links; llms.txt and the data txt carry the DOI in
+the intent entry and in dated update entries; the Developer page
+gained a "Published Datasets — Landing Pages & Zenodo DOI" card.
+
+## Count deviation (recorded, brief superseded by fact)
+
+The brief said "31 datasets-*.json files" (the estate's display
+counter). There are **32** dataset files — the counter excludes the
+intent-coverage dataset. Landing pages were built for ALL 32 + the
+hub = **33 new pages (167 → 200)** and **+33 distributions
+(220 → 253)**, not 199/252. Distributions: 42 data + 200 pages +
+11 shell/code.
+
+## Transform scope (checker-verified)
+
+- 31 non-intent dataset files transformed in their own native
+  serializations (formats preserved per file; videos file has 0
+  Dataset nodes and stayed byte-identical).
+- index.html: 9 pre-existing full-file embeds replaced byte-wise;
+  30 graph blocks / **116 Dataset instances** transformed in place in
+  their own block styles (whitespace framing + indent/ensure_ascii/
+  compact variants round-trip-proven before editing); the 32 new
+  landing embeds were already final.
+- Entity-graph roots in all four copies (site, machine, flat mirror,
+  ai full graph) self-treated (url/sameAs/identifier = the graph's own
+  URL + self DataDownload, application/ld+json). The best graphs
+  contain 0 Dataset nodes (asserted; unchanged this batch).
+- ai-sitemap roots (public + phase-a): fields-only treatment
+  (identifier = own URL, isAccessibleForFree, sameAs = own URL;
+  distribution keeps the sitemap's mediaType form — format preserved
+  per the Batch 9 rule).
+- ai-master-index: root gains the DOI identifier + isAccessibleForFree
+  + sameAs = the doi.org URL (url stays the GitHub repo); the legacy
+  vault case-study node (@id …/datasets/vault-relocation-case-study)
+  gains identifier = its @id + isAccessibleForFree only (no landing
+  page exists for it — none was invented).
+- Per-page JSONs: the 33 NEW page JSONs only (hub + landings), each
+  carrying a Dataset node for its dataset with the same fields; the
+  167 pre-existing page JSONs contain no Dataset nodes (they embed
+  copies of the signed index's distribution list, not Dataset nodes).
+- Intent dataset: regenerated by generator **v1.3.2** (typed
+  distributions + self entry; landing url/sameAs; DOI on the four
+  collection nodes; landing identifier on the 28 coverage nodes).
+  **Rows stayed exactly 1,218** (0 excluded); the row digest changed
+  (10aaafc7…) because the backing dataset digests changed — the count
+  gate held, per the brief's stop rule.
+
+## Seal set-diffs (asserted, by category)
+
+- Pass 1: added == the 33 new per-page JSON URLs; removed == 0;
+  changed == 39 (30 transformed dataset files + entity-graph.json +
+  ai-sitemap.json + llms.txt + all-pages.json + shell + middleware +
+  head-data + verify.js + gen-head-data.js).
+- Pass 2 (after generator + intent div patch): changed ==
+  {datasets-intent-coverage.json, site shell} exactly.
+- Passes 3–5 (verify.js corrections below): changed == {verify.js}
+  each time. Final: **253 distributions, PROVENANCE over live bytes
+  pending the final verify run at the end of this record.**
+
+## verify.js (88 → 93 checks)
+
+P-5 totals 167/220 → 200/253 with dated comment; section 2 REWRITTEN
+stricter (expected live sitemap set = registry pages ∪ dataset files,
+derived — see out/verify-fix-2026-10-30-dataset-discoverability.md);
+S-4 count follows the same derived total; new section 14 D-1..D-5
+asserting the landing-page/identifier/DOI invariants. Two defects in
+the new D-checks were caught by their own first runs and fixed before
+the first green run (head-data source path; D-4 root-node extraction)
+— addendum in the verify-fix record. No check removed or weakened.
+
+## Gates (all green before deploy)
+
+- checker.py (files + shell + all per-page JSONs): all post-conditions
+  hold; DOI holders exactly the 5 legal ones.
+- local-gates.js: router == pageMeta == 200 (33 new keys, names +
+  canonicals matching).
+- page-gates.py: 33 divs once + before `<footer>`; landing embeds
+  byte-identical to their files; canonical Organization/Place nodes
+  in the new page JSONs (hub mirrors developer.json's node set);
+  DOI confined to the intent surfaces; CTA pair on every new page;
+  no "attested"; American spellings; quote-form md5
+  `4d8d49f05b22b129eac623a41370d9cb` unchanged; STATIC_FILES 305.
+- Middleware suite 49/49 (41 prior + hub/landing titles, jf
+  passthroughs, unknown dataset slug 404).
+- node --check on the shell's executable scripts.
+- verify.js pre-push: 92/93 with only P-6 outstanding (the five
+  repo-served code files, resolved by this batch's pushes).
+- Live checks post-deploy: 33/33 new routes 200 + own titles;
+  4 recent routes intact; dataset files + new page JSONs serve
+  application/json; live intent dataset carries the DOI; live
+  sitemap = 232 locs with all 65 new URLs.
+
+## Staging defects corrected in-batch (all before deploy)
+
+1. build2's first pageMeta insertion lacked the trailing comma on the
+   (previously last) medical entry — caught by node --check; index
+   restored from backup and the insert fixed.
+2. Several build anchors reconstructed from memory missed the live
+   bytes (chips are `href="#/…"` links; sitemap rows use the
+   `.smap-row` pattern; the Developer page had NO intent card) —
+   each re-anchored on the actual bytes; the datasets card went after
+   the Entity graphs card, as recorded.
+3. transform_html style detection extended to the shell's real block
+   styles (whitespace framing, indent 1/2, ensure_ascii variants,
+   compact) — every block round-trip-proven before editing.
+4. The D-1/D-4 verify.js defects above.
+
+## Deploys
+
+- Main: 78b81dd2.the-flat-rate-movers.pages.dev (73 files uploaded).
+- Index refreshes after seal passes 3–5: a84b1296, a8979238,
+  da2c88eb (2 files each: ai-master-index.json + .jws).
+
+## Pushes (one per repo, back-to-back)
+
+- ai: HEAD 334b0322 → (see below); machine: HEAD 8a713032 → (see below).
+- Gist-based ai `data/entity-graph.json` (blob
+  cda897e61319a0f52172ef1365402e4d7179cddf) NOT in the push tree —
+  re-confirmed after the pushes.

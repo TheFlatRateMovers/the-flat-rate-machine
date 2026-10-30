@@ -1015,5 +1015,16 @@
     ],
     "purpose": "Use this rubric to check any page, node, or graph before go-live: does it chain, does it cite, does it source?"
   },
-  "version": "2026-10-28"
+  "version": "2026-10-28",
+  "url": "https://theflatratemovers.com/entity-graph.json",
+  "sameAs": "https://theflatratemovers.com/entity-graph.json",
+  "identifier": "https://theflatratemovers.com/entity-graph.json",
+  "isAccessibleForFree": true,
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://theflatratemovers.com/entity-graph.json",
+      "encodingFormat": "application/ld+json"
+    }
+  ]
 }

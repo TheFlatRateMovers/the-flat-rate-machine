@@ -15,6 +15,11 @@ const FLAT = path.resolve(ROOT, '..', 'theflatratemovers');
 const LIVE_SITEMAP = 'https://theflatratemovers.com/sitemap.xml';
 const LIVE_GEOJSON = 'https://theflatratemovers.com/service-area.geojson';
 const PHASE_A = path.join(ROOT, 'out', 'phase-a');
+// Batch Dataset Discoverability (2026-10-30): the published dataset
+// files, enumerated from the Pages public listing — sitemap and
+// discoverability expectations derive from this, never a literal.
+const PAGES_PUBLIC = path.resolve(ROOT, '..', 'the-flat-rate-movers-pages', 'public');
+const DATASET_FILES = fs.readdirSync(PAGES_PUBLIC).filter((f) => /^datasets-.+\.json$/.test(f)).sort();
 
 const results = [];
 function check(name, ok, detail) {
@@ -62,6 +67,13 @@ async function main() {
     'count=' + pages.count + ', entries=' + pages.pages.length);
 
   // --- 2. Live sitemap set equality (fetched fresh, not from disk) ---
+  // Rewritten by Batch Dataset Discoverability, 2026-10-30 (record:
+  // out/verify-fix-2026-10-30-dataset-discoverability.md): the
+  // sitemap now also lists the published dataset files (Dataset
+  // Search + Common Crawl discoverability), so the expected live
+  // set is pages.json URLs + dataset-file URLs, both derived —
+  // stricter than the old pages-only premise, which this approved
+  // batch superseded. Check names say what they now assert.
   let liveUrls = null;
   try {
     const xml = await fetchText(LIVE_SITEMAP);
@@ -72,13 +84,15 @@ async function main() {
   }
   if (liveUrls) {
     const mine = new Set(pages.pages.map((p) => p.url));
-    const missing = [...mine].filter((u) => !liveUrls.has(u));
-    const extra = [...liveUrls].filter((u) => !mine.has(u));
-    check('every pages.json URL is in the live sitemap', missing.length === 0,
-      missing.length ? 'missing: ' + missing.join(', ') : 'all ' + mine.size + ' present');
-    check('every live sitemap URL is in pages.json', extra.length === 0,
-      extra.length ? 'extra: ' + extra.join(', ') : 'no extras');
-    check('live sitemap URL count matches registry', liveUrls.size === pages.pages.length, 'live=' + liveUrls.size + ', registry=' + pages.pages.length);
+    const dsUrls = new Set(DATASET_FILES.map((f) => 'https://theflatratemovers.com/' + f));
+    const expected = new Set([...mine, ...dsUrls]);
+    const missing = [...expected].filter((u) => !liveUrls.has(u));
+    const extra = [...liveUrls].filter((u) => !expected.has(u));
+    check('every pages.json URL is in the live sitemap', [...mine].filter((u) => !liveUrls.has(u)).length === 0,
+      [...mine].filter((u) => !liveUrls.has(u)).length ? 'missing: ' + [...mine].filter((u) => !liveUrls.has(u)).join(', ') : 'all ' + mine.size + ' present');
+    check('every live sitemap URL is a registry page or a published dataset file', extra.length === 0,
+      extra.length ? 'extra: ' + extra.join(', ') : 'no extras beyond ' + mine.size + ' pages + ' + dsUrls.size + ' dataset files');
+    check('live sitemap URL count matches registry + dataset files', liveUrls.size === expected.size, 'live=' + liveUrls.size + ', expected=' + expected.size);
   }
   check('no hash URLs in pages.json', pages.pages.every((p) => !p.url.includes('#')));
 
@@ -638,6 +652,15 @@ async function main() {
     // regenerated + re-sealed in the same batch with the new service's
     // rows). The assertion stays exact-count. Record:
     // out/verify-fix-2026-10-30-medical-lab-relocation.md.
+    // Extended by Batch Dataset Discoverability, 2026-10-30 (same
+    // motion): totals move to 200 per-page JSON files and 253
+    // distributions (42 data + 200 pages + 11 shell/code — the 33 new
+    // dataset landing pages join the page set; no data file is added,
+    // but every file carrying Dataset nodes changes digest as the
+    // Dataset Search metadata lands, and datasets-intent-coverage.json
+    // is regenerated + re-sealed in the same batch). The assertion
+    // stays exact-count. Record:
+    // out/verify-fix-2026-10-30-dataset-discoverability.md.
     const P2_CODE_URLS = [
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/code/site-shell/index.html',
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/code/pages-functions/_middleware.js',
@@ -659,12 +682,12 @@ async function main() {
       const distUrls = new Set((servedIndex.distribution || []).map((e) => e.contentUrl));
       const missingPages = pageFiles.filter((f) => !distUrls.has('https://theflatratemovers.com/' + f));
       const missingCode = P2_CODE_URLS.filter((u) => !distUrls.has(u));
-      p5ok = !!servedIndex && pageFiles.length === 167 && missingPages.length === 0 && missingCode.length === 0 &&
-        (servedIndex.distribution || []).length === 220;
+      p5ok = !!servedIndex && pageFiles.length === 200 && missingPages.length === 0 && missingCode.length === 0 &&
+        (servedIndex.distribution || []).length === 253;
       p5detail = 'pageFiles=' + pageFiles.length + ', missingPages=' + (missingPages.join(',') || '0') +
         ', missingCode=' + (missingCode.join(',') || '0') + ', distributions=' + (servedIndex ? (servedIndex.distribution || []).length : 0);
     } catch (e) { p5ok = false; p5detail = e.message; }
-    check('P-5 certificate covers all 167 per-page JSONs + the site shell + the deployed code sets (220 distributions)',
+    check('P-5 certificate covers all 200 per-page JSONs + the site shell + the deployed code sets (253 distributions)',
       p5ok, p5detail);
 
     // P-6: repo-served distribution digests re-computed over live bytes
@@ -745,7 +768,7 @@ async function main() {
       const fmtOk = mods.every((d) => /^\d{4}-\d{2}-\d{2}$/.test(d) && !isNaN(Date.parse(d)));
       const rangeOk = mods.every((d) => d >= '2026-10-28' && d <= todayET);
       check('S-4 live sitemap lastmod values are real per-URL dates (valid format, 2026-10-28..today ET, not one blanket date)',
-        mods.length === pages.pages.length && fmtOk && rangeOk && new Set(mods).size >= 2,
+        mods.length === pages.pages.length + DATASET_FILES.length && fmtOk && rangeOk && new Set(mods).size >= 2,
         mods.length + ' values, distinct=' + new Set(mods).size + ', range ' + (mods.length ? [...mods].sort()[0] + '..' + [...mods].sort()[mods.length - 1] : 'n/a'));
     } catch (e) {
       check('S-4 live sitemap lastmod sanity', false, e.message);
@@ -866,6 +889,113 @@ async function main() {
       'status=' + liveDsRes.status + ', content-type=' + liveDsRes.ct + ', digest match=' + (liveD8 ? liveD8.intentRowsDigest === metaI.rows_digest : 'unparseable'));
   } catch (e) {
     check('intent-coverage rubric checks (I-1..I-5) evaluated', false, e.message);
+  }
+
+  // --- 14. Dataset discoverability — Batch Dataset Discoverability (2026-10-30; checks D-1..D-5) ---
+  // Added in the same motion as the feature shipped (record:
+  // out/verify-fix-2026-10-30-dataset-discoverability.md). The batch
+  // closed the six gaps of the 2026-10-30 Dataset Search audit: every
+  // published dataset gained a canonical landing page, and every
+  // Dataset node estate-wide gained its landing url + unique sameAs,
+  // an identifier, isAccessibleForFree, fully typed distributions and
+  // a self-referencing DataDownload; the intent-coverage collection
+  // and the signed master index carry the estate's Zenodo concept DOI
+  // (10.5281/zenodo.23818766) as identifier. These checks assert the
+  // invariants so a silent regression fails the suite.
+  try {
+    const SITE_D = 'https://theflatratemovers.com';
+    const DOI_D = '10.5281/zenodo.23818766';
+    const dsFilesD = DATASET_FILES.slice().sort();
+    const landingOfD = (f) => SITE_D + '/datasets/' + f.replace(/^datasets-/, '').replace(/\.json$/, '') + '/';
+    const dsNodesOfD = (doc) => ((doc && doc['@graph']) || []).filter((n) => n && n['@type'] === 'Dataset');
+    // D-1: a landing page per dataset file — registry entry, per-page
+    // JSON sealed in the served signed index, head-data entry.
+    const servedIdxD = JSON.parse(await fetchText(SITE_D + '/ai-master-index.json'));
+    const distD = new Set((servedIdxD.distribution || []).map((e) => e.contentUrl));
+    const headSrcD = fs.readFileSync(path.join(PAGES_PUBLIC, '..', 'functions', 'head-data.js'), 'utf8');
+    const HEADD = JSON.parse(headSrcD.replace(/^\/\/[^\n]*\n/gm, '').replace('export const HEAD = ', '').replace(/;\s*$/, ''));
+    const pageUrlsD = new Set(pages.pages.map((p) => p.url));
+    const landingsD = [SITE_D + '/datasets/', ...dsFilesD.map(landingOfD)];
+    const d1bad = [];
+    for (const u of landingsD) {
+      const jf = u === SITE_D + '/datasets/' ? 'datasets.json' : 'dataset-' + u.split('/datasets/')[1].replace(/\//g, '') + '.json';
+      if (!pageUrlsD.has(u)) d1bad.push(u + ' not in pages.json');
+      if (!distD.has(SITE_D + '/' + jf)) d1bad.push(jf + ' not in signed index');
+      if (!HEADD[u.replace(SITE_D, '').replace(/\/$/, '')]) d1bad.push(u + ' no head-data entry');
+    }
+    check('D-1 every published dataset file has a landing page (registry + per-page JSON in the signed index + head-data entry)',
+      d1bad.length === 0, dsFilesD.length + ' dataset files, ' + landingsD.length + ' landing pages' + (d1bad.length ? ', bad: ' + d1bad.slice(0, 4).join('; ') : ''));
+    // D-2: Dataset-node invariants in the dataset files + the shell.
+    const id2fileD = {};
+    const fileDocsD = {};
+    for (const f of dsFilesD) {
+      const d = JSON.parse(fs.readFileSync(path.join(PAGES_PUBLIC, f), 'utf8'));
+      fileDocsD[f] = d;
+      for (const n of dsNodesOfD(d)) if (n['@id']) id2fileD[n['@id']] = f;
+    }
+    const badNodesD = [];
+    const checkNodeD = (n, src) => {
+      const f = id2fileD[n['@id']];
+      if (!f) { badNodesD.push(src + ' unmapped ' + n['@id']); return; }
+      const L = landingOfD(f);
+      if (n.url !== L) badNodesD.push(src + ' ' + n['@id'] + ' url');
+      if (n.sameAs !== L) badNodesD.push(src + ' ' + n['@id'] + ' sameAs');
+      const isIntentColl = f === 'datasets-intent-coverage.json' && String(n['@id']).includes('#dataset-intent-coverage-');
+      const idOk = isIntentColl
+        ? (n.identifier && n.identifier.propertyID === 'DOI' && n.identifier.value === DOI_D)
+        : n.identifier === L;
+      if (!idOk) badNodesD.push(src + ' ' + n['@id'] + ' identifier');
+      if (n.isAccessibleForFree !== true) badNodesD.push(src + ' ' + n['@id'] + ' isAccessibleForFree');
+      const dist = n.distribution || [];
+      if (dist.some((e) => !e || e['@type'] !== 'DataDownload')) badNodesD.push(src + ' ' + n['@id'] + ' untyped distribution');
+      if (!dist.some((e) => e && e.contentUrl === SITE_D + '/' + f)) badNodesD.push(src + ' ' + n['@id'] + ' no self download');
+    };
+    for (const f of dsFilesD) for (const n of dsNodesOfD(fileDocsD[f])) checkNodeD(n, f);
+    const htmlD = fs.readFileSync(path.join(PAGES_PUBLIC, 'index.html'), 'utf8');
+    let shellCountD = 0;
+    for (const m of htmlD.matchAll(/<script type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)) {
+      let doc = null;
+      try { doc = JSON.parse(m[1]); } catch (_) { doc = null; }
+      const ns = doc ? (doc['@graph'] || [doc]) : [];
+      for (const n of ns) if (n && n['@type'] === 'Dataset') { shellCountD++; checkNodeD(n, 'index.html'); }
+    }
+    check('D-2 every Dataset node (dataset files + index.html) carries landing url/unique sameAs, an identifier, isAccessibleForFree, typed distributions and a self-referencing DataDownload',
+      badNodesD.length === 0, 'files + ' + shellCountD + ' shell instances' + (badNodesD.length ? ', bad: ' + badNodesD.slice(0, 4).join('; ') : ''));
+    // D-3: local sitemap set == registry pages + dataset files.
+    const localXmlD = fs.readFileSync(path.join(PAGES_PUBLIC, 'sitemap.xml'), 'utf8');
+    const localUrlsD = new Set([...localXmlD.matchAll(/<loc>(.*?)<\/loc>/g)].map((m) => m[1].trim()));
+    const expectedD = new Set([...pageUrlsD, ...dsFilesD.map((f) => SITE_D + '/' + f)]);
+    const d3missing = [...expectedD].filter((u) => !localUrlsD.has(u));
+    const d3extra = [...localUrlsD].filter((u) => !expectedD.has(u));
+    check('D-3 local sitemap.xml URL set equals pages.json URLs plus the published dataset files',
+      d3missing.length === 0 && d3extra.length === 0 && localUrlsD.size === expectedD.size,
+      'local=' + localUrlsD.size + ', expected=' + expectedD.size +
+      (d3missing.length ? ', missing: ' + d3missing.slice(0, 3).join(', ') : '') +
+      (d3extra.length ? ', extra: ' + d3extra.slice(0, 3).join(', ') : ''));
+    // D-4: site + machine entity graphs agree on Dataset-node fields.
+    const gSiteD = JSON.parse(fs.readFileSync(path.join(PAGES_PUBLIC, 'entity-graph.json'), 'utf8'));
+    const projD = (g) => {
+      const o = {};
+      const all = g ? [g, ...(g['@graph'] || [])] : [];
+      for (const n of all) if (n && n['@type'] === 'Dataset') o[n['@id']] = [n.url, n.sameAs, typeof n.identifier === 'object' ? JSON.stringify(n.identifier) : n.identifier, n.isAccessibleForFree];
+      return o;
+    };
+    const pSiteD = projD(gSiteD), pMacD = projD(graph);
+    const d4bad = Object.keys(pSiteD).filter((k) => JSON.stringify(pSiteD[k]) !== JSON.stringify(pMacD[k]));
+    check('D-4 site and machine entity graphs agree on every Dataset node landing url/sameAs/identifier',
+      d4bad.length === 0 && Object.keys(pSiteD).length === Object.keys(pMacD).length && Object.keys(pSiteD).length > 0,
+      'nodes=' + Object.keys(pSiteD).length + (d4bad.length ? ', bad: ' + d4bad.join(', ') : ''));
+    // D-5: the DOI is live on the intent dataset + the landing page
+    // serves its own title.
+    const liveIntentD = JSON.parse(await fetchText(SITE_D + '/datasets-intent-coverage.json'));
+    const collD = dsNodesOfD(liveIntentD).filter((n) => String(n['@id']).includes('#dataset-intent-coverage-'));
+    const doiOkD = collD.length === 4 && collD.every((n) => n.identifier && n.identifier.propertyID === 'DOI' && n.identifier.value === DOI_D);
+    const landingHtmlD = await fetchText(SITE_D + '/datasets/intent-coverage/');
+    check('D-5 live intent-coverage dataset carries the Zenodo concept DOI on its collection nodes and its landing page serves its own title',
+      doiOkD && landingHtmlD.includes('<title>The Flat Rate Movers — Search Intent Coverage Dataset</title>'),
+      'collection nodes=' + collD.length + ', doi=' + doiOkD + ', own title served=' + landingHtmlD.includes('Search Intent Coverage Dataset'));
+  } catch (e) {
+    check('dataset discoverability checks (D-1..D-5) evaluated', false, e.message);
   }
 
   // --- 9. Guardrail scan: no placeholders, no invented license identifiers ---

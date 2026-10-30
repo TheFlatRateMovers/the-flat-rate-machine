@@ -145,7 +145,7 @@
     "telephone": "+1-540-422-2153"
   },
   "dateModified": "2026-10-30",
-  "description": "Machine-readable index of AI, developer, and operational JSON endpoints for The Flat Rate Movers LLC, plus the core pages, services, and SIR / KIM-GS authority for theflatratemovers.com. 167 clean canonical URLs in sitemap.xml, 28 services, 53 service-area features, branches distinct (Winchester: The Flat Rate Movers; Martinsburg: Flat Rate Movers Martinsburg WV), founded June 2010. No USDOT/MC number is listed (unconfirmed).",
+  "description": "Machine-readable index of AI, developer, and operational JSON endpoints for The Flat Rate Movers LLC, plus the core pages, services, and SIR / KIM-GS authority for theflatratemovers.com. 200 clean canonical URLs in sitemap.xml (200 pages plus the 32 published dataset files), 28 services, 53 service-area features, branches distinct (Winchester: The Flat Rate Movers; Martinsburg: Flat Rate Movers Martinsburg WV), founded June 2010. No USDOT/MC number is listed (unconfirmed).",
   "distribution": [
     {
       "mediaType": "application/xml",
@@ -1007,6 +1007,171 @@
       "@type": "WebPage",
       "name": "Medical & Laboratory Equipment Relocation",
       "url": "https://theflatratemovers.com/medical-lab-equipment-relocation/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Commercial Moving Datasets",
+      "url": "https://theflatratemovers.com/datasets/commercial/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Custom Crating Datasets",
+      "url": "https://theflatratemovers.com/datasets/crating/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Data Center Relocation Datasets",
+      "url": "https://theflatratemovers.com/datasets/data-center-relocation/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "FF&E Logistics Datasets",
+      "url": "https://theflatratemovers.com/datasets/ffe-logistics/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Final-Mile Delivery Datasets",
+      "url": "https://theflatratemovers.com/datasets/final-mile/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Government Moving Datasets",
+      "url": "https://theflatratemovers.com/datasets/government/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Gun Safe Moving Datasets",
+      "url": "https://theflatratemovers.com/datasets/gun-safe/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Industrial & Commercial Project Support Datasets",
+      "url": "https://theflatratemovers.com/datasets/industrial-commercial/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Industrial Offices Moving Datasets",
+      "url": "https://theflatratemovers.com/datasets/industrial-offices/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Search Intent Coverage Dataset",
+      "url": "https://theflatratemovers.com/datasets/intent-coverage/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "ISPM 15 Export Packing Datasets",
+      "url": "https://theflatratemovers.com/datasets/ispm15/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "IT Equipment Relocation Datasets",
+      "url": "https://theflatratemovers.com/datasets/it/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Junk Removal Datasets",
+      "url": "https://theflatratemovers.com/datasets/junk-removal/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Local & Regional Moving Datasets",
+      "url": "https://theflatratemovers.com/datasets/local-regional/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Long-Distance Moving Datasets",
+      "url": "https://theflatratemovers.com/datasets/long-distance/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Medical & Laboratory Equipment Relocation Datasets",
+      "url": "https://theflatratemovers.com/datasets/medical-lab-relocation/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Military Moving Datasets",
+      "url": "https://theflatratemovers.com/datasets/military/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Moving & Storage Datasets",
+      "url": "https://theflatratemovers.com/datasets/moving-and-storage/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Ocean Container Datasets",
+      "url": "https://theflatratemovers.com/datasets/ocean-container/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Office Moving Datasets",
+      "url": "https://theflatratemovers.com/datasets/office/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Packing Services Datasets",
+      "url": "https://theflatratemovers.com/datasets/packing/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Piano, Antique & White-Glove Datasets",
+      "url": "https://theflatratemovers.com/datasets/piano-antique/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Residential Moving Datasets",
+      "url": "https://theflatratemovers.com/datasets/residential/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Route 81 Corridor Datasets",
+      "url": "https://theflatratemovers.com/datasets/route81/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Senior Moving Datasets",
+      "url": "https://theflatratemovers.com/datasets/senior/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "SIR Heavy-Asset Datasets",
+      "url": "https://theflatratemovers.com/datasets/sir-heavy/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Virginia Inland Port Transloading Datasets",
+      "url": "https://theflatratemovers.com/datasets/transloading-inland-port/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Winchester Transloading Datasets",
+      "url": "https://theflatratemovers.com/datasets/transloading-winchester/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Transloading Datasets",
+      "url": "https://theflatratemovers.com/datasets/transloading/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Moving Videos Dataset",
+      "url": "https://theflatratemovers.com/datasets/videos/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Warehouse Racking Relocation Datasets",
+      "url": "https://theflatratemovers.com/datasets/warehouse-racking-relocation/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Warehouse Relocation Datasets",
+      "url": "https://theflatratemovers.com/datasets/warehouse/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Published Datasets",
+      "url": "https://theflatratemovers.com/datasets/"
     }
   ],
   "keywords": [
@@ -1163,5 +1328,8 @@
     }
   ],
   "url": "https://theflatratemovers.com/ai-sitemap.json",
-  "version": "2026-10-29"
+  "version": "2026-10-29",
+  "identifier": "https://theflatratemovers.com/ai-sitemap.json",
+  "isAccessibleForFree": true,
+  "sameAs": "https://theflatratemovers.com/ai-sitemap.json"
 }

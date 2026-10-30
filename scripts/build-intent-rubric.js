@@ -102,7 +102,17 @@ const GENERATOR = 'build-intent-rubric.js';
 // service service-medical-lab-relocation added to HUB / PHRASE /
 // DATASETS / BASE_ONLY / BRANCH (hub medical-lab-equipment-relocation;
 // base-only 'both' — no GeoJSON capability mapping for this service).
-const GENERATOR_VERSION = '1.3.1';
+// 2026-10-30 (Batch Dataset Discoverability, v1.3.2): the published
+// dataset gains the Dataset Search discoverability fields — every
+// distribution entry typed DataDownload with a self-referencing entry
+// for datasets-intent-coverage.json, and every Dataset-typed node
+// carrying url + sameAs = the dataset's canonical landing page
+// (https://theflatratemovers.com/datasets/intent-coverage/), an
+// identifier (the estate's Zenodo concept DOI 10.5281/zenodo.23818766
+// as a PropertyValue on the four collection nodes; the landing URL on
+// the per-service coverage nodes) and isAccessibleForFree. Rows are
+// unaffected (the row set and gates do not change).
+const GENERATOR_VERSION = '1.3.2';
 const KID = 'theflatratemovers-2026-10-29-1';
 
 // --- Generator configuration (validated against the registries) ---
@@ -576,10 +586,11 @@ const CREATOR = {
   ],
 };
 const CORE_DIST = [
-  { contentUrl: SITE + '/ai-sitemap.json', encodingFormat: 'application/json' },
-  { contentUrl: SITE + '/service-area.geojson', encodingFormat: 'application/geo+json' },
-  { contentUrl: SITE + '/entity-graph.json', encodingFormat: 'application/ld+json' },
-  { contentUrl: SITE + '/best-json-entity-graph.json', encodingFormat: 'application/ld+json' },
+  { '@type': 'DataDownload', contentUrl: SITE + '/datasets-intent-coverage.json', encodingFormat: 'application/json' },
+  { '@type': 'DataDownload', contentUrl: SITE + '/ai-sitemap.json', encodingFormat: 'application/json' },
+  { '@type': 'DataDownload', contentUrl: SITE + '/service-area.geojson', encodingFormat: 'application/geo+json' },
+  { '@type': 'DataDownload', contentUrl: SITE + '/entity-graph.json', encodingFormat: 'application/ld+json' },
+  { '@type': 'DataDownload', contentUrl: SITE + '/best-json-entity-graph.json', encodingFormat: 'application/ld+json' },
 ];
 const SPATIAL = [{ '@id': SITE + '/#winchester' }, { '@id': SITE + '/#martinsburg' }];
 const LICENSE = 'https://creativecommons.org/licenses/by/4.0/';
@@ -629,8 +640,9 @@ function buildDataset(gen) {
       [{ '@id': svcRows[0].graph_node }]);
     node.url = hubPage.url;
     node.distribution = [
-      { contentUrl: SITE + '/' + jsonFileFor(HUB[svc.id]), encodingFormat: 'application/json' },
-      ...DATASETS[svc.id].map((f) => ({ contentUrl: SITE + '/' + f, encodingFormat: 'application/json' })),
+      { '@type': 'DataDownload', contentUrl: SITE + '/datasets-intent-coverage.json', encodingFormat: 'application/json' },
+      { '@type': 'DataDownload', contentUrl: SITE + '/' + jsonFileFor(HUB[svc.id]), encodingFormat: 'application/json' },
+      ...DATASETS[svc.id].map((f) => ({ '@type': 'DataDownload', contentUrl: SITE + '/' + f, encodingFormat: 'application/json' })),
     ];
     node.graphNode = svcRows[0].graph_node;
     node.queryRows = svcRows.length;
@@ -701,7 +713,31 @@ function buildDataset(gen) {
   d8.generatedBy = GENERATOR + ' v' + GENERATOR_VERSION;
   d8.areaCoverage = areaCov;
 
-  return { '@context': 'https://schema.org', '@graph': [d1, d2, d3, d4, d5, d6, d7, d8, ...coverageNodes] };
+  // Batch Dataset Discoverability, 2026-10-30 (v1.3.2): every
+  // Dataset-typed node carries the discoverability fields — url +
+  // sameAs = this dataset's canonical landing page, isAccessibleForFree,
+  // and an identifier: the estate's Zenodo concept DOI as a
+  // PropertyValue on the four collection nodes (scope, taxonomy,
+  // resolution, totals), the landing URL on the per-service coverage
+  // nodes. The D1 operations node is Service-typed (the rubric's
+  // operations face): it gains sameAs + identifier pointing at the
+  // landing page. The row set is untouched by this block.
+  const LANDING = SITE + '/datasets/intent-coverage/';
+  const DOI_PV = { '@type': 'PropertyValue', propertyID: 'DOI', value: '10.5281/zenodo.23818766', url: 'https://doi.org/10.5281/zenodo.23818766' };
+  const COLLECTION_IDS = ['#dataset-intent-coverage-scope', '#dataset-intent-coverage-taxonomy', '#dataset-intent-coverage-resolution', '#dataset-intent-coverage-totals'];
+  const graph = [d1, d2, d3, d4, d5, d6, d7, d8, ...coverageNodes];
+  for (const n of graph) {
+    if (n['@type'] === 'Dataset') {
+      n.url = LANDING;
+      n.sameAs = LANDING;
+      n.identifier = COLLECTION_IDS.some((s) => n['@id'].endsWith(s)) ? DOI_PV : LANDING;
+      n.isAccessibleForFree = true;
+    }
+  }
+  d1.sameAs = LANDING;
+  d1.identifier = LANDING;
+
+  return { '@context': 'https://schema.org', '@graph': graph };
 }
 
 // --- Database write (sqlite3 CLI, the same tool verify.js uses) ---
