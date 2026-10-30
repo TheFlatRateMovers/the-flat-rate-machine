@@ -1,0 +1,432 @@
+[
+ {
+  "kind": "geojson",
+  "target": "/home/hatch/workspace/the-flat-rate-movers-pages/public/service-area.geojson",
+  "detail": "feature inserted after place-woodstock-va; features 52 -> 53; version/dateModified -> 2026-10-30"
+ },
+ {
+  "kind": "geojson",
+  "target": "/home/hatch/workspace/the-flat-rate-machine/data/service-area.geojson",
+  "detail": "feature inserted after place-woodstock-va; features 52 -> 53; version/dateModified -> 2026-10-30"
+ },
+ {
+  "kind": "geojson",
+  "target": "pair-check",
+  "detail": "site == machine data copy (byte-identical)"
+ },
+ {
+  "kind": "json",
+  "target": "ai-catalog.json",
+  "detail": "count phrases updated x1"
+ },
+ {
+  "kind": "json",
+  "target": "ai-sitemap.json",
+  "detail": "winchester footprint lists +Bristow x1 (branch-order); dateModified restamped x1; count phrases updated x1"
+ },
+ {
+  "kind": "json",
+  "target": "areas-served.json",
+  "detail": "winchester footprint lists +Bristow x1 (alpha); dateModified restamped x1"
+ },
+ {
+  "kind": "json",
+  "target": "best-json-entity-graph.json",
+  "detail": "dateModified restamped x2; count phrases updated x1"
+ },
+ {
+  "kind": "json",
+  "target": "calibration-safe-moving.json",
+  "detail": "winchester footprint lists +Bristow x1 (alpha); dateModified restamped x1"
+ },
+ {
+  "kind": "json",
+  "target": "case-study-3500lb-safe-moving-winchester-va.json",
+  "detail": "winchester footprint lists +Bristow x1 (alpha); dateModified restamped x1"
+ },
+ {
+  "kind": "json",
+  "target": "commercial-movers-winchester-va.json",
+  "detail": "winchester footprint lists +Bristow x1 (branch-order)"
+ },
+ {
+  "kind": "json",
+  "target": "commercial-moving.json",
+  "detail": "winchester footprint lists +Bristow x1 (alpha)"
+ },
+ {
+  "kind": "json",
+  "target": "commercial-office-moving-2.json",
+  "detail": "winchester footprint lists +Bristow x1 (alpha)"
+ },
+ {
+  "kind": "json",
+  "target": "datasets-commercial.json",
+  "detail": "dateModified restamped x8; count phrases updated x4"
+ },
+ {
+  "kind": "json",
+  "target": "datasets-crating.json",
+  "detail": "dateModified restamped x8; count phrases updated x3"
+ },
+ {
+  "kind": "json",
+  "target": "datasets-final-mile.json",
+  "detail": "dateModified restamped x8; count phrases updated x3"
+ },
+ {
+  "kind": "json",
+  "target": "datasets-government.json",
+  "detail": "dateModified restamped x8; count phrases updated x3"
+ },
+ {
+  "kind": "json",
+  "target": "datasets-gun-safe.json",
+  "detail": "dateModified restamped x18; count phrases updated x5"
+ },
+ {
+  "kind": "json",
+  "target": "datasets-industrial-commercial.json",
+  "detail": "dateModified restamped x8; count phrases updated x2"
+ },
+ {
+  "kind": "json",
+  "target": "datasets-industrial-offices.json",
+  "detail": "dateModified restamped x8; count phrases updated x1"
+ },
+ {
+  "kind": "json",
+  "target": "datasets-ispm15.json",
+  "detail": "dateModified restamped x8; count phrases updated x3"
+ },
+ {
+  "kind": "json",
+  "target": "datasets-it.json",
+  "detail": "dateModified restamped x8; count phrases updated x4"
+ },
+ {
+  "kind": "json",
+  "target": "datasets-local-regional.json",
+  "detail": "dateModified restamped x8; count phrases updated x3"
+ },
+ {
+  "kind": "json",
+  "target": "datasets-long-distance.json",
+  "detail": "dateModified restamped x8; count phrases updated x2"
+ },
+ {
+  "kind": "json",
+  "target": "datasets-military.json",
+  "detail": "dateModified restamped x8; count phrases updated x3"
+ },
+ {
+  "kind": "json",
+  "target": "datasets-moving-and-storage.json",
+  "detail": "dateModified restamped x8; count phrases updated x5"
+ },
+ {
+  "kind": "json",
+  "target": "datasets-ocean-container.json",
+  "detail": "dateModified restamped x8; count phrases updated x3"
+ },
+ {
+  "kind": "json",
+  "target": "datasets-office.json",
+  "detail": "dateModified restamped x8; count phrases updated x3"
+ },
+ {
+  "kind": "json",
+  "target": "datasets-piano-antique.json",
+  "detail": "dateModified restamped x8; count phrases updated x3"
+ },
+ {
+  "kind": "json",
+  "target": "datasets-residential.json",
+  "detail": "dateModified restamped x8; count phrases updated x4"
+ },
+ {
+  "kind": "json",
+  "target": "datasets-route81.json",
+  "detail": "route81 coverage +Bristow (67 entries, renumbered); dateModified restamped x8; count phrases updated x9"
+ },
+ {
+  "kind": "json",
+  "target": "datasets-senior.json",
+  "detail": "dateModified restamped x8; count phrases updated x4"
+ },
+ {
+  "kind": "json",
+  "target": "datasets-sir-heavy.json",
+  "detail": "dateModified restamped x8; count phrases updated x5"
+ },
+ {
+  "kind": "json",
+  "target": "datasets-transloading-winchester.json",
+  "detail": "dateModified restamped x8; count phrases updated x1"
+ },
+ {
+  "kind": "json",
+  "target": "datasets-transloading.json",
+  "detail": "dateModified restamped x8; count phrases updated x1"
+ },
+ {
+  "kind": "json",
+  "target": "datasets-warehouse.json",
+  "detail": "dateModified restamped x8; count phrases updated x2"
+ },
+ {
+  "kind": "json",
+  "target": "entity-graph.json",
+  "detail": "winchester footprint lists +Bristow x1 (alpha); dateModified restamped x1; count phrases updated x3"
+ },
+ {
+  "kind": "json",
+  "target": "find-us.json",
+  "detail": "winchester footprint lists +Bristow x1 (alpha); dateModified restamped x1"
+ },
+ {
+  "kind": "json",
+  "target": "government-movers-winchester-va.json",
+  "detail": "winchester footprint lists +Bristow x1 (branch-order)"
+ },
+ {
+  "kind": "json",
+  "target": "gun-safe-movers-winchester-va.json",
+  "detail": "winchester footprint lists +Bristow x1 (branch-order)"
+ },
+ {
+  "kind": "json",
+  "target": "gun-safe-movers.json",
+  "detail": "winchester footprint lists +Bristow x1 (alpha)"
+ },
+ {
+  "kind": "json",
+  "target": "heavy.json",
+  "detail": "winchester footprint lists +Bristow x1 (alpha); dateModified restamped x1"
+ },
+ {
+  "kind": "json",
+  "target": "home.json",
+  "detail": "winchester footprint lists +Bristow x1 (alpha); dateModified restamped x1"
+ },
+ {
+  "kind": "json",
+  "target": "how-to-pack-for-interstate-move.json",
+  "detail": "winchester footprint lists +Bristow x1 (alpha); dateModified restamped x1"
+ },
+ {
+  "kind": "json",
+  "target": "industrial-commercial-movers-winchester-va.json",
+  "detail": "winchester footprint lists +Bristow x1 (branch-order)"
+ },
+ {
+  "kind": "json",
+  "target": "industrial-commercial-services.json",
+  "detail": "winchester footprint lists +Bristow x1 (alpha)"
+ },
+ {
+  "kind": "json",
+  "target": "industrial-offices-movers-winchester-va.json",
+  "detail": "winchester footprint lists +Bristow x1 (branch-order)"
+ },
+ {
+  "kind": "json",
+  "target": "industrial-rigging-high-mass-logistics-hub-winchester-va.json",
+  "detail": "winchester footprint lists +Bristow x1 (alpha); dateModified restamped x1"
+ },
+ {
+  "kind": "json",
+  "target": "international-export-packing-crating-winchester-va.json",
+  "detail": "winchester footprint lists +Bristow x1 (branch-order)"
+ },
+ {
+  "kind": "json",
+  "target": "interstate-66-corridor.json",
+  "detail": "winchester footprint lists +Bristow x1 (branch-order)"
+ },
+ {
+  "kind": "json",
+  "target": "interstate-70-corridor.json",
+  "detail": "winchester footprint lists +Bristow x1 (branch-order)"
+ },
+ {
+  "kind": "json",
+  "target": "interstate-moving-guide-winchester-va.json",
+  "detail": "winchester footprint lists +Bristow x1 (alpha); dateModified restamped x1"
+ },
+ {
+  "kind": "json",
+  "target": "interstate-moving-network.json",
+  "detail": "winchester footprint lists +Bristow x1 (alpha); dateModified restamped x1"
+ },
+ {
+  "kind": "json",
+  "target": "interstate-moving-winchester-va.json",
+  "detail": "winchester footprint lists +Bristow x1 (alpha); dateModified restamped x1"
+ },
+ {
+  "kind": "json",
+  "target": "it-equipment-moving-data-center-logistics-services-virginia.json",
+  "detail": "winchester footprint lists +Bristow x1 (branch-order)"
+ },
+ {
+  "kind": "json",
+  "target": "local-regional-movers-winchester-va.json",
+  "detail": "winchester footprint lists +Bristow x1 (branch-order)"
+ },
+ {
+  "kind": "json",
+  "target": "local-regional-moving.json",
+  "detail": "winchester footprint lists +Bristow x1 (alpha)"
+ },
+ {
+  "kind": "json",
+  "target": "long-distance-cross-country-moving.json",
+  "detail": "winchester footprint lists +Bristow x1 (alpha); dateModified restamped x1"
+ },
+ {
+  "kind": "json",
+  "target": "long-distance-movers-winchester-va.json",
+  "detail": "winchester footprint lists +Bristow x1 (alpha)"
+ },
+ {
+  "kind": "json",
+  "target": "military-movers-winchester-va.json",
+  "detail": "winchester footprint lists +Bristow x1 (branch-order)"
+ },
+ {
+  "kind": "json",
+  "target": "moving-and-storage.json",
+  "detail": "winchester footprint lists +Bristow x1 (alpha)"
+ },
+ {
+  "kind": "json",
+  "target": "moving-company-winchester-va.json",
+  "detail": "winchester footprint lists +Bristow x1 (branch-order); dateModified restamped x1"
+ },
+ {
+  "kind": "json",
+  "target": "office-moving-movers-winchester-va.json",
+  "detail": "winchester footprint lists +Bristow x1 (branch-order)"
+ },
+ {
+  "kind": "json",
+  "target": "packing-cost-winchester-va.json",
+  "detail": "winchester footprint lists +Bristow x1 (branch-order); dateModified restamped x1"
+ },
+ {
+  "kind": "json",
+  "target": "packing-services-winchester-va.json",
+  "detail": "winchester footprint lists +Bristow x1 (branch-order); dateModified restamped x1"
+ },
+ {
+  "kind": "json",
+  "target": "packing-unpacking-services-2.json",
+  "detail": "winchester footprint lists +Bristow x1 (alpha); dateModified restamped x1"
+ },
+ {
+  "kind": "json",
+  "target": "professional-packing-services-moving-cost-estimator.json",
+  "detail": "winchester footprint lists +Bristow x1 (alpha); dateModified restamped x1"
+ },
+ {
+  "kind": "json",
+  "target": "relocation-engineering-framework.json",
+  "detail": "winchester footprint lists +Bristow x1 (alpha); dateModified restamped x1"
+ },
+ {
+  "kind": "json",
+  "target": "relocation-engineering-standards-portal.json",
+  "detail": "winchester footprint lists +Bristow x1 (alpha); dateModified restamped x1"
+ },
+ {
+  "kind": "json",
+  "target": "residential-moving.json",
+  "detail": "winchester footprint lists +Bristow x1 (alpha)"
+ },
+ {
+  "kind": "json",
+  "target": "safe-moving-protocol.json",
+  "detail": "winchester footprint lists +Bristow x1 (alpha); dateModified restamped x1"
+ },
+ {
+  "kind": "json",
+  "target": "senior-moving.json",
+  "detail": "winchester footprint lists +Bristow x1 (branch-order)"
+ },
+ {
+  "kind": "json",
+  "target": "service-areas-moving-company.json",
+  "detail": "winchester footprint lists +Bristow x1 (alpha); dateModified restamped x1"
+ },
+ {
+  "kind": "json",
+  "target": "sir-2026-protocol.json",
+  "detail": "winchester footprint lists +Bristow x1 (alpha); dateModified restamped x1"
+ },
+ {
+  "kind": "json",
+  "target": "sir-2026-structural-integrity-relocation-protocol.json",
+  "detail": "winchester footprint lists +Bristow x1 (alpha); dateModified restamped x1"
+ },
+ {
+  "kind": "json",
+  "target": "technical-rigging-standards.json",
+  "detail": "winchester footprint lists +Bristow x1 (alpha); dateModified restamped x1"
+ },
+ {
+  "kind": "json",
+  "target": "top-rated-movers-mid-atlantic.json",
+  "detail": "winchester footprint lists +Bristow x1 (alpha); dateModified restamped x1"
+ },
+ {
+  "kind": "json",
+  "target": "transloading-winchester-va.json",
+  "detail": "winchester footprint lists +Bristow x1 (branch-order)"
+ },
+ {
+  "kind": "json",
+  "target": "virginia-to-california-movers.json",
+  "detail": "winchester footprint lists +Bristow x1 (alpha); dateModified restamped x1"
+ },
+ {
+  "kind": "json",
+  "target": "virginia-to-florida-movers.json",
+  "detail": "winchester footprint lists +Bristow x1 (alpha); dateModified restamped x1"
+ },
+ {
+  "kind": "json",
+  "target": "virginia-to-nevada-movers.json",
+  "detail": "winchester footprint lists +Bristow x1 (alpha); dateModified restamped x1"
+ },
+ {
+  "kind": "json",
+  "target": "virginia-to-new-york-movers.json",
+  "detail": "winchester footprint lists +Bristow x1 (alpha); dateModified restamped x1"
+ },
+ {
+  "kind": "json",
+  "target": "virginia-to-texas-movers.json",
+  "detail": "winchester footprint lists +Bristow x1 (alpha); dateModified restamped x1"
+ },
+ {
+  "kind": "json",
+  "target": "warehouse-relocation.json",
+  "detail": "winchester footprint lists +Bristow x1 (branch-order)"
+ },
+ {
+  "kind": "json",
+  "target": ".well-known/ai-catalog.json",
+  "detail": "count phrases updated x1"
+ },
+ {
+  "kind": "json",
+  "target": ".well-known/ard.json",
+  "detail": "count phrases updated x1"
+ },
+ {
+  "kind": "json-summary",
+  "target": "site",
+  "detail": "82 files changed: ai-catalog.json, ai-sitemap.json, areas-served.json, best-json-entity-graph.json, calibration-safe-moving.json, case-study-3500lb-safe-moving-winchester-va.json, commercial-movers-winchester-va.json, commercial-moving.json, commercial-office-moving-2.json, datasets-commercial.json, datasets-crating.json, datasets-final-mile.json, datasets-government.json, datasets-gun-safe.json, datasets-industrial-commercial.json, datasets-industrial-offices.json, datasets-ispm15.json, datasets-it.json, datasets-local-regional.json, datasets-long-distance.json, datasets-military.json, datasets-moving-and-storage.json, datasets-ocean-container.json, datasets-office.json, datasets-piano-antique.json, datasets-residential.json, datasets-route81.json, datasets-senior.json, datasets-sir-heavy.json, datasets-transloading-winchester.json, datasets-transloading.json, datasets-warehouse.json, entity-graph.json, find-us.json, government-movers-winchester-va.json, gun-safe-movers-winchester-va.json, gun-safe-movers.json, heavy.json, home.json, how-to-pack-for-interstate-move.json, industrial-commercial-movers-winchester-va.json, industrial-commercial-services.json, industrial-offices-movers-winchester-va.json, industrial-rigging-high-mass-logistics-hub-winchester-va.json, international-export-packing-crating-winchester-va.json, interstate-66-corridor.json, interstate-70-corridor.json, interstate-moving-guide-winchester-va.json, interstate-moving-network.json, interstate-moving-winchester-va.json, it-equipment-moving-data-center-logistics-services-virginia.json, local-regional-movers-winchester-va.json, local-regional-moving.json, long-distance-cross-country-moving.json, long-distance-movers-winchester-va.json, military-movers-winchester-va.json, moving-and-storage.json, moving-company-winchester-va.json, office-moving-movers-winchester-va.json, packing-cost-winchester-va.json, packing-services-winchester-va.json, packing-unpacking-services-2.json, professional-packing-services-moving-cost-estimator.json, relocation-engineering-framework.json, relocation-engineering-standards-portal.json, residential-moving.json, safe-moving-protocol.json, senior-moving.json, service-areas-moving-company.json, sir-2026-protocol.json, sir-2026-structural-integrity-relocation-protocol.json, technical-rigging-standards.json, top-rated-movers-mid-atlantic.json, transloading-winchester-va.json, virginia-to-california-movers.json, virginia-to-florida-movers.json, virginia-to-nevada-movers.json, virginia-to-new-york-movers.json, virginia-to-texas-movers.json, warehouse-relocation.json, ai-catalog.json, ard.json"
+ }
+]

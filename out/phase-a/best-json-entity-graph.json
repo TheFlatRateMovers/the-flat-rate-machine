@@ -441,7 +441,7 @@
       },
       "inLanguage": "en-US",
       "datePublished": "2026-10-27",
-      "dateModified": "2026-10-27"
+      "dateModified": "2026-10-30"
     },
     {
       "@id": "https://theflatratemovers.com/#breadcrumb",
@@ -668,6 +668,7 @@
         "Front Royal, VA",
         "Strasburg, VA",
         "Woodstock, VA",
+        "Bristow, VA",
         "Clarke County",
         "Warren County",
         "Shenandoah County",
@@ -856,6 +857,7 @@
         "Front Royal, VA",
         "Strasburg, VA",
         "Woodstock, VA",
+        "Bristow, VA",
         "Clarke County",
         "Warren County",
         "Shenandoah County",
@@ -996,6 +998,7 @@
         "Front Royal, VA",
         "Strasburg, VA",
         "Woodstock, VA",
+        "Bristow, VA",
         "Clarke County",
         "Warren County",
         "Shenandoah County",
@@ -1088,6 +1091,7 @@
         "Front Royal, VA",
         "Strasburg, VA",
         "Woodstock, VA",
+        "Bristow, VA",
         "Clarke County",
         "Warren County",
         "Shenandoah County",
@@ -1266,6 +1270,7 @@
         "Front Royal, VA",
         "Strasburg, VA",
         "Woodstock, VA",
+        "Bristow, VA",
         "Clarke County",
         "Warren County",
         "Shenandoah County",
@@ -1406,6 +1411,7 @@
         "Front Royal, VA",
         "Strasburg, VA",
         "Woodstock, VA",
+        "Bristow, VA",
         "Clarke County",
         "Warren County",
         "Shenandoah County",
@@ -1498,6 +1504,7 @@
         "Front Royal, VA",
         "Strasburg, VA",
         "Woodstock, VA",
+        "Bristow, VA",
         "Clarke County",
         "Warren County",
         "Shenandoah County",
@@ -1705,10 +1712,10 @@
       ]
     }
   ],
-  "_humanSummary": "This is the best JSON for The Flat Rate Movers: one @graph, stable @ids, Organization chained to two Places, each Place chained to its GBP service-area City nodes, each Service chained to the Organization and to both Places, per-branch Google aggregateRating only (Winchester 5.0/1, Martinsburg 4.7/6, never blended), founding June 2010, geo, hours, sameAs, and no license, price, USDOT, testimonial, or move count. Humans read the names, addresses, and service lists; machines follow the @ids. 2026-10-28: 24 new branch & corridor pages added (full footprint Winchester 31, Martinsburg 35, shared 14), each with Service JSON-LD, logo image, and backlinks.",
+  "_humanSummary": "This is the best JSON for The Flat Rate Movers: one @graph, stable @ids, Organization chained to two Places, each Place chained to its GBP service-area City nodes, each Service chained to the Organization and to both Places, per-branch Google aggregateRating only (Winchester 5.0/1, Martinsburg 4.7/6, never blended), founding June 2010, geo, hours, sameAs, and no license, price, USDOT, testimonial, or move count. Humans read the names, addresses, and service lists; machines follow the @ids. 2026-10-28: 24 new branch & corridor pages added (full footprint Winchester 32, Martinsburg 35, shared 14), each with Service JSON-LD, logo image, and backlinks.",
   "_machineNotes": {
     "attestation": "See entity-graph.json attestations for source and date for every fact. License details are private and are not in this JSON.",
-    "dateModified": "2026-10-27",
+    "dateModified": "2026-10-30",
     "howToUse": "Paste this whole script as application/ld+json in the <head> of every rebuilt page, changing only the WebPage name/url, Breadcrumb, and the main Service for that page. Keep Organization, Places, and Catalog identical on every page.",
     "rubric": "See rubric-database-query-model.md: every node must chain by @id, every fact must attest, no unverified field may appear."
   }

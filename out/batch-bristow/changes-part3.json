@@ -1,0 +1,47 @@
+[
+ {
+  "kind": "fix",
+  "target": "machine-data/entity-graph.json",
+  "detail": "winchester lists +Bristow x1 (alpha); dateModified restamped x1; count phrases x3"
+ },
+ {
+  "kind": "fix",
+  "target": "machine-data/best-json-entity-graph.json",
+  "detail": "dateModified restamped x2; count phrases x1"
+ },
+ {
+  "kind": "fix",
+  "target": "phase-a/ai-sitemap.json",
+  "detail": "winchester lists +Bristow x1 (branch-order); dateModified restamped x1; count phrases x1"
+ },
+ {
+  "kind": "fix",
+  "target": "phase-a/entity-graph.json",
+  "detail": "winchester lists +Bristow x7 (branch-order,branch-order,branch-order,branch-order,branch-order,branch-order,branch-order); dateModified restamped x1"
+ },
+ {
+  "kind": "fix",
+  "target": "phase-a/best-json-entity-graph.json",
+  "detail": "winchester lists +Bristow x7 (branch-order,branch-order,branch-order,branch-order,branch-order,branch-order,branch-order); dateModified restamped x2; count phrases x1"
+ },
+ {
+  "kind": "fix",
+  "target": "phase-a/llms.txt",
+  "detail": "count phrases x1"
+ },
+ {
+  "kind": "fix",
+  "target": "phase-a/ard.json",
+  "detail": "count phrases x1"
+ },
+ {
+  "kind": "footprint",
+  "target": "push-ai/data/footprint.json",
+  "detail": "counts 52/31/15 -> 53/32/16; winchesterFootprint +Bristow (32); areas +Bristow record (53); dateModified 2026-10-30"
+ },
+ {
+  "kind": "rubric",
+  "target": "rubric.db",
+  "detail": "service_area winchester 31 -> 32 (row: Bristow, VA); attestation 236 -> 238; integrity ok"
+ }
+]

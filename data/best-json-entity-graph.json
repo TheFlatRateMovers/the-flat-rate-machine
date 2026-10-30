@@ -138,6 +138,7 @@
     {
      "@id": "https://theflatratemovers.com/#area-winchester-berryville"
     },
+    "Bristow, VA",
     "Clarke County",
     "Eastern Panhandle of West Virginia",
     "Fauquier County",
@@ -537,7 +538,7 @@
    },
    "inLanguage": "en-US",
    "datePublished": "2026-10-27",
-   "dateModified": "2026-10-27"
+   "dateModified": "2026-10-30"
   },
   {
    "@id": "https://theflatratemovers.com/#breadcrumb",
@@ -1505,69 +1506,12 @@
      "@id": "https://theflatratemovers.com/#martinsburg"
     }
    ]
-  },
-  {
-   "@id": "https://theflatratemovers.com/#service-final-mile",
-   "@type": "Service",
-   "name": "Final-Mile Delivery",
-   "serviceType": "Final-Mile Delivery",
-   "provider": {
-    "@id": "https://theflatratemovers.com/#organization"
-   },
-   "areaServed": [
-    {
-     "@id": "https://theflatratemovers.com/#winchester"
-    },
-    {
-     "@id": "https://theflatratemovers.com/#martinsburg"
-    }
-   ],
-   "description": "Final-mile delivery with in-home or in-business placement and verification — delivered to the room, placed, and confirmed on site.",
-   "url": "https://theflatratemovers.com/commercial-freight-handling-white-glove-final-mile-services/"
-  },
-  {
-   "@id": "https://theflatratemovers.com/#service-piano-antique",
-   "@type": "Service",
-   "name": "Piano, Antique and White-Glove Moving",
-   "serviceType": "Piano, Antique and White-Glove Moving",
-   "provider": {
-    "@id": "https://theflatratemovers.com/#organization"
-   },
-   "areaServed": [
-    {
-     "@id": "https://theflatratemovers.com/#winchester"
-    },
-    {
-     "@id": "https://theflatratemovers.com/#martinsburg"
-    }
-   ],
-   "description": "White-glove handling of pianos, antiques and high-value items — surveyed, protected, and moved with custom crating when the piece requires it, at one flat rate agreed in writing.",
-   "url": "https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/moving/museum-logistics/"
-  },
-  {
-   "@id": "https://theflatratemovers.com/#service-route81",
-   "@type": "Service",
-   "name": "Route 81 Corridor Moving and Dispatch",
-   "serviceType": "Route 81 Corridor Moving and Dispatch",
-   "provider": {
-    "@id": "https://theflatratemovers.com/#organization"
-   },
-   "areaServed": [
-    {
-     "@id": "https://theflatratemovers.com/#winchester"
-    },
-    {
-     "@id": "https://theflatratemovers.com/#martinsburg"
-    }
-   ],
-   "description": "Moving and logistics dispatch along Interstate 81, I-66 and I-70 from Winchester, VA and Martinsburg, WV — corridor moves run from two dispatch branches on one flat-rate standard.",
-   "url": "https://theflatratemovers.com/route81/"
   }
  ],
- "_humanSummary": "This is the best JSON for The Flat Rate Movers: one @graph, stable @ids, Organization chained to two Places, each Place carrying its full footprint (Winchester 31 areas, Martinsburg 35, shared 14) with the Google Business Profile subset (Winchester 16, Martinsburg 14) also carried as named City nodes, each Service chained to the Organization and to its branch Place or Places, per-branch Google ratings (Winchester 5.0 with 1 review, Martinsburg 4.7 with 6 reviews, never blended), founding June 2010, geo, hours, sameAs, and no license, price, testimonial, or move count. Humans read the names, addresses, and service lists; machines follow the @ids. 2026-10-28: 24 new branch and corridor pages added, each with Service JSON-LD, logo image, and backlinks.",
+ "_humanSummary": "This is the best JSON for The Flat Rate Movers: one @graph, stable @ids, Organization chained to two Places, each Place carrying its full footprint (Winchester 32 areas, Martinsburg 35, shared 14) with the Google Business Profile subset (Winchester 16, Martinsburg 14) also carried as named City nodes, each Service chained to the Organization and to its branch Place or Places, per-branch Google ratings (Winchester 5.0 with 1 review, Martinsburg 4.7 with 6 reviews, never blended), founding June 2010, geo, hours, sameAs, and no license, price, testimonial, or move count. Humans read the names, addresses, and service lists; machines follow the @ids. 2026-10-28: 24 new branch and corridor pages added, each with Service JSON-LD, logo image, and backlinks.",
  "_machineNotes": {
   "attestation": "See entity-graph.json source notes for source and date for every fact. License details are private and are not in this JSON.",
-  "dateModified": "2026-10-29",
+  "dateModified": "2026-10-30",
   "howToUse": "Paste this whole script as application/ld+json in the <head> of every rebuilt page, changing only the WebPage name/url, Breadcrumb, and the main Service for that page. Keep Organization, Places, and Catalog identical on every page.",
   "rubric": "See rubric-database-query-model.md: every node must chain by @id, every fact must carry a named source and date, no unverified field may appear."
  }

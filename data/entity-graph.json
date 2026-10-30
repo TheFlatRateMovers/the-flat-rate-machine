@@ -46,6 +46,7 @@
       },
       "areaServed": [
         "Berryville, VA",
+        "Bristow, VA",
         "Clarke County",
         "Eastern Panhandle of West Virginia",
         "Fauquier County",
@@ -379,8 +380,7 @@
           "@id": "https://theflatratemovers.com/#martinsburg"
         }
       ],
-      "description": "Final-mile delivery with in-home or in-business placement and verification — delivered to the room, placed, and confirmed on site.",
-      "url": "https://theflatratemovers.com/commercial-freight-handling-white-glove-final-mile-services/"
+      "description": "Final-mile delivery with in-home or in-business placement and verification — delivered to the room, placed, and confirmed on site."
     },
     {
       "@id": "https://theflatratemovers.com/#service-government",
@@ -474,8 +474,7 @@
           "@id": "https://theflatratemovers.com/#martinsburg"
         }
       ],
-      "description": "Moving and logistics dispatch along Interstate 81, I-66 and I-70 from Winchester, VA and Martinsburg, WV — corridor moves run from two dispatch branches on one flat-rate standard.",
-      "url": "https://theflatratemovers.com/route81/"
+      "description": "Moving and logistics dispatch along Interstate 81, I-66 and I-70 from Winchester, VA and Martinsburg, WV — corridor moves run from two dispatch branches on one flat-rate standard."
     },
     {
       "@id": "https://theflatratemovers.com/#service-ispm15",
@@ -607,8 +606,7 @@
           "@id": "https://theflatratemovers.com/#martinsburg"
         }
       ],
-      "description": "White-glove handling of pianos, antiques and high-value items — surveyed, protected, and moved with custom crating when the piece requires it, at one flat rate agreed in writing.",
-      "url": "https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/moving/museum-logistics/"
+      "description": "White-glove handling of pianos, antiques and high-value items — surveyed, protected, and moved with custom crating when the piece requires it, at one flat rate agreed in writing."
     },
     {
       "@id": "https://theflatratemovers.com/#service-sir-heavy",
@@ -791,7 +789,7 @@
       "verified": "2026-10-28"
     },
     {
-      "claim": "Winchester full footprint, 31 areas (16 Google Business Profile areas plus expansion areas)",
+      "claim": "Winchester full footprint, 32 areas (16 Google Business Profile areas plus expansion areas)",
       "source": "Google Business Profile Business information, Location, screenshot supplied by Henry 2026-10-27",
       "verified": "2026-10-27"
     },
@@ -890,7 +888,7 @@
     {
       "from": "https://theflatratemovers.com/#winchester",
       "relation": "areaServed",
-      "to": "Winchester full footprint, 31 areas"
+      "to": "Winchester full footprint, 32 areas"
     },
     {
       "from": "https://theflatratemovers.com/#martinsburg",
@@ -898,7 +896,7 @@
       "to": "Martinsburg full footprint, 35 areas"
     }
   ],
-  "dateModified": "2026-10-28",
+  "dateModified": "2026-10-30",
   "description": "Machine-readable entity graph for The Flat Rate Movers LLC. Every node has a stable @id, every Service and Place chains to the Organization by @id, every service area chains to its branch Place, and every fact carries a named source and verification date. Per-branch Google ratings live on each Place node, distinct, never blended. License details are private and are not published in this graph.",
   "name": "The Flat Rate Movers — Entity Graph, Nodes and Chains",
   "rubric": {
@@ -908,7 +906,7 @@
       "Every Service chains Service -> provider Organization -> Place -> areaServed",
       "Every fact in a node appears in a source note with source and date, or it is omitted",
       "No rating, price, license detail, testimonial, or move count appears without a named, visible, verified source",
-      "Service areas match the full footprint per branch (Winchester 31, Martinsburg 35), not a generic county list",
+      "Service areas match the full footprint per branch (Winchester 32, Martinsburg 35), not a generic county list",
       "Captions and credits are honest: style examples are labelled as examples, never presented as his work"
     ],
     "purpose": "Use this rubric to check any page, node, or graph before go-live: does it chain, does it cite, does it source?"

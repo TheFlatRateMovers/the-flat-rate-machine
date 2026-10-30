@@ -21,7 +21,7 @@
       "displayName": "The Flat Rate Movers Service Area GeoJSON",
       "type": "application/geo+json",
       "url": "https://theflatratemovers.com/service-area.geojson",
-      "description": "Service areas as GeoJSON: 52 features, per branch (Winchester, VA and Martinsburg, WV), verified 2026-10-28.",
+      "description": "Service areas as GeoJSON: 53 features, per branch (Winchester, VA and Martinsburg, WV), verified 2026-10-28.",
       "tags": [
         "geojson"
       ]

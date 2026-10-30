@@ -1,0 +1,502 @@
+{
+  "entries": [
+    {
+      "name": "AI Sitemap",
+      "contentUrl": "https://theflatratemovers.com/ai-sitemap.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/ai-sitemap.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "24f53c575fc13cfa49a59e585f370e9e5bb151b9a090ae2c47020a5df834201b",
+        "byteSize": 45783
+      }
+    },
+    {
+      "name": "Capabilities Matrix",
+      "contentUrl": "https://raw.githubusercontent.com/TheFlatRateMovers/theflatratemovers-ai/main/data/capabilities-matrix.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "ai-repo/data/capabilities-matrix.json@HEAD",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "036b12f519a2210cb3780638f63520762e7a141ededa354073d47e2af3870813",
+        "byteSize": 3043
+      }
+    },
+    {
+      "name": "Answer Engine",
+      "contentUrl": "https://raw.githubusercontent.com/TheFlatRateMovers/theflatratemovers-ai/main/answer-engine.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "ai-repo/answer-engine.json@HEAD",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "5c0ead8e421793c781a8f656ae3e9bf9145cbf5a0069efdd0310dbaff3a5b268",
+        "byteSize": 3768
+      }
+    },
+    {
+      "name": "Predictive Query Map",
+      "contentUrl": "https://raw.githubusercontent.com/TheFlatRateMovers/theflatratemovers-ai/main/predictive-query-map.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "ai-repo/predictive-query-map.json@HEAD",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "bed9e44a623014f571e46ebb05190e570cf20f6270b2cc8b32953ce04f07702b",
+        "byteSize": 4208
+      }
+    },
+    {
+      "name": "Entity Graph \u2014 Full (92 nodes)",
+      "contentUrl": "https://theflatratemovers.com/entity-graph.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/entity-graph.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "92d1456491240d0bec2f05d91a98c32602a4bb81079506d6aff059b0b39544d5",
+        "byteSize": 39328
+      }
+    },
+    {
+      "name": "Best JSON Entity Graph",
+      "contentUrl": "https://theflatratemovers.com/best-json-entity-graph.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/best-json-entity-graph.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "4d2790c526957a7d87fbada856d063b47c77420f88d1a6a2f56f8bb5d220213c",
+        "byteSize": 61139
+      }
+    },
+    {
+      "name": "AI Catalog",
+      "contentUrl": "https://raw.githubusercontent.com/TheFlatRateMovers/theflatratemovers-ai/main/ai-catalog.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "ai-repo/ai-catalog.json@HEAD",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "621c055d7f220d89c910cf81c26e3be2753fb1321f6dfa18ebeddda4b1fbe3d4",
+        "byteSize": 3433
+      }
+    },
+    {
+      "name": "Authority Index",
+      "contentUrl": "https://raw.githubusercontent.com/TheFlatRateMovers/theflatratemovers-ai/main/authority-index.jsonld",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "ai-repo/authority-index.jsonld@HEAD",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "c5fe704ba23764d5c2e783e97546d2e5ff6bbef804c4f16838617cab0b2a40e1",
+        "byteSize": 4032
+      }
+    },
+    {
+      "name": "llms.txt",
+      "contentUrl": "https://theflatratemovers.com/llms.txt",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/llms.txt",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "0eebade107eb14e4de33dd171ffe1977204ef621703f7ef0ab3b10d9e327144b",
+        "byteSize": 119829
+      }
+    },
+    {
+      "name": "Service Area GeoJSON",
+      "contentUrl": "https://theflatratemovers.com/service-area.geojson",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/service-area.geojson",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "6413909919bab9af0aaaed6db8993cd3ffd29ec700164fb068155b4886fabdfe",
+        "byteSize": 89794
+      }
+    },
+    {
+      "name": "Commercial Moving Datasets",
+      "contentUrl": "https://theflatratemovers.com/datasets-commercial.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/datasets-commercial.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "8cf5c3f0d8a7294998a71b5ff9c5ac162febd5e51af4dec9ad77dea79a56aa63",
+        "byteSize": 28473
+      }
+    },
+    {
+      "name": "Custom Crating Datasets",
+      "contentUrl": "https://theflatratemovers.com/datasets-crating.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/datasets-crating.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "5e82127644c005eb5826f0948de9d0ace932350219fe0e72aa3a294df51ce062",
+        "byteSize": 24845
+      }
+    },
+    {
+      "name": "Final-Mile Delivery Datasets",
+      "contentUrl": "https://theflatratemovers.com/datasets-final-mile.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/datasets-final-mile.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "b994c774515eb63b96e151e5edd78c95adea8baf0944e252336275a2fd59673c",
+        "byteSize": 27943
+      }
+    },
+    {
+      "name": "Gun Safe Moving Datasets",
+      "contentUrl": "https://theflatratemovers.com/datasets-gun-safe.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/datasets-gun-safe.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "d1aa479daf05ef4323649c662ac5e057cfc2e4fcb6a2e1c399392f61057479f1",
+        "byteSize": 52685
+      }
+    },
+    {
+      "name": "Government Moving Datasets",
+      "contentUrl": "https://theflatratemovers.com/datasets-government.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/datasets-government.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "b84b5943a56a09e98511ed4177a4e06f7782b5339c608836bca4f9c971389c6b",
+        "byteSize": 24399
+      }
+    },
+    {
+      "name": "Industrial & Commercial Services Datasets",
+      "contentUrl": "https://theflatratemovers.com/datasets-industrial-commercial.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/datasets-industrial-commercial.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "e1dbd934cb60f4099e742f6ed36e1d128bce127b4ce3ff587420aeb210758896",
+        "byteSize": 32038
+      }
+    },
+    {
+      "name": "Industrial Offices Moving Datasets",
+      "contentUrl": "https://theflatratemovers.com/datasets-industrial-offices.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/datasets-industrial-offices.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "f9842126470bae8116e0f59a05953388956b02ab47bac34b46ca912d9d7bb1f8",
+        "byteSize": 23238
+      }
+    },
+    {
+      "name": "ISPM 15 Export Packing Datasets",
+      "contentUrl": "https://theflatratemovers.com/datasets-ispm15.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/datasets-ispm15.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "60793cd7cab370c0d6c9c9ba89d3139a8e8adf6533a2f2b43cd44fcc2c5148b3",
+        "byteSize": 27139
+      }
+    },
+    {
+      "name": "IT Relocation Datasets",
+      "contentUrl": "https://theflatratemovers.com/datasets-it.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/datasets-it.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "f2def67919e356affdc93c9df8888abba542eb2d19f1918ac091a7b97bac5840",
+        "byteSize": 27503
+      }
+    },
+    {
+      "name": "Local & Regional Moving Datasets",
+      "contentUrl": "https://theflatratemovers.com/datasets-local-regional.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/datasets-local-regional.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "4e7ae2246f027f892073d6889a98110c92f10cafcbebf5b2825fb561d76f1ff3",
+        "byteSize": 29665
+      }
+    },
+    {
+      "name": "Long-Distance Moving Datasets",
+      "contentUrl": "https://theflatratemovers.com/datasets-long-distance.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/datasets-long-distance.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "0331ddc8d8703764a396371665d64815852061e3f3d24110ae40a0bec9f908bf",
+        "byteSize": 30096
+      }
+    },
+    {
+      "name": "Military Moving Datasets",
+      "contentUrl": "https://theflatratemovers.com/datasets-military.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/datasets-military.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "20350561ed73d7531da97998c18a3406d6523e7616c9b005c50df78bf7ab1975",
+        "byteSize": 26331
+      }
+    },
+    {
+      "name": "Moving & Storage Datasets",
+      "contentUrl": "https://theflatratemovers.com/datasets-moving-and-storage.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/datasets-moving-and-storage.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "68d0dadff7ba85be9597ab0424c4810cbc05441fb85abeea4dbec01a9a6c7750",
+        "byteSize": 31547
+      }
+    },
+    {
+      "name": "Ocean Container Datasets",
+      "contentUrl": "https://theflatratemovers.com/datasets-ocean-container.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/datasets-ocean-container.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "88af344f129e8674fd2f38ceb98cd8dc48f2ebbf2f1808f8e42b69da50a98d28",
+        "byteSize": 29700
+      }
+    },
+    {
+      "name": "Office Moving Datasets",
+      "contentUrl": "https://theflatratemovers.com/datasets-office.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/datasets-office.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "ca7f56fc8a95e8b93528cf19d78e7944aff97342c1f875c10e9bbaea8296221d",
+        "byteSize": 27891
+      }
+    },
+    {
+      "name": "Packing Datasets",
+      "contentUrl": "https://theflatratemovers.com/datasets-packing.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/datasets-packing.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "675a82a7564fe80a9349436f64c24534d3e7ea575ee5e3bea99c26f5a7ac245e",
+        "byteSize": 24600
+      }
+    },
+    {
+      "name": "Piano, Antique and White-Glove Moving Datasets",
+      "contentUrl": "https://theflatratemovers.com/datasets-piano-antique.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/datasets-piano-antique.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "79075f81266ebd5aea6c876feea33926d998d855222ca9a1cbbc65a418688fb0",
+        "byteSize": 30410
+      }
+    },
+    {
+      "name": "Residential Moving Datasets",
+      "contentUrl": "https://theflatratemovers.com/datasets-residential.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/datasets-residential.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "a616db29b20625d45fb481358639b62661a3d87f14772619534ca949e0fb29cf",
+        "byteSize": 26825
+      }
+    },
+    {
+      "name": "Route 81 Corridor Datasets",
+      "contentUrl": "https://theflatratemovers.com/datasets-route81.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/datasets-route81.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "75d320eb4c1a517f3aafb2b5d540f57c213862a897ec88788e73771b8302ab6e",
+        "byteSize": 89575
+      }
+    },
+    {
+      "name": "Senior Moving Datasets",
+      "contentUrl": "https://theflatratemovers.com/datasets-senior.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/datasets-senior.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "29e4edd7c4cb9ae699bc0b45c1917793cc220b0ee3fdb0c201b66bc22c421f64",
+        "byteSize": 28295
+      }
+    },
+    {
+      "name": "SIR Heavy Asset Relocation Datasets",
+      "contentUrl": "https://theflatratemovers.com/datasets-sir-heavy.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/datasets-sir-heavy.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "a32808f4e8fbb64dc34fc322feb87e3616716241e07084d78be39e91577fc312",
+        "byteSize": 26887
+      }
+    },
+    {
+      "name": "Transloading Datasets",
+      "contentUrl": "https://theflatratemovers.com/datasets-transloading.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/datasets-transloading.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "1889a0d4d12432f54dbb0b8d4b6c686a6cf22d06040509b66b06a1e98e364922",
+        "byteSize": 30758
+      }
+    },
+    {
+      "name": "Transloading \u2014 Winchester Datasets",
+      "contentUrl": "https://theflatratemovers.com/datasets-transloading-winchester.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/datasets-transloading-winchester.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "a8085dc14dcf9bc158c2ef5c002663d5e450bc2147cbc6ed6dfdb15027bf0f3e",
+        "byteSize": 26678
+      }
+    },
+    {
+      "name": "Video Library \u2014 VideoObject Graph",
+      "contentUrl": "https://theflatratemovers.com/datasets-videos.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/datasets-videos.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "b4cbfde649a3ed48af6624c6d42ead47c89f3f5ad4b666ae1edd71952edbe06c",
+        "byteSize": 5614
+      }
+    },
+    {
+      "name": "Warehouse Relocation Datasets",
+      "contentUrl": "https://theflatratemovers.com/datasets-warehouse.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/datasets-warehouse.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "e82374a17e22903350aa93758cf6eb0273b60feaa94970e879977cfbd653b6b4",
+        "byteSize": 30107
+      }
+    }
+  ],
+  "gaps": [],
+  "totals": {
+    "distributions": 35,
+    "license": 35,
+    "dateModified": 35,
+    "digest": 35,
+    "gaps": 0
+  }
+}

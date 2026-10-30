@@ -1,0 +1,32 @@
+[
+ {
+  "kind": "index-pre",
+  "target": "index.html",
+  "detail": "quote md5 ok; 37 ld+json blocks; parse-equal map: {1: 'datasets-route81.json', 2: 'datasets-sir-heavy.json', 3: 'datasets-ispm15.json', 4: 'datasets-crating.json', 5: 'datasets-gun-safe.json', 7: 'datasets-residential.json', 8: 'datasets-commercial.json', 9: 'datasets-office.json', 10: 'datasets-long-distance.json', 11: 'datasets-ispm15.json', 12: 'datasets-crating.json', 13: 'datasets-government.json', 14: 'datasets-military.json', 15: 'datasets-packing.json', 16: 'datasets-piano-antique.json', 17: 'datasets-military.json', 18: 'datasets-final-mile.json', 19: 'datasets-piano-antique.json', 20: 'datasets-ispm15.json', 21: 'datasets-crating.json', 22: 'datasets-transloading.json', 23: 'datasets-it.json', 24: 'datasets-final-mile.json', 25: 'datasets-piano-antique.json', 26: 'datasets-industrial-commercial.json', 27: 'datasets-local-regional.json', 28: 'datasets-industrial-offices.json', 29: 'datasets-route81.json', 30: 'datasets-route81.json', 31: 'datasets-senior.json', 32: 'datasets-warehouse.json', 33: 'datasets-transloading-winchester.json', 34: 'datasets-videos.json', 35: 'datasets-moving-and-storage.json', 36: 'specialized-workforce-labor.json'}"
+ },
+ {
+  "kind": "index",
+  "target": "index.html",
+  "detail": "text subs x218; prose Berryville x83, Woodstock x29; block dateModified restamps x266; alpha list inserts x1; route81 embeds transformed x3"
+ },
+ {
+  "kind": "index-post",
+  "target": "index.html",
+  "detail": "quote md5 unchanged; all 37 blocks parse; embed equality map preserved {1: 'datasets-route81.json', 2: 'datasets-sir-heavy.json', 3: 'datasets-ispm15.json', 4: 'datasets-crating.json', 5: 'datasets-gun-safe.json', 7: 'datasets-residential.json', 8: 'datasets-commercial.json', 9: 'datasets-office.json', 10: 'datasets-long-distance.json', 11: 'datasets-ispm15.json', 12: 'datasets-crating.json', 13: 'datasets-government.json', 14: 'datasets-military.json', 15: 'datasets-packing.json', 16: 'datasets-piano-antique.json', 17: 'datasets-military.json', 18: 'datasets-final-mile.json', 19: 'datasets-piano-antique.json', 20: 'datasets-ispm15.json', 21: 'datasets-crating.json', 22: 'datasets-transloading.json', 23: 'datasets-it.json', 24: 'datasets-final-mile.json', 25: 'datasets-piano-antique.json', 26: 'datasets-industrial-commercial.json', 27: 'datasets-local-regional.json', 28: 'datasets-industrial-offices.json', 29: 'datasets-route81.json', 30: 'datasets-route81.json', 31: 'datasets-senior.json', 32: 'datasets-warehouse.json', 33: 'datasets-transloading-winchester.json', 34: 'datasets-videos.json', 35: 'datasets-moving-and-storage.json', 36: 'specialized-workforce-labor.json'}"
+ },
+ {
+  "kind": "head-data",
+  "target": "functions/head-data.js",
+  "detail": "count phrases updated x130 (descriptions only; no area lists present)"
+ },
+ {
+  "kind": "llms",
+  "target": "llms.txt",
+  "detail": "current-state lines updated [(26, 3), (50, 2), (57, 2)]; Bristow dated entry inserted after line 220"
+ },
+ {
+  "kind": "data-txt",
+  "target": "the-flat-rate-movers-data.txt",
+  "detail": "current-state lines updated [(169, 3), (285, 3)]; dated Bristow section appended"
+ }
+]

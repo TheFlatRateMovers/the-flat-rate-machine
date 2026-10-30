@@ -1,8 +1,8 @@
 {
   "type": "FeatureCollection",
   "name": "The Flat Rate Movers — Service Area GeoJSON",
-  "version": "2026-10-29",
-  "dateModified": "2026-10-29",
+  "version": "2026-10-30",
+  "dateModified": "2026-10-30",
   "organization": "The Flat Rate Movers LLC",
   "branches": {
     "winchester": {
@@ -1621,6 +1621,61 @@
         ],
         "rubric_score": 2,
         "rubric_note": "Score 2: coordinates verified by map geocoding 2026-10-28, but this is an expansion city, not a GBP service area, and it has no dedicated page — so R3 visible-match and R4 source-check score 2. It is served as part of the branch footprint, not presented as a GBP area."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "place-bristow-va",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.54573,
+          38.73258
+        ]
+      },
+      "properties": {
+        "id": "place-bristow-va",
+        "name": "Bristow, VA",
+        "type": "city",
+        "source": "Company service footprint: Bristow assigned to the Winchester branch by owner ruling 2026-10-30 (closest branch); NOT a Google Business Profile service area. Coordinates via map geocoding 2026-10-30; branch coordinates via Places 2026-10-27.",
+        "verified": "2026-10-30",
+        "provider": "https://theflatratemovers.com/#organization",
+        "citation": "https://theflatratemovers.com/service-area.geojson",
+        "state": "VA",
+        "county": "Prince William",
+        "postal_code": "20136",
+        "branch": "winchester",
+        "gbp_service_area": false,
+        "audiences": [
+          "residential",
+          "commercial",
+          "industrial",
+          "government",
+          "military"
+        ],
+        "services": [
+          "residential-moving",
+          "commercial-moving",
+          "office-moving",
+          "industrial-offices",
+          "government-moving",
+          "military-moving",
+          "packing",
+          "custom-crating",
+          "ispm15-export-packing",
+          "loading",
+          "transloading",
+          "final-mile",
+          "warehouse-distribution",
+          "commercial-relocation",
+          "ffe-installation",
+          "flexible-deployment",
+          "ocean-container",
+          "pods",
+          "restacking"
+        ],
+        "rubric_score": 2,
+        "rubric_note": "Score 2: coordinates verified by map geocoding 2026-10-30, but this is an expansion city added to the Winchester branch footprint by owner ruling 2026-10-30, not a GBP service area, and it has no dedicated page — so R3 visible-match and R4 source-check score 2. It is served as part of the Winchester branch footprint, not presented as a GBP area."
       }
     },
     {
