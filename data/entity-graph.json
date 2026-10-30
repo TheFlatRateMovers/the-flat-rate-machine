@@ -13,6 +13,12 @@
       },
       "email": "ratemovers@gmail.com",
       "foundingDate": "2010-06",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://theflatratemovers.com/assets/img-01-9c77693ba66b.png",
+        "width": 1024,
+        "height": 1024
+      },
       "hasOfferCatalog": {
         "@id": "https://theflatratemovers.com/#service-catalog"
       },

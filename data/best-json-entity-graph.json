@@ -14,11 +14,16 @@
    "slogan": "Guaranteed Flat Rate or Your Move is Free!",
    "description": "Flat-rate, no-hourly moving company founded June 2010 in Winchester, VA and Martinsburg, WV. Specialists in SIR Structural Integrity Relocation and KIM-GS Kinetic Integrity Method for high-mass assets 1,500-3,500 lbs, plus ISPM 15 export packing, custom crating, transloading, and final mile delivery.",
    "url": "https://theflatratemovers.com/",
+   "logo": {
+    "@type": "ImageObject",
+    "url": "https://theflatratemovers.com/assets/img-01-9c77693ba66b.png",
+    "width": 1024,
+    "height": 1024
+   },
    "telephone": "+1-540-422-2153",
    "email": "ratemovers@gmail.com",
    "priceRange": "$$",
    "foundingDate": "2010-06",
-   "logo": "https://theflatratemovers.com/assets/logo.png",
    "image": "https://theflatratemovers.com/assets/i81-winchester.jpg",
    "knowsAbout": [
     "Flat-rate moving",

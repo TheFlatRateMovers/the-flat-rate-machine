@@ -39,6 +39,9 @@ const STATIC_FILES = new Set([
   "/ai-master-index.jws",
   "/ai-sitemap.json",
   "/all-pages.json",
+  "/android-chrome-192x192.png",
+  "/android-chrome-512x512.png",
+  "/apple-touch-icon.png",
   "/areas-served.json",
   "/assets/img-01-9c77693ba66b-176.webp",
   "/assets/img-01-9c77693ba66b.png",
@@ -166,6 +169,9 @@ const STATIC_FILES = new Set([
   "/entity-graph.json",
   "/export.json",
   "/faq.json",
+  "/favicon-16x16.png",
+  "/favicon-32x32.png",
+  "/favicon.ico",
   "/final-mile-movers-martinsburg-wv.json",
   "/find-us.json",
   "/flat-rate-guarantee.json",
@@ -261,6 +267,7 @@ const STATIC_FILES = new Set([
   "/sir-2026-protocol.json",
   "/sir-2026-structural-integrity-relocation-protocol.json",
   "/sir-heavy-movers-martinsburg-wv.json",
+  "/site.webmanifest",
   "/sitemap.json",
   "/sitemap.xml",
   "/specialized-workforce-labor.json",
@@ -285,7 +292,7 @@ const STATIC_FILES = new Set([
   "/warehouse-racking-relocation.json",
   "/warehouse-relocation.json",
   "/white-glove-delivery-winchester-va.json",
-  "/yandex_e8746618021b9788.html"
+  "/yandex_e8746618021b9788.html",
 ]);
 /*__STATIC_FILES_END__*/
 
