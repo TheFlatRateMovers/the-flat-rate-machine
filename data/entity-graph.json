@@ -474,7 +474,8 @@
           "@id": "https://theflatratemovers.com/#martinsburg"
         }
       ],
-      "description": "Moving and logistics dispatch along Interstate 81, I-66 and I-70 from Winchester, VA and Martinsburg, WV — corridor moves run from two dispatch branches on one flat-rate standard."
+      "description": "Moving and logistics dispatch along Interstate 81, I-66 and I-70 from Winchester, VA and Martinsburg, WV — corridor moves run from two dispatch branches on one flat-rate standard.",
+      "url": "https://theflatratemovers.com/route81/"
     },
     {
       "@id": "https://theflatratemovers.com/#service-ispm15",
