@@ -34458,7 +34458,7 @@ function loadSwlData(){ if(window.__swlDone) return; window.__swlDone=true; fetc
     document.querySelectorAll('[data-nav]').forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-nav')===h); });
     window.scrollTo({top:0,behavior:'instant'});
     document.title = h==='home' ? 'The Flat Rate Movers — Trust First. Flat Rate. Route 81.' : 'The Flat Rate Movers — '+pageMeta[h].name;
-    var cc=document.getElementById('crumb-current'); if(cc){ cc.textContent = h==='home' ? 'Home' : pageMeta[h].name; var sep=document.getElementById('crumb-sep'); if(sep) sep.style.display = h==='home' ? 'none' : 'inline'; }
+    var cc=document.getElementById('crumb-current'); if(cc){ cc.textContent = h==='home' ? 'Home' : pageMeta[h].name; cc.style.display = h==='home' ? 'none' : 'inline'; var sep=document.getElementById('crumb-sep'); if(sep) sep.style.display = h==='home' ? 'none' : 'inline'; }
     setPageLD(h);
     if(h==='industrial-commercial-services') loadIcsAreas();
     if(h==='specialized-workforce-labor') loadSwlData();
