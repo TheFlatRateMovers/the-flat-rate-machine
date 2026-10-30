@@ -17,7 +17,309 @@
 // response whose head lacks the expected markers pass through
 // unchanged (fail-open per response; the Batch 9 route test asserts
 // all 156 routes transform).
+// Blog foundation (2026-10-30): unknown paths no longer pass through —
+// a GET/HEAD path that is not a known page, a deployed static file, an
+// /api/ route or a /cdn-cgi/ platform path returns the genuine 404
+// below. Non-GET/HEAD traffic still passes through untouched.
 import { HEAD } from './head-data.js';
+
+/*__STATIC_FILES_BEGIN__*/
+// Every file in the deployed public/ tree (blog foundation batch,
+// 2026-10-30). A GET/HEAD path that is neither a known page (HEAD
+// map) nor one of these files, nor /api/ or /cdn-cgi/, is a genuine
+// 404. Regenerate this block whenever the public/ tree changes.
+const STATIC_FILES = new Set([
+  "/.well-known/ai-catalog.json",
+  "/.well-known/ard.json",
+  "/.well-known/signing-keys.json",
+  "/1600-lb-gun-safe-moving-winchester-va-to-las-vegas-nv.json",
+  "/ai-catalog.json",
+  "/ai-license.json",
+  "/ai-master-index.json",
+  "/ai-master-index.jws",
+  "/ai-sitemap.json",
+  "/all-pages.json",
+  "/areas-served.json",
+  "/assets/img-01-9c77693ba66b-176.webp",
+  "/assets/img-01-9c77693ba66b.png",
+  "/assets/img-01-9c77693ba66b.webp",
+  "/assets/img-02-0b80bbb82653-1200.webp",
+  "/assets/img-02-0b80bbb82653-700.webp",
+  "/assets/img-02-0b80bbb82653-900.webp",
+  "/assets/img-02-0b80bbb82653.jpg",
+  "/assets/img-02-0b80bbb82653.webp",
+  "/assets/img-03-06ba6c3aa9ad-700.webp",
+  "/assets/img-03-06ba6c3aa9ad-900.webp",
+  "/assets/img-03-06ba6c3aa9ad.jpg",
+  "/assets/img-03-06ba6c3aa9ad.webp",
+  "/assets/img-04-d5b531df0d68-700.webp",
+  "/assets/img-04-d5b531df0d68-900.webp",
+  "/assets/img-04-d5b531df0d68.jpg",
+  "/assets/img-04-d5b531df0d68.webp",
+  "/assets/img-05-ac47769e6932-700.webp",
+  "/assets/img-05-ac47769e6932-900.webp",
+  "/assets/img-05-ac47769e6932.jpg",
+  "/assets/img-05-ac47769e6932.webp",
+  "/assets/img-06-c9f70ae11116-700.webp",
+  "/assets/img-06-c9f70ae11116-900.webp",
+  "/assets/img-06-c9f70ae11116.jpg",
+  "/assets/img-06-c9f70ae11116.webp",
+  "/assets/img-07-b39ba374a49a-900.webp",
+  "/assets/img-07-b39ba374a49a.jpg",
+  "/assets/img-07-b39ba374a49a.webp",
+  "/assets/img-08-845680b78b80.jpg",
+  "/assets/img-08-845680b78b80.webp",
+  "/assets/img-10-6749f9c6cd8e.jpg",
+  "/assets/img-10-6749f9c6cd8e.webp",
+  "/assets/img-11-6f42b2beebea.jpg",
+  "/assets/img-11-6f42b2beebea.webp",
+  "/assets/img-12-c5167cca7047.jpg",
+  "/assets/img-12-c5167cca7047.webp",
+  "/assets/img-13-d15077b65507.jpg",
+  "/assets/img-13-d15077b65507.webp",
+  "/assets/img-14-8e3ed7b85836.jpg",
+  "/assets/img-14-8e3ed7b85836.webp",
+  "/assets/img-15-6ff0065cf230.jpg",
+  "/assets/img-15-6ff0065cf230.webp",
+  "/assets/img-16-80538678edc8.jpg",
+  "/assets/img-16-80538678edc8.webp",
+  "/assets/img-18-blurred-warehouse-1.jpg",
+  "/assets/img-18-blurred-warehouse-1.webp",
+  "/assets/img-19-blurred-warehouse-2.jpg",
+  "/assets/img-19-blurred-warehouse-2.webp",
+  "/assets/img-20-custom-crate-foam-lined-ramp-door.webp",
+  "/assets/img-21-robotic-arm-custom-wrapped-skid-mounted.webp",
+  "/assets/img-22-antique-fireproof-safe.webp",
+  "/author-ratemoversgmail-com.json",
+  "/best-json-entity-graph.json",
+  "/blog.json",
+  "/calibration-safe-moving.json",
+  "/case-study-3500lb-safe-moving-winchester-va.json",
+  "/category-logistics.json",
+  "/category-long-distance-moving.json",
+  "/category-maritime-shipping.json",
+  "/category-military-government-moving.json",
+  "/category-museum-logistics.json",
+  "/category-office-commercial-moving.json",
+  "/category-rigging-sir-2026-high-value-rigging.json",
+  "/category-rigging-sir-2026.json",
+  "/category-shenandoah-valley-logistics.json",
+  "/category-vault-moving.json",
+  "/category-winchester-va-residential-logistics-relocation-services-moving-eastern-panhandle-moving.json",
+  "/category-winchester-va-residential-logistics-relocation-services-moving-estate-relocation.json",
+  "/category-winchester-va-residential-logistics-relocation-services-moving-long-distance.json",
+  "/category-winchester-va-residential-logistics-relocation-services-moving.json",
+  "/category-winchester-va-residential-logistics-relocation-services-paper-padding.json",
+  "/category-winchester-va-residential-logistics-relocation-services.json",
+  "/category-winchester-va-residential-logistics.json",
+  "/category-winchester-va-top-rated-movers-winchester-va.json",
+  "/category-winchester-va.json",
+  "/commercial-freight-handling-solutions.json",
+  "/commercial-freight-handling-white-glove-final-mile-services.json",
+  "/commercial-movers-winchester-va.json",
+  "/commercial-moving.json",
+  "/commercial-office-moving-2.json",
+  "/container-deconsolidation-cross-docking-transloading-services-virginia.json",
+  "/container-deconsolidation-services-virginia-mid-atlantic.json",
+  "/container-deconsolidation.json",
+  "/container-loading-unloading-services-port-transload-virginia.json",
+  "/crating-movers-martinsburg-wv.json",
+  "/datasets-commercial.json",
+  "/datasets-crating.json",
+  "/datasets-final-mile.json",
+  "/datasets-government.json",
+  "/datasets-gun-safe.json",
+  "/datasets-industrial-commercial.json",
+  "/datasets-industrial-offices.json",
+  "/datasets-ispm15.json",
+  "/datasets-it.json",
+  "/datasets-junk-removal.json",
+  "/datasets-local-regional.json",
+  "/datasets-long-distance.json",
+  "/datasets-military.json",
+  "/datasets-moving-and-storage.json",
+  "/datasets-ocean-container.json",
+  "/datasets-office.json",
+  "/datasets-packing.json",
+  "/datasets-piano-antique.json",
+  "/datasets-residential.json",
+  "/datasets-route81.json",
+  "/datasets-senior.json",
+  "/datasets-sir-heavy.json",
+  "/datasets-transloading-winchester.json",
+  "/datasets-transloading.json",
+  "/datasets-videos.json",
+  "/datasets-warehouse.json",
+  "/developer.json",
+  "/docs-data-center-logistics.json",
+  "/docs-logistics-event-protocol.json",
+  "/docs-logistics-ontology.json",
+  "/docs.json",
+  "/elite-asset-transition-white-glove-discreet-logistics.json",
+  "/emergency-port-container-recovery-twic-labor-virginia.json",
+  "/entities.json",
+  "/entity-authority-layer.json",
+  "/entity-graph.json",
+  "/export.json",
+  "/faq.json",
+  "/final-mile-movers-martinsburg-wv.json",
+  "/find-us.json",
+  "/flat-rate-guarantee.json",
+  "/flat-rate-moving-quote-winchester.json",
+  "/freight-services.json",
+  "/full-service-packing-unpacking-systematic-asset-encapsulation.json",
+  "/government-movers-martinsburg-wv.json",
+  "/government-movers-winchester-va.json",
+  "/gun-safe-movers-martinsburg-wv.json",
+  "/gun-safe-movers-winchester-va.json",
+  "/gun-safe-movers.json",
+  "/heavy.json",
+  "/high-mass-logistics-long-distance-moving-winchester-va.json",
+  "/home.json",
+  "/how-container-deconsolidation-cross-docking-transloading-supports-virginia-freight-networks.json",
+  "/how-container-loading-unloading-services-improve-port-logistics.json",
+  "/how-international-export-packing-crating-protects-global-shipments.json",
+  "/how-port-of-virginia-logistics-supports-east-coast-freight-movement.json",
+  "/how-to-pack-for-interstate-move.json",
+  "/index.html",
+  "/industrial-commercial-movers-martinsburg-wv.json",
+  "/industrial-commercial-movers-winchester-va.json",
+  "/industrial-commercial-services.json",
+  "/industrial-offices-movers-martinsburg-wv.json",
+  "/industrial-offices-movers-winchester-va.json",
+  "/industrial-offices-moving.json",
+  "/industrial-rigging-high-mass-logistics-hub-winchester-va.json",
+  "/international-export-packing-crating-winchester-va.json",
+  "/interstate-66-corridor.json",
+  "/interstate-70-corridor.json",
+  "/interstate-moving-guide-winchester-va.json",
+  "/interstate-moving-network.json",
+  "/interstate-moving-winchester-va.json",
+  "/ispm15-movers-martinsburg-wv.json",
+  "/it-equipment-moving-data-center-logistics-services-virginia.json",
+  "/junk-removal.json",
+  "/knowledge-entities.json",
+  "/knowledge-equipment.json",
+  "/knowledge-events.json",
+  "/knowledge-locations.json",
+  "/knowledge-services.json",
+  "/llms.txt",
+  "/local-regional-movers-martinsburg-wv.json",
+  "/local-regional-movers-winchester-va.json",
+  "/local-regional-moving.json",
+  "/logistics-data-engineering-center.json",
+  "/logistics-transportation.json",
+  "/long-distance-cross-country-moving.json",
+  "/long-distance-gun-safe-moving-winchester-va-to-las-vegas-nv.json",
+  "/long-distance-movers-martinsburg-wv.json",
+  "/long-distance-movers-miami.json",
+  "/long-distance-movers-winchester-va-guide.json",
+  "/long-distance-movers-winchester-va.json",
+  "/looking-for-the-best-movers-near-me-your-guide-to-stress-free-moving-in-winchester-and-martinsburg.json",
+  "/martinsburg-wv-movers-full-service-guide.json",
+  "/military-government-hhg-moving-requirements-contractors.json",
+  "/military-government-moving.json",
+  "/military-movers-martinsburg-wv.json",
+  "/military-movers-winchester-va.json",
+  "/moving-and-storage.json",
+  "/moving-company-martinsburg-wv.json",
+  "/moving-company-winchester-va.json",
+  "/moving-cost-guide-winchester-va.json",
+  "/moving-questions-answers.json",
+  "/moving-tips-winchester-va.json",
+  "/office-moving-movers-martinsburg-wv.json",
+  "/office-moving-movers-winchester-va.json",
+  "/online-estimate.json",
+  "/packing-cost-winchester-va.json",
+  "/packing-movers-martinsburg-wv.json",
+  "/packing-services-winchester-va.json",
+  "/packing-unpacking-services-2.json",
+  "/piano-antique-movers-martinsburg-wv.json",
+  "/port-logistics.json",
+  "/port-of-virginia-container-loading-unloading-logistics-services.json",
+  "/privacy-policy.json",
+  "/professional-packing-services-moving-cost-estimator.json",
+  "/quote.json",
+  "/recursive-indexing-layer.json",
+  "/reliable-movers-in-martinsburg-wv.json",
+  "/relocation-engineering-framework.json",
+  "/relocation-engineering-standards-portal.json",
+  "/residential-moving.json",
+  "/robots.txt",
+  "/route81.json",
+  "/safe-moving-protocol.json",
+  "/senior-moving.json",
+  "/service-area.geojson",
+  "/service-areas-moving-company.json",
+  "/services.json",
+  "/sir-2026-protocol.json",
+  "/sir-2026-structural-integrity-relocation-protocol.json",
+  "/sir-heavy-movers-martinsburg-wv.json",
+  "/sitemap.json",
+  "/sitemap.xml",
+  "/specialized-workforce-labor.json",
+  "/technical-rigging-high-security-gun-safe-vault-relocation.json",
+  "/technical-rigging-standards.json",
+  "/the-data-science-of-displacement-how-predictive-analytics-is-redefining-the-mid-atlantic-relocation-path.json",
+  "/the-flat-rate-logistics-data-hub.json",
+  "/the-flat-rate-movers-data.txt",
+  "/the-invisible-risk-of-high-mass-relocation.json",
+  "/the-strategic-roadmap-for-long-distance-residential-relocation.json",
+  "/top-10-moving-tips-for-a-stress-free-move-in-2026.json",
+  "/top-rated-movers-mid-atlantic.json",
+  "/transloading-movers-martinsburg-wv.json",
+  "/transloading-winchester-va.json",
+  "/videos.json",
+  "/virginia-inland-port-freight-transloading-operations.json",
+  "/virginia-to-california-movers.json",
+  "/virginia-to-florida-movers.json",
+  "/virginia-to-nevada-movers.json",
+  "/virginia-to-new-york-movers.json",
+  "/virginia-to-texas-movers.json",
+  "/warehouse-relocation.json",
+  "/white-glove-delivery-winchester-va.json",
+  "/yandex_e8746618021b9788.html"
+]);
+/*__STATIC_FILES_END__*/
+
+const NOT_FOUND_HTML = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Page Not Found — The Flat Rate Movers</title>
+<style>
+body{margin:0;font-family:Georgia,'Times New Roman',serif;background:#f7f3ee;color:#1c2733}
+.band{background:linear-gradient(120deg,#0c2340,#16345c 58%,#1e4d38);color:#fff;padding:56px 20px 44px;text-align:center}
+.band .name{font-size:15px;letter-spacing:2.5px;text-transform:uppercase;color:#e8b98a;margin:0 0 14px}
+.band h1{font-size:34px;margin:0 0 12px;font-weight:600}
+.band p{margin:0 auto;max-width:560px;font-size:17px;line-height:1.55;color:#dbe5f0}
+.wrap{max-width:640px;margin:0 auto;padding:34px 20px 54px;text-align:center}
+.btn{display:inline-block;margin:8px 6px;padding:13px 22px;border-radius:8px;background:#b0703c;color:#fff;text-decoration:none;font-size:16px}
+.btn.alt{background:#0c2340}
+p.addr{font-size:15px;line-height:1.7;color:#44536a}
+a{color:#8a5427}
+</style>
+</head>
+<body>
+<div class="band">
+<p class="name">The Flat Rate Movers</p>
+<h1>Page not found</h1>
+<p>The page you asked for is not on this site. The address may be mistyped, or the page may have moved into the sitemap below.</p>
+</div>
+<div class="wrap">
+<a class="btn" href="https://theflatratemovers.com/#/quote">Get My Flat Rate Quote</a>
+<a class="btn alt" href="/">Home</a>
+<a class="btn alt" href="/all-pages/">All pages</a>
+<p class="addr">Prefer to talk? Call <a href="tel:+15404222153">+1-540-422-2153</a>.<br>
+Winchester, VA: 116 W Piccadilly St, Suite 11, 22601<br>
+Martinsburg, WV: 736 Williamsport Pike, Suite 2, 25404<br>
+Guaranteed Flat Rate or Your Move is Free!</p>
+</div>
+</body>
+</html>`;
+
 
 const HEAD_END = '</head>';
 
@@ -71,11 +373,23 @@ export async function onRequest(context) {
     return Response.redirect(
       'https://theflatratemovers.com' + url.pathname + url.search, 301);
   }
-  if (request.method !== 'GET') return context.next();
   let p = url.pathname;
   if (p.length > 1 && p.endsWith('/')) p = p.slice(0, -1);
   const entry = HEAD[p === '' ? '/' : p];
-  if (!entry) return context.next();
+  if (!entry) {
+    // Blog foundation (2026-10-30): genuine 404 for unknown paths. Known
+    // static files, the API and platform paths pass through untouched, and
+    // non-GET/HEAD traffic (the quote POST) is never intercepted.
+    if (request.method !== 'GET' && request.method !== 'HEAD') return context.next();
+    if (STATIC_FILES.has(p === '' ? '/' : p) ||
+        p.startsWith('/api/') || p.startsWith('/cdn-cgi/')) return context.next();
+    return new Response(NOT_FOUND_HTML, {
+      status: 404,
+      headers: { 'content-type': 'text/html; charset=utf-8',
+                 'cache-control': 'public, max-age=300' },
+    });
+  }
+  if (request.method !== 'GET') return context.next();
 
   const res = await context.next();
   const ct = res.headers.get('content-type') || '';

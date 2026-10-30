@@ -567,6 +567,12 @@ async function main() {
     // file joins the data set, the new page JSON joins the page set). The
     // assertion is exact-count, as before, never a floor. Record:
     // out/verify-fix-2026-10-30-junk-removal.md.
+    // Extended by Batch Blog Foundation, 2026-10-30 (same motion as the
+    // Flat-Rate Guarantee page shipped): totals move to 158 per-page JSON
+    // files and 205 distributions (36 data + 158 pages + 11 shell/code —
+    // no new dataset; the guarantee page JSON joins the page set). The
+    // assertion stays exact-count. Record:
+    // out/verify-fix-2026-10-30-blog-foundation.md.
     const P2_CODE_URLS = [
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/code/site-shell/index.html',
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/code/pages-functions/_middleware.js',
@@ -588,12 +594,12 @@ async function main() {
       const distUrls = new Set((servedIndex.distribution || []).map((e) => e.contentUrl));
       const missingPages = pageFiles.filter((f) => !distUrls.has('https://theflatratemovers.com/' + f));
       const missingCode = P2_CODE_URLS.filter((u) => !distUrls.has(u));
-      p5ok = !!servedIndex && pageFiles.length === 157 && missingPages.length === 0 && missingCode.length === 0 &&
-        (servedIndex.distribution || []).length === 204;
+      p5ok = !!servedIndex && pageFiles.length === 158 && missingPages.length === 0 && missingCode.length === 0 &&
+        (servedIndex.distribution || []).length === 205;
       p5detail = 'pageFiles=' + pageFiles.length + ', missingPages=' + (missingPages.join(',') || '0') +
         ', missingCode=' + (missingCode.join(',') || '0') + ', distributions=' + (servedIndex ? (servedIndex.distribution || []).length : 0);
     } catch (e) { p5ok = false; p5detail = e.message; }
-    check('P-5 certificate covers all 157 per-page JSONs + the site shell + the deployed code sets (204 distributions)',
+    check('P-5 certificate covers all 158 per-page JSONs + the site shell + the deployed code sets (205 distributions)',
       p5ok, p5detail);
 
     // P-6: repo-served distribution digests re-computed over live bytes
