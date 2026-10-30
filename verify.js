@@ -159,7 +159,15 @@ async function main() {
     check('Branch service areas differ (never merged)',
       JSON.stringify([...win.serviceArea].sort()) !== JSON.stringify([...mar.serviceArea].sort()),
       'winchester=' + win.serviceArea.length + ', martinsburg=' + mar.serviceArea.length);
-    check('Winchester service area has 16 entries', win.serviceArea.length === 16);
+    // REWRITTEN 2026-10-30 (Batch P2): the premise "16" was the GBP list as
+    // supplied 2026-10-27. Google published the owner's Bristow service-area
+    // edit on 2026-10-30 (verified in GBP Manager: 17 published areas,
+    // Bristow, VA, USA listed first), so the data is 17 and the check now
+    // asserts the stronger state — exact count AND Bristow's presence.
+    // Record: out/verify-fix-2026-10-30-p2.md.
+    check('Winchester service area has 17 entries including Bristow (GBP published 2026-10-30)',
+      win.serviceArea.length === 17 && win.serviceArea.includes('Bristow'),
+      'entries=' + win.serviceArea.length + ', bristow=' + win.serviceArea.includes('Bristow'));
     check('Martinsburg service area has 14 entries', mar.serviceArea.length === 14);
     check('Company founding is 2010-06 (no day invented)',
       locations.company && locations.company.foundingDate === '2010-06',
@@ -447,7 +455,8 @@ async function main() {
     check('rubric.db readable via sqlite3', false, e.message);
   }
 
-  // --- 11. Provenance — signing layer (Batch P1, 2026-10-29; checks P-1..P-4) ---
+  // --- 11. Provenance — signing layer (Batch P1, 2026-10-29; checks P-1..P-4;
+  // extended by Batch P2, 2026-10-30, with P-5 coverage + P-6 repo digests) ---
   // Added in the same motion as the feature shipped (spec:
   // out/batchP1-provenance/notes/verify-gate-spec.md; record:
   // out/verify-fix-2026-10-29-p1-provenance.md). The estate's provenance
@@ -543,8 +552,63 @@ async function main() {
     check('P-4 every served index distribution entry is complete (name, contentUrl, encodingFormat, license, dateModified, SHA-256 digest + byteSize)',
       !!servedIndex && (servedIndex.distribution || []).length > 0 && incomplete.length === 0,
       'entries=' + (servedIndex ? (servedIndex.distribution || []).length : 0) + (incomplete.length ? ', incomplete: ' + incomplete.map((e) => e.name || e.contentUrl || '?').join(', ') : ', all complete'));
+
+    // P-5: certificate coverage (Batch P2, 2026-10-30) — the seal covers
+    // every per-page JSON, the site shell, and the deployed code sets, not
+    // just the 35 data distributions. Asserts the SERVED index carries a
+    // distribution for each of the 156 per-page JSON files (filename set
+    // derived from the deployed public/ listing, the same derivation the
+    // Batch 8a coverage join used) plus the 11 shell/code contentUrls, and
+    // that the total is exactly 202 (35 + 156 + 11). Record:
+    // out/verify-fix-2026-10-30-p2.md.
+    const P2_CODE_URLS = [
+      'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/code/site-shell/index.html',
+      'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/code/pages-functions/_middleware.js',
+      'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/code/pages-functions/head-data.js',
+      'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/code/pages-functions/quote.js',
+      'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/code/quote-worker/index.js',
+      'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/verify.js',
+      'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/tools/keygen.py',
+      'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/tools/digest-index.py',
+      'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/tools/sign-index.py',
+      'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/tools/verify-provenance.py',
+      'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/tools/gen-head-data.js',
+    ];
+    let p5detail = '', p5ok = false;
+    try {
+      const pubDir = path.join(path.resolve(ROOT, '..', 'the-flat-rate-movers-pages'), 'public');
+      const nonPage = new Set(['ai-master-index.json', 'ai-sitemap.json', 'entity-graph.json', 'best-json-entity-graph.json', 'ai-catalog.json']);
+      const pageFiles = fs.readdirSync(pubDir).filter((f) => f.endsWith('.json') && !nonPage.has(f) && !f.startsWith('datasets-')).sort();
+      const distUrls = new Set((servedIndex.distribution || []).map((e) => e.contentUrl));
+      const missingPages = pageFiles.filter((f) => !distUrls.has('https://theflatratemovers.com/' + f));
+      const missingCode = P2_CODE_URLS.filter((u) => !distUrls.has(u));
+      p5ok = !!servedIndex && pageFiles.length === 156 && missingPages.length === 0 && missingCode.length === 0 &&
+        (servedIndex.distribution || []).length === 202;
+      p5detail = 'pageFiles=' + pageFiles.length + ', missingPages=' + (missingPages.join(',') || '0') +
+        ', missingCode=' + (missingCode.join(',') || '0') + ', distributions=' + (servedIndex ? (servedIndex.distribution || []).length : 0);
+    } catch (e) { p5ok = false; p5detail = e.message; }
+    check('P-5 certificate covers all 156 per-page JSONs + the site shell + the deployed code sets (202 distributions)',
+      p5ok, p5detail);
+
+    // P-6: repo-served distribution digests re-computed over live bytes
+    // (P-3 covers site-served entries; P1 left repo entries to push-time
+    // read-back — P2 strengthens the gate to live verification, since the
+    // code sets' canonical copies now live in the machine repo).
+    let p6ok = 0; const p6bad = [];
+    const repoEntries = servedIndex ? (servedIndex.distribution || []).filter((e) => String(e.contentUrl || '').includes('raw.githubusercontent.com')) : [];
+    for (const e of repoEntries) {
+      try {
+        const r = await fetchFull(e.contentUrl);
+        const hex = crypto.createHash('sha256').update(r.buf).digest('hex');
+        if (r.status === 200 && e.digest && hex === e.digest.value && r.buf.length === e.digest.byteSize) p6ok++;
+        else p6bad.push(e.name + ' (status ' + r.status + ', served ' + r.buf.length + 'B vs index ' + (e.digest ? e.digest.byteSize + 'B' : 'no digest') + ')');
+      } catch (err) { p6bad.push(e.name + ' (' + err.message + ')'); }
+    }
+    check('P-6 all repo-served distribution digests match the live served bytes',
+      !!servedIndex && p6bad.length === 0 && p6ok === repoEntries.length && repoEntries.length > 0,
+      p6ok + '/' + repoEntries.length + ' match' + (p6bad.length ? '; mismatch: ' + p6bad.join('; ') : ''));
   } catch (e) {
-    check('provenance layer (P-1..P-4) fetched and evaluated', false, e.message);
+    check('provenance layer (P-1..P-6) fetched and evaluated', false, e.message);
   }
 
   // --- 12. Structural — Batch 9 (2026-10-29; checks S-1..S-6) ---

@@ -1,0 +1,94 @@
+{
+ "log": [
+  "geojson: bristow flag->true, source+rubric_note rewritten",
+  "geojson: attestation appended; wrote 3 copies",
+  "route81: bristow source marker extended -> GBP form",
+  "best graph org areaServed 30->31: /home/hatch/workspace/the-flat-rate-movers-pages/public/best-json-entity-graph.json",
+  "best graph org areaServed 30->31: /home/hatch/workspace/the-flat-rate-machine/data/best-json-entity-graph.json",
+  "best graph org areaServed 30->31: /home/hatch/workspace/theflatratemovers/best-json-entity-graph.json",
+  "best graph org areaServed 30->31: /home/hatch/workspace/the-flat-rate-machine/out/phase-a/best-json-entity-graph.json",
+  "phase-a generated entity graph winchester GBP list 16->17",
+  "locations.json winchester serviceArea 16->17",
+  "footprint.json: counts 17/15, bristow record gbp->true",
+  "sweep /home/hatch/workspace/the-flat-rate-machine/data/best-json-entity-graph.json: {'(Winchester 16, Martinsburg 14)': 1}",
+  "sweep /home/hatch/workspace/the-flat-rate-machine/data/entity-graph.json: {'16 Google Business Profile areas plus': 1}",
+  "sweep /home/hatch/workspace/the-flat-rate-movers-pages/public/best-json-entity-graph.json: {'(Winchester 16, Martinsburg 14)': 1}",
+  "sweep /home/hatch/workspace/the-flat-rate-movers-pages/public/datasets-crating.json: {'16 Google Business Profile areas + 16 extended': 1}",
+  "sweep /home/hatch/workspace/the-flat-rate-movers-pages/public/datasets-final-mile.json: {'16 Google Business Profile areas + 16 extended': 1}",
+  "sweep /home/hatch/workspace/the-flat-rate-movers-pages/public/datasets-government.json: {'16 Google Business Profile areas + 16 extended': 1}",
+  "sweep /home/hatch/workspace/the-flat-rate-movers-pages/public/datasets-ispm15.json: {'16 Google Business Profile areas + 16 extended': 1}",
+  "sweep /home/hatch/workspace/the-flat-rate-movers-pages/public/datasets-military.json: {'16 Google Business Profile areas + 16 extended': 1}",
+  "sweep /home/hatch/workspace/the-flat-rate-movers-pages/public/datasets-ocean-container.json: {'GBP 16 + extended 16': 1}",
+  "sweep /home/hatch/workspace/the-flat-rate-movers-pages/public/datasets-piano-antique.json: {'16 Google Business Profile areas + 16 extended': 1}",
+  "sweep /home/hatch/workspace/the-flat-rate-movers-pages/public/datasets-route81.json: {'16 Google Business Profile areas + 16 extended': 1}",
+  "sweep /home/hatch/workspace/the-flat-rate-movers-pages/public/entity-graph.json: {'16 Google Business Profile areas plus': 1}",
+  "sweep /home/hatch/workspace/the-flat-rate-movers-pages/public/index.html: {'GBP 16 + extended 16': 10, '16 Google Business Profile areas + 16 extended': 17, '(Winchester 16, Martinsburg 14)': 54, 'Winchester 16, Martinsburg 14': 3}",
+  "sweep /home/hatch/workspace/the-flat-rate-movers-pages/public/llms.txt: {'GBP 16 + extended 16': 1, '16 Google Business Profile + 16 extended': 2}",
+  "sweep /home/hatch/workspace/the-flat-rate-movers-pages/public/the-flat-rate-movers-data.txt: {'GBP 16 + extended 16': 2, '16 Google Business Profile + 16 extended': 1, '(Winchester 16, Martinsburg 14)': 1}",
+  "sweep /home/hatch/workspace/theflatratemovers/best-json-entity-graph.json: {'(Winchester 16, Martinsburg 14)': 1}",
+  "sweep /home/hatch/workspace/theflatratemovers/entity-graph.json: {'16 Google Business Profile areas plus': 1}",
+  "sweep /home/hatch/workspace/theflatratemovers/the-flat-rate-movers-data.txt: {'(Winchester 16, Martinsburg 14)': 1}"
+ ],
+ "sweep": {
+  "/home/hatch/workspace/the-flat-rate-machine/data/best-json-entity-graph.json": {
+   "(Winchester 16, Martinsburg 14)": 1
+  },
+  "/home/hatch/workspace/the-flat-rate-machine/data/entity-graph.json": {
+   "16 Google Business Profile areas plus": 1
+  },
+  "/home/hatch/workspace/the-flat-rate-movers-pages/public/best-json-entity-graph.json": {
+   "(Winchester 16, Martinsburg 14)": 1
+  },
+  "/home/hatch/workspace/the-flat-rate-movers-pages/public/datasets-crating.json": {
+   "16 Google Business Profile areas + 16 extended": 1
+  },
+  "/home/hatch/workspace/the-flat-rate-movers-pages/public/datasets-final-mile.json": {
+   "16 Google Business Profile areas + 16 extended": 1
+  },
+  "/home/hatch/workspace/the-flat-rate-movers-pages/public/datasets-government.json": {
+   "16 Google Business Profile areas + 16 extended": 1
+  },
+  "/home/hatch/workspace/the-flat-rate-movers-pages/public/datasets-ispm15.json": {
+   "16 Google Business Profile areas + 16 extended": 1
+  },
+  "/home/hatch/workspace/the-flat-rate-movers-pages/public/datasets-military.json": {
+   "16 Google Business Profile areas + 16 extended": 1
+  },
+  "/home/hatch/workspace/the-flat-rate-movers-pages/public/datasets-ocean-container.json": {
+   "GBP 16 + extended 16": 1
+  },
+  "/home/hatch/workspace/the-flat-rate-movers-pages/public/datasets-piano-antique.json": {
+   "16 Google Business Profile areas + 16 extended": 1
+  },
+  "/home/hatch/workspace/the-flat-rate-movers-pages/public/datasets-route81.json": {
+   "16 Google Business Profile areas + 16 extended": 1
+  },
+  "/home/hatch/workspace/the-flat-rate-movers-pages/public/entity-graph.json": {
+   "16 Google Business Profile areas plus": 1
+  },
+  "/home/hatch/workspace/the-flat-rate-movers-pages/public/index.html": {
+   "GBP 16 + extended 16": 10,
+   "16 Google Business Profile areas + 16 extended": 17,
+   "(Winchester 16, Martinsburg 14)": 54,
+   "Winchester 16, Martinsburg 14": 3
+  },
+  "/home/hatch/workspace/the-flat-rate-movers-pages/public/llms.txt": {
+   "GBP 16 + extended 16": 1,
+   "16 Google Business Profile + 16 extended": 2
+  },
+  "/home/hatch/workspace/the-flat-rate-movers-pages/public/the-flat-rate-movers-data.txt": {
+   "GBP 16 + extended 16": 2,
+   "16 Google Business Profile + 16 extended": 1,
+   "(Winchester 16, Martinsburg 14)": 1
+  },
+  "/home/hatch/workspace/theflatratemovers/best-json-entity-graph.json": {
+   "(Winchester 16, Martinsburg 14)": 1
+  },
+  "/home/hatch/workspace/theflatratemovers/entity-graph.json": {
+   "16 Google Business Profile areas plus": 1
+  },
+  "/home/hatch/workspace/theflatratemovers/the-flat-rate-movers-data.txt": {
+   "(Winchester 16, Martinsburg 14)": 1
+  }
+ }
+}
