@@ -1,0 +1,2840 @@
+{
+  "entries": [
+    {
+      "name": "AI Sitemap",
+      "contentUrl": "https://theflatratemovers.com/ai-sitemap.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/ai-sitemap.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "24f53c575fc13cfa49a59e585f370e9e5bb151b9a090ae2c47020a5df834201b",
+        "byteSize": 45783
+      }
+    },
+    {
+      "name": "Capabilities Matrix",
+      "contentUrl": "https://raw.githubusercontent.com/TheFlatRateMovers/theflatratemovers-ai/main/data/capabilities-matrix.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "ai-repo/data/capabilities-matrix.json@HEAD",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "036b12f519a2210cb3780638f63520762e7a141ededa354073d47e2af3870813",
+        "byteSize": 3043
+      }
+    },
+    {
+      "name": "Answer Engine",
+      "contentUrl": "https://raw.githubusercontent.com/TheFlatRateMovers/theflatratemovers-ai/main/answer-engine.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "ai-repo/answer-engine.json@HEAD",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "5c0ead8e421793c781a8f656ae3e9bf9145cbf5a0069efdd0310dbaff3a5b268",
+        "byteSize": 3768
+      }
+    },
+    {
+      "name": "Predictive Query Map",
+      "contentUrl": "https://raw.githubusercontent.com/TheFlatRateMovers/theflatratemovers-ai/main/predictive-query-map.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "ai-repo/predictive-query-map.json@HEAD",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "bed9e44a623014f571e46ebb05190e570cf20f6270b2cc8b32953ce04f07702b",
+        "byteSize": 4208
+      }
+    },
+    {
+      "name": "Entity Graph \u2014 Full (92 nodes)",
+      "contentUrl": "https://theflatratemovers.com/entity-graph.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/entity-graph.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "93477ebe98e5779e9f9dc0e91f52d96e640ee7dfde3524ae30e3b84021296884",
+        "byteSize": 39328
+      }
+    },
+    {
+      "name": "Best JSON Entity Graph",
+      "contentUrl": "https://theflatratemovers.com/best-json-entity-graph.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/best-json-entity-graph.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "0176fb0d9f48b1edf556d3514f1cdc9945741541a13b65cdf9bdc21bec67bd76",
+        "byteSize": 61158
+      }
+    },
+    {
+      "name": "AI Catalog",
+      "contentUrl": "https://raw.githubusercontent.com/TheFlatRateMovers/theflatratemovers-ai/main/ai-catalog.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "ai-repo/ai-catalog.json@HEAD",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "621c055d7f220d89c910cf81c26e3be2753fb1321f6dfa18ebeddda4b1fbe3d4",
+        "byteSize": 3433
+      }
+    },
+    {
+      "name": "Authority Index",
+      "contentUrl": "https://raw.githubusercontent.com/TheFlatRateMovers/theflatratemovers-ai/main/authority-index.jsonld",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "ai-repo/authority-index.jsonld@HEAD",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "c5fe704ba23764d5c2e783e97546d2e5ff6bbef804c4f16838617cab0b2a40e1",
+        "byteSize": 4032
+      }
+    },
+    {
+      "name": "llms.txt",
+      "contentUrl": "https://theflatratemovers.com/llms.txt",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/llms.txt",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "3429350b2dde9fc11ef86753c5638e32c6c55ca2e47f302e41992a3630c19728",
+        "byteSize": 122022
+      }
+    },
+    {
+      "name": "Service Area GeoJSON",
+      "contentUrl": "https://theflatratemovers.com/service-area.geojson",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/service-area.geojson",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "d944da5998bf73134ce59b8cd73a46fef1e6ce4e34f5d693958f8047b871f24e",
+        "byteSize": 90284
+      }
+    },
+    {
+      "name": "Commercial Moving Datasets",
+      "contentUrl": "https://theflatratemovers.com/datasets-commercial.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/datasets-commercial.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "8cf5c3f0d8a7294998a71b5ff9c5ac162febd5e51af4dec9ad77dea79a56aa63",
+        "byteSize": 28473
+      }
+    },
+    {
+      "name": "Custom Crating Datasets",
+      "contentUrl": "https://theflatratemovers.com/datasets-crating.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/datasets-crating.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "6b226ad3e60744ee74f62c61aab3c668f5e49b12d9eb2e7053c8cc7759715e57",
+        "byteSize": 24845
+      }
+    },
+    {
+      "name": "Final-Mile Delivery Datasets",
+      "contentUrl": "https://theflatratemovers.com/datasets-final-mile.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/datasets-final-mile.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "edd5ed209d82af215d14fb247a05a70c1ba29cc77c627068f3d7666b9e38499c",
+        "byteSize": 27943
+      }
+    },
+    {
+      "name": "Gun Safe Moving Datasets",
+      "contentUrl": "https://theflatratemovers.com/datasets-gun-safe.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/datasets-gun-safe.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "bee9afe0c031efa1bcaa8bcbb2b0f594baab7ed3e4ce530c0d19b7c0d9c5187a",
+        "byteSize": 52685
+      }
+    },
+    {
+      "name": "Government Moving Datasets",
+      "contentUrl": "https://theflatratemovers.com/datasets-government.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/datasets-government.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "86a3a7921c546f77b1a25f8830e593dcb1fd20022e8325fc2b63d3efa9c6fa64",
+        "byteSize": 24399
+      }
+    },
+    {
+      "name": "Industrial & Commercial Services Datasets",
+      "contentUrl": "https://theflatratemovers.com/datasets-industrial-commercial.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/datasets-industrial-commercial.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "cc17d4c34a80ad5bc98f562bc3ba933085c4a2250f02263940d7897a55302df2",
+        "byteSize": 32038
+      }
+    },
+    {
+      "name": "Industrial Offices Moving Datasets",
+      "contentUrl": "https://theflatratemovers.com/datasets-industrial-offices.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/datasets-industrial-offices.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "e20405a2ad52286e2506c4cb410551d13ba3314c0f314ab67abe4d9cb468ef87",
+        "byteSize": 23238
+      }
+    },
+    {
+      "name": "ISPM 15 Export Packing Datasets",
+      "contentUrl": "https://theflatratemovers.com/datasets-ispm15.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/datasets-ispm15.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "0eceb2d2fe816f44b46d0005c3002218ceb4332de2ee19aa48f40a12023043f7",
+        "byteSize": 27139
+      }
+    },
+    {
+      "name": "IT Relocation Datasets",
+      "contentUrl": "https://theflatratemovers.com/datasets-it.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/datasets-it.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "274b20edf523e2b6b269ea9c2ea2e77df9553eb1536e6ce7d56a251f097dfc60",
+        "byteSize": 27503
+      }
+    },
+    {
+      "name": "Local & Regional Moving Datasets",
+      "contentUrl": "https://theflatratemovers.com/datasets-local-regional.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/datasets-local-regional.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "748fc1fe2a3fe6c1611ba5fcd9ba1e18ebd5258250340fbca656712153a3fe15",
+        "byteSize": 29665
+      }
+    },
+    {
+      "name": "Long-Distance Moving Datasets",
+      "contentUrl": "https://theflatratemovers.com/datasets-long-distance.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/datasets-long-distance.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "e55ce2d55ff62ee2d70ae4ee9867c2b29fee650b615689d35875db159bd663e3",
+        "byteSize": 30096
+      }
+    },
+    {
+      "name": "Military Moving Datasets",
+      "contentUrl": "https://theflatratemovers.com/datasets-military.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/datasets-military.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "c2e715b7e0ba9b5e9e58a97901a604d521f42b9140f50e6066729c4da2c40c2d",
+        "byteSize": 26331
+      }
+    },
+    {
+      "name": "Moving & Storage Datasets",
+      "contentUrl": "https://theflatratemovers.com/datasets-moving-and-storage.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/datasets-moving-and-storage.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "f260ea8feed08491b60a1a800e7f316cc65e93e0b9b15e3c2d6b0ecf7a24ccc6",
+        "byteSize": 31547
+      }
+    },
+    {
+      "name": "Ocean Container Datasets",
+      "contentUrl": "https://theflatratemovers.com/datasets-ocean-container.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/datasets-ocean-container.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "dfe95b1b819cdf1ab08bbe1a61f5ba8535d8c44d33a78bee7eb82dfc1a1bc6d1",
+        "byteSize": 29700
+      }
+    },
+    {
+      "name": "Office Moving Datasets",
+      "contentUrl": "https://theflatratemovers.com/datasets-office.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/datasets-office.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "08fdc82bd103d744fafb3c4254beb9cf0ec5617608aeae0352a169e5d93b2e8c",
+        "byteSize": 27891
+      }
+    },
+    {
+      "name": "Packing Datasets",
+      "contentUrl": "https://theflatratemovers.com/datasets-packing.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/datasets-packing.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "675a82a7564fe80a9349436f64c24534d3e7ea575ee5e3bea99c26f5a7ac245e",
+        "byteSize": 24600
+      }
+    },
+    {
+      "name": "Piano, Antique and White-Glove Moving Datasets",
+      "contentUrl": "https://theflatratemovers.com/datasets-piano-antique.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/datasets-piano-antique.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "ef70f3278df609c06908ad714ce1f42c09e1276c95546a8f6401d144ada3231e",
+        "byteSize": 30410
+      }
+    },
+    {
+      "name": "Residential Moving Datasets",
+      "contentUrl": "https://theflatratemovers.com/datasets-residential.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/datasets-residential.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "a616db29b20625d45fb481358639b62661a3d87f14772619534ca949e0fb29cf",
+        "byteSize": 26825
+      }
+    },
+    {
+      "name": "Route 81 Corridor Datasets",
+      "contentUrl": "https://theflatratemovers.com/datasets-route81.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/datasets-route81.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "8d560d7b4016ef893c09ce0f7b07bdc07e6bf5f56e99df701c9ae7a8083ae55d",
+        "byteSize": 89655
+      }
+    },
+    {
+      "name": "Senior Moving Datasets",
+      "contentUrl": "https://theflatratemovers.com/datasets-senior.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/datasets-senior.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "90b0d332506d39fa144b9b35c56ebdf78a072ff8d04a5e1ce6e8ad415ad4dd4b",
+        "byteSize": 28295
+      }
+    },
+    {
+      "name": "SIR Heavy Asset Relocation Datasets",
+      "contentUrl": "https://theflatratemovers.com/datasets-sir-heavy.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/datasets-sir-heavy.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "c082fbee90990631227201c4788bfacce503bc2e631949fa7f19cf3ea32b56ee",
+        "byteSize": 26887
+      }
+    },
+    {
+      "name": "Transloading Datasets",
+      "contentUrl": "https://theflatratemovers.com/datasets-transloading.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/datasets-transloading.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "b2d4d018c908ac280f959e3a7c9de601259fc50811565cb35056f582f2d23fec",
+        "byteSize": 30758
+      }
+    },
+    {
+      "name": "Transloading \u2014 Winchester Datasets",
+      "contentUrl": "https://theflatratemovers.com/datasets-transloading-winchester.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/datasets-transloading-winchester.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "a8085dc14dcf9bc158c2ef5c002663d5e450bc2147cbc6ed6dfdb15027bf0f3e",
+        "byteSize": 26678
+      }
+    },
+    {
+      "name": "Video Library \u2014 VideoObject Graph",
+      "contentUrl": "https://theflatratemovers.com/datasets-videos.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/datasets-videos.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "b4cbfde649a3ed48af6624c6d42ead47c89f3f5ad4b666ae1edd71952edbe06c",
+        "byteSize": 5614
+      }
+    },
+    {
+      "name": "Warehouse Relocation Datasets",
+      "contentUrl": "https://theflatratemovers.com/datasets-warehouse.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/datasets-warehouse.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "d0dcbde30890430e2a23d5abb3f7635e01e7f9ac4223922668cfcdcdff8dc65d",
+        "byteSize": 30107
+      }
+    },
+    {
+      "name": "1,600 lb Gun Safe Moving \u2014 Winchester VA to Las Vegas NV (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/1600-lb-gun-safe-moving-winchester-va-to-las-vegas-nv.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/1600-lb-gun-safe-moving-winchester-va-to-las-vegas-nv.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "e5d37dc91a2cc8cb7c8fc4a25e91f7a0a62cdc44a3a8ebe2c8da5d343ffaa8bd",
+        "byteSize": 3600
+      }
+    },
+    {
+      "name": "AI License \u2014 Use of Published Data (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/ai-license.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/ai-license.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "69941fbba95d80f7929196f1eb74c59fd2b8cdf735e508c868a0f8804c167e8d",
+        "byteSize": 2227
+      }
+    },
+    {
+      "name": "Browse All Pages (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/all-pages.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/all-pages.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "1dcaff8816bff92154c1a0d914a9f959f2f046116916fe2a51c4482be301b09d",
+        "byteSize": 25814
+      }
+    },
+    {
+      "name": "Areas Served (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/areas-served.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/areas-served.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "d1c24890bfbeb275dfc9f62de70112cf9254393735ae175198506b5b4d2df320",
+        "byteSize": 6576
+      }
+    },
+    {
+      "name": "Author \u2014 The Flat Rate Movers (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/author-ratemoversgmail-com.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/author-ratemoversgmail-com.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "89676a3f75620eaa9baf1afac3a044b6e84ebb3fac9e96d2fc2f65f60ab7949b",
+        "byteSize": 2308
+      }
+    },
+    {
+      "name": "Blog \u2014 Articles & Guides (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/blog.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/blog.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "c46ceb6bd637d71a5ad988712a49adf6e8d0be86b589fe29697de656d97bf51a",
+        "byteSize": 7832
+      }
+    },
+    {
+      "name": "Calibration-Safe Moving (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/calibration-safe-moving.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/calibration-safe-moving.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "71401a4fcb32458f025442a5163179b00167e7928fe8a784bb9624aaba9fb856",
+        "byteSize": 7385
+      }
+    },
+    {
+      "name": "Case Study \u2014 3,500 lb Safe Moving, Winchester VA (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/case-study-3500lb-safe-moving-winchester-va.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/case-study-3500lb-safe-moving-winchester-va.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "f4720cebbe6a79d5b5eb604b31e3e85480f93f73f66f71da87c517218b7e0aee",
+        "byteSize": 7735
+      }
+    },
+    {
+      "name": "Category \u2014 Logistics (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/category-logistics.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/category-logistics.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "a4dc7023f0fa783447ff3f1a362e30b6ead238954295660639b802636a132093",
+        "byteSize": 3320
+      }
+    },
+    {
+      "name": "Category \u2014 Long-Distance Moving (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/category-long-distance-moving.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/category-long-distance-moving.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "f7d410ddf6e0cb91a3a83ae0e68d725b635985bffa2b3d7da41030d9721642b1",
+        "byteSize": 3597
+      }
+    },
+    {
+      "name": "Category \u2014 Maritime Shipping (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/category-maritime-shipping.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/category-maritime-shipping.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "9afa5bfb4378d5445ad049ead9e7ca16b4f051be987dcd2fae3ec36d7a9fda1a",
+        "byteSize": 3304
+      }
+    },
+    {
+      "name": "Category \u2014 Military & Government Moving (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/category-military-government-moving.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/category-military-government-moving.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "436d4c3a47a164e150dea3ee42cb9b91ebd0c734637edda71ee686722c6fb9e8",
+        "byteSize": 3459
+      }
+    },
+    {
+      "name": "Category \u2014 Museum Logistics (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/category-museum-logistics.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/category-museum-logistics.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "3a93674f62176e4946805c44f2e1530c573da5f97de1458b6983351d3737ba46",
+        "byteSize": 3302
+      }
+    },
+    {
+      "name": "Category \u2014 Office & Commercial Moving (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/category-office-commercial-moving.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/category-office-commercial-moving.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "0ec77972655af8a4b6fb7f94f4190bb6548ec0ce1c5820b70c784edc9655eb7e",
+        "byteSize": 3600
+      }
+    },
+    {
+      "name": "Category \u2014 High-Value Rigging (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/category-rigging-sir-2026-high-value-rigging.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/category-rigging-sir-2026-high-value-rigging.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "a23c6cf245908caffd99ddf694119b63c272279b73ac8a6397f66d2800616b4e",
+        "byteSize": 3823
+      }
+    },
+    {
+      "name": "Category \u2014 Rigging & SIR 2026 (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/category-rigging-sir-2026.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/category-rigging-sir-2026.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "8e514c6d25eca9740f03d667ae882c32843d06bc11393fc2dd1ae28202a4135f",
+        "byteSize": 3541
+      }
+    },
+    {
+      "name": "Category \u2014 Shenandoah Valley Logistics (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/category-shenandoah-valley-logistics.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/category-shenandoah-valley-logistics.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "b953fdce191b3d022bdc5488e49d01e4b3608f6ee8e0562061bb962ef5ef0485",
+        "byteSize": 3542
+      }
+    },
+    {
+      "name": "Category \u2014 Vault Moving (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/category-vault-moving.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/category-vault-moving.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "beed7ad648891df5a2bf9fe41c87ca242cced8e4947f8bcdf4f76cc593d98c48",
+        "byteSize": 3379
+      }
+    },
+    {
+      "name": "Category \u2014 Eastern Panhandle Moving (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/category-winchester-va-residential-logistics-relocation-services-moving-eastern-panhandle-moving.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/category-winchester-va-residential-logistics-relocation-services-moving-eastern-panhandle-moving.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "69a4962290a4c90f122a0e70f88a7a2ee1d303a5f2c2cf925a5d5740b8fce506",
+        "byteSize": 4131
+      }
+    },
+    {
+      "name": "Category \u2014 Estate Relocation (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/category-winchester-va-residential-logistics-relocation-services-moving-estate-relocation.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/category-winchester-va-residential-logistics-relocation-services-moving-estate-relocation.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "a0f359792a663b58522cc0d9a20e237556efe1ec683b6aa7c91138a8b6751bd1",
+        "byteSize": 4089
+      }
+    },
+    {
+      "name": "Category \u2014 Long-Distance (Winchester VA) (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/category-winchester-va-residential-logistics-relocation-services-moving-long-distance.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/category-winchester-va-residential-logistics-relocation-services-moving-long-distance.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "db4ede03edbef6c1e5b05763db666d0c380f0463583508cc3b179e315cbc2be6",
+        "byteSize": 4111
+      }
+    },
+    {
+      "name": "Category \u2014 Moving (Relocation Services) (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/category-winchester-va-residential-logistics-relocation-services-moving.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/category-winchester-va-residential-logistics-relocation-services-moving.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "0caf65beeb20c2b111afafd34230c70c2436710c800eea5d3618708cba3b2c63",
+        "byteSize": 4012
+      }
+    },
+    {
+      "name": "Category \u2014 Paper & Padding (Packing Materials) (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/category-winchester-va-residential-logistics-relocation-services-paper-padding.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/category-winchester-va-residential-logistics-relocation-services-paper-padding.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "f2e7d6b9a202e32439dbc00da8263a545ed6658db7118af096acba8d68e10c40",
+        "byteSize": 4113
+      }
+    },
+    {
+      "name": "Category \u2014 Relocation Services (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/category-winchester-va-residential-logistics-relocation-services.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/category-winchester-va-residential-logistics-relocation-services.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "8cc69f39d01445b14737d8ce27a21bb1ac02bb6379563897b551f6c9bf515144",
+        "byteSize": 3861
+      }
+    },
+    {
+      "name": "Category \u2014 Residential Logistics (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/category-winchester-va-residential-logistics.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/category-winchester-va-residential-logistics.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "015030fd5a9d9e6d8089fce63ba933300ab1552f1ad80f4588a4aa3bb7bea4b7",
+        "byteSize": 3730
+      }
+    },
+    {
+      "name": "Category \u2014 Movers in Winchester VA (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/category-winchester-va-top-rated-movers-winchester-va.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/category-winchester-va-top-rated-movers-winchester-va.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "fdb624320228404f4477b1722b1b986b5a0466db3c51768380b4c3769ae2ed0a",
+        "byteSize": 3837
+      }
+    },
+    {
+      "name": "Category \u2014 Winchester VA (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/category-winchester-va.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/category-winchester-va.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "33afbc38245c90f595781c3b8f84275062261ef90ee833ec5a581e50da91bfc3",
+        "byteSize": 3369
+      }
+    },
+    {
+      "name": "Commercial Freight Handling Solutions (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/commercial-freight-handling-solutions.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/commercial-freight-handling-solutions.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "d2e230114befff043fc4094668301d107794441656182321c12810ad70606b84",
+        "byteSize": 3628
+      }
+    },
+    {
+      "name": "Commercial Freight Handling, White-Glove & Final Mile Services (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/commercial-freight-handling-white-glove-final-mile-services.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/commercial-freight-handling-white-glove-final-mile-services.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "ef61f5d6c59150add008fd9040630ff43f6717244fc89c635748177ac8935b9f",
+        "byteSize": 3219
+      }
+    },
+    {
+      "name": "Commercial and Office Movers \u2014 Winchester VA (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/commercial-movers-winchester-va.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/commercial-movers-winchester-va.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "3894f0dc70c7fba0f9b9a8af9c70497adac3ce3237c082f7cf773185757a6ae4",
+        "byteSize": 4821
+      }
+    },
+    {
+      "name": "Commercial Moving (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/commercial-moving.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/commercial-moving.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "73db3edbeb26ba8bfb1d87b8fe958d220f6416e701554d87daac3a4027a231c0",
+        "byteSize": 7049
+      }
+    },
+    {
+      "name": "Office Moving (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/commercial-office-moving-2.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/commercial-office-moving-2.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "0c84ae8d06e3765cb6d1822e1c1a7519475550232a6c1238ddcd74ae43cdc658",
+        "byteSize": 6884
+      }
+    },
+    {
+      "name": "Container Deconsolidation, Cross-Docking & Transloading \u2014 Virginia (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/container-deconsolidation-cross-docking-transloading-services-virginia.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/container-deconsolidation-cross-docking-transloading-services-virginia.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "0bc6b9d6d122215f4a70e6dabbcf2afcd7091df8ba0a276430d2edd8501311a6",
+        "byteSize": 3129
+      }
+    },
+    {
+      "name": "Container Deconsolidation Services \u2014 Virginia & Mid-Atlantic (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/container-deconsolidation-services-virginia-mid-atlantic.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/container-deconsolidation-services-virginia-mid-atlantic.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "0b95a65c6b0a0ffaf81d075b12a04fde14b96af18730256b61a80a5e039be632",
+        "byteSize": 3543
+      }
+    },
+    {
+      "name": "Docs \u2014 Container Deconsolidation (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/container-deconsolidation.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/container-deconsolidation.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "c9de0999fc7824807fbb4c398281b3ea98acf90423398c9ebb13de19a6c0b4d6",
+        "byteSize": 3022
+      }
+    },
+    {
+      "name": "Container Loading & Unloading \u2014 Port Transload, Virginia (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/container-loading-unloading-services-port-transload-virginia.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/container-loading-unloading-services-port-transload-virginia.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "2c57bd74aab068f42703fdc9a1781b1dbbdb1c810f53a60df000c927f59f6ce7",
+        "byteSize": 3081
+      }
+    },
+    {
+      "name": "Custom Crating \u2014 Martinsburg WV (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/crating-movers-martinsburg-wv.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/crating-movers-martinsburg-wv.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "e0ac00c6165a5c30de7e2552ff2e957379f56ff48a0613332c1955481ef93417",
+        "byteSize": 4415
+      }
+    },
+    {
+      "name": "Developer Resources (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/developer.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/developer.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "566ba5764aaff825efd5d5eadaf28800b9470193f6490d0dc7a6fe6e5ac7b3e9",
+        "byteSize": 3453
+      }
+    },
+    {
+      "name": "Docs \u2014 Data Center Logistics (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/docs-data-center-logistics.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/docs-data-center-logistics.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "7e0d9645077ea8541c94071b419570d6983a33e5adacf9ba0cffca2fc02a2e9f",
+        "byteSize": 3230
+      }
+    },
+    {
+      "name": "Docs \u2014 Logistics Event Protocol (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/docs-logistics-event-protocol.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/docs-logistics-event-protocol.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "92b1b716d73ca21a747df04d3da19200cd7e12986e000c517cbcba9602151361",
+        "byteSize": 3250
+      }
+    },
+    {
+      "name": "Docs \u2014 Logistics Ontology (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/docs-logistics-ontology.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/docs-logistics-ontology.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "4fcb154d220a2bac895e13f1ba52c0c8964f2ec4550a8e91fd6138f8388ddbd2",
+        "byteSize": 3179
+      }
+    },
+    {
+      "name": "Docs \u2014 Reference Library (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/docs.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/docs.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "0edea267b2817dcf77fe120bc8be85b1a62c7c43b483cf6fb244b31ea7ff9c37",
+        "byteSize": 3368
+      }
+    },
+    {
+      "name": "Elite Asset Transition \u2014 White-Glove, Discreet Logistics (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/elite-asset-transition-white-glove-discreet-logistics.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/elite-asset-transition-white-glove-discreet-logistics.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "1cf4317b8f610125c50501f639dc69334dd3f2cd775e73781e5a82ac559b39fb",
+        "byteSize": 3230
+      }
+    },
+    {
+      "name": "Emergency Port Container Recovery \u2014 Virginia (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/emergency-port-container-recovery-twic-labor-virginia.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/emergency-port-container-recovery-twic-labor-virginia.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "14218940bbf5c64358ad606287e7f33acf6e2ceb4b1b482f562f71f3916ad9cf",
+        "byteSize": 3579
+      }
+    },
+    {
+      "name": "Entities \u2014 Index (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/entities.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/entities.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "fc081d2385366e8d8f097599e51107334c6cb7bbf0d9a7d1e005d49a1131ade2",
+        "byteSize": 3649
+      }
+    },
+    {
+      "name": "Entity Authority Layer (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/entity-authority-layer.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/entity-authority-layer.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "06657296e957164ae0df33bb8049bdc862bca0984382dca477e1190dc9f04dcd",
+        "byteSize": 2257
+      }
+    },
+    {
+      "name": "Export & Crating (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/export.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/export.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "253f637bfe86af541e417fe8656a86666408e0e95f2d69ba6ec624c908e8a511",
+        "byteSize": 3054
+      }
+    },
+    {
+      "name": "FAQ \u2014 Questions, Answered (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/faq.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/faq.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "422873aaccf6704770c49867237a59dc78be9e2b24496f5c4e153f25af285e35",
+        "byteSize": 2158
+      }
+    },
+    {
+      "name": "Final-Mile Delivery \u2014 Martinsburg WV (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/final-mile-movers-martinsburg-wv.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/final-mile-movers-martinsburg-wv.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "ae9157a684bb016dfa55eefde070aa72004f4710b9d7a3b06044ac48a9c8fe8a",
+        "byteSize": 4944
+      }
+    },
+    {
+      "name": "Find Us \u2014 Winchester VA & Martinsburg WV (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/find-us.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/find-us.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "0afe94fa037827ee7a9578336c008ee142d0fd1b226b4f0d24f45c2c93478751",
+        "byteSize": 6623
+      }
+    },
+    {
+      "name": "Flat Rate Moving Quote \u2014 Winchester (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/flat-rate-moving-quote-winchester.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/flat-rate-moving-quote-winchester.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "098ea9cc034b66ef26ba833861d4884299061c2da58e07e5f21b1d36104bab11",
+        "byteSize": 2368
+      }
+    },
+    {
+      "name": "Category \u2014 Freight Services (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/freight-services.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/freight-services.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "9966e215aaaa8d3875268badf4eaa42d1e5723abdcc8a06fdcc6ee60e83e3197",
+        "byteSize": 3636
+      }
+    },
+    {
+      "name": "Full-Service Packing & Unpacking \u2014 Systematic Asset Encapsulation (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/full-service-packing-unpacking-systematic-asset-encapsulation.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/full-service-packing-unpacking-systematic-asset-encapsulation.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "aa49ba68b171502514e39368835a3a7f62ab7413ae7a44901c68b2e07894830a",
+        "byteSize": 3834
+      }
+    },
+    {
+      "name": "Government Movers \u2014 Martinsburg WV (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/government-movers-martinsburg-wv.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/government-movers-martinsburg-wv.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "b5cee07f57c5895ac3d1c78ad375ca18f379e0c7a6faca342b5e514662ebc3ef",
+        "byteSize": 4487
+      }
+    },
+    {
+      "name": "Government Movers \u2014 Winchester VA (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/government-movers-winchester-va.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/government-movers-winchester-va.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "c8f9dc2ae5312f68bba110f37c620fb9f6d8387bdf5d3ce014a26ab2de0dedf1",
+        "byteSize": 4381
+      }
+    },
+    {
+      "name": "Gun Safe Movers \u2014 Martinsburg WV (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/gun-safe-movers-martinsburg-wv.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/gun-safe-movers-martinsburg-wv.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "599910af6f15a4839cda70ce2497e65ad6dd4d248c6ba95c1172fea055c08edf",
+        "byteSize": 4970
+      }
+    },
+    {
+      "name": "Gun Safe Movers \u2014 Winchester VA (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/gun-safe-movers-winchester-va.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/gun-safe-movers-winchester-va.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "527acdefe97267b6e1bf9e814cce4c26675e171eb215e77d5941fb769affe8fc",
+        "byteSize": 4834
+      }
+    },
+    {
+      "name": "Gun Safe Moving (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/gun-safe-movers.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/gun-safe-movers.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "9aebef84a7211628322c5e4b8808947a60b32bd7b4a1939e3c316ef4ce3a2340",
+        "byteSize": 6935
+      }
+    },
+    {
+      "name": "Heavy Asset Authority (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/heavy.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/heavy.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "1c84232fd8a51f18fd9900fd0263d0043e700a08fa45e6f944240b5cf780c08d",
+        "byteSize": 7170
+      }
+    },
+    {
+      "name": "High-Mass Logistics \u2014 Long-Distance Moving, Winchester VA (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/high-mass-logistics-long-distance-moving-winchester-va.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/high-mass-logistics-long-distance-moving-winchester-va.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "370f4218d77f95afc4848484de234bc8d96229693f413c93094bcbee28cd4fc6",
+        "byteSize": 3749
+      }
+    },
+    {
+      "name": "Home (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/home.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/home.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "99a43f39fb5e3fce0f12af30bdb8f0ded997f061074921e2b45475a51441eeee",
+        "byteSize": 5715
+      }
+    },
+    {
+      "name": "Container Deconsolidation, Cross-Docking & Transloading \u2014 Virginia Freight Networks (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/how-container-deconsolidation-cross-docking-transloading-supports-virginia-freight-networks.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/how-container-deconsolidation-cross-docking-transloading-supports-virginia-freight-networks.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "954d5a83d86a007d0d143de62c6d92ddfcac792a6c848aa3594ee646a1db694c",
+        "byteSize": 3918
+      }
+    },
+    {
+      "name": "How Container Loading & Unloading Services Improve Port Logistics (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/how-container-loading-unloading-services-improve-port-logistics.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/how-container-loading-unloading-services-improve-port-logistics.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "296b4914864cec2e7d02803124e70c6cf9d14e161bcf15b2f4edbc7ef8331dee",
+        "byteSize": 3406
+      }
+    },
+    {
+      "name": "How International Export Packing & Crating Protects Global Shipments (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/how-international-export-packing-crating-protects-global-shipments.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/how-international-export-packing-crating-protects-global-shipments.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "54ca3d325410cee142ed2f7c36609bf5c04a6a710a50fc118892bed88aaa2db9",
+        "byteSize": 3207
+      }
+    },
+    {
+      "name": "How Port of Virginia Logistics Supports East Coast Freight Movement (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/how-port-of-virginia-logistics-supports-east-coast-freight-movement.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/how-port-of-virginia-logistics-supports-east-coast-freight-movement.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "4179552becb1b2e3bb45b0bbeb690e09e1a3b6a5157464d1a9146272e232700b",
+        "byteSize": 3500
+      }
+    },
+    {
+      "name": "How to Pack for an Interstate Move (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/how-to-pack-for-interstate-move.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/how-to-pack-for-interstate-move.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "d0e84117ca77afc1d0366c7807d8fb735facbdc72a279ec108828ac55467c775",
+        "byteSize": 7515
+      }
+    },
+    {
+      "name": "Industrial & Commercial Services \u2014 Martinsburg WV (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/industrial-commercial-movers-martinsburg-wv.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/industrial-commercial-movers-martinsburg-wv.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "e878d5b84d19bca70b0786301cedd292311fc4f13f331aebc11cd39c46347a6c",
+        "byteSize": 5401
+      }
+    },
+    {
+      "name": "Industrial & Commercial Services \u2014 Winchester VA (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/industrial-commercial-movers-winchester-va.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/industrial-commercial-movers-winchester-va.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "4580d1429124a0856c7687f9146afc0ea058f9716e243ee8afa03aee4fcca317",
+        "byteSize": 5271
+      }
+    },
+    {
+      "name": "Industrial & Commercial Services (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/industrial-commercial-services.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/industrial-commercial-services.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "1317435b294c4c57e5f6e35b7c38d8ca890a9f4334bbf39805f407a5028e8335",
+        "byteSize": 11103
+      }
+    },
+    {
+      "name": "Industrial Offices Moving \u2014 Martinsburg WV (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/industrial-offices-movers-martinsburg-wv.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/industrial-offices-movers-martinsburg-wv.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "0a99350a007dc1fd6b4d7b35fbe2c8fadb90e6894fd63e077694d47a18e4a70a",
+        "byteSize": 5135
+      }
+    },
+    {
+      "name": "Industrial Offices Moving \u2014 Winchester VA (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/industrial-offices-movers-winchester-va.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/industrial-offices-movers-winchester-va.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "68223b12ce1b5143f74040d51b5fe74746dfd51575d113890631cca3ececa700",
+        "byteSize": 4999
+      }
+    },
+    {
+      "name": "Industrial Offices Moving (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/industrial-offices-moving.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/industrial-offices-moving.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "bfe3afb9d8527f6b4695df0c90aa34905248eac182140754680423b4153d6514",
+        "byteSize": 2744
+      }
+    },
+    {
+      "name": "Industrial Rigging & High-Mass Logistics Hub \u2014 Winchester VA (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/industrial-rigging-high-mass-logistics-hub-winchester-va.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/industrial-rigging-high-mass-logistics-hub-winchester-va.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "b3d781beeedf120ece6a107ece560dbc91eff108249e58e83dbe45662acc1a7b",
+        "byteSize": 7863
+      }
+    },
+    {
+      "name": "International Export Packing & Crating (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/international-export-packing-crating-winchester-va.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/international-export-packing-crating-winchester-va.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "b3cb38fde4a110e0c43d8c6f43391171856b0b35aea072a068b32d42f3971bd6",
+        "byteSize": 4167
+      }
+    },
+    {
+      "name": "Interstate 66 Corridor Moving (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/interstate-66-corridor.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/interstate-66-corridor.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "4c3aa8b131444805156fd25c3b258a1d33c4ac9ca84d6737800350ccb4935ba6",
+        "byteSize": 6345
+      }
+    },
+    {
+      "name": "Interstate 70 Corridor Moving (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/interstate-70-corridor.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/interstate-70-corridor.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "32503793cf519184d7422492d6c8ac3c4897cf872e503bc6510bd137d0f1cc39",
+        "byteSize": 6346
+      }
+    },
+    {
+      "name": "Interstate Moving Guide \u2014 Winchester VA (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/interstate-moving-guide-winchester-va.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/interstate-moving-guide-winchester-va.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "00725481f61dae91fcdcf31f4594f8ebab2627c00f62f2b9d8f65d932dbb98db",
+        "byteSize": 7573
+      }
+    },
+    {
+      "name": "Interstate Moving Network (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/interstate-moving-network.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/interstate-moving-network.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "98cf2e9b65a29e0bcb0b9d47f2a300dd548652a36dc6a09145bfc06f096f2163",
+        "byteSize": 7418
+      }
+    },
+    {
+      "name": "Interstate Moving \u2014 Winchester VA (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/interstate-moving-winchester-va.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/interstate-moving-winchester-va.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "83689a5af93568c72383d809e478f18373c69a695dd5fe6664d60104dc214aed",
+        "byteSize": 7084
+      }
+    },
+    {
+      "name": "ISPM 15 Export Packing \u2014 Martinsburg WV (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/ispm15-movers-martinsburg-wv.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/ispm15-movers-martinsburg-wv.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "eb0fe8252e3bd92814db0d229f65df1e088dd6b9702fa4323a9782ab17a3e0ce",
+        "byteSize": 4507
+      }
+    },
+    {
+      "name": "IT Equipment Moving & Data Center Logistics \u2014 Virginia (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/it-equipment-moving-data-center-logistics-services-virginia.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/it-equipment-moving-data-center-logistics-services-virginia.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "34f673976f632ddd70cee6a4b2d2f18cdba3369ff022b9c7ed6c2dddc8667112",
+        "byteSize": 7082
+      }
+    },
+    {
+      "name": "Knowledge \u2014 Entities (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/knowledge-entities.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/knowledge-entities.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "86d28c6020ed00459c51fdd57f4dc57468de9398eb5bad8b9b3943e70abfc2fc",
+        "byteSize": 2897
+      }
+    },
+    {
+      "name": "Knowledge \u2014 Equipment (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/knowledge-equipment.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/knowledge-equipment.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "eddf8d070dd2e20e144d15e0d5eb8dd15923be17d30b09e6fd67ef6d464936aa",
+        "byteSize": 2804
+      }
+    },
+    {
+      "name": "Knowledge \u2014 Events (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/knowledge-events.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/knowledge-events.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "ef29f846eee8924afba2f7786cb89690d4c699e1c6284804c574655d5f06e5b7",
+        "byteSize": 3067
+      }
+    },
+    {
+      "name": "Knowledge \u2014 Locations (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/knowledge-locations.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/knowledge-locations.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "af931338731bad3f57cb7d6f14bf9628a1d95b5214246aabc0637837b98238df",
+        "byteSize": 3122
+      }
+    },
+    {
+      "name": "Knowledge \u2014 Services (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/knowledge-services.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/knowledge-services.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "34f6d548c8e0c1c8825767fccb13f6cd356cb230f88613e9760178d800ddce5e",
+        "byteSize": 2895
+      }
+    },
+    {
+      "name": "Local & Regional Movers \u2014 Martinsburg WV (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/local-regional-movers-martinsburg-wv.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/local-regional-movers-martinsburg-wv.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "45506b34a0eca9843f14eac0d0df69a8e0138d8937665369f0741efd4d47908e",
+        "byteSize": 4826
+      }
+    },
+    {
+      "name": "Local & Regional Movers \u2014 Winchester VA (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/local-regional-movers-winchester-va.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/local-regional-movers-winchester-va.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "5f6289cb0823b841009c4b18b61673e5c09ec1861f37358a82245f6fe4cc4c43",
+        "byteSize": 4708
+      }
+    },
+    {
+      "name": "Local & Regional Moving (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/local-regional-moving.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/local-regional-moving.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "6d6ed2d97677baaf0b3d9e3e64536ef74502dc7adea4d3a2d20bc566b7b7df12",
+        "byteSize": 6868
+      }
+    },
+    {
+      "name": "Logistics Data Engineering Center (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/logistics-data-engineering-center.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/logistics-data-engineering-center.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "8620b4503b22b2552d9f4ca1d4d5af7df25bbc464d6c086c449e674fed5ade92",
+        "byteSize": 3454
+      }
+    },
+    {
+      "name": "Category \u2014 Logistics Transportation (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/logistics-transportation.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/logistics-transportation.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "4039946216205cc54d15c6268a4c7c7b30deda6febb17e57c644e123a7558d1b",
+        "byteSize": 4585
+      }
+    },
+    {
+      "name": "Long-Distance & Cross-Country Moving (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/long-distance-cross-country-moving.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/long-distance-cross-country-moving.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "ef7852a318d3c3f4e472e7c9ffbcb62e2458cd8870e6e804c6022195d99f8631",
+        "byteSize": 7490
+      }
+    },
+    {
+      "name": "Long-Distance Gun Safe Moving \u2014 Winchester VA to Las Vegas NV (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/long-distance-gun-safe-moving-winchester-va-to-las-vegas-nv.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/long-distance-gun-safe-moving-winchester-va-to-las-vegas-nv.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "806c6a8c11f24241af96ecf3af401f829c9936f4377ca9c9fb60544ffc26b9ae",
+        "byteSize": 3722
+      }
+    },
+    {
+      "name": "Long-Distance Movers \u2014 Martinsburg WV (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/long-distance-movers-martinsburg-wv.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/long-distance-movers-martinsburg-wv.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "9d21f13b01424638d251afe2d168f4d736fb45fc5a634a71f1663fd1b5052050",
+        "byteSize": 4832
+      }
+    },
+    {
+      "name": "Long-Distance Movers \u2014 Miami (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/long-distance-movers-miami.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/long-distance-movers-miami.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "473e9284f0ff4a0d54bf3742b3a353c00b17f75dd15816df244889d50fb6f51d",
+        "byteSize": 3291
+      }
+    },
+    {
+      "name": "Long-Distance Movers \u2014 Winchester VA Guide (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/long-distance-movers-winchester-va-guide.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/long-distance-movers-winchester-va-guide.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "38e5402f2f24097aeb81a0e1855c36ef76cb74c006d5e014ecdb93d38b85e3e3",
+        "byteSize": 3444
+      }
+    },
+    {
+      "name": "Long-Distance Movers \u2014 Winchester, VA (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/long-distance-movers-winchester-va.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/long-distance-movers-winchester-va.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "74b49fe6f36f5a7863fb476f955a0845a32e318e3b8fa894462db1ca99f28d91",
+        "byteSize": 6758
+      }
+    },
+    {
+      "name": "Best Movers Near Me \u2014 Guide for Winchester & Martinsburg (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/looking-for-the-best-movers-near-me-your-guide-to-stress-free-moving-in-winchester-and-martinsburg.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/looking-for-the-best-movers-near-me-your-guide-to-stress-free-moving-in-winchester-and-martinsburg.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "c43bf09973514da66738e06225dc4aaeb9eae09f6ddd9c4f4983fb61edb88149",
+        "byteSize": 4060
+      }
+    },
+    {
+      "name": "Martinsburg WV Movers \u2014 Full-Service Guide (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/martinsburg-wv-movers-full-service-guide.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/martinsburg-wv-movers-full-service-guide.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "fae903e641fc643d9a49dff4c0a7be9dd88d315e64e6978164e52bde596d4b46",
+        "byteSize": 3542
+      }
+    },
+    {
+      "name": "Military & Government HHG Moving \u2014 Requirements & Contractors (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/military-government-hhg-moving-requirements-contractors.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/military-government-hhg-moving-requirements-contractors.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "8753e42047e96b75e59427dc1bf090bfb47faf1b4c377bb9951171d2006ce6ac",
+        "byteSize": 3025
+      }
+    },
+    {
+      "name": "Military & Government Moving (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/military-government-moving.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/military-government-moving.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "3a2aff4a102366954eccadc8a45836499b4564746104e370c5f42b5e10eba9b6",
+        "byteSize": 3285
+      }
+    },
+    {
+      "name": "Military Movers \u2014 Martinsburg WV (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/military-movers-martinsburg-wv.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/military-movers-martinsburg-wv.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "0b4ab916b895aa6e2b11838444cf89d43ce4eb3c1bf1d402320ead4a5efa51ff",
+        "byteSize": 4424
+      }
+    },
+    {
+      "name": "Military Movers \u2014 Winchester VA (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/military-movers-winchester-va.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/military-movers-winchester-va.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "4a0a28a3ac329f62c5c6dc3a401247688b3e3282125b9ecc4f3808553ccebd94",
+        "byteSize": 4318
+      }
+    },
+    {
+      "name": "Moving and Storage \u2014 Winchester VA & Martinsburg WV (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/moving-and-storage.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/moving-and-storage.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "d7123e21cd0b432c37a1764f7564a9496735c686f19252138e227670e6d17890",
+        "byteSize": 6731
+      }
+    },
+    {
+      "name": "Moving Company \u2014 Martinsburg, WV (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/moving-company-martinsburg-wv.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/moving-company-martinsburg-wv.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "5d1efd693d6b5cbe6806506bf1e8db4ed49ebcb6138ad5ba3f468a06bd7036c6",
+        "byteSize": 4227
+      }
+    },
+    {
+      "name": "Moving Company \u2014 Winchester, VA (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/moving-company-winchester-va.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/moving-company-winchester-va.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "50ff905331b72765a2490d2aac5fc3c8ad0e96074b6b9358fd4cb1ff639988a5",
+        "byteSize": 4107
+      }
+    },
+    {
+      "name": "Moving Cost Guide \u2014 Winchester VA (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/moving-cost-guide-winchester-va.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/moving-cost-guide-winchester-va.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "fcd2c1b67415d37f836ce098d310e0be30c46668edcff6735b708f5f3c23d64e",
+        "byteSize": 2350
+      }
+    },
+    {
+      "name": "Moving Questions & Answers (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/moving-questions-answers.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/moving-questions-answers.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "2f05d78db7ee8b8bcbed29bba587215bf7cfe17c9d58e4f542cf2f0ec7599572",
+        "byteSize": 2281
+      }
+    },
+    {
+      "name": "Moving Tips \u2014 Winchester VA (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/moving-tips-winchester-va.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/moving-tips-winchester-va.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "cb23a85369df6ad075adcca76933e1f2930ad7f84cba147873fa4a2e5cf130f1",
+        "byteSize": 3240
+      }
+    },
+    {
+      "name": "Office Moving \u2014 Martinsburg WV (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/office-moving-movers-martinsburg-wv.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/office-moving-movers-martinsburg-wv.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "1254c3b4199cf91e8d77da31aeec8d7056d8bc97211c7a1968002560c6e71eee",
+        "byteSize": 4921
+      }
+    },
+    {
+      "name": "Office Moving \u2014 Winchester VA (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/office-moving-movers-winchester-va.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/office-moving-movers-winchester-va.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "d163c13c7133a52f443355fc80e91787ca9d3c88240c45fea395121831e2b02c",
+        "byteSize": 4803
+      }
+    },
+    {
+      "name": "Online Estimate (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/online-estimate.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/online-estimate.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "326f9c1471923f0a610a90df18f62797e0fc198fb67e42796d95a0bfd09ada52",
+        "byteSize": 2194
+      }
+    },
+    {
+      "name": "Packing Cost \u2014 Winchester VA (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/packing-cost-winchester-va.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/packing-cost-winchester-va.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "e7b5687f7ee544782088e0c073739d559a7d416b9de77b2d8892fddd6f81c625",
+        "byteSize": 4840
+      }
+    },
+    {
+      "name": "Packing Movers \u2014 Martinsburg WV (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/packing-movers-martinsburg-wv.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/packing-movers-martinsburg-wv.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "dc5231e93114a057aa60b2d0029fb1b9cf34c41fc28e2ef0962219f614730d72",
+        "byteSize": 4776
+      }
+    },
+    {
+      "name": "Packing Services \u2014 Winchester VA (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/packing-services-winchester-va.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/packing-services-winchester-va.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "c088a17465a1a84874310b3c9a45ac92eb0b783bc32e1fe4a73663a68a2bbcc4",
+        "byteSize": 4669
+      }
+    },
+    {
+      "name": "Packing & Unpacking Services (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/packing-unpacking-services-2.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/packing-unpacking-services-2.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "45a12d032b004aa20a269334a846b6bdb05dffb4af8a32fe8cde25e735109975",
+        "byteSize": 7903
+      }
+    },
+    {
+      "name": "Piano, Antique & White-Glove Movers \u2014 Martinsburg WV (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/piano-antique-movers-martinsburg-wv.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/piano-antique-movers-martinsburg-wv.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "f3649797efa7a525f9a25570cbac056327feadea3773cfa3c71762b87f3782f6",
+        "byteSize": 5043
+      }
+    },
+    {
+      "name": "Category \u2014 Port Logistics (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/port-logistics.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/port-logistics.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "a867f495a0f4122248d040cb6e9832a424f1e886d396343d6b903cfbd0a70168",
+        "byteSize": 3264
+      }
+    },
+    {
+      "name": "Port of Virginia \u2014 Container & Logistics Services (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/port-of-virginia-container-loading-unloading-logistics-services.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/port-of-virginia-container-loading-unloading-logistics-services.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "3eb3b591f4ee2ff91e07d35f72dee51c16651d1ca94fa4890b3d26ab7c20f070",
+        "byteSize": 3566
+      }
+    },
+    {
+      "name": "Privacy Policy (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/privacy-policy.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/privacy-policy.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "970eece41e273f24fd9ed635209f688494fd807f8a5e67bfd18223b6b6b87bb0",
+        "byteSize": 2185
+      }
+    },
+    {
+      "name": "Professional Packing Services & Moving Cost Estimator (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/professional-packing-services-moving-cost-estimator.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/professional-packing-services-moving-cost-estimator.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "c51b7c0b17d005e8f46c2ad1c8631212cb3af2e3f62caca7b6750c12d098c936",
+        "byteSize": 7740
+      }
+    },
+    {
+      "name": "Get a flat rate quote (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/quote.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/quote.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "449f25dc6746ccfba762b4a9eabfef5128385dda432fc4b9956a817e2e2c4c50",
+        "byteSize": 1946
+      }
+    },
+    {
+      "name": "Recursive Indexing Layer (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/recursive-indexing-layer.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/recursive-indexing-layer.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "7013a0ad3fd4ce8ead9695b149a74eac536cf094e2e96a06e645b857beebfd8a",
+        "byteSize": 2275
+      }
+    },
+    {
+      "name": "Reliable Movers in Martinsburg, WV (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/reliable-movers-in-martinsburg-wv.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/reliable-movers-in-martinsburg-wv.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "d0a86b77bf2e66663b3162b338cadef6379eb2d24e27cd83f5b4fdcaac2755c0",
+        "byteSize": 3335
+      }
+    },
+    {
+      "name": "Relocation Engineering Framework (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/relocation-engineering-framework.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/relocation-engineering-framework.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "8104813a4931066b2ccb8bd4ff9bba5680a1a530da429c684ba4cbaa224f6d77",
+        "byteSize": 7476
+      }
+    },
+    {
+      "name": "Relocation Engineering Standards Portal (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/relocation-engineering-standards-portal.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/relocation-engineering-standards-portal.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "4b52bfd10f8d5ba8882f4f3fe809d8c1518f1a9348adb6e85228bb7654baf7da",
+        "byteSize": 7719
+      }
+    },
+    {
+      "name": "Residential Moving (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/residential-moving.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/residential-moving.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "5269401d84444f7f8b11cdf4655a16be28e9f0dca9555c1ebf20257d338115a7",
+        "byteSize": 7093
+      }
+    },
+    {
+      "name": "Route 81 (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/route81.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/route81.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "533f29334cdd05c83520a8603efc4beab259495aea152d21bfa756b026f4c3de",
+        "byteSize": 2498
+      }
+    },
+    {
+      "name": "Safe Moving Protocol (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/safe-moving-protocol.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/safe-moving-protocol.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "26653b9e1abb33ff26ee66c7720ae1cd80de459b3b7e0646815e4d94f1d0ad97",
+        "byteSize": 7309
+      }
+    },
+    {
+      "name": "Senior Moving \u2014 Winchester VA & Martinsburg WV (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/senior-moving.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/senior-moving.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "353eba13d5e7ed72a048cf8da1d44012ad9138b83581e9f58fc2a30cd82403bb",
+        "byteSize": 6928
+      }
+    },
+    {
+      "name": "Service Areas \u2014 Moving Company (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/service-areas-moving-company.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/service-areas-moving-company.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "4e1a6e93b7877831a4a831689e05c12c0bb535ab48cc5576a3329c87dd2d697f",
+        "byteSize": 6732
+      }
+    },
+    {
+      "name": "Services (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/services.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/services.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "b12435fecfe4a580c753a44205518dff46f7f2583c244821e37e3f80ff9a8bb7",
+        "byteSize": 2665
+      }
+    },
+    {
+      "name": "SIR 2026 Protocol \u2014 The Steps (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/sir-2026-protocol.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/sir-2026-protocol.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "1fad47781ef6a048c6bd2b9196211a817cf61e87a897638d94439f8d025d3e2c",
+        "byteSize": 7395
+      }
+    },
+    {
+      "name": "SIR 2026 \u2014 Structural Integrity Relocation Protocol (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/sir-2026-structural-integrity-relocation-protocol.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/sir-2026-structural-integrity-relocation-protocol.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "08a5113a2377b291e116a8ca573b9dec72aa9fc9cb9c95ad02715c5007137f24",
+        "byteSize": 7662
+      }
+    },
+    {
+      "name": "SIR Heavy Movers \u2014 Martinsburg WV (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/sir-heavy-movers-martinsburg-wv.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/sir-heavy-movers-martinsburg-wv.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "661f6afa927ee5693f8ff8c9dd6d6a63623e53d34cd0ff1dc0ac464fa49fcfc7",
+        "byteSize": 5257
+      }
+    },
+    {
+      "name": "Sitemap \u2014 All Pages & Redirects (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/sitemap.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/sitemap.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "134e8892625665ac37b14e9cc936cf354181b9f9580249b5b0349b98fe69ff78",
+        "byteSize": 32563
+      }
+    },
+    {
+      "name": "Specialized Workforce Labor (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/specialized-workforce-labor.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/specialized-workforce-labor.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "4a2fbb497dcf8d54f360e3898d3836bf783234b332c3b75a676491a88c46ccdd",
+        "byteSize": 10816
+      }
+    },
+    {
+      "name": "Technical Rigging \u2014 High-Security Gun Safe & Vault Relocation (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/technical-rigging-high-security-gun-safe-vault-relocation.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/technical-rigging-high-security-gun-safe-vault-relocation.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "8341fe9c6735ff8ff3266e160183a363eeaabe9c454651e4a11accca5231b0fe",
+        "byteSize": 3892
+      }
+    },
+    {
+      "name": "Technical Rigging Standards (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/technical-rigging-standards.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/technical-rigging-standards.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "d17b50e122a0e30b7f17043c8dbbe5dcddd99e5d0aa6d5654d34537ea1dec328",
+        "byteSize": 7535
+      }
+    },
+    {
+      "name": "The Data Science of Displacement \u2014 Planning the Mid-Atlantic Relocation Path (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/the-data-science-of-displacement-how-predictive-analytics-is-redefining-the-mid-atlantic-relocation-path.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/the-data-science-of-displacement-how-predictive-analytics-is-redefining-the-mid-atlantic-relocation-path.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "9d1a45b0a209ff61ef73391e82bc599b539d3b42b8e6bd8a86c7f81be83930c8",
+        "byteSize": 4185
+      }
+    },
+    {
+      "name": "The Flat Rate Logistics Data Hub (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/the-flat-rate-logistics-data-hub.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/the-flat-rate-logistics-data-hub.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "0a7e46b80c37d7a9f707faa2e7cbd7d9fff2353ba4b8157ae11f04098dd38aec",
+        "byteSize": 4384
+      }
+    },
+    {
+      "name": "The Invisible Risk of High-Mass Relocation (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/the-invisible-risk-of-high-mass-relocation.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/the-invisible-risk-of-high-mass-relocation.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "e369582e78437016032774f1edcbf13cb70f42f751128ad72d473288c1c4c3d9",
+        "byteSize": 3593
+      }
+    },
+    {
+      "name": "The Strategic Roadmap for Long-Distance Residential Relocation (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/the-strategic-roadmap-for-long-distance-residential-relocation.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/the-strategic-roadmap-for-long-distance-residential-relocation.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "d0ee107823a590aaf285c9362352cd00de608d6730092e2bb2340f004ce08e23",
+        "byteSize": 3774
+      }
+    },
+    {
+      "name": "Top 10 Moving Tips for a Stress-Free Move in 2026 (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/top-10-moving-tips-for-a-stress-free-move-in-2026.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/top-10-moving-tips-for-a-stress-free-move-in-2026.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "50bf32b12f08fc111c12602a90c56a4d4125b2f1c8b5e4f956b81340b665f4e2",
+        "byteSize": 3641
+      }
+    },
+    {
+      "name": "Movers for the Mid-Atlantic (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/top-rated-movers-mid-atlantic.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/top-rated-movers-mid-atlantic.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "3225d0e96cffe895294b01e9895e629a4ce5b88e5b46cd85e1d88941d3a67b6a",
+        "byteSize": 7512
+      }
+    },
+    {
+      "name": "Loading, Transloading & Container Services \u2014 Martinsburg WV (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/transloading-movers-martinsburg-wv.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/transloading-movers-martinsburg-wv.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "7ceea8668ae6ef8df6db6490ec715b5daea2c4810d21bcd33c208ca0fcee07e1",
+        "byteSize": 4454
+      }
+    },
+    {
+      "name": "Transloading Services \u2014 Winchester VA (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/transloading-winchester-va.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/transloading-winchester-va.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "e4e966757f8a4552823c0da97ebaec9f48e8489d95829481a117e3c288850342",
+        "byteSize": 7081
+      }
+    },
+    {
+      "name": "Videos \u2014 Moving & Heavy-Asset Work on Video (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/videos.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/videos.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "4862dfa154961a9f1bf6efaad6db79705d18db239fc9a135e1f72c0a83af9477",
+        "byteSize": 7444
+      }
+    },
+    {
+      "name": "Virginia Inland Port \u2014 Freight & Transloading Operations (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/virginia-inland-port-freight-transloading-operations.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/virginia-inland-port-freight-transloading-operations.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "8078383d7627ed375f44eff7ec52b56ec0305c1e3e1080fe430a3d51b4d91f10",
+        "byteSize": 3628
+      }
+    },
+    {
+      "name": "Virginia to California Movers (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/virginia-to-california-movers.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/virginia-to-california-movers.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "6d3d39147e19015ad393ee9df35bac790f15a6930ce661b2643c419cbac9c704",
+        "byteSize": 7430
+      }
+    },
+    {
+      "name": "Virginia to Florida Movers (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/virginia-to-florida-movers.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/virginia-to-florida-movers.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "2cf4908d4dc8bdcae6b5d1ffc2d3b89b91d8e1502e2aace789a64c008b36406b",
+        "byteSize": 7394
+      }
+    },
+    {
+      "name": "Virginia to Nevada Movers (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/virginia-to-nevada-movers.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/virginia-to-nevada-movers.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "2587cdf7434b7559b6d38fda673275b344fe82694cb55e8cd43f450b439dce66",
+        "byteSize": 7417
+      }
+    },
+    {
+      "name": "Virginia to New York Movers (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/virginia-to-new-york-movers.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/virginia-to-new-york-movers.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "8eba267f60ecdb156308c6f3fdaaf128a2124e05440badf49b23ac734d7fe145",
+        "byteSize": 7406
+      }
+    },
+    {
+      "name": "Virginia to Texas Movers (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/virginia-to-texas-movers.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/virginia-to-texas-movers.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "6630889d80dc78dfa226119863cbdaa39e1d8ae965a7e63ecdbc79eabc9e002b",
+        "byteSize": 7370
+      }
+    },
+    {
+      "name": "Warehouse Relocation \u2014 Winchester VA & Martinsburg WV (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/warehouse-relocation.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/warehouse-relocation.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "77b292de5f1232f7a18c2855d30c3e1d9b38e0b0f9a6c9365ca7ae6433cb1f46",
+        "byteSize": 7045
+      }
+    },
+    {
+      "name": "White-Glove Delivery \u2014 Winchester VA (per-page JSON)",
+      "contentUrl": "https://theflatratemovers.com/white-glove-delivery-winchester-va.json",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "public/white-glove-delivery-winchester-va.json",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "54f2571873d0b6e4b5081e0cb166313cf3b74e274b6dc68c645e0dae63593322",
+        "byteSize": 3200
+      }
+    },
+    {
+      "name": "Site Shell \u2014 index.html (deployed build artifact)",
+      "contentUrl": "https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/code/site-shell/index.html",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "ai-repo/code/site-shell/index.html@HEAD",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "7b95afce156eb1736166f0fe39b5689c052d05e6660ad11834c9a1c92a0a0561",
+        "byteSize": 2928815
+      }
+    },
+    {
+      "name": "Pages Function \u2014 _middleware.js (per-URL head middleware, as deployed)",
+      "contentUrl": "https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/code/pages-functions/_middleware.js",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "ai-repo/code/pages-functions/_middleware.js@HEAD",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "4ff87d5805effda346aad040a0de19750edc031a92e0ef312824631d0af7af94",
+        "byteSize": 4845
+      }
+    },
+    {
+      "name": "Pages Function \u2014 head-data.js (generated per-URL head data, as deployed)",
+      "contentUrl": "https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/code/pages-functions/head-data.js",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "ai-repo/code/pages-functions/head-data.js@HEAD",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "77d3cf20ff04e86a4487cce0f646f6ac4ad6c8dbe8d0548cca8b9b9934192f10",
+        "byteSize": 462429
+      }
+    },
+    {
+      "name": "Pages Function \u2014 api/quote.js (quote-form pass-through, as deployed)",
+      "contentUrl": "https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/code/pages-functions/quote.js",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "ai-repo/code/pages-functions/quote.js@HEAD",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "c923573bfcd17599278a4013670045f5e45317f82fcda398af8906a739f89847",
+        "byteSize": 1203
+      }
+    },
+    {
+      "name": "Quote-Form Worker \u2014 src/index.js (flat-rate-quote-email Worker source, as deployed)",
+      "contentUrl": "https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/code/quote-worker/index.js",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "ai-repo/code/quote-worker/index.js@HEAD",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "c6b999c6aebde1026058c5cba031fedb44411a84cf778161ed497bf55a07389a",
+        "byteSize": 4527
+      }
+    },
+    {
+      "name": "Flat Rate Machine \u2014 verify.js (estate verification suite)",
+      "contentUrl": "https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/verify.js",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "ai-repo/verify.js@HEAD",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "9753d0f4eda42f2a3863ab3ec6b75a2a6da3f501cf31740f179d0205924a9130",
+        "byteSize": 49514
+      }
+    },
+    {
+      "name": "Flat Rate Machine Tool \u2014 keygen.py (signing key generation; custody rules in header)",
+      "contentUrl": "https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/tools/keygen.py",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "ai-repo/tools/keygen.py@HEAD",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "3cf7e1229383bd3c11be40aea561c47168cd4703d0ede84c27012ddd24857979",
+        "byteSize": 2079
+      }
+    },
+    {
+      "name": "Flat Rate Machine Tool \u2014 digest-index.py (index completeness + digest regeneration)",
+      "contentUrl": "https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/tools/digest-index.py",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "ai-repo/tools/digest-index.py@HEAD",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "7fff08e91a272f920446b5759dcf396c72c5e3a36a1b6a73b8299c1255e314fc",
+        "byteSize": 5262
+      }
+    },
+    {
+      "name": "Flat Rate Machine Tool \u2014 sign-index.py (index signing; key read only from custody)",
+      "contentUrl": "https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/tools/sign-index.py",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "ai-repo/tools/sign-index.py@HEAD",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "8f63a6949a2213f0023a8fc90bed7f4c3204d9cbdfecac494ba59b3ec44cc794",
+        "byteSize": 1901
+      }
+    },
+    {
+      "name": "Flat Rate Machine Tool \u2014 verify-provenance.py (public-artifacts-only provenance verification)",
+      "contentUrl": "https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/tools/verify-provenance.py",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "ai-repo/tools/verify-provenance.py@HEAD",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "fe4cffe4458954aaa3b3ba95a8a89f1b64fd2ea7632e31f057dddfc11a432f0d",
+        "byteSize": 3725
+      }
+    },
+    {
+      "name": "Flat Rate Machine Tool \u2014 gen-head-data.js (per-URL head-data generator)",
+      "contentUrl": "https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/tools/gen-head-data.js",
+      "sources": {
+        "license": "already-present",
+        "dateModified": "already-present"
+      },
+      "resolved": "ai-repo/tools/gen-head-data.js@HEAD",
+      "digest": {
+        "algorithm": "SHA-256",
+        "value": "688d592760a28f975dc39edffa698676645a4391e2b14321a71cd048810aef00",
+        "byteSize": 5965
+      }
+    }
+  ],
+  "gaps": [],
+  "totals": {
+    "distributions": 202,
+    "license": 202,
+    "dateModified": 202,
+    "digest": 202,
+    "gaps": 0
+  }
+}
