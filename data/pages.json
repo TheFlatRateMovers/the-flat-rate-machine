@@ -1,6 +1,6 @@
 {
   "attestation": "Every URL below was fetched from the live sitemap on 2026-10-28; titles and service links come from pageMeta in the live site source. No URL was hand-typed.",
-  "count": 158,
+  "count": 160,
   "dataset": "pages",
   "generated": "2026-10-29",
   "pages": [
@@ -1991,6 +1991,32 @@
       "title": "Flat-Rate Guarantee",
       "type": "page",
       "url": "https://theflatratemovers.com/flat-rate-guarantee/"
+    },
+    {
+      "attested": "2026-10-30",
+      "lastmod": "2026-10-30",
+      "services": [
+        "service-packing"
+      ],
+      "slug": "do-movers-pack-for-you",
+      "source": "Blog pilots live batch 2026-10-30 (Henry order 2026-10-30: make them live, deploy and feed the matrix; text approved as drafted, byline Henry Pitts Jr., reviewer Henry Pitts; published 2026-10-30, superseding the 2026-11-10 slot)",
+      "status": "live",
+      "title": "Do movers pack for you? Full, partial and fragile-only packing, explained",
+      "type": "page",
+      "url": "https://theflatratemovers.com/do-movers-pack-for-you/"
+    },
+    {
+      "attested": "2026-10-30",
+      "lastmod": "2026-10-30",
+      "services": [
+        "service-ispm15"
+      ],
+      "slug": "reading-an-ispm-15-mark",
+      "source": "Blog pilots live batch 2026-10-30 (Henry order 2026-10-30: make them live, deploy and feed the matrix; text approved as drafted, byline Henry Pitts Jr., reviewer Henry Pitts; published 2026-10-30, superseding the 2026-11-12 slot)",
+      "status": "live",
+      "title": "Reading an ISPM 15 mark: what HT, the country code and the producer number mean",
+      "type": "page",
+      "url": "https://theflatratemovers.com/reading-an-ispm-15-mark/"
     }
   ],
   "source": "https://theflatratemovers.com/sitemap.xml joined to pageMeta in ../the-flat-rate-movers-pages/public/index.html",

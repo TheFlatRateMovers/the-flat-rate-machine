@@ -145,7 +145,7 @@
     "telephone": "+1-540-422-2153"
   },
   "dateModified": "2026-10-30",
-  "description": "Machine-readable index of AI, developer, and operational JSON endpoints for The Flat Rate Movers LLC, plus the core pages, services, and SIR / KIM-GS authority for theflatratemovers.com. 158 clean canonical URLs in sitemap.xml, 24 services, 53 service-area features, branches distinct (Winchester: The Flat Rate Movers; Martinsburg: Flat Rate Movers Martinsburg WV), founded June 2010. No USDOT/MC number is listed (unconfirmed).",
+  "description": "Machine-readable index of AI, developer, and operational JSON endpoints for The Flat Rate Movers LLC, plus the core pages, services, and SIR / KIM-GS authority for theflatratemovers.com. 160 clean canonical URLs in sitemap.xml, 24 services, 53 service-area features, branches distinct (Winchester: The Flat Rate Movers; Martinsburg: Flat Rate Movers Martinsburg WV), founded June 2010. No USDOT/MC number is listed (unconfirmed).",
   "distribution": [
     {
       "mediaType": "application/xml",
@@ -958,6 +958,16 @@
       "@type": "WebPage",
       "name": "Flat-Rate Guarantee",
       "url": "https://theflatratemovers.com/flat-rate-guarantee/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Do movers pack for you? Full, partial and fragile-only packing, explained",
+      "url": "https://theflatratemovers.com/do-movers-pack-for-you/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Reading an ISPM 15 mark: what HT, the country code and the producer number mean",
+      "url": "https://theflatratemovers.com/reading-an-ispm-15-mark/"
     }
   ],
   "keywords": [
