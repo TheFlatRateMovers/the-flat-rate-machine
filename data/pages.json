@@ -1,6 +1,6 @@
 {
   "attestation": "Every URL below was fetched from the live sitemap on 2026-10-28; titles and service links come from pageMeta in the live site source. No URL was hand-typed.",
-  "count": 166,
+  "count": 167,
   "dataset": "pages",
   "generated": "2026-10-29",
   "pages": [
@@ -2094,6 +2094,19 @@
       "lastmod": "2026-10-30",
       "status": "live",
       "source": "Data center relocation batch 2026-10-30 (Henry order 2026-10-30: work the five takeover categories) + owner ruling 2026-10-30 (disconnect/reconnect in scope)",
+      "attested": "2026-10-30"
+    },
+    {
+      "slug": "medical-lab-equipment-relocation",
+      "url": "https://theflatratemovers.com/medical-lab-equipment-relocation/",
+      "title": "Medical & Laboratory Equipment Relocation",
+      "type": "service",
+      "services": [
+        "service-medical-lab-relocation"
+      ],
+      "lastmod": "2026-10-30",
+      "status": "live",
+      "source": "Medical & laboratory equipment relocation batch 2026-10-30 (Henry order 2026-10-30: work the five takeover categories)",
       "attested": "2026-10-30"
     }
   ],

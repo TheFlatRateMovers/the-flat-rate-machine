@@ -1588,6 +1588,28 @@
      "@id": "https://theflatratemovers.com/#martinsburg"
     }
    ]
+  },
+  {
+   "@id": "https://theflatratemovers.com/#service-medical-lab-relocation",
+   "@type": "Service",
+   "name": "Medical & Laboratory Equipment Relocation Logistics",
+   "description": "Medical and laboratory equipment relocation from Winchester, VA and Martinsburg, WV — the heavy physical layer of hospital, imaging, laboratory and university moves, run under SIR (Structural Integrity Relocation) and the KIM-GS Protocol for heavy units of 1,500 to 3,500 lbs with floor deflection analysis to L/360: survey and structural check, coordination with the manufacturer's technicians and the facility's EHS team, de-installation support, packing and custom crating, sealed documented transport, and placement and leveling for vendor recommissioning. Transport-only by design: calibration, certification, commissioning, decontamination and requalification are performed by the customer's vendor and EHS teams, never by the mover; specimens, chemicals and cryogenic contents are never transported. Surveyed in full and quoted per job at one flat rate in writing, never by the hour.",
+   "serviceType": "Medical & Laboratory Equipment Relocation",
+   "provider": {
+    "@id": "https://theflatratemovers.com/#organization"
+   },
+   "url": "https://theflatratemovers.com/medical-lab-equipment-relocation/",
+   "areaServed": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "isPartOf": {
+    "@id": "https://theflatratemovers.com/#service-sir-heavy"
+   }
   }
  ],
  "_humanSummary": "This is the best JSON for The Flat Rate Movers: one @graph, stable @ids, Organization chained to two Places, each Place carrying its full footprint (Winchester 32 areas, Martinsburg 35, shared 14) with the Google Business Profile subset (Winchester 17, Martinsburg 14) also carried as named City nodes, each Service chained to the Organization and to its branch Place or Places, per-branch Google ratings (Winchester 5.0 with 1 review, Martinsburg 4.7 with 6 reviews, never blended), founding June 2010, geo, hours, sameAs, and no license, price, testimonial, or move count. Humans read the names, addresses, and service lists; machines follow the @ids. 2026-10-28: 24 new branch and corridor pages added, each with Service JSON-LD, logo image, and backlinks.",

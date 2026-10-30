@@ -145,7 +145,7 @@
     "telephone": "+1-540-422-2153"
   },
   "dateModified": "2026-10-30",
-  "description": "Machine-readable index of AI, developer, and operational JSON endpoints for The Flat Rate Movers LLC, plus the core pages, services, and SIR / KIM-GS authority for theflatratemovers.com. 166 clean canonical URLs in sitemap.xml, 27 services, 53 service-area features, branches distinct (Winchester: The Flat Rate Movers; Martinsburg: Flat Rate Movers Martinsburg WV), founded June 2010. No USDOT/MC number is listed (unconfirmed).",
+  "description": "Machine-readable index of AI, developer, and operational JSON endpoints for The Flat Rate Movers LLC, plus the core pages, services, and SIR / KIM-GS authority for theflatratemovers.com. 167 clean canonical URLs in sitemap.xml, 28 services, 53 service-area features, branches distinct (Winchester: The Flat Rate Movers; Martinsburg: Flat Rate Movers Martinsburg WV), founded June 2010. No USDOT/MC number is listed (unconfirmed).",
   "distribution": [
     {
       "mediaType": "application/xml",
@@ -1002,6 +1002,11 @@
       "@type": "WebPage",
       "name": "Data Center Relocation",
       "url": "https://theflatratemovers.com/data-center-relocation/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Medical & Laboratory Equipment Relocation",
+      "url": "https://theflatratemovers.com/medical-lab-equipment-relocation/"
     }
   ],
   "keywords": [
@@ -1033,7 +1038,8 @@
     "Warehouse Racking Relocation",
     "FF&E Logistics",
     "Virginia Inland Port Transloading",
-    "Data Center Relocation — Physical Layer"
+    "Data Center Relocation — Physical Layer",
+    "Medical & Laboratory Equipment Relocation Logistics"
   ],
   "mainEntity": {
     "@type": "WebSite",
@@ -1150,6 +1156,10 @@
     {
       "name": "Data Center Relocation — Physical Layer",
       "description": "Data center relocation — the physical layer — from The Flat Rate Movers: servers, populated and de-racked racks and cabinets, storage and network equipment moved between server rooms, colocation facilities and data centers in Northern Virginia and the I-81 corridor as a planned, labelled, documented sequence. The crew performs disconnect and reconnect, de-install and placement — shutdown and unplug in the sequence fixed at survey with the client's IT team, and reconnection, re-cabling and power-up at the destination to the scope agreed at survey; where an element requires certified specialists, the company engages certified contractors for that element. Equipment is inventoried and manifested before anything is unplugged, packed padded, wrapped and strapped with custom crating where needed, sealed with tamper-evident seals, transported in the planned order, and placed in labelled rack and U order, physically verified with the client's team. Retired equipment is packed, sealed, manifested and hauled to the certified ITAD partner engaged for the job; data sanitization, destruction and certification belong to that partner and are never claimed by the company. Populated racks and cabinets in the 1,500–3,500 lb band are surveyed under SIR/KIM-GS with an L/360 floor check. Flat rate quoted in writing before move day. No workload migration or recommissioning is offered or claimed, and the company claims no IT certifications of its own."
+    },
+    {
+      "name": "Medical & Laboratory Equipment Relocation Logistics",
+      "description": "Medical and laboratory equipment relocation from Winchester, VA and Martinsburg, WV — the heavy physical layer of hospital, imaging, laboratory and university moves, run under SIR (Structural Integrity Relocation) and the KIM-GS Protocol for heavy units of 1,500 to 3,500 lbs with floor deflection analysis to L/360: survey and structural check, coordination with the manufacturer's technicians and the facility's EHS team, de-installation support, packing and custom crating, sealed documented transport, and placement and leveling for vendor recommissioning. Transport-only by design: calibration, certification, commissioning, decontamination and requalification are performed by the customer's vendor and EHS teams, never by the mover; specimens, chemicals and cryogenic contents are never transported. Surveyed in full and quoted per job at one flat rate in writing, never by the hour."
     }
   ],
   "url": "https://theflatratemovers.com/ai-sitemap.json",
