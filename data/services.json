@@ -3,7 +3,7 @@
   "generated": "2026-10-29",
   "source": "head JSON-LD graph in ../the-flat-rate-movers-pages/public/index.html, page counts from pageMeta svc references",
   "attestation": "Service names and descriptions are copied from the live head graph; pageCount is counted from pageMeta, not estimated.",
-  "count": 23,
+  "count": 24,
   "services": [
     {
       "id": "service-residential",
@@ -188,6 +188,14 @@
       "source": "Moving-and-storage activation package 2026-10-29 + owner-confirmed terms 2026-10-29 (leased storage; any item type + examples; 30-day minimum stay; customer access while stored; lease terms vary; storage quoted per job, monthly, or by volume)",
       "attested": "2026-10-29",
       "pageCount": 1
+    },
+    {
+      "id": "service-junk-removal",
+      "name": "Junk Removal",
+      "description": "Junk removal from Winchester, VA and Martinsburg, WV — furniture, appliances, mattresses, hot tubs, electronics, yard debris, renovation debris, and whole-property cleanouts for homes, estates, evictions and businesses — surveyed in advance and quoted at one flat rate in writing before work begins, never by the hour. After pickup, every load is sorted: usable goods are routed toward donation, recyclable materials toward recycling, and the remainder to lawful disposal. Hazardous and regulated waste is not taken. Quoted flat in writing through the same flat-rate quote path, from Winchester VA and Martinsburg WV.",
+      "pageCount": 1,
+      "source": "Henry ruling 2026-10-30 (junk removal: full page with the full package treatment) + category research 2026-10-30 (industry accepted/not-accepted item guides, EPA Section 608 refrigerant rules, industry pricing guides — domain facts labeled as such)",
+      "attested": "2026-10-30"
     }
   ]
 }

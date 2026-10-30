@@ -39,6 +39,7 @@
 - IT Relocation & Setup: IT equipment and data center logistics from The Flat Rate Movers: servers, racks, workstations, and network equipment moved in a planned, labelled sequence so systems come back up in order, as part of commercial and office relocations across the Shenandoah Valley and Eastern Panhandle. Flat rate quoted in writing before move day.
 - Transloading Services — Winchester VA: Transloading services from Winchester, VA: ocean containers unloaded, counted, sorted, and restacked into domestic equipment for the inland leg, with cross-docking, deconsolidation, warehouse staging, and final-mile delivery, through the Virginia Inland Port and Port of Virginia chain. Quoted per job, flat rate agreed in writing before dispatch.
 - Moving and Storage: Moves with a storage interval between move-out and move-in, in leased storage for any type of items — containers, household goods, machines including robotic arms — with a 30-day minimum stay and customer access while stored; lease terms vary. Storage is quoted per job, monthly, or by volume. Quoted flat in writing.
+- Junk Removal: Junk removal from Winchester, VA and Martinsburg, WV — furniture, appliances, mattresses, hot tubs, electronics, yard debris, renovation debris, and whole-property cleanouts for homes, estates, evictions and businesses — surveyed in advance and quoted at one flat rate in writing before work begins, never by the hour. After pickup, every load is sorted: usable goods are routed toward donation, recyclable materials toward recycling, and the remainder to lawful disposal. Hazardous and regulated waste is not taken. Quoted flat in writing through the same flat-rate quote path, from Winchester VA and Martinsburg WV.
 
 ## Corridors
 
@@ -49,6 +50,6 @@
 ## Machine-Readable Data
 
 - [AI Sitemap](https://theflatratemovers.com/ai-sitemap.json): AI knowledge sitemap for The Flat Rate Movers LLC
-- [Sitemap](https://theflatratemovers.com/sitemap.xml): live Cloudflare Pages site, 156 clean canonical URLs (no hash URLs)
+- [Sitemap](https://theflatratemovers.com/sitemap.xml): live Cloudflare Pages site, 157 clean canonical URLs (no hash URLs)
 - [Service Area GeoJSON](https://theflatratemovers.com/service-area.geojson): 53 features, per branch, verified 2026-10-28
 - [Entity Graph](https://theflatratemovers.com/entity-graph.json): chained entity graph for The Flat Rate Movers LLC

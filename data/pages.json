@@ -4,7 +4,7 @@
   "source": "https://theflatratemovers.com/sitemap.xml joined to pageMeta in ../the-flat-rate-movers-pages/public/index.html",
   "attestation": "Every URL below was fetched from the live sitemap on 2026-10-28; titles and service links come from pageMeta in the live site source. No URL was hand-typed.",
   "typeRule": "home = site root; location = the two branch pages; corridor = route81; service = pageMeta svc non-empty; else page. The type is a registry classification, not a published claim.",
-  "count": 156,
+  "count": 157,
   "pages": [
     {
       "slug": "home",
@@ -1969,6 +1969,19 @@
       "status": "live",
       "source": "Moving-and-storage activation package 2026-10-29 + owner-confirmed storage terms 2026-10-29 (leased; any item type + examples)",
       "attested": "2026-10-29"
+    },
+    {
+      "slug": "junk-removal",
+      "url": "https://theflatratemovers.com/junk-removal/",
+      "title": "Junk Removal — Winchester VA & Martinsburg WV",
+      "type": "service",
+      "services": [
+        "service-junk-removal"
+      ],
+      "lastmod": "2026-10-30",
+      "status": "live",
+      "source": "Junk removal batch 2026-10-30 (Henry ruling 2026-10-30: full page, full package treatment) + category research 2026-10-30",
+      "attested": "2026-10-30"
     }
   ]
 }

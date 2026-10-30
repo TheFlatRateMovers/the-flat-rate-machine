@@ -5,7 +5,7 @@
   "@type": "Dataset",
   "name": "The Flat Rate Movers · AI Sitemap",
   "url": "https://theflatratemovers.com/ai-sitemap.json",
-  "description": "Machine-readable index of AI, developer, and operational JSON endpoints for The Flat Rate Movers LLC, plus the core pages, services, and SIR / KIM-GS authority for theflatratemovers.com. 156 clean canonical URLs in sitemap.xml, 23 services, 53 service-area features, branches distinct (Winchester: The Flat Rate Movers; Martinsburg: Flat Rate Movers Martinsburg WV), founded June 2010. No USDOT/MC number is listed (unconfirmed).",
+  "description": "Machine-readable index of AI, developer, and operational JSON endpoints for The Flat Rate Movers LLC, plus the core pages, services, and SIR / KIM-GS authority for theflatratemovers.com. 157 clean canonical URLs in sitemap.xml, 24 services, 53 service-area features, branches distinct (Winchester: The Flat Rate Movers; Martinsburg: Flat Rate Movers Martinsburg WV), founded June 2010. No USDOT/MC number is listed (unconfirmed).",
   "dateModified": "2026-10-30",
   "version": "2026-10-29",
   "creator": {
@@ -168,6 +168,10 @@
     {
       "name": "Moving and Storage",
       "description": "Moves with a storage interval between move-out and move-in, in leased storage for any type of items — including containers, household goods, and machines such as robotic arms — 30-day minimum stay, customers can access stored items while stored. Storage is quoted per job, monthly, or by volume, agreed flat in writing through the same flat-rate quote path, from Winchester VA and Martinsburg WV."
+    },
+    {
+      "name": "Junk Removal",
+      "description": "Junk removal from Winchester, VA and Martinsburg, WV — furniture, appliances, mattresses, hot tubs, electronics, yard debris, renovation debris, and whole-property cleanouts for homes, estates, evictions and businesses — surveyed in advance and quoted at one flat rate in writing before work begins, never by the hour. After pickup, every load is sorted: usable goods are routed toward donation, recyclable materials toward recycling, and the remainder to lawful disposal. Hazardous and regulated waste is not taken. Quoted flat in writing through the same flat-rate quote path, from Winchester VA and Martinsburg WV."
     }
   ],
   "keywords": [
@@ -194,7 +198,8 @@
     "IT Relocation & Setup",
     "Transloading Services — Winchester VA",
     "Moving and Storage",
-    "specialized workforce labor 48 contiguous states deployment coverage"
+    "specialized workforce labor 48 contiguous states deployment coverage",
+    "Junk Removal"
   ],
   "hasPart": [
     {
@@ -976,6 +981,11 @@
       "@type": "WebPage",
       "name": "Moving and Storage — Winchester VA & Martinsburg WV",
       "url": "https://theflatratemovers.com/moving-and-storage/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Junk Removal — Winchester VA & Martinsburg WV",
+      "url": "https://theflatratemovers.com/junk-removal/"
     }
   ],
   "areaServedByBranch": {

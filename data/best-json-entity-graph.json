@@ -30,6 +30,7 @@
     "Final mile delivery"
    ],
    "areaServed": [
+    "Bristow, VA",
     "Leesburg, VA",
     "Marshall, VA",
     "Sterling, VA",
@@ -1506,9 +1507,28 @@
      "@id": "https://theflatratemovers.com/#martinsburg"
     }
    ]
+  },
+  {
+   "@id": "https://theflatratemovers.com/#service-junk-removal",
+   "@type": "Service",
+   "name": "Junk Removal",
+   "description": "Junk removal from Winchester, VA and Martinsburg, WV — furniture, appliances, mattresses, hot tubs, electronics, yard debris, renovation debris, and whole-property cleanouts for homes, estates, evictions and businesses — surveyed in advance and quoted at one flat rate in writing before work begins, never by the hour. After pickup, every load is sorted: usable goods are routed toward donation, recyclable materials toward recycling, and the remainder to lawful disposal. Hazardous and regulated waste is not taken. Quoted flat in writing through the same flat-rate quote path, from Winchester VA and Martinsburg WV.",
+   "serviceType": "Junk Removal",
+   "provider": {
+    "@id": "https://theflatratemovers.com/#organization"
+   },
+   "url": "https://theflatratemovers.com/junk-removal/",
+   "areaServed": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ]
   }
  ],
- "_humanSummary": "This is the best JSON for The Flat Rate Movers: one @graph, stable @ids, Organization chained to two Places, each Place carrying its full footprint (Winchester 32 areas, Martinsburg 35, shared 14) with the Google Business Profile subset (Winchester 16, Martinsburg 14) also carried as named City nodes, each Service chained to the Organization and to its branch Place or Places, per-branch Google ratings (Winchester 5.0 with 1 review, Martinsburg 4.7 with 6 reviews, never blended), founding June 2010, geo, hours, sameAs, and no license, price, testimonial, or move count. Humans read the names, addresses, and service lists; machines follow the @ids. 2026-10-28: 24 new branch and corridor pages added, each with Service JSON-LD, logo image, and backlinks.",
+ "_humanSummary": "This is the best JSON for The Flat Rate Movers: one @graph, stable @ids, Organization chained to two Places, each Place carrying its full footprint (Winchester 32 areas, Martinsburg 35, shared 14) with the Google Business Profile subset (Winchester 17, Martinsburg 14) also carried as named City nodes, each Service chained to the Organization and to its branch Place or Places, per-branch Google ratings (Winchester 5.0 with 1 review, Martinsburg 4.7 with 6 reviews, never blended), founding June 2010, geo, hours, sameAs, and no license, price, testimonial, or move count. Humans read the names, addresses, and service lists; machines follow the @ids. 2026-10-28: 24 new branch and corridor pages added, each with Service JSON-LD, logo image, and backlinks.",
  "_machineNotes": {
   "attestation": "See entity-graph.json source notes for source and date for every fact. License details are private and are not in this JSON.",
   "dateModified": "2026-10-30",
