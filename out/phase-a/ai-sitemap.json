@@ -3,55 +3,6 @@
   "@context": "https://schema.org",
   "@id": "https://theflatratemovers.com/ai-sitemap.json",
   "@type": "Dataset",
-  "name": "The Flat Rate Movers · AI Sitemap",
-  "url": "https://theflatratemovers.com/ai-sitemap.json",
-  "description": "Machine-readable index of AI, developer, and operational JSON endpoints for The Flat Rate Movers LLC, plus the core pages, services, and SIR / KIM-GS authority for theflatratemovers.com. 157 clean canonical URLs in sitemap.xml, 24 services, 53 service-area features, branches distinct (Winchester: The Flat Rate Movers; Martinsburg: Flat Rate Movers Martinsburg WV), founded June 2010. No USDOT/MC number is listed (unconfirmed).",
-  "dateModified": "2026-10-30",
-  "version": "2026-10-29",
-  "creator": {
-    "@id": "https://theflatratemovers.com/#organization",
-    "@type": "Organization",
-    "name": "The Flat Rate Movers LLC",
-    "slogan": "Guaranteed Flat Rate or Your Move is Free!",
-    "foundingDate": "2010-06",
-    "telephone": "+1-540-422-2153",
-    "address": [
-      {
-        "@type": "PostalAddress",
-        "addressCountry": "US",
-        "addressLocality": "Winchester",
-        "addressRegion": "VA",
-        "postalCode": "22601",
-        "streetAddress": "116 W Piccadilly St Suite 11"
-      },
-      {
-        "@type": "PostalAddress",
-        "addressCountry": "US",
-        "addressLocality": "Martinsburg",
-        "addressRegion": "WV",
-        "postalCode": "25404",
-        "streetAddress": "736 Williamsport Pike Suite 2"
-      }
-    ],
-    "location": [
-      {
-        "@id": "https://theflatratemovers.com/#winchester"
-      },
-      {
-        "@id": "https://theflatratemovers.com/#martinsburg"
-      }
-    ],
-    "email": "ratemovers@gmail.com",
-    "sameAs": [
-      "https://github.com/TheFlatRateMovers/theflatratemovers-ai",
-      "https://github.com/TheFlatRateMovers/TheFlatRateMovers",
-      "https://theflatratemovers.com/developer/",
-      "https://www.instagram.com/theflatratemovers/",
-      "https://www.threads.com/@theflatratemovers",
-      "https://x.com/ratemovers",
-      "https://www.youtube.com/@theflatratemovers"
-    ]
-  },
   "about": [
     "Residential Moving",
     "Commercial and Office Moving",
@@ -76,130 +27,146 @@
     "IT Relocation & Setup",
     "Transloading Services — Winchester VA"
   ],
-  "services": [
+  "areaServedByBranch": {
+    "martinsburg": [
+      "Martinsburg, WV",
+      "Moorefield, WV",
+      "Inwood, WV",
+      "Hagerstown, MD",
+      "Hedgesville, WV",
+      "Paw Paw, WV",
+      "Shepherdstown, WV",
+      "Bunker Hill, WV",
+      "Charles Town, WV",
+      "Clear Spring, MD",
+      "Summit Point, WV",
+      "Harpers Ferry, WV",
+      "Kearneysville, WV",
+      "Front Royal, VA",
+      "Strasburg, VA",
+      "Woodstock, VA",
+      "Berkeley Springs, WV",
+      "Romney, WV",
+      "Frederick, MD",
+      "Hancock, MD",
+      "Berkeley County",
+      "Jefferson County",
+      "Morgan County",
+      "Warren County",
+      "Shenandoah County",
+      "Hampshire County",
+      "Hardy County",
+      "Washington County",
+      "Port of Virginia",
+      "Virginia Inland Port",
+      "Shenandoah Valley",
+      "Eastern Panhandle of West Virginia",
+      "Interstate 81 Corridor",
+      "Interstate 66 Corridor",
+      "Interstate 70 Corridor"
+    ],
+    "winchester": [
+      "Winchester, VA",
+      "Leesburg, VA",
+      "Marshall, VA",
+      "Sterling, VA",
+      "Stephens City, VA",
+      "Berryville, VA",
+      "Middleburg, VA",
+      "Middletown, VA",
+      "Moorefield, WV",
+      "Round Hill, VA",
+      "Stephenson, VA",
+      "Upperville, VA",
+      "Purcellville, VA",
+      "South Riding, VA",
+      "Front Royal, VA",
+      "Strasburg, VA",
+      "Woodstock, VA",
+      "Bristow, VA",
+      "Frederick County",
+      "Loudoun County",
+      "Clarke County",
+      "Warren County",
+      "Shenandoah County",
+      "Hardy County",
+      "Fauquier County",
+      "Port of Virginia",
+      "Virginia Inland Port",
+      "Shenandoah Valley",
+      "Eastern Panhandle of West Virginia",
+      "Interstate 81 Corridor",
+      "Interstate 66 Corridor",
+      "Interstate 70 Corridor"
+    ]
+  },
+  "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "address": [
+      {
+        "@type": "PostalAddress",
+        "addressCountry": "US",
+        "addressLocality": "Winchester",
+        "addressRegion": "VA",
+        "postalCode": "22601",
+        "streetAddress": "116 W Piccadilly St Suite 11"
+      },
+      {
+        "@type": "PostalAddress",
+        "addressCountry": "US",
+        "addressLocality": "Martinsburg",
+        "addressRegion": "WV",
+        "postalCode": "25404",
+        "streetAddress": "736 Williamsport Pike Suite 2"
+      }
+    ],
+    "email": "ratemovers@gmail.com",
+    "foundingDate": "2010-06",
+    "location": [
+      {
+        "@id": "https://theflatratemovers.com/#winchester"
+      },
+      {
+        "@id": "https://theflatratemovers.com/#martinsburg"
+      }
+    ],
+    "name": "The Flat Rate Movers LLC",
+    "sameAs": [
+      "https://github.com/TheFlatRateMovers/theflatratemovers-ai",
+      "https://github.com/TheFlatRateMovers/TheFlatRateMovers",
+      "https://theflatratemovers.com/developer/",
+      "https://www.instagram.com/theflatratemovers/",
+      "https://www.threads.com/@theflatratemovers",
+      "https://x.com/ratemovers",
+      "https://www.youtube.com/@theflatratemovers"
+    ],
+    "slogan": "Guaranteed Flat Rate or Your Move is Free!",
+    "telephone": "+1-540-422-2153"
+  },
+  "dateModified": "2026-10-30",
+  "description": "Machine-readable index of AI, developer, and operational JSON endpoints for The Flat Rate Movers LLC, plus the core pages, services, and SIR / KIM-GS authority for theflatratemovers.com. 158 clean canonical URLs in sitemap.xml, 24 services, 53 service-area features, branches distinct (Winchester: The Flat Rate Movers; Martinsburg: Flat Rate Movers Martinsburg WV), founded June 2010. No USDOT/MC number is listed (unconfirmed).",
+  "distribution": [
     {
-      "name": "Residential Moving",
-      "description": "Flat-rate house and apartment moving, local, regional and long-distance."
+      "mediaType": "application/xml",
+      "url": "https://theflatratemovers.com/sitemap.xml"
     },
     {
-      "name": "Commercial and Office Moving",
-      "description": "Flat-rate commercial and office relocation."
+      "mediaType": "application/json",
+      "url": "https://theflatratemovers.com/ai-sitemap.json"
     },
     {
-      "name": "Local and Regional Moving",
-      "description": "Local and regional moves along the I-81, I-66 and I-70 corridors."
+      "mediaType": "application/geo+json",
+      "url": "https://theflatratemovers.com/service-area.geojson"
     },
     {
-      "name": "Long-Distance Moving",
-      "description": "Flat-rate long-distance moving from Winchester, VA and Martinsburg, WV."
+      "mediaType": "application/ld+json",
+      "url": "https://theflatratemovers.com/entity-graph.json"
     },
     {
-      "name": "Packing and Unpacking",
-      "description": "Full, partial and fragile-only packing and unpacking, including loading and unloading."
-    },
-    {
-      "name": "SIR Heavy Asset Relocation (KIM-GS Protocol)",
-      "description": "SIR Structural Integrity Relocation and the KIM-GS Protocol for high-mass assets of 1,500 to 3,500 lbs — safes, medical devices, cryogenic equipment, pianos and antiques — with floor deflection analysis to L/360."
-    },
-    {
-      "name": "Gun Safe Moving",
-      "description": "Gun safe and high-mass safe moving under SIR Structural Integrity Relocation and the KIM-GS Protocol, for safes of 1,500 to 3,500 lbs — route and clearance survey, floor deflection analysis to L/360, load spreading, floor protection and verified placement, quoted at one flat rate in writing."
-    },
-    {
-      "name": "Piano, Antique and White-Glove Moving",
-      "description": "White-glove handling of pianos, antiques and high-value items, with custom crating when required."
-    },
-    {
-      "name": "ISPM 15 Export Packing",
-      "description": "Export packing to ISPM 15 (International Standards for Phytosanitary Measures No. 15) for international shipping."
-    },
-    {
-      "name": "Custom Crating",
-      "description": "Custom-built crates and high-value item protection for domestic and export moves."
-    },
-    {
-      "name": "Loading, Transloading and Container Services",
-      "description": "Container loading and unloading, and transloading between truck, container and warehouse."
-    },
-    {
-      "name": "Final-Mile Delivery",
-      "description": "Final-mile delivery with in-home or in-business placement and verification."
-    },
-    {
-      "name": "Office Moving",
-      "description": "Complete office relocations — workstations, files and office equipment — planned and quoted flat."
-    },
-    {
-      "name": "Industrial Offices Moving",
-      "description": "Office moves for industrial and facility sites — office areas within plants, warehouses and industrial facilities."
-    },
-    {
-      "name": "Government Moving",
-      "description": "Moving services for government offices and public-sector relocations."
-    },
-    {
-      "name": "Military Moving",
-      "description": "Moving services for military households and service members relocating to or from the Winchester and Martinsburg area."
-    },
-    {
-      "name": "Route 81 Corridor Moving and Dispatch",
-      "description": "Moving and logistics dispatch along Interstate 81, I-66 and I-70 from Winchester, VA and Martinsburg, WV."
-    },
-    {
-      "name": "Industrial & Commercial Services",
-      "description": "Industrial & Commercial Services — Trained, Supervised Moving and Warehouse Teams for industrial and commercial project support: warehouse and distribution, commercial relocation and logistics including white-glove/blanket-wrap, FF&E installation and project support, and flexible workforce deployment, priced per job with no required contract duration. Standard Job Pricing: Unload $8.00/CWT, Load $10.00/CWT, APU $12.00/CWT, Residential/Driver Meet $400-$425 per man. Its workforce layer, Specialized Workforce Labor, carries workforce deployment coverage in all 48 contiguous states, quoted per job — a nationwide workforce scope distinct from the branches' 52-area moving footprint."
-    },
-    {
-      "name": "Senior Moving",
-      "description": "Flat-rate senior moves quoted in writing for seniors downsizing, transitioning to assisted or independent living, or relocating closer to family, with packing support and a free film-only video-walkthrough survey room with a human-made estimate."
-    },
-    {
-      "name": "Warehouse Relocation",
-      "description": "Flat-rate warehouse relocation from The Flat Rate Movers: warehouse and distribution moves, warehouse load-outs and inbound unloads, transload staging, and restacking, carried out by supervised warehouse teams and planned around the site — access, floor space, staging, and equipment handling. Standard Job Pricing: Unload $8.00/CWT, Load $10.00/CWT, APU $12.00/CWT, Residential/Driver Meet $400–$425 per man, quoted per job."
-    },
-    {
-      "name": "IT Relocation & Setup",
-      "description": "IT equipment and data center logistics from The Flat Rate Movers: servers, racks, workstations, and network equipment moved in a planned, labelled sequence so systems come back up in order, as part of commercial and office relocations across the Shenandoah Valley and Eastern Panhandle. Flat rate quoted in writing before move day."
-    },
-    {
-      "name": "Transloading Services — Winchester VA",
-      "description": "Transloading services from Winchester, VA: ocean containers unloaded, counted, sorted, and restacked into domestic equipment for the inland leg, with cross-docking, deconsolidation, warehouse staging, and final-mile delivery, through the Virginia Inland Port and Port of Virginia chain. Quoted per job, flat rate agreed in writing before dispatch."
-    },
-    {
-      "name": "Moving and Storage",
-      "description": "Moves with a storage interval between move-out and move-in, in leased storage for any type of items — including containers, household goods, and machines such as robotic arms — 30-day minimum stay, customers can access stored items while stored. Storage is quoted per job, monthly, or by volume, agreed flat in writing through the same flat-rate quote path, from Winchester VA and Martinsburg WV."
-    },
-    {
-      "name": "Junk Removal",
-      "description": "Junk removal from Winchester, VA and Martinsburg, WV — furniture, appliances, mattresses, hot tubs, electronics, yard debris, renovation debris, and whole-property cleanouts for homes, estates, evictions and businesses — surveyed in advance and quoted at one flat rate in writing before work begins, never by the hour. After pickup, every load is sorted: usable goods are routed toward donation, recyclable materials toward recycling, and the remainder to lawful disposal. Hazardous and regulated waste is not taken. Quoted flat in writing through the same flat-rate quote path, from Winchester VA and Martinsburg WV."
+      "mediaType": "text/markdown",
+      "url": "https://theflatratemovers.com/llms.txt"
     }
-  ],
-  "keywords": [
-    "Residential Moving",
-    "Commercial and Office Moving",
-    "Local and Regional Moving",
-    "Long-Distance Moving",
-    "Packing and Unpacking",
-    "SIR Heavy Asset Relocation (KIM-GS Protocol)",
-    "Gun Safe Moving",
-    "Piano, Antique and White-Glove Moving",
-    "ISPM 15 Export Packing",
-    "Custom Crating",
-    "Loading, Transloading and Container Services",
-    "Final-Mile Delivery",
-    "Office Moving",
-    "Industrial Offices Moving",
-    "Government Moving",
-    "Military Moving",
-    "Route 81 Corridor Moving and Dispatch",
-    "Industrial & Commercial Services",
-    "Senior Moving",
-    "Warehouse Relocation",
-    "IT Relocation & Setup",
-    "Transloading Services — Winchester VA",
-    "Moving and Storage",
-    "specialized workforce labor 48 contiguous states deployment coverage",
-    "Junk Removal"
   ],
   "hasPart": [
     {
@@ -986,107 +953,145 @@
       "@type": "WebPage",
       "name": "Junk Removal — Winchester VA & Martinsburg WV",
       "url": "https://theflatratemovers.com/junk-removal/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Flat-Rate Guarantee",
+      "url": "https://theflatratemovers.com/flat-rate-guarantee/"
     }
   ],
-  "areaServedByBranch": {
-    "winchester": [
-      "Winchester, VA",
-      "Leesburg, VA",
-      "Marshall, VA",
-      "Sterling, VA",
-      "Stephens City, VA",
-      "Berryville, VA",
-      "Middleburg, VA",
-      "Middletown, VA",
-      "Moorefield, WV",
-      "Round Hill, VA",
-      "Stephenson, VA",
-      "Upperville, VA",
-      "Purcellville, VA",
-      "South Riding, VA",
-      "Front Royal, VA",
-      "Strasburg, VA",
-      "Woodstock, VA",
-      "Bristow, VA",
-      "Frederick County",
-      "Loudoun County",
-      "Clarke County",
-      "Warren County",
-      "Shenandoah County",
-      "Hardy County",
-      "Fauquier County",
-      "Port of Virginia",
-      "Virginia Inland Port",
-      "Shenandoah Valley",
-      "Eastern Panhandle of West Virginia",
-      "Interstate 81 Corridor",
-      "Interstate 66 Corridor",
-      "Interstate 70 Corridor"
-    ],
-    "martinsburg": [
-      "Martinsburg, WV",
-      "Moorefield, WV",
-      "Inwood, WV",
-      "Hagerstown, MD",
-      "Hedgesville, WV",
-      "Paw Paw, WV",
-      "Shepherdstown, WV",
-      "Bunker Hill, WV",
-      "Charles Town, WV",
-      "Clear Spring, MD",
-      "Summit Point, WV",
-      "Harpers Ferry, WV",
-      "Kearneysville, WV",
-      "Front Royal, VA",
-      "Strasburg, VA",
-      "Woodstock, VA",
-      "Berkeley Springs, WV",
-      "Romney, WV",
-      "Frederick, MD",
-      "Hancock, MD",
-      "Berkeley County",
-      "Jefferson County",
-      "Morgan County",
-      "Warren County",
-      "Shenandoah County",
-      "Hampshire County",
-      "Hardy County",
-      "Washington County",
-      "Port of Virginia",
-      "Virginia Inland Port",
-      "Shenandoah Valley",
-      "Eastern Panhandle of West Virginia",
-      "Interstate 81 Corridor",
-      "Interstate 66 Corridor",
-      "Interstate 70 Corridor"
-    ]
-  },
+  "keywords": [
+    "Residential Moving",
+    "Commercial and Office Moving",
+    "Local and Regional Moving",
+    "Long-Distance Moving",
+    "Packing and Unpacking",
+    "SIR Heavy Asset Relocation (KIM-GS Protocol)",
+    "Gun Safe Moving",
+    "Piano, Antique and White-Glove Moving",
+    "ISPM 15 Export Packing",
+    "Custom Crating",
+    "Loading, Transloading and Container Services",
+    "Final-Mile Delivery",
+    "Office Moving",
+    "Industrial Offices Moving",
+    "Government Moving",
+    "Military Moving",
+    "Route 81 Corridor Moving and Dispatch",
+    "Industrial & Commercial Services",
+    "Senior Moving",
+    "Warehouse Relocation",
+    "IT Relocation & Setup",
+    "Transloading Services — Winchester VA",
+    "Moving and Storage",
+    "specialized workforce labor 48 contiguous states deployment coverage",
+    "Junk Removal"
+  ],
   "mainEntity": {
     "@type": "WebSite",
     "name": "The Flat Rate Movers LLC",
     "sitemap": "https://theflatratemovers.com/sitemap.xml",
     "url": "https://theflatratemovers.com/"
   },
-  "distribution": [
+  "name": "The Flat Rate Movers · AI Sitemap",
+  "services": [
     {
-      "url": "https://theflatratemovers.com/sitemap.xml",
-      "mediaType": "application/xml"
+      "description": "Flat-rate house and apartment moving, local, regional and long-distance.",
+      "name": "Residential Moving"
     },
     {
-      "url": "https://theflatratemovers.com/ai-sitemap.json",
-      "mediaType": "application/json"
+      "description": "Flat-rate commercial and office relocation.",
+      "name": "Commercial and Office Moving"
     },
     {
-      "url": "https://theflatratemovers.com/service-area.geojson",
-      "mediaType": "application/geo+json"
+      "description": "Local and regional moves along the I-81, I-66 and I-70 corridors.",
+      "name": "Local and Regional Moving"
     },
     {
-      "url": "https://theflatratemovers.com/entity-graph.json",
-      "mediaType": "application/ld+json"
+      "description": "Flat-rate long-distance moving from Winchester, VA and Martinsburg, WV.",
+      "name": "Long-Distance Moving"
     },
     {
-      "url": "https://theflatratemovers.com/llms.txt",
-      "mediaType": "text/markdown"
+      "description": "Full, partial and fragile-only packing and unpacking, including loading and unloading.",
+      "name": "Packing and Unpacking"
+    },
+    {
+      "description": "SIR Structural Integrity Relocation and the KIM-GS Protocol for high-mass assets of 1,500 to 3,500 lbs — safes, medical devices, cryogenic equipment, pianos and antiques — with floor deflection analysis to L/360.",
+      "name": "SIR Heavy Asset Relocation (KIM-GS Protocol)"
+    },
+    {
+      "description": "Gun safe and high-mass safe moving under SIR Structural Integrity Relocation and the KIM-GS Protocol, for safes of 1,500 to 3,500 lbs — route and clearance survey, floor deflection analysis to L/360, load spreading, floor protection and verified placement, quoted at one flat rate in writing.",
+      "name": "Gun Safe Moving"
+    },
+    {
+      "description": "White-glove handling of pianos, antiques and high-value items, with custom crating when required.",
+      "name": "Piano, Antique and White-Glove Moving"
+    },
+    {
+      "description": "Export packing to ISPM 15 (International Standards for Phytosanitary Measures No. 15) for international shipping.",
+      "name": "ISPM 15 Export Packing"
+    },
+    {
+      "description": "Custom-built crates and high-value item protection for domestic and export moves.",
+      "name": "Custom Crating"
+    },
+    {
+      "description": "Container loading and unloading, and transloading between truck, container and warehouse.",
+      "name": "Loading, Transloading and Container Services"
+    },
+    {
+      "description": "Final-mile delivery with in-home or in-business placement and verification.",
+      "name": "Final-Mile Delivery"
+    },
+    {
+      "description": "Complete office relocations — workstations, files and office equipment — planned and quoted flat.",
+      "name": "Office Moving"
+    },
+    {
+      "description": "Office moves for industrial and facility sites — office areas within plants, warehouses and industrial facilities.",
+      "name": "Industrial Offices Moving"
+    },
+    {
+      "description": "Moving services for government offices and public-sector relocations.",
+      "name": "Government Moving"
+    },
+    {
+      "description": "Moving services for military households and service members relocating to or from the Winchester and Martinsburg area.",
+      "name": "Military Moving"
+    },
+    {
+      "description": "Moving and logistics dispatch along Interstate 81, I-66 and I-70 from Winchester, VA and Martinsburg, WV.",
+      "name": "Route 81 Corridor Moving and Dispatch"
+    },
+    {
+      "description": "Industrial & Commercial Services — Trained, Supervised Moving and Warehouse Teams for industrial and commercial project support: warehouse and distribution, commercial relocation and logistics including white-glove/blanket-wrap, FF&E installation and project support, and flexible workforce deployment, priced per job with no required contract duration. Standard Job Pricing: Unload $8.00/CWT, Load $10.00/CWT, APU $12.00/CWT, Residential/Driver Meet $400-$425 per man. Its workforce layer, Specialized Workforce Labor, carries workforce deployment coverage in all 48 contiguous states, quoted per job — a nationwide workforce scope distinct from the branches' 52-area moving footprint.",
+      "name": "Industrial & Commercial Services"
+    },
+    {
+      "description": "Flat-rate senior moves quoted in writing for seniors downsizing, transitioning to assisted or independent living, or relocating closer to family, with packing support and a free film-only video-walkthrough survey room with a human-made estimate.",
+      "name": "Senior Moving"
+    },
+    {
+      "description": "Flat-rate warehouse relocation from The Flat Rate Movers: warehouse and distribution moves, warehouse load-outs and inbound unloads, transload staging, and restacking, carried out by supervised warehouse teams and planned around the site — access, floor space, staging, and equipment handling. Standard Job Pricing: Unload $8.00/CWT, Load $10.00/CWT, APU $12.00/CWT, Residential/Driver Meet $400–$425 per man, quoted per job.",
+      "name": "Warehouse Relocation"
+    },
+    {
+      "description": "IT equipment and data center logistics from The Flat Rate Movers: servers, racks, workstations, and network equipment moved in a planned, labelled sequence so systems come back up in order, as part of commercial and office relocations across the Shenandoah Valley and Eastern Panhandle. Flat rate quoted in writing before move day.",
+      "name": "IT Relocation & Setup"
+    },
+    {
+      "description": "Transloading services from Winchester, VA: ocean containers unloaded, counted, sorted, and restacked into domestic equipment for the inland leg, with cross-docking, deconsolidation, warehouse staging, and final-mile delivery, through the Virginia Inland Port and Port of Virginia chain. Quoted per job, flat rate agreed in writing before dispatch.",
+      "name": "Transloading Services — Winchester VA"
+    },
+    {
+      "description": "Moves with a storage interval between move-out and move-in, in leased storage for any type of items — including containers, household goods, and machines such as robotic arms — 30-day minimum stay, customers can access stored items while stored. Storage is quoted per job, monthly, or by volume, agreed flat in writing through the same flat-rate quote path, from Winchester VA and Martinsburg WV.",
+      "name": "Moving and Storage"
+    },
+    {
+      "description": "Junk removal from Winchester, VA and Martinsburg, WV — furniture, appliances, mattresses, hot tubs, electronics, yard debris, renovation debris, and whole-property cleanouts for homes, estates, evictions and businesses — surveyed in advance and quoted at one flat rate in writing before work begins, never by the hour. After pickup, every load is sorted: usable goods are routed toward donation, recyclable materials toward recycling, and the remainder to lawful disposal. Hazardous and regulated waste is not taken. Quoted flat in writing through the same flat-rate quote path, from Winchester VA and Martinsburg WV.",
+      "name": "Junk Removal"
     }
-  ]
+  ],
+  "url": "https://theflatratemovers.com/ai-sitemap.json",
+  "version": "2026-10-29"
 }

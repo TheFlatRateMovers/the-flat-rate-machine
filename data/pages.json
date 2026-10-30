@@ -1,1987 +1,1997 @@
 {
+  "attestation": "Every URL below was fetched from the live sitemap on 2026-10-28; titles and service links come from pageMeta in the live site source. No URL was hand-typed.",
+  "count": 158,
   "dataset": "pages",
   "generated": "2026-10-29",
-  "source": "https://theflatratemovers.com/sitemap.xml joined to pageMeta in ../the-flat-rate-movers-pages/public/index.html",
-  "attestation": "Every URL below was fetched from the live sitemap on 2026-10-28; titles and service links come from pageMeta in the live site source. No URL was hand-typed.",
-  "typeRule": "home = site root; location = the two branch pages; corridor = route81; service = pageMeta svc non-empty; else page. The type is a registry classification, not a published claim.",
-  "count": 157,
   "pages": [
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
+      "services": [],
       "slug": "home",
-      "url": "https://theflatratemovers.com/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Home",
       "type": "home",
-      "services": [],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/"
     },
     {
-      "slug": "1600-lb-gun-safe-moving-winchester-va-to-las-vegas-nv",
-      "url": "https://theflatratemovers.com/1600-lb-gun-safe-moving-winchester-va-to-las-vegas-nv/",
-      "title": "1,600 lb Gun Safe Moving — Winchester VA to Las Vegas NV",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-gun-safe"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "1600-lb-gun-safe-moving-winchester-va-to-las-vegas-nv",
       "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "1,600 lb Gun Safe Moving — Winchester VA to Las Vegas NV",
+      "type": "service",
+      "url": "https://theflatratemovers.com/1600-lb-gun-safe-moving-winchester-va-to-las-vegas-nv/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-29",
+      "services": [],
       "slug": "ai-license",
-      "url": "https://theflatratemovers.com/ai-license/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "AI License — Use of Published Data",
       "type": "page",
-      "services": [],
-      "lastmod": "2026-10-29",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/ai-license/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
+      "services": [],
       "slug": "all-pages",
-      "url": "https://theflatratemovers.com/all-pages/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Browse All Pages",
       "type": "page",
-      "services": [],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/all-pages/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
+      "services": [],
       "slug": "areas-served",
-      "url": "https://theflatratemovers.com/areas-served/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Areas Served",
       "type": "page",
-      "services": [],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/areas-served/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-29",
+      "services": [],
       "slug": "author/ratemoversgmail-com",
-      "url": "https://theflatratemovers.com/author/ratemoversgmail-com/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Author — The Flat Rate Movers",
       "type": "page",
-      "services": [],
-      "lastmod": "2026-10-29",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/author/ratemoversgmail-com/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
+      "services": [],
       "slug": "blog",
-      "url": "https://theflatratemovers.com/blog/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Blog — Articles & Guides",
       "type": "page",
-      "services": [],
-      "lastmod": "2026-10-29",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/blog/"
     },
     {
-      "slug": "calibration-safe-moving",
-      "url": "https://theflatratemovers.com/calibration-safe-moving/",
-      "title": "Calibration-Safe Moving",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-sir-heavy"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "calibration-safe-moving",
       "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Calibration-Safe Moving",
+      "type": "service",
+      "url": "https://theflatratemovers.com/calibration-safe-moving/"
     },
     {
-      "slug": "case-study-3500lb-safe-moving-winchester-va",
-      "url": "https://theflatratemovers.com/case-study-3500lb-safe-moving-winchester-va/",
-      "title": "Case Study — 3,500 lb Safe Moving, Winchester VA",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-gun-safe"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "case-study-3500lb-safe-moving-winchester-va",
       "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Case Study — 3,500 lb Safe Moving, Winchester VA",
+      "type": "service",
+      "url": "https://theflatratemovers.com/case-study-3500lb-safe-moving-winchester-va/"
     },
     {
-      "slug": "category/freight-services",
-      "url": "https://theflatratemovers.com/category/freight-services/",
-      "title": "Category — Freight Services",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-28",
       "services": [
         "service-transloading"
       ],
-      "lastmod": "2026-10-28",
-      "status": "live",
+      "slug": "category/freight-services",
       "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Category — Freight Services",
+      "type": "service",
+      "url": "https://theflatratemovers.com/category/freight-services/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
+      "services": [],
       "slug": "category/logistics",
-      "url": "https://theflatratemovers.com/category/logistics/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Category — Logistics",
       "type": "page",
-      "services": [],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/category/logistics/"
     },
     {
-      "slug": "category/long-distance-moving",
-      "url": "https://theflatratemovers.com/category/long-distance-moving/",
-      "title": "Category — Long-Distance Moving",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-long-distance"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "category/long-distance-moving",
       "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Category — Long-Distance Moving",
+      "type": "service",
+      "url": "https://theflatratemovers.com/category/long-distance-moving/"
     },
     {
-      "slug": "category/maritime-shipping",
-      "url": "https://theflatratemovers.com/category/maritime-shipping/",
-      "title": "Category — Maritime Shipping",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-ispm15"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "category/maritime-shipping",
       "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Category — Maritime Shipping",
+      "type": "service",
+      "url": "https://theflatratemovers.com/category/maritime-shipping/"
     },
     {
-      "slug": "category/military-government-moving",
-      "url": "https://theflatratemovers.com/category/military-government-moving/",
-      "title": "Category — Military & Government Moving",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-government",
         "service-military"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "category/military-government-moving",
       "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Category — Military & Government Moving",
+      "type": "service",
+      "url": "https://theflatratemovers.com/category/military-government-moving/"
     },
     {
-      "slug": "category/office-commercial-moving",
-      "url": "https://theflatratemovers.com/category/office-commercial-moving/",
-      "title": "Category — Office & Commercial Moving",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-commercial"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "category/office-commercial-moving",
       "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Category — Office & Commercial Moving",
+      "type": "service",
+      "url": "https://theflatratemovers.com/category/office-commercial-moving/"
     },
     {
-      "slug": "category/port-logistics",
-      "url": "https://theflatratemovers.com/category/port-logistics/",
-      "title": "Category — Port Logistics",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-transloading"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "category/port-logistics",
       "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Category — Port Logistics",
+      "type": "service",
+      "url": "https://theflatratemovers.com/category/port-logistics/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
+      "services": [
+        "service-sir-heavy"
+      ],
       "slug": "category/rigging-sir-2026",
-      "url": "https://theflatratemovers.com/category/rigging-sir-2026/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Category — Rigging & SIR 2026",
       "type": "service",
+      "url": "https://theflatratemovers.com/category/rigging-sir-2026/"
+    },
+    {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-sir-heavy"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
-    },
-    {
       "slug": "category/rigging-sir-2026/high-value-rigging",
-      "url": "https://theflatratemovers.com/category/rigging-sir-2026/high-value-rigging/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Category — High-Value Rigging",
       "type": "service",
-      "services": [
-        "service-sir-heavy"
-      ],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/category/rigging-sir-2026/high-value-rigging/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
+      "services": [],
       "slug": "category/shenandoah-valley-logistics",
-      "url": "https://theflatratemovers.com/category/shenandoah-valley-logistics/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Category — Shenandoah Valley Logistics",
       "type": "page",
-      "services": [],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/category/shenandoah-valley-logistics/"
     },
     {
-      "slug": "category/vault-moving",
-      "url": "https://theflatratemovers.com/category/vault-moving/",
-      "title": "Category — Vault Moving",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-gun-safe"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "category/vault-moving",
       "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Category — Vault Moving",
+      "type": "service",
+      "url": "https://theflatratemovers.com/category/vault-moving/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
+      "services": [],
       "slug": "category/winchester-va",
-      "url": "https://theflatratemovers.com/category/winchester-va/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Category — Winchester VA",
       "type": "page",
-      "services": [],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/category/winchester-va/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
+      "services": [
+        "service-residential"
+      ],
       "slug": "category/winchester-va/residential-logistics",
-      "url": "https://theflatratemovers.com/category/winchester-va/residential-logistics/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Category — Residential Logistics",
       "type": "service",
-      "services": [
-        "service-residential"
-      ],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/category/winchester-va/residential-logistics/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
+      "services": [],
       "slug": "category/winchester-va/residential-logistics/relocation-services",
-      "url": "https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Category — Relocation Services",
       "type": "page",
-      "services": [],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
+      "services": [
+        "service-residential"
+      ],
       "slug": "category/winchester-va/residential-logistics/relocation-services/moving",
-      "url": "https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/moving/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Category — Moving (Relocation Services)",
       "type": "service",
+      "url": "https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/moving/"
+    },
+    {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-residential"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
-    },
-    {
       "slug": "category/winchester-va/residential-logistics/relocation-services/moving/eastern-panhandle-moving",
-      "url": "https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/moving/eastern-panhandle-moving/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Category — Eastern Panhandle Moving",
       "type": "service",
-      "services": [
-        "service-residential"
-      ],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/moving/eastern-panhandle-moving/"
     },
     {
-      "slug": "category/winchester-va/residential-logistics/relocation-services/moving/estate-relocation",
-      "url": "https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/moving/estate-relocation/",
-      "title": "Category — Estate Relocation",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-packing"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "category/winchester-va/residential-logistics/relocation-services/moving/estate-relocation",
       "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Category — Estate Relocation",
+      "type": "service",
+      "url": "https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/moving/estate-relocation/"
     },
     {
-      "slug": "category/winchester-va/residential-logistics/relocation-services/moving/long-distance",
-      "url": "https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/moving/long-distance/",
-      "title": "Category — Long-Distance (Winchester VA)",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-long-distance"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "category/winchester-va/residential-logistics/relocation-services/moving/long-distance",
       "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Category — Long-Distance (Winchester VA)",
+      "type": "service",
+      "url": "https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/moving/long-distance/"
     },
     {
-      "slug": "category/winchester-va/residential-logistics/relocation-services/moving/museum-logistics",
-      "url": "https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/moving/museum-logistics/",
-      "title": "Category — Museum Logistics",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-piano-antique"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "category/winchester-va/residential-logistics/relocation-services/moving/museum-logistics",
       "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Category — Museum Logistics",
+      "type": "service",
+      "url": "https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/moving/museum-logistics/"
     },
     {
-      "slug": "category/winchester-va/residential-logistics/relocation-services/moving/museum-logistics/logistics-transportation",
-      "url": "https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/moving/museum-logistics/logistics-transportation/",
-      "title": "Category — Logistics Transportation",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-transloading"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "category/winchester-va/residential-logistics/relocation-services/moving/museum-logistics/logistics-transportation",
       "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Category — Logistics Transportation",
+      "type": "service",
+      "url": "https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/moving/museum-logistics/logistics-transportation/"
     },
     {
-      "slug": "category/winchester-va/residential-logistics/relocation-services/paper-padding",
-      "url": "https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/paper-padding/",
-      "title": "Category — Paper & Padding (Packing Materials)",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-packing"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "category/winchester-va/residential-logistics/relocation-services/paper-padding",
       "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Category — Paper & Padding (Packing Materials)",
+      "type": "service",
+      "url": "https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/paper-padding/"
     },
     {
-      "slug": "category/winchester-va/top-rated-movers-winchester-va",
-      "url": "https://theflatratemovers.com/category/winchester-va/top-rated-movers-winchester-va/",
-      "title": "Category — Movers in Winchester VA",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-residential"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "category/winchester-va/top-rated-movers-winchester-va",
       "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Category — Movers in Winchester VA",
+      "type": "service",
+      "url": "https://theflatratemovers.com/category/winchester-va/top-rated-movers-winchester-va/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
+      "services": [
+        "service-transloading",
+        "service-final-mile"
+      ],
       "slug": "commercial-freight-handling-solutions",
-      "url": "https://theflatratemovers.com/commercial-freight-handling-solutions/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Commercial Freight Handling Solutions",
       "type": "service",
+      "url": "https://theflatratemovers.com/commercial-freight-handling-solutions/"
+    },
+    {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-transloading",
         "service-final-mile"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
-    },
-    {
       "slug": "commercial-freight-handling-white-glove-final-mile-services",
-      "url": "https://theflatratemovers.com/commercial-freight-handling-white-glove-final-mile-services/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Commercial Freight Handling, White-Glove & Final Mile Services",
       "type": "service",
-      "services": [
-        "service-transloading",
-        "service-final-mile"
-      ],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/commercial-freight-handling-white-glove-final-mile-services/"
     },
     {
-      "slug": "commercial-moving",
-      "url": "https://theflatratemovers.com/commercial-moving/",
-      "title": "Commercial Moving",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-commercial"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "commercial-moving",
       "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Commercial Moving",
+      "type": "service",
+      "url": "https://theflatratemovers.com/commercial-moving/"
     },
     {
-      "slug": "commercial-office-moving-2",
-      "url": "https://theflatratemovers.com/commercial-office-moving-2/",
-      "title": "Office Moving",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-office-moving"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "commercial-office-moving-2",
       "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Office Moving",
+      "type": "service",
+      "url": "https://theflatratemovers.com/commercial-office-moving-2/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
+      "services": [
+        "service-transloading"
+      ],
       "slug": "container-deconsolidation-cross-docking-transloading-services-virginia",
-      "url": "https://theflatratemovers.com/container-deconsolidation-cross-docking-transloading-services-virginia/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Container Deconsolidation, Cross-Docking & Transloading — Virginia",
       "type": "service",
+      "url": "https://theflatratemovers.com/container-deconsolidation-cross-docking-transloading-services-virginia/"
+    },
+    {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-transloading"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
-    },
-    {
       "slug": "container-deconsolidation-services-virginia-mid-atlantic",
-      "url": "https://theflatratemovers.com/container-deconsolidation-services-virginia-mid-atlantic/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Container Deconsolidation Services — Virginia & Mid-Atlantic",
       "type": "service",
+      "url": "https://theflatratemovers.com/container-deconsolidation-services-virginia-mid-atlantic/"
+    },
+    {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-transloading"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
-    },
-    {
       "slug": "container-loading-unloading-services-port-transload-virginia",
-      "url": "https://theflatratemovers.com/container-loading-unloading-services-port-transload-virginia/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Container Loading & Unloading — Port Transload, Virginia",
       "type": "service",
-      "services": [
-        "service-transloading"
-      ],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/container-loading-unloading-services-port-transload-virginia/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-29",
+      "services": [],
       "slug": "developer",
-      "url": "https://theflatratemovers.com/developer/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Developer Resources",
       "type": "page",
-      "services": [],
-      "lastmod": "2026-10-29",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/developer/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
+      "services": [],
       "slug": "docs",
-      "url": "https://theflatratemovers.com/docs/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Docs — Reference Library",
       "type": "page",
-      "services": [],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/docs/"
     },
     {
-      "slug": "docs/container-deconsolidation",
-      "url": "https://theflatratemovers.com/docs/container-deconsolidation/",
-      "title": "Docs — Container Deconsolidation",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-transloading"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "docs/container-deconsolidation",
       "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Docs — Container Deconsolidation",
+      "type": "service",
+      "url": "https://theflatratemovers.com/docs/container-deconsolidation/"
     },
     {
-      "slug": "docs/data-center-logistics",
-      "url": "https://theflatratemovers.com/docs/data-center-logistics/",
-      "title": "Docs — Data Center Logistics",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-commercial"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "docs/data-center-logistics",
       "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Docs — Data Center Logistics",
+      "type": "service",
+      "url": "https://theflatratemovers.com/docs/data-center-logistics/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
+      "services": [],
       "slug": "docs/logistics-event-protocol",
-      "url": "https://theflatratemovers.com/docs/logistics-event-protocol/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Docs — Logistics Event Protocol",
       "type": "page",
-      "services": [],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/docs/logistics-event-protocol/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
+      "services": [],
       "slug": "docs/logistics-ontology",
-      "url": "https://theflatratemovers.com/docs/logistics-ontology/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Docs — Logistics Ontology",
       "type": "page",
-      "services": [],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/docs/logistics-ontology/"
     },
     {
-      "slug": "elite-asset-transition-white-glove-discreet-logistics",
-      "url": "https://theflatratemovers.com/elite-asset-transition-white-glove-discreet-logistics/",
-      "title": "Elite Asset Transition — White-Glove, Discreet Logistics",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-piano-antique"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "elite-asset-transition-white-glove-discreet-logistics",
       "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Elite Asset Transition — White-Glove, Discreet Logistics",
+      "type": "service",
+      "url": "https://theflatratemovers.com/elite-asset-transition-white-glove-discreet-logistics/"
     },
     {
-      "slug": "emergency-port-container-recovery-twic-labor-virginia",
-      "url": "https://theflatratemovers.com/emergency-port-container-recovery-twic-labor-virginia/",
-      "title": "Emergency Port Container Recovery — Virginia",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-transloading"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "emergency-port-container-recovery-twic-labor-virginia",
       "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Emergency Port Container Recovery — Virginia",
+      "type": "service",
+      "url": "https://theflatratemovers.com/emergency-port-container-recovery-twic-labor-virginia/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
+      "services": [],
       "slug": "entities",
-      "url": "https://theflatratemovers.com/entities/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Entities — Index",
       "type": "page",
-      "services": [],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/entities/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
+      "services": [],
       "slug": "entity-authority-layer",
-      "url": "https://theflatratemovers.com/entity-authority-layer/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Entity Authority Layer",
       "type": "page",
-      "services": [],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/entity-authority-layer/"
     },
     {
-      "slug": "export",
-      "url": "https://theflatratemovers.com/export/",
-      "title": "Export & Crating",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-ispm15"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "export",
       "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Export & Crating",
+      "type": "service",
+      "url": "https://theflatratemovers.com/export/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-29",
+      "services": [],
       "slug": "faq",
-      "url": "https://theflatratemovers.com/faq/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "FAQ — Questions, Answered",
       "type": "page",
-      "services": [],
-      "lastmod": "2026-10-29",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/faq/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
+      "services": [],
       "slug": "find-us",
-      "url": "https://theflatratemovers.com/find-us/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Find Us — Winchester VA & Martinsburg WV",
       "type": "page",
-      "services": [],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/find-us/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-29",
+      "services": [],
       "slug": "flat-rate-moving-quote-winchester",
-      "url": "https://theflatratemovers.com/flat-rate-moving-quote-winchester/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Flat Rate Moving Quote — Winchester",
       "type": "page",
-      "services": [],
-      "lastmod": "2026-10-29",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/flat-rate-moving-quote-winchester/"
     },
     {
-      "slug": "full-service-packing-unpacking-systematic-asset-encapsulation",
-      "url": "https://theflatratemovers.com/full-service-packing-unpacking-systematic-asset-encapsulation/",
-      "title": "Full-Service Packing & Unpacking — Systematic Asset Encapsulation",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-packing"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "full-service-packing-unpacking-systematic-asset-encapsulation",
       "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Full-Service Packing & Unpacking — Systematic Asset Encapsulation",
+      "type": "service",
+      "url": "https://theflatratemovers.com/full-service-packing-unpacking-systematic-asset-encapsulation/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
+      "services": [
+        "service-gun-safe"
+      ],
       "slug": "gun-safe-movers-winchester-va",
-      "url": "https://theflatratemovers.com/gun-safe-movers-winchester-va/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Gun Safe Movers — Winchester VA",
       "type": "service",
+      "url": "https://theflatratemovers.com/gun-safe-movers-winchester-va/"
+    },
+    {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-gun-safe"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
-    },
-    {
       "slug": "gun-safe-movers",
-      "url": "https://theflatratemovers.com/gun-safe-movers/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Gun Safe Moving",
       "type": "service",
-      "services": [
-        "service-gun-safe"
-      ],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/gun-safe-movers/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
+      "services": [
+        "service-sir-heavy"
+      ],
       "slug": "heavy",
-      "url": "https://theflatratemovers.com/heavy/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Heavy Asset Authority",
       "type": "service",
+      "url": "https://theflatratemovers.com/heavy/"
+    },
+    {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-sir-heavy"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
-    },
-    {
       "slug": "high-mass-logistics-long-distance-moving-winchester-va",
-      "url": "https://theflatratemovers.com/high-mass-logistics-long-distance-moving-winchester-va/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "High-Mass Logistics — Long-Distance Moving, Winchester VA",
       "type": "service",
-      "services": [
-        "service-sir-heavy"
-      ],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/high-mass-logistics-long-distance-moving-winchester-va/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
+      "services": [
+        "service-transloading"
+      ],
       "slug": "how-container-deconsolidation-cross-docking-transloading-supports-virginia-freight-networks",
-      "url": "https://theflatratemovers.com/how-container-deconsolidation-cross-docking-transloading-supports-virginia-freight-networks/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Container Deconsolidation, Cross-Docking & Transloading — Virginia Freight Networks",
       "type": "service",
+      "url": "https://theflatratemovers.com/how-container-deconsolidation-cross-docking-transloading-supports-virginia-freight-networks/"
+    },
+    {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-transloading"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
-    },
-    {
       "slug": "how-container-loading-unloading-services-improve-port-logistics",
-      "url": "https://theflatratemovers.com/how-container-loading-unloading-services-improve-port-logistics/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "How Container Loading & Unloading Services Improve Port Logistics",
       "type": "service",
-      "services": [
-        "service-transloading"
-      ],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/how-container-loading-unloading-services-improve-port-logistics/"
     },
     {
-      "slug": "how-international-export-packing-crating-protects-global-shipments",
-      "url": "https://theflatratemovers.com/how-international-export-packing-crating-protects-global-shipments/",
-      "title": "How International Export Packing & Crating Protects Global Shipments",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-ispm15",
         "service-crating"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "how-international-export-packing-crating-protects-global-shipments",
       "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "How International Export Packing & Crating Protects Global Shipments",
+      "type": "service",
+      "url": "https://theflatratemovers.com/how-international-export-packing-crating-protects-global-shipments/"
     },
     {
-      "slug": "how-port-of-virginia-logistics-supports-east-coast-freight-movement",
-      "url": "https://theflatratemovers.com/how-port-of-virginia-logistics-supports-east-coast-freight-movement/",
-      "title": "How Port of Virginia Logistics Supports East Coast Freight Movement",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-transloading",
         "service-route81"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "how-port-of-virginia-logistics-supports-east-coast-freight-movement",
       "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "How Port of Virginia Logistics Supports East Coast Freight Movement",
+      "type": "service",
+      "url": "https://theflatratemovers.com/how-port-of-virginia-logistics-supports-east-coast-freight-movement/"
     },
     {
-      "slug": "how-to-pack-for-interstate-move",
-      "url": "https://theflatratemovers.com/how-to-pack-for-interstate-move/",
-      "title": "How to Pack for an Interstate Move",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-packing"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "how-to-pack-for-interstate-move",
       "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "How to Pack for an Interstate Move",
+      "type": "service",
+      "url": "https://theflatratemovers.com/how-to-pack-for-interstate-move/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
+      "services": [
+        "service-industrial-commercial"
+      ],
       "slug": "industrial-commercial-services",
-      "url": "https://theflatratemovers.com/industrial-commercial-services/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Industrial & Commercial Services",
       "type": "service",
+      "url": "https://theflatratemovers.com/industrial-commercial-services/"
+    },
+    {
+      "attested": "2026-10-29",
+      "lastmod": "2026-10-30",
       "services": [
         "service-industrial-commercial"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
-    },
-    {
       "slug": "specialized-workforce-labor",
-      "url": "https://theflatratemovers.com/specialized-workforce-labor/",
+      "source": "Batch 7c new page build 2026-10-29 (Henry instruction 2026-10-29: specialized workforce labor page from the 2026-10-28 supplied service data and datasets-industrial-commercial.json; workforce deployment coverage all 48 contiguous states, owner-stated 2026-10-29)",
+      "status": "live",
       "title": "Specialized Workforce Labor",
       "type": "service",
-      "services": [
-        "service-industrial-commercial"
-      ],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "Batch 7c new page build 2026-10-29 (Henry instruction 2026-10-29: specialized workforce labor page from the 2026-10-28 supplied service data and datasets-industrial-commercial.json; workforce deployment coverage all 48 contiguous states, owner-stated 2026-10-29)",
-      "attested": "2026-10-29"
+      "url": "https://theflatratemovers.com/specialized-workforce-labor/"
     },
     {
-      "slug": "industrial-offices-moving",
-      "url": "https://theflatratemovers.com/industrial-offices-moving/",
-      "title": "Industrial Offices Moving",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-industrial-offices"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "industrial-offices-moving",
       "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Industrial Offices Moving",
+      "type": "service",
+      "url": "https://theflatratemovers.com/industrial-offices-moving/"
     },
     {
-      "slug": "industrial-rigging-high-mass-logistics-hub-winchester-va",
-      "url": "https://theflatratemovers.com/industrial-rigging-high-mass-logistics-hub-winchester-va/",
-      "title": "Industrial Rigging & High-Mass Logistics Hub — Winchester VA",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-sir-heavy"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "industrial-rigging-high-mass-logistics-hub-winchester-va",
       "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Industrial Rigging & High-Mass Logistics Hub — Winchester VA",
+      "type": "service",
+      "url": "https://theflatratemovers.com/industrial-rigging-high-mass-logistics-hub-winchester-va/"
     },
     {
-      "slug": "international-export-packing-crating-winchester-va",
-      "url": "https://theflatratemovers.com/international-export-packing-crating-winchester-va/",
-      "title": "International Export Packing & Crating",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-ispm15",
         "service-crating"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "international-export-packing-crating-winchester-va",
       "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "International Export Packing & Crating",
+      "type": "service",
+      "url": "https://theflatratemovers.com/international-export-packing-crating-winchester-va/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
+      "services": [
+        "service-long-distance"
+      ],
       "slug": "interstate-moving-guide-winchester-va",
-      "url": "https://theflatratemovers.com/interstate-moving-guide-winchester-va/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Interstate Moving Guide — Winchester VA",
       "type": "service",
+      "url": "https://theflatratemovers.com/interstate-moving-guide-winchester-va/"
+    },
+    {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-long-distance"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
-    },
-    {
       "slug": "interstate-moving-network",
-      "url": "https://theflatratemovers.com/interstate-moving-network/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Interstate Moving Network",
       "type": "service",
+      "url": "https://theflatratemovers.com/interstate-moving-network/"
+    },
+    {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-long-distance"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
-    },
-    {
       "slug": "interstate-moving-winchester-va",
-      "url": "https://theflatratemovers.com/interstate-moving-winchester-va/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Interstate Moving — Winchester VA",
       "type": "service",
-      "services": [
-        "service-long-distance"
-      ],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/interstate-moving-winchester-va/"
     },
     {
-      "slug": "it-equipment-moving-data-center-logistics-services-virginia",
-      "url": "https://theflatratemovers.com/it-equipment-moving-data-center-logistics-services-virginia/",
-      "title": "IT Equipment Moving & Data Center Logistics — Virginia",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-commercial",
         "service-it-relocation"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "it-equipment-moving-data-center-logistics-services-virginia",
       "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "IT Equipment Moving & Data Center Logistics — Virginia",
+      "type": "service",
+      "url": "https://theflatratemovers.com/it-equipment-moving-data-center-logistics-services-virginia/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
+      "services": [],
       "slug": "knowledge-entities",
-      "url": "https://theflatratemovers.com/knowledge-entities/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Knowledge — Entities",
       "type": "page",
-      "services": [],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/knowledge-entities/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
+      "services": [],
       "slug": "knowledge-equipment",
-      "url": "https://theflatratemovers.com/knowledge-equipment/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Knowledge — Equipment",
       "type": "page",
-      "services": [],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/knowledge-equipment/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
+      "services": [],
       "slug": "knowledge-events",
-      "url": "https://theflatratemovers.com/knowledge-events/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Knowledge — Events",
       "type": "page",
-      "services": [],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/knowledge-events/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
+      "services": [],
       "slug": "knowledge-locations",
-      "url": "https://theflatratemovers.com/knowledge-locations/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Knowledge — Locations",
       "type": "page",
-      "services": [],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/knowledge-locations/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
+      "services": [],
       "slug": "knowledge-services",
-      "url": "https://theflatratemovers.com/knowledge-services/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Knowledge — Services",
       "type": "page",
-      "services": [],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/knowledge-services/"
     },
     {
-      "slug": "local-regional-moving",
-      "url": "https://theflatratemovers.com/local-regional-moving/",
-      "title": "Local & Regional Moving",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-local-regional"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "local-regional-moving",
       "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Local & Regional Moving",
+      "type": "service",
+      "url": "https://theflatratemovers.com/local-regional-moving/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
+      "services": [],
       "slug": "logistics-data-engineering-center",
-      "url": "https://theflatratemovers.com/logistics-data-engineering-center/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Logistics Data Engineering Center",
       "type": "page",
-      "services": [],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/logistics-data-engineering-center/"
     },
     {
-      "slug": "long-distance-cross-country-moving",
-      "url": "https://theflatratemovers.com/long-distance-cross-country-moving/",
-      "title": "Long-Distance & Cross-Country Moving",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-long-distance"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "long-distance-cross-country-moving",
       "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Long-Distance & Cross-Country Moving",
+      "type": "service",
+      "url": "https://theflatratemovers.com/long-distance-cross-country-moving/"
     },
     {
-      "slug": "long-distance-gun-safe-moving-winchester-va-to-las-vegas-nv",
-      "url": "https://theflatratemovers.com/long-distance-gun-safe-moving-winchester-va-to-las-vegas-nv/",
-      "title": "Long-Distance Gun Safe Moving — Winchester VA to Las Vegas NV",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-gun-safe"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "long-distance-gun-safe-moving-winchester-va-to-las-vegas-nv",
       "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Long-Distance Gun Safe Moving — Winchester VA to Las Vegas NV",
+      "type": "service",
+      "url": "https://theflatratemovers.com/long-distance-gun-safe-moving-winchester-va-to-las-vegas-nv/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
+      "services": [
+        "service-long-distance"
+      ],
       "slug": "long-distance-movers-miami",
-      "url": "https://theflatratemovers.com/long-distance-movers-miami/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Long-Distance Movers — Miami",
       "type": "service",
+      "url": "https://theflatratemovers.com/long-distance-movers-miami/"
+    },
+    {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-long-distance"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
-    },
-    {
       "slug": "long-distance-movers-winchester-va-guide",
-      "url": "https://theflatratemovers.com/long-distance-movers-winchester-va-guide/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Long-Distance Movers — Winchester VA Guide",
       "type": "service",
+      "url": "https://theflatratemovers.com/long-distance-movers-winchester-va-guide/"
+    },
+    {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-long-distance"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
-    },
-    {
       "slug": "long-distance-movers-winchester-va",
-      "url": "https://theflatratemovers.com/long-distance-movers-winchester-va/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Long-Distance Movers — Winchester, VA",
       "type": "service",
-      "services": [
-        "service-long-distance"
-      ],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/long-distance-movers-winchester-va/"
     },
     {
-      "slug": "looking-for-the-best-movers-near-me-your-guide-to-stress-free-moving-in-winchester-and-martinsburg",
-      "url": "https://theflatratemovers.com/looking-for-the-best-movers-near-me-your-guide-to-stress-free-moving-in-winchester-and-martinsburg/",
-      "title": "Best Movers Near Me — Guide for Winchester & Martinsburg",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-29",
       "services": [
         "service-residential"
       ],
-      "lastmod": "2026-10-29",
-      "status": "live",
+      "slug": "looking-for-the-best-movers-near-me-your-guide-to-stress-free-moving-in-winchester-and-martinsburg",
       "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Best Movers Near Me — Guide for Winchester & Martinsburg",
+      "type": "service",
+      "url": "https://theflatratemovers.com/looking-for-the-best-movers-near-me-your-guide-to-stress-free-moving-in-winchester-and-martinsburg/"
     },
     {
-      "slug": "martinsburg-wv-movers-full-service-guide",
-      "url": "https://theflatratemovers.com/martinsburg-wv-movers-full-service-guide/",
-      "title": "Martinsburg WV Movers — Full-Service Guide",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-29",
       "services": [
         "service-residential",
         "service-commercial"
       ],
-      "lastmod": "2026-10-29",
-      "status": "live",
+      "slug": "martinsburg-wv-movers-full-service-guide",
       "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Martinsburg WV Movers — Full-Service Guide",
+      "type": "service",
+      "url": "https://theflatratemovers.com/martinsburg-wv-movers-full-service-guide/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
+      "services": [
+        "service-government",
+        "service-military"
+      ],
       "slug": "military-government-hhg-moving-requirements-contractors",
-      "url": "https://theflatratemovers.com/military-government-hhg-moving-requirements-contractors/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Military & Government HHG Moving — Requirements & Contractors",
       "type": "service",
+      "url": "https://theflatratemovers.com/military-government-hhg-moving-requirements-contractors/"
+    },
+    {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-government",
         "service-military"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
-    },
-    {
       "slug": "military-government-moving",
-      "url": "https://theflatratemovers.com/military-government-moving/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Military & Government Moving",
       "type": "service",
-      "services": [
-        "service-government",
-        "service-military"
-      ],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/military-government-moving/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-29",
+      "services": [],
       "slug": "moving-company-martinsburg-wv",
-      "url": "https://theflatratemovers.com/moving-company-martinsburg-wv/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Moving Company — Martinsburg, WV",
       "type": "location",
-      "services": [],
-      "lastmod": "2026-10-29",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/moving-company-martinsburg-wv/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
+      "services": [],
       "slug": "moving-company-winchester-va",
-      "url": "https://theflatratemovers.com/moving-company-winchester-va/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Moving Company — Winchester, VA",
       "type": "location",
-      "services": [],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/moving-company-winchester-va/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
+      "services": [],
       "slug": "moving-cost-guide-winchester-va",
-      "url": "https://theflatratemovers.com/moving-cost-guide-winchester-va/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Moving Cost Guide — Winchester VA",
       "type": "page",
-      "services": [],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/moving-cost-guide-winchester-va/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-29",
+      "services": [],
       "slug": "moving-questions-answers",
-      "url": "https://theflatratemovers.com/moving-questions-answers/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Moving Questions & Answers",
       "type": "page",
-      "services": [],
-      "lastmod": "2026-10-29",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/moving-questions-answers/"
     },
     {
-      "slug": "moving-tips-winchester-va",
-      "url": "https://theflatratemovers.com/moving-tips-winchester-va/",
-      "title": "Moving Tips — Winchester VA",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-residential"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "moving-tips-winchester-va",
       "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Moving Tips — Winchester VA",
+      "type": "service",
+      "url": "https://theflatratemovers.com/moving-tips-winchester-va/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-29",
+      "services": [],
       "slug": "online-estimate",
-      "url": "https://theflatratemovers.com/online-estimate/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Online Estimate",
       "type": "page",
-      "services": [],
-      "lastmod": "2026-10-29",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/online-estimate/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
+      "services": [
+        "service-packing"
+      ],
       "slug": "packing-cost-winchester-va",
-      "url": "https://theflatratemovers.com/packing-cost-winchester-va/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Packing Cost — Winchester VA",
       "type": "service",
+      "url": "https://theflatratemovers.com/packing-cost-winchester-va/"
+    },
+    {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-packing"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
-    },
-    {
       "slug": "packing-services-winchester-va",
-      "url": "https://theflatratemovers.com/packing-services-winchester-va/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Packing Services — Winchester VA",
       "type": "service",
+      "url": "https://theflatratemovers.com/packing-services-winchester-va/"
+    },
+    {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-packing"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
-    },
-    {
       "slug": "packing-unpacking-services-2",
-      "url": "https://theflatratemovers.com/packing-unpacking-services-2/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Packing & Unpacking Services",
       "type": "service",
-      "services": [
-        "service-packing"
-      ],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/packing-unpacking-services-2/"
     },
     {
-      "slug": "port-of-virginia-container-loading-unloading-logistics-services",
-      "url": "https://theflatratemovers.com/port-of-virginia-container-loading-unloading-logistics-services/",
-      "title": "Port of Virginia — Container & Logistics Services",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-transloading"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "port-of-virginia-container-loading-unloading-logistics-services",
       "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Port of Virginia — Container & Logistics Services",
+      "type": "service",
+      "url": "https://theflatratemovers.com/port-of-virginia-container-loading-unloading-logistics-services/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-29",
+      "services": [],
       "slug": "privacy-policy",
-      "url": "https://theflatratemovers.com/privacy-policy/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Privacy Policy",
       "type": "page",
-      "services": [],
-      "lastmod": "2026-10-29",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/privacy-policy/"
     },
     {
-      "slug": "professional-packing-services-moving-cost-estimator",
-      "url": "https://theflatratemovers.com/professional-packing-services-moving-cost-estimator/",
-      "title": "Professional Packing Services & Moving Cost Estimator",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-packing"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "professional-packing-services-moving-cost-estimator",
       "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Professional Packing Services & Moving Cost Estimator",
+      "type": "service",
+      "url": "https://theflatratemovers.com/professional-packing-services-moving-cost-estimator/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-29",
+      "services": [],
       "slug": "quote",
-      "url": "https://theflatratemovers.com/quote/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Get a flat rate quote",
       "type": "page",
-      "services": [],
-      "lastmod": "2026-10-29",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/quote/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
+      "services": [],
       "slug": "recursive-indexing-layer",
-      "url": "https://theflatratemovers.com/recursive-indexing-layer/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Recursive Indexing Layer",
       "type": "page",
-      "services": [],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/recursive-indexing-layer/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
+      "services": [
+        "service-residential"
+      ],
       "slug": "reliable-movers-in-martinsburg-wv",
-      "url": "https://theflatratemovers.com/reliable-movers-in-martinsburg-wv/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Reliable Movers in Martinsburg, WV",
       "type": "service",
-      "services": [
-        "service-residential"
-      ],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/reliable-movers-in-martinsburg-wv/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
+      "services": [
+        "service-sir-heavy"
+      ],
       "slug": "relocation-engineering-framework",
-      "url": "https://theflatratemovers.com/relocation-engineering-framework/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Relocation Engineering Framework",
       "type": "service",
+      "url": "https://theflatratemovers.com/relocation-engineering-framework/"
+    },
+    {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-sir-heavy"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
-    },
-    {
       "slug": "relocation-engineering-standards-portal",
-      "url": "https://theflatratemovers.com/relocation-engineering-standards-portal/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Relocation Engineering Standards Portal",
       "type": "service",
-      "services": [
-        "service-sir-heavy"
-      ],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/relocation-engineering-standards-portal/"
     },
     {
-      "slug": "residential-moving",
-      "url": "https://theflatratemovers.com/residential-moving/",
-      "title": "Residential Moving",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-residential"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "residential-moving",
       "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Residential Moving",
+      "type": "service",
+      "url": "https://theflatratemovers.com/residential-moving/"
     },
     {
-      "slug": "route81",
-      "url": "https://theflatratemovers.com/route81/",
-      "title": "Route 81",
-      "type": "corridor",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-route81"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "route81",
       "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Route 81",
+      "type": "corridor",
+      "url": "https://theflatratemovers.com/route81/"
     },
     {
-      "slug": "safe-moving-protocol",
-      "url": "https://theflatratemovers.com/safe-moving-protocol/",
-      "title": "Safe Moving Protocol",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-gun-safe"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "safe-moving-protocol",
       "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Safe Moving Protocol",
+      "type": "service",
+      "url": "https://theflatratemovers.com/safe-moving-protocol/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
+      "services": [],
       "slug": "service-areas-moving-company",
-      "url": "https://theflatratemovers.com/service-areas-moving-company/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Service Areas — Moving Company",
       "type": "page",
-      "services": [],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/service-areas-moving-company/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-29",
+      "services": [],
       "slug": "services",
-      "url": "https://theflatratemovers.com/services/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Services",
       "type": "page",
-      "services": [],
-      "lastmod": "2026-10-29",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/services/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
+      "services": [
+        "service-sir-heavy"
+      ],
       "slug": "sir-2026-protocol",
-      "url": "https://theflatratemovers.com/sir-2026-protocol/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "SIR 2026 Protocol — The Steps",
       "type": "service",
+      "url": "https://theflatratemovers.com/sir-2026-protocol/"
+    },
+    {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-sir-heavy"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
-    },
-    {
       "slug": "sir-2026-structural-integrity-relocation-protocol",
-      "url": "https://theflatratemovers.com/sir-2026-structural-integrity-relocation-protocol/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "SIR 2026 — Structural Integrity Relocation Protocol",
       "type": "service",
-      "services": [
-        "service-sir-heavy"
-      ],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/sir-2026-structural-integrity-relocation-protocol/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-29",
+      "services": [],
       "slug": "sitemap",
-      "url": "https://theflatratemovers.com/sitemap/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Sitemap — All Pages & Redirects",
       "type": "page",
-      "services": [],
-      "lastmod": "2026-10-29",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/sitemap/"
     },
     {
-      "slug": "technical-rigging-high-security-gun-safe-vault-relocation",
-      "url": "https://theflatratemovers.com/technical-rigging-high-security-gun-safe-vault-relocation/",
-      "title": "Technical Rigging — High-Security Gun Safe & Vault Relocation",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-gun-safe",
         "service-sir-heavy"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "technical-rigging-high-security-gun-safe-vault-relocation",
       "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Technical Rigging — High-Security Gun Safe & Vault Relocation",
+      "type": "service",
+      "url": "https://theflatratemovers.com/technical-rigging-high-security-gun-safe-vault-relocation/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
+      "services": [
+        "service-sir-heavy"
+      ],
       "slug": "technical-rigging-standards",
-      "url": "https://theflatratemovers.com/technical-rigging-standards/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Technical Rigging Standards",
       "type": "service",
-      "services": [
-        "service-sir-heavy"
-      ],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/technical-rigging-standards/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
+      "services": [
+        "service-long-distance"
+      ],
       "slug": "the-data-science-of-displacement-how-predictive-analytics-is-redefining-the-mid-atlantic-relocation-path",
-      "url": "https://theflatratemovers.com/the-data-science-of-displacement-how-predictive-analytics-is-redefining-the-mid-atlantic-relocation-path/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "The Data Science of Displacement — Planning the Mid-Atlantic Relocation Path",
       "type": "service",
-      "services": [
-        "service-long-distance"
-      ],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/the-data-science-of-displacement-how-predictive-analytics-is-redefining-the-mid-atlantic-relocation-path/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
+      "services": [],
       "slug": "the-flat-rate-logistics-data-hub",
-      "url": "https://theflatratemovers.com/the-flat-rate-logistics-data-hub/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "The Flat Rate Logistics Data Hub",
       "type": "page",
-      "services": [],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/the-flat-rate-logistics-data-hub/"
     },
     {
-      "slug": "the-invisible-risk-of-high-mass-relocation",
-      "url": "https://theflatratemovers.com/the-invisible-risk-of-high-mass-relocation/",
-      "title": "The Invisible Risk of High-Mass Relocation",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-sir-heavy"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "the-invisible-risk-of-high-mass-relocation",
       "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "The Invisible Risk of High-Mass Relocation",
+      "type": "service",
+      "url": "https://theflatratemovers.com/the-invisible-risk-of-high-mass-relocation/"
     },
     {
-      "slug": "the-strategic-roadmap-for-long-distance-residential-relocation",
-      "url": "https://theflatratemovers.com/the-strategic-roadmap-for-long-distance-residential-relocation/",
-      "title": "The Strategic Roadmap for Long-Distance Residential Relocation",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-long-distance"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "the-strategic-roadmap-for-long-distance-residential-relocation",
       "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "The Strategic Roadmap for Long-Distance Residential Relocation",
+      "type": "service",
+      "url": "https://theflatratemovers.com/the-strategic-roadmap-for-long-distance-residential-relocation/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
+      "services": [
+        "service-residential"
+      ],
       "slug": "top-10-moving-tips-for-a-stress-free-move-in-2026",
-      "url": "https://theflatratemovers.com/top-10-moving-tips-for-a-stress-free-move-in-2026/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Top 10 Moving Tips for a Stress-Free Move in 2026",
       "type": "service",
+      "url": "https://theflatratemovers.com/top-10-moving-tips-for-a-stress-free-move-in-2026/"
+    },
+    {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-residential"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
-    },
-    {
       "slug": "top-rated-movers-mid-atlantic",
-      "url": "https://theflatratemovers.com/top-rated-movers-mid-atlantic/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Movers for the Mid-Atlantic",
       "type": "service",
-      "services": [
-        "service-residential"
-      ],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/top-rated-movers-mid-atlantic/"
     },
     {
-      "slug": "virginia-inland-port-freight-transloading-operations",
-      "url": "https://theflatratemovers.com/virginia-inland-port-freight-transloading-operations/",
-      "title": "Virginia Inland Port — Freight & Transloading Operations",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-transloading"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "virginia-inland-port-freight-transloading-operations",
       "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Virginia Inland Port — Freight & Transloading Operations",
+      "type": "service",
+      "url": "https://theflatratemovers.com/virginia-inland-port-freight-transloading-operations/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
+      "services": [
+        "service-long-distance"
+      ],
       "slug": "virginia-to-california-movers",
-      "url": "https://theflatratemovers.com/virginia-to-california-movers/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Virginia to California Movers",
       "type": "service",
+      "url": "https://theflatratemovers.com/virginia-to-california-movers/"
+    },
+    {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-long-distance"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
-    },
-    {
       "slug": "virginia-to-florida-movers",
-      "url": "https://theflatratemovers.com/virginia-to-florida-movers/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Virginia to Florida Movers",
       "type": "service",
+      "url": "https://theflatratemovers.com/virginia-to-florida-movers/"
+    },
+    {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-long-distance"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
-    },
-    {
       "slug": "virginia-to-nevada-movers",
-      "url": "https://theflatratemovers.com/virginia-to-nevada-movers/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Virginia to Nevada Movers",
       "type": "service",
+      "url": "https://theflatratemovers.com/virginia-to-nevada-movers/"
+    },
+    {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-long-distance"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
-    },
-    {
       "slug": "virginia-to-new-york-movers",
-      "url": "https://theflatratemovers.com/virginia-to-new-york-movers/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Virginia to New York Movers",
       "type": "service",
+      "url": "https://theflatratemovers.com/virginia-to-new-york-movers/"
+    },
+    {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-long-distance"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
-    },
-    {
       "slug": "virginia-to-texas-movers",
-      "url": "https://theflatratemovers.com/virginia-to-texas-movers/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Virginia to Texas Movers",
       "type": "service",
-      "services": [
-        "service-long-distance"
-      ],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/virginia-to-texas-movers/"
     },
     {
-      "slug": "white-glove-delivery-winchester-va",
-      "url": "https://theflatratemovers.com/white-glove-delivery-winchester-va/",
-      "title": "White-Glove Delivery — Winchester VA",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-piano-antique",
         "service-final-mile"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "white-glove-delivery-winchester-va",
       "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "White-Glove Delivery — Winchester VA",
+      "type": "service",
+      "url": "https://theflatratemovers.com/white-glove-delivery-winchester-va/"
     },
     {
-      "slug": "commercial-movers-winchester-va",
-      "url": "https://theflatratemovers.com/commercial-movers-winchester-va/",
-      "title": "Commercial and Office Movers — Winchester VA",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-commercial"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "commercial-movers-winchester-va",
       "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Commercial and Office Movers — Winchester VA",
+      "type": "service",
+      "url": "https://theflatratemovers.com/commercial-movers-winchester-va/"
     },
     {
-      "slug": "local-regional-movers-winchester-va",
-      "url": "https://theflatratemovers.com/local-regional-movers-winchester-va/",
-      "title": "Local & Regional Movers — Winchester VA",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-local-regional"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "local-regional-movers-winchester-va",
       "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Local & Regional Movers — Winchester VA",
+      "type": "service",
+      "url": "https://theflatratemovers.com/local-regional-movers-winchester-va/"
     },
     {
-      "slug": "office-moving-movers-winchester-va",
-      "url": "https://theflatratemovers.com/office-moving-movers-winchester-va/",
-      "title": "Office Moving — Winchester VA",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-office-moving"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "office-moving-movers-winchester-va",
       "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Office Moving — Winchester VA",
+      "type": "service",
+      "url": "https://theflatratemovers.com/office-moving-movers-winchester-va/"
     },
     {
-      "slug": "industrial-offices-movers-winchester-va",
-      "url": "https://theflatratemovers.com/industrial-offices-movers-winchester-va/",
-      "title": "Industrial Offices Moving — Winchester VA",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-industrial-offices"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "industrial-offices-movers-winchester-va",
       "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Industrial Offices Moving — Winchester VA",
+      "type": "service",
+      "url": "https://theflatratemovers.com/industrial-offices-movers-winchester-va/"
     },
     {
-      "slug": "government-movers-winchester-va",
-      "url": "https://theflatratemovers.com/government-movers-winchester-va/",
-      "title": "Government Movers — Winchester VA",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-government"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "government-movers-winchester-va",
       "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Government Movers — Winchester VA",
+      "type": "service",
+      "url": "https://theflatratemovers.com/government-movers-winchester-va/"
     },
     {
-      "slug": "military-movers-winchester-va",
-      "url": "https://theflatratemovers.com/military-movers-winchester-va/",
-      "title": "Military Movers — Winchester VA",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-military"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "military-movers-winchester-va",
       "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Military Movers — Winchester VA",
+      "type": "service",
+      "url": "https://theflatratemovers.com/military-movers-winchester-va/"
     },
     {
-      "slug": "industrial-commercial-movers-winchester-va",
-      "url": "https://theflatratemovers.com/industrial-commercial-movers-winchester-va/",
-      "title": "Industrial & Commercial Services — Winchester VA",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-industrial-commercial"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "industrial-commercial-movers-winchester-va",
       "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Industrial & Commercial Services — Winchester VA",
+      "type": "service",
+      "url": "https://theflatratemovers.com/industrial-commercial-movers-winchester-va/"
     },
     {
-      "slug": "local-regional-movers-martinsburg-wv",
-      "url": "https://theflatratemovers.com/local-regional-movers-martinsburg-wv/",
-      "title": "Local & Regional Movers — Martinsburg WV",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-28",
       "services": [
         "service-local-regional"
       ],
-      "lastmod": "2026-10-28",
-      "status": "live",
+      "slug": "local-regional-movers-martinsburg-wv",
       "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Local & Regional Movers — Martinsburg WV",
+      "type": "service",
+      "url": "https://theflatratemovers.com/local-regional-movers-martinsburg-wv/"
     },
     {
-      "slug": "long-distance-movers-martinsburg-wv",
-      "url": "https://theflatratemovers.com/long-distance-movers-martinsburg-wv/",
-      "title": "Long-Distance Movers — Martinsburg WV",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-28",
       "services": [
         "service-long-distance"
       ],
-      "lastmod": "2026-10-28",
-      "status": "live",
+      "slug": "long-distance-movers-martinsburg-wv",
       "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Long-Distance Movers — Martinsburg WV",
+      "type": "service",
+      "url": "https://theflatratemovers.com/long-distance-movers-martinsburg-wv/"
     },
     {
-      "slug": "packing-movers-martinsburg-wv",
-      "url": "https://theflatratemovers.com/packing-movers-martinsburg-wv/",
-      "title": "Packing Movers — Martinsburg WV",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-28",
       "services": [
         "service-packing"
       ],
-      "lastmod": "2026-10-28",
-      "status": "live",
+      "slug": "packing-movers-martinsburg-wv",
       "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Packing Movers — Martinsburg WV",
+      "type": "service",
+      "url": "https://theflatratemovers.com/packing-movers-martinsburg-wv/"
     },
     {
-      "slug": "sir-heavy-movers-martinsburg-wv",
-      "url": "https://theflatratemovers.com/sir-heavy-movers-martinsburg-wv/",
-      "title": "SIR Heavy Movers — Martinsburg WV",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-29",
       "services": [
         "service-sir-heavy"
       ],
-      "lastmod": "2026-10-29",
-      "status": "live",
+      "slug": "sir-heavy-movers-martinsburg-wv",
       "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "SIR Heavy Movers — Martinsburg WV",
+      "type": "service",
+      "url": "https://theflatratemovers.com/sir-heavy-movers-martinsburg-wv/"
     },
     {
-      "slug": "gun-safe-movers-martinsburg-wv",
-      "url": "https://theflatratemovers.com/gun-safe-movers-martinsburg-wv/",
-      "title": "Gun Safe Movers — Martinsburg WV",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-28",
       "services": [
         "service-gun-safe"
       ],
-      "lastmod": "2026-10-28",
-      "status": "live",
+      "slug": "gun-safe-movers-martinsburg-wv",
       "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Gun Safe Movers — Martinsburg WV",
+      "type": "service",
+      "url": "https://theflatratemovers.com/gun-safe-movers-martinsburg-wv/"
     },
     {
-      "slug": "piano-antique-movers-martinsburg-wv",
-      "url": "https://theflatratemovers.com/piano-antique-movers-martinsburg-wv/",
-      "title": "Piano, Antique & White-Glove Movers — Martinsburg WV",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-29",
       "services": [
         "service-piano-antique"
       ],
-      "lastmod": "2026-10-29",
-      "status": "live",
+      "slug": "piano-antique-movers-martinsburg-wv",
       "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Piano, Antique & White-Glove Movers — Martinsburg WV",
+      "type": "service",
+      "url": "https://theflatratemovers.com/piano-antique-movers-martinsburg-wv/"
     },
     {
-      "slug": "ispm15-movers-martinsburg-wv",
-      "url": "https://theflatratemovers.com/ispm15-movers-martinsburg-wv/",
-      "title": "ISPM 15 Export Packing — Martinsburg WV",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-28",
       "services": [
         "service-ispm15"
       ],
-      "lastmod": "2026-10-28",
-      "status": "live",
+      "slug": "ispm15-movers-martinsburg-wv",
       "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "ISPM 15 Export Packing — Martinsburg WV",
+      "type": "service",
+      "url": "https://theflatratemovers.com/ispm15-movers-martinsburg-wv/"
     },
     {
-      "slug": "crating-movers-martinsburg-wv",
-      "url": "https://theflatratemovers.com/crating-movers-martinsburg-wv/",
-      "title": "Custom Crating — Martinsburg WV",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-28",
       "services": [
         "service-crating"
       ],
-      "lastmod": "2026-10-28",
-      "status": "live",
+      "slug": "crating-movers-martinsburg-wv",
       "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Custom Crating — Martinsburg WV",
+      "type": "service",
+      "url": "https://theflatratemovers.com/crating-movers-martinsburg-wv/"
     },
     {
-      "slug": "transloading-movers-martinsburg-wv",
-      "url": "https://theflatratemovers.com/transloading-movers-martinsburg-wv/",
-      "title": "Loading, Transloading & Container Services — Martinsburg WV",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-28",
       "services": [
         "service-transloading"
       ],
-      "lastmod": "2026-10-28",
-      "status": "live",
+      "slug": "transloading-movers-martinsburg-wv",
       "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Loading, Transloading & Container Services — Martinsburg WV",
+      "type": "service",
+      "url": "https://theflatratemovers.com/transloading-movers-martinsburg-wv/"
     },
     {
-      "slug": "final-mile-movers-martinsburg-wv",
-      "url": "https://theflatratemovers.com/final-mile-movers-martinsburg-wv/",
-      "title": "Final-Mile Delivery — Martinsburg WV",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-28",
       "services": [
         "service-final-mile"
       ],
-      "lastmod": "2026-10-28",
-      "status": "live",
+      "slug": "final-mile-movers-martinsburg-wv",
       "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Final-Mile Delivery — Martinsburg WV",
+      "type": "service",
+      "url": "https://theflatratemovers.com/final-mile-movers-martinsburg-wv/"
     },
     {
-      "slug": "office-moving-movers-martinsburg-wv",
-      "url": "https://theflatratemovers.com/office-moving-movers-martinsburg-wv/",
-      "title": "Office Moving — Martinsburg WV",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-29",
       "services": [
         "service-office-moving"
       ],
-      "lastmod": "2026-10-29",
-      "status": "live",
+      "slug": "office-moving-movers-martinsburg-wv",
       "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Office Moving — Martinsburg WV",
+      "type": "service",
+      "url": "https://theflatratemovers.com/office-moving-movers-martinsburg-wv/"
     },
     {
-      "slug": "industrial-offices-movers-martinsburg-wv",
-      "url": "https://theflatratemovers.com/industrial-offices-movers-martinsburg-wv/",
-      "title": "Industrial Offices Moving — Martinsburg WV",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-29",
       "services": [
         "service-industrial-offices"
       ],
-      "lastmod": "2026-10-29",
-      "status": "live",
+      "slug": "industrial-offices-movers-martinsburg-wv",
       "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Industrial Offices Moving — Martinsburg WV",
+      "type": "service",
+      "url": "https://theflatratemovers.com/industrial-offices-movers-martinsburg-wv/"
     },
     {
-      "slug": "government-movers-martinsburg-wv",
-      "url": "https://theflatratemovers.com/government-movers-martinsburg-wv/",
-      "title": "Government Movers — Martinsburg WV",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-29",
       "services": [
         "service-government"
       ],
-      "lastmod": "2026-10-29",
-      "status": "live",
+      "slug": "government-movers-martinsburg-wv",
       "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Government Movers — Martinsburg WV",
+      "type": "service",
+      "url": "https://theflatratemovers.com/government-movers-martinsburg-wv/"
     },
     {
-      "slug": "military-movers-martinsburg-wv",
-      "url": "https://theflatratemovers.com/military-movers-martinsburg-wv/",
-      "title": "Military Movers — Martinsburg WV",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-28",
       "services": [
         "service-military"
       ],
-      "lastmod": "2026-10-28",
-      "status": "live",
+      "slug": "military-movers-martinsburg-wv",
       "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Military Movers — Martinsburg WV",
+      "type": "service",
+      "url": "https://theflatratemovers.com/military-movers-martinsburg-wv/"
     },
     {
-      "slug": "industrial-commercial-movers-martinsburg-wv",
-      "url": "https://theflatratemovers.com/industrial-commercial-movers-martinsburg-wv/",
-      "title": "Industrial & Commercial Services — Martinsburg WV",
-      "type": "service",
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-28",
       "services": [
         "service-industrial-commercial"
       ],
-      "lastmod": "2026-10-28",
-      "status": "live",
+      "slug": "industrial-commercial-movers-martinsburg-wv",
       "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
-      "attested": "2026-10-28"
+      "status": "live",
+      "title": "Industrial & Commercial Services — Martinsburg WV",
+      "type": "service",
+      "url": "https://theflatratemovers.com/industrial-commercial-movers-martinsburg-wv/"
     },
     {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
+      "services": [
+        "service-route81"
+      ],
       "slug": "interstate-66-corridor",
-      "url": "https://theflatratemovers.com/interstate-66-corridor/",
+      "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
+      "status": "live",
       "title": "Interstate 66 Corridor Moving",
       "type": "corridor",
+      "url": "https://theflatratemovers.com/interstate-66-corridor/"
+    },
+    {
+      "attested": "2026-10-28",
+      "lastmod": "2026-10-30",
       "services": [
         "service-route81"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
-      "attested": "2026-10-28"
-    },
-    {
       "slug": "interstate-70-corridor",
-      "url": "https://theflatratemovers.com/interstate-70-corridor/",
+      "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
+      "status": "live",
       "title": "Interstate 70 Corridor Moving",
       "type": "corridor",
-      "services": [
-        "service-route81"
-      ],
-      "lastmod": "2026-10-30",
-      "status": "live",
-      "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
-      "attested": "2026-10-28"
+      "url": "https://theflatratemovers.com/interstate-70-corridor/"
     },
     {
-      "slug": "senior-moving",
-      "url": "https://theflatratemovers.com/senior-moving/",
-      "title": "Senior Moving — Winchester VA & Martinsburg WV",
-      "type": "service",
+      "attested": "2026-10-29",
+      "lastmod": "2026-10-30",
       "services": [
         "service-senior-moving"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "senior-moving",
       "source": "Phase B senior-moving package 2026-10-29 + deploy batch 2026-10-29",
-      "attested": "2026-10-29"
+      "status": "live",
+      "title": "Senior Moving — Winchester VA & Martinsburg WV",
+      "type": "service",
+      "url": "https://theflatratemovers.com/senior-moving/"
     },
     {
-      "slug": "warehouse-relocation",
-      "url": "https://theflatratemovers.com/warehouse-relocation/",
-      "title": "Warehouse Relocation — Winchester VA & Martinsburg WV",
-      "type": "service",
+      "attested": "2026-10-29",
+      "lastmod": "2026-10-30",
       "services": [
         "service-warehouse-relocation"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "warehouse-relocation",
       "source": "Phase C warehouse-relocation lock package 2026-10-29 + deploy batch 2026-10-29",
-      "attested": "2026-10-29"
+      "status": "live",
+      "title": "Warehouse Relocation — Winchester VA & Martinsburg WV",
+      "type": "service",
+      "url": "https://theflatratemovers.com/warehouse-relocation/"
     },
     {
-      "slug": "transloading-winchester-va",
-      "url": "https://theflatratemovers.com/transloading-winchester-va/",
-      "title": "Transloading Services — Winchester VA",
-      "type": "service",
+      "attested": "2026-10-29",
+      "lastmod": "2026-10-30",
       "services": [
         "service-transloading-winchester-va"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "transloading-winchester-va",
       "source": "Phase C transloading-winchester-va package 2026-10-29 + deploy batch 2026-10-29",
-      "attested": "2026-10-29"
+      "status": "live",
+      "title": "Transloading Services — Winchester VA",
+      "type": "service",
+      "url": "https://theflatratemovers.com/transloading-winchester-va/"
     },
     {
+      "attested": "2026-10-29",
+      "lastmod": "2026-10-29",
+      "services": [],
       "slug": "videos",
-      "url": "https://theflatratemovers.com/videos/",
+      "source": "live sitemap.xml + pageMeta in live site source",
+      "status": "live",
       "title": "Videos — Moving & Heavy-Asset Work on Video",
       "type": "page",
-      "services": [],
-      "lastmod": "2026-10-29",
-      "status": "live",
-      "source": "live sitemap.xml + pageMeta in live site source",
-      "attested": "2026-10-29"
+      "url": "https://theflatratemovers.com/videos/"
     },
     {
-      "slug": "moving-and-storage",
-      "url": "https://theflatratemovers.com/moving-and-storage/",
-      "title": "Moving and Storage — Winchester VA & Martinsburg WV",
-      "type": "service",
+      "attested": "2026-10-29",
+      "lastmod": "2026-10-30",
       "services": [
         "service-moving-and-storage"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "moving-and-storage",
       "source": "Moving-and-storage activation package 2026-10-29 + owner-confirmed storage terms 2026-10-29 (leased; any item type + examples)",
-      "attested": "2026-10-29"
+      "status": "live",
+      "title": "Moving and Storage — Winchester VA & Martinsburg WV",
+      "type": "service",
+      "url": "https://theflatratemovers.com/moving-and-storage/"
     },
     {
-      "slug": "junk-removal",
-      "url": "https://theflatratemovers.com/junk-removal/",
-      "title": "Junk Removal — Winchester VA & Martinsburg WV",
-      "type": "service",
+      "attested": "2026-10-30",
+      "lastmod": "2026-10-30",
       "services": [
         "service-junk-removal"
       ],
-      "lastmod": "2026-10-30",
-      "status": "live",
+      "slug": "junk-removal",
       "source": "Junk removal batch 2026-10-30 (Henry ruling 2026-10-30: full page, full package treatment) + category research 2026-10-30",
-      "attested": "2026-10-30"
+      "status": "live",
+      "title": "Junk Removal — Winchester VA & Martinsburg WV",
+      "type": "service",
+      "url": "https://theflatratemovers.com/junk-removal/"
+    },
+    {
+      "json": "flat-rate-guarantee.json",
+      "lastmod": "2026-10-30",
+      "services": [],
+      "slug": "flat-rate-guarantee",
+      "source": "Blog foundation batch 2026-10-30 (Henry order 2026-10-30: create the blog; guarantee terms from Henry's stated terms 2026-10-29 + the estate's published copy)",
+      "title": "Flat-Rate Guarantee",
+      "type": "page",
+      "url": "https://theflatratemovers.com/flat-rate-guarantee/"
     }
-  ]
+  ],
+  "source": "https://theflatratemovers.com/sitemap.xml joined to pageMeta in ../the-flat-rate-movers-pages/public/index.html",
+  "typeRule": "home = site root; location = the two branch pages; corridor = route81; service = pageMeta svc non-empty; else page. The type is a registry classification, not a published claim."
 }
