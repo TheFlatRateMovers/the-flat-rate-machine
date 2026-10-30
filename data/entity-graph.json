@@ -779,6 +779,25 @@
           "@id": "https://theflatratemovers.com/#martinsburg"
         }
       ]
+    },
+    {
+      "@id": "https://theflatratemovers.com/#service-warehouse-racking-relocation",
+      "@type": "Service",
+      "name": "Warehouse Racking Relocation",
+      "description": "Warehouse racking relocation from Winchester, VA and Martinsburg, WV — pallet rack teardown and reinstallation, the inventory move that belongs with the steel, storage staging between buildings, industrial equipment disassembly and reassembly, and cubicle and office-systems teardown and reassembly — surveyed in advance and quoted per job at one flat rate in writing, never by the hour. Racking is torn down, transported and reinstalled to the manufacturer's specification and ANSI MH16.1 / RMI guidance against the customer's engineered drawings and permits; the company does not perform rack engineering, seismic calculation or permit approval. Components found damaged at teardown are set aside and reported, never re-erected. From Winchester VA and Martinsburg WV, along the I-81, I-66 and I-70 corridors.",
+      "serviceType": "Warehouse Racking Relocation",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "url": "https://theflatratemovers.com/warehouse-racking-relocation/",
+      "areaServed": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg"
+        }
+      ]
     }
   ],
   "@id": "https://theflatratemovers.com/entity-graph.json",

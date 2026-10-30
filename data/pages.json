@@ -1,6 +1,6 @@
 {
   "attestation": "Every URL below was fetched from the live sitemap on 2026-10-28; titles and service links come from pageMeta in the live site source. No URL was hand-typed.",
-  "count": 162,
+  "count": 163,
   "dataset": "pages",
   "generated": "2026-10-29",
   "pages": [
@@ -2043,6 +2043,19 @@
       "title": "Curbside vs inside vs white-glove delivery: what to confirm before you book",
       "type": "page",
       "url": "https://theflatratemovers.com/curbside-vs-inside-vs-white-glove-delivery/"
+    },
+    {
+      "slug": "warehouse-racking-relocation",
+      "url": "https://theflatratemovers.com/warehouse-racking-relocation/",
+      "title": "Warehouse Racking Relocation — Winchester VA & Martinsburg WV",
+      "type": "service",
+      "services": [
+        "service-warehouse-racking-relocation"
+      ],
+      "lastmod": "2026-10-30",
+      "status": "live",
+      "source": "Warehouse racking relocation batch 2026-10-30 (Henry order 2026-10-30: work the five takeover categories) + category research 2026-10-30",
+      "attested": "2026-10-30"
     }
   ],
   "source": "https://theflatratemovers.com/sitemap.xml joined to pageMeta in ../the-flat-rate-movers-pages/public/index.html",
