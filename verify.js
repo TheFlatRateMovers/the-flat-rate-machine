@@ -592,6 +592,15 @@ async function main() {
     // datasets-intent-coverage.json joins the data set; no new page).
     // The assertion stays exact-count. Record:
     // out/verify-fix-2026-10-30-intent-rubric.md.
+    // Extended by Batch Racking Relocation, 2026-10-30 (same motion as
+    // the first takeover category shipped): totals move to 163 per-page
+    // JSON files and 212 distributions (38 data + 163 pages + 11
+    // shell/code — the new datasets-warehouse-racking-relocation.json
+    // joins the data set, the new warehouse-racking-relocation.json
+    // joins the page set, and datasets-intent-coverage.json is
+    // regenerated + re-sealed in the same batch with the new service's
+    // rows). The assertion stays exact-count. Record:
+    // out/verify-fix-2026-10-30-racking-relocation.md.
     const P2_CODE_URLS = [
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/code/site-shell/index.html',
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/code/pages-functions/_middleware.js',
@@ -613,12 +622,12 @@ async function main() {
       const distUrls = new Set((servedIndex.distribution || []).map((e) => e.contentUrl));
       const missingPages = pageFiles.filter((f) => !distUrls.has('https://theflatratemovers.com/' + f));
       const missingCode = P2_CODE_URLS.filter((u) => !distUrls.has(u));
-      p5ok = !!servedIndex && pageFiles.length === 162 && missingPages.length === 0 && missingCode.length === 0 &&
-        (servedIndex.distribution || []).length === 210;
+      p5ok = !!servedIndex && pageFiles.length === 163 && missingPages.length === 0 && missingCode.length === 0 &&
+        (servedIndex.distribution || []).length === 212;
       p5detail = 'pageFiles=' + pageFiles.length + ', missingPages=' + (missingPages.join(',') || '0') +
         ', missingCode=' + (missingCode.join(',') || '0') + ', distributions=' + (servedIndex ? (servedIndex.distribution || []).length : 0);
     } catch (e) { p5ok = false; p5detail = e.message; }
-    check('P-5 certificate covers all 162 per-page JSONs + the site shell + the deployed code sets (210 distributions)',
+    check('P-5 certificate covers all 163 per-page JSONs + the site shell + the deployed code sets (212 distributions)',
       p5ok, p5detail);
 
     // P-6: repo-served distribution digests re-computed over live bytes
@@ -805,7 +814,7 @@ async function main() {
       const svcId = 'service-' + String(n['@id']).split('/#intent-coverage-')[1];
       return n.queryRows !== perSvcDb[svcId];
     });
-    check('I-4 published intent-coverage dataset counts and row digest equal rubric.db (totals node + 24 coverage nodes)',
+    check('I-4 published intent-coverage dataset counts and row digest equal rubric.db (totals node + 25 coverage nodes)',
       !!d8 && d8.intentRowsDigest === metaI.rows_digest && parseInt(metaI.row_count, 10) === rowsI.length &&
       covNodes.length === services.services.length && covBad.length === 0,
       'rows=' + rowsI.length + ', digest match=' + (d8 ? d8.intentRowsDigest === metaI.rows_digest : 'no D8') +

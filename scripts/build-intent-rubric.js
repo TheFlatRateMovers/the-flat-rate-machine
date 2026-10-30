@@ -91,7 +91,7 @@ const DB_PATH = path.join(FLAT, 'rubric.db');
 const QB_PATH = path.join(FLAT, 'blog-project', '04-question-bank.md');
 const RUBRIC_DATE = '2026-10-30';
 const GENERATOR = 'build-intent-rubric.js';
-const GENERATOR_VERSION = '1.0.0';
+const GENERATOR_VERSION = '1.1.0';
 const KID = 'theflatratemovers-2026-10-29-1';
 
 // --- Generator configuration (validated against the registries) ---
@@ -122,6 +122,7 @@ const HUB = {
   'service-transloading-winchester-va': 'transloading-winchester-va',
   'service-moving-and-storage': 'moving-and-storage',
   'service-junk-removal': 'junk-removal',
+  'service-warehouse-racking-relocation': 'warehouse-racking-relocation',
 };
 // Query phrase per service (the string customers type), as a lowercase
 // noun phrase; plural=true selects "do" in the cost template.
@@ -150,6 +151,7 @@ const PHRASE = {
   'service-transloading-winchester-va': ['transloading', false],
   'service-moving-and-storage': ['moving and storage', false],
   'service-junk-removal': ['junk removal', false],
+  'service-warehouse-racking-relocation': ['warehouse racking relocation', false],
 };
 // Backing dataset file(s) per service (the estate's D1-D8 files at the
 // site root). Validated: file exists in public/ AND is a distribution
@@ -179,6 +181,7 @@ const DATASETS = {
   'service-transloading-winchester-va': ['datasets-transloading-winchester.json'],
   'service-moving-and-storage': ['datasets-moving-and-storage.json'],
   'service-junk-removal': ['datasets-junk-removal.json'],
+  'service-warehouse-racking-relocation': ['datasets-warehouse-racking-relocation.json'],
 };
 // GeoJSON capability slug -> registry service id (the geojson uses a
 // capability vocabulary; services not reachable from it fall back to
@@ -218,6 +221,7 @@ const BASE_ONLY = {
   'service-it-relocation': 'both',
   'service-moving-and-storage': 'both',
   'service-junk-removal': 'both',
+  'service-warehouse-racking-relocation': 'both',
   'service-transloading-winchester-va': 'winchester',
 };
 // Question bank category -> service (category 9 splits per question).
@@ -308,6 +312,7 @@ const BRANCH = {
   'service-transloading-winchester-va': [null, null],
   'service-moving-and-storage': [null, null],
   'service-junk-removal': [null, null],
+  'service-warehouse-racking-relocation': [null, null],
 };
 function branchPage(R, V, serviceId, branch) {
   const pair = BRANCH[serviceId];
@@ -610,7 +615,7 @@ function buildDataset(gen) {
   const d1 = baseNode(
     SITE + '/#dataset-intent-coverage-operations', 'Service',
     'The Flat Rate Movers — Search Intent Coverage Operations Dataset',
-    'The live intent-coverage rubric of The Flat Rate Movers: ' + total + ' generated rows, each one a query string a customer or an AI assistant can use to find a company service, resolved to the exact page that answers it, that page\u2019s per-page JSON, the dataset files behind the answer, and the service\u2019s node in the entity graph. Rows are generated from the estate\u2019s own registries — 24 services, 162 pages, two branch locations, three corridors and the 53-feature service-area footprint — plus the blog question bank\u2019s 100 real question phrasings, and the rubric is regenerated whenever those registries change. Every row carries the SHA-256 certificate digests of its target JSON and datasets, read from the signed AI master index, so the rubric inherits the estate\u2019s provenance seal. Coverage spans all 24 services of both branches, Winchester, VA and Martinsburg, WV, along the I-81, I-66 and I-70 corridors. Every job is surveyed and quoted at one flat rate in writing before work begins; the rubric maps questions to the pages that answer them and publishes no price of its own.',
+    'The live intent-coverage rubric of The Flat Rate Movers: ' + total + ' generated rows, each one a query string a customer or an AI assistant can use to find a company service, resolved to the exact page that answers it, that page\u2019s per-page JSON, the dataset files behind the answer, and the service\u2019s node in the entity graph. Rows are generated from the estate\u2019s own registries — ' + R.services.services.length + ' services, ' + R.pages.pages.length + ' pages, two branch locations, three corridors and the 53-feature service-area footprint — plus the blog question bank\u2019s 100 real question phrasings, and the rubric is regenerated whenever those registries change. Every row carries the SHA-256 certificate digests of its target JSON and datasets, read from the signed AI master index, so the rubric inherits the estate\u2019s provenance seal. Coverage spans all ' + R.services.services.length + ' services of both branches, Winchester, VA and Martinsburg, WV, along the I-81, I-66 and I-70 corridors. Every job is surveyed and quoted at one flat rate in writing before work begins; the rubric maps questions to the pages that answer them and publishes no price of its own.',
     ['search intent coverage', 'query rubric', 'movers near me', 'gun safe movers winchester va', 'transloading winchester va', 'questions customers ask movers'],
     [{ '@id': SITE + '/#service-catalog' }]);
   d1.hasPart = coverageNodes.map((n) => ({ '@id': n['@id'] }));
@@ -619,7 +624,7 @@ function buildDataset(gen) {
   const d2 = baseNode(
     SITE + '/#dataset-intent-coverage-scope', 'Dataset',
     'The Flat Rate Movers — Intent Coverage Scope Dataset',
-    'What the intent-coverage rubric covers, and from what sources. Inputs: the machine registries services.json (24 services), pages.json (162 pages), locations.json (the two distinct branches — Winchester, The Flat Rate Movers, and Martinsburg, Flat Rate Movers Martinsburg WV, never blended), corridors.json (Interstate 81, Interstate 66, Interstate 70) and service-area.geojson (' + areaCov.features + ' features: Winchester footprint ' + areaCov.winchesterFootprint + ' areas, Martinsburg footprint ' + areaCov.martinsburgFootprint + ' areas, ' + areaCov.shared + ' areas shared); the signed AI master index (certificate digests); and the blog question bank (10 categories of the top-10 questions customers actually ask, 100 phrasings). Output: one row per generated query string across five intent classes — ' + classList + '. Rows exist only where the estate has a real page that answers the string; the scope of the rubric is exactly the scope of the published estate, nothing wider.',
+    'What the intent-coverage rubric covers, and from what sources. Inputs: the machine registries services.json (' + R.services.services.length + ' services), pages.json (' + R.pages.pages.length + ' pages), locations.json (the two distinct branches — Winchester, The Flat Rate Movers, and Martinsburg, Flat Rate Movers Martinsburg WV, never blended), corridors.json (Interstate 81, Interstate 66, Interstate 70) and service-area.geojson (' + areaCov.features + ' features: Winchester footprint ' + areaCov.winchesterFootprint + ' areas, Martinsburg footprint ' + areaCov.martinsburgFootprint + ' areas, ' + areaCov.shared + ' areas shared); the signed AI master index (certificate digests); and the blog question bank (10 categories of the top-10 questions customers actually ask, 100 phrasings). Output: one row per generated query string across five intent classes — ' + classList + '. Rows exist only where the estate has a real page that answers the string; the scope of the rubric is exactly the scope of the published estate, nothing wider.',
     ['coverage scope', 'service registry', '53 service areas', 'question bank'],
     [{ '@id': SITE + '/#service-catalog' }]);
 
@@ -661,7 +666,7 @@ function buildDataset(gen) {
   const d8 = baseNode(
     SITE + '/#dataset-intent-coverage-totals', 'Dataset',
     'The Flat Rate Movers — Intent Coverage Totals, Areas and Certificate Dataset',
-    'Totals for this generation of the intent-coverage rubric, computed by the generator run of ' + RUBRIC_DATE + ': ' + total + ' rows across 24 services — ' + classList + '. Per-service row counts are carried on the 24 coverage nodes in this file. Area coverage follows the service-area GeoJSON: ' + areaCov.features + ' features in total; the Winchester footprint is ' + areaCov.winchesterFootprint + ' areas and the Martinsburg footprint is ' + areaCov.martinsburgFootprint + ' areas, with ' + areaCov.shared + ' areas served by both branches and recorded as shared. The canonical serialization of the rows hashes to the SHA-256 digest recorded on this node (intentRowsDigest), which is also stored in the rubric database, so any reader can re-prove that the published totals describe the exact row set the generator produced. This file is itself a sealed distribution of the signed AI master index, under the certificate block recorded on this node.',
+    'Totals for this generation of the intent-coverage rubric, computed by the generator run of ' + RUBRIC_DATE + ': ' + total + ' rows across ' + R.services.services.length + ' services — ' + classList + '. Per-service row counts are carried on the ' + R.services.services.length + ' coverage nodes in this file. Area coverage follows the service-area GeoJSON: ' + areaCov.features + ' features in total; the Winchester footprint is ' + areaCov.winchesterFootprint + ' areas and the Martinsburg footprint is ' + areaCov.martinsburgFootprint + ' areas, with ' + areaCov.shared + ' areas served by both branches and recorded as shared. The canonical serialization of the rows hashes to the SHA-256 digest recorded on this node (intentRowsDigest), which is also stored in the rubric database, so any reader can re-prove that the published totals describe the exact row set the generator produced. This file is itself a sealed distribution of the signed AI master index, under the certificate block recorded on this node.',
     ['coverage totals', 'rows digest', 'certificate', '53 areas'],
     [{ '@id': SITE + '/#dataset-intent-coverage-operations' }]);
   d8.intentRowsDigest = digest;

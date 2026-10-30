@@ -151,6 +151,7 @@ const STATIC_FILES = new Set([
   "/datasets-transloading-winchester.json",
   "/datasets-transloading.json",
   "/datasets-videos.json",
+  "/datasets-warehouse-racking-relocation.json",
   "/datasets-warehouse.json",
   "/developer.json",
   "/do-movers-pack-for-you.json",
@@ -281,6 +282,7 @@ const STATIC_FILES = new Set([
   "/virginia-to-nevada-movers.json",
   "/virginia-to-new-york-movers.json",
   "/virginia-to-texas-movers.json",
+  "/warehouse-racking-relocation.json",
   "/warehouse-relocation.json",
   "/white-glove-delivery-winchester-va.json",
   "/yandex_e8746618021b9788.html"
