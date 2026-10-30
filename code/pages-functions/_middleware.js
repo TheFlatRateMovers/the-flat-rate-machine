@@ -132,6 +132,7 @@ const STATIC_FILES = new Set([
   "/datasets-gun-safe.json",
   "/datasets-industrial-commercial.json",
   "/datasets-industrial-offices.json",
+  "/datasets-intent-coverage.json",
   "/datasets-ispm15.json",
   "/datasets-it.json",
   "/datasets-junk-removal.json",

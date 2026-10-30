@@ -166,6 +166,10 @@
     {
       "mediaType": "text/markdown",
       "url": "https://theflatratemovers.com/llms.txt"
+    },
+    {
+      "mediaType": "application/json",
+      "url": "https://theflatratemovers.com/datasets-intent-coverage.json"
     }
   ],
   "hasPart": [

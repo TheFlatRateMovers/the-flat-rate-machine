@@ -586,6 +586,12 @@ async function main() {
     // batch carried the owner's curb/curbside spelling sweep across the
     // final-mile and white-glove copy. The assertion stays exact-count.
     // Record: out/verify-fix-2026-10-30-blog-n1n2.md.
+    // Extended by Batch Intent Rubric, 2026-10-30 (same motion as the
+    // generative intent-coverage dataset shipped): totals move to 210
+    // distributions (37 data + 162 pages + 11 shell/code — the new
+    // datasets-intent-coverage.json joins the data set; no new page).
+    // The assertion stays exact-count. Record:
+    // out/verify-fix-2026-10-30-intent-rubric.md.
     const P2_CODE_URLS = [
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/code/site-shell/index.html',
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/code/pages-functions/_middleware.js',
@@ -608,11 +614,11 @@ async function main() {
       const missingPages = pageFiles.filter((f) => !distUrls.has('https://theflatratemovers.com/' + f));
       const missingCode = P2_CODE_URLS.filter((u) => !distUrls.has(u));
       p5ok = !!servedIndex && pageFiles.length === 162 && missingPages.length === 0 && missingCode.length === 0 &&
-        (servedIndex.distribution || []).length === 209;
+        (servedIndex.distribution || []).length === 210;
       p5detail = 'pageFiles=' + pageFiles.length + ', missingPages=' + (missingPages.join(',') || '0') +
         ', missingCode=' + (missingCode.join(',') || '0') + ', distributions=' + (servedIndex ? (servedIndex.distribution || []).length : 0);
     } catch (e) { p5ok = false; p5detail = e.message; }
-    check('P-5 certificate covers all 162 per-page JSONs + the site shell + the deployed code sets (209 distributions)',
+    check('P-5 certificate covers all 162 per-page JSONs + the site shell + the deployed code sets (210 distributions)',
       p5ok, p5detail);
 
     // P-6: repo-served distribution digests re-computed over live bytes
@@ -728,6 +734,92 @@ async function main() {
     }
   } catch (e) {
     check('structural Batch 9 checks (S-1..S-6) evaluated', false, e.message);
+  }
+
+  // --- 13. Intent-coverage rubric — Batch Intent Rubric (2026-10-30; checks I-1..I-5) ---
+  // Added in the same motion as the feature shipped (record:
+  // out/verify-fix-2026-10-30-intent-rubric.md). The generative
+  // intent-coverage rubric (scripts/build-intent-rubric.js) maps the
+  // query strings customers and AI assistants use to the page, per-page
+  // JSON, dataset files and graph node that answer each one; its rows
+  // live in rubric.db (intent_query) and its public face is
+  // datasets-intent-coverage.json, a sealed distribution. These checks
+  // assert the whole chain: regeneration is byte-identical, every row
+  // target is a registry page, every target JSON and dataset is in the
+  // served signed index, and the published dataset's counts and row
+  // digest equal the database's.
+  try {
+    const { execFileSync } = require('child_process');
+    const dbPathI = path.resolve(ROOT, '..', 'theflatratemovers', 'rubric.db');
+    const qI = (sql) => execFileSync('sqlite3', ['-json', dbPathI, sql]).toString();
+    const fetchFullI = (url) => new Promise((resolve, reject) => {
+      https.get(url, (res) => {
+        const chunks = [];
+        res.on('data', (c) => { chunks.push(c); });
+        res.on('end', () => resolve({ status: res.statusCode, ct: res.headers['content-type'] || '', buf: Buffer.concat(chunks) }));
+      }).on('error', reject);
+    });
+    // I-1: generator re-run byte-identical to the DB (canonical rows digest).
+    let i1ok = false, i1detail = '';
+    try {
+      const out = execFileSync('node', [path.join(ROOT, 'scripts', 'build-intent-rubric.js'), '--check'], { cwd: ROOT }).toString().trim();
+      i1ok = out.startsWith('CHECK PASS');
+      i1detail = out;
+    } catch (e) { i1ok = false; i1detail = e.stdout ? e.stdout.toString().trim() : e.message; }
+    check('I-1 intent rubric generator re-run is byte-identical to rubric.db intent_query (canonical rows digest)', i1ok, i1detail);
+    // Load the rows + meta once for I-2..I-5.
+    const rowsI = JSON.parse(qI('SELECT query_text, service_id, target_url, target_json, dataset_ids, gate_page_in_registry AS g1, gate_target_in_signed_index AS g2, gate_datasets_in_signed_index AS g3 FROM intent_query;') || '[]');
+    const metaI = {};
+    for (const m of JSON.parse(qI('SELECT key, value FROM intent_meta;') || '[]')) metaI[m.key] = m.value;
+    // I-2: every row target in pages.json; all gates 1.
+    const pageUrlsI = new Set(pages.pages.map((p) => p.url));
+    const badTargets = rowsI.filter((r) => !pageUrlsI.has(r.target_url));
+    const badGates = rowsI.filter((r) => !(r.g1 === 1 && r.g2 === 1 && r.g3 === 1));
+    check('I-2 every intent_query row target is a pages.json URL and all three coverage gates are 1',
+      rowsI.length > 0 && badTargets.length === 0 && badGates.length === 0,
+      rowsI.length + ' rows, badTargets=' + badTargets.length + ', badGates=' + badGates.length);
+    // I-3: every row target JSON + dataset file is a distribution in the
+    // served signed index (and so is the rubric's own dataset file).
+    const servedIdxI = JSON.parse(await fetchText('https://theflatratemovers.com/ai-master-index.json'));
+    const distUrlsI = new Set((servedIdxI.distribution || []).map((e) => e.contentUrl));
+    const missingI = new Set();
+    for (const r of rowsI) {
+      if (!distUrlsI.has(r.target_json)) missingI.add(r.target_json);
+      for (const f of JSON.parse(r.dataset_ids)) {
+        const u = 'https://theflatratemovers.com/' + f;
+        if (!distUrlsI.has(u)) missingI.add(u);
+      }
+    }
+    check('I-3 every intent row target JSON and backing dataset is a distribution in the served signed index',
+      missingI.size === 0 && distUrlsI.has('https://theflatratemovers.com/datasets-intent-coverage.json'),
+      'missing=' + (missingI.size ? [...missingI].slice(0, 5).join(', ') : '0') + ', intent dataset in index=' + distUrlsI.has('https://theflatratemovers.com/datasets-intent-coverage.json'));
+    // I-4: published dataset counts + row digest equal the DB.
+    const dsPath = path.resolve(ROOT, '..', 'the-flat-rate-movers-pages', 'public', 'datasets-intent-coverage.json');
+    const dsDoc = JSON.parse(fs.readFileSync(dsPath, 'utf8'));
+    const dsGraph = dsDoc['@graph'] || [];
+    const d8 = dsGraph.find((n) => n['@id'] === 'https://theflatratemovers.com/#dataset-intent-coverage-totals');
+    const covNodes = dsGraph.filter((n) => String(n['@id']).includes('/#intent-coverage-'));
+    const perSvcDb = {};
+    for (const r of rowsI) perSvcDb[r.service_id] = (perSvcDb[r.service_id] || 0) + 1;
+    const covBad = covNodes.filter((n) => {
+      const svcId = 'service-' + String(n['@id']).split('/#intent-coverage-')[1];
+      return n.queryRows !== perSvcDb[svcId];
+    });
+    check('I-4 published intent-coverage dataset counts and row digest equal rubric.db (totals node + 24 coverage nodes)',
+      !!d8 && d8.intentRowsDigest === metaI.rows_digest && parseInt(metaI.row_count, 10) === rowsI.length &&
+      covNodes.length === services.services.length && covBad.length === 0,
+      'rows=' + rowsI.length + ', digest match=' + (d8 ? d8.intentRowsDigest === metaI.rows_digest : 'no D8') +
+      ', coverage nodes=' + covNodes.length + ', bad=' + covBad.length);
+    // I-5: the live dataset URL serves the same document (JSON, not the
+    // SPA fallback) with the DB's row digest.
+    const liveDsRes = await fetchFullI('https://theflatratemovers.com/datasets-intent-coverage.json');
+    let liveD8 = null;
+    try { liveD8 = (JSON.parse(liveDsRes.buf.toString('utf8'))['@graph'] || []).find((n) => n['@id'] === 'https://theflatratemovers.com/#dataset-intent-coverage-totals'); } catch (_) { liveD8 = null; }
+    check('I-5 live datasets-intent-coverage.json serves application/json with the rubric.db row digest',
+      liveDsRes.status === 200 && liveDsRes.ct.includes('application/json') && !!liveD8 && liveD8.intentRowsDigest === metaI.rows_digest,
+      'status=' + liveDsRes.status + ', content-type=' + liveDsRes.ct + ', digest match=' + (liveD8 ? liveD8.intentRowsDigest === metaI.rows_digest : 'unparseable'));
+  } catch (e) {
+    check('intent-coverage rubric checks (I-1..I-5) evaluated', false, e.message);
   }
 
   // --- 9. Guardrail scan: no placeholders, no invented license identifiers ---
