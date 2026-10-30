@@ -94,7 +94,11 @@ const GENERATOR = 'build-intent-rubric.js';
 // 2026-10-30 (Batch Inland Port Transloading): service-transloading rows gain the
 // Virginia Inland Port datasets file as backing data (the new hub's own rows
 // resolve through the existing transloading patterns; no pattern changes).
-const GENERATOR_VERSION = '1.2.1';
+// 2026-10-30 (Batch Data Center Relocation): new service
+// service-data-center-relocation added to HUB / PHRASE / DATASETS /
+// BASE_ONLY / BRANCH (hub data-center-relocation; base-only 'both', like
+// IT relocation — no GeoJSON capability mapping for this service).
+const GENERATOR_VERSION = '1.3.0';
 const KID = 'theflatratemovers-2026-10-29-1';
 
 // --- Generator configuration (validated against the registries) ---
@@ -127,6 +131,7 @@ const HUB = {
   'service-junk-removal': 'junk-removal',
   'service-warehouse-racking-relocation': 'warehouse-racking-relocation',
   'service-ffe-logistics': 'ffe-logistics',
+  'service-data-center-relocation': 'data-center-relocation',
 };
 // Query phrase per service (the string customers type), as a lowercase
 // noun phrase; plural=true selects "do" in the cost template.
@@ -157,6 +162,7 @@ const PHRASE = {
   'service-junk-removal': ['junk removal', false],
   'service-warehouse-racking-relocation': ['warehouse racking relocation', false],
   'service-ffe-logistics': ['FF&E logistics', false],
+  'service-data-center-relocation': ['data center movers', true],
 };
 // Backing dataset file(s) per service (the estate's D1-D8 files at the
 // site root). Validated: file exists in public/ AND is a distribution
@@ -188,6 +194,7 @@ const DATASETS = {
   'service-junk-removal': ['datasets-junk-removal.json'],
   'service-warehouse-racking-relocation': ['datasets-warehouse-racking-relocation.json'],
   'service-ffe-logistics': ['datasets-ffe-logistics.json'],
+  'service-data-center-relocation': ['datasets-data-center-relocation.json'],
 };
 // GeoJSON capability slug -> registry service id (the geojson uses a
 // capability vocabulary; services not reachable from it fall back to
@@ -229,6 +236,7 @@ const BASE_ONLY = {
   'service-junk-removal': 'both',
   'service-warehouse-racking-relocation': 'both',
   'service-ffe-logistics': 'both',
+  'service-data-center-relocation': 'both',
   'service-transloading-winchester-va': 'winchester',
 };
 // Question bank category -> service (category 9 splits per question).
@@ -321,6 +329,7 @@ const BRANCH = {
   'service-junk-removal': [null, null],
   'service-warehouse-racking-relocation': [null, null],
   'service-ffe-logistics': [null, null],
+  'service-data-center-relocation': [null, null],
 };
 function branchPage(R, V, serviceId, branch) {
   const pair = BRANCH[serviceId];

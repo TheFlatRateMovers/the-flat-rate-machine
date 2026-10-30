@@ -1,6 +1,6 @@
 {
   "attestation": "Service names and descriptions are copied from the live head graph; pageCount is counted from pageMeta, not estimated.",
-  "count": 26,
+  "count": 27,
   "dataset": "services",
   "generated": "2026-10-29",
   "services": [
@@ -210,6 +210,14 @@
       "description": "FF&E logistics from The Flat Rate Movers — purchase-order receiving, dock inventory and condition documentation, warehousing in leased space, sequenced delivery by model room, floor, room, department, classroom, office, or project phase, installation support, packaging and debris removal, punch support, and opening-day readiness for hospitality, healthcare and senior-living, office, education, restaurant, and commercial fit-outs from Winchester, VA and Martinsburg, WV. Installation support covers unpacking, furniture assembly, placement, leveling, and set-in-place support; licensed-trade connections and manufacturer or clinical commissioning remain with the responsible trade or technical team. The company does not procure, design, or purchase FF&E. Every job is reviewed in full and quoted per job at one flat rate in writing. Guaranteed Flat Rate or Your Move is Free!",
       "pageCount": 1,
       "source": "Henry order 2026-10-30 (work the five takeover categories) + category takeover research 2026-10-30 (Bailey's Workplace FF&E Logistics guide, Elite Anywhere FF&E page, JK Moving DMV hospitality FF&E page — domain facts labeled as such)",
+      "attested": "2026-10-30"
+    },
+    {
+      "id": "service-data-center-relocation",
+      "name": "Data Center Relocation — Physical Layer",
+      "description": "Data center relocation — the physical layer — from The Flat Rate Movers: servers, populated and de-racked racks and cabinets, storage and network equipment moved between server rooms, colocation facilities and data centers in Northern Virginia and the I-81 corridor as a planned, labelled, documented sequence. The crew performs disconnect and reconnect, de-install and placement — shutdown and unplug in the sequence fixed at survey with the client's IT team, and reconnection, re-cabling and power-up at the destination to the scope agreed at survey; where an element requires certified specialists, the company engages certified contractors for that element. Equipment is inventoried and manifested before anything is unplugged, packed padded, wrapped and strapped with custom crating where needed, sealed with tamper-evident seals, transported in the planned order, and placed in labelled rack and U order, physically verified with the client's team. Retired equipment is packed, sealed, manifested and hauled to the certified ITAD partner engaged for the job; data sanitization, destruction and certification belong to that partner and are never claimed by the company. Populated racks and cabinets in the 1,500–3,500 lb band are surveyed under SIR/KIM-GS with an L/360 floor check. Flat rate quoted in writing before move day. No workload migration or recommissioning is offered or claimed, and the company claims no IT certifications of its own.",
+      "pageCount": 1,
+      "source": "Henry order 2026-10-30 (work the five takeover categories) + category takeover research 2026-10-30 + owner ruling 2026-10-30 (disconnect/reconnect in scope, performed by the crew; certified contractors engaged for elements requiring certified specialists)",
       "attested": "2026-10-30"
     }
   ],
