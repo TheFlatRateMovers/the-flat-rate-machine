@@ -5,7 +5,7 @@
   "@type": "Dataset",
   "name": "The Flat Rate Movers · AI Sitemap",
   "url": "https://theflatratemovers.com/ai-sitemap.json",
-  "description": "Machine-readable index of AI, developer, and operational JSON endpoints for The Flat Rate Movers LLC, plus the core pages, services, and SIR / KIM-GS authority for theflatratemovers.com. 155 clean canonical URLs in sitemap.xml, 23 services, 52 service-area features, branches distinct (Winchester: The Flat Rate Movers; Martinsburg: Flat Rate Movers Martinsburg WV), founded June 2010. No USDOT/MC number is listed (unconfirmed).",
+  "description": "Machine-readable index of AI, developer, and operational JSON endpoints for The Flat Rate Movers LLC, plus the core pages, services, and SIR / KIM-GS authority for theflatratemovers.com. 156 clean canonical URLs in sitemap.xml, 23 services, 52 service-area features, branches distinct (Winchester: The Flat Rate Movers; Martinsburg: Flat Rate Movers Martinsburg WV), founded June 2010. No USDOT/MC number is listed (unconfirmed).",
   "dateModified": "2026-10-29",
   "version": "2026-10-29",
   "creator": {
@@ -147,7 +147,7 @@
     },
     {
       "name": "Industrial & Commercial Services",
-      "description": "Industrial & Commercial Services — Trained, Supervised Moving and Warehouse Teams for industrial and commercial project support: warehouse and distribution, commercial relocation and logistics including white-glove/blanket-wrap, FF&E installation and project support, and flexible workforce deployment, priced per job with no required contract duration. Standard Job Pricing: Unload $8.00/CWT, Load $10.00/CWT, APU $12.00/CWT, Residential/Driver Meet $400-$425 per man."
+      "description": "Industrial & Commercial Services — Trained, Supervised Moving and Warehouse Teams for industrial and commercial project support: warehouse and distribution, commercial relocation and logistics including white-glove/blanket-wrap, FF&E installation and project support, and flexible workforce deployment, priced per job with no required contract duration. Standard Job Pricing: Unload $8.00/CWT, Load $10.00/CWT, APU $12.00/CWT, Residential/Driver Meet $400-$425 per man. Its workforce layer, Specialized Workforce Labor, carries workforce deployment coverage in all 48 contiguous states, quoted per job — a nationwide workforce scope distinct from the branches' 52-area moving footprint."
     },
     {
       "name": "Senior Moving",
@@ -193,7 +193,8 @@
     "Warehouse Relocation",
     "IT Relocation & Setup",
     "Transloading Services — Winchester VA",
-    "Moving and Storage"
+    "Moving and Storage",
+    "specialized workforce labor 48 contiguous states deployment coverage"
   ],
   "hasPart": [
     {

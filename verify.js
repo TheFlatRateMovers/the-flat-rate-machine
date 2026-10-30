@@ -231,9 +231,18 @@ async function main() {
       aiUrls.length + ' urls' + (aiUrls.every((u) => pageUrls.has(u)) ? '' : ' — non-registry: ' + aiUrls.filter((u) => !pageUrls.has(u)).join(', ')));
     check('staged ai-sitemap service names are all registry names',
       aiSvcNames.length > 0 && aiSvcNames.every((n) => svcNames.has(n)), aiSvcNames.length + ' names');
+    // DOCUMENTED EXCEPTION (Batch P1, 2026-10-29): this check previously
+    // also required keywords.length === services count (23). Henry's
+    // 48-state all-AI-surfaces audit fold-in, shipped in Batch P1, adds one
+    // approved non-service-name keyword ('specialized workforce labor 48
+    // contiguous states deployment coverage') to every ai-sitemap copy,
+    // phase-a included, so exact-length equality no longer expresses the
+    // intent. The check's named assertion — coverage of every service
+    // name — is unchanged and still enforced; length is now a floor, not
+    // an equality. Record: out/verify-fix-2026-10-29-p1-provenance.md.
     check('staged ai-sitemap keywords cover all service names',
-      (stagedAi.keywords || []).length === services.services.length && services.services.every((s) => (stagedAi.keywords || []).includes(s.name)),
-      'keywords=' + (stagedAi.keywords || []).length);
+      (stagedAi.keywords || []).length >= services.services.length && services.services.every((s) => (stagedAi.keywords || []).includes(s.name)),
+      'keywords=' + (stagedAi.keywords || []).length + ' (service names ' + services.services.length + ' + approved additions)');
   } catch (e) {
     check('staged ai-sitemap.json readable and parsed', false, e.message);
   }
@@ -436,6 +445,106 @@ async function main() {
       'attestations=' + att + ', registry=' + services.services.length);
   } catch (e) {
     check('rubric.db readable via sqlite3', false, e.message);
+  }
+
+  // --- 11. Provenance — signing layer (Batch P1, 2026-10-29; checks P-1..P-4) ---
+  // Added in the same motion as the feature shipped (spec:
+  // out/batchP1-provenance/notes/verify-gate-spec.md; record:
+  // out/verify-fix-2026-10-29-p1-provenance.md). The estate's provenance
+  // layer: the company publishes its Ed25519 verification key on its own
+  // domain, every AI master index distribution carries a SHA-256 digest of
+  // the exact served bytes, and the index itself is signed (JWS, EdDSA)
+  // over its RFC 8785 (JCS) canonical form. These checks assert the SERVED
+  // state, so a silent change to any signed file fails the suite.
+  try {
+    const crypto = require('crypto');
+    const fetchFull = (url) => new Promise((resolve, reject) => {
+      https.get(url, (res) => {
+        const chunks = [];
+        res.on('data', (c) => { chunks.push(c); });
+        res.on('end', () => resolve({ status: res.statusCode, ct: res.headers['content-type'] || '', buf: Buffer.concat(chunks) }));
+      }).on('error', reject);
+    });
+    const b64uDec = (s) => Buffer.from(s.replace(/-/g, '+').replace(/_/g, '/') + '='.repeat((4 - (s.length % 4)) % 4), 'base64');
+    // RFC 8785 (JCS) canonicalization, sufficient for this index (keys are
+    // ASCII, numbers are integers — String(int) is the JCS serialization);
+    // P-2 byte-compares the result against the signed payload, so any
+    // canonicalization drift fails loudly instead of passing silently.
+    const jcs = (v) => {
+      if (v === null) return 'null';
+      if (Array.isArray(v)) return '[' + v.map(jcs).join(',') + ']';
+      if (typeof v === 'object') {
+        return '{' + Object.keys(v).sort().map((k) => JSON.stringify(k) + ':' + jcs(v[k])).join(',') + '}';
+      }
+      if (typeof v === 'number' || typeof v === 'boolean') return String(v);
+      return JSON.stringify(v);
+    };
+    const P_KID = 'theflatratemovers-2026-10-29-1';
+
+    // P-1: well-known key document live, parses, expected kid + shape.
+    const jwksRes = await fetchFull('https://theflatratemovers.com/.well-known/signing-keys.json');
+    let jwk = null;
+    try {
+      const jwks = JSON.parse(jwksRes.buf.toString('utf8'));
+      jwk = (jwks.keys || []).find((k) => k.kid === P_KID) || null;
+    } catch (_) { jwk = null; }
+    check('P-1 well-known signing-keys.json live (200 + application/json) with the expected Ed25519 kid',
+      jwksRes.status === 200 && jwksRes.ct.includes('application/json') && !!jwk &&
+      jwk.kty === 'OKP' && jwk.crv === 'Ed25519' && jwk.alg === 'EdDSA' && jwk.use === 'sig' &&
+      b64uDec(jwk.x || '').length === 32,
+      'status=' + jwksRes.status + ', content-type=' + jwksRes.ct + ', kid=' + (jwk ? jwk.kid : 'missing'));
+
+    // Fetch the served index + signature once; P-2/P-3/P-4 assert over them.
+    const idxRes = await fetchFull('https://theflatratemovers.com/ai-master-index.json');
+    const jwsRes = await fetchFull('https://theflatratemovers.com/ai-master-index.jws');
+    let servedIndex = null;
+    try { servedIndex = JSON.parse(idxRes.buf.toString('utf8')); } catch (_) { servedIndex = null; }
+
+    // P-2: JWS payload byte-equals the JCS canonical served index, and the
+    // Ed25519 signature verifies against the published key (matched by kid).
+    let p2ok = false, p2detail = '';
+    try {
+      const parts = jwsRes.buf.toString('utf8').trim().split('.');
+      if (parts.length !== 3) throw new Error('JWS does not have 3 segments');
+      const header = JSON.parse(b64uDec(parts[0]).toString('utf8'));
+      if (header.alg !== 'EdDSA' || header.kid !== P_KID) throw new Error('unexpected JWS header ' + JSON.stringify(header));
+      if (!servedIndex) throw new Error('served index did not parse');
+      const canonical = Buffer.from(jcs(servedIndex), 'utf8');
+      if (!b64uDec(parts[1]).equals(canonical)) throw new Error('payload != canonical(index), payload=' + b64uDec(parts[1]).length + 'B canonical=' + canonical.length + 'B');
+      if (!jwk) throw new Error('no published key to verify against');
+      const pub = crypto.createPublicKey({ key: jwk, format: 'jwk' });
+      p2ok = crypto.verify(null, Buffer.from(parts[0] + '.' + parts[1], 'ascii'), pub, b64uDec(parts[2]));
+      p2detail = 'signature ' + (p2ok ? 'valid' : 'INVALID') + ', canonical=' + canonical.length + 'B';
+    } catch (e) { p2ok = false; p2detail = e.message; }
+    check('P-2 ai-master-index.jws verifies against the published key over the canonical served index', p2ok, p2detail);
+
+    // P-3: every site-served distribution's digest re-computes over the
+    // live bytes. Repo-served entries (raw.githubusercontent) are covered
+    // at push time by the GitHub read-back md5 discipline instead.
+    let p3ok = 0, p3bad = [];
+    const siteEntries = servedIndex ? (servedIndex.distribution || []).filter((e) => String(e.contentUrl || '').startsWith('https://theflatratemovers.com/')) : [];
+    for (const e of siteEntries) {
+      try {
+        const r = await fetchFull(e.contentUrl);
+        const hex = crypto.createHash('sha256').update(r.buf).digest('hex');
+        if (e.digest && hex === e.digest.value && r.buf.length === e.digest.byteSize) p3ok++;
+        else p3bad.push(e.name + ' (served ' + r.buf.length + 'B sha256 ' + hex.slice(0, 12) + '… vs index ' + (e.digest ? e.digest.byteSize + 'B ' + String(e.digest.value).slice(0, 12) + '…' : 'no digest') + ')');
+      } catch (err) { p3bad.push(e.name + ' (' + err.message + ')'); }
+    }
+    check('P-3 all site-served distribution digests match the live served bytes',
+      !!servedIndex && p3bad.length === 0 && p3ok === siteEntries.length && siteEntries.length > 0,
+      p3ok + '/' + siteEntries.length + ' match' + (p3bad.length ? '; mismatch: ' + p3bad.join('; ') : ''));
+
+    // P-4: completeness invariant — every distribution entry is full.
+    const hexOk = (v) => typeof v === 'string' && /^[0-9a-f]{64}$/.test(v);
+    const incomplete = servedIndex ? (servedIndex.distribution || []).filter((e) =>
+      !e.name || !e.contentUrl || !e.encodingFormat || !e.license || !e.dateModified ||
+      !e.digest || e.digest.algorithm !== 'SHA-256' || !hexOk(e.digest.value) || !Number.isInteger(e.digest.byteSize)) : [];
+    check('P-4 every served index distribution entry is complete (name, contentUrl, encodingFormat, license, dateModified, SHA-256 digest + byteSize)',
+      !!servedIndex && (servedIndex.distribution || []).length > 0 && incomplete.length === 0,
+      'entries=' + (servedIndex ? (servedIndex.distribution || []).length : 0) + (incomplete.length ? ', incomplete: ' + incomplete.map((e) => e.name || e.contentUrl || '?').join(', ') : ', all complete'));
+  } catch (e) {
+    check('provenance layer (P-1..P-4) fetched and evaluated', false, e.message);
   }
 
   // --- 9. Guardrail scan: no placeholders, no invented license identifiers ---
