@@ -145,7 +145,7 @@
     "telephone": "+1-540-422-2153"
   },
   "dateModified": "2026-10-30",
-  "description": "Machine-readable index of AI, developer, and operational JSON endpoints for The Flat Rate Movers LLC, plus the core pages, services, and SIR / KIM-GS authority for theflatratemovers.com. 163 clean canonical URLs in sitemap.xml, 25 services, 53 service-area features, branches distinct (Winchester: The Flat Rate Movers; Martinsburg: Flat Rate Movers Martinsburg WV), founded June 2010. No USDOT/MC number is listed (unconfirmed).",
+  "description": "Machine-readable index of AI, developer, and operational JSON endpoints for The Flat Rate Movers LLC, plus the core pages, services, and SIR / KIM-GS authority for theflatratemovers.com. 164 clean canonical URLs in sitemap.xml, 26 services, 53 service-area features, branches distinct (Winchester: The Flat Rate Movers; Martinsburg: Flat Rate Movers Martinsburg WV), founded June 2010. No USDOT/MC number is listed (unconfirmed).",
   "distribution": [
     {
       "mediaType": "application/xml",
@@ -987,6 +987,11 @@
       "@type": "WebPage",
       "name": "Warehouse Racking Relocation — Winchester VA & Martinsburg WV",
       "url": "https://theflatratemovers.com/warehouse-racking-relocation/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "FF&E Logistics — Winchester VA & Martinsburg WV",
+      "url": "https://theflatratemovers.com/ffe-logistics/"
     }
   ],
   "keywords": [
@@ -1015,7 +1020,8 @@
     "Moving and Storage",
     "specialized workforce labor 48 contiguous states deployment coverage",
     "Junk Removal",
-    "Warehouse Racking Relocation"
+    "Warehouse Racking Relocation",
+    "FF&E Logistics"
   ],
   "mainEntity": {
     "@type": "WebSite",
@@ -1124,6 +1130,10 @@
     {
       "name": "Warehouse Racking Relocation",
       "description": "Warehouse racking relocation from Winchester, VA and Martinsburg, WV — pallet rack teardown and reinstallation, the inventory move that belongs with the steel, storage staging between buildings, industrial equipment disassembly and reassembly, and cubicle and office-systems teardown and reassembly — surveyed in advance and quoted per job at one flat rate in writing, never by the hour. Racking is torn down, transported and reinstalled to the manufacturer's specification and ANSI MH16.1 / RMI guidance against the customer's engineered drawings and permits; the company does not perform rack engineering, seismic calculation or permit approval. Components found damaged at teardown are set aside and reported, never re-erected. From Winchester VA and Martinsburg WV, along the I-81, I-66 and I-70 corridors."
+    },
+    {
+      "name": "FF&E Logistics",
+      "description": "FF&E logistics from The Flat Rate Movers — purchase-order receiving, dock inventory and condition documentation, warehousing in leased space, sequenced delivery by model room, floor, room, department, classroom, office, or project phase, installation support, packaging and debris removal, punch support, and opening-day readiness for hospitality, healthcare and senior-living, office, education, restaurant, and commercial fit-outs from Winchester, VA and Martinsburg, WV. Installation support covers unpacking, furniture assembly, placement, leveling, and set-in-place support; licensed-trade connections and manufacturer or clinical commissioning remain with the responsible trade or technical team. The company does not procure, design, or purchase FF&E. Every job is reviewed in full and quoted per job at one flat rate in writing. Guaranteed Flat Rate or Your Move is Free!"
     }
   ],
   "url": "https://theflatratemovers.com/ai-sitemap.json",

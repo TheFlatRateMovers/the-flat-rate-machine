@@ -91,7 +91,7 @@ const DB_PATH = path.join(FLAT, 'rubric.db');
 const QB_PATH = path.join(FLAT, 'blog-project', '04-question-bank.md');
 const RUBRIC_DATE = '2026-10-30';
 const GENERATOR = 'build-intent-rubric.js';
-const GENERATOR_VERSION = '1.1.0';
+const GENERATOR_VERSION = '1.2.0';
 const KID = 'theflatratemovers-2026-10-29-1';
 
 // --- Generator configuration (validated against the registries) ---
@@ -123,6 +123,7 @@ const HUB = {
   'service-moving-and-storage': 'moving-and-storage',
   'service-junk-removal': 'junk-removal',
   'service-warehouse-racking-relocation': 'warehouse-racking-relocation',
+  'service-ffe-logistics': 'ffe-logistics',
 };
 // Query phrase per service (the string customers type), as a lowercase
 // noun phrase; plural=true selects "do" in the cost template.
@@ -152,6 +153,7 @@ const PHRASE = {
   'service-moving-and-storage': ['moving and storage', false],
   'service-junk-removal': ['junk removal', false],
   'service-warehouse-racking-relocation': ['warehouse racking relocation', false],
+  'service-ffe-logistics': ['FF&E logistics', false],
 };
 // Backing dataset file(s) per service (the estate's D1-D8 files at the
 // site root). Validated: file exists in public/ AND is a distribution
@@ -182,6 +184,7 @@ const DATASETS = {
   'service-moving-and-storage': ['datasets-moving-and-storage.json'],
   'service-junk-removal': ['datasets-junk-removal.json'],
   'service-warehouse-racking-relocation': ['datasets-warehouse-racking-relocation.json'],
+  'service-ffe-logistics': ['datasets-ffe-logistics.json'],
 };
 // GeoJSON capability slug -> registry service id (the geojson uses a
 // capability vocabulary; services not reachable from it fall back to
@@ -222,6 +225,7 @@ const BASE_ONLY = {
   'service-moving-and-storage': 'both',
   'service-junk-removal': 'both',
   'service-warehouse-racking-relocation': 'both',
+  'service-ffe-logistics': 'both',
   'service-transloading-winchester-va': 'winchester',
 };
 // Question bank category -> service (category 9 splits per question).
@@ -313,6 +317,7 @@ const BRANCH = {
   'service-moving-and-storage': [null, null],
   'service-junk-removal': [null, null],
   'service-warehouse-racking-relocation': [null, null],
+  'service-ffe-logistics': [null, null],
 };
 function branchPage(R, V, serviceId, branch) {
   const pair = BRANCH[serviceId];
