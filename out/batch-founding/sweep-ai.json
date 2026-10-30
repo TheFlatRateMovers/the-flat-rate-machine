@@ -1,0 +1,2980 @@
+{
+ "ai-sitemap.json": [
+  {
+   "ctx": "ai-fetch/ai-sitemap.json",
+   "path": "$.creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers LLC",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": true,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "address",
+    "email",
+    "foundingDate",
+    "location",
+    "name",
+    "sameAs",
+    "slogan",
+    "telephone"
+   ]
+  }
+ ],
+ "answer-engine.json": [
+  {
+   "ctx": "ai-fetch/answer-engine.json",
+   "path": "$.creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers LLC",
+   "id": null,
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@type",
+    "name",
+    "url"
+   ]
+  }
+ ],
+ "authority-index.jsonld": [
+  {
+   "ctx": "ai-fetch/authority-index.jsonld",
+   "path": "$.@graph[0]",
+   "type": "Organization",
+   "name": "The Flat Rate Movers LLC",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "logo",
+    "name",
+    "sameAs",
+    "url"
+   ]
+  }
+ ],
+ "data/ai-master-index.json": [
+  {
+   "ctx": "ai-fetch/data/ai-master-index.json",
+   "path": "$.creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers LLC",
+   "id": "https://theflatratemovers.com/#org",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "url"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/ai-master-index.json",
+   "path": "$.@graph[0]",
+   "type": "Organization",
+   "name": "The Flat Rate Movers LLC",
+   "id": "https://theflatratemovers.com/#org",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "areaServed",
+    "description",
+    "knowsAbout",
+    "name",
+    "url"
+   ]
+  }
+ ],
+ "data/best-json-entity-graph-full.json": [
+  {
+   "ctx": "ai-fetch/data/best-json-entity-graph-full.json",
+   "path": "$.@graph[0]",
+   "type": [
+    "Organization",
+    "LocalBusiness",
+    "MovingCompany"
+   ],
+   "name": "The Flat Rate Movers LLC",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": true,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "alternateName",
+    "areaServed",
+    "contactPoint",
+    "description",
+    "email",
+    "foundingDate",
+    "hasOfferCatalog",
+    "image",
+    "knowsAbout",
+    "legalName",
+    "location",
+    "logo",
+    "name",
+    "priceRange",
+    "sameAs",
+    "slogan",
+    "telephone",
+    "url"
+   ]
+  }
+ ],
+ "data/datasets-crating.json": [
+  {
+   "ctx": "ai-fetch/data/datasets-crating.json",
+   "path": "$.@graph[0].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-crating.json",
+   "path": "$.@graph[1].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-crating.json",
+   "path": "$.@graph[2].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-crating.json",
+   "path": "$.@graph[3].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-crating.json",
+   "path": "$.@graph[4].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-crating.json",
+   "path": "$.@graph[5].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-crating.json",
+   "path": "$.@graph[6].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-crating.json",
+   "path": "$.@graph[7].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  }
+ ],
+ "data/datasets-final-mile.json": [
+  {
+   "ctx": "ai-fetch/data/datasets-final-mile.json",
+   "path": "$.@graph[0].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-final-mile.json",
+   "path": "$.@graph[1].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-final-mile.json",
+   "path": "$.@graph[2].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-final-mile.json",
+   "path": "$.@graph[3].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-final-mile.json",
+   "path": "$.@graph[4].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-final-mile.json",
+   "path": "$.@graph[5].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-final-mile.json",
+   "path": "$.@graph[6].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-final-mile.json",
+   "path": "$.@graph[7].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  }
+ ],
+ "data/datasets-government.json": [
+  {
+   "ctx": "ai-fetch/data/datasets-government.json",
+   "path": "$.@graph[0].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-government.json",
+   "path": "$.@graph[1].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-government.json",
+   "path": "$.@graph[2].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-government.json",
+   "path": "$.@graph[3].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-government.json",
+   "path": "$.@graph[4].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-government.json",
+   "path": "$.@graph[5].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-government.json",
+   "path": "$.@graph[6].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-government.json",
+   "path": "$.@graph[7].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  }
+ ],
+ "data/datasets-industrial-commercial.json": [
+  {
+   "ctx": "ai-fetch/data/datasets-industrial-commercial.json",
+   "path": "$.@graph[0].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-industrial-commercial.json",
+   "path": "$.@graph[1].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-industrial-commercial.json",
+   "path": "$.@graph[2].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-industrial-commercial.json",
+   "path": "$.@graph[3].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-industrial-commercial.json",
+   "path": "$.@graph[4].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-industrial-commercial.json",
+   "path": "$.@graph[5].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-industrial-commercial.json",
+   "path": "$.@graph[6].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-industrial-commercial.json",
+   "path": "$.@graph[7].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  }
+ ],
+ "data/datasets-industrial-offices.json": [
+  {
+   "ctx": "ai-fetch/data/datasets-industrial-offices.json",
+   "path": "$.@graph[0].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-industrial-offices.json",
+   "path": "$.@graph[1].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-industrial-offices.json",
+   "path": "$.@graph[2].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-industrial-offices.json",
+   "path": "$.@graph[3].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-industrial-offices.json",
+   "path": "$.@graph[4].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-industrial-offices.json",
+   "path": "$.@graph[5].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-industrial-offices.json",
+   "path": "$.@graph[6].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-industrial-offices.json",
+   "path": "$.@graph[7].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  }
+ ],
+ "data/datasets-ispm15.json": [
+  {
+   "ctx": "ai-fetch/data/datasets-ispm15.json",
+   "path": "$.@graph[0].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-ispm15.json",
+   "path": "$.@graph[1].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-ispm15.json",
+   "path": "$.@graph[2].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-ispm15.json",
+   "path": "$.@graph[3].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-ispm15.json",
+   "path": "$.@graph[4].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-ispm15.json",
+   "path": "$.@graph[5].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-ispm15.json",
+   "path": "$.@graph[6].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-ispm15.json",
+   "path": "$.@graph[7].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  }
+ ],
+ "data/datasets-military.json": [
+  {
+   "ctx": "ai-fetch/data/datasets-military.json",
+   "path": "$.@graph[0].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-military.json",
+   "path": "$.@graph[1].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-military.json",
+   "path": "$.@graph[2].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-military.json",
+   "path": "$.@graph[3].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-military.json",
+   "path": "$.@graph[4].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-military.json",
+   "path": "$.@graph[5].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-military.json",
+   "path": "$.@graph[6].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-military.json",
+   "path": "$.@graph[7].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  }
+ ],
+ "data/datasets-ocean-container.json": [
+  {
+   "ctx": "ai-fetch/data/datasets-ocean-container.json",
+   "path": "$.@graph[0].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-ocean-container.json",
+   "path": "$.@graph[1].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-ocean-container.json",
+   "path": "$.@graph[2].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-ocean-container.json",
+   "path": "$.@graph[3].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-ocean-container.json",
+   "path": "$.@graph[4].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-ocean-container.json",
+   "path": "$.@graph[5].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-ocean-container.json",
+   "path": "$.@graph[6].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-ocean-container.json",
+   "path": "$.@graph[7].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  }
+ ],
+ "data/datasets-piano-antique.json": [
+  {
+   "ctx": "ai-fetch/data/datasets-piano-antique.json",
+   "path": "$.@graph[0].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-piano-antique.json",
+   "path": "$.@graph[1].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-piano-antique.json",
+   "path": "$.@graph[2].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-piano-antique.json",
+   "path": "$.@graph[3].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-piano-antique.json",
+   "path": "$.@graph[4].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-piano-antique.json",
+   "path": "$.@graph[5].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-piano-antique.json",
+   "path": "$.@graph[6].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-piano-antique.json",
+   "path": "$.@graph[7].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  }
+ ],
+ "data/datasets-residential.json": [
+  {
+   "ctx": "ai-fetch/data/datasets-residential.json",
+   "path": "$.@graph[0].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-residential.json",
+   "path": "$.@graph[1].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-residential.json",
+   "path": "$.@graph[2].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-residential.json",
+   "path": "$.@graph[3].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-residential.json",
+   "path": "$.@graph[4].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-residential.json",
+   "path": "$.@graph[5].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-residential.json",
+   "path": "$.@graph[6].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-residential.json",
+   "path": "$.@graph[7].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  }
+ ],
+ "data/datasets-route81.json": [
+  {
+   "ctx": "ai-fetch/data/datasets-route81.json",
+   "path": "$.@graph[0].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-route81.json",
+   "path": "$.@graph[1].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-route81.json",
+   "path": "$.@graph[2].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-route81.json",
+   "path": "$.@graph[3].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-route81.json",
+   "path": "$.@graph[4].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-route81.json",
+   "path": "$.@graph[5].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-route81.json",
+   "path": "$.@graph[6].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-route81.json",
+   "path": "$.@graph[7].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  }
+ ],
+ "data/datasets-transloading.json": [
+  {
+   "ctx": "ai-fetch/data/datasets-transloading.json",
+   "path": "$.@graph[0].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-transloading.json",
+   "path": "$.@graph[1].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-transloading.json",
+   "path": "$.@graph[2].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-transloading.json",
+   "path": "$.@graph[3].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-transloading.json",
+   "path": "$.@graph[4].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-transloading.json",
+   "path": "$.@graph[5].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-transloading.json",
+   "path": "$.@graph[6].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/data/datasets-transloading.json",
+   "path": "$.@graph[7].creator",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs"
+   ]
+  }
+ ],
+ "data/entity-graph-full.json": [
+  {
+   "ctx": "ai-fetch/data/entity-graph-full.json",
+   "path": "$.@graph[0]",
+   "type": [
+    "Organization",
+    "LocalBusiness",
+    "MovingCompany"
+   ],
+   "name": "The Flat Rate Movers LLC",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": true,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "address",
+    "email",
+    "foundingDate",
+    "hasOfferCatalog",
+    "location",
+    "name",
+    "priceRange",
+    "sameAs",
+    "slogan",
+    "telephone",
+    "url"
+   ]
+  }
+ ],
+ "data/entity-graph.json": [
+  {
+   "ctx": "ai-fetch/data/entity-graph.json",
+   "path": "$.@graph[0]",
+   "type": "Organization",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#org",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "name",
+    "sameAs",
+    "url"
+   ]
+  }
+ ],
+ "endpoint-definition.jsonld": [
+  {
+   "ctx": "ai-fetch/endpoint-definition.jsonld",
+   "path": "$.provider",
+   "type": "Organization",
+   "name": null,
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": false,
+   "ref_only": true,
+   "keys": [
+    "@id",
+    "@type"
+   ]
+  }
+ ],
+ "identity/root-entity.jsonld": [
+  {
+   "ctx": "ai-fetch/identity/root-entity.jsonld",
+   "path": "$",
+   "type": "Organization",
+   "name": "The Flat Rate Movers LLC",
+   "id": "https://theflatratemovers.com/#org",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@context",
+    "@id",
+    "@type",
+    "areaServed",
+    "description",
+    "founder",
+    "knowsAbout",
+    "legalName",
+    "logo",
+    "name",
+    "owns",
+    "publishes",
+    "sameAs",
+    "url"
+   ]
+  }
+ ],
+ "protocols/protocol-relationships.jsonld": [
+  {
+   "ctx": "ai-fetch/protocols/protocol-relationships.jsonld",
+   "path": "$.publisher",
+   "type": "Organization",
+   "name": "The Flat Rate Movers LLC",
+   "id": null,
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@type",
+    "name",
+    "url"
+   ]
+  }
+ ],
+ "schemas/commercial-movers-winchester-va.json": [
+  {
+   "ctx": "ai-fetch/schemas/commercial-movers-winchester-va.json",
+   "path": "$.@graph[1]",
+   "type": "LocalBusiness",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#winchester",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "address",
+    "aggregateRating",
+    "areaServed",
+    "geo",
+    "name",
+    "openingHoursSpecification",
+    "parentOrganization",
+    "priceRange",
+    "telephone"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/schemas/commercial-movers-winchester-va.json",
+   "path": "$.@graph[2]",
+   "type": "Organization",
+   "name": "The Flat Rate Movers LLC",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": true,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "foundingDate",
+    "name",
+    "telephone"
+   ]
+  }
+ ],
+ "schemas/commercial-moving.json": [
+  {
+   "ctx": "ai-fetch/schemas/commercial-moving.json",
+   "path": "$.@graph[1]",
+   "type": "Organization",
+   "name": "The Flat Rate Movers LLC",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": true,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "email",
+    "foundingDate",
+    "location",
+    "name",
+    "sameAs",
+    "slogan",
+    "telephone",
+    "url"
+   ]
+  }
+ ],
+ "schemas/commercial-office-moving-2.json": [
+  {
+   "ctx": "ai-fetch/schemas/commercial-office-moving-2.json",
+   "path": "$.@graph[1]",
+   "type": "Organization",
+   "name": "The Flat Rate Movers LLC",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": true,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "email",
+    "foundingDate",
+    "location",
+    "name",
+    "sameAs",
+    "slogan",
+    "telephone",
+    "url"
+   ]
+  }
+ ],
+ "schemas/crating-movers-martinsburg-wv.json": [
+  {
+   "ctx": "ai-fetch/schemas/crating-movers-martinsburg-wv.json",
+   "path": "$.@graph[1]",
+   "type": "LocalBusiness",
+   "name": "Flat Rate Movers Martinsburg WV",
+   "id": "https://theflatratemovers.com/#martinsburg",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "address",
+    "aggregateRating",
+    "areaServed",
+    "geo",
+    "name",
+    "openingHoursSpecification",
+    "parentOrganization",
+    "priceRange",
+    "telephone"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/schemas/crating-movers-martinsburg-wv.json",
+   "path": "$.@graph[2]",
+   "type": "Organization",
+   "name": "The Flat Rate Movers LLC",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": true,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "foundingDate",
+    "name",
+    "telephone"
+   ]
+  }
+ ],
+ "schemas/final-mile-movers-martinsburg-wv.json": [
+  {
+   "ctx": "ai-fetch/schemas/final-mile-movers-martinsburg-wv.json",
+   "path": "$.@graph[1]",
+   "type": "LocalBusiness",
+   "name": "Flat Rate Movers Martinsburg WV",
+   "id": "https://theflatratemovers.com/#martinsburg",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "address",
+    "aggregateRating",
+    "areaServed",
+    "geo",
+    "name",
+    "openingHoursSpecification",
+    "parentOrganization",
+    "priceRange",
+    "telephone"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/schemas/final-mile-movers-martinsburg-wv.json",
+   "path": "$.@graph[2]",
+   "type": "Organization",
+   "name": "The Flat Rate Movers LLC",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": true,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "foundingDate",
+    "name",
+    "telephone"
+   ]
+  }
+ ],
+ "schemas/government-movers-martinsburg-wv.json": [
+  {
+   "ctx": "ai-fetch/schemas/government-movers-martinsburg-wv.json",
+   "path": "$.@graph[1]",
+   "type": "LocalBusiness",
+   "name": "Flat Rate Movers Martinsburg WV",
+   "id": "https://theflatratemovers.com/#martinsburg",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "address",
+    "aggregateRating",
+    "areaServed",
+    "geo",
+    "name",
+    "openingHoursSpecification",
+    "parentOrganization",
+    "priceRange",
+    "telephone"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/schemas/government-movers-martinsburg-wv.json",
+   "path": "$.@graph[2]",
+   "type": "Organization",
+   "name": "The Flat Rate Movers LLC",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": true,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "foundingDate",
+    "name",
+    "telephone"
+   ]
+  }
+ ],
+ "schemas/government-movers-winchester-va.json": [
+  {
+   "ctx": "ai-fetch/schemas/government-movers-winchester-va.json",
+   "path": "$.@graph[1]",
+   "type": "LocalBusiness",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#winchester",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "address",
+    "aggregateRating",
+    "areaServed",
+    "geo",
+    "name",
+    "openingHoursSpecification",
+    "parentOrganization",
+    "priceRange",
+    "telephone"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/schemas/government-movers-winchester-va.json",
+   "path": "$.@graph[2]",
+   "type": "Organization",
+   "name": "The Flat Rate Movers LLC",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": true,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "foundingDate",
+    "name",
+    "telephone"
+   ]
+  }
+ ],
+ "schemas/gun-safe-movers-martinsburg-wv.json": [
+  {
+   "ctx": "ai-fetch/schemas/gun-safe-movers-martinsburg-wv.json",
+   "path": "$.@graph[1]",
+   "type": "LocalBusiness",
+   "name": "Flat Rate Movers Martinsburg WV",
+   "id": "https://theflatratemovers.com/#martinsburg",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "address",
+    "aggregateRating",
+    "areaServed",
+    "geo",
+    "name",
+    "openingHoursSpecification",
+    "parentOrganization",
+    "priceRange",
+    "telephone"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/schemas/gun-safe-movers-martinsburg-wv.json",
+   "path": "$.@graph[2]",
+   "type": "Organization",
+   "name": "The Flat Rate Movers LLC",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": true,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "foundingDate",
+    "name",
+    "telephone"
+   ]
+  }
+ ],
+ "schemas/gun-safe-movers.json": [
+  {
+   "ctx": "ai-fetch/schemas/gun-safe-movers.json",
+   "path": "$.@graph[1]",
+   "type": "Organization",
+   "name": "The Flat Rate Movers LLC",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": true,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "email",
+    "foundingDate",
+    "location",
+    "name",
+    "sameAs",
+    "slogan",
+    "telephone",
+    "url"
+   ]
+  }
+ ],
+ "schemas/industrial-commercial-movers-martinsburg-wv.json": [
+  {
+   "ctx": "ai-fetch/schemas/industrial-commercial-movers-martinsburg-wv.json",
+   "path": "$.@graph[1]",
+   "type": "LocalBusiness",
+   "name": "Flat Rate Movers Martinsburg WV",
+   "id": "https://theflatratemovers.com/#martinsburg",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "address",
+    "aggregateRating",
+    "areaServed",
+    "geo",
+    "name",
+    "openingHoursSpecification",
+    "parentOrganization",
+    "priceRange",
+    "telephone"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/schemas/industrial-commercial-movers-martinsburg-wv.json",
+   "path": "$.@graph[2]",
+   "type": "Organization",
+   "name": "The Flat Rate Movers LLC",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": true,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "foundingDate",
+    "name",
+    "telephone"
+   ]
+  }
+ ],
+ "schemas/industrial-commercial-movers-winchester-va.json": [
+  {
+   "ctx": "ai-fetch/schemas/industrial-commercial-movers-winchester-va.json",
+   "path": "$.@graph[1]",
+   "type": "LocalBusiness",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#winchester",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "address",
+    "aggregateRating",
+    "areaServed",
+    "geo",
+    "name",
+    "openingHoursSpecification",
+    "parentOrganization",
+    "priceRange",
+    "telephone"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/schemas/industrial-commercial-movers-winchester-va.json",
+   "path": "$.@graph[2]",
+   "type": "Organization",
+   "name": "The Flat Rate Movers LLC",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": true,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "foundingDate",
+    "name",
+    "telephone"
+   ]
+  }
+ ],
+ "schemas/industrial-commercial-services.json": [
+  {
+   "ctx": "ai-fetch/schemas/industrial-commercial-services.json",
+   "path": "$.@graph[0]",
+   "type": "Organization",
+   "name": "The Flat Rate Movers LLC",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": true,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "email",
+    "foundingDate",
+    "name",
+    "slogan",
+    "telephone",
+    "url"
+   ]
+  }
+ ],
+ "schemas/industrial-offices-movers-martinsburg-wv.json": [
+  {
+   "ctx": "ai-fetch/schemas/industrial-offices-movers-martinsburg-wv.json",
+   "path": "$.@graph[1]",
+   "type": "LocalBusiness",
+   "name": "Flat Rate Movers Martinsburg WV",
+   "id": "https://theflatratemovers.com/#martinsburg",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "address",
+    "aggregateRating",
+    "areaServed",
+    "geo",
+    "name",
+    "openingHoursSpecification",
+    "parentOrganization",
+    "priceRange",
+    "telephone"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/schemas/industrial-offices-movers-martinsburg-wv.json",
+   "path": "$.@graph[2]",
+   "type": "Organization",
+   "name": "The Flat Rate Movers LLC",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": true,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "foundingDate",
+    "name",
+    "telephone"
+   ]
+  }
+ ],
+ "schemas/industrial-offices-movers-winchester-va.json": [
+  {
+   "ctx": "ai-fetch/schemas/industrial-offices-movers-winchester-va.json",
+   "path": "$.@graph[1]",
+   "type": "LocalBusiness",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#winchester",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "address",
+    "aggregateRating",
+    "areaServed",
+    "geo",
+    "name",
+    "openingHoursSpecification",
+    "parentOrganization",
+    "priceRange",
+    "telephone"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/schemas/industrial-offices-movers-winchester-va.json",
+   "path": "$.@graph[2]",
+   "type": "Organization",
+   "name": "The Flat Rate Movers LLC",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": true,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "foundingDate",
+    "name",
+    "telephone"
+   ]
+  }
+ ],
+ "schemas/interstate-66-corridor.json": [
+  {
+   "ctx": "ai-fetch/schemas/interstate-66-corridor.json",
+   "path": "$.@graph[1]",
+   "type": "LocalBusiness",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#winchester",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "address",
+    "aggregateRating",
+    "areaServed",
+    "geo",
+    "name",
+    "openingHoursSpecification",
+    "parentOrganization",
+    "priceRange",
+    "telephone"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/schemas/interstate-66-corridor.json",
+   "path": "$.@graph[2]",
+   "type": "LocalBusiness",
+   "name": "Flat Rate Movers Martinsburg WV",
+   "id": "https://theflatratemovers.com/#martinsburg",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "address",
+    "aggregateRating",
+    "areaServed",
+    "geo",
+    "name",
+    "openingHoursSpecification",
+    "parentOrganization",
+    "priceRange",
+    "telephone"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/schemas/interstate-66-corridor.json",
+   "path": "$.@graph[3]",
+   "type": "Organization",
+   "name": "The Flat Rate Movers LLC",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": true,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "foundingDate",
+    "name",
+    "telephone"
+   ]
+  }
+ ],
+ "schemas/interstate-70-corridor.json": [
+  {
+   "ctx": "ai-fetch/schemas/interstate-70-corridor.json",
+   "path": "$.@graph[1]",
+   "type": "LocalBusiness",
+   "name": "Flat Rate Movers Martinsburg WV",
+   "id": "https://theflatratemovers.com/#martinsburg",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "address",
+    "aggregateRating",
+    "areaServed",
+    "geo",
+    "name",
+    "openingHoursSpecification",
+    "parentOrganization",
+    "priceRange",
+    "telephone"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/schemas/interstate-70-corridor.json",
+   "path": "$.@graph[2]",
+   "type": "LocalBusiness",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#winchester",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "address",
+    "aggregateRating",
+    "areaServed",
+    "geo",
+    "name",
+    "openingHoursSpecification",
+    "parentOrganization",
+    "priceRange",
+    "telephone"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/schemas/interstate-70-corridor.json",
+   "path": "$.@graph[3]",
+   "type": "Organization",
+   "name": "The Flat Rate Movers LLC",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": true,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "foundingDate",
+    "name",
+    "telephone"
+   ]
+  }
+ ],
+ "schemas/ispm15-movers-martinsburg-wv.json": [
+  {
+   "ctx": "ai-fetch/schemas/ispm15-movers-martinsburg-wv.json",
+   "path": "$.@graph[1]",
+   "type": "LocalBusiness",
+   "name": "Flat Rate Movers Martinsburg WV",
+   "id": "https://theflatratemovers.com/#martinsburg",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "address",
+    "aggregateRating",
+    "areaServed",
+    "geo",
+    "name",
+    "openingHoursSpecification",
+    "parentOrganization",
+    "priceRange",
+    "telephone"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/schemas/ispm15-movers-martinsburg-wv.json",
+   "path": "$.@graph[2]",
+   "type": "Organization",
+   "name": "The Flat Rate Movers LLC",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": true,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "foundingDate",
+    "name",
+    "telephone"
+   ]
+  }
+ ],
+ "schemas/it-equipment-moving-data-center-logistics-services-virginia.json": [
+  {
+   "ctx": "ai-fetch/schemas/it-equipment-moving-data-center-logistics-services-virginia.json",
+   "path": "$.@graph[1]",
+   "type": "Organization",
+   "name": "The Flat Rate Movers LLC",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": true,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "email",
+    "foundingDate",
+    "location",
+    "name",
+    "sameAs",
+    "slogan",
+    "telephone",
+    "url"
+   ]
+  }
+ ],
+ "schemas/local-regional-movers-martinsburg-wv.json": [
+  {
+   "ctx": "ai-fetch/schemas/local-regional-movers-martinsburg-wv.json",
+   "path": "$.@graph[1]",
+   "type": "LocalBusiness",
+   "name": "Flat Rate Movers Martinsburg WV",
+   "id": "https://theflatratemovers.com/#martinsburg",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "address",
+    "aggregateRating",
+    "areaServed",
+    "geo",
+    "name",
+    "openingHoursSpecification",
+    "parentOrganization",
+    "priceRange",
+    "telephone"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/schemas/local-regional-movers-martinsburg-wv.json",
+   "path": "$.@graph[2]",
+   "type": "Organization",
+   "name": "The Flat Rate Movers LLC",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": true,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "foundingDate",
+    "name",
+    "telephone"
+   ]
+  }
+ ],
+ "schemas/local-regional-movers-winchester-va.json": [
+  {
+   "ctx": "ai-fetch/schemas/local-regional-movers-winchester-va.json",
+   "path": "$.@graph[1]",
+   "type": "LocalBusiness",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#winchester",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "address",
+    "aggregateRating",
+    "areaServed",
+    "geo",
+    "name",
+    "openingHoursSpecification",
+    "parentOrganization",
+    "priceRange",
+    "telephone"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/schemas/local-regional-movers-winchester-va.json",
+   "path": "$.@graph[2]",
+   "type": "Organization",
+   "name": "The Flat Rate Movers LLC",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": true,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "foundingDate",
+    "name",
+    "telephone"
+   ]
+  }
+ ],
+ "schemas/local-regional-moving.json": [
+  {
+   "ctx": "ai-fetch/schemas/local-regional-moving.json",
+   "path": "$.@graph[1]",
+   "type": "Organization",
+   "name": "The Flat Rate Movers LLC",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": true,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "email",
+    "foundingDate",
+    "location",
+    "name",
+    "sameAs",
+    "slogan",
+    "telephone",
+    "url"
+   ]
+  }
+ ],
+ "schemas/long-distance-movers-martinsburg-wv.json": [
+  {
+   "ctx": "ai-fetch/schemas/long-distance-movers-martinsburg-wv.json",
+   "path": "$.@graph[1]",
+   "type": "LocalBusiness",
+   "name": "Flat Rate Movers Martinsburg WV",
+   "id": "https://theflatratemovers.com/#martinsburg",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "address",
+    "aggregateRating",
+    "areaServed",
+    "geo",
+    "name",
+    "openingHoursSpecification",
+    "parentOrganization",
+    "priceRange",
+    "telephone"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/schemas/long-distance-movers-martinsburg-wv.json",
+   "path": "$.@graph[2]",
+   "type": "Organization",
+   "name": "The Flat Rate Movers LLC",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": true,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "foundingDate",
+    "name",
+    "telephone"
+   ]
+  }
+ ],
+ "schemas/long-distance-movers-winchester-va.json": [
+  {
+   "ctx": "ai-fetch/schemas/long-distance-movers-winchester-va.json",
+   "path": "$.@graph[1]",
+   "type": "Organization",
+   "name": "The Flat Rate Movers LLC",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": true,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "email",
+    "foundingDate",
+    "location",
+    "name",
+    "sameAs",
+    "slogan",
+    "telephone",
+    "url"
+   ]
+  }
+ ],
+ "schemas/military-movers-martinsburg-wv.json": [
+  {
+   "ctx": "ai-fetch/schemas/military-movers-martinsburg-wv.json",
+   "path": "$.@graph[1]",
+   "type": "LocalBusiness",
+   "name": "Flat Rate Movers Martinsburg WV",
+   "id": "https://theflatratemovers.com/#martinsburg",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "address",
+    "aggregateRating",
+    "areaServed",
+    "geo",
+    "name",
+    "openingHoursSpecification",
+    "parentOrganization",
+    "priceRange",
+    "telephone"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/schemas/military-movers-martinsburg-wv.json",
+   "path": "$.@graph[2]",
+   "type": "Organization",
+   "name": "The Flat Rate Movers LLC",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": true,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "foundingDate",
+    "name",
+    "telephone"
+   ]
+  }
+ ],
+ "schemas/military-movers-winchester-va.json": [
+  {
+   "ctx": "ai-fetch/schemas/military-movers-winchester-va.json",
+   "path": "$.@graph[1]",
+   "type": "LocalBusiness",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#winchester",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "address",
+    "aggregateRating",
+    "areaServed",
+    "geo",
+    "name",
+    "openingHoursSpecification",
+    "parentOrganization",
+    "priceRange",
+    "telephone"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/schemas/military-movers-winchester-va.json",
+   "path": "$.@graph[2]",
+   "type": "Organization",
+   "name": "The Flat Rate Movers LLC",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": true,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "foundingDate",
+    "name",
+    "telephone"
+   ]
+  }
+ ],
+ "schemas/moving-and-storage.json": [
+  {
+   "ctx": "ai-fetch/schemas/moving-and-storage.json",
+   "path": "$.@graph[1]",
+   "type": "Organization",
+   "name": "The Flat Rate Movers LLC",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": true,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "email",
+    "foundingDate",
+    "location",
+    "name",
+    "sameAs",
+    "slogan",
+    "telephone",
+    "url"
+   ]
+  }
+ ],
+ "schemas/office-moving-movers-martinsburg-wv.json": [
+  {
+   "ctx": "ai-fetch/schemas/office-moving-movers-martinsburg-wv.json",
+   "path": "$.@graph[1]",
+   "type": "LocalBusiness",
+   "name": "Flat Rate Movers Martinsburg WV",
+   "id": "https://theflatratemovers.com/#martinsburg",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "address",
+    "aggregateRating",
+    "areaServed",
+    "geo",
+    "name",
+    "openingHoursSpecification",
+    "parentOrganization",
+    "priceRange",
+    "telephone"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/schemas/office-moving-movers-martinsburg-wv.json",
+   "path": "$.@graph[2]",
+   "type": "Organization",
+   "name": "The Flat Rate Movers LLC",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": true,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "foundingDate",
+    "name",
+    "telephone"
+   ]
+  }
+ ],
+ "schemas/office-moving-movers-winchester-va.json": [
+  {
+   "ctx": "ai-fetch/schemas/office-moving-movers-winchester-va.json",
+   "path": "$.@graph[1]",
+   "type": "LocalBusiness",
+   "name": "The Flat Rate Movers",
+   "id": "https://theflatratemovers.com/#winchester",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "address",
+    "aggregateRating",
+    "areaServed",
+    "geo",
+    "name",
+    "openingHoursSpecification",
+    "parentOrganization",
+    "priceRange",
+    "telephone"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/schemas/office-moving-movers-winchester-va.json",
+   "path": "$.@graph[2]",
+   "type": "Organization",
+   "name": "The Flat Rate Movers LLC",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": true,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "foundingDate",
+    "name",
+    "telephone"
+   ]
+  }
+ ],
+ "schemas/packing-movers-martinsburg-wv.json": [
+  {
+   "ctx": "ai-fetch/schemas/packing-movers-martinsburg-wv.json",
+   "path": "$.@graph[1]",
+   "type": "LocalBusiness",
+   "name": "Flat Rate Movers Martinsburg WV",
+   "id": "https://theflatratemovers.com/#martinsburg",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "address",
+    "aggregateRating",
+    "areaServed",
+    "geo",
+    "name",
+    "openingHoursSpecification",
+    "parentOrganization",
+    "priceRange",
+    "telephone"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/schemas/packing-movers-martinsburg-wv.json",
+   "path": "$.@graph[2]",
+   "type": "Organization",
+   "name": "The Flat Rate Movers LLC",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": true,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "foundingDate",
+    "name",
+    "telephone"
+   ]
+  }
+ ],
+ "schemas/piano-antique-movers-martinsburg-wv.json": [
+  {
+   "ctx": "ai-fetch/schemas/piano-antique-movers-martinsburg-wv.json",
+   "path": "$.@graph[1]",
+   "type": "LocalBusiness",
+   "name": "Flat Rate Movers Martinsburg WV",
+   "id": "https://theflatratemovers.com/#martinsburg",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "address",
+    "aggregateRating",
+    "areaServed",
+    "geo",
+    "name",
+    "openingHoursSpecification",
+    "parentOrganization",
+    "priceRange",
+    "telephone"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/schemas/piano-antique-movers-martinsburg-wv.json",
+   "path": "$.@graph[2]",
+   "type": "Organization",
+   "name": "The Flat Rate Movers LLC",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": true,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "foundingDate",
+    "name",
+    "telephone"
+   ]
+  }
+ ],
+ "schemas/residential-moving.json": [
+  {
+   "ctx": "ai-fetch/schemas/residential-moving.json",
+   "path": "$.@graph[1]",
+   "type": "Organization",
+   "name": "The Flat Rate Movers LLC",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": true,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "email",
+    "foundingDate",
+    "location",
+    "name",
+    "sameAs",
+    "slogan",
+    "telephone",
+    "url"
+   ]
+  }
+ ],
+ "schemas/senior-moving.json": [
+  {
+   "ctx": "ai-fetch/schemas/senior-moving.json",
+   "path": "$.@graph[1]",
+   "type": "Organization",
+   "name": "The Flat Rate Movers LLC",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": true,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "email",
+    "foundingDate",
+    "location",
+    "name",
+    "sameAs",
+    "slogan",
+    "telephone",
+    "url"
+   ]
+  }
+ ],
+ "schemas/sir-heavy-movers-martinsburg-wv.json": [
+  {
+   "ctx": "ai-fetch/schemas/sir-heavy-movers-martinsburg-wv.json",
+   "path": "$.@graph[1]",
+   "type": "LocalBusiness",
+   "name": "Flat Rate Movers Martinsburg WV",
+   "id": "https://theflatratemovers.com/#martinsburg",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "address",
+    "aggregateRating",
+    "areaServed",
+    "geo",
+    "name",
+    "openingHoursSpecification",
+    "parentOrganization",
+    "priceRange",
+    "telephone"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/schemas/sir-heavy-movers-martinsburg-wv.json",
+   "path": "$.@graph[2]",
+   "type": "Organization",
+   "name": "The Flat Rate Movers LLC",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": true,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "foundingDate",
+    "name",
+    "telephone"
+   ]
+  }
+ ],
+ "schemas/transloading-movers-martinsburg-wv.json": [
+  {
+   "ctx": "ai-fetch/schemas/transloading-movers-martinsburg-wv.json",
+   "path": "$.@graph[1]",
+   "type": "LocalBusiness",
+   "name": "Flat Rate Movers Martinsburg WV",
+   "id": "https://theflatratemovers.com/#martinsburg",
+   "has_foundingDate": false,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "address",
+    "aggregateRating",
+    "areaServed",
+    "geo",
+    "name",
+    "openingHoursSpecification",
+    "parentOrganization",
+    "priceRange",
+    "telephone"
+   ]
+  },
+  {
+   "ctx": "ai-fetch/schemas/transloading-movers-martinsburg-wv.json",
+   "path": "$.@graph[2]",
+   "type": "Organization",
+   "name": "The Flat Rate Movers LLC",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": true,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "foundingDate",
+    "name",
+    "telephone"
+   ]
+  }
+ ],
+ "schemas/transloading-winchester-va.json": [
+  {
+   "ctx": "ai-fetch/schemas/transloading-winchester-va.json",
+   "path": "$.@graph[1]",
+   "type": "Organization",
+   "name": "The Flat Rate Movers LLC",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": true,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "email",
+    "foundingDate",
+    "location",
+    "name",
+    "sameAs",
+    "slogan",
+    "telephone",
+    "url"
+   ]
+  }
+ ],
+ "schemas/warehouse-relocation.json": [
+  {
+   "ctx": "ai-fetch/schemas/warehouse-relocation.json",
+   "path": "$.@graph[1]",
+   "type": "Organization",
+   "name": "The Flat Rate Movers LLC",
+   "id": "https://theflatratemovers.com/#organization",
+   "has_foundingDate": true,
+   "ref_only": false,
+   "keys": [
+    "@id",
+    "@type",
+    "email",
+    "foundingDate",
+    "location",
+    "name",
+    "sameAs",
+    "slogan",
+    "telephone",
+    "url"
+   ]
+  }
+ ]
+}
