@@ -732,6 +732,17 @@ async function main() {
     // (44 data + 207 per-page JSONs + 207 route documents + 1
     // llms-full.txt + 19 shell/code). The assertion stays exact-count.
     // Record: out/verify-fix-2026-10-31-answer-evidence.md.
+    // Extended by Retrieval Machine Build B3 (local-graph registry
+    // dataset), 2026-10-31 (same motion): datasets-local-graph-
+    // registry.json ships as a published dataset file with its
+    // landing page /datasets/local-graph-registry/ (registry 207 ->
+    // 208 pages), its per-page JSON dataset-local-graph-registry.
+    // json, its generated route document, and its generator
+    // scripts/build-local-graph.js as a sealed code distribution.
+    // Totals move to 482 distributions (45 data + 208 per-page
+    // JSONs + 208 route documents + 1 llms-full.txt + 20 shell/code).
+    // The assertion stays exact-count. Record:
+    // out/verify-fix-2026-10-31-local-graph-registry.md.
     const P2_CODE_URLS = [
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/code/site-shell/index.html',
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/code/pages-functions/_middleware.js',
@@ -750,6 +761,7 @@ async function main() {
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/scripts/build-llms-full.js',
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/scripts/build-search-index.js',
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/scripts/build-answer-evidence.js',
+      'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/scripts/build-local-graph.js',
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/scripts/route-assets/main.js',
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/scripts/route-assets/webmcp.js',
     ];
@@ -763,14 +775,14 @@ async function main() {
       const missingCode = P2_CODE_URLS.filter((u) => !distUrls.has(u));
       const missingRoutes = pages.pages.map((p) => p.url).filter((u) => !distUrls.has(u));
       const hasLlmsFull = distUrls.has('https://theflatratemovers.com/llms-full.txt');
-      p5ok = !!servedIndex && pageFiles.length === 207 && missingPages.length === 0 && missingCode.length === 0 &&
+      p5ok = !!servedIndex && pageFiles.length === 208 && missingPages.length === 0 && missingCode.length === 0 &&
         missingRoutes.length === 0 && hasLlmsFull &&
-        (servedIndex.distribution || []).length === 478;
+        (servedIndex.distribution || []).length === 482;
       p5detail = 'pageFiles=' + pageFiles.length + ', missingPages=' + (missingPages.join(',') || '0') +
         ', missingCode=' + (missingCode.join(',') || '0') + ', missingRoutes=' + (missingRoutes.slice(0, 3).join(',') || '0') +
         ', llmsFull=' + hasLlmsFull + ', distributions=' + (servedIndex ? (servedIndex.distribution || []).length : 0);
     } catch (e) { p5ok = false; p5detail = e.message; }
-    check('P-5 certificate covers all 207 per-page JSONs + all 207 route documents + llms-full.txt + the site shell + the deployed code sets (478 distributions)',
+    check('P-5 certificate covers all 208 per-page JSONs + all 208 route documents + llms-full.txt + the site shell + the deployed code sets (482 distributions)',
       p5ok, p5detail);
 
     // P-6: repo-served distribution digests re-computed over live bytes
@@ -1224,8 +1236,8 @@ async function main() {
         for (const n of ns) if (n && n['@type'] === 'Dataset') { shellCountD++; checkNodeD(n, rel); }
       }
     }
-    check('D-2 every Dataset node (dataset files + all 207 route documents) carries landing url/unique sameAs, an identifier, isAccessibleForFree, typed distributions and a self-referencing DataDownload',
-      badNodesD.length === 0 && shellCountD === 323 && routeDocsD.length === 207,
+    check('D-2 every Dataset node (dataset files + all 208 route documents) carries landing url/unique sameAs, an identifier, isAccessibleForFree, typed distributions and a self-referencing DataDownload',
+      badNodesD.length === 0 && shellCountD === 332 && routeDocsD.length === 208,
       'files + ' + shellCountD + ' route-document instances across ' + routeDocsD.length + ' documents' + (badNodesD.length ? ', bad: ' + badNodesD.slice(0, 4).join('; ') : ''));
     // D-3: local sitemap set == registry pages + dataset files.
     const localXmlD = fs.readFileSync(path.join(PAGES_PUBLIC, 'sitemap.xml'), 'utf8');
@@ -1696,6 +1708,104 @@ async function main() {
       ', barViolations=' + barBadAE.length + ', unlabeledCompetitor=' + compLabelBadAE.length);
   } catch (e) {
     check('answer-evidence dataset checks (AE-1..AE-4) evaluated', false, e.message);
+  }
+
+  // --- 20. Local-graph registry dataset — Retrieval Machine Build B3 (2026-10-31; checks LG-1..LG-4) ---
+  // Added in the same motion as the dataset shipped (record:
+  // out/verify-fix-2026-10-31-local-graph-registry.md).
+  // datasets-local-graph-registry.json is the standing registry of
+  // the Retrieval Machine's local-business graph element (Dossier 03
+  // section 5): generated branch entities x third-party records with
+  // the controlled status vocabulary, lastVerified discipline
+  // (date + method + crawl age), propagation parents and exact
+  // owner-step keys x the source-by-branch coverage matrix under the
+  // branch-parity rule x review-distribution snapshots under the
+  // shared schema bar x DO-NOT-TOUCH collision records x gaps
+  // L1–L11 with designed solutions x the consolidated owner list
+  // GENERATED from the rows. These checks assert the design's gates,
+  // including its honesty gates: corrected-live is earned only on
+  // direct-fetch proof (LG-2 fails the suite if any corrected-live
+  // row rests on a weaker method), a snippet-era status can never be
+  // silently upgraded, and the owner list must equal the set the
+  // record rows generate — exactly the six designed steps (LG-3).
+  try {
+    const { execFileSync: execLG } = require('child_process');
+    const dsLG = JSON.parse(fs.readFileSync(path.join(PAGES_PUBLIC, 'datasets-local-graph-registry.json'), 'utf8'));
+    const gLG = dsLG['@graph'] || [];
+    const nodeLG = (suffix) => gLG.find((n) => String(n['@id']).endsWith(suffix));
+    const branchesLG = (nodeLG('#dataset-local-graph-registry-branches') || {}).branchEntities || [];
+    const recordsLG = (nodeLG('#dataset-local-graph-registry-records') || {}).thirdPartyRecords || [];
+    const coverageLG = (nodeLG('#dataset-local-graph-registry-coverage') || {}).coverageMatrix || [];
+    const snapsLG = (nodeLG('#dataset-local-graph-registry-reviews') || {}).reviewDistributionSnapshots || [];
+    const collsLG = (nodeLG('#dataset-local-graph-registry-collisions') || {}).collisionRecords || [];
+    const gapsLG = (nodeLG('#dataset-local-graph-registry-gaps') || {}).gapRecords || [];
+    const stepsLG = (nodeLG('#dataset-local-graph-registry-owner-steps') || {}).consolidatedOwnerSteps || [];
+    const totLG = (nodeLG('#dataset-local-graph-registry-totals') || {}).totals || {};
+    const STATUS_LG = ['verified-correct', 'open', 'correction-sent', 'corrected-live', 'parked-owner-step', 'platform-refused', 'unverifiable-today', 'monitored-synthesis', 'no-profile-exists', 'do-not-touch-collision'];
+    const METHOD_LG = ['direct-fetch', 'search-surface', 'owner-manager-read'];
+    const badRecLG = recordsLG.filter((r) => !r.recordId || !r.source || !r.field ||
+      !r.observedValue || !r.correctValue || !STATUS_LG.includes(r.status) ||
+      !r.lastVerified || !/^\d{4}-\d{2}-\d{2}$/.test(r.lastVerified.date || '') ||
+      !METHOD_LG.includes(r.lastVerified.method) || !r.evidenceRef);
+    const statusSumLG = Object.values(totLG.recordsByStatus || {}).reduce((a, b) => a + b, 0);
+    check('LG-1 every registry record carries a controlled-vocabulary status, a last-verified date + method, an evidence reference and non-empty observed/correct values, and the totals reconcile with the rows',
+      recordsLG.length > 0 && badRecLG.length === 0 &&
+      totLG.thirdPartyRecords === recordsLG.length && statusSumLG === recordsLG.length &&
+      totLG.recordsVerifiedCorrect === recordsLG.filter((r) => r.status === 'verified-correct').length,
+      'records=' + recordsLG.length + ', badRecords=' + badRecLG.length + ', totalsRecords=' + totLG.thirdPartyRecords);
+    const corrLG = recordsLG.filter((r) => r.status === 'corrected-live');
+    const corrBadLG = corrLG.filter((r) => r.lastVerified.method !== 'direct-fetch');
+    const parentBadLG = recordsLG.filter((r) => r.propagationParent &&
+      !recordsLG.some((x) => x.recordId === r.propagationParent));
+    const cellBadLG = [];
+    for (const row of coverageLG) {
+      for (const b of ['winchester', 'martinsburg']) {
+        const cell = row[b] || {};
+        if (!cell.state || !Array.isArray(cell.recordIds) || cell.recordIds.length === 0) cellBadLG.push(row.sourceId + '/' + b);
+      }
+    }
+    const bwLG = branchesLG.find((b) => b.branchId === 'winchester') || {};
+    const bmLG = branchesLG.find((b) => b.branchId === 'martinsburg') || {};
+    check('LG-2 corrected-live is earned only on direct-fetch proof, every propagation parent resolves, the coverage matrix is complete (sources x 2 branches, no blank cells), and the two branch entities are present and distinct',
+      corrBadLG.length === 0 && parentBadLG.length === 0 &&
+      coverageLG.length === totLG.sources && cellBadLG.length === 0 &&
+      totLG.coverageCells === coverageLG.length * 2 &&
+      branchesLG.length === 2 && bwLG.displayName === 'The Flat Rate Movers' &&
+      bmLG.displayName === 'Flat Rate Movers Martinsburg WV' &&
+      bwLG.hoursDisplay !== bmLG.hoursDisplay && bwLG.address.full !== bmLG.address.full,
+      'correctedLive=' + corrLG.length + ', correctedLiveNotDirectFetch=' + corrBadLG.length +
+      ', badParents=' + parentBadLG.length + ', coverageRows=' + coverageLG.length + ', badCells=' + cellBadLG.length);
+    const stepKeysLG = [...new Set(recordsLG.filter((r) => r.ownerStep).map((r) => r.ownerStep))].sort();
+    const genKeysLG = stepsLG.map((x) => x.step).sort();
+    const stepBlocksBadLG = stepsLG.filter((x) => {
+      const want = recordsLG.filter((r) => r.ownerStep === x.step).map((r) => r.recordId).sort();
+      const got = [...(x.blocksRecordIds || [])].sort();
+      return JSON.stringify(want) !== JSON.stringify(got);
+    });
+    const collBadLG = collsLG.filter((c) => c.action !== 'none — DO-NOT-TOUCH' || !Array.isArray(c.conflationEvents));
+    const gapBadLG = gapsLG.filter((g) => !g.solution || !g.title || !g.resolvingBatch);
+    check('LG-3 the consolidated owner list equals the set generated from the record rows (exactly the six designed steps, each step blocking exactly its rows), collisions are all DO-NOT-TOUCH with event lists, and every gap carries its designed solution',
+      stepsLG.length === 6 && JSON.stringify(stepKeysLG) === JSON.stringify(genKeysLG) && stepBlocksBadLG.length === 0 &&
+      collsLG.length === 6 && collBadLG.length === 0 &&
+      gapsLG.length === 11 && gapBadLG.length === 0 && totLG.gapRecords === 11,
+      'steps=' + stepsLG.length + ', generatedFromRows=' + stepKeysLG.length + ', stepBlockMismatches=' + stepBlocksBadLG.length +
+      ', collisions=' + collsLG.length + ', gaps=' + gapsLG.length);
+    const claimFieldsLG = ['aggregateRating', 'reviewCount', 'bestRating', 'worstRating', 'ratingValue', 'review', 'itemReviewed', 'author', 'positiveNotes', 'negativeNotes', 'endorsement', 'recommendation', 'qualityScore', 'qualityClaim', 'award', 'certificationClaim', 'ratingVerdict'];
+    const barBadLG = snapsLG.filter((r) => claimFieldsLG.some((f) => Object.prototype.hasOwnProperty.call(r, f)));
+    const compLG = snapsLG.filter((r) => r.namespace === 'competitor');
+    const compLabelBadLG = compLG.filter((r) => !String(r.note || '').includes('Competitor-namespace record'));
+    let regenLG = false, regenDetailLG = '';
+    try {
+      execLG('node', [path.join(ROOT, 'scripts', 'build-local-graph.js'), '--check'], { maxBuffer: 64 * 1024 * 1024 });
+      regenLG = true;
+    } catch (e) { regenDetailLG = String(e.message).slice(0, 160); }
+    check('LG-4 review snapshots hold the schema bar (no claim fields; competitor records namespaced and labeled) and the dataset regenerates byte-identical from the estate registries and evidence seed',
+      barBadLG.length === 0 && compLabelBadLG.length === 0 &&
+      totLG.reviewSnapshots === snapsLG.length && totLG.competitorSnapshots === compLG.length && regenLG,
+      'snapshots=' + snapsLG.length + ', competitor=' + compLG.length + ', barViolations=' + barBadLG.length +
+      ', unlabeledCompetitor=' + compLabelBadLG.length + ', regenerated=' + regenLG + (regenDetailLG ? ', ' + regenDetailLG : ''));
+  } catch (e) {
+    check('local-graph registry dataset checks (LG-1..LG-4) evaluated', false, e.message);
   }
 
   // --- 9. Guardrail scan: no placeholders, no invented license identifiers ---
