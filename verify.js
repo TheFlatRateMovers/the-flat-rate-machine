@@ -671,6 +671,16 @@ async function main() {
     // (38 nodes)", the true node count of the file the entry serves).
     // The assertion stays exact-count. Record:
     // out/verify-fix-2026-10-31-blog-n3n4.md.
+    // Extended by Batch Intent Rubric v2 Live, 2026-10-31 (same
+    // motion): totals move to 257 distributions (42 data + 202 pages
+    // + 13 shell/code — the two v2 code files join the code set under
+    // the owner's certificate directive that every code/script carry
+    // the seal: scripts/build-intent-rubric.js, the generative rubric
+    // builder whose output is itself a sealed dataset, and
+    // scripts/ingest-outcome-evidence.py, the outcome-evidence ingest
+    // tool. No page or data file is added; the page set stays 202).
+    // The assertion stays exact-count. Record:
+    // out/verify-fix-2026-10-31-intent-rubric-v2.md.
     const P2_CODE_URLS = [
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/code/site-shell/index.html',
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/code/pages-functions/_middleware.js',
@@ -683,6 +693,8 @@ async function main() {
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/tools/sign-index.py',
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/tools/verify-provenance.py',
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/tools/gen-head-data.js',
+      'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/scripts/build-intent-rubric.js',
+      'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/scripts/ingest-outcome-evidence.py',
     ];
     let p5detail = '', p5ok = false;
     try {
@@ -693,11 +705,11 @@ async function main() {
       const missingPages = pageFiles.filter((f) => !distUrls.has('https://theflatratemovers.com/' + f));
       const missingCode = P2_CODE_URLS.filter((u) => !distUrls.has(u));
       p5ok = !!servedIndex && pageFiles.length === 202 && missingPages.length === 0 && missingCode.length === 0 &&
-        (servedIndex.distribution || []).length === 255;
+        (servedIndex.distribution || []).length === 257;
       p5detail = 'pageFiles=' + pageFiles.length + ', missingPages=' + (missingPages.join(',') || '0') +
         ', missingCode=' + (missingCode.join(',') || '0') + ', distributions=' + (servedIndex ? (servedIndex.distribution || []).length : 0);
     } catch (e) { p5ok = false; p5detail = e.message; }
-    check('P-5 certificate covers all 202 per-page JSONs + the site shell + the deployed code sets (255 distributions)',
+    check('P-5 certificate covers all 202 per-page JSONs + the site shell + the deployed code sets (257 distributions)',
       p5ok, p5detail);
 
     // P-6: repo-served distribution digests re-computed over live bytes
@@ -899,6 +911,165 @@ async function main() {
       'status=' + liveDsRes.status + ', content-type=' + liveDsRes.ct + ', digest match=' + (liveD8 ? liveD8.intentRowsDigest === metaI.rows_digest : 'unparseable'));
   } catch (e) {
     check('intent-coverage rubric checks (I-1..I-5) evaluated', false, e.message);
+  }
+
+  // --- 13b. Intent Rubric v2 (Batch Intent Rubric v2 Live, 2026-10-31; checks I-6..I-9) ---
+  // Applies the staged patch (verify-section-13-v2.patch.md) in the
+  // same motion as rubric v2 shipped. Record:
+  // out/verify-fix-2026-10-31-intent-rubric-v2.md. Vocabulary note:
+  // the patch's gate-state words {observed, verified} are the
+  // generator's single state 'passed' (a gate passes only on
+  // recorded evidence); the outcome_status vocabulary matches the
+  // generator exactly. All four checks fail closed: a missing v2
+  // table, meta key, or field is a FAIL, never a skip.
+  try {
+    const { execFileSync } = require('child_process');
+    const dbPathV = path.resolve(ROOT, '..', 'theflatratemovers', 'rubric.db');
+    const qV = (sql) => execFileSync('sqlite3', ['-json', dbPathV, sql], { maxBuffer: 64 * 1024 * 1024 }).toString();
+    const rowsOfV = (sql) => JSON.parse(qV(sql) || '[]');
+    const oneV = (sql) => rowsOfV(sql)[0] || {};
+    const sum0 = (v) => (v === null || v === undefined ? 0 : v);
+    const metaV = {};
+    for (const mm of rowsOfV('SELECT key, value FROM intent_meta;')) metaV[mm.key] = mm.value;
+    const countsV = oneV('SELECT (SELECT COUNT(*) FROM intent_query) AS rows_n, (SELECT COUNT(*) FROM intent_row_outcome) AS outcome_n, (SELECT COUNT(*) FROM intent_outcome_evidence) AS evidence_n, (SELECT COUNT(*) FROM gsc_observed_queries) AS obs_q, (SELECT COUNT(*) FROM gsc_observed_pages) AS obs_p, (SELECT COUNT(*) FROM intent_row_gsc_evidence) AS ev_rows, (SELECT COUNT(DISTINCT observation_id) FROM intent_row_gsc_evidence) AS ev_attached');
+    const genSummaryV = JSON.parse(fs.readFileSync(path.join(ROOT, 'out', 'batch-intent-rubric', 'work', 'generation-summary.json'), 'utf8'));
+    const batchV = oneV('SELECT window_start, window_end FROM gsc_import_batches ORDER BY id DESC LIMIT 1;');
+    const rowsV = rowsOfV('SELECT query_text, service_id, target_url, observation_ids FROM intent_query;');
+    const obsPageSetV = new Set(rowsOfV('SELECT page_url FROM gsc_observed_pages;').map((r) => r.page_url.replace('://www.', '://')));
+    const registrySetV = new Set(pages.pages.map((p) => p.url.replace('://www.', '://')));
+
+    // I-6: v2 generator version + source accounting + full coverage + evidence window.
+    const i6ok = metaV.generator_version === '2.0.0' && metaV.schema_version === '2' &&
+      parseInt(metaV.row_count, 10) === countsV.rows_n &&
+      genSummaryV.rows === countsV.rows_n &&
+      parseInt(metaV.page_derived_rows, 10) === genSummaryV.pageDerived.rowsEmitted && genSummaryV.pageDerived.rowsEmitted > 0 &&
+      parseInt(metaV.rollup_rows, 10) === genSummaryV.rollup.rowsEmitted &&
+      parseInt(metaV.target_pages_covered, 10) === pages.pages.length &&
+      parseInt(metaV.target_pages_total, 10) === pages.pages.length &&
+      Array.isArray(genSummaryV.targetCoverage.uncovered) && genSummaryV.targetCoverage.uncovered.length === 0 &&
+      metaV.evidence_era === 'pre-rebuild' &&
+      metaV.evidence_window === String(batchV.window_start) + '/' + String(batchV.window_end) &&
+      parseInt(metaV.evidence_queries_attached, 10) === countsV.ev_attached;
+    check('I-6 rubric v2 generator version, source accounting (v1 + page-derived + roll-up = total), full page-registry target coverage and evidence window reconcile',
+      i6ok, 'generator ' + metaV.generator_version + ' / schema ' + metaV.schema_version + '; rows=' + countsV.rows_n +
+        ' (v1 ' + (countsV.rows_n - (genSummaryV.pageDerived.rowsEmitted || 0) - (genSummaryV.rollup.rowsEmitted || 0)) +
+        ' + page-derived ' + genSummaryV.pageDerived.rowsEmitted + ' + roll-up ' + genSummaryV.rollup.rowsEmitted + '); coverage ' +
+        metaV.target_pages_covered + '/' + metaV.target_pages_total + '; window ' + metaV.evidence_window + '; attached queries ' + countsV.ev_attached);
+
+    // I-7: evidence attachments are era-tagged, metric-true, gated to existed-in-window + still-live targets.
+    const evJoinV = oneV("SELECT " +
+      "SUM(CASE WHEN e.era != 'pre-rebuild' THEN 1 ELSE 0 END) AS bad_era, " +
+      "SUM(CASE WHEN e.window_start != o.window_start OR e.window_end != o.window_end THEN 1 ELSE 0 END) AS bad_window, " +
+      "SUM(CASE WHEN e.clicks != o.clicks OR e.impressions != o.impressions OR e.ctr != o.ctr OR e.avg_position != o.avg_position THEN 1 ELSE 0 END) AS bad_metrics " +
+      "FROM intent_row_gsc_evidence e JOIN gsc_observed_queries o ON o.id = e.observation_id");
+    const evRowsV = rowsOfV('SELECT query_text, service_id, observation_id FROM intent_row_gsc_evidence;');
+    const rowByKeyV = new Map(rowsV.map((r) => [r.query_text + '|' + r.service_id, r]));
+    let badExistV = 0, danglingV = 0;
+    for (const r of rowsV) {
+      const ids = JSON.parse(r.observation_ids || '[]');
+      const tu = String(r.target_url).replace('://www.', '://');
+      if (ids.length && (!obsPageSetV.has(tu) || !registrySetV.has(tu))) badExistV++;
+      for (const id of ids) {
+        if (!evRowsV.some((e) => e.query_text === r.query_text && e.service_id === r.service_id && e.observation_id === id)) danglingV++;
+      }
+    }
+    for (const e of evRowsV) {
+      const r = rowByKeyV.get(e.query_text + '|' + e.service_id);
+      if (!r || !JSON.parse(r.observation_ids || '[]').includes(e.observation_id)) danglingV++;
+    }
+    check('I-7 v2 evidence attachments are era-tagged pre-rebuild, metric-true to the import, and attach only to rows whose target existed in the window and is still live',
+      sum0(evJoinV.bad_era) === 0 && sum0(evJoinV.bad_window) === 0 && sum0(evJoinV.bad_metrics) === 0 &&
+        badExistV === 0 && danglingV === 0 && countsV.ev_rows > 0,
+      'evidence rows=' + countsV.ev_rows + ', attached queries=' + countsV.ev_attached + '; bad era/window/metrics=' +
+        sum0(evJoinV.bad_era) + '/' + sum0(evJoinV.bad_window) + '/' + sum0(evJoinV.bad_metrics) +
+        '; bad targets=' + badExistV + '; dangling links=' + danglingV);
+
+    // I-8: outcome integrity — 1:1 summaries, legal states, proven states carry their proof,
+    // status derivations hold, awaiting-observation rows honestly name the window, evidence log append-only.
+    const GC = ['crawled', 'indexed', 'understood', 'corroborated', 'cited_maintained'];
+    const ocV = oneV('SELECT ' +
+      'SUM(CASE WHEN ' + GC.map((g) => g + "_state NOT IN ('unknown','passed','failed','not-applicable')").join(' OR ') + ' THEN 1 ELSE 0 END) AS bad_state, ' +
+      'SUM(CASE WHEN ' + GC.map((g) => '(' + g + "_state != 'unknown' AND (" + g + '_checked_at IS NULL OR ' + g + '_evidence_source IS NULL))').join(' OR ') + ' THEN 1 ELSE 0 END) AS bad_proof, ' +
+      "SUM(CASE WHEN outcome_status NOT IN ('unknown','awaiting-observation','partial','blocked','complete') THEN 1 ELSE 0 END) AS bad_status, " +
+      "SUM(CASE WHEN outcome_status = 'complete' AND NOT (" + GC.map((g) => g + "_state = 'passed'").join(' AND ') + ') THEN 1 ELSE 0 END) AS bad_complete, ' +
+      "SUM(CASE WHEN outcome_status = 'partial' AND NOT (" + GC.map((g) => g + "_state = 'passed'").join(' OR ') + ') THEN 1 ELSE 0 END) AS bad_partial ' +
+      'FROM intent_row_outcome');
+    const joinV = oneV('SELECT ' +
+      '(SELECT COUNT(*) FROM intent_row_outcome o LEFT JOIN intent_query q ON q.query_text = o.query_text AND q.service_id = o.service_id WHERE q.query_text IS NULL) AS orphan_outcomes, ' +
+      '(SELECT COUNT(*) FROM intent_query q LEFT JOIN intent_row_outcome o ON q.query_text = o.query_text AND q.service_id = o.service_id WHERE o.query_text IS NULL) AS rows_without_outcome');
+    const awaitingRowsV = rowsOfV("SELECT q.target_url, o.outcome_basis FROM intent_row_outcome o JOIN intent_query q ON q.query_text = o.query_text AND q.service_id = o.service_id WHERE o.outcome_status = 'awaiting-observation'");
+    let badAwaitV = 0;
+    for (const r of awaitingRowsV) {
+      const tu = String(r.target_url).replace('://www.', '://');
+      if (!/evidence window/.test(r.outcome_basis || '') || obsPageSetV.has(tu)) badAwaitV++;
+    }
+    check('I-8 v2 outcome summaries are 1:1 with rows, every non-unknown gate state is proven and dated, status derivations hold, and the evidence log is append-only',
+      countsV.outcome_n === countsV.rows_n && joinV.orphan_outcomes === 0 && joinV.rows_without_outcome === 0 &&
+        sum0(ocV.bad_state) === 0 && sum0(ocV.bad_proof) === 0 && sum0(ocV.bad_status) === 0 &&
+        sum0(ocV.bad_complete) === 0 && sum0(ocV.bad_partial) === 0 && badAwaitV === 0 &&
+        countsV.evidence_n === parseInt(metaV.outcome_evidence_count, 10),
+      'summaries=' + countsV.outcome_n + '/' + countsV.rows_n + '; orphans=' + joinV.orphan_outcomes + '/' + joinV.rows_without_outcome +
+        '; bad state/proof/status/complete/partial=' + sum0(ocV.bad_state) + '/' + sum0(ocV.bad_proof) + '/' + sum0(ocV.bad_status) + '/' +
+        sum0(ocV.bad_complete) + '/' + sum0(ocV.bad_partial) + '; bad awaiting=' + badAwaitV +
+        '; evidence log=' + countsV.evidence_n + ' (meta baseline ' + metaV.outcome_evidence_count + ')');
+
+    // I-9: the published dataset v2 fields reconcile with the database (no hand-edited numbers).
+    const dsDocV = JSON.parse(fs.readFileSync(path.resolve(ROOT, '..', 'the-flat-rate-movers-pages', 'public', 'datasets-intent-coverage.json'), 'utf8'));
+    const graphV = dsDocV['@graph'] || [];
+    const d8V = graphV.find((n) => n['@id'] === 'https://theflatratemovers.com/#dataset-intent-coverage-totals');
+    const d6V = graphV.find((n) => n['@id'] === 'https://theflatratemovers.com/#dataset-intent-coverage-sources');
+    const covNodesV = graphV.filter((n) => String(n['@id']).includes('/#intent-coverage-'));
+    const ocRowsV = rowsOfV('SELECT service_id, outcome_status, highest_gate_passed, crawled_state, indexed_state, understood_state, corroborated_state, cited_maintained_state FROM intent_row_outcome');
+    const byStatusV = { unknown: 0, 'awaiting-observation': 0, partial: 0, blocked: 0, complete: 0 };
+    const byHighestV = { none: 0, crawled: 0, indexed: 0, understood: 0, corroborated: 0, 'cited-maintained': 0 };
+    const byGateV = { crawled: {}, indexed: {}, understood: {}, corroborated: {}, 'cited-maintained': {} };
+    for (const r of ocRowsV) {
+      byStatusV[r.outcome_status] = (byStatusV[r.outcome_status] || 0) + 1;
+      byHighestV[r.highest_gate_passed] = (byHighestV[r.highest_gate_passed] || 0) + 1;
+      for (const g of GC) {
+        const lbl = g === 'cited_maintained' ? 'cited-maintained' : g;
+        byGateV[lbl][r[g + '_state']] = (byGateV[lbl][r[g + '_state']] || 0) + 1;
+      }
+    }
+    const enrichedSvcV = {};
+    for (const r of rowsV) if (JSON.parse(r.observation_ids || '[]').length) enrichedSvcV[r.service_id] = (enrichedSvcV[r.service_id] || 0) + 1;
+    const covBadV = covNodesV.filter((n) => {
+      const sid = 'service-' + String(n['@id']).split('/#intent-coverage-')[1];
+      return n.queryRowsBySource.generated !== n.queryRows ||
+        n.generatedRowsEnrichedByGsc !== (enrichedSvcV[sid] || 0) ||
+        !n.outcomeRollup || n.outcomeRollup.rows !== n.queryRows;
+    });
+    const geoV = load('data/service-area.geojson');
+    const areaTaggedV = oneV('SELECT COUNT(*) AS n FROM intent_query WHERE area IS NOT NULL').n;
+    const rollEqV = (pub, dbMap, vocab) => !!pub &&
+      Object.keys(pub).every((k) => vocab.includes(k)) &&
+      vocab.every((k) => (pub[k] || 0) === (dbMap[k] || 0));
+    const gateEqV = (pub, dbMap) => !!pub &&
+      ['crawled', 'indexed', 'understood', 'corroborated', 'cited-maintained'].every((g) =>
+        rollEqV(pub[g], dbMap[g] || {}, ['unknown', 'passed', 'failed', 'not-applicable']));
+    const d8okV = !!d8V && d8V.generatedBy === 'build-intent-rubric.js v2.0.0' &&
+      d8V.rowSources.estateGenerated === countsV.rows_n &&
+      d8V.rowSources.pageDerived === parseInt(metaV.page_derived_rows, 10) &&
+      d8V.rowSources.gscObservedRows === 0 &&
+      d8V.gscEvidence.queriesImported === countsV.obs_q &&
+      d8V.gscEvidence.queriesAttachedToRows === countsV.ev_attached &&
+      d8V.gscEvidence.rowsEnriched === rowsV.filter((r) => JSON.parse(r.observation_ids || '[]').length).length &&
+      d8V.gscEvidence.pagesInExport === countsV.obs_p &&
+      d8V.gscEvidence.pagesStillLive + d8V.gscEvidence.pagesStale === countsV.obs_p &&
+      d8V.outcomeDigest === metaV.outcome_digest &&
+      d8V.outcomeRollup.rows === countsV.rows_n &&
+      rollEqV(d8V.outcomeRollup.byStatus, byStatusV, ['unknown', 'awaiting-observation', 'partial', 'blocked', 'complete']) &&
+      rollEqV(d8V.outcomeRollup.byHighestGate, byHighestV, ['none', 'crawled', 'indexed', 'understood', 'corroborated', 'cited-maintained']) &&
+      gateEqV(d8V.outcomeRollup.byGateState, byGateV) &&
+      d8V.pageCoverage.pagesTargeted === pages.pages.length && Array.isArray(d8V.pageCoverage.uncoveredPages) && d8V.pageCoverage.uncoveredPages.length === 0 &&
+      Array.isArray(d8V.rowsByArea) && d8V.rowsByArea.length === (geoV.features || []).length &&
+      d8V.rowsByArea.reduce((a, x) => a + x.rows, 0) + Object.values(d8V.rowsByNonFeatureArea || {}).reduce((a, x) => a + x, 0) === areaTaggedV;
+    check('I-9 published intent dataset v2 fields reconcile with the database (36-node frame, row sources with gscObservedRows=0, era-tagged evidence block, outcome roll-up + digest, full page coverage, per-area rows over all 53 GeoJSON features)',
+      graphV.length === 36 && d8okV && covBadV.length === 0 && !!d6V && /pre-rebuild/.test(d6V.description),
+      'nodes=' + graphV.length + '; coverage nodes bad=' + covBadV.length + '; d8 reconcile=' + d8okV +
+        '; outcome digest=' + String(metaV.outcome_digest || '').slice(0, 12) + '…; areas=' + (d8V && d8V.rowsByArea ? d8V.rowsByArea.length : 0));
+  } catch (e) {
+    check('I-6..I-9 intent rubric v2 checks execute (fail-closed)', false, e.message);
   }
 
   // --- 14. Dataset discoverability — Batch Dataset Discoverability (2026-10-30; checks D-1..D-5) ---

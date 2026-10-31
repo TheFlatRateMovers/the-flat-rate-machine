@@ -86,10 +86,16 @@ const { SITE, fail, load } = require('./lib');
 
 const ROOT = path.resolve(__dirname, '..');
 const FLAT = path.resolve(ROOT, '..', 'theflatratemovers');
-const PUB = path.resolve(ROOT, '..', 'the-flat-rate-movers-pages', 'public');
-const DB_PATH = path.join(FLAT, 'rubric.db');
-const QB_PATH = path.join(FLAT, 'blog-project', '04-question-bank.md');
-const RUBRIC_DATE = '2026-10-30';
+// v2.0.0 staging overrides: production defaults are the v1 paths; the
+// RUBRIC_* env vars exist so a staged copy can be built and dry-run
+// against a snapshot without touching the live estate. Deploy day runs
+// with no overrides.
+const PUB = process.env.RUBRIC_PUBLIC_ROOT || path.resolve(ROOT, '..', 'the-flat-rate-movers-pages', 'public');
+const DATA_ROOT = process.env.RUBRIC_DATA_ROOT || path.join(ROOT, 'data');
+const DB_PATH = process.env.RUBRIC_DB_PATH || path.join(FLAT, 'rubric.db');
+const QB_PATH = process.env.RUBRIC_QB_PATH || path.join(FLAT, 'blog-project', '04-question-bank.md');
+const WORK_DIR = process.env.RUBRIC_WORK_DIR || path.resolve(ROOT, 'out', 'batch-intent-rubric', 'work');
+const RUBRIC_DATE = process.env.RUBRIC_DATE || '2026-10-31';
 const GENERATOR = 'build-intent-rubric.js';
 // 2026-10-30 (Batch Inland Port Transloading): service-transloading rows gain the
 // Virginia Inland Port datasets file as backing data (the new hub's own rows
@@ -112,7 +118,53 @@ const GENERATOR = 'build-intent-rubric.js';
 // as a PropertyValue on the four collection nodes; the landing URL on
 // the per-service coverage nodes) and isAccessibleForFree. Rows are
 // unaffected (the row set and gates do not change).
-const GENERATOR_VERSION = '1.3.2';
+// 2026-10-31 (Intent Rubric v2.0.0, APPROVED by Henry 2026-10-31):
+// two additions, both additive to the v1 row model.
+// (1) LIVE-ESTATE ROWS + GSC EVIDENCE OVERLAY (owner correction
+// 2026-10-31, superseding the seed-first framing). The GSC export in
+// hand covers 2026-07-29 to 2026-10-28 — the PRE-REBUILD website.
+// It is historical evidence, never a row source and never current
+// performance. Item 1 therefore has two halves:
+// R13 PAGE-DERIVED ROWS (primary): for every page carrying a service
+// association, bounded query rows derived from what the page is for —
+// its slug, its registry title, and the serviceType its per-page JSON
+// publishes — targeting the page itself under the same R10 gates.
+// R12' EVIDENCE OVERLAY: an imported GSC query's metrics attach to an
+// existing row only on an exact normalized text match AND only when
+// the row's target page appears in the export's Pages aggregate
+// (existed in the window) and is still live at the same URL. Every
+// attachment is stored in intent_row_gsc_evidence with its window
+// and era='pre-rebuild'. Unattached queries remain evidence only.
+// Rows for pages with no presence in the evidence window carry the
+// outcome status 'awaiting-observation' — unmeasured, not failing.
+// (2) PER-ROW OUTCOME STATE. Every row carries an outcome summary
+// across the gates crawled / indexed / understood / corroborated /
+// cited-maintained (table intent_row_outcome), each gate state one of
+// unknown / passed / failed / not-applicable with checked_at and
+// evidence source columns, defaulting to unknown — a state is only
+// ever written from recorded evidence (intent_outcome_evidence), never
+// inferred by the generator. Outcome summaries survive regeneration
+// by (query_text, service_id) key. The published dataset gains
+// per-service queryRowsBySource + outcomeRollup fields and totals-node
+// rowSources / observedQueries / outcomeRollup fields; the D1-D8 frame
+// and node set are unchanged.
+// 2026-10-31 (Intent Rubric v2 DEPLOY — the certificate-fix
+// completion bar, Henry's no-gating directive): three additions ride
+// the deploy. (a) Per-page JSON RESOLUTION: the five pages published
+// under Batch 3 short names resolve to their real per-page JSON (the
+// file whose own WebPage @id is the page's canonical URL) instead of
+// failing the R10 gate on the slug-derived guess — the gate itself is
+// unchanged and applies to the resolved file. (b) R14 ESTATE ROLL-UP
+// rows: every registry page becomes a rubric target; hub, category
+// and estate pages gain bounded rows derived from the services they
+// group (ROLLUP_ALL / ROLLUP_SETS / registry-derived children /
+// branch location pages), targeting the page itself under the same
+// gates. (c) The totals node gains pageCoverage, the R14 roll-up
+// accounting, and rowsByArea — per-area row counts for all 53
+// GeoJSON footprint features, zeros published. Generator version
+// stays 2.0.0 (schema 2); the additions are recorded in intent_meta
+// (rollup_rows, rollup_pages, target_pages_covered/total).
+const GENERATOR_VERSION = '2.0.0';
 const KID = 'theflatratemovers-2026-10-29-1';
 
 // --- Generator configuration (validated against the registries) ---
@@ -278,14 +330,57 @@ const QB9 = { // question number -> service, within category 9
 const CORRIDOR_SHORT = { 'i-81': 'I-81', 'i-66': 'I-66', 'i-70': 'I-70' };
 const CLASS_ORDER = ['navigational-local', 'cost', 'how-process', 'best-choice', 'ai-question'];
 
+// R14 ESTATE ROLL-UP configuration (v2 deploy, 2026-10-31 — the
+// certificate-fix completion bar: EVERY registry page must be a rubric
+// target). Pages that carry no service of their own still group
+// services: a category page groups the services of the pages under it
+// (derived from the registry at run time, no table needed); a branch
+// location page groups every service at its branch; the pages below
+// group either the whole estate (ROLLUP_ALL — indexes, hubs, the
+// quote/guarantee surfaces, the knowledge and developer surfaces that
+// describe the whole estate) or a named subject set (ROLLUP_SETS,
+// taken from each page's own published description of what it
+// collects). Grouping is validated against the registries at run
+// time; a page matched by no rule and targeted by no row is reported
+// by slug in the run summary — never silently skipped.
+const ROLLUP_SETS = {
+  // "freight, transloading, data and corridor logistics ... I-81, I-66,
+  // I-70 network" (the page's own head description).
+  'category/logistics': ['service-transloading', 'service-final-mile', 'service-industrial-commercial', 'service-warehouse-relocation', 'service-long-distance', 'service-route81'],
+  // "Valley freight, warehousing, transloading and moving logistics
+  // run from Winchester on I-81" (the page's own head description).
+  'category/shenandoah-valley-logistics': ['service-transloading', 'service-transloading-winchester-va', 'service-warehouse-relocation', 'service-industrial-commercial', 'service-local-regional'],
+  // The videos the page/dataset publish: household moving, heavy gun
+  // safe moves, a final-mile white-glove installation (the page's own
+  // head description + the dataset's VideoObject subjects).
+  'videos': ['service-residential', 'service-gun-safe', 'service-sir-heavy', 'service-final-mile', 'service-commercial', 'service-transloading'],
+  'datasets/videos': ['service-residential', 'service-gun-safe', 'service-sir-heavy', 'service-final-mile', 'service-commercial', 'service-transloading'],
+};
+const ROLLUP_ALL = new Set([
+  'home', 'services', 'all-pages', 'sitemap', 'blog', 'datasets',
+  'datasets/intent-coverage', 'faq', 'moving-questions-answers',
+  'quote', 'online-estimate', 'flat-rate-moving-quote-winchester',
+  'flat-rate-guarantee', 'areas-served', 'service-areas-moving-company',
+  'find-us', 'moving-cost-guide-winchester-va', 'developer', 'entities',
+  'entity-authority-layer', 'knowledge-entities', 'knowledge-equipment',
+  'knowledge-events', 'knowledge-locations', 'knowledge-services',
+  'logistics-data-engineering-center', 'recursive-indexing-layer',
+  'the-flat-rate-logistics-data-hub', 'ai-license', 'docs',
+  'docs/logistics-event-protocol', 'docs/logistics-ontology',
+  'author/ratemoversgmail-com', 'privacy-policy',
+]);
+
 // --- Registry loading + validation ---
+function loadData(rel) {
+  return JSON.parse(fs.readFileSync(path.join(DATA_ROOT, path.basename(rel)), 'utf8'));
+}
 function loadAll() {
-  const services = load('data/services.json');
-  const pages = load('data/pages.json');
-  const locations = load('data/locations.json');
-  const corridors = load('data/corridors.json');
-  const geo = load('data/service-area.geojson');
-  const best = load('data/best-json-entity-graph.json');
+  const services = loadData('data/services.json');
+  const pages = loadData('data/pages.json');
+  const locations = loadData('data/locations.json');
+  const corridors = loadData('data/corridors.json');
+  const geo = loadData('data/service-area.geojson');
+  const best = loadData('data/best-json-entity-graph.json');
   const index = JSON.parse(fs.readFileSync(path.join(PUB, 'ai-master-index.json'), 'utf8'));
   return { services, pages, locations, corridors, geo, best, index };
 }
@@ -377,6 +472,53 @@ function graphNode(R, service) {
 
 function jsonFileFor(slug) { return slug.replace(/\//g, '-') + '.json'; }
 
+// Per-page JSON resolution (v2 deploy, 2026-10-31). The slug-derived
+// filename is the estate's convention, but five pages were published
+// under short names in the Batch 3 transloading build and are still
+// served under those names (the estate's own llms.txt publishes the
+// same mapping: category/freight-services -> freight-services.json,
+// category/port-logistics -> port-logistics.json,
+// docs/container-deconsolidation -> container-deconsolidation.json,
+// the Winchester museum-logistics index -> category-museum-logistics.json,
+// its logistics-transportation child -> logistics-transportation.json).
+// Resolution: the slug-derived file when it exists; else the unique
+// root JSON whose own WebPage node names the page's canonical URL —
+// the file's own declaration is the proof. The R10 gates (file
+// present, distribution in the signed index, digest copied from the
+// index) apply unchanged to whichever file resolves; a page whose
+// JSON cannot be resolved uniquely still fails the gate honestly.
+// Resolution order (corrected 2026-10-31, v2 deploy): a UNIQUE
+// WebPage-@id match wins over the slug-derived filename. The derived
+// name can collide with a different published file — the intent
+// landing page's derived name is datasets-intent-coverage.json, the
+// dataset file itself, while its per-page JSON is
+// dataset-intent-coverage.json (which declares the page's @id). The
+// file's own declaration outranks the filename guess in both
+// directions.
+let _jsonResolutionCache = null;
+function resolveJsonFile(page) {
+  const derived = jsonFileFor(page.slug);
+  if (!_jsonResolutionCache) {
+    _jsonResolutionCache = new Map();
+    for (const f of fs.readdirSync(PUB)) {
+      if (!f.endsWith('.json') || f.startsWith('datasets-') || f === 'ai-master-index.json') continue;
+      let doc;
+      try { doc = JSON.parse(fs.readFileSync(path.join(PUB, f), 'utf8')); } catch (e) { continue; }
+      const nodes = (doc && doc['@graph']) || [doc];
+      for (const n of nodes) {
+        if (n && n['@type'] === 'WebPage' && typeof n['@id'] === 'string') {
+          if (!_jsonResolutionCache.has(n['@id'])) _jsonResolutionCache.set(n['@id'], []);
+          _jsonResolutionCache.get(n['@id']).push(f);
+        }
+      }
+    }
+  }
+  const hits = _jsonResolutionCache.get(page.url) || [];
+  if (hits.length === 1) return hits[0];
+  if (fs.existsSync(path.join(PUB, derived))) return derived;
+  return derived;
+}
+
 function americanize(q) {
   return q.replace(/\bkerbside\b/gi, 'curbside').replace(/\bkerb\b/gi, 'curb')
     .replace(/\blabelled\b/gi, 'labeled').replace(/\blabelling\b/gi, 'labeling')
@@ -415,6 +557,75 @@ function parseQuestionBank() {
   return out;
 }
 
+// --- v2: observed queries + outcome state ---
+// Matching normalization for the GSC feed-in: case, punctuation and
+// whitespace differences in real query strings must still enrich the
+// generated row they belong to ("best office movers in Winchester VA"
+// enriches "best office movers in Winchester, VA").
+function normMatch(s) {
+  return String(s || '').toLowerCase().replace(/[^a-z0-9\s&+]/g, ' ').replace(/\s+/g, ' ').trim();
+}
+const OUTCOME_GATES = ['crawled', 'indexed', 'understood', 'corroborated', 'cited_maintained'];
+const OUTCOME_GATE_LABEL = { crawled: 'crawled', indexed: 'indexed', understood: 'understood', corroborated: 'corroborated', cited_maintained: 'cited-maintained' };
+function defaultOutcome() {
+  const o = { highest_gate_passed: 'none', outcome_status: 'unknown', outcome_basis: 'no evidence recorded yet', updated_at: RUBRIC_DATE };
+  for (const g of OUTCOME_GATES) { o[g + '_state'] = 'unknown'; o[g + '_checked_at'] = null; o[g + '_evidence_source'] = null; }
+  return o;
+}
+function sqliteJson(sql) {
+  try {
+    // maxBuffer raised for v2: the 1,651-row intent_query JSON exceeds
+    // the 1 MB execFileSync default (the v1.3.2 row set sat just under
+    // it; the v2 dry run's --check hit ENOBUFS without this).
+    const out = execFileSync('sqlite3', ['-json', DB_PATH, sql], { maxBuffer: 64 * 1024 * 1024 }).toString();
+    return JSON.parse(out || '[]');
+  } catch (e) { return null; }
+}
+function loadObservedQueries() {
+  if (!fs.existsSync(DB_PATH)) return [];
+  const rows = sqliteJson('SELECT id, query_text_raw, query_text_normalized, linked_page_url, link_method, clicks, impressions, ctr, avg_position, window_start, window_end FROM gsc_observed_queries ORDER BY id;');
+  return rows || [];
+}
+function loadObservedPages() {
+  if (!fs.existsSync(DB_PATH)) return [];
+  const rows = sqliteJson('SELECT id, page_url, clicks, impressions, ctr, avg_position, window_start, window_end FROM gsc_observed_pages ORDER BY id;');
+  return rows || [];
+}
+function loadPriorOutcomes() {
+  const map = new Map();
+  if (!fs.existsSync(DB_PATH)) return map;
+  const rows = sqliteJson('SELECT * FROM intent_row_outcome;');
+  if (!rows) return map;
+  for (const r of rows) map.set(r.query_text + '|' + r.service_id, r);
+  return map;
+}
+// The outcome evidence log is append-only and written only by the
+// evidence-ingest tooling (scripts/ingest-outcome-evidence.py); the
+// generator never writes it. Its count is carried into intent_meta at
+// every build so verify.js I-8 can prove the log never shrinks
+// between the recorded build and the live table.
+function loadEvidenceLogCount() {
+  if (!fs.existsSync(DB_PATH)) return 0;
+  const rows = sqliteJson('SELECT COUNT(*) AS n FROM intent_outcome_evidence;');
+  return rows && rows[0] ? rows[0].n : 0;
+}
+function outcomeRollup(rows) {
+  const byHighestGate = { none: 0, crawled: 0, indexed: 0, understood: 0, corroborated: 0, 'cited-maintained': 0 };
+  const byStatus = { unknown: 0, 'awaiting-observation': 0, partial: 0, blocked: 0, complete: 0 };
+  const byGateState = {};
+  for (const g of OUTCOME_GATES) byGateState[OUTCOME_GATE_LABEL[g]] = { unknown: 0, passed: 0, failed: 0, 'not-applicable': 0 };
+  for (const r of rows) {
+    const o = r.outcome || defaultOutcome();
+    byHighestGate[o.highest_gate_passed] = (byHighestGate[o.highest_gate_passed] || 0) + 1;
+    byStatus[o.outcome_status] = (byStatus[o.outcome_status] || 0) + 1;
+    for (const g of OUTCOME_GATES) {
+      const st = o[g + '_state'] || 'unknown';
+      byGateState[OUTCOME_GATE_LABEL[g]][st] = (byGateState[OUTCOME_GATE_LABEL[g]][st] || 0) + 1;
+    }
+  }
+  return { rows: rows.length, byHighestGate, byStatus, byGateState };
+}
+
 // --- Row generation ---
 function generate() {
   const R = loadAll();
@@ -451,25 +662,26 @@ function generate() {
   const seen = new Set();
   const svcById = new Map(R.services.services.map((s) => [s.id, s]));
 
-  function emit(serviceId, intentClass, queryText, area, targetSlug, pattern) {
+  function emit(serviceId, intentClass, queryText, area, targetSlug, pattern, opts) {
+    opts = opts || {};
     const svc = svcById.get(serviceId);
     const key = serviceId + '|' + queryText;
-    if (seen.has(key)) { excluded.push({ reason: 'duplicate', serviceId, queryText, pattern }); return; }
+    if (seen.has(key)) { excluded.push({ reason: 'duplicate', serviceId, queryText, pattern }); return false; }
     const page = V.pageBySlug.get(targetSlug);
-    if (!page) { excluded.push({ reason: 'target-not-in-pages.json', serviceId, queryText, pattern }); return; }
-    const jf = jsonFileFor(targetSlug);
-    if (!fs.existsSync(path.join(PUB, jf))) { excluded.push({ reason: 'per-page-json-missing', serviceId, queryText, pattern }); return; }
+    if (!page) { excluded.push({ reason: 'target-not-in-pages.json', serviceId, queryText, pattern }); return false; }
+    const jf = resolveJsonFile(page);
+    if (!fs.existsSync(path.join(PUB, jf))) { excluded.push({ reason: 'per-page-json-missing', serviceId, queryText, pattern }); return false; }
     const targetJsonUrl = SITE + '/' + jf;
     const tjEntry = distByUrl.get(targetJsonUrl);
-    if (!tjEntry || !tjEntry.digest) { excluded.push({ reason: 'target-json-not-in-signed-index', serviceId, queryText, pattern }); return; }
+    if (!tjEntry || !tjEntry.digest) { excluded.push({ reason: 'target-json-not-in-signed-index', serviceId, queryText, pattern }); return false; }
     const dsDigests = {};
     for (const f of DATASETS[serviceId]) {
       const e = distByUrl.get(SITE + '/' + f);
-      if (!e || !e.digest) { excluded.push({ reason: 'dataset-not-in-signed-index', serviceId, queryText, pattern, file: f }); return; }
+      if (!e || !e.digest) { excluded.push({ reason: 'dataset-not-in-signed-index', serviceId, queryText, pattern, file: f }); return false; }
       dsDigests[f] = e.digest.value;
     }
     const gn = graphNode(R, svc);
-    if (!gn) { excluded.push({ reason: 'graph-node-missing', serviceId, queryText, pattern }); return; }
+    if (!gn) { excluded.push({ reason: 'graph-node-missing', serviceId, queryText, pattern }); return false; }
     seen.add(key);
     rows.push({
       query_text: queryText,
@@ -486,7 +698,10 @@ function generate() {
       gate_target_in_signed_index: 1,
       gate_datasets_in_signed_index: 1,
       pattern: pattern,
+      source: opts.source || 'generated',
+      observation_ids: opts.observationIds ? opts.observationIds.slice() : [],
     });
+    return true;
   }
 
   const SCOPES = [
@@ -543,12 +758,251 @@ function generate() {
     emit(serviceId, 'ai-question', q.text, null, target, 'R8-question-bank');
   }
 
+  // R12 (v2): GSC observed feed-in. Enrich exact normalized matches;
+  // resolve unmatched observed queries to a service + target under the
+  // same R10 gates (via emit); exclude the rest with reasons.
+  // R13 (v2, owner correction 2026-10-31): PAGE-DERIVED rows — the
+  // primary v2 row source is the LIVE ESTATE itself. For every page
+  // carrying a service association (pages.json services list; dataset
+  // landing pages via the reverse DATASETS map), derive bounded query
+  // rows from what the page is FOR: its slug's own words, its registry
+  // title, and the serviceType its per-page JSON publishes. Target is
+  // the page itself, through the same R10 gates (emit). Rows whose
+  // text a v1 pattern already produced for the service are deduped —
+  // the v1 row (hub/branch target) keeps the text.
+  const pageDerivedStats = { pagesConsidered: 0, pagesWithRows: 0, rowsEmitted: 0, duplicatesSkipped: 0, gateExcluded: 0 };
+  {
+    const fileToService = {};
+    for (const [sid, files] of Object.entries(DATASETS)) for (const f of files) fileToService[f] = sid;
+    const intentDsService = null; // datasets-intent-coverage.json is the rubric's own file: no single service
+    void intentDsService;
+    for (const page of R.pages.pages) {
+      let svcIds = (page.services || []).slice();
+      if (!svcIds.length && page.slug.startsWith('datasets/')) {
+        const f = 'datasets-' + page.slug.split('/')[1] + '.json';
+        if (fileToService[f]) svcIds = [fileToService[f]];
+      }
+      if (!svcIds.length) continue;
+      pageDerivedStats.pagesConsidered++;
+      // serviceType phrases from the page's own per-page JSON.
+      let typePhrases = [];
+      try {
+        const pj = JSON.parse(fs.readFileSync(path.join(PUB, resolveJsonFile(page)), 'utf8'));
+        const svcNodes = (pj['@graph'] || []).filter((n) => n && (n['@type'] === 'Service' || (Array.isArray(n['@type']) && n['@type'].includes('Service'))));
+        for (const n of svcNodes) {
+          const st = n.serviceType;
+          if (typeof st === 'string') typePhrases.push(st);
+          else if (Array.isArray(st)) typePhrases.push(...st.filter((x) => typeof x === 'string'));
+        }
+      } catch (e) { /* per-page JSON unreadable: slug/title forms still apply */ }
+      const slugQuery = page.slug.split('/').pop().replace(/-/g, ' ').replace(/\s+/g, ' ').trim();
+      // Title form: titles read "Core — Qualifier" or "Category — Label";
+      // drop a leading 'Category' segment and any brand segment, keep the
+      // first meaningful segment.
+      const titleSegs = String(page.title || '').split(/\s*[—–|]\s*/).map((x) => x.trim()).filter(Boolean)
+        .filter((x) => x.toLowerCase() !== 'category' && !/flat rate movers/i.test(x));
+      const titleQuery = (titleSegs[0] || '').toLowerCase().replace(/\s+/g, ' ').trim();
+      // serviceType phrases only on single-service pages (multi-service
+      // hubs repeat every service's types and would cross-wire rows).
+      const typeForms = svcIds.length === 1
+        ? typePhrases.slice(0, 2).map((t) => t.toLowerCase().replace(/\s*&\s*/g, ' and ').replace(/\s+/g, ' ').trim())
+        : [];
+      const forms = [];
+      for (const f of [slugQuery, titleQuery, ...typeForms]) {
+        // A row's text must read as a query: at least two tokens.
+        if (f && f.split(' ').length >= 2 && !forms.includes(f)) forms.push(f);
+      }
+      let pageRows = 0;
+      for (const svcId of svcIds) {
+        for (const form of forms.slice(0, 4)) {
+          const cls = /\?$/.test(form) || /^(what|how|why|when|which|can|do|does)\b/.test(form) ? 'ai-question'
+            : /\bcost\b/.test(form) ? 'cost' : 'navigational-local';
+          const before = rows.length;
+          const ok = emit(svcId, cls, form, null, page.slug, 'R13-page-derived');
+          if (ok) { pageRows++; pageDerivedStats.rowsEmitted++; void before; }
+          else {
+            const lastEx = excluded[excluded.length - 1];
+            if (lastEx && lastEx.pattern === 'R13-page-derived' && lastEx.reason === 'duplicate') pageDerivedStats.duplicatesSkipped++;
+            else if (lastEx && lastEx.pattern === 'R13-page-derived') pageDerivedStats.gateExcluded++;
+          }
+        }
+      }
+      if (pageRows) pageDerivedStats.pagesWithRows++;
+    }
+  }
+
+  // R14 (v2 deploy, 2026-10-31): ESTATE ROLL-UP rows. Every registry
+  // page must be a rubric target (the certificate-fix completion
+  // bar). Pages still untargeted after the v1 families and R13 gain
+  // bounded rows derived from the services they group — the page's
+  // own R13-style forms (its slug's words, its registry title, or the
+  // brand form "flat rate movers <subject>" when the page's subject
+  // is a single word) — targeting the page itself, through the same
+  // R10 gates (emit). Grouping order: the services of the pages
+  // under it (registry-derived) -> branch location page (every
+  // service) -> ROLLUP_SETS subject set -> ROLLUP_ALL estate hub.
+  // A page matched by no rule is named in rollupStats.uncoveredPages.
+  const rollupStats = { pagesGrouped: 0, pagesWithRows: 0, rowsEmitted: 0, duplicatesSkipped: 0, gateExcluded: 0, uncoveredPages: [], byKind: {} };
+  {
+    for (const slug of ROLLUP_ALL) if (!V.pageBySlug.has(slug)) fail('ROLLUP_ALL slug not in pages.json: ' + slug);
+    for (const [slug, ids] of Object.entries(ROLLUP_SETS)) {
+      if (!V.pageBySlug.has(slug)) fail('ROLLUP_SETS slug not in pages.json: ' + slug);
+      for (const id of ids) if (!svcById.has(id)) fail('ROLLUP_SETS names unknown service ' + id + ' for ' + slug);
+    }
+    const urlToSlug = new Map(R.pages.pages.map((p) => [p.url, p.slug]));
+    const targetedNow = new Set(rows.map((r) => urlToSlug.get(r.target_url)));
+    const allSvcIds = R.services.services.map((s) => s.id);
+    const rollupForms = (page) => {
+      const slugQuery = page.slug.split('/').pop().replace(/-/g, ' ').replace(/\s+/g, ' ').trim();
+      const titleSegs = String(page.title || '').split(/\s*[—–|]\s*/).map((x) => x.trim()).filter(Boolean)
+        .filter((x) => x.toLowerCase() !== 'category' && !/flat rate movers/i.test(x));
+      const titleQuery = (titleSegs[0] || '').toLowerCase().replace(/\s+/g, ' ').trim();
+      const forms = [];
+      for (const f of [slugQuery, titleQuery]) {
+        // An email fragment is never a query form (the author page's
+        // slug carries the account name); fall through to the title.
+        if (f && !/gmail/i.test(f) && f.split(' ').length >= 2 && !forms.includes(f)) forms.push(f);
+      }
+      if (!forms.length) {
+        const subject = (!/gmail/i.test(slugQuery) && slugQuery) || titleQuery;
+        if (subject) forms.push('flat rate movers ' + subject);
+      }
+      return forms.slice(0, 3);
+    };
+    for (const page of R.pages.pages) {
+      if (targetedNow.has(page.slug)) continue;
+      let grouped = null, kind = null;
+      const childSvcs = [...new Set(R.pages.pages
+        .filter((p) => p.slug.startsWith(page.slug + '/'))
+        .flatMap((p) => p.services || []))];
+      if (childSvcs.length) { grouped = childSvcs; kind = 'child-pages'; }
+      else if (page.type === 'location') { grouped = allSvcIds; kind = 'branch-location'; }
+      else if (ROLLUP_SETS[page.slug]) { grouped = ROLLUP_SETS[page.slug]; kind = 'subject-set'; }
+      else if (ROLLUP_ALL.has(page.slug)) { grouped = allSvcIds; kind = 'estate-hub'; }
+      if (!grouped) { rollupStats.uncoveredPages.push(page.slug); continue; }
+      rollupStats.pagesGrouped++;
+      rollupStats.byKind[kind] = (rollupStats.byKind[kind] || 0) + 1;
+      const forms = rollupForms(page);
+      let pageRows = 0;
+      for (const svcId of grouped) {
+        for (const form of forms) {
+          const cls = /\?$/.test(form) || /^(what|how|why|when|which|can|do|does)\b/.test(form) ? 'ai-question'
+            : /\bcost\b/.test(form) ? 'cost' : 'navigational-local';
+          const ok = emit(svcId, cls, form, null, page.slug, 'R14-rollup');
+          if (ok) { pageRows++; rollupStats.rowsEmitted++; }
+          else {
+            const lastEx = excluded[excluded.length - 1];
+            if (lastEx && lastEx.pattern === 'R14-rollup' && lastEx.reason === 'duplicate') rollupStats.duplicatesSkipped++;
+            else if (lastEx && lastEx.pattern === 'R14-rollup') rollupStats.gateExcluded++;
+          }
+        }
+      }
+      if (pageRows) rollupStats.pagesWithRows++;
+    }
+  }
+
+  // R12' (v2, owner correction 2026-10-31): the GSC export is a
+  // HISTORICAL EVIDENCE OVERLAY, never a row source. Attach an
+  // observed query's metrics to an existing row only on an exact
+  // normalized text match AND only when the row's target page is
+  // present in the export's Pages aggregate (proof the page existed
+  // in the window) and still live in the current registry. Every
+  // attachment is era-tagged 'pre-rebuild' with its window. Pages in
+  // the export that no longer resolve are counted as stale; queries
+  // with no matching row stay unattached evidence — they create
+  // nothing and exclude nothing.
+  const evidenceStats = { queriesImported: 0, queriesAttached: 0, rowsEnriched: 0, queriesUnattached: 0, pagesImported: 0, pagesStillLive: 0, pagesStale: 0, windowStart: null, windowEnd: null, era: 'pre-rebuild' };
+  const observationLinks = [];
+  const observationResolutions = [];
+  const existedInWindow = new Set();
+  {
+    const observed = loadObservedQueries();
+    const observedPages = loadObservedPages();
+    evidenceStats.queriesImported = observed.length;
+    evidenceStats.pagesImported = observedPages.length;
+    if (observed.length) {
+      evidenceStats.windowStart = observed[0].window_start || null;
+      evidenceStats.windowEnd = observed[0].window_end || null;
+    }
+    const liveUrls = new Set(R.pages.pages.map((pg) => pg.url));
+    const normUrl = (u) => String(u || '').replace('://www.', '://');
+    for (const pg of observedPages) {
+      const nu = normUrl(pg.page_url);
+      existedInWindow.add(nu);
+      if (liveUrls.has(nu) || liveUrls.has(pg.page_url)) evidenceStats.pagesStillLive++;
+      else evidenceStats.pagesStale++;
+    }
+    const byNorm = new Map();
+    for (const r of rows) {
+      const k = normMatch(r.query_text);
+      if (!byNorm.has(k)) byNorm.set(k, []);
+      byNorm.get(k).push(r);
+    }
+    for (const obs of observed) {
+      const matches = (byNorm.get(normMatch(obs.query_text_normalized || obs.query_text_raw)) || [])
+        .filter((r) => existedInWindow.has(normUrl(r.target_url)));
+      if (matches.length) {
+        for (const r of matches) {
+          if (!r.observation_ids.includes(obs.id)) r.observation_ids.push(obs.id);
+          observationLinks.push({ observation_id: obs.id, service_id: r.service_id, query_text: r.query_text, link_type: 'enriched' });
+        }
+        evidenceStats.queriesAttached++;
+        observationResolutions.push({ id: obs.id, status: 'evidence-attached', service_id: matches.map((m) => m.service_id).join(','), target_url: matches[0].target_url });
+      } else {
+        evidenceStats.queriesUnattached++;
+        observationResolutions.push({ id: obs.id, status: 'evidence-unattached' });
+      }
+    }
+    evidenceStats.rowsEnriched = rows.filter((r) => r.observation_ids.length).length;
+  }
+  const bySource = { generated: rows.length, gscObserved: 0, generatedEnrichedByGsc: evidenceStats.rowsEnriched };
+
   // Canonical order: service, class order, query text.
   rows.sort((a, b) =>
     (a.service_id < b.service_id ? -1 : a.service_id > b.service_id ? 1 : 0) ||
     (CLASS_ORDER.indexOf(a.intent_class) - CLASS_ORDER.indexOf(b.intent_class)) ||
     (a.query_text < b.query_text ? -1 : a.query_text > b.query_text ? 1 : 0));
   rows.forEach((r, i) => { r.row_no = i + 1; });
+
+  // v2 outcome state: carry prior summaries forward by row key;
+  // default unknown. The generator never writes a non-unknown state.
+  let evidenceLogCount = 0;
+  {
+    const prior = loadPriorOutcomes();
+    evidenceLogCount = loadEvidenceLogCount();
+    for (const r of rows) {
+      const p = prior.get(r.query_text + '|' + r.service_id);
+      if (p) {
+        const o = defaultOutcome();
+        for (const g of OUTCOME_GATES) {
+          o[g + '_state'] = p[g + '_state'] || 'unknown';
+          o[g + '_checked_at'] = p[g + '_checked_at'] || null;
+          o[g + '_evidence_source'] = p[g + '_evidence_source'] || null;
+        }
+        o.highest_gate_passed = p.highest_gate_passed || 'none';
+        o.outcome_status = p.outcome_status || 'unknown';
+        o.outcome_basis = p.outcome_basis || o.outcome_basis;
+        o.updated_at = p.updated_at || RUBRIC_DATE;
+        r.outcome = o;
+      } else {
+        r.outcome = defaultOutcome();
+        // Owner correction 2026-10-31: a page with no presence in the
+        // historical evidence window is UNMEASURED, not failing. Its
+        // rows carry the distinct awaiting-observation status.
+        const normU = String(r.target_url || '').replace('://www.', '://');
+        if (existedInWindow && existedInWindow.size && !existedInWindow.has(normU)) {
+          r.outcome.outcome_status = 'awaiting-observation';
+          r.outcome.outcome_basis = 'awaiting observation — target page has no presence in the ' +
+            (evidenceStats.windowStart || 'historical') + ' to ' + (evidenceStats.windowEnd || '') +
+            ' evidence window; it belongs to the current era and has no search history yet';
+        }
+      }
+    }
+  }
+  const outcomeGlobal = outcomeRollup(rows);
+  const outcomeByService = {};
+  for (const svc of R.services.services) outcomeByService[svc.id] = outcomeRollup(rows.filter((r) => r.service_id === svc.id));
+  // bySource computed in the R12' evidence block above (all rows are estate-generated in v2).
 
   const byClass = {}; const byService = {};
   for (const r of rows) {
@@ -557,7 +1011,25 @@ function generate() {
   }
   const canonical = canonicalRows(rows);
   const digest = crypto.createHash('sha256').update(canonical).digest('hex');
-  return { R, rows, excluded, byClass, byService, digest, qbParsed, qbTotal: qb.length, footprint, corridorServices };
+  const outcomeCanonical = JSON.stringify(rows.map((r) => [r.query_text, r.service_id,
+    OUTCOME_GATES.map((g) => r.outcome[g + '_state']), r.outcome.highest_gate_passed, r.outcome.outcome_status]));
+  const outcomeDigest = crypto.createHash('sha256').update(outcomeCanonical).digest('hex');
+  // v2 deploy: end-state target coverage + per-service pattern split
+  // (the completion bar is proven from these, not from totals alone).
+  const targetedUrls = new Set(rows.map((r) => r.target_url));
+  const targetCoverage = {
+    targeted: R.pages.pages.filter((p) => targetedUrls.has(p.url)).length,
+    total: R.pages.pages.length,
+    uncovered: R.pages.pages.filter((p) => !targetedUrls.has(p.url)).map((p) => p.slug),
+  };
+  const patternByService = {};
+  for (const r of rows) {
+    const fam = r.pattern === 'R13-page-derived' ? 'pageDerived' : r.pattern === 'R14-rollup' ? 'rollup' : 'v1Patterns';
+    patternByService[r.service_id] = patternByService[r.service_id] || { v1Patterns: 0, pageDerived: 0, rollup: 0 };
+    patternByService[r.service_id][fam]++;
+  }
+  return { R, rows, excluded, byClass, byService, digest, outcomeDigest, qbParsed, qbTotal: qb.length, footprint, corridorServices,
+    evidenceStats, pageDerivedStats, rollupStats, targetCoverage, patternByService, evidenceLogCount, observationLinks, observationResolutions, bySource, outcomeGlobal, outcomeByService, existedInWindow };
 }
 
 // Canonical serialization for the rows digest: fixed field order,
@@ -567,6 +1039,7 @@ function canonicalRows(rows) {
     r.query_text, r.intent_class, r.service_id, r.area, r.target_url, r.target_json,
     r.dataset_ids, r.graph_node, r.cert_target_json_sha256, r.cert_dataset_digests,
     r.gate_page_in_registry, r.gate_target_in_signed_index, r.gate_datasets_in_signed_index,
+    r.source || 'generated', r.observation_ids || [],
   ]));
 }
 
@@ -641,12 +1114,16 @@ function buildDataset(gen) {
     node.url = hubPage.url;
     node.distribution = [
       { '@type': 'DataDownload', contentUrl: SITE + '/datasets-intent-coverage.json', encodingFormat: 'application/json' },
-      { '@type': 'DataDownload', contentUrl: SITE + '/' + jsonFileFor(HUB[svc.id]), encodingFormat: 'application/json' },
+      { '@type': 'DataDownload', contentUrl: SITE + '/' + resolveJsonFile(hubPage), encodingFormat: 'application/json' },
       ...DATASETS[svc.id].map((f) => ({ '@type': 'DataDownload', contentUrl: SITE + '/' + f, encodingFormat: 'application/json' })),
     ];
     node.graphNode = svcRows[0].graph_node;
     node.queryRows = svcRows.length;
     node.queryRowsByIntentClass = perClass;
+    const svcObs = svcRows.filter((r) => r.source === 'gsc-observed').length;
+    node.queryRowsBySource = { generated: svcRows.length - svcObs, gscObserved: svcObs };
+    node.generatedRowsEnrichedByGsc = svcRows.filter((r) => r.source !== 'gsc-observed' && (r.observation_ids || []).length).length;
+    node.outcomeRollup = gen.outcomeByService[svc.id];
     return node;
   });
 
@@ -676,7 +1153,7 @@ function buildDataset(gen) {
   const d4 = baseNode(
     SITE + '/#dataset-intent-coverage-resolution', 'Dataset',
     'The Flat Rate Movers — Intent Target Resolution and Coverage Gates Dataset',
-    'How each rubric row resolves its target, and the gates a row must pass to exist. Default target: the service\u2019s hub page. A place or scoped row for a Winchester area targets the service\u2019s Winchester branch page when the estate has one (Martinsburg likewise); a shared area and the Shenandoah Valley scope target the hub. A corridor row targets the corridor\u2019s own page when that page belongs to the service\u2019s page set, else the hub. A question-bank row targets the hub, unless the question\u2019s own slug is a page of that service, which is then the target. The per-page JSON filename is the page slug with slashes replaced by dashes, at the site root. The graph node is the service\u2019s canonical #service-* @id in the best entity graph when present, else the Service node on the hub page, else the Service node carrying the service\u2019s registry name. Gates, all required: the target page is in pages.json; the per-page JSON file exists in the deployed site tree; the target JSON and every backing dataset file are distributions in the signed master index. In this generation ' + excluded.length + ' candidate rows failed a gate or deduplication and were excluded (' + exclText + ') — excluded rows are dropped, never pointed at a fallback page.',
+    'How each rubric row resolves its target, and the gates a row must pass to exist. Default target: the service\u2019s hub page. A place or scoped row for a Winchester area targets the service\u2019s Winchester branch page when the estate has one (Martinsburg likewise); a shared area and the Shenandoah Valley scope target the hub. A corridor row targets the corridor\u2019s own page when that page belongs to the service\u2019s page set, else the hub. A question-bank row targets the hub, unless the question\u2019s own slug is a page of that service, which is then the target. The per-page JSON filename is the page slug with slashes replaced by dashes, at the site root; the few pages published under an earlier short name resolve to the file whose own WebPage identifier is the page\u2019s canonical URL (the same mapping the estate\u2019s llms.txt publishes). The graph node is the service\u2019s canonical #service-* @id in the best entity graph when present, else the Service node on the hub page, else the Service node carrying the service\u2019s registry name. Gates, all required: the target page is in pages.json; the per-page JSON file exists in the deployed site tree; the target JSON and every backing dataset file are distributions in the signed master index. In this generation ' + excluded.length + ' candidate rows failed a gate or deduplication and were excluded (' + exclText + ') — excluded rows are dropped, never pointed at a fallback page.',
     ['target resolution', 'coverage gates', 'hub page', 'branch page', 'signed index'],
     [{ '@id': SITE + '/#dataset-intent-coverage-operations' }]);
 
@@ -694,6 +1171,8 @@ function buildDataset(gen) {
     ['question bank', 'query sources', 'customer questions'],
     [{ '@id': SITE + '/#dataset-intent-coverage-operations' }]);
 
+  d6.description += ' Version 2 separates the rubric\u2019s sources from its evidence. Every row is generated from the live estate itself \u2014 the registries, the pages and what each page is for (rule R13 page-derived rows join the v1 pattern families). Real Google Search Console queries enter only as a historical evidence overlay: the available export covers the pre-rebuild era (2026-07-29 to 2026-10-28), so its metrics attach, era-tagged pre-rebuild, only to rows whose target page existed in that window and is still live at the same URL. Current-era pages carry no borrowed metrics and no zero-filled values; their rows stand as awaiting observation until the new era produces evidence of its own. The deploy generation adds rule R14: hub, category and estate pages that carry no service of their own gain bounded roll-up rows derived from the services they group, so every published page is a rubric target, and the totals node carries the per-area row counts for the whole 53-feature footprint, zero counts included.';
+
   const d7 = baseNode(
     SITE + '/#dataset-intent-coverage-boundaries', 'Service',
     'The Flat Rate Movers — Intent Coverage Boundaries Dataset',
@@ -709,6 +1188,44 @@ function buildDataset(gen) {
     [{ '@id': SITE + '/#dataset-intent-coverage-operations' }]);
   d8.intentRowsDigest = digest;
   d8.intentRowsDigestAlgorithm = 'SHA-256';
+  d8.rowSources = { estateGenerated: gen.bySource.generated, pageDerived: gen.pageDerivedStats.rowsEmitted, gscObservedRows: 0 };
+  d8.gscEvidence = {
+    era: gen.evidenceStats.era,
+    window: [gen.evidenceStats.windowStart, gen.evidenceStats.windowEnd],
+    basis: 'Historical Google Search Console Performance export, pre-rebuild era. Metrics attach only to rows whose target page existed in the window (present in the export Pages aggregate) and is still live at the same URL; attachments are evidence, never current performance. Pages of the current era carry no metrics and no zero-filled values.',
+    queriesImported: gen.evidenceStats.queriesImported,
+    queriesAttachedToRows: gen.evidenceStats.queriesAttached,
+    rowsEnriched: gen.evidenceStats.rowsEnriched,
+    queriesUnattached: gen.evidenceStats.queriesUnattached,
+    pagesInExport: gen.evidenceStats.pagesImported,
+    pagesStillLive: gen.evidenceStats.pagesStillLive,
+    pagesStale: gen.evidenceStats.pagesStale,
+  };
+  d8.pageDerived = gen.pageDerivedStats;
+  d8.rollup = gen.rollupStats;
+  d8.pageCoverage = {
+    pagesTargeted: gen.targetCoverage.targeted,
+    pagesTotal: gen.targetCoverage.total,
+    uncoveredPages: gen.targetCoverage.uncovered,
+  };
+  // Per-area proof (owner addition, 2026-10-31): rows counted against
+  // every feature of the service-area GeoJSON, zeros published, never
+  // averaged away. Rows whose area is a corridor id or a scope id are
+  // not GeoJSON features and are counted in rowsByNonFeatureArea.
+  {
+    const areaRows = {};
+    for (const r of rows) if (r.area) areaRows[r.area] = (areaRows[r.area] || 0) + 1;
+    const featureIds = new Set((R.geo.features || []).map((f) => f.properties.id));
+    d8.rowsByArea = (R.geo.features || []).map((f) => ({
+      area: f.properties.id, name: f.properties.name, type: f.properties.type,
+      branch: f.properties.branch, rows: areaRows[f.properties.id] || 0,
+    }));
+    const nonFeature = {};
+    for (const [a, n] of Object.entries(areaRows)) if (!featureIds.has(a)) nonFeature[a] = n;
+    d8.rowsByNonFeatureArea = nonFeature;
+  }
+  d8.outcomeRollup = gen.outcomeGlobal;
+  d8.outcomeDigest = gen.outcomeDigest;
   d8.certificate = CERT_BLOCK;
   d8.generatedBy = GENERATOR + ' v' + GENERATOR_VERSION;
   d8.areaCoverage = areaCov;
@@ -752,6 +1269,8 @@ function writeDb(gen, workDir) {
   const lines = [];
   lines.push('DROP TABLE IF EXISTS intent_query;');
   lines.push('DROP TABLE IF EXISTS intent_meta;');
+  lines.push('DROP TABLE IF EXISTS intent_row_outcome;');
+  lines.push('DROP TABLE IF EXISTS gsc_observation_links;');
   lines.push(`CREATE TABLE intent_query (
   id INTEGER PRIMARY KEY,
   query_text TEXT NOT NULL,
@@ -769,23 +1288,127 @@ function writeDb(gen, workDir) {
   gate_datasets_in_signed_index INTEGER NOT NULL,
   generated_at TEXT NOT NULL,
   generator_version TEXT NOT NULL,
+  source TEXT NOT NULL DEFAULT 'generated',
+  observation_ids TEXT NOT NULL DEFAULT '[]',
   UNIQUE(query_text, service_id)
 );`);
   lines.push('CREATE INDEX idx_intent_service ON intent_query(service_id);');
   lines.push('CREATE INDEX idx_intent_class ON intent_query(intent_class);');
+  lines.push('CREATE INDEX idx_intent_source ON intent_query(source);');
+  const gateCols = OUTCOME_GATES.map((g) =>
+    `  ${g}_state TEXT NOT NULL DEFAULT 'unknown',\n  ${g}_checked_at TEXT,\n  ${g}_evidence_source TEXT`).join(',\n');
+  lines.push(`CREATE TABLE intent_row_outcome (
+  intent_query_id INTEGER PRIMARY KEY,
+  query_text TEXT NOT NULL,
+  service_id TEXT NOT NULL,
+${gateCols},
+  highest_gate_passed TEXT NOT NULL DEFAULT 'none',
+  outcome_status TEXT NOT NULL DEFAULT 'unknown',
+  outcome_basis TEXT,
+  updated_at TEXT NOT NULL,
+  UNIQUE(query_text, service_id)
+);`);
+  lines.push('CREATE INDEX idx_outcome_service ON intent_row_outcome(service_id);');
+  lines.push(`CREATE TABLE IF NOT EXISTS intent_outcome_evidence (
+  id INTEGER PRIMARY KEY,
+  query_text TEXT NOT NULL,
+  service_id TEXT NOT NULL,
+  gate TEXT NOT NULL,
+  state TEXT NOT NULL,
+  evidence_source TEXT NOT NULL,
+  evidence_ref TEXT,
+  detail TEXT,
+  observed_at TEXT NOT NULL,
+  recorded_at TEXT NOT NULL
+);`);
+  lines.push(`CREATE TABLE IF NOT EXISTS gsc_observation_links (
+  observation_id INTEGER NOT NULL,
+  service_id TEXT NOT NULL,
+  query_text TEXT NOT NULL,
+  link_type TEXT NOT NULL,
+  exclusion_reason TEXT,
+  created_at TEXT NOT NULL,
+  PRIMARY KEY(observation_id, service_id, query_text, link_type)
+);`);
   lines.push('CREATE TABLE intent_meta (key TEXT PRIMARY KEY, value TEXT);');
   lines.push('BEGIN TRANSACTION;');
   for (const r of rows) {
-    lines.push('INSERT INTO intent_query (id, query_text, intent_class, service_id, area, target_url, target_json, dataset_ids, graph_node, cert_target_json_sha256, cert_dataset_digests, gate_page_in_registry, gate_target_in_signed_index, gate_datasets_in_signed_index, generated_at, generator_version) VALUES (' +
+    lines.push('INSERT INTO intent_query (id, query_text, intent_class, service_id, area, target_url, target_json, dataset_ids, graph_node, cert_target_json_sha256, cert_dataset_digests, gate_page_in_registry, gate_target_in_signed_index, gate_datasets_in_signed_index, generated_at, generator_version, source, observation_ids) VALUES (' +
       [r.row_no, sqlEsc(r.query_text), sqlEsc(r.intent_class), sqlEsc(r.service_id), sqlEsc(r.area),
        sqlEsc(r.target_url), sqlEsc(r.target_json), sqlEsc(JSON.stringify(r.dataset_ids)), sqlEsc(r.graph_node),
        sqlEsc(r.cert_target_json_sha256), sqlEsc(JSON.stringify(r.cert_dataset_digests)),
        r.gate_page_in_registry, r.gate_target_in_signed_index, r.gate_datasets_in_signed_index,
-       sqlEsc(RUBRIC_DATE), sqlEsc(GENERATOR_VERSION)].join(', ') + ');');
+       sqlEsc(RUBRIC_DATE), sqlEsc(GENERATOR_VERSION), sqlEsc(r.source || 'generated'),
+       sqlEsc(JSON.stringify(r.observation_ids || []))].join(', ') + ');');
+    const o = r.outcome || defaultOutcome();
+    const vals = [r.row_no, sqlEsc(r.query_text), sqlEsc(r.service_id)];
+    for (const g of OUTCOME_GATES) vals.push(sqlEsc(o[g + '_state']), sqlEsc(o[g + '_checked_at']), sqlEsc(o[g + '_evidence_source']));
+    vals.push(sqlEsc(o.highest_gate_passed), sqlEsc(o.outcome_status), sqlEsc(o.outcome_basis || null), sqlEsc(o.updated_at));
+    lines.push(`INSERT INTO intent_row_outcome (intent_query_id, query_text, service_id, ${OUTCOME_GATES.map((g) => `${g}_state, ${g}_checked_at, ${g}_evidence_source`).join(', ')}, highest_gate_passed, outcome_status, outcome_basis, updated_at) VALUES (${vals.join(', ')});`);
+  }
+  for (const l of gen.observationLinks || []) {
+    lines.push('INSERT OR IGNORE INTO gsc_observation_links (observation_id, service_id, query_text, link_type, exclusion_reason, created_at) VALUES (' +
+      [l.observation_id, sqlEsc(l.service_id), sqlEsc(l.query_text), sqlEsc(l.link_type), sqlEsc(l.exclusion_reason || null), sqlEsc(RUBRIC_DATE)].join(', ') + ');');
+  }
+  lines.push(`CREATE TABLE IF NOT EXISTS intent_row_gsc_evidence (
+  id INTEGER PRIMARY KEY,
+  query_text TEXT NOT NULL,
+  service_id TEXT NOT NULL,
+  observation_id INTEGER NOT NULL,
+  clicks INTEGER NOT NULL,
+  impressions INTEGER NOT NULL,
+  ctr REAL NOT NULL,
+  avg_position REAL NOT NULL,
+  window_start TEXT,
+  window_end TEXT,
+  era TEXT NOT NULL DEFAULT 'pre-rebuild',
+  basis TEXT NOT NULL,
+  attached_at TEXT NOT NULL,
+  UNIQUE(query_text, service_id, observation_id)
+);`);
+  {
+    const obsById = new Map();
+    for (const o of loadObservedQueries()) obsById.set(o.id, o);
+    for (const r of rows) {
+      for (const oid of r.observation_ids || []) {
+        const o = obsById.get(oid);
+        if (!o) continue;
+        lines.push('INSERT OR IGNORE INTO intent_row_gsc_evidence (query_text, service_id, observation_id, clicks, impressions, ctr, avg_position, window_start, window_end, era, basis, attached_at) VALUES (' +
+          [sqlEsc(r.query_text), sqlEsc(r.service_id), oid, o.clicks || 0, o.impressions || 0, o.ctr || 0, o.avg_position || 0,
+           sqlEsc(o.window_start || null), sqlEsc(o.window_end || null), sqlEsc('pre-rebuild'),
+           sqlEsc('query-text match; target page present in the export Pages aggregate (existed in window) and live in the current registry; metrics are historical, pre-rebuild era'),
+           sqlEsc(RUBRIC_DATE)].join(', ') + ');');
+      }
+    }
+  }
+  for (const res of gen.observationResolutions || []) {
+    lines.push(`UPDATE gsc_observed_queries SET resolution_status = ${sqlEsc(res.status)}, resolution_reason = ${sqlEsc(res.reason || null)}, resolved_service_id = ${sqlEsc(res.service_id || null)}, resolved_target_url = ${sqlEsc(res.target_url || null)} WHERE id = ${res.id};`);
   }
   const meta = {
     rows_digest: digest,
+    outcome_digest: gen.outcomeDigest,
     row_count: String(rows.length),
+    row_count_generated: String(gen.bySource.generated),
+    row_count_gsc_observed: String(gen.bySource.gscObserved),
+    row_count_enriched: String(gen.bySource.generatedEnrichedByGsc),
+    page_derived_rows: String(gen.pageDerivedStats.rowsEmitted),
+    page_derived_pages: String(gen.pageDerivedStats.pagesWithRows),
+    rollup_rows: String(gen.rollupStats.rowsEmitted),
+    rollup_pages: String(gen.rollupStats.pagesWithRows),
+    target_pages_covered: String(gen.targetCoverage.targeted),
+    target_pages_total: String(gen.targetCoverage.total),
+    evidence_queries_imported: String(gen.evidenceStats.queriesImported),
+    evidence_queries_attached: String(gen.evidenceStats.queriesAttached),
+    evidence_queries_unattached: String(gen.evidenceStats.queriesUnattached),
+    evidence_pages_imported: String(gen.evidenceStats.pagesImported),
+    evidence_pages_still_live: String(gen.evidenceStats.pagesStillLive),
+    evidence_pages_stale: String(gen.evidenceStats.pagesStale),
+    evidence_era: String(gen.evidenceStats.era),
+    evidence_window: String((gen.evidenceStats.windowStart || '') + '/' + (gen.evidenceStats.windowEnd || '')),
+    outcome_unknown_rows: String(gen.outcomeGlobal.byStatus.unknown || 0),
+    outcome_evidence_count: String(gen.evidenceLogCount || 0),
+    outcome_awaiting_observation_rows: String(gen.outcomeGlobal.byStatus['awaiting-observation'] || 0),
+    schema_version: '2',
     excluded_count: String(excluded.length),
     generated_at: RUBRIC_DATE,
     generator: GENERATOR,
@@ -804,20 +1427,21 @@ function writeDb(gen, workDir) {
 
 function checkAgainstDb(gen) {
   const out = execFileSync('sqlite3', ['-json', DB_PATH,
-    'SELECT query_text, intent_class, service_id, area, target_url, target_json, dataset_ids, graph_node, cert_target_json_sha256, cert_dataset_digests, gate_page_in_registry, gate_target_in_signed_index, gate_datasets_in_signed_index FROM intent_query ORDER BY id;']).toString();
+    'SELECT query_text, intent_class, service_id, area, target_url, target_json, dataset_ids, graph_node, cert_target_json_sha256, cert_dataset_digests, gate_page_in_registry, gate_target_in_signed_index, gate_datasets_in_signed_index, source, observation_ids FROM intent_query ORDER BY id;'], { maxBuffer: 64 * 1024 * 1024 }).toString();
   const dbRows = JSON.parse(out || '[]').map((r) => ({
     query_text: r.query_text, intent_class: r.intent_class, service_id: r.service_id, area: r.area,
     target_url: r.target_url, target_json: r.target_json,
     dataset_ids: JSON.parse(r.dataset_ids), graph_node: r.graph_node,
     cert_target_json_sha256: r.cert_target_json_sha256,
     cert_dataset_digests: JSON.parse(r.cert_dataset_digests),
+    source: r.source, observation_ids: JSON.parse(r.observation_ids || '[]'),
     gate_page_in_registry: r.gate_page_in_registry,
     gate_target_in_signed_index: r.gate_target_in_signed_index,
     gate_datasets_in_signed_index: r.gate_datasets_in_signed_index,
   }));
   const dbCanonical = canonicalRows(dbRows);
   const dbDigest = crypto.createHash('sha256').update(dbCanonical).digest('hex');
-  const metaOut = execFileSync('sqlite3', ['-json', DB_PATH, 'SELECT key, value FROM intent_meta;']).toString();
+  const metaOut = execFileSync('sqlite3', ['-json', DB_PATH, 'SELECT key, value FROM intent_meta;'], { maxBuffer: 64 * 1024 * 1024 }).toString();
   const meta = {};
   for (const m of JSON.parse(metaOut || '[]')) meta[m.key] = m.value;
   const ok = dbCanonical === canonicalRows(gen.rows) && dbDigest === gen.digest && meta.rows_digest === gen.digest &&
@@ -836,7 +1460,7 @@ function main() {
       ' rows, digest ' + gen.digest + '; db ' + res.dbCount + ' rows, digest ' + res.dbDigest);
     process.exit(res.ok ? 0 : 1);
   }
-  const workDir = path.resolve(ROOT, 'out', 'batch-intent-rubric', 'work');
+  const workDir = WORK_DIR;
   fs.mkdirSync(workDir, { recursive: true });
   const sqlPath = writeDb(gen, workDir);
   const dataset = buildDataset(gen);
@@ -848,6 +1472,14 @@ function main() {
     generator: GENERATOR + ' v' + GENERATOR_VERSION,
     generated_at: RUBRIC_DATE,
     rows: gen.rows.length,
+    bySource: gen.bySource,
+    evidence: gen.evidenceStats,
+    pageDerived: gen.pageDerivedStats,
+    rollup: gen.rollupStats,
+    targetCoverage: gen.targetCoverage,
+    patternByService: gen.patternByService,
+    outcome: gen.outcomeGlobal,
+    outcomeDigest: gen.outcomeDigest,
     byClass: gen.byClass,
     byService: gen.byService,
     excluded: gen.excluded.length,
