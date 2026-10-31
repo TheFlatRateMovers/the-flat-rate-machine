@@ -256,3 +256,33 @@ verify.js gains §15 (W-1..W-3) asserted against the served page (record:
   trial enrollment for the origin is an owner account action and was
   not performed; the layer activates wherever the API is exposed
   (trial, flag, or agent browsers) and is inert elsewhere.
+
+## Closing addendum (post-push verification, 2026-10-31)
+
+- **Pushes.** AI repo: one push, HEAD `1d57e617bb38423ff3a8ed8ebfe93ff6fe7731e1`
+  (index + JWS + llms.txt + data txt). Machine repo: the single push
+  (~5.10 MB) was rejected with **HTTP 413** — the recorded transport
+  exception — with HEAD verified unchanged (`aa84b8c0`) before the
+  split; part 1 `682f82c27cb3051881cb8c28d37ef1b88bde5567` (verify.js +
+  both records), part 2 `a937f8028055908c6b24275d9899136ad7acd609`
+  (the sealed shell). Final HEADs: ai `1d57e617`, machine `a937f802`.
+- **Read-backs byte-identical:** blob SHAs match the pushed files for
+  the index, JWS, llms.txt, data txt, verify.js and both records; the
+  shell read back over raw.githubusercontent.com is md5-identical to
+  the deployed file (`e963744dfb88f28d0dfde12c8dba12f5`). The
+  gist-based ai-repo `data/entity-graph.json` blob
+  `cda897e61319a0f52172ef1365402e4d7179cddf` is intact. Snapshot sync
+  records were written for all three source dirs.
+- **Pre-push key-content grep across both push trees: 0.**
+- **Final state: verify.js 100/100** against the live estate (97 prior
+  checks + W-1..W-3; P-5 at 257 distributions; P-6 repo-served digests
+  18/18, independently confirming the pushed shell and verify.js
+  against the signed index). Logs: `records/verify-predeploy.log`
+  (97/100, W live-lag only) and `records/verify-postdeploy.log`.
+- **PSI after-state:** the keyless PSI API returned the same
+  quota-exceeded error after deploy as before it; the visual Agentic
+  Browsing confirmation remains pending a browser pass, as recorded in
+  the Proof section. Everything PSI would inspect is live and asserted
+  by W-1..W-3 against the served page.
+- This addendum is in the working tree and rides the next estate
+  batch's machine push, per the record-sync pattern.
