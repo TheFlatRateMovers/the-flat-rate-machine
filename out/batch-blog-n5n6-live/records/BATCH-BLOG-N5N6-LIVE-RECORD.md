@@ -132,3 +132,52 @@ Console pass (today's 09:40 pass and its queue were not edited):
 
 - https://theflatratemovers.com/transloading-vs-cross-docking-vs-deconsolidation/
 - https://theflatratemovers.com/moving-an-office-inside-a-plant-or-warehouse/
+
+## Closing addendum (post-push verification, 2026-10-31)
+
+- **Pushes.** AI repo: ONE push, HEAD
+  `b1f2ce4856733c98c623e22229b18d3c0e65d848` (8 paths). Machine repo:
+  the single combined push was rejected with **HTTP 413** (the
+  recorded transport exception) and split: part 1
+  `dc85201b51192e0d10c1978a8fdfff39ce3bb7e9` (7 paths: head-data,
+  middleware, both registries, both phase-a copies, verify-fix
+  record), part 2 `9b967fbd102378ddfa490085b661c12fdae6488a`
+  (verify.js + this record). Final HEADs: ai `b1f2ce48`, machine
+  `9b967fbd` (plus this addendum's own commit).
+- **OUTSTANDING — the machine-repo shell copy.** Three further
+  attempts to push `code/site-shell/index.html` (the sealed shell,
+  5,034,430 bytes; JSON-escaped payload 5,303,105 chars) were each
+  rejected with HTTP 413, although the smaller WebMCP-era shell
+  (4,994,644 bytes) passed alone in its batch and HEAD was verified
+  unchanged after every rejection. The connector's effective request
+  ceiling sits between those two sizes today. The shell bytes
+  themselves are LIVE on Pages, sealed in the signed index (their
+  repo-dir seal copies verified 259/259 in the pre-deploy provenance
+  proof), and md5-verifiable from the live site; only the machine
+  repo's mirror copy is stale (remote md5
+  e963744dfb88f28d0dfde12c8dba12f5 = the WebMCP-era shell; new shell
+  md5 33c6f797edb78422072242d67328de9f). RETRY: a single push-files
+  call with source-dir `out/batch-blog-n5n6-live/work/push-machine`
+  and paths-file `out/batch-blog-n5n6-live/work/paths-machine-2a.bin`
+  (contains only `code/site-shell/index.html`) lands it as soon as
+  the transport accepts the size; nothing else is staged behind it.
+- **Read-backs byte-identical** (raw.githubusercontent md5) for all
+  8 ai paths and all 9 landed machine paths. Gist-based ai-repo
+  `data/entity-graph.json` blob
+  `cda897e61319a0f52172ef1365402e4d7179cddf` re-confirmed intact.
+- **API cadence complete:** bundle refreshed (signed-index digest
+  matches 37/37 compared; intent rows exported 2,736, 98 with
+  evidence), test expectations extended in the same motion
+  (257 → 259 distributions), suite 34/34, worker redeployed —
+  version `5e2ed2d2-6149-4206-b2b7-f572160e345c`. Live
+  confirmations: /v1/verify match:true for the intent dataset and
+  the new N5 post JSON; /v1/intent total 2,736; MCP tools/list =
+  6 tools.
+- **Final verify.js: 99/100** (records/verify-postdeploy.log). The
+  single failing check is P-6, and it names exactly the outstanding
+  item above: repo-served shell 4,994,644B vs signed index
+  5,034,430B (17/18 repo-served digests match). Every other check —
+  P-5 at 259 distributions with all 204 per-page JSONs, §13 intent
+  I-1..I-9 at 2,736 rows, §15 WebMCP W-1..W-3, sitemap 236 locs —
+  passes against the live estate. P-6 turns green the moment the
+  shell mirror lands; the check was not waived or edited.
