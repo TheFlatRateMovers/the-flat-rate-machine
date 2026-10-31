@@ -220,16 +220,32 @@ absorbed the fixes before reporting:
    final worker version **`a2419f84-c91d-4e77-aab5-69446cb291e2`**
    (supersedes 74343d6f above).
 4. **Corrective pushes (disclosed deviation):** the fixes changed
-   files already pushed, so ONE corrective push per repo followed
-   the first pair — ai: the intent dataset, signed index + JWS,
-   search-index dataset and the corrected registry dataset;
-   machine: the corrected generator, head-data.js and this record.
-   Final verify after the corrective deploys: **121/122**, the
-   sole open check being P-6 on the site-shell mirror (24/25
-   repo-served digests match; the mirror is the parent-route item
-   below). The shell's final size/SHA for that upload:
-   **14,375,855 bytes, SHA-256 (computed at close — see the batch
-   report)**. The AE dataset's current bytes (7,112,132 B,
-   regenerated in B3 at 2,906 questions) also exceed the connector
-   ceiling and join the parent-route flags; the ai repo currently
-   holds B2's generation of that one file.
+   files already pushed, so corrective pushes followed the first
+   pair — ai `b50cde527b1c48ca64ed61292ecbc4480705f419` (intent
+   dataset, signed index + JWS, search-index dataset, corrected
+   registry dataset) and machine
+   `278d68485a4ba9b18a13f357129cc2fcbac1bd39` (corrected generator,
+   head-data.js, this record), plus a closing ai push carrying the
+   final search-index dataset + resealed index after step 5, and a
+   closing machine push carrying this finalized record.
+5. **SI/AE regeneration tail:** the final rubric rows moved the
+   search-index and answer-evidence datasets (both embed rubric
+   rows); both were regenerated against the final rows, the
+   rubric `--check` still passed (the loop is convergent), divs
+   re-synced through the fixpoint, routes regenerated, resealed
+   (482, audit clean), Pages redeployed, and the API refreshed
+   (40/40), retested (43/43) and redeployed — final worker version
+   **`e87f488f-4bb7-4593-b9fd-d2dd6166942d`** (supersedes a2419f84
+   and 74343d6f above). Final AE dataset: 7,112,132 bytes,
+   SHA-256 `53f3f86b432dec39ba040573f0179bdbe42d910cdc5b4724c45fc
+   1170e3ef457`; final SI dataset SHA-256 `d94396ced4ad14de59567
+   d9dc62a61424f2015c1ee7b6dc29dfb7d692f2e233d`.
+6. **Final verify: 121/122 checks passed.** The sole open check
+   is P-6 on the site-shell mirror (24/25 repo-served digests
+   match) — the parent-route item below, the same accepted
+   end-state as B1/B2. The shell's final form for that upload:
+   **14,375,855 bytes, SHA-256 `b11d1cf3c0db139a6d59de228ba6090c
+   9d62a57006f369ae447f8c67c6f9fae9`**. The AE dataset's current
+   bytes (7,112,132 B, regenerated in B3 at 2,906 questions) also
+   exceed the connector ceiling and join the parent-route flags;
+   the ai repo currently holds B2's generation of that one file.
