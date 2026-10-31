@@ -1,0 +1,39 @@
+
+{
+  "verdicts": 11,
+  "urls_matched": 11,
+  "urls_unmatched": [],
+  "rows_updated": 138,
+  "evidence_appended": 161,
+  "gate_changes": 46
+}
+    "service-senior-moving": 66,
+    "service-sir-heavy": 92,
+    "service-transloading": 159,
+    "service-transloading-winchester-va": 68,
+    "service-warehouse-racking-relocation": 66,
+    "service-warehouse-relocation": 68
+  },
+  "excluded": 105,
+  "excludedByReason": {
+    "duplicate": 105
+  },
+  "questionBank": {
+    "parsed": 100,
+    "mapped": 100
+  },
+  "rowsDigest": "671f2549176e3e4656facf37aa583b3bfb3af8b1af16ae83983a5e3345ca2d58",
+  "datasetNodes": 36,
+  "sql": "/home/hatch/workspace/the-flat-rate-machine/out/batch-intent-rubric/work/intent-rubric.sql",
+  "dataset": "/home/hatch/workspace/the-flat-rate-machine/out/batch-intent-rubric/work/datasets-intent-coverage.json",
+  "rowsFile": "/home/hatch/workspace/the-flat-rate-machine/out/batch-intent-rubric/work/intent-rows.json"
+}
+
+dataset republished to public/ (163716 bytes)
+{
+  "distributions": 470,
+  "license": 466,
+  "dateModified": 466,
+  "digest": 466,
+  "gaps": 4
+}
