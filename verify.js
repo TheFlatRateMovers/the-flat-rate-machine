@@ -1465,6 +1465,42 @@ async function main() {
     check('llms-full checks (L-1..L-4) evaluated', false, e.message);
   }
 
+  // --- 17. Machinery — Batch Reliability (2026-10-31; checks M-1..M-5) ---
+  // verify.js §§1–16 prove the published estate; this section proves
+  // the machinery that produces it (reliability design D1–D4): the
+  // single paths registry resolves and the ingest tool carries no
+  // path defaults of its own (D1/D2), the canonical repo-dir set is
+  // complete against the sealed index, the seal self-reproduces from
+  // its sources, no stale per-batch path literals survive in live
+  // tooling, and the ingest's idempotency is armed (D3). Assertions
+  // are computed by scripts/check-machinery.py (stdlib only), invoked
+  // once here and mapped to M-1..M-5; a helper failure fails all five
+  // with the error as detail.
+  try {
+    const { execFileSync } = require('child_process');
+    let mres = null, merr = null;
+    try {
+      const outM = execFileSync('python3', [path.join(ROOT, 'scripts', 'check-machinery.py')], { maxBuffer: 64 * 1024 * 1024 }).toString();
+      mres = JSON.parse(outM);
+    } catch (e) {
+      merr = e;
+    }
+    const mNames = {
+      'M-1': 'M-1 paths registry resolves (every registered path exists; venv imports cryptography; ingest tool carries no path defaults of its own)',
+      'M-2': 'M-2 canonical repo-dir set is complete against the sealed index (every GitHub-main distribution file matches its sealed digest + byteSize)',
+      'M-3': 'M-3 the seal self-reproduces from its sources (digest-index over the sealed index reports zero gaps and reproduces every digest + byteSize)',
+      'M-4': 'M-4 no stale per-batch path literals in live tooling (scripts/*.py, scripts/*.js, verify.js)',
+      'M-5': 'M-5 ingest idempotency is armed (dedupe unique index present, zero NULL dedupe keys, run ledger exists)'
+    };
+    for (const idM of ['M-1', 'M-2', 'M-3', 'M-4', 'M-5']) {
+      if (merr) check(mNames[idM], false, 'machinery helper failed: ' + merr.message);
+      else if (mres && mres[idM]) check(mNames[idM], !!mres[idM].ok, mres[idM].detail || '');
+      else check(mNames[idM], false, 'machinery helper returned no result for ' + idM);
+    }
+  } catch (e) {
+    check('machinery checks (M-1..M-5) evaluated', false, e.message);
+  }
+
   // --- 9. Guardrail scan: no placeholders, no invented license identifiers ---
   const registryText = JSON.stringify({ pages, services, locations, corridors });
   check('registry files contain no placeholder text',

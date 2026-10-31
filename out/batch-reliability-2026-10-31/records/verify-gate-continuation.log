@@ -1,0 +1,116 @@
+PASS  pages.json count matches entries — count=205, entries=205
+PASS  live sitemap fetched — 237 URLs
+PASS  every pages.json URL is in the live sitemap — all 205 present
+PASS  every live sitemap URL is a registry page or a published dataset file — no extras beyond 205 pages + 32 dataset files
+PASS  live sitemap URL count matches registry + dataset files — live=237, expected=237
+PASS  no hash URLs in pages.json
+PASS  service-area.geojson is a FeatureCollection with features — type=FeatureCollection, features=53
+PASS  data service-area.geojson matches live GeoJSON (feature count + names) — live=53, data=53
+PASS  data/service-area.geojson is byte-identical to ../theflatratemovers/service-area.geojson — 90397 bytes vs 90397 bytes
+PASS  data/entity-graph.json is byte-identical to ../theflatratemovers/entity-graph.json — 47455 bytes vs 47455 bytes
+PASS  data/best-json-entity-graph.json is byte-identical to ../theflatratemovers/best-json-entity-graph.json — 66910 bytes vs 66910 bytes
+INFO  entity-graph.json @id raw=154 structural=151 serviceNodes=32
+INFO  best-json-entity-graph.json @id raw=294 structural=291 serviceNodes=57
+PASS  every services.json entry has a Service node in entity-graph.json — 28/28
+PASS  every services.json entry has a Service node in best-json-entity-graph.json — 28/28
+INFO  entity-graph services covered only via page-slug @id (no #service-* fragment): none
+PASS  locations.json has exactly 2 branches — found 2
+PASS  Winchester branch exists
+PASS  Martinsburg branch exists
+PASS  Winchester name is "The Flat Rate Movers" — The Flat Rate Movers
+PASS  Martinsburg name is "Flat Rate Movers Martinsburg WV" (no "The") — Flat Rate Movers Martinsburg WV
+PASS  Winchester hours are Mon-Fri 8-6, Sat 8-4, Sun 9-4 — Mon-Fri 8-6, Sat 8-4, Sun 9-4
+PASS  Martinsburg hours are Mon-Fri 9-6, Sat 9-4, Sun 9-4 — Mon-Fri 9-6, Sat 9-4, Sun 9-4
+PASS  Branch hours differ (never unified)
+PASS  Branch names differ
+PASS  Branch addresses differ — 22601 vs 25404
+PASS  Winchester Google rating is 5.0 / 1 review — {"ratingValue":5,"reviewCount":1}
+PASS  Martinsburg Google rating is 4.7 / 6 reviews — {"ratingValue":4.7,"reviewCount":6,"breakdown":"4 at 5 stars, 2 at 4 stars"}
+PASS  Branch service areas differ (never merged) — winchester=17, martinsburg=14
+PASS  Winchester service area has 17 entries including Bristow (GBP published 2026-10-30) — entries=17, bristow=true
+PASS  Martinsburg service area has 14 entries
+PASS  Company founding is 2010-06 (no day invented) — 2010-06
+PASS  services.json count field matches entries — count=28, entries=28
+PASS  services.json includes service-industrial-commercial
+PASS  every page service reference resolves to services.json — all resolve
+PASS  services.json pageCounts match pages.json references — all match
+PASS  every service has a non-empty source and attestation date
+PASS  pages.json slugs are unique
+PASS  every page has title, lastmod, status live, source, attestation
+PASS  corridors.json has 3 corridors (I-81, I-66, I-70) — found 3
+PASS  I-81 corridor page route81 exists in pages.json
+PASS  I-66 corridor page interstate-66-corridor exists in pages.json (gap closed 2026-10-28)
+PASS  I-70 corridor page interstate-70-corridor exists in pages.json (gap closed 2026-10-28)
+PASS  entity-graph.json Service nodes all carry serviceType — 32/32
+PASS  best-json-entity-graph.json Service nodes all carry serviceType — 57/57
+PASS  staged ai-sitemap services count matches services.json — staged=28, registry=28
+PASS  staged ai-sitemap hasPart count matches pages.json — staged=205, registry=205
+PASS  staged ai-sitemap hasPart URLs are all registry URLs — 205 urls
+PASS  staged ai-sitemap service names are all registry names — 28 names
+PASS  staged ai-sitemap keywords cover all service names — keywords=30 (service names 28 + approved additions)
+PASS  staged llms.txt names every services.json entry — all 28 named
+PASS  staged llms.txt states the registry page total — looking for "205 clean canonical URLs"
+PASS  staged faq-schema.json is valid FAQPage blocks with non-empty answers — 3 pages, 17 questions
+PASS  staged dataset-developer.json is a Dataset with the 4 expected distributions — distributions=4
+PASS  staged dataset creator is the organization @id — https://theflatratemovers.com/#organization
+PASS  staged dataset license is CC BY 4.0 (decided, not TODO) — https://creativecommons.org/licenses/by/4.0/
+PASS  staged dataset license is not a flagged TODO (decision supersedes it) — TODO present means the decision was not applied
+PASS  staged master dataset name + keywords match the research doc §3 — keywords=11
+PASS  staged master dataset description is under 5000 chars — len=1181
+PASS  staged per-category datasets: 18 nodes, all valid shape + CC BY + temporal + spatial — nodes=18
+PASS  staged/ready status matches sameAs (staged = none, ready = registry URLs only) — manifest=18, nodes=18
+PASS  per-category manifest: 10 ready + 8 staged = 18 — ready=10, staged=8
+PASS  per-category datasets contain no banned wording or attestation claims — banned-string scan clean
+PASS  staged ocean datasets: 8 nodes (D1–D8), all valid shape + CC BY + temporal + spatial + about — nodes=8
+PASS  ocean manifest: 6 ready + 2 staged, status matches sameAs (staged = none, ready = registry URLs) — ready=6, staged=2
+PASS  ocean gating sentences present (D3 CSC qualifier, D4/D5/D7 not-claimed) — D3/D4/D5/D7 boundaries stated
+PASS  ocean datasets contain no gated claims (terminals, bonded/FTZ, brokerage, reefer capability, fleet/chassis, TWIC cards) — claim-pattern scan clean (negation sentences excluded)
+PASS  ocean manifest records the 3 corrections (SPA-fallback JSON, TWIC present, gated fields) — corrections=3
+PASS  old container .json URL returns application/json with Service #service-transloading + its WebPage node (standalone per-page JSON, Batch 3) — content-type=application/json, service=true, webpage=true
+PASS  Martinsburg transloading .json URL returns application/json (real per-page JSON) — content-type=application/json
+PASS  rubric.db canonical service rows match services.json — canonical=28, registry=28
+PASS  rubric.db attestations cover services.json entries — attestations=28, registry=28
+PASS  P-1 well-known signing-keys.json live (200 + application/json) with the expected Ed25519 kid — status=200, content-type=application/json, kid=theflatratemovers-2026-10-29-1
+PASS  P-2 ai-master-index.jws verifies against the published key over the canonical served index — signature valid, canonical=199853B
+PASS  P-3 all site-served distribution digests match the live served bytes — 448/448 match
+PASS  P-4 every served index distribution entry is complete (name, contentUrl, encodingFormat, license, dateModified, SHA-256 digest + byteSize) — entries=470, all complete
+PASS  P-5 certificate covers all 205 per-page JSONs + all 205 route documents + llms-full.txt + the site shell + the deployed code sets (470 distributions) — pageFiles=205, missingPages=0, missingCode=0, missingRoutes=0, llmsFull=true, distributions=470
+PASS  P-6 all repo-served distribution digests match the live served bytes — 22/22 match
+PASS  S-1 functions/head-data.js covers every registry URL with title, description, canonical, page JSON and a WebPage node — entries=205, registry=205
+PASS  S-2 functions/_middleware.js present and driven by head-data (per-URL head resolver) — middleware 27601 bytes
+PASS  S-3 live routes serve their own head (title + canonical + page JSON-LD + per-page JSON) on the defined route set — 8 routes
+PASS  S-4 live sitemap lastmod values are real per-URL dates (valid format, 2026-10-28..today ET, not one blanket date) — 237 values, distinct=4, range 2026-10-28..2026-10-31
+PASS  S-5 live robots.txt states explicit Allow groups for the 16 AI crawlers + wildcard + sitemap + llms.txt reference — all 16 groups present
+PASS  S-6 rubric.db carries the R8 crawlability + R9 provenance gate definitions and 23 + 23 scored gate rows — defs=2, crawlability rows=28, provenance rows=28
+PASS  I-1 intent rubric generator re-run is byte-identical to rubric.db intent_query (canonical rows digest) — CHECK PASS — regenerated 2738 rows, digest 671f2549176e3e4656facf37aa583b3bfb3af8b1af16ae83983a5e3345ca2d58; db 2738 rows, digest 671f2549176e3e4656facf37aa583b3bfb3af8b1af16ae83983a5e3345ca2d58
+PASS  I-2 every intent_query row target is a pages.json URL and all three coverage gates are 1 — 2738 rows, badTargets=0, badGates=0
+PASS  I-3 every intent row target JSON and backing dataset is a distribution in the served signed index — missing=0, intent dataset in index=true
+PASS  I-4 published intent-coverage dataset counts and row digest equal rubric.db (totals node + 28 coverage nodes) — rows=2738, digest match=true, coverage nodes=28, bad=0
+PASS  I-5 live datasets-intent-coverage.json serves application/json with the rubric.db row digest — status=200, content-type=application/json, digest match=true
+PASS  I-6 rubric v2 generator version, source accounting (v1 + page-derived + roll-up = total), full page-registry target coverage and evidence window reconcile — generator 2.0.0 / schema 2; rows=2738 (v1 1218 + page-derived 281 + roll-up 1239); coverage 205/205; window 2026-07-29/2026-10-28; attached queries 15
+PASS  I-7 v2 evidence attachments are era-tagged pre-rebuild, metric-true to the import, and attach only to rows whose target existed in the window and is still live — evidence rows=98, attached queries=15; bad era/window/metrics=0/0/0; bad targets=0; dangling links=0
+PASS  I-8 v2 outcome summaries are 1:1 with rows, every non-unknown gate state is proven and dated, status derivations hold, and the evidence log is append-only — summaries=2738/2738; orphans=0/0; bad state/proof/status/complete/partial=0/0/0/0/0; bad awaiting=0; evidence log=161 (meta baseline 161)
+PASS  I-9 published intent dataset v2 fields reconcile with the database (36-node frame, row sources with gscObservedRows=0, era-tagged evidence block, outcome roll-up + digest, full page coverage, per-area rows over all 53 GeoJSON features) — nodes=36; coverage nodes bad=0; d8 reconcile=true; outcome digest=54ed1528f16b…; areas=53
+PASS  D-1 every published dataset file has a landing page (registry + per-page JSON in the signed index + head-data entry) — 32 dataset files, 33 landing pages
+PASS  D-2 every Dataset node (dataset files + all 205 route documents) carries landing url/unique sameAs, an identifier, isAccessibleForFree, typed distributions and a self-referencing DataDownload — files + 304 route-document instances across 205 documents
+PASS  D-3 local sitemap.xml URL set equals pages.json URLs plus the published dataset files — local=237, expected=237
+PASS  D-4 site and machine entity graphs agree on every Dataset node landing url/sameAs/identifier — nodes=1
+PASS  D-5 live intent-coverage dataset carries the Zenodo concept DOI on its collection nodes and its landing page serves its own title — collection nodes=4, doi=true, own title served=true
+PASS  W-1 served shell registers the seven read-only WebMCP tools — status=200, tools present=7/7
+PASS  W-2 served forms: hero identified for agents, no toolautosubmit anywhere, quote-form segment md5 canonical — heroAnnotated=true, quote doc status=200, toolautosubmit absent (home+quote)=true, quote segment md5=4d8d49f05b22b129eac623a41370d9cb
+PASS  W-3 served WebMCP descriptors execute and validate (schema + read-only annotations) — registered=7, all descriptors valid
+PASS  W-4 served WebMCP annotation never exposes a half-annotated connected form (schema-issue mechanism) — tools registered=7, half-annotated connected states=0, detach/annotate/reinsert ordering=true, ends connected+annotated=true, fields named+described=true
+PASS  L-1 llms-full.txt is served live as a text file — status=200, content-type=text/plain; charset=utf-8, bytes=403563
+PASS  L-2 llms-full.txt is a sealed distribution in the signed index (digest matches the served bytes) — digest=6906ddbdaf0b…, byteSize=403563
+PASS  L-3 llms.txt links llms-full.txt — link present=true
+PASS  L-4 llms-full.txt content integrity (28 service names + both branch names present; no placeholders or invented strings) — missing services=0, forbidden present=0
+PASS  M-1 paths registry resolves (every registered path exists; venv imports cryptography; ingest tool carries no path defaults of its own) — 10 registry paths resolve; venv imports cryptography; ingest tool has no path defaults outside its loader
+PASS  M-2 canonical repo-dir set is complete against the sealed index (every GitHub-main distribution file matches its sealed digest + byteSize) — 22 GitHub-main distributions checked against repo_dir, all match
+PASS  M-3 the seal self-reproduces from its sources (digest-index over the sealed index reports zero gaps and reproduces every digest + byteSize) — 470 distributions reproduced from sources, gaps 0
+PASS  M-4 no stale per-batch path literals in live tooling (scripts/*.py, scripts/*.js, verify.js) — 21 live tooling files scanned (executable lines, comments stripped), zero stale per-batch path literals
+PASS  M-5 ingest idempotency is armed (dedupe unique index present, zero NULL dedupe keys, run ledger exists) — dedupe unique index present, 0 NULL keys over 161 evidence rows, run ledger exists
+PASS  registry files contain no placeholder text
+PASS  registry files contain no USDOT/MC number (unconfirmed, never publish)
+
+110/110 checks passed.
+VERIFY OK — migration is provably identical to the live sources.
