@@ -108,6 +108,9 @@ const API_ROUTE = 'https://api.theflatratemovers.com/v1/answer-evidence';
 const LICENSE = 'https://creativecommons.org/licenses/by/4.0/';
 const CREATOR = {
   '@id': SITE + '/#organization',
+  '@type': 'Organization',
+  name: 'The Flat Rate Movers',
+  foundingDate: '2010-06',
   sameAs: [
     'https://www.instagram.com/theflatratemovers/',
     'https://www.threads.com/@theflatratemovers',
@@ -791,6 +794,34 @@ const totals = {
 };
 
 // ---------------------------------------------------------------- doc
+// --- Catalog checks (2026-10-31): in-band sha256 on DataDownload
+// entries (schema.org sha256 of MediaObject), read from the public tree
+// at generation time so the value equals the digest the signed index
+// seals for the same file. Two principled exclusions, mirroring verify
+// DC-2: the self-referencing entry (a file cannot carry its own digest —
+// it lives in ai-master-index.json) and the ai-master-index.json entry
+// itself (the index carries no self-digest by design; its integrity is
+// the detached JWS).
+const INDEX_URL = SITE + '/ai-master-index.json';
+function pubFileDigest(url) {
+  if (!url || !url.startsWith(SITE + '/')) return null;
+  const rel = url.slice(SITE.length + 1);
+  let p = path.join(PUB, rel);
+  if (rel === '' || rel.endsWith('/')) p = path.join(p, 'index.html');
+  try { return crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex'); } catch (_) { return null; }
+}
+function shaDistributions(nodes, selfUrl) {
+  for (const n of nodes) {
+    if (!n || !Array.isArray(n.distribution)) continue;
+    n.distribution = n.distribution.map((e) => {
+      if (!e || e['@type'] !== 'DataDownload' || !e.contentUrl) return e;
+      if (e.contentUrl === selfUrl || e.contentUrl === INDEX_URL) return e;
+      const d = pubFileDigest(e.contentUrl);
+      return d ? { ...e, sha256: d } : e;
+    });
+  }
+}
+
 function baseNode(id, type, name, description) {
   return {
     '@id': id, '@type': type, name, description,
@@ -798,7 +829,7 @@ function baseNode(id, type, name, description) {
     about: [{ '@id': SITE + '/#organization' }],
     spatialCoverage: [{ '@id': SITE + '/#winchester' }, { '@id': SITE + '/#martinsburg' }],
     temporalCoverage: '2010/2026', dateModified: DATE_MOD,
-    creator: CREATOR, license: LICENSE,
+    creator: CREATOR, publisher: CREATOR, license: LICENSE,
     distribution: [
       { '@type': 'DataDownload', contentUrl: FILE_URL, encodingFormat: 'application/json' },
       { '@type': 'DataDownload', contentUrl: SITE + '/ai-master-index.json', encodingFormat: 'application/json' },
@@ -906,6 +937,7 @@ const graph = [
     about: [{ '@id': SITE + '/#organization' }],
   },
 ];
+shaDistributions(graph, FILE_URL);
 const doc = { '@context': 'https://schema.org', '@graph': graph };
 const bytes = JSON.stringify(doc, null, 2) + '\n';
 if (CHECK) {

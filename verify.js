@@ -1207,8 +1207,14 @@ async function main() {
       if (n.url !== L) badNodesD.push(src + ' ' + n['@id'] + ' url');
       if (n.sameAs !== L) badNodesD.push(src + ' ' + n['@id'] + ' sameAs');
       const isIntentColl = f === 'datasets-intent-coverage.json' && String(n['@id']).includes('#dataset-intent-coverage-');
+      // Identifier form re-expressed by Batch 4a Catalog Checks
+      // (2026-10-31, same motion): the intent collection nodes now
+      // carry the concept DOI in URL form, so the assertion is exact
+      // string equality — stricter than the PropertyValue field
+      // match it replaces. Record:
+      // out/verify-fix-2026-10-31-catalog-checks.md.
       const idOk = isIntentColl
-        ? (n.identifier && n.identifier.propertyID === 'DOI' && n.identifier.value === DOI_D)
+        ? n.identifier === 'https://doi.org/' + DOI_D
         : n.identifier === L;
       if (!idOk) badNodesD.push(src + ' ' + n['@id'] + ' identifier');
       if (n.isAccessibleForFree !== true) badNodesD.push(src + ' ' + n['@id'] + ' isAccessibleForFree');
@@ -1264,10 +1270,13 @@ async function main() {
       d4bad.length === 0 && Object.keys(pSiteD).length === Object.keys(pMacD).length && Object.keys(pSiteD).length > 0,
       'nodes=' + Object.keys(pSiteD).length + (d4bad.length ? ', bad: ' + d4bad.join(', ') : ''));
     // D-5: the DOI is live on the intent dataset + the landing page
-    // serves its own title.
+    // serves its own title. Identifier form re-expressed by Batch
+    // 4a Catalog Checks (2026-10-31, same motion): URL-form string
+    // equality, as in D-2. Record:
+    // out/verify-fix-2026-10-31-catalog-checks.md.
     const liveIntentD = JSON.parse(await fetchText(SITE_D + '/datasets-intent-coverage.json'));
     const collD = dsNodesOfD(liveIntentD).filter((n) => String(n['@id']).includes('#dataset-intent-coverage-'));
-    const doiOkD = collD.length === 4 && collD.every((n) => n.identifier && n.identifier.propertyID === 'DOI' && n.identifier.value === DOI_D);
+    const doiOkD = collD.length === 4 && collD.every((n) => n.identifier === 'https://doi.org/' + DOI_D);
     const landingHtmlD = await fetchText(SITE_D + '/datasets/intent-coverage/');
     check('D-5 live intent-coverage dataset carries the Zenodo concept DOI on its collection nodes and its landing page serves its own title',
       doiOkD && landingHtmlD.includes('<title>The Flat Rate Movers — Search Intent Coverage Dataset</title>'),
@@ -1806,6 +1815,219 @@ async function main() {
       ', unlabeledCompetitor=' + compLabelBadLG.length + ', regenerated=' + regenLG + (regenDetailLG ? ', ' + regenDetailLG : ''));
   } catch (e) {
     check('local-graph registry dataset checks (LG-1..LG-4) evaluated', false, e.message);
+  }
+
+  // --- 21. Dataset catalog checks — Batch 4a Catalog Checks
+  // (2026-10-31; checks DC-1..DC-5). The catalog discipline of
+  // Dossier 04 / reconciliation Element 4 (build inputs 1, 2, 5, 6,
+  // 7), asserted over the local deploy tree (P-3 proves the served
+  // tree equals it after deploy): Dataset descriptions inside
+  // Google's 50–5,000 character bound (DC-1); schema.org sha256 on
+  // DataDownload entries equal to the signed-index digest (DC-2),
+  // with exactly four principled exceptions, each verified rather
+  // than waived — an entry pointing at its own document (a file
+  // cannot carry its own digest), an entry pointing at
+  // ai-master-index.json (the index carries no self-digest; its
+  // integrity is the detached JWS), the file-pointing entry of a
+  // per-page landing JSON (one publication unit with its dataset
+  // file; for the generator-backed datasets the pair is a mutual
+  // fixed point), and an entry pointing at a route document that
+  // republishes the containing graph verbatim (the target's bytes
+  // contain the file's bytes — detected by node @id-set equality);
+  // ISO 8601 dates with dateModified ≥ datePublished (DC-3);
+  // creator/publisher as typed Organizations with the canonical
+  // @id (DC-4); and the Zenodo concept DOI in URL form on exactly
+  // its holder nodes — the four intent collection nodes, the intent
+  // landing node and the master-index root — and nowhere else in
+  // the corpus (DC-5). Corpus: the 35 dataset files, the 35
+  // per-page dataset JSONs, ai-sitemap.json, entity-graph.json and
+  // every route document's non-baked ld+json (the D-2 population).
+  // The master index itself is DC-2's comparison source, not
+  // population; its root is in scope for DC-5 only. DS-RESOLVE
+  // (build input 8) is a C5-cadence live run, recorded in the
+  // batch record, not a per-run check. Records:
+  // out/batch-catalog-checks-2026-10-31/records/BATCH-RECORD.md and
+  // out/verify-fix-2026-10-31-catalog-checks.md.
+  try {
+    const SITE_C = 'https://theflatratemovers.com';
+    const DOI_URL_C = 'https://doi.org/10.5281/zenodo.23818766';
+    const ORG_ID_C = SITE_C + '/#organization';
+    const INDEX_URL_C = SITE_C + '/ai-master-index.json';
+    const idxC = JSON.parse(fs.readFileSync(path.join(PAGES_PUBLIC, 'ai-master-index.json'), 'utf8'));
+    const digestByUrlC = {};
+    for (const e of idxC.distribution || []) {
+      const list = Array.isArray(e) ? e : [e];
+      for (const d of list) if (d && d.contentUrl && d.digest && d.digest.value) digestByUrlC[d.contentUrl] = d.digest.value;
+    }
+    const topNodesC = (doc) => (doc && typeof doc === 'object')
+      ? [doc, ...(Array.isArray(doc['@graph']) ? doc['@graph'] : [])] : [];
+    const typeHasC = (n, t) => { const x = n && n['@type']; return x === t || (Array.isArray(x) && x.includes(t)); };
+    const corpusC = []; // [label, doc, selfUrls:Set]
+    const id2fileC = {};
+    for (const f of DATASET_FILES) {
+      const doc = JSON.parse(fs.readFileSync(path.join(PAGES_PUBLIC, f), 'utf8'));
+      corpusC.push([f, doc, new Set([SITE_C + '/' + f])]);
+      for (const n of topNodesC(doc)) if (n && n['@id']) id2fileC[n['@id']] = f;
+    }
+    for (const f of fs.readdirSync(PAGES_PUBLIC).filter((x) => /^dataset-[a-z0-9-]+\.json$/.test(x)).sort()) {
+      const doc = JSON.parse(fs.readFileSync(path.join(PAGES_PUBLIC, f), 'utf8'));
+      corpusC.push([f, doc, new Set([SITE_C + '/' + f, SITE_C + '/datasets-' + f.slice('dataset-'.length)])]);
+    }
+    corpusC.push(['ai-sitemap.json', JSON.parse(fs.readFileSync(path.join(PAGES_PUBLIC, 'ai-sitemap.json'), 'utf8')), new Set([SITE_C + '/ai-sitemap.json'])]);
+    corpusC.push(['entity-graph.json', JSON.parse(fs.readFileSync(path.join(PAGES_PUBLIC, 'entity-graph.json'), 'utf8')), new Set([SITE_C + '/entity-graph.json'])]);
+    const routeFilesC = [];
+    (function walkC(d, rel) {
+      for (const e of fs.readdirSync(d, { withFileTypes: true })) {
+        const r = rel ? rel + '/' + e.name : e.name;
+        if (e.isDirectory()) walkC(path.join(d, e.name), r);
+        else if (e.isFile() && e.name === 'index.html') routeFilesC.push(r);
+      }
+    })(PAGES_PUBLIC, '');
+    const routeHtmlC = {};
+    for (const rel of routeFilesC) routeHtmlC[rel] = fs.readFileSync(path.join(PAGES_PUBLIC, rel), 'utf8');
+    const routeUrlOfC = (rel) => SITE_C + '/' + rel.replace(/index\.html$/, '');
+    const scriptDocsC = (html) => {
+      const out = [];
+      for (const m of html.matchAll(/<script type="application\/ld\+json"([^>]*)>([\s\S]*?)<\/script>/g)) {
+        if (m[1].includes('id="page-jsonld"') || m[1].includes('data-page-json=')) continue;
+        try { out.push(JSON.parse(m[2])); } catch (_) { /* not a JSON-LD doc */ }
+      }
+      return out;
+    };
+    for (const rel of routeFilesC) {
+      for (const doc of scriptDocsC(routeHtmlC[rel])) {
+        const self = new Set([routeUrlOfC(rel)]);
+        for (const n of topNodesC(doc)) if (n && n['@id'] && id2fileC[n['@id']]) self.add(SITE_C + '/' + id2fileC[n['@id']]);
+        corpusC.push([rel, doc, self]);
+      }
+    }
+    const idsetOfC = (doc) => new Set(topNodesC(doc).map((n) => n && n['@id']).filter(Boolean));
+    const repubCacheC = new Map();
+    const republishesC = (url, idset) => {
+      const key = url + '|' + [...idset].sort().join(',');
+      if (repubCacheC.has(key)) return repubCacheC.get(key);
+      let ok = false;
+      const html = routeHtmlC[url.slice(SITE_C.length + 1) + 'index.html'];
+      if (html) {
+        for (const doc of scriptDocsC(html)) {
+          const ids = idsetOfC(doc);
+          if (ids.size === idset.size && [...ids].every((x) => idset.has(x))) { ok = true; break; }
+        }
+      }
+      repubCacheC.set(key, ok);
+      return ok;
+    };
+    const walkAllC = (o, fn) => {
+      if (Array.isArray(o)) o.forEach((v) => walkAllC(v, fn));
+      else if (o && typeof o === 'object') { fn(o); Object.values(o).forEach((v) => walkAllC(v, fn)); }
+    };
+    const datasetNodesC = [];
+    for (const [label, doc] of corpusC) {
+      for (const n of topNodesC(doc)) if (typeHasC(n, 'Dataset')) datasetNodesC.push([label, n]);
+    }
+    // DC-1: description bound.
+    const bad1 = datasetNodesC.filter(([, n]) => typeof n.description !== 'string' || n.description.length < 50 || n.description.length > 5000)
+      .map(([label, n]) => label + ' ' + (n['@id'] || '?') + ' len=' + (typeof n.description === 'string' ? n.description.length : 'none'));
+    check('DC-1 every Dataset node description is within Google\u2019s 50\u20135,000 character bound (dataset files, per-page JSONs, sitemap, entity graph, all route documents)',
+      bad1.length === 0 && datasetNodesC.length > 0,
+      datasetNodesC.length + ' Dataset nodes' + (bad1.length ? ', bad: ' + bad1.slice(0, 4).join('; ') : ''));
+    // DC-2: in-band sha256 == signed-index digest, four exceptions.
+    const bad2 = [];
+    let nSha = 0, nSelf = 0, nIndex = 0, nRepub = 0;
+    for (const [label, doc, selfUrls] of corpusC) {
+      const idset = idsetOfC(doc);
+      walkAllC(doc, (node) => {
+        if (!typeHasC(node, 'DataDownload')) return;
+        const url = node.contentUrl;
+        if (!url) { bad2.push(label + ' DataDownload without contentUrl'); return; }
+        if (url === INDEX_URL_C) { nIndex++; if ('sha256' in node) bad2.push(label + ' index entry carries sha256'); return; }
+        if (selfUrls.has(url)) { nSelf++; if ('sha256' in node) bad2.push(label + ' self entry carries sha256: ' + url); return; }
+        if (url.endsWith('/') && republishesC(url, idset)) { nRepub++; if ('sha256' in node) bad2.push(label + ' republication entry carries sha256: ' + url); return; }
+        const expected = digestByUrlC[url];
+        if (!expected) { bad2.push(label + ' unsealed target: ' + url); return; }
+        if (node.sha256 !== expected) { bad2.push(label + ' sha256 ' + (node.sha256 ? 'mismatch' : 'missing') + ': ' + url); return; }
+        nSha++;
+      });
+    }
+    check('DC-2 every DataDownload carries schema.org sha256 equal to its signed-index digest (self / index / landing-unit / republication exceptions verified)',
+      bad2.length === 0 && nSha > 0,
+      nSha + ' sha-verified, ' + nSelf + ' self, ' + nIndex + ' index, ' + nRepub + ' republication' + (bad2.length ? ', bad: ' + bad2.slice(0, 4).join('; ') : ''));
+    // DC-3: ISO dates, modified >= published.
+    const ISO_C = /^\d{4}-\d{2}-\d{2}([T ]\d{2}:\d{2}(:\d{2}(\.\d+)?)?(Z|[+-]\d{2}:?\d{2})?)?$/;
+    const bad3 = [];
+    let nDates = 0;
+    for (const [label, doc] of corpusC) {
+      walkAllC(doc, (node) => {
+        if (!typeHasC(node, 'Dataset') && !typeHasC(node, 'DataDownload')) return;
+        for (const k of ['datePublished', 'dateModified']) {
+          const v = node[k];
+          if (v === undefined) continue;
+          nDates++;
+          if (typeof v !== 'string' || !ISO_C.test(v) || Number.isNaN(Date.parse(v))) bad3.push(label + ' ' + (node['@id'] || node.contentUrl || '?') + ' ' + k + '=' + v);
+        }
+        if (typeof node.datePublished === 'string' && typeof node.dateModified === 'string' &&
+            !Number.isNaN(Date.parse(node.datePublished)) && !Number.isNaN(Date.parse(node.dateModified)) &&
+            Date.parse(node.dateModified) < Date.parse(node.datePublished)) {
+          bad3.push(label + ' ' + (node['@id'] || '?') + ' dateModified < datePublished');
+        }
+      });
+    }
+    check('DC-3 every Dataset/DataDownload datePublished/dateModified is ISO 8601 with dateModified \u2265 datePublished',
+      bad3.length === 0 && nDates > 0,
+      nDates + ' date values' + (bad3.length ? ', bad: ' + bad3.slice(0, 4).join('; ') : ''));
+    // DC-4: creator/publisher typed Organization with canonical @id.
+    const agentOkC = (a) => !!a && typeof a === 'object' && !Array.isArray(a) && typeHasC(a, 'Organization') && a['@id'] === ORG_ID_C;
+    const bad4 = datasetNodesC.filter(([, n]) => !agentOkC(n.creator) || !agentOkC(n.publisher))
+      .map(([label, n]) => label + ' ' + (n['@id'] || '?'));
+    check('DC-4 every Dataset node\u2019s creator and publisher is a typed Organization carrying the canonical @id',
+      bad4.length === 0 && datasetNodesC.length > 0,
+      datasetNodesC.length + ' Dataset nodes' + (bad4.length ? ', bad: ' + bad4.slice(0, 4).join('; ') : ''));
+    // DC-5: DOI URL form on exactly the holder nodes. Holders are
+    // identified by @id, so the verbatim route-document copies of
+    // the intent graph are held to the same assertion, not flagged
+    // as extra carriers.
+    const holderIdsC = new Set();
+    const bad5 = [];
+    let fileHoldersC = 0;
+    for (const [label, doc] of corpusC) {
+      if (label !== 'datasets-intent-coverage.json') continue;
+      for (const n of topNodesC(doc)) {
+        if (typeHasC(n, 'Dataset') && String(n['@id'] || '').startsWith(SITE_C + '/#dataset-intent-coverage-')) {
+          fileHoldersC++;
+          holderIdsC.add(n['@id']);
+          if (n.identifier !== DOI_URL_C) bad5.push('file holder ' + n['@id'] + ' identifier is not the DOI URL');
+        }
+      }
+    }
+    if (fileHoldersC !== 4) bad5.push('intent file holders=' + fileHoldersC + ' (expected 4)');
+    let landingHoldersC = 0;
+    for (const [label, doc] of corpusC) {
+      if (label !== 'dataset-intent-coverage.json') continue;
+      for (const n of topNodesC(doc)) {
+        if (typeHasC(n, 'Dataset')) {
+          landingHoldersC++;
+          holderIdsC.add(n['@id']);
+          if (n.identifier !== DOI_URL_C) bad5.push('intent landing node identifier is not the DOI URL');
+        }
+      }
+    }
+    if (landingHoldersC !== 1) bad5.push('intent landing holders=' + landingHoldersC + ' (expected 1)');
+    if (idxC.identifier !== DOI_URL_C) bad5.push('master-index root identifier is not the DOI URL');
+    let holderInstancesC = 0;
+    for (const [label, n] of datasetNodesC) {
+      if (holderIdsC.has(n['@id'])) {
+        holderInstancesC++;
+        if (n.identifier !== DOI_URL_C) bad5.push(label + ' ' + n['@id'] + ' holder instance identifier is not the DOI URL');
+        continue;
+      }
+      if (JSON.stringify(n.identifier || '').includes('23818766')) bad5.push(label + ' ' + (n['@id'] || '?') + ' carries the concept DOI');
+      if (n.identifier && typeof n.identifier === 'object' && n.identifier.propertyID === 'DOI') bad5.push(label + ' ' + (n['@id'] || '?') + ' carries a PropertyValue DOI');
+    }
+    check('DC-5 the Zenodo concept DOI appears in URL form (https://doi.org/10.5281/zenodo.23818766) on exactly its holder nodes and nowhere else',
+      bad5.length === 0,
+      'holders: 4 intent collection nodes + intent landing node + master-index root, ' + holderInstancesC + ' holder instances incl. route copies' + (bad5.length ? ', bad: ' + bad5.slice(0, 4).join('; ') : ''));
+  } catch (e) {
+    check('dataset catalog checks (DC-1..DC-5) evaluated', false, e.message);
   }
 
   // --- 9. Guardrail scan: no placeholders, no invented license identifiers ---

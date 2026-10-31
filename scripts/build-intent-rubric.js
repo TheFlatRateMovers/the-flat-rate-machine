@@ -1074,11 +1074,39 @@ const CERT_BLOCK = {
   value: 'This dataset file is a sealed distribution of the signed AI master index of The Flat Rate Movers. Its SHA-256 digest and byte size are recorded in that index; the index is signed with Ed25519 under key id ' + KID + ' and is verifiable against the key published at ' + SITE + '/.well-known/signing-keys.json using the detached signature at ' + SITE + '/ai-master-index.jws. The certificate digests carried by the rubric rows in the working rubric database are read from the same signed index at generation time.',
 };
 
+// --- Catalog checks (2026-10-31): in-band sha256 on DataDownload
+// entries (schema.org sha256 of MediaObject), read from the public tree
+// at generation time so the value equals the digest the signed index
+// seals for the same file. Two principled exclusions, mirroring verify
+// DC-2: the self-referencing entry (a file cannot carry its own digest —
+// it lives in ai-master-index.json) and the ai-master-index.json entry
+// itself (the index carries no self-digest by design; its integrity is
+// the detached JWS).
+const INDEX_URL = SITE + '/ai-master-index.json';
+function pubFileDigest(url) {
+  if (!url || !url.startsWith(SITE + '/')) return null;
+  const rel = url.slice(SITE.length + 1);
+  let p = path.join(PUB, rel);
+  if (rel === '' || rel.endsWith('/')) p = path.join(p, 'index.html');
+  try { return crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex'); } catch (_) { return null; }
+}
+function shaDistributions(nodes, selfUrl) {
+  for (const n of nodes) {
+    if (!n || !Array.isArray(n.distribution)) continue;
+    n.distribution = n.distribution.map((e) => {
+      if (!e || e['@type'] !== 'DataDownload' || !e.contentUrl) return e;
+      if (e.contentUrl === selfUrl || e.contentUrl === INDEX_URL) return e;
+      const d = pubFileDigest(e.contentUrl);
+      return d ? { ...e, sha256: d } : e;
+    });
+  }
+}
+
 function baseNode(id, type, name, description, keywords, about) {
   return {
     '@id': id, '@type': type, name, description, keywords,
     about, spatialCoverage: SPATIAL, temporalCoverage: '2010/2026',
-    dateModified: RUBRIC_DATE, creator: CREATOR, license: LICENSE,
+    dateModified: RUBRIC_DATE, creator: CREATOR, publisher: CREATOR, license: LICENSE,
     distribution: CORE_DIST,
   };
 }
@@ -1234,25 +1262,28 @@ function buildDataset(gen) {
   // Dataset-typed node carries the discoverability fields — url +
   // sameAs = this dataset's canonical landing page, isAccessibleForFree,
   // and an identifier: the estate's Zenodo concept DOI as a
-  // PropertyValue on the four collection nodes (scope, taxonomy,
-  // resolution, totals), the landing URL on the per-service coverage
-  // nodes. The D1 operations node is Service-typed (the rubric's
-  // operations face): it gains sameAs + identifier pointing at the
-  // landing page. The row set is untouched by this block.
+  // URL-form DOI identifier (https://doi.org/10.5281/zenodo.23818766)
+  // on the four collection nodes (scope, taxonomy, resolution, totals)
+  // — the checker-held concept-DOI holders inside this file — and the
+  // landing URL on the per-service coverage nodes. The D1 operations
+  // node is Service-typed (the rubric's operations face): it gains
+  // sameAs + identifier pointing at the landing page. The row set is
+  // untouched by this block.
   const LANDING = SITE + '/datasets/intent-coverage/';
-  const DOI_PV = { '@type': 'PropertyValue', propertyID: 'DOI', value: '10.5281/zenodo.23818766', url: 'https://doi.org/10.5281/zenodo.23818766' };
+  const DOI_URL = 'https://doi.org/10.5281/zenodo.23818766';
   const COLLECTION_IDS = ['#dataset-intent-coverage-scope', '#dataset-intent-coverage-taxonomy', '#dataset-intent-coverage-resolution', '#dataset-intent-coverage-totals'];
   const graph = [d1, d2, d3, d4, d5, d6, d7, d8, ...coverageNodes];
   for (const n of graph) {
     if (n['@type'] === 'Dataset') {
       n.url = LANDING;
       n.sameAs = LANDING;
-      n.identifier = COLLECTION_IDS.some((s) => n['@id'].endsWith(s)) ? DOI_PV : LANDING;
+      n.identifier = COLLECTION_IDS.some((s) => n['@id'].endsWith(s)) ? DOI_URL : LANDING;
       n.isAccessibleForFree = true;
     }
   }
   d1.sameAs = LANDING;
   d1.identifier = LANDING;
+  shaDistributions(graph, SITE + '/datasets-intent-coverage.json');
 
   return { '@context': 'https://schema.org', '@graph': graph };
 }
