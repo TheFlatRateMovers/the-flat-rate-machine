@@ -54,7 +54,7 @@
 ## Machine-Readable Data
 
 - [AI Sitemap](https://theflatratemovers.com/ai-sitemap.json): AI knowledge sitemap for The Flat Rate Movers LLC
-- [Sitemap](https://theflatratemovers.com/sitemap.xml): live Cloudflare Pages site, 204 clean canonical URLs (no hash URLs)
+- [Sitemap](https://theflatratemovers.com/sitemap.xml): live Cloudflare Pages site, 205 clean canonical URLs (no hash URLs)
 - [Service Area GeoJSON](https://theflatratemovers.com/service-area.geojson): 53 features, per branch, verified 2026-10-28
 - [Entity Graph](https://theflatratemovers.com/entity-graph.json): chained entity graph for The Flat Rate Movers LLC
-- [Search Intent Coverage Datasets](https://theflatratemovers.com/datasets-intent-coverage.json): the generative intent-coverage rubric, version 2 — 2,736 generated query rows mapping search and AI-assistant query strings for all 28 services to the page, per-page JSON, dataset files and entity-graph node that answer each one; every one of the site's 204 pages is a rubric target, with coverage per service and per service area and an outcome record on every row, certificate-sealed in the signed AI master index
+- [Search Intent Coverage Datasets](https://theflatratemovers.com/datasets-intent-coverage.json): the generative intent-coverage rubric, version 2 — 2,738 generated query rows mapping search and AI-assistant query strings for all 28 services to the page, per-page JSON, dataset files and entity-graph node that answer each one; every one of the site's 205 pages is a rubric target, with coverage per service and per service area and an outcome record on every row, certificate-sealed in the signed AI master index
