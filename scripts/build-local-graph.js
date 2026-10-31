@@ -1301,7 +1301,7 @@ function baseNode(type, part, name, description, extra, kw) {
     '@type': type, '@id': FILE_URL + '#' + part, name,
     description, inLanguage: 'en-US', dateModified: DATE_MOD,
     isAccessibleForFree: true, license: LICENSE, creator: CREATOR, publisher: CREATOR,
-    url: LANDING, sameAs: [FILE_URL],
+    url: LANDING, sameAs: LANDING,
     // Estate convention (B1/B2 dataset files): Dataset/Article nodes
     // carry the landing URL string as identifier; the operations
     // node alone overrides it with the PropertyValue array.

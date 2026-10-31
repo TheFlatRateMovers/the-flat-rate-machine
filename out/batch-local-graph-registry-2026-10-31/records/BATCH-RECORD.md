@@ -161,7 +161,18 @@ SHA == sealed; all 7 tables return their payloads (112 / 44 / 6 /
 11 / 6 / 9 / 2); /v1/verify?file=datasets-local-graph-registry.json
 match:true; /v1/datasets 35; /v1/index 482.
 
-**Pushes:** (filled at push time — see below.)
+**Pushes:** one per repo, back-to-back, pre-push key grep = 0,
+gist entity-graph in no path. ai (8 paths):
+**868ab15dce8eabe81a4b4cff5c27d610d4b1a883**; machine (11 paths):
+**2ff560ea1be6a977912d87262a212c130a4c608c**. Byte-identical
+read-backs confirmed for the registry dataset, the signed index,
+llms.txt, the generator, verify.js and phase-a llms; gist
+entity-graph blob `cda897e61319a0f52172ef1365402e4d7179cddf`
+re-confirmed intact. Noted at push time: B2's two web-upload items
+have LANDED — ai HEAD `ba7aa32c…` ("Add datasets-answer-evidence.
+json (Retrieval Machine B2)") and machine HEAD `d8cfe603…`
+("Refresh site-shell mirror (answer-evidence batch)") sit directly
+under this batch's pushes, so B2 is fully closed upstream.
 
 **Parent-route flag:** the source shell changed —
 `repo-dir/index.html` is **14,376,141 bytes, SHA-256
@@ -177,3 +188,48 @@ pushes carry the CURRENT public bytes of every other file.
 **Estate after B3:** 208 pages · 35 dataset files · 243 sitemap
 locs · 482 signed distributions · intent rubric 2,906 rows ·
 verify.js 122 checks.
+
+## Corrective pass (same batch, post-push final verify)
+
+The first final verify run (121/122 pre-push state) could not see
+three defects that only engage against the SERVED index; the
+post-push full run caught them at 118/122 and the batch loop
+absorbed the fixes before reporting:
+
+1. **D-2 (dataset-node sameAs):** the registry file's nodes carried
+   `sameAs` as an array; the estate rule (checkNodeD) is the
+   landing URL as a scalar string on every node. Generator fixed
+   (`sameAs: LANDING`); dataset regenerated — final: **296,775
+   bytes, SHA-256 `9a8c853630b1087962f69812850af257d1d892ba7609f
+   08eab765b9ed703c776`** (supersedes the 297,061 / 362c2df8 figures
+   above, which describe the first deployment of this batch).
+2. **S-1 (head-data ld format):** the LG entry's `ld` was
+   stringified with spaces after colons; the estate stores it
+   compact. Surgically compacted in place (−43 bytes, no other
+   entry touched).
+3. **I-1 (rubric digest drift):** rows embed certificate digests
+   (`cert_target_json_sha256`), so the 56 LG rows drifted when the
+   per-page JSON was rebuilt after the batch's rubric run. The
+   generator was re-run as the last data step after every input
+   settled; `--check` passes (rows digest `da1b8c8fcf70f78b4d0cff
+   1fc994ff57bc1c56f214b9e749fa1c5063605ca24f`); the intent dataset
+   was re-copied (SHA-256 `aa14ff17dcc0e5b0a9430a64639b8be1afed56
+   bf02700cca44b8031f616a00cb`), its landing re-synced, the changed
+   set resealed (482, audit clean) and Pages redeployed; the API
+   bundle was refreshed (40/40), retested (43/43) and redeployed —
+   final worker version **`a2419f84-c91d-4e77-aab5-69446cb291e2`**
+   (supersedes 74343d6f above).
+4. **Corrective pushes (disclosed deviation):** the fixes changed
+   files already pushed, so ONE corrective push per repo followed
+   the first pair — ai: the intent dataset, signed index + JWS,
+   search-index dataset and the corrected registry dataset;
+   machine: the corrected generator, head-data.js and this record.
+   Final verify after the corrective deploys: **121/122**, the
+   sole open check being P-6 on the site-shell mirror (24/25
+   repo-served digests match; the mirror is the parent-route item
+   below). The shell's final size/SHA for that upload:
+   **14,375,855 bytes, SHA-256 (computed at close — see the batch
+   report)**. The AE dataset's current bytes (7,112,132 B,
+   regenerated in B3 at 2,906 questions) also exceed the connector
+   ceiling and join the parent-route flags; the ai repo currently
+   holds B2's generation of that one file.
