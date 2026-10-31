@@ -64468,7 +64468,7 @@ function loadSwlData(){ if(window.__swlDone) return; window.__swlDone=true; fetc
     },
     {
       name: 'search_intent',
-      description: 'Search The Flat Rate Machine\'s intent rubric: 2,732 published rows that map real customer questions to the exact page that answers them, each row carrying its certificate fingerprints and an outcome record across the gates (crawled, indexed, understood, corroborated, cited-and-maintained). Use it to find which page answers a question, or to audit coverage by service or area. Read-only.',
+      description: 'Search The Flat Rate Machine\'s intent rubric: published rows that map real customer questions to the exact page that answers them, each row carrying its certificate fingerprints and an outcome record across the gates (crawled, indexed, understood, corroborated, cited-and-maintained). Use it to find which page answers a question, or to audit coverage by service or area. Read-only.',
       inputSchema: {
         type: 'object',
         properties: {
@@ -64567,26 +64567,57 @@ function loadSwlData(){ if(window.__swlDone) return; window.__swlDone=true; fetc
   try {
     var form = document.getElementById('quoteForm');
     if (form) {
-      form.setAttribute('toolname', 'request_flat_rate_quote');
-      form.setAttribute('tooldescription', 'The Flat Rate Movers quote form. Filling this in prepares a flat rate quote request for the person to review — it cannot submit: there is no auto-submit, and the person presses "Get My Flat Rate Quote" themselves. Required: moving from, moving to, contact name, phone, email. The price is one flat rate in writing, never hourly.');
-      var fields = form.querySelectorAll('input[id], select[id], textarea[id]');
-      for (var i = 0; i < fields.length; i++) {
-        var el = fields[i];
-        if (!el.getAttribute('name')) el.setAttribute('name', el.id);
-        if (!el.getAttribute('toolparamdescription')) {
-          var lab = el.closest ? el.closest('label') : null;
-          var txt = '';
-          if (lab) {
-            for (var k = 0; k < lab.childNodes.length; k++) {
-              var n = lab.childNodes[k];
-              if (n === el) break;
-              if (n.nodeType === 3) txt += n.textContent;
+      /* Annotate while DETACHED, then reinsert at the exact original
+         position in the same synchronous block. Chrome validates a
+         form's WebMCP annotation per attribute change and files a
+         permanent DevTools issue for any half-annotated state it
+         observes on the CONNECTED form (toolname present,
+         tooldescription not yet) — and the Lighthouse schema audit
+         fails on that filed issue even though the second attribute
+         lands one statement later, because the audit reads the
+         browser's issue stream, not the final DOM. A form that
+         connects already carrying the complete annotation — the
+         markup-annotated hero form is the proof case — validates
+         clean. The node itself is never replaced: the same element
+         comes out and goes back, so its submit handler (with the
+         agentInvoked guard), its fields and their state are
+         untouched, and no paint or interaction can interleave inside
+         one synchronous task at parse time. Reinsertion is finally-
+         guaranteed: the form can never be left out of the document.
+         Batch record: out/batch-webmcp-schema-fix-live. */
+      var annotate = function () {
+        form.setAttribute('toolname', 'request_flat_rate_quote');
+        form.setAttribute('tooldescription', 'The Flat Rate Movers quote form. Filling this in prepares a flat rate quote request for the person to review — it cannot submit: there is no auto-submit, and the person presses "Get My Flat Rate Quote" themselves. Required: moving from, moving to, contact name, phone, email. The price is one flat rate in writing, never hourly.');
+        var fields = form.querySelectorAll('input[id], select[id], textarea[id]');
+        for (var i = 0; i < fields.length; i++) {
+          var el = fields[i];
+          if (!el.getAttribute('name')) el.setAttribute('name', el.id);
+          if (!el.getAttribute('toolparamdescription')) {
+            var lab = el.closest ? el.closest('label') : null;
+            var txt = '';
+            if (lab) {
+              for (var k = 0; k < lab.childNodes.length; k++) {
+                var n = lab.childNodes[k];
+                if (n === el) break;
+                if (n.nodeType === 3) txt += n.textContent;
+              }
+              if (!txt) txt = lab.textContent || '';
             }
-            if (!txt) txt = lab.textContent || '';
+            txt = txt.replace(/\s+/g, ' ').replace(/\s*\*\s*$/, '').trim();
+            if (txt) el.setAttribute('toolparamdescription', txt.slice(0, 140));
           }
-          txt = txt.replace(/\s+/g, ' ').replace(/\s*\*\s*$/, '').trim();
-          if (txt) el.setAttribute('toolparamdescription', txt.slice(0, 140));
         }
+      };
+      var parent = form.parentNode;
+      var anchor = form.nextSibling;
+      var detached = false;
+      if (parent) {
+        try { parent.removeChild(form); detached = true; } catch (e) { detached = false; }
+      }
+      try {
+        annotate();
+      } finally {
+        if (detached && parent) parent.insertBefore(form, anchor);
       }
     }
   } catch (e) { /* annotation is additive only; never break the form */ }
