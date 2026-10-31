@@ -1,6 +1,6 @@
 {
   "attestation": "Every URL below was fetched from the live sitemap on 2026-10-28; titles and service links come from pageMeta in the live site source. No URL was hand-typed.",
-  "count": 202,
+  "count": 204,
   "dataset": "pages",
   "generated": "2026-10-29",
   "pages": [
@@ -2497,6 +2497,32 @@
       "title": "I-81 through the Shenandoah Valley: what it means for move timing",
       "type": "page",
       "url": "https://theflatratemovers.com/i-81-shenandoah-valley-move-timing/"
+    },
+    {
+      "attested": "2026-10-31",
+      "lastmod": "2026-10-31",
+      "services": [
+        "service-transloading"
+      ],
+      "slug": "transloading-vs-cross-docking-vs-deconsolidation",
+      "source": "Blog N5N6 live batch 2026-10-31 (Henry standing authorization 2026-10-31: blog posts Mira creates are pre-approved, publish without per-post sign-off; text as drafted, byline Henry Pitts Jr., reviewer Henry Pitts; published 2026-10-31, superseding the 2026-12-01 slot)",
+      "status": "live",
+      "title": "Transloading vs cross-docking vs deconsolidation in plain terms",
+      "type": "page",
+      "url": "https://theflatratemovers.com/transloading-vs-cross-docking-vs-deconsolidation/"
+    },
+    {
+      "attested": "2026-10-31",
+      "lastmod": "2026-10-31",
+      "services": [
+        "service-industrial-offices"
+      ],
+      "slug": "moving-an-office-inside-a-plant-or-warehouse",
+      "source": "Blog N5N6 live batch 2026-10-31 (Henry standing authorization 2026-10-31: blog posts Mira creates are pre-approved, publish without per-post sign-off; text as drafted, byline Henry Pitts Jr., reviewer Henry Pitts; published 2026-10-31, superseding the 2026-12-03 slot)",
+      "status": "live",
+      "title": "Moving an office inside a plant or warehouse: access, staging, sequence",
+      "type": "page",
+      "url": "https://theflatratemovers.com/moving-an-office-inside-a-plant-or-warehouse/"
     }
   ],
   "source": "https://theflatratemovers.com/sitemap.xml joined to pageMeta in ../the-flat-rate-movers-pages/public/index.html",

@@ -89,7 +89,7 @@
       "description": "Container loading and unloading, and transloading between truck, container and warehouse — counted, sorted and restacked for the inland leg, with cross-docking and warehouse staging.",
       "id": "service-transloading",
       "name": "Loading, Transloading and Container Services",
-      "pageCount": 17,
+      "pageCount": 18,
       "source": "head JSON-LD graph in live site source (index.html)"
     },
     {
@@ -113,7 +113,7 @@
       "description": "Office moves for industrial and facility sites — office areas within plants, warehouses and industrial facilities — planned around production and site access, quoted flat.",
       "id": "service-industrial-offices",
       "name": "Industrial Offices Moving",
-      "pageCount": 3,
+      "pageCount": 4,
       "source": "head JSON-LD graph in live site source (index.html)"
     },
     {

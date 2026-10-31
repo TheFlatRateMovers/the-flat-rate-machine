@@ -145,7 +145,7 @@
     "telephone": "+1-540-422-2153"
   },
   "dateModified": "2026-10-31",
-  "description": "Machine-readable index of AI, developer, and operational JSON endpoints for The Flat Rate Movers LLC, plus the core pages, services, and SIR / KIM-GS authority for theflatratemovers.com. 202 clean canonical URLs in sitemap.xml (202 pages plus the 32 published dataset files), 28 services, 53 service-area features, branches distinct (Winchester: The Flat Rate Movers; Martinsburg: Flat Rate Movers Martinsburg WV), founded June 2010. No USDOT/MC number is listed (unconfirmed).",
+  "description": "Machine-readable index of AI, developer, and operational JSON endpoints for The Flat Rate Movers LLC, plus the core pages, services, and SIR / KIM-GS authority for theflatratemovers.com. 204 clean canonical URLs in sitemap.xml (204 pages plus the 32 published dataset files), 28 services, 53 service-area features, branches distinct (Winchester: The Flat Rate Movers; Martinsburg: Flat Rate Movers Martinsburg WV), founded June 2010. No USDOT/MC number is listed (unconfirmed).",
   "distribution": [
     {
       "mediaType": "application/xml",
@@ -1182,6 +1182,16 @@
       "@type": "WebPage",
       "name": "I-81 through the Shenandoah Valley: what it means for move timing",
       "url": "https://theflatratemovers.com/i-81-shenandoah-valley-move-timing/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Transloading vs cross-docking vs deconsolidation in plain terms",
+      "url": "https://theflatratemovers.com/transloading-vs-cross-docking-vs-deconsolidation/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Moving an office inside a plant or warehouse: access, staging, sequence",
+      "url": "https://theflatratemovers.com/moving-an-office-inside-a-plant-or-warehouse/"
     }
   ],
   "identifier": "https://theflatratemovers.com/ai-sitemap.json",
