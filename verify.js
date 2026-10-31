@@ -1188,7 +1188,8 @@ async function main() {
     check('dataset discoverability checks (D-1..D-5) evaluated', false, e.message);
   }
 
-  // --- 15. WebMCP agent tools — Batch WebMCP (2026-10-31; checks W-1..W-3).
+  // --- 15. WebMCP agent tools — Batch WebMCP (2026-10-31; checks W-1..W-3;
+  // W-4 added by Batch WebMCP Schema Fix, 2026-10-31).
   // The site shell registers seven read-only WebMCP tools (W3C WebMCP
   // draft) where a browser exposes document.modelContext, and both
   // on-page forms carry declarative WebMCP identification — the hero
@@ -1271,8 +1272,89 @@ async function main() {
       w3detail = 'registered=' + captured.length + (problems.length ? ', problems: ' + problems.join('; ') : ', all descriptors valid');
     }
     check('W-3 served WebMCP descriptors execute and validate (schema + read-only annotations)', w3ok, w3detail);
+
+    // W-4: the annotation MECHANISM (Batch WebMCP Schema Fix, 2026-10-31).
+    // Chrome validates a declarative form's WebMCP annotation per
+    // attribute change and files a permanent DevTools issue for any
+    // half-annotated state it observes on the CONNECTED form (toolname
+    // present, tooldescription not yet); the Lighthouse schema-validity
+    // audit fails on that filed issue even though both attributes land
+    // one statement apart, because the audit reads the browser's
+    // Audits.issueAdded stream, not the final DOM (Lighthouse sources:
+    // core/audits/webmcp-schema-validity.js consumes the
+    // WebMcpSchemaIssues artifact; core/gather/gatherers/webmcp-schema.js
+    // appends GenericIssue events and never retracts). The fix annotates
+    // #quoteForm while it is DETACHED and reinserts the same node, so
+    // the connected form is only ever observed fully annotated — the
+    // markup-annotated hero form's proven-clean case. This check
+    // executes the SERVED script against an instrumented fake DOM that
+    // records every attribute state observable while the form is
+    // connected, and fails if any connected snapshot carries exactly
+    // one of the pair, if the detach/annotate/reinsert ordering is
+    // absent, or if the form does not end connected and fully annotated
+    // with every field named and described. Record:
+    // out/verify-fix-2026-10-31-webmcp-schema.md.
+    let w4ok = false, w4detail = 'WebMCP script block not found in served shell';
+    if (wmBlock) {
+      const connectedSnapshots = [];
+      const ops4 = [];
+      const fields4 = [];
+      const makeField4 = (id, labelText) => {
+        const el = {
+          id, _attrs: {},
+          getAttribute(k) { return k in this._attrs ? this._attrs[k] : null; },
+          setAttribute(k, v) { this._attrs[k] = v; },
+          closest() { return this._label; },
+        };
+        el._label = { childNodes: [{ nodeType: 3, textContent: labelText }, el], textContent: labelText };
+        return el;
+      };
+      const form4 = {
+        _attrs: {}, connected: true, parentNode: null, nextSibling: { _anchor: true },
+        getAttribute(k) { return k in this._attrs ? this._attrs[k] : null; },
+        setAttribute(k, v) {
+          this._attrs[k] = v;
+          ops4.push('form:set:' + k);
+          if (this.connected) connectedSnapshots.push({ toolname: this._attrs.toolname || null, tooldescription: this._attrs.tooldescription || null });
+        },
+        querySelectorAll() { return fields4; },
+      };
+      form4.parentNode = {
+        removeChild(f) { ops4.push('removeChild'); f.connected = false; },
+        insertBefore(f) { ops4.push('insertBefore'); f.connected = true; },
+      };
+      fields4.push(makeField4('fromCity', 'Moving from'), makeField4('email', 'Email *'), makeField4('notes', 'Notes'));
+      const captured4 = [];
+      const sandbox4 = {
+        document: {
+          modelContext: { registerTool: (t) => { captured4.push(t); return Promise.resolve(); } },
+          getElementById: (id) => (id === 'quoteForm' ? form4 : null),
+        },
+        navigator: {},
+        fetch: () => Promise.reject(new Error('no network inside verify')),
+        URLSearchParams,
+        console,
+      };
+      vm.createContext(sandbox4);
+      vm.runInContext(wmBlock, sandbox4);
+      const half4 = connectedSnapshots.filter((s) => (!!s.toolname) !== (!!s.tooldescription));
+      const detachIdx = ops4.indexOf('removeChild');
+      const reinsertIdx = ops4.indexOf('insertBefore');
+      const orderingOk = detachIdx >= 0 && reinsertIdx > detachIdx &&
+        ops4.slice(detachIdx + 1, reinsertIdx).some((o) => o.startsWith('form:set:')) &&
+        !ops4.slice(0, detachIdx).some((o) => o.startsWith('form:set:'));
+      const fieldsOk4 = fields4.every((f) => f._attrs.name === f.id && !!f._attrs.toolparamdescription);
+      w4ok = captured4.length === WEBMCP_TOOLS.length && half4.length === 0 && orderingOk &&
+        form4.connected === true && form4._attrs.toolname === 'request_flat_rate_quote' &&
+        !!form4._attrs.tooldescription && fieldsOk4;
+      w4detail = 'tools registered=' + captured4.length + ', half-annotated connected states=' + half4.length +
+        ', detach/annotate/reinsert ordering=' + orderingOk + ', ends connected+annotated=' +
+        (form4.connected === true && form4._attrs.toolname === 'request_flat_rate_quote' && !!form4._attrs.tooldescription) +
+        ', fields named+described=' + fieldsOk4;
+    }
+    check('W-4 served WebMCP annotation never exposes a half-annotated connected form (schema-issue mechanism)', w4ok, w4detail);
   } catch (e) {
-    check('WebMCP checks (W-1..W-3) evaluated', false, e.message);
+    check('WebMCP checks (W-1..W-4) evaluated', false, e.message);
   }
 
   // --- 9. Guardrail scan: no placeholders, no invented license identifiers ---
