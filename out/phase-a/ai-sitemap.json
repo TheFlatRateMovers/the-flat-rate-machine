@@ -144,8 +144,8 @@
     "slogan": "Guaranteed Flat Rate or Your Move is Free!",
     "telephone": "+1-540-422-2153"
   },
-  "dateModified": "2026-10-30",
-  "description": "Machine-readable index of AI, developer, and operational JSON endpoints for The Flat Rate Movers LLC, plus the core pages, services, and SIR / KIM-GS authority for theflatratemovers.com. 200 clean canonical URLs in sitemap.xml (200 pages plus the 32 published dataset files), 28 services, 53 service-area features, branches distinct (Winchester: The Flat Rate Movers; Martinsburg: Flat Rate Movers Martinsburg WV), founded June 2010. No USDOT/MC number is listed (unconfirmed).",
+  "dateModified": "2026-10-31",
+  "description": "Machine-readable index of AI, developer, and operational JSON endpoints for The Flat Rate Movers LLC, plus the core pages, services, and SIR / KIM-GS authority for theflatratemovers.com. 202 clean canonical URLs in sitemap.xml (202 pages plus the 32 published dataset files), 28 services, 53 service-area features, branches distinct (Winchester: The Flat Rate Movers; Martinsburg: Flat Rate Movers Martinsburg WV), founded June 2010. No USDOT/MC number is listed (unconfirmed).",
   "distribution": [
     {
       "mediaType": "application/xml",
@@ -1172,8 +1172,20 @@
       "@type": "WebPage",
       "name": "Published Datasets",
       "url": "https://theflatratemovers.com/datasets/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "When an item needs a custom crate and when padding is enough",
+      "url": "https://theflatratemovers.com/when-an-item-needs-a-custom-crate/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "I-81 through the Shenandoah Valley: what it means for move timing",
+      "url": "https://theflatratemovers.com/i-81-shenandoah-valley-move-timing/"
     }
   ],
+  "identifier": "https://theflatratemovers.com/ai-sitemap.json",
+  "isAccessibleForFree": true,
   "keywords": [
     "Residential Moving",
     "Commercial and Office Moving",
@@ -1213,6 +1225,7 @@
     "url": "https://theflatratemovers.com/"
   },
   "name": "The Flat Rate Movers · AI Sitemap",
+  "sameAs": "https://theflatratemovers.com/ai-sitemap.json",
   "services": [
     {
       "description": "Flat-rate house and apartment moving, local, regional and long-distance.",
@@ -1311,25 +1324,22 @@
       "name": "Junk Removal"
     },
     {
-      "name": "Warehouse Racking Relocation",
-      "description": "Warehouse racking relocation from Winchester, VA and Martinsburg, WV — pallet rack teardown and reinstallation, the inventory move that belongs with the steel, storage staging between buildings, industrial equipment disassembly and reassembly, and cubicle and office-systems teardown and reassembly — surveyed in advance and quoted per job at one flat rate in writing, never by the hour. Racking is torn down, transported, reinstalled and anchored to the floor by the company's crews, to the manufacturer's specification and ANSI MH16.1 / RMI guidance. Where a project requires engineering, seismic calculation or permits, the company consults and arranges them through the certified contractors it engages, so the full scope — any rack type, height or mezzanine configuration — is handled inside the one flat-rate engagement; the engineering and permit authority itself rests with those certified contractors. Components found damaged at teardown are set aside and reported, never re-erected. From Winchester VA and Martinsburg WV, along the I-81, I-66 and I-70 corridors."
+      "description": "Warehouse racking relocation from Winchester, VA and Martinsburg, WV — pallet rack teardown and reinstallation, the inventory move that belongs with the steel, storage staging between buildings, industrial equipment disassembly and reassembly, and cubicle and office-systems teardown and reassembly — surveyed in advance and quoted per job at one flat rate in writing, never by the hour. Racking is torn down, transported, reinstalled and anchored to the floor by the company's crews, to the manufacturer's specification and ANSI MH16.1 / RMI guidance. Where a project requires engineering, seismic calculation or permits, the company consults and arranges them through the certified contractors it engages, so the full scope — any rack type, height or mezzanine configuration — is handled inside the one flat-rate engagement; the engineering and permit authority itself rests with those certified contractors. Components found damaged at teardown are set aside and reported, never re-erected. From Winchester VA and Martinsburg WV, along the I-81, I-66 and I-70 corridors.",
+      "name": "Warehouse Racking Relocation"
     },
     {
-      "name": "FF&E Logistics",
-      "description": "FF&E logistics from The Flat Rate Movers — purchase-order receiving, dock inventory and condition documentation, warehousing in leased space, sequenced delivery by model room, floor, room, department, classroom, office, or project phase, installation support, packaging and debris removal, punch support, and opening-day readiness for hospitality, healthcare and senior-living, office, education, restaurant, and commercial fit-outs from Winchester, VA and Martinsburg, WV. Installation support covers unpacking, furniture assembly, placement, leveling, and set-in-place support; licensed-trade connections and manufacturer or clinical commissioning remain with the responsible trade or technical team. The company does not procure, design, or purchase FF&E. Every job is reviewed in full and quoted per job at one flat rate in writing. Guaranteed Flat Rate or Your Move is Free!"
+      "description": "FF&E logistics from The Flat Rate Movers — purchase-order receiving, dock inventory and condition documentation, warehousing in leased space, sequenced delivery by model room, floor, room, department, classroom, office, or project phase, installation support, packaging and debris removal, punch support, and opening-day readiness for hospitality, healthcare and senior-living, office, education, restaurant, and commercial fit-outs from Winchester, VA and Martinsburg, WV. Installation support covers unpacking, furniture assembly, placement, leveling, and set-in-place support; licensed-trade connections and manufacturer or clinical commissioning remain with the responsible trade or technical team. The company does not procure, design, or purchase FF&E. Every job is reviewed in full and quoted per job at one flat rate in writing. Guaranteed Flat Rate or Your Move is Free!",
+      "name": "FF&E Logistics"
     },
     {
-      "name": "Data Center Relocation — Physical Layer",
-      "description": "Data center relocation — the physical layer — from The Flat Rate Movers: servers, populated and de-racked racks and cabinets, storage and network equipment moved between server rooms, colocation facilities and data centers in Northern Virginia and the I-81 corridor as a planned, labelled, documented sequence. The crew performs disconnect and reconnect, de-install and placement — shutdown and unplug in the sequence fixed at survey with the client's IT team, and reconnection, re-cabling and power-up at the destination to the scope agreed at survey; where an element requires certified specialists, the company engages certified contractors for that element. Equipment is inventoried and manifested before anything is unplugged, packed padded, wrapped and strapped with custom crating where needed, sealed with tamper-evident seals, transported in the planned order, and placed in labelled rack and U order, physically verified with the client's team. Retired equipment is packed, sealed, manifested and hauled to the certified ITAD partner engaged for the job; data sanitization, destruction and certification belong to that partner and are never claimed by the company. Populated racks and cabinets in the 1,500–3,500 lb band are surveyed under SIR/KIM-GS with an L/360 floor check. Flat rate quoted in writing before move day. No workload migration or recommissioning is offered or claimed, and the company claims no IT certifications of its own."
+      "description": "Data center relocation — the physical layer — from The Flat Rate Movers: servers, populated and de-racked racks and cabinets, storage and network equipment moved between server rooms, colocation facilities and data centers in Northern Virginia and the I-81 corridor as a planned, labelled, documented sequence. The crew performs disconnect and reconnect, de-install and placement — shutdown and unplug in the sequence fixed at survey with the client's IT team, and reconnection, re-cabling and power-up at the destination to the scope agreed at survey; where an element requires certified specialists, the company engages certified contractors for that element. Equipment is inventoried and manifested before anything is unplugged, packed padded, wrapped and strapped with custom crating where needed, sealed with tamper-evident seals, transported in the planned order, and placed in labelled rack and U order, physically verified with the client's team. Retired equipment is packed, sealed, manifested and hauled to the certified ITAD partner engaged for the job; data sanitization, destruction and certification belong to that partner and are never claimed by the company. Populated racks and cabinets in the 1,500–3,500 lb band are surveyed under SIR/KIM-GS with an L/360 floor check. Flat rate quoted in writing before move day. No workload migration or recommissioning is offered or claimed, and the company claims no IT certifications of its own.",
+      "name": "Data Center Relocation — Physical Layer"
     },
     {
-      "name": "Medical & Laboratory Equipment Relocation Logistics",
-      "description": "Medical and laboratory equipment relocation from Winchester, VA and Martinsburg, WV — the heavy physical layer of hospital, imaging, laboratory and university moves, run under SIR (Structural Integrity Relocation) and the KIM-GS Protocol for heavy units of 1,500 to 3,500 lbs with floor deflection analysis to L/360: survey and structural check, coordination with the manufacturer's technicians and the facility's EHS team, de-installation support, packing and custom crating, sealed documented transport, and placement and leveling for vendor recommissioning. Transport-only by design: calibration, certification, commissioning, decontamination and requalification are performed by the customer's vendor and EHS teams, never by the mover; specimens, chemicals and cryogenic contents are never transported. Surveyed in full and quoted per job at one flat rate in writing, never by the hour."
+      "description": "Medical and laboratory equipment relocation from Winchester, VA and Martinsburg, WV — the heavy physical layer of hospital, imaging, laboratory and university moves, run under SIR (Structural Integrity Relocation) and the KIM-GS Protocol for heavy units of 1,500 to 3,500 lbs with floor deflection analysis to L/360: survey and structural check, coordination with the manufacturer's technicians and the facility's EHS team, de-installation support, packing and custom crating, sealed documented transport, and placement and leveling for vendor recommissioning. Transport-only by design: calibration, certification, commissioning, decontamination and requalification are performed by the customer's vendor and EHS teams, never by the mover; specimens, chemicals and cryogenic contents are never transported. Surveyed in full and quoted per job at one flat rate in writing, never by the hour.",
+      "name": "Medical & Laboratory Equipment Relocation Logistics"
     }
   ],
   "url": "https://theflatratemovers.com/ai-sitemap.json",
-  "version": "2026-10-29",
-  "identifier": "https://theflatratemovers.com/ai-sitemap.json",
-  "isAccessibleForFree": true,
-  "sameAs": "https://theflatratemovers.com/ai-sitemap.json"
+  "version": "2026-10-29"
 }

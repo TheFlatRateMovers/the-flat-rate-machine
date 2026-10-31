@@ -81,7 +81,7 @@
       "description": "Custom-built crates and high-value item protection for domestic and export moves — measured, built and fitted to the piece, not a stock box.",
       "id": "service-crating",
       "name": "Custom Crating",
-      "pageCount": 3,
+      "pageCount": 4,
       "source": "head JSON-LD graph in live site source (index.html)"
     },
     {
@@ -137,7 +137,7 @@
       "description": "Moving and logistics dispatch along Interstate 81, I-66 and I-70 from Winchester, VA and Martinsburg, WV — corridor moves run from two dispatch branches on one flat-rate standard.",
       "id": "service-route81",
       "name": "Route 81 Corridor Moving and Dispatch",
-      "pageCount": 4,
+      "pageCount": 5,
       "source": "head JSON-LD graph in live site source (index.html)"
     },
     {
@@ -197,36 +197,36 @@
       "source": "Henry ruling 2026-10-30 (junk removal: full page with the full package treatment) + category research 2026-10-30 (industry accepted/not-accepted item guides, EPA Section 608 refrigerant rules, industry pricing guides — domain facts labeled as such)"
     },
     {
+      "attested": "2026-10-30",
+      "description": "Warehouse racking relocation from Winchester, VA and Martinsburg, WV — pallet rack teardown and reinstallation, the inventory move that belongs with the steel, storage staging between buildings, industrial equipment disassembly and reassembly, and cubicle and office-systems teardown and reassembly — surveyed in advance and quoted per job at one flat rate in writing, never by the hour. Racking is torn down, transported, reinstalled and anchored to the floor by the company's crews, to the manufacturer's specification and ANSI MH16.1 / RMI guidance. Where a project requires engineering, seismic calculation or permits, the company consults and arranges them through the certified contractors it engages, so the full scope — any rack type, height or mezzanine configuration — is handled inside the one flat-rate engagement; the engineering and permit authority itself rests with those certified contractors. Components found damaged at teardown are set aside and reported, never re-erected. From Winchester VA and Martinsburg WV, along the I-81, I-66 and I-70 corridors.",
       "id": "service-warehouse-racking-relocation",
       "name": "Warehouse Racking Relocation",
-      "description": "Warehouse racking relocation from Winchester, VA and Martinsburg, WV — pallet rack teardown and reinstallation, the inventory move that belongs with the steel, storage staging between buildings, industrial equipment disassembly and reassembly, and cubicle and office-systems teardown and reassembly — surveyed in advance and quoted per job at one flat rate in writing, never by the hour. Racking is torn down, transported, reinstalled and anchored to the floor by the company's crews, to the manufacturer's specification and ANSI MH16.1 / RMI guidance. Where a project requires engineering, seismic calculation or permits, the company consults and arranges them through the certified contractors it engages, so the full scope — any rack type, height or mezzanine configuration — is handled inside the one flat-rate engagement; the engineering and permit authority itself rests with those certified contractors. Components found damaged at teardown are set aside and reported, never re-erected. From Winchester VA and Martinsburg WV, along the I-81, I-66 and I-70 corridors.",
       "pageCount": 1,
-      "source": "Henry order 2026-10-30 (work the five takeover categories, this one first per the category research ranking) + category takeover research 2026-10-30 (DuraStone and Zhengda pricing guides, ANSI/RMI standards summaries, CoStar Winchester campus item — domain facts labeled as such)",
-      "attested": "2026-10-30"
+      "source": "Henry order 2026-10-30 (work the five takeover categories, this one first per the category research ranking) + category takeover research 2026-10-30 (DuraStone and Zhengda pricing guides, ANSI/RMI standards summaries, CoStar Winchester campus item — domain facts labeled as such)"
     },
     {
+      "attested": "2026-10-30",
+      "description": "FF&E logistics from The Flat Rate Movers — purchase-order receiving, dock inventory and condition documentation, warehousing in leased space, sequenced delivery by model room, floor, room, department, classroom, office, or project phase, installation support, packaging and debris removal, punch support, and opening-day readiness for hospitality, healthcare and senior-living, office, education, restaurant, and commercial fit-outs from Winchester, VA and Martinsburg, WV. Installation support covers unpacking, furniture assembly, placement, leveling, and set-in-place support; licensed-trade connections and manufacturer or clinical commissioning remain with the responsible trade or technical team. The company does not procure, design, or purchase FF&E. Every job is reviewed in full and quoted per job at one flat rate in writing. Guaranteed Flat Rate or Your Move is Free!",
       "id": "service-ffe-logistics",
       "name": "FF&E Logistics",
-      "description": "FF&E logistics from The Flat Rate Movers — purchase-order receiving, dock inventory and condition documentation, warehousing in leased space, sequenced delivery by model room, floor, room, department, classroom, office, or project phase, installation support, packaging and debris removal, punch support, and opening-day readiness for hospitality, healthcare and senior-living, office, education, restaurant, and commercial fit-outs from Winchester, VA and Martinsburg, WV. Installation support covers unpacking, furniture assembly, placement, leveling, and set-in-place support; licensed-trade connections and manufacturer or clinical commissioning remain with the responsible trade or technical team. The company does not procure, design, or purchase FF&E. Every job is reviewed in full and quoted per job at one flat rate in writing. Guaranteed Flat Rate or Your Move is Free!",
       "pageCount": 1,
-      "source": "Henry order 2026-10-30 (work the five takeover categories) + category takeover research 2026-10-30 (Bailey's Workplace FF&E Logistics guide, Elite Anywhere FF&E page, JK Moving DMV hospitality FF&E page — domain facts labeled as such)",
-      "attested": "2026-10-30"
+      "source": "Henry order 2026-10-30 (work the five takeover categories) + category takeover research 2026-10-30 (Bailey's Workplace FF&E Logistics guide, Elite Anywhere FF&E page, JK Moving DMV hospitality FF&E page — domain facts labeled as such)"
     },
     {
+      "attested": "2026-10-30",
+      "description": "Data center relocation — the physical layer — from The Flat Rate Movers: servers, populated and de-racked racks and cabinets, storage and network equipment moved between server rooms, colocation facilities and data centers in Northern Virginia and the I-81 corridor as a planned, labelled, documented sequence. The crew performs disconnect and reconnect, de-install and placement — shutdown and unplug in the sequence fixed at survey with the client's IT team, and reconnection, re-cabling and power-up at the destination to the scope agreed at survey; where an element requires certified specialists, the company engages certified contractors for that element. Equipment is inventoried and manifested before anything is unplugged, packed padded, wrapped and strapped with custom crating where needed, sealed with tamper-evident seals, transported in the planned order, and placed in labelled rack and U order, physically verified with the client's team. Retired equipment is packed, sealed, manifested and hauled to the certified ITAD partner engaged for the job; data sanitization, destruction and certification belong to that partner and are never claimed by the company. Populated racks and cabinets in the 1,500–3,500 lb band are surveyed under SIR/KIM-GS with an L/360 floor check. Flat rate quoted in writing before move day. No workload migration or recommissioning is offered or claimed, and the company claims no IT certifications of its own.",
       "id": "service-data-center-relocation",
       "name": "Data Center Relocation — Physical Layer",
-      "description": "Data center relocation — the physical layer — from The Flat Rate Movers: servers, populated and de-racked racks and cabinets, storage and network equipment moved between server rooms, colocation facilities and data centers in Northern Virginia and the I-81 corridor as a planned, labelled, documented sequence. The crew performs disconnect and reconnect, de-install and placement — shutdown and unplug in the sequence fixed at survey with the client's IT team, and reconnection, re-cabling and power-up at the destination to the scope agreed at survey; where an element requires certified specialists, the company engages certified contractors for that element. Equipment is inventoried and manifested before anything is unplugged, packed padded, wrapped and strapped with custom crating where needed, sealed with tamper-evident seals, transported in the planned order, and placed in labelled rack and U order, physically verified with the client's team. Retired equipment is packed, sealed, manifested and hauled to the certified ITAD partner engaged for the job; data sanitization, destruction and certification belong to that partner and are never claimed by the company. Populated racks and cabinets in the 1,500–3,500 lb band are surveyed under SIR/KIM-GS with an L/360 floor check. Flat rate quoted in writing before move day. No workload migration or recommissioning is offered or claimed, and the company claims no IT certifications of its own.",
       "pageCount": 1,
-      "source": "Henry order 2026-10-30 (work the five takeover categories) + category takeover research 2026-10-30 + owner ruling 2026-10-30 (disconnect/reconnect in scope, performed by the crew; certified contractors engaged for elements requiring certified specialists)",
-      "attested": "2026-10-30"
+      "source": "Henry order 2026-10-30 (work the five takeover categories) + category takeover research 2026-10-30 + owner ruling 2026-10-30 (disconnect/reconnect in scope, performed by the crew; certified contractors engaged for elements requiring certified specialists)"
     },
     {
+      "attested": "2026-10-30",
+      "description": "Medical and laboratory equipment relocation from Winchester, VA and Martinsburg, WV — the heavy physical layer of hospital, imaging, laboratory and university moves, run under SIR (Structural Integrity Relocation) and the KIM-GS Protocol for heavy units of 1,500 to 3,500 lbs with floor deflection analysis to L/360: survey and structural check, coordination with the manufacturer's technicians and the facility's EHS team, de-installation support, packing and custom crating, sealed documented transport, and placement and leveling for vendor recommissioning. Transport-only by design: calibration, certification, commissioning, decontamination and requalification are performed by the customer's vendor and EHS teams, never by the mover; specimens, chemicals and cryogenic contents are never transported. Surveyed in full and quoted per job at one flat rate in writing, never by the hour.",
       "id": "service-medical-lab-relocation",
       "name": "Medical & Laboratory Equipment Relocation Logistics",
-      "description": "Medical and laboratory equipment relocation from Winchester, VA and Martinsburg, WV — the heavy physical layer of hospital, imaging, laboratory and university moves, run under SIR (Structural Integrity Relocation) and the KIM-GS Protocol for heavy units of 1,500 to 3,500 lbs with floor deflection analysis to L/360: survey and structural check, coordination with the manufacturer's technicians and the facility's EHS team, de-installation support, packing and custom crating, sealed documented transport, and placement and leveling for vendor recommissioning. Transport-only by design: calibration, certification, commissioning, decontamination and requalification are performed by the customer's vendor and EHS teams, never by the mover; specimens, chemicals and cryogenic contents are never transported. Surveyed in full and quoted per job at one flat rate in writing, never by the hour.",
       "pageCount": 1,
-      "source": "Henry order 2026-10-30 (work the five takeover categories) + category takeover research 2026-10-30 + transport-only boundary (health-system buyer-intelligence standing rule)",
-      "attested": "2026-10-30"
+      "source": "Henry order 2026-10-30 (work the five takeover categories) + category takeover research 2026-10-30 + transport-only boundary (health-system buyer-intelligence standing rule)"
     }
   ],
   "source": "head JSON-LD graph in ../the-flat-rate-movers-pages/public/index.html, page counts from pageMeta svc references"

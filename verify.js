@@ -659,8 +659,18 @@ async function main() {
     // but every file carrying Dataset nodes changes digest as the
     // Dataset Search metadata lands, and datasets-intent-coverage.json
     // is regenerated + re-sealed in the same batch). The assertion
-    // stays exact-count. Record:
-    // out/verify-fix-2026-10-30-dataset-discoverability.md.
+    // Extended by Batch Blog N3N4 Live, 2026-10-31 (same motion):
+    // totals move to 202 per-page JSON files and 255 distributions
+    // (42 data + 202 pages + 11 shell/code — the two new guide posts,
+    // when-an-item-needs-a-custom-crate and
+    // i-81-shenandoah-valley-move-timing, join the page set under the
+    // owner's standing blog authorization of 2026-10-31, and
+    // datasets-intent-coverage.json is regenerated + re-sealed in the
+    // same batch; the batch also corrects the stale signed-index
+    // label "Entity Graph — Full (92 nodes)" to "Entity Graph — Site
+    // (38 nodes)", the true node count of the file the entry serves).
+    // The assertion stays exact-count. Record:
+    // out/verify-fix-2026-10-31-blog-n3n4.md.
     const P2_CODE_URLS = [
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/code/site-shell/index.html',
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/code/pages-functions/_middleware.js',
@@ -682,12 +692,12 @@ async function main() {
       const distUrls = new Set((servedIndex.distribution || []).map((e) => e.contentUrl));
       const missingPages = pageFiles.filter((f) => !distUrls.has('https://theflatratemovers.com/' + f));
       const missingCode = P2_CODE_URLS.filter((u) => !distUrls.has(u));
-      p5ok = !!servedIndex && pageFiles.length === 200 && missingPages.length === 0 && missingCode.length === 0 &&
-        (servedIndex.distribution || []).length === 253;
+      p5ok = !!servedIndex && pageFiles.length === 202 && missingPages.length === 0 && missingCode.length === 0 &&
+        (servedIndex.distribution || []).length === 255;
       p5detail = 'pageFiles=' + pageFiles.length + ', missingPages=' + (missingPages.join(',') || '0') +
         ', missingCode=' + (missingCode.join(',') || '0') + ', distributions=' + (servedIndex ? (servedIndex.distribution || []).length : 0);
     } catch (e) { p5ok = false; p5detail = e.message; }
-    check('P-5 certificate covers all 200 per-page JSONs + the site shell + the deployed code sets (253 distributions)',
+    check('P-5 certificate covers all 202 per-page JSONs + the site shell + the deployed code sets (255 distributions)',
       p5ok, p5detail);
 
     // P-6: repo-served distribution digests re-computed over live bytes
