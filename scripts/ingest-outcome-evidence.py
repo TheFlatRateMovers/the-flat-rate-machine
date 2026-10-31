@@ -91,7 +91,7 @@ HOME = os.path.expanduser("~")
 MACHINE = os.path.join(HOME, "workspace/the-flat-rate-machine")
 DEFAULT_DB = os.path.join(HOME, "workspace/theflatratemovers/rubric.db")
 DEFAULT_PUB = os.path.join(HOME, "workspace/the-flat-rate-movers-pages/public")
-DEFAULT_REPO_DIR = os.path.join(MACHINE, "out/batch-intent-rubric-v2-live/repo-dir")
+DEFAULT_REPO_DIR = os.path.join(MACHINE, "repo-dir")
 TOOLS = os.path.join(MACHINE, "out/batchP1-provenance/tools")
 VENV_PY = os.path.join(MACHINE, "out/batch-naming/.venv/bin/python")
 
