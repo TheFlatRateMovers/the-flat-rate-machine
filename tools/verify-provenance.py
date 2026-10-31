@@ -70,7 +70,12 @@ def main() -> int:
         url = e.get("contentUrl", "")
         path = None
         if url.startswith("https://theflatratemovers.com/"):
-            cand = os.path.join(args.public_dir, url[len("https://theflatratemovers.com/"):])
+            rel = url[len("https://theflatratemovers.com/"):]
+            cand = os.path.join(args.public_dir, rel)
+            # Per-route architecture (Solution A, 2026-10-31): route
+            # contentUrls resolve to the route's index.html document.
+            if rel == "" or rel.endswith("/"):
+                cand = os.path.join(cand, "index.html")
             path = cand if os.path.isfile(cand) else None
         elif "raw.githubusercontent.com" in url and "/main/" in url:
             cand = os.path.join(args.repo_dir, os.path.basename(url.split("/main/", 1)[1]))

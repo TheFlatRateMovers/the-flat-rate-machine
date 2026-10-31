@@ -53,7 +53,8 @@
 
 ## Machine-Readable Data
 
-- [AI Sitemap](https://theflatratemovers.com/ai-sitemap.json): AI knowledge sitemap for The Flat Rate Movers LLC
+- [AI Sitemap](https://theflatratemovers.com/ai-sitemap.json): AI knowledge sitemap for The Flat Rate Movers
+- [Full Text — llms-full.txt](https://theflatratemovers.com/llms-full.txt): the complete published text of the estate in one file — company identity, both branches with their own hours and ratings, all 28 services with their full page content, the 53-area footprint, the flat-rate guarantee, the published FAQs, the datasets and the 2,738-row search-intent rubric, the certificate and how to verify it, the API, MCP and WebMCP surfaces, the book, and how to cite. Generated from the same published sources as this file and sealed in the signed AI master index. LLC
 - [Sitemap](https://theflatratemovers.com/sitemap.xml): live Cloudflare Pages site, 205 clean canonical URLs (no hash URLs)
 - [Service Area GeoJSON](https://theflatratemovers.com/service-area.geojson): 53 features, per branch, verified 2026-10-28
 - [Entity Graph](https://theflatratemovers.com/entity-graph.json): chained entity graph for The Flat Rate Movers LLC

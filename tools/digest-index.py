@@ -69,6 +69,11 @@ def main() -> int:
         if url.startswith("https://theflatratemovers.com/"):
             rel = url[len("https://theflatratemovers.com/"):]
             cand = os.path.join(args.public_dir, rel)
+            # Per-route architecture (Solution A, 2026-10-31): a site
+            # contentUrl that names a route (empty rel, or ending in
+            # "/") is served by that route's index.html document.
+            if rel == "" or rel.endswith("/"):
+                cand = os.path.join(cand, "index.html")
             if os.path.isfile(cand):
                 path, rec["resolved"] = cand, f"public/{rel}"
         elif "raw.githubusercontent.com" in url and "/main/" in url:

@@ -699,6 +699,19 @@ async function main() {
     // under generator v2.0.0 + re-sealed in the same batch). The
     // assertion stays exact-count. Record:
     // out/verify-fix-2026-10-31-blog-job1.md.
+    // Extended by Batch Per-Route Shell (Solution A) Live, 2026-10-31
+    // (same motion): the single SPA shell is replaced by 205 generated
+    // per-route documents, each sealed as its own distribution at its
+    // canonical URL, plus llms-full.txt, plus four new code files
+    // (scripts/build-routes.js, scripts/build-llms-full.js,
+    // scripts/route-assets/main.js, scripts/route-assets/webmcp.js —
+    // the generator and the adapted script sources every route
+    // document carries). Totals move to 470 distributions (42 data +
+    // 205 per-page JSONs + 205 route documents + 1 llms-full.txt +
+    // 17 shell/code). The assertion stays exact-count and GAINS the
+    // route-document coverage assertion: every registry URL must have
+    // a distribution at its canonical URL. Record:
+    // out/verify-fix-2026-10-31-per-route-shell.md.
     const P2_CODE_URLS = [
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/code/site-shell/index.html',
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/code/pages-functions/_middleware.js',
@@ -713,6 +726,10 @@ async function main() {
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/tools/gen-head-data.js',
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/scripts/build-intent-rubric.js',
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/scripts/ingest-outcome-evidence.py',
+      'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/scripts/build-routes.js',
+      'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/scripts/build-llms-full.js',
+      'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/scripts/route-assets/main.js',
+      'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/scripts/route-assets/webmcp.js',
     ];
     let p5detail = '', p5ok = false;
     try {
@@ -722,12 +739,16 @@ async function main() {
       const distUrls = new Set((servedIndex.distribution || []).map((e) => e.contentUrl));
       const missingPages = pageFiles.filter((f) => !distUrls.has('https://theflatratemovers.com/' + f));
       const missingCode = P2_CODE_URLS.filter((u) => !distUrls.has(u));
+      const missingRoutes = pages.pages.map((p) => p.url).filter((u) => !distUrls.has(u));
+      const hasLlmsFull = distUrls.has('https://theflatratemovers.com/llms-full.txt');
       p5ok = !!servedIndex && pageFiles.length === 205 && missingPages.length === 0 && missingCode.length === 0 &&
-        (servedIndex.distribution || []).length === 260;
+        missingRoutes.length === 0 && hasLlmsFull &&
+        (servedIndex.distribution || []).length === 470;
       p5detail = 'pageFiles=' + pageFiles.length + ', missingPages=' + (missingPages.join(',') || '0') +
-        ', missingCode=' + (missingCode.join(',') || '0') + ', distributions=' + (servedIndex ? (servedIndex.distribution || []).length : 0);
+        ', missingCode=' + (missingCode.join(',') || '0') + ', missingRoutes=' + (missingRoutes.slice(0, 3).join(',') || '0') +
+        ', llmsFull=' + hasLlmsFull + ', distributions=' + (servedIndex ? (servedIndex.distribution || []).length : 0);
     } catch (e) { p5ok = false; p5detail = e.message; }
-    check('P-5 certificate covers all 205 per-page JSONs + the site shell + the deployed code sets (260 distributions)',
+    check('P-5 certificate covers all 205 per-page JSONs + all 205 route documents + llms-full.txt + the site shell + the deployed code sets (470 distributions)',
       p5ok, p5detail);
 
     // P-6: repo-served distribution digests re-computed over live bytes
@@ -1125,6 +1146,18 @@ async function main() {
     check('D-1 every published dataset file has a landing page (registry + per-page JSON in the signed index + head-data entry)',
       d1bad.length === 0, dsFilesD.length + ' dataset files, ' + landingsD.length + ' landing pages' + (d1bad.length ? ', bad: ' + d1bad.slice(0, 4).join('; ') : ''));
     // D-2: Dataset-node invariants in the dataset files + the shell.
+    // Re-expressed by Batch Per-Route Shell (Solution A) Live,
+    // 2026-10-31 (same motion): the single shell's page divs now ship
+    // as 205 generated route documents, so the scan covers every
+    // route document in the deploy tree, excluding the two baked head
+    // scripts (#page-jsonld and the data-page-json script) — exactly
+    // the population the old single-shell scan saw, since the old
+    // local shell carried those slots empty/absent. The re-expression
+    // is stricter: it also PINS the instance total at the pre-split
+    // count (304), which the old check only reported, and asserts the
+    // scanned document count is the full route set (205), so a
+    // dropped or duplicated block now fails. Record:
+    // out/verify-fix-2026-10-31-per-route-shell.md.
     const id2fileD = {};
     const fileDocsD = {};
     for (const f of dsFilesD) {
@@ -1150,16 +1183,28 @@ async function main() {
       if (!dist.some((e) => e && e.contentUrl === SITE_D + '/' + f)) badNodesD.push(src + ' ' + n['@id'] + ' no self download');
     };
     for (const f of dsFilesD) for (const n of dsNodesOfD(fileDocsD[f])) checkNodeD(n, f);
-    const htmlD = fs.readFileSync(path.join(PAGES_PUBLIC, 'index.html'), 'utf8');
+    const routeDocsD = [];
+    (function walkD(d, rel) {
+      for (const e of fs.readdirSync(d, { withFileTypes: true })) {
+        const r = rel ? rel + '/' + e.name : e.name;
+        if (e.isDirectory()) walkD(path.join(d, e.name), r);
+        else if (e.isFile() && e.name === 'index.html') routeDocsD.push(r);
+      }
+    })(PAGES_PUBLIC, '');
     let shellCountD = 0;
-    for (const m of htmlD.matchAll(/<script type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)) {
-      let doc = null;
-      try { doc = JSON.parse(m[1]); } catch (_) { doc = null; }
-      const ns = doc ? (doc['@graph'] || [doc]) : [];
-      for (const n of ns) if (n && n['@type'] === 'Dataset') { shellCountD++; checkNodeD(n, 'index.html'); }
+    for (const rel of routeDocsD) {
+      const htmlD = fs.readFileSync(path.join(PAGES_PUBLIC, rel), 'utf8');
+      for (const m of htmlD.matchAll(/<script type="application\/ld\+json"([^>]*)>([\s\S]*?)<\/script>/g)) {
+        if (m[1].includes('id="page-jsonld"') || m[1].includes('data-page-json=')) continue;
+        let doc = null;
+        try { doc = JSON.parse(m[2]); } catch (_) { doc = null; }
+        const ns = doc ? (doc['@graph'] || [doc]) : [];
+        for (const n of ns) if (n && n['@type'] === 'Dataset') { shellCountD++; checkNodeD(n, rel); }
+      }
     }
-    check('D-2 every Dataset node (dataset files + index.html) carries landing url/unique sameAs, an identifier, isAccessibleForFree, typed distributions and a self-referencing DataDownload',
-      badNodesD.length === 0, 'files + ' + shellCountD + ' shell instances' + (badNodesD.length ? ', bad: ' + badNodesD.slice(0, 4).join('; ') : ''));
+    check('D-2 every Dataset node (dataset files + all 205 route documents) carries landing url/unique sameAs, an identifier, isAccessibleForFree, typed distributions and a self-referencing DataDownload',
+      badNodesD.length === 0 && shellCountD === 304 && routeDocsD.length === 205,
+      'files + ' + shellCountD + ' route-document instances across ' + routeDocsD.length + ' documents' + (badNodesD.length ? ', bad: ' + badNodesD.slice(0, 4).join('; ') : ''));
     // D-3: local sitemap set == registry pages + dataset files.
     const localXmlD = fs.readFileSync(path.join(PAGES_PUBLIC, 'sitemap.xml'), 'utf8');
     const localUrlsD = new Set([...localXmlD.matchAll(/<loc>(.*?)<\/loc>/g)].map((m) => m[1].trim()));
@@ -1223,6 +1268,11 @@ async function main() {
     const WEBMCP_TOOLS = ['search_services', 'get_service', 'list_service_areas', 'find_dataset', 'search_intent', 'verify_certificate', 'get_quote_guidance'];
     const rootRes = await fetchFullW('https://theflatratemovers.com/');
     const servedHtml = rootRes.buf.toString('utf8');
+    // Batch Per-Route Shell (Solution A) Live, 2026-10-31: the quote
+    // form now lives in the quote route document, so W-2 fetches that
+    // document too (see the W-2 re-expression note below).
+    const quoteRes = await fetchFullW('https://theflatratemovers.com/quote/');
+    const quoteHtml = quoteRes.buf.toString('utf8');
 
     // W-1: the served shell carries the registration layer + all 7 tools.
     const missingTools = WEBMCP_TOOLS.filter((n) => !servedHtml.includes("name: '" + n + "'"));
@@ -1232,12 +1282,19 @@ async function main() {
 
     // W-2: form disposition on the served bytes — hero form identified in
     // markup; no toolautosubmit anywhere; quote-form segment md5 canonical.
+    // Re-expressed by Batch Per-Route Shell (Solution A) Live, 2026-10-31:
+    // under the per-route architecture the quote form is served by the
+    // quote route document, not the home document, so the segment is
+    // asserted there (same canonical md5), the hero assertions stay on
+    // the served home document, and the toolautosubmit absence is now
+    // asserted on BOTH documents — the same property, proved at least
+    // as strictly. Record: out/verify-fix-2026-10-31-per-route-shell.md.
     const heroOk = /<form id="heroQuote"[^>]*toolname="start_flat_rate_quote"[^>]*tooldescription="/.test(servedHtml);
-    const segM = servedHtml.match(/<form id="quoteForm"[\s\S]*?<\/form>/);
+    const segM = quoteHtml.match(/<form id="quoteForm"[\s\S]*?<\/form>/);
     const segMd5 = segM ? crypto.createHash('md5').update(segM[0], 'utf8').digest('hex') : 'segment-not-found';
     check('W-2 served forms: hero identified for agents, no toolautosubmit anywhere, quote-form segment md5 canonical',
-      heroOk && !servedHtml.includes('toolautosubmit') && segMd5 === '4d8d49f05b22b129eac623a41370d9cb',
-      'heroAnnotated=' + heroOk + ', toolautosubmit absent=' + !servedHtml.includes('toolautosubmit') + ', quote segment md5=' + segMd5);
+      heroOk && quoteRes.status === 200 && !servedHtml.includes('toolautosubmit') && !quoteHtml.includes('toolautosubmit') && segMd5 === '4d8d49f05b22b129eac623a41370d9cb',
+      'heroAnnotated=' + heroOk + ', quote doc status=' + quoteRes.status + ', toolautosubmit absent (home+quote)=' + (!servedHtml.includes('toolautosubmit') && !quoteHtml.includes('toolautosubmit')) + ', quote segment md5=' + segMd5);
 
     // W-3: execute the SERVED WebMCP script against a mock provider and
     // validate every captured descriptor: exact tool set, structurally
@@ -1364,6 +1421,48 @@ async function main() {
     check('W-4 served WebMCP annotation never exposes a half-annotated connected form (schema-issue mechanism)', w4ok, w4detail);
   } catch (e) {
     check('WebMCP checks (W-1..W-4) evaluated', false, e.message);
+  }
+
+  // --- 16. llms-full.txt — Batch Per-Route Shell (Solution A) Live,
+  // 2026-10-31 (checks L-1..L-4, added in the same motion as the file
+  // shipped; record: out/verify-fix-2026-10-31-per-route-shell.md).
+  // llms-full.txt is the estate's full-text companion to llms.txt,
+  // generated from the same published sources by
+  // scripts/build-llms-full.js and sealed as a distribution. These
+  // checks assert its live presence, its seal, its llms.txt link, and
+  // a content-integrity spot rule (the estate's two branch names and
+  // all 28 service names present; no placeholder braces and none of
+  // the invented-string patterns the gate exists to keep out).
+  try {
+    const crypto = require('crypto');
+    const fetchFullL = (url) => new Promise((resolve, reject) => {
+      https.get(url, (res) => {
+        const chunks = [];
+        res.on('data', (c) => { chunks.push(c); });
+        res.on('end', () => resolve({ status: res.statusCode, headers: res.headers, buf: Buffer.concat(chunks) }));
+      }).on('error', reject);
+    });
+    const fullRes = await fetchFullL('https://theflatratemovers.com/llms-full.txt');
+    const fullText = fullRes.buf.toString('utf8');
+    check('L-1 llms-full.txt is served live as a text file',
+      fullRes.status === 200 && String(fullRes.headers['content-type'] || '').includes('text/plain'),
+      'status=' + fullRes.status + ', content-type=' + (fullRes.headers['content-type'] || 'none') + ', bytes=' + fullRes.buf.length);
+    const idxL = JSON.parse(await fetchText('https://theflatratemovers.com/ai-master-index.json'));
+    const entryL = (idxL.distribution || []).find((e) => e.contentUrl === 'https://theflatratemovers.com/llms-full.txt');
+    check('L-2 llms-full.txt is a sealed distribution in the signed index (digest matches the served bytes)',
+      !!entryL && !!entryL.digest && entryL.digest.byteSize === fullRes.buf.length &&
+      entryL.digest.value === crypto.createHash('sha256').update(fullRes.buf).digest('hex'),
+      entryL ? 'digest=' + String(entryL.digest && entryL.digest.value || '').slice(0, 12) + '…, byteSize=' + (entryL.digest && entryL.digest.byteSize) : 'entry missing');
+    const llmsTxtL = await fetchText('https://theflatratemovers.com/llms.txt');
+    check('L-3 llms.txt links llms-full.txt', llmsTxtL.includes('https://theflatratemovers.com/llms-full.txt'),
+      'link present=' + llmsTxtL.includes('https://theflatratemovers.com/llms-full.txt'));
+    const missingSvcL = services.services.filter((s) => !fullText.includes(s.name)).map((s) => s.name);
+    const forbiddenL = ['{{', '25,000 lbs', 'lifecycle logistics'].filter((x) => fullText.includes(x));
+    check('L-4 llms-full.txt content integrity (28 service names + both branch names present; no placeholders or invented strings)',
+      missingSvcL.length === 0 && fullText.includes('The Flat Rate Movers') && fullText.includes('Flat Rate Movers Martinsburg WV') && forbiddenL.length === 0,
+      'missing services=' + (missingSvcL.join(', ') || '0') + ', forbidden present=' + (forbiddenL.join(', ') || '0'));
+  } catch (e) {
+    check('llms-full checks (L-1..L-4) evaluated', false, e.message);
   }
 
   // --- 9. Guardrail scan: no placeholders, no invented license identifiers ---
