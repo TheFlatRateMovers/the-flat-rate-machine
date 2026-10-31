@@ -722,6 +722,16 @@ async function main() {
     // 206 per-page JSONs + 206 route documents + 1 llms-full.txt +
     // 18 shell/code). The assertion stays exact-count. Record:
     // out/verify-fix-2026-10-31-search-index.md.
+    // Extended by Retrieval Machine Build B2 (answer-evidence
+    // dataset), 2026-10-31 (same motion): datasets-answer-evidence.json
+    // ships as a published dataset file with its landing page
+    // /datasets/answer-evidence/ (registry 206 -> 207 pages), its
+    // per-page JSON dataset-answer-evidence.json, its generated route
+    // document, and its generator scripts/build-answer-evidence.js as
+    // a sealed code distribution. Totals move to 478 distributions
+    // (44 data + 207 per-page JSONs + 207 route documents + 1
+    // llms-full.txt + 19 shell/code). The assertion stays exact-count.
+    // Record: out/verify-fix-2026-10-31-answer-evidence.md.
     const P2_CODE_URLS = [
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/code/site-shell/index.html',
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/code/pages-functions/_middleware.js',
@@ -739,6 +749,7 @@ async function main() {
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/scripts/build-routes.js',
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/scripts/build-llms-full.js',
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/scripts/build-search-index.js',
+      'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/scripts/build-answer-evidence.js',
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/scripts/route-assets/main.js',
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/scripts/route-assets/webmcp.js',
     ];
@@ -752,14 +763,14 @@ async function main() {
       const missingCode = P2_CODE_URLS.filter((u) => !distUrls.has(u));
       const missingRoutes = pages.pages.map((p) => p.url).filter((u) => !distUrls.has(u));
       const hasLlmsFull = distUrls.has('https://theflatratemovers.com/llms-full.txt');
-      p5ok = !!servedIndex && pageFiles.length === 206 && missingPages.length === 0 && missingCode.length === 0 &&
+      p5ok = !!servedIndex && pageFiles.length === 207 && missingPages.length === 0 && missingCode.length === 0 &&
         missingRoutes.length === 0 && hasLlmsFull &&
-        (servedIndex.distribution || []).length === 474;
+        (servedIndex.distribution || []).length === 478;
       p5detail = 'pageFiles=' + pageFiles.length + ', missingPages=' + (missingPages.join(',') || '0') +
         ', missingCode=' + (missingCode.join(',') || '0') + ', missingRoutes=' + (missingRoutes.slice(0, 3).join(',') || '0') +
         ', llmsFull=' + hasLlmsFull + ', distributions=' + (servedIndex ? (servedIndex.distribution || []).length : 0);
     } catch (e) { p5ok = false; p5detail = e.message; }
-    check('P-5 certificate covers all 206 per-page JSONs + all 206 route documents + llms-full.txt + the site shell + the deployed code sets (474 distributions)',
+    check('P-5 certificate covers all 207 per-page JSONs + all 207 route documents + llms-full.txt + the site shell + the deployed code sets (478 distributions)',
       p5ok, p5detail);
 
     // P-6: repo-served distribution digests re-computed over live bytes
@@ -1213,8 +1224,8 @@ async function main() {
         for (const n of ns) if (n && n['@type'] === 'Dataset') { shellCountD++; checkNodeD(n, rel); }
       }
     }
-    check('D-2 every Dataset node (dataset files + all 206 route documents) carries landing url/unique sameAs, an identifier, isAccessibleForFree, typed distributions and a self-referencing DataDownload',
-      badNodesD.length === 0 && shellCountD === 314 && routeDocsD.length === 206,
+    check('D-2 every Dataset node (dataset files + all 207 route documents) carries landing url/unique sameAs, an identifier, isAccessibleForFree, typed distributions and a self-referencing DataDownload',
+      badNodesD.length === 0 && shellCountD === 323 && routeDocsD.length === 207,
       'files + ' + shellCountD + ' route-document instances across ' + routeDocsD.length + ' documents' + (badNodesD.length ? ', bad: ' + badNodesD.slice(0, 4).join('; ') : ''));
     // D-3: local sitemap set == registry pages + dataset files.
     const localXmlD = fs.readFileSync(path.join(PAGES_PUBLIC, 'sitemap.xml'), 'utf8');
@@ -1584,6 +1595,107 @@ async function main() {
       'clusters=' + clustersSI.length + ', badTargets=' + targetBadSI.length + ', barViolations=' + barBadSI.length);
   } catch (e) {
     check('search-index dataset checks (SI-1..SI-4) evaluated', false, e.message);
+  }
+
+  // --- 19. Answer-evidence dataset — Retrieval Machine Build B2 (2026-10-31; checks AE-1..AE-4) ---
+  // Added in the same motion as the dataset shipped (record:
+  // out/verify-fix-2026-10-31-answer-evidence.md).
+  // datasets-answer-evidence.json is the standing dataset of the
+  // Retrieval Machine's answer-engine evidence element (Dossier 02
+  // section 5): rubric questions x answer fragments (text-hash drift
+  // detection) x fragment coverage x engine profiles x citation
+  // observations with METHOD as a first-class field x review
+  // distribution snapshots (schema-barred) x gap records. These
+  // checks assert the design's gates, including its honesty gate:
+  // citation standing on the actual answer-engine UIs is UNMEASURED,
+  // so AE-2 requires every observation to carry method + era +
+  // prompt verbatim AND requires the prompt-panel / brave-serp /
+  // console observation counts to be exactly zero — a manufactured
+  // panel row fails the suite. AE-3 proves every fragment's evidence
+  // digests equal the served signed index and every text hash
+  // recomputes from its text.
+  try {
+    const { execFileSync: execAE } = require('child_process');
+    const cryptoAE = require('crypto');
+    const regAE = JSON.parse(fs.readFileSync(path.join(ROOT, 'paths.json'), 'utf8'));
+    const dsAE = JSON.parse(fs.readFileSync(path.join(PAGES_PUBLIC, 'datasets-answer-evidence.json'), 'utf8'));
+    const gAE = dsAE['@graph'] || [];
+    const nodeAE = (suffix) => gAE.find((n) => String(n['@id']).endsWith(suffix));
+    const questionsAE = (nodeAE('#dataset-answer-evidence-questions') || {}).questions || [];
+    const fragmentsAE = (nodeAE('#dataset-answer-evidence-fragments') || {}).answerFragments || [];
+    const coverageAE = (nodeAE('#dataset-answer-evidence-coverage') || {}).fragmentCoverage || {};
+    const profilesAE = (nodeAE('#dataset-answer-evidence-profiles') || {}).engineProfiles || [];
+    const obsAE = (nodeAE('#dataset-answer-evidence-observations') || {}).citationObservations || [];
+    const snapsAE = (nodeAE('#dataset-answer-evidence-reviews') || {}).reviewDistributionSnapshots || [];
+    const gapsAE = (nodeAE('#dataset-answer-evidence-gaps') || {}).gapRecords || [];
+    const totAE = (nodeAE('#dataset-answer-evidence-totals') || {}).totals || {};
+    const dbRowsAE = Number(execAE('sqlite3', [regAE.rubric_db, 'SELECT COUNT(*) FROM intent_query']).toString().trim());
+    const covTotAE = coverageAE.totals || {};
+    const covSumAE = (coverageAE.byService || []).reduce((a, c) => a + c.rubricRows, 0);
+    const bindSumAE = questionsAE.filter((q) => q.fragmentBinding === 'bound-exact').length +
+      questionsAE.filter((q) => q.fragmentBinding === 'target-page-has-fragments').length +
+      questionsAE.filter((q) => q.fragmentBinding === 'no-fragment-on-target-page').length;
+    check('AE-1 answer-evidence dataset carries all nine tables and its totals reconcile with the rubric database and the computed coverage',
+      questionsAE.length === dbRowsAE && totAE.questions === questionsAE.length &&
+      fragmentsAE.length > 0 && totAE.fragments === fragmentsAE.length &&
+      profilesAE.length === 4 && totAE.engineProfiles === 4 &&
+      obsAE.length > 0 && totAE.citationObservations === obsAE.length &&
+      snapsAE.length > 0 && totAE.reviewSnapshots === snapsAE.length &&
+      gapsAE.length === 9 && totAE.gapRecords === 9 &&
+      covTotAE.rubricRows === questionsAE.length && covSumAE === questionsAE.length && bindSumAE === questionsAE.length &&
+      covTotAE.boundExact === questionsAE.filter((q) => q.fragmentBinding === 'bound-exact').length,
+      'questions=' + questionsAE.length + ', dbRows=' + dbRowsAE + ', fragments=' + fragmentsAE.length +
+      ', profiles=' + profilesAE.length + ', observations=' + obsAE.length + ', snapshots=' + snapsAE.length +
+      ', gaps=' + gapsAE.length + ', coverageServices=' + (coverageAE.byService || []).length);
+    const badObsAE = obsAE.filter((o) => !o.method || !o.era || !o.promptVerbatim);
+    const uiObsAE = obsAE.filter((o) => o.method !== 'search-surface');
+    const panelAE = totAE.panelState || {};
+    let regenAE = false, regenDetailAE = '';
+    try {
+      execAE('node', [path.join(ROOT, 'scripts', 'build-answer-evidence.js'), '--check'], { maxBuffer: 64 * 1024 * 1024 });
+      regenAE = true;
+    } catch (e) { regenDetailAE = String(e.message).slice(0, 160); }
+    check('AE-2 every citation observation carries method + era + verbatim prompt, no answer-UI observation is claimed (panel state: zero runs, zero UI observations), and the dataset regenerates byte-identical from the live estate',
+      badObsAE.length === 0 && uiObsAE.length === 0 &&
+      panelAE.panelRuns === 0 && panelAE.promptPanelObservations === 0 && panelAE.answerUiObservations === 0 &&
+      panelAE.braveSerpObservations === 0 && panelAE.consoleObservations === 0 && regenAE,
+      'observations=' + obsAE.length + ', missingDiscipline=' + badObsAE.length + ', nonProxyMethods=' + uiObsAE.length +
+      ', panelRuns=' + panelAE.panelRuns + ', uiObservations=' + panelAE.answerUiObservations + ', regenerated=' + regenAE + (regenDetailAE ? ', ' + regenDetailAE : ''));
+    const SITE_AE = 'https://theflatratemovers.com';
+    const servedIdxAE = JSON.parse(await fetchText(SITE_AE + '/ai-master-index.json'));
+    const distAE = new Map((servedIdxAE.distribution || []).map((e) => [e.contentUrl, e]));
+    const linkBadAE = [];
+    const hashBadAE = [];
+    for (const f of fragmentsAE) {
+      const h = cryptoAE.createHash('sha256').update(f.text, 'utf8').digest('hex');
+      if (h !== f.textHash) hashBadAE.push(f.fragmentId);
+      for (const l of (f.evidenceLinks || [])) {
+        const e = distAE.get(l.url);
+        if (!e || !e.digest || e.digest.value !== l.sha256) linkBadAE.push(f.fragmentId + ':' + l.url);
+      }
+    }
+    const fragByIdAE = new Map(fragmentsAE.map((f) => [f.fragmentId, f]));
+    const bindBadAE = questionsAE.filter((q) => q.fragmentBinding === 'bound-exact' &&
+      (!q.owningFragmentId || !fragByIdAE.has(q.owningFragmentId) ||
+        !(fragByIdAE.get(q.owningFragmentId).questionIdsAnswered || []).includes(q.rubricRowRef)));
+    check('AE-3 every fragment text hash recomputes from its text, every fragment evidence digest equals the served signed index digest, and every exact binding resolves to a fragment that lists the question',
+      hashBadAE.length === 0 && linkBadAE.length === 0 && bindBadAE.length === 0,
+      'fragments=' + fragmentsAE.length + ', hashMismatches=' + hashBadAE.length +
+      ', digestMismatches=' + linkBadAE.length + (linkBadAE.length ? ' (' + linkBadAE.slice(0, 3).join(', ') + ')' : '') +
+      ', badBindings=' + bindBadAE.length);
+    const claimFieldsAE = ['qualityScore', 'qualityClaim', 'endorsement', 'award', 'certificationClaim', 'ratingVerdict', 'recommendation'];
+    const barBadAE = snapsAE.filter((r) => claimFieldsAE.some((f) => Object.prototype.hasOwnProperty.call(r, f)));
+    const compAE = snapsAE.filter((r) => r.namespace === 'competitor');
+    const compLabelBadAE = compAE.filter((r) => !String(r.note || '').includes('Competitor-namespace record'));
+    const nsAE = totAE.reviewSnapshotsByNamespace || {};
+    check('AE-4 review snapshots hold the schema bar: no claim fields anywhere, competitor records namespaced and labeled, namespace counts reconcile with the totals node',
+      barBadAE.length === 0 && compLabelBadAE.length === 0 &&
+      nsAE.company === snapsAE.filter((r) => r.namespace === 'company').length &&
+      nsAE.competitor === compAE.length,
+      'snapshots=' + snapsAE.length + ', company=' + (nsAE.company || 0) + ', competitor=' + compAE.length +
+      ', barViolations=' + barBadAE.length + ', unlabeledCompetitor=' + compLabelBadAE.length);
+  } catch (e) {
+    check('answer-evidence dataset checks (AE-1..AE-4) evaluated', false, e.message);
   }
 
   // --- 9. Guardrail scan: no placeholders, no invented license identifiers ---
