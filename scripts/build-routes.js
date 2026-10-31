@@ -367,7 +367,7 @@ const srcSeg = shell.match(/<form id="heroQuote"[\s\S]*?<\/form>/);
 const homeDoc = fs.readFileSync(path.join(outDir, 'index.html'), 'utf8');
 const homeSeg = homeDoc.match(/<form id="heroQuote"[\s\S]*?<\/form>/);
 if (!srcSeg || !homeSeg || srcSeg[0] !== homeSeg[0]) fail('hero form segment differs in generated home document');
-if (d2Instances !== 304) fail('D-2 Dataset-node instances across route documents: ' + d2Instances + ' (expected 304)');
+if (d2Instances !== 314) fail('D-2 Dataset-node instances across route documents: ' + d2Instances + ' (expected 314)');
 
 manifest.sort((a, b) => (a.url < b.url ? -1 : 1));
 fs.writeFileSync(path.join(outDir, 'routes-manifest.json'), JSON.stringify({ generated: '2026-10-31', count: manifest.length, documents: manifest }, null, 1) + '\n');

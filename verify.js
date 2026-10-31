@@ -712,6 +712,16 @@ async function main() {
     // route-document coverage assertion: every registry URL must have
     // a distribution at its canonical URL. Record:
     // out/verify-fix-2026-10-31-per-route-shell.md.
+    // Extended by Retrieval Machine Build B1 (search-index dataset),
+    // 2026-10-31 (same motion): datasets-search-index.json ships as a
+    // published dataset file with its landing page
+    // /datasets/search-index/ (registry 205 -> 206 pages), its per-page
+    // JSON dataset-search-index.json, its generated route document,
+    // and its generator scripts/build-search-index.js as a sealed code
+    // distribution. Totals move to 474 distributions (43 data +
+    // 206 per-page JSONs + 206 route documents + 1 llms-full.txt +
+    // 18 shell/code). The assertion stays exact-count. Record:
+    // out/verify-fix-2026-10-31-search-index.md.
     const P2_CODE_URLS = [
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/code/site-shell/index.html',
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/code/pages-functions/_middleware.js',
@@ -728,6 +738,7 @@ async function main() {
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/scripts/ingest-outcome-evidence.py',
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/scripts/build-routes.js',
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/scripts/build-llms-full.js',
+      'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/scripts/build-search-index.js',
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/scripts/route-assets/main.js',
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/scripts/route-assets/webmcp.js',
     ];
@@ -741,14 +752,14 @@ async function main() {
       const missingCode = P2_CODE_URLS.filter((u) => !distUrls.has(u));
       const missingRoutes = pages.pages.map((p) => p.url).filter((u) => !distUrls.has(u));
       const hasLlmsFull = distUrls.has('https://theflatratemovers.com/llms-full.txt');
-      p5ok = !!servedIndex && pageFiles.length === 205 && missingPages.length === 0 && missingCode.length === 0 &&
+      p5ok = !!servedIndex && pageFiles.length === 206 && missingPages.length === 0 && missingCode.length === 0 &&
         missingRoutes.length === 0 && hasLlmsFull &&
-        (servedIndex.distribution || []).length === 470;
+        (servedIndex.distribution || []).length === 474;
       p5detail = 'pageFiles=' + pageFiles.length + ', missingPages=' + (missingPages.join(',') || '0') +
         ', missingCode=' + (missingCode.join(',') || '0') + ', missingRoutes=' + (missingRoutes.slice(0, 3).join(',') || '0') +
         ', llmsFull=' + hasLlmsFull + ', distributions=' + (servedIndex ? (servedIndex.distribution || []).length : 0);
     } catch (e) { p5ok = false; p5detail = e.message; }
-    check('P-5 certificate covers all 205 per-page JSONs + all 205 route documents + llms-full.txt + the site shell + the deployed code sets (470 distributions)',
+    check('P-5 certificate covers all 206 per-page JSONs + all 206 route documents + llms-full.txt + the site shell + the deployed code sets (474 distributions)',
       p5ok, p5detail);
 
     // P-6: repo-served distribution digests re-computed over live bytes
@@ -1202,8 +1213,8 @@ async function main() {
         for (const n of ns) if (n && n['@type'] === 'Dataset') { shellCountD++; checkNodeD(n, rel); }
       }
     }
-    check('D-2 every Dataset node (dataset files + all 205 route documents) carries landing url/unique sameAs, an identifier, isAccessibleForFree, typed distributions and a self-referencing DataDownload',
-      badNodesD.length === 0 && shellCountD === 304 && routeDocsD.length === 205,
+    check('D-2 every Dataset node (dataset files + all 206 route documents) carries landing url/unique sameAs, an identifier, isAccessibleForFree, typed distributions and a self-referencing DataDownload',
+      badNodesD.length === 0 && shellCountD === 314 && routeDocsD.length === 206,
       'files + ' + shellCountD + ' route-document instances across ' + routeDocsD.length + ' documents' + (badNodesD.length ? ', bad: ' + badNodesD.slice(0, 4).join('; ') : ''));
     // D-3: local sitemap set == registry pages + dataset files.
     const localXmlD = fs.readFileSync(path.join(PAGES_PUBLIC, 'sitemap.xml'), 'utf8');
@@ -1499,6 +1510,80 @@ async function main() {
     }
   } catch (e) {
     check('machinery checks (M-1..M-5) evaluated', false, e.message);
+  }
+
+  // --- 18. Search index dataset — Retrieval Machine Build B1 (2026-10-31; checks SI-1..SI-4) ---
+  // Added in the same motion as the dataset shipped (record:
+  // out/verify-fix-2026-10-31-search-index.md). datasets-search-index.json
+  // is the standing dataset of the Retrieval Machine's search-index
+  // element (Dossier 01 §5): query clusters x URL supply x standing
+  // observations x era-tagged engine windows x competitor assets
+  // (schema-barred from claim surfaces) x third-party records x gap
+  // records. These checks assert the design's gates: the tables exist
+  // and reconcile with the rubric database, every observation carries
+  // its method + era + source (the generator rejects rows missing
+  // them; SI-2 also proves the file regenerates byte-identical from
+  // the live estate), the supply table reconciles 1:1 with the
+  // registry and its digests equal the served signed index, and every
+  // cluster target resolves inside the registry with the competitor
+  // schema bar holding.
+  try {
+    const { execFileSync: execSI } = require('child_process');
+    const regSI = JSON.parse(fs.readFileSync(path.join(ROOT, 'paths.json'), 'utf8'));
+    const dsSI = JSON.parse(fs.readFileSync(path.join(PAGES_PUBLIC, 'datasets-search-index.json'), 'utf8'));
+    const gSI = dsSI['@graph'] || [];
+    const nodeSI = (suffix) => gSI.find((n) => String(n['@id']).endsWith(suffix));
+    const clustersSI = (nodeSI('#dataset-search-index-clusters') || {}).queryClusters || [];
+    const supplySI = (nodeSI('#dataset-search-index-supply') || {}).urlSupply || [];
+    const obsSI = (nodeSI('#dataset-search-index-standing') || {}).standingObservations || [];
+    const winSI = (nodeSI('#dataset-search-index-windows') || {}).engineWindows || [];
+    const compSI = (nodeSI('#dataset-search-index-competitors') || {}).competitorAssets || [];
+    const tpSI = (nodeSI('#dataset-search-index-third-party') || {}).thirdPartyRecords || [];
+    const gapSI = (nodeSI('#dataset-search-index-gaps') || {}).gapRecords || [];
+    const totSI = (nodeSI('#dataset-search-index-totals') || {}).totals || {};
+    const dbRowsSI = Number(execSI('sqlite3', [regSI.rubric_db, 'SELECT COUNT(*) FROM intent_query']).toString().trim());
+    const derivedRefsSI = clustersSI.filter((c) => c.clusterSource === 'rubric-derived')
+      .reduce((a, c) => a + (c.rubricRowRefs || []).length, 0);
+    check('SI-1 search-index dataset carries all seven tables and its totals reconcile with the rubric database',
+      clustersSI.length > 0 && supplySI.length === pages.pages.length && obsSI.length > 0 && winSI.length > 0 &&
+      compSI.length > 0 && tpSI.length > 0 && gapSI.length > 0 &&
+      totSI.queryClusters === clustersSI.length && totSI.urlSupplyRows === supplySI.length &&
+      totSI.standingObservations === obsSI.length && totSI.engineWindowQueries === winSI.length &&
+      totSI.competitorAssets === compSI.length && totSI.thirdPartyRecords === tpSI.length &&
+      totSI.gapRecords === gapSI.length && totSI.rubricRowsCovered === dbRowsSI && derivedRefsSI === dbRowsSI,
+      'clusters=' + clustersSI.length + ', supply=' + supplySI.length + ', observations=' + obsSI.length +
+      ', windows=' + winSI.length + ', competitors=' + compSI.length + ', thirdParty=' + tpSI.length +
+      ', gaps=' + gapSI.length + ', dbRows=' + dbRowsSI + ', derivedRefs=' + derivedRefsSI);
+    const badObsSI = obsSI.filter((o) => !o.method || !o.era || !o.sourceRef);
+    let regenSI = false, regenDetailSI = '';
+    try {
+      execSI('node', [path.join(ROOT, 'scripts', 'build-search-index.js'), '--check'], { maxBuffer: 64 * 1024 * 1024 });
+      regenSI = true;
+    } catch (e) { regenDetailSI = String(e.message).slice(0, 160); }
+    check('SI-2 every standing observation carries method + era + source, and the dataset regenerates byte-identical from the live estate',
+      badObsSI.length === 0 && regenSI,
+      'observations=' + obsSI.length + ', missingDiscipline=' + badObsSI.length + ', regenerated=' + regenSI + (regenDetailSI ? ', ' + regenDetailSI : ''));
+    const SITE_SI = 'https://theflatratemovers.com';
+    const servedIdxSI = JSON.parse(await fetchText(SITE_SI + '/ai-master-index.json'));
+    const distSI = new Map((servedIdxSI.distribution || []).map((e) => [e.contentUrl, e]));
+    const regUrlsSI = new Set(pages.pages.map((p) => p.url));
+    const supplyUrlsSI = new Set(supplySI.map((s) => s.url));
+    const digestBadSI = supplySI.filter((s) => {
+      const e = distSI.get(SITE_SI + '/' + s.perPageJson);
+      return !e || !e.digest || e.digest.value !== s.sealedDigest;
+    });
+    check('SI-3 URL supply reconciles 1:1 with the page registry and every supply digest equals the served signed index digest for that per-page JSON',
+      supplyUrlsSI.size === regUrlsSI.size && [...regUrlsSI].every((u) => supplyUrlsSI.has(u)) && digestBadSI.length === 0,
+      'supply=' + supplySI.length + ', registry=' + regUrlsSI.size + ', digestMismatches=' + digestBadSI.length +
+      (digestBadSI.length ? ' (' + digestBadSI.slice(0, 3).map((s) => s.perPageJson).join(', ') + ')' : ''));
+    const claimFieldsSI = ['rating', 'aggregateRating', 'reviewCount', 'price', 'discount', 'endorsement', 'award', 'certification'];
+    const barBadSI = compSI.filter((r) => claimFieldsSI.some((f) => Object.prototype.hasOwnProperty.call(r, f)));
+    const targetBadSI = clustersSI.filter((c) => c.targetUrl !== null && !regUrlsSI.has(c.targetUrl));
+    check('SI-4 every cluster target resolves inside the registry and the competitor schema bar holds (no claim fields in competitor records)',
+      targetBadSI.length === 0 && barBadSI.length === 0,
+      'clusters=' + clustersSI.length + ', badTargets=' + targetBadSI.length + ', barViolations=' + barBadSI.length);
+  } catch (e) {
+    check('search-index dataset checks (SI-1..SI-4) evaluated', false, e.message);
   }
 
   // --- 9. Guardrail scan: no placeholders, no invented license identifiers ---

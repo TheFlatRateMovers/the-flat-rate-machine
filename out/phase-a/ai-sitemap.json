@@ -145,7 +145,7 @@
     "telephone": "+1-540-422-2153"
   },
   "dateModified": "2026-10-31",
-  "description": "Machine-readable index of AI, developer, and operational JSON endpoints for The Flat Rate Movers LLC, plus the core pages, services, and SIR / KIM-GS authority for theflatratemovers.com. 205 clean canonical URLs in sitemap.xml (205 pages plus the 32 published dataset files), 28 services, 53 service-area features, branches distinct (Winchester: The Flat Rate Movers; Martinsburg: Flat Rate Movers Martinsburg WV), founded June 2010. No USDOT/MC number is listed (unconfirmed).",
+  "description": "Machine-readable index of AI, developer, and operational JSON endpoints for The Flat Rate Movers LLC, plus the core pages, services, and SIR / KIM-GS authority for theflatratemovers.com. 206 clean canonical URLs in sitemap.xml (206 pages plus the 33 published dataset files), 28 services, 53 service-area features, branches distinct (Winchester: The Flat Rate Movers; Martinsburg: Flat Rate Movers Martinsburg WV), founded June 2010. No USDOT/MC number is listed (unconfirmed).",
   "distribution": [
     {
       "mediaType": "application/xml",
@@ -1127,6 +1127,11 @@
       "@type": "WebPage",
       "name": "Route 81 Corridor Datasets",
       "url": "https://theflatratemovers.com/datasets/route81/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Search Index Supply & Standing Dataset",
+      "url": "https://theflatratemovers.com/datasets/search-index/"
     },
     {
       "@type": "WebPage",
