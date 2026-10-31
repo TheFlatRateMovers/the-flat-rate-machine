@@ -1179,6 +1179,93 @@ async function main() {
     check('dataset discoverability checks (D-1..D-5) evaluated', false, e.message);
   }
 
+  // --- 15. WebMCP agent tools — Batch WebMCP (2026-10-31; checks W-1..W-3).
+  // The site shell registers seven read-only WebMCP tools (W3C WebMCP
+  // draft) where a browser exposes document.modelContext, and both
+  // on-page forms carry declarative WebMCP identification — the hero
+  // form in markup (it transmits nothing by construction), the quote
+  // form at runtime only, because its bytes are certificate-sealed.
+  // The quote form is NEVER agent-submittable: no toolautosubmit exists
+  // anywhere, and its submit handler refuses agent-invoked submits.
+  // These checks assert the SERVED state plus a live execution of the
+  // served registration script against a mock provider, so the layer
+  // cannot silently fall out or rot. Record:
+  // out/verify-fix-2026-10-31-webmcp.md.
+  try {
+    const vm = require('vm');
+    const crypto = require('crypto');
+    const fetchFullW = (url) => new Promise((resolve, reject) => {
+      https.get(url, (res) => {
+        const chunks = [];
+        res.on('data', (c) => { chunks.push(c); });
+        res.on('end', () => resolve({ status: res.statusCode, buf: Buffer.concat(chunks) }));
+      }).on('error', reject);
+    });
+    const WEBMCP_TOOLS = ['search_services', 'get_service', 'list_service_areas', 'find_dataset', 'search_intent', 'verify_certificate', 'get_quote_guidance'];
+    const rootRes = await fetchFullW('https://theflatratemovers.com/');
+    const servedHtml = rootRes.buf.toString('utf8');
+
+    // W-1: the served shell carries the registration layer + all 7 tools.
+    const missingTools = WEBMCP_TOOLS.filter((n) => !servedHtml.includes("name: '" + n + "'"));
+    check('W-1 served shell registers the seven read-only WebMCP tools',
+      rootRes.status === 200 && servedHtml.includes('document.modelContext') && missingTools.length === 0,
+      'status=' + rootRes.status + ', tools present=' + (WEBMCP_TOOLS.length - missingTools.length) + '/7' + (missingTools.length ? ', missing: ' + missingTools.join(', ') : ''));
+
+    // W-2: form disposition on the served bytes — hero form identified in
+    // markup; no toolautosubmit anywhere; quote-form segment md5 canonical.
+    const heroOk = /<form id="heroQuote"[^>]*toolname="start_flat_rate_quote"[^>]*tooldescription="/.test(servedHtml);
+    const segM = servedHtml.match(/<form id="quoteForm"[\s\S]*?<\/form>/);
+    const segMd5 = segM ? crypto.createHash('md5').update(segM[0], 'utf8').digest('hex') : 'segment-not-found';
+    check('W-2 served forms: hero identified for agents, no toolautosubmit anywhere, quote-form segment md5 canonical',
+      heroOk && !servedHtml.includes('toolautosubmit') && segMd5 === '4d8d49f05b22b129eac623a41370d9cb',
+      'heroAnnotated=' + heroOk + ', toolautosubmit absent=' + !servedHtml.includes('toolautosubmit') + ', quote segment md5=' + segMd5);
+
+    // W-3: execute the SERVED WebMCP script against a mock provider and
+    // validate every captured descriptor: exact tool set, structurally
+    // valid inputSchema (object type; every property typed + described;
+    // required ⊆ properties) — the schema-validity audit's failure
+    // modes — and read-only, non-consequential annotations.
+    const blocks = [...servedHtml.matchAll(/<script>([\s\S]*?)<\/script>/g)].map((m) => m[1]);
+    const wmBlock = blocks.find((b) => b.includes('WebMCP agent tools'));
+    let w3ok = false, w3detail = 'WebMCP script block not found in served shell';
+    if (wmBlock) {
+      const captured = [];
+      const sandbox = {
+        document: {
+          modelContext: { registerTool: (t) => { captured.push(t); return Promise.resolve(); } },
+          getElementById: () => null,
+        },
+        navigator: {},
+        fetch: () => Promise.reject(new Error('no network inside verify')),
+        URLSearchParams,
+        console,
+      };
+      vm.createContext(sandbox);
+      vm.runInContext(wmBlock, sandbox);
+      const problems = [];
+      const gotNames = captured.map((t) => t.name).sort();
+      if (JSON.stringify(gotNames) !== JSON.stringify([...WEBMCP_TOOLS].sort())) problems.push('tool set mismatch: ' + gotNames.join(','));
+      for (const t of captured) {
+        const s = t.inputSchema || {};
+        if (s.type !== 'object' || !s.properties || typeof s.properties !== 'object') { problems.push(t.name + ': inputSchema not an object schema'); continue; }
+        for (const [k, pr] of Object.entries(s.properties)) {
+          if (!pr.type) problems.push(t.name + '.' + k + ': missing type');
+          if (!pr.description) problems.push(t.name + '.' + k + ': missing description');
+        }
+        for (const r of s.required || []) if (!(r in s.properties)) problems.push(t.name + ': required not in properties: ' + r);
+        if (!t.annotations || t.annotations.readOnlyHint !== true) problems.push(t.name + ': readOnlyHint not true');
+        if (!t.annotations || t.annotations.consequentialHint !== false) problems.push(t.name + ': consequentialHint not false');
+        if (typeof t.execute !== 'function') problems.push(t.name + ': execute missing');
+        if (!t.description || t.description.length < 40) problems.push(t.name + ': description too thin');
+      }
+      w3ok = problems.length === 0 && captured.length === WEBMCP_TOOLS.length;
+      w3detail = 'registered=' + captured.length + (problems.length ? ', problems: ' + problems.join('; ') : ', all descriptors valid');
+    }
+    check('W-3 served WebMCP descriptors execute and validate (schema + read-only annotations)', w3ok, w3detail);
+  } catch (e) {
+    check('WebMCP checks (W-1..W-3) evaluated', false, e.message);
+  }
+
   // --- 9. Guardrail scan: no placeholders, no invented license identifiers ---
   const registryText = JSON.stringify({ pages, services, locations, corridors });
   check('registry files contain no placeholder text',
