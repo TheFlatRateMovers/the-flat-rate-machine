@@ -298,7 +298,7 @@ out.push('');
 
 out.push('## How to cite');
 out.push('');
-out.push('Cite the estate as: The Flat Rate Movers LLC, The Flat Rate Machine — verified estate data, https://theflatratemovers.com/ (retrieved date of access). The search-intent dataset is archived on Zenodo under concept DOI 10.5281/zenodo.23818766 (record: https://zenodo.org/records/23818767); cite the concept DOI for the dataset series. Dataset files are CC BY 4.0 — attribute The Flat Rate Movers LLC and link the file\u2019s canonical URL.');
+out.push('Cite the estate as: The Flat Rate Movers LLC, The Flat Rate Machine — verified estate data, https://theflatratemovers.com/ (retrieved date of access). The search-intent dataset is archived on Zenodo under concept DOI 10.5281/zenodo.23818766 (record: https://zenodo.org/records/23844324); cite the concept DOI for the dataset series. Dataset files are CC BY 4.0 — attribute The Flat Rate Movers LLC and link the file\u2019s canonical URL.');
 out.push('');
 out.push('---');
 out.push('');
