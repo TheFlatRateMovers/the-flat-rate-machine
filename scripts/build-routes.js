@@ -308,7 +308,8 @@ let footerTemplate;
 /* ------------------------------------------------------------------ */
 fs.mkdirSync(outDir, { recursive: true });
 const manifest = [];
-const QUOTE_MD5 = '4d8d49f05b22b129eac623a41370d9cb';
+const QUOTE_MD5 = '23d1825f2f5c87ff519e60bba628805d';
+// Pin re-expressed 2026-11-01 (Batch Quote-Form Fixes): the form markup changed — hero heavy group added, project types expanded to 20, five conditional per-type sections added. Same property, new canonical segment. Record: out/verify-fix-2026-11-01-quote-form-fixes.md.
 let d2Instances = 0;
 
 for (const p of pages) {

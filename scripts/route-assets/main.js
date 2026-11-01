@@ -321,10 +321,23 @@
     if(document.getElementById('quoteForm')) applyPrefill();
     else pendingPrefill=true;
   }
+  /* Hero Short form heavy/high-value chips: same delegated contract
+     as the quote form (2026-11-01) — selections ride the prefill into
+     the quote form's heavyPick group, so the summary captures them. */
+  function initHeroPicks(){
+    var form=document.getElementById('heroQuote');
+    if(!form || form.__pickBound) return; form.__pickBound=true;
+    form.addEventListener('click', function(e){
+      var b=pickButtonFromEvent(form, e);
+      if(!b) return;
+      b.classList.toggle('on');
+      b.setAttribute('aria-pressed', b.classList.contains('on')?'true':'false');
+    });
+  }
   function initHeroForm(){
     document.getElementById('heroQuote').addEventListener('submit', function(e){
       e.preventDefault();
-      prefill={from:document.getElementById('hqFrom').value, to:document.getElementById('hqTo').value, type:document.getElementById('hqType').value, mode:quoteMode, walkthrough:document.getElementById('hqWalk').checked};
+      prefill={from:document.getElementById('hqFrom').value, to:document.getElementById('hqTo').value, type:document.getElementById('hqType').value, heavy:pickList('heroHeavyPick'), mode:quoteMode, walkthrough:document.getElementById('hqWalk').checked};
       location.hash='#/quote';
       applyPrefillOrDefer();
     });
@@ -333,6 +346,7 @@
     if(prefill.from) document.getElementById('qFrom').value=prefill.from;
     if(prefill.to) document.getElementById('qTo').value=prefill.to;
     if(prefill.type){ document.getElementById('qMoving').value=prefill.type; var s=document.getElementById('qType'); for(var i=0;i<s.options.length;i++){ if(prefill.type.indexOf(s.options[i].text.split(' — ')[0].split(' (')[0])===0 || s.options[i].text.indexOf(prefill.type.split(' — ')[0])===0){ s.selectedIndex=i; break; } } }
+    if(prefill.heavy){ var hv=prefill.heavy.split(', '); document.querySelectorAll('#heavyPick button').forEach(function(b){ if(hv.indexOf(b.textContent.trim())>=0){ b.classList.add('on'); b.setAttribute('aria-pressed','true'); } }); }
     if(prefill.mode) setQuoteMode(prefill.mode);
     var wq=document.getElementById('qWalk'); if(wq && prefill.walkthrough) wq.checked=true;
   }
@@ -377,7 +391,7 @@
     wO.innerHTML=msg;
   }
   wR.addEventListener('input', updW); updW();
-    document.querySelectorAll('#heavyPick button').forEach(function(b){ b.addEventListener('click', function(){ b.classList.toggle('on'); }); });
+    /* The heavyPick chip binding lives in initQuotePicks on the quote form (2026-11-01) — it never belonged to this page's init. */
   }
 
 
@@ -432,15 +446,57 @@
   }
 
 
-  /* Tap-to-pick groups (project type + services on the quote form;
-     heavy lives in initHeavy) */
+  /* Tap-to-pick groups on the quote form (heavy, project type,
+     services): ONE delegated click handler on the form owns every
+     .pick group. A tap is registered exactly once, the .on state
+     shows, and pickList() reads the same state into the summary and
+     the payload. The heavy binding previously lived in initHeavy —
+     dispatched only for the Heavy Asset page — so the quote form's
+     heavy chips had no handler at all and every summary read
+     "Heavy / high-value: None noted" (fixed 2026-11-01; the binding's
+     single home is here now). Delegation on the form element itself
+     also survives the WebMCP annotation's detach/reinsert of the
+     form, and the __pickBound guard makes a second binding
+     impossible (a double binding toggles twice per tap and reads as
+     a dead chip). */
+  function pickButtonFromEvent(form, e){
+    var t=e.target;
+    while(t && t!==form){
+      if(t.tagName==='BUTTON' && t.parentNode && t.parentNode.classList && t.parentNode.classList.contains('pick')) return t;
+      t=t.parentNode;
+    }
+    return null;
+  }
   function initQuotePicks(){
-    document.querySelectorAll('#projectPick button, #servicesPick button').forEach(function(b){
-      b.addEventListener('click', function(){ b.classList.toggle('on'); });
-    });
+    var form=document.getElementById('quoteForm');
+    if(form && !form.__pickBound){
+      form.__pickBound=true;
+      form.addEventListener('click', function(e){
+        var b=pickButtonFromEvent(form, e);
+        if(!b) return;
+        b.classList.toggle('on');
+        b.setAttribute('aria-pressed', b.classList.contains('on')?'true':'false');
+        if(b.parentNode && b.parentNode.id==='projectPick') refreshProjectSections();
+      });
+    }
+    refreshProjectSections();
   }
   function pickList(id){ var out=[]; document.querySelectorAll('#'+id+' button.on').forEach(function(b){ out.push(b.textContent.trim()); }); return out.join(', '); }
   function pickText(id){ var v=pickList(id); return v||'None noted'; }
+  /* Per-type conditional sections (2026-11-01): each selected project
+     type reveals only its own fields — the sections carry their type
+     list in data-types. Recomputed on every project-type tap and once
+     at quote init, so the form shows exactly what was picked, and the
+     submit handler composes only the revealed sections' fields. */
+  function selectedProjectTypes(){ var v=pickList('projectPick'); return v ? v.split(', ') : []; }
+  function sectionTypes(id){ var el=document.getElementById(id); return el ? (el.getAttribute('data-types')||'').split('|') : []; }
+  function anyTypeSelected(types){ var sel=selectedProjectTypes(); return types.some(function(t){ return sel.indexOf(t)>=0; }); }
+  function refreshProjectSections(){
+    document.querySelectorAll('.ptype-fields').forEach(function(sec){
+      var types=(sec.getAttribute('data-types')||'').split('|');
+      sec.classList.toggle('show', anyTypeSelected(types));
+    });
+  }
   /* A select counts as entered only once the visitor actually changes it — an
      untouched select's first option is a default, never a visitor's choice, and
      is never sent. Applies in both modes and across mode switches. */
@@ -488,6 +544,27 @@
     }
     errBox.style.display='none';
     function accessString(prefix){ var parts=[]; var st=g(prefix+'Stairs'); if(st) parts.push('Stairs: '+st); var ev=selVal(prefix+'Elevator'); if(ev) parts.push('Elevator: '+ev); var dk=selVal(prefix+'Dock'); if(dk) parts.push('Loading dock: '+dk); var pk=g(prefix+'Parking'); if(pk) parts.push('Parking: '+pk); var fl=g(prefix+'Floor'); if(fl) parts.push('Floor type: '+fl); return parts.join(' | '); }
+    /* Conditional per-type sections (2026-11-01): only a selected
+       type's own fields are composed — into the summary below and
+       into the payload. The new sections' values ride the existing
+       payload keys (the notes value carries the labeled inventory,
+       export and freight lines), so the delivery route is untouched
+       and nothing a visitor entered is dropped. */
+    var showRes=anyTypeSelected(sectionTypes('ptResidential'));
+    var showHeavy=anyTypeSelected(sectionTypes('ptHeavy'));
+    var showAccess=anyTypeSelected(sectionTypes('ptAccess'));
+    var showExport=anyTypeSelected(sectionTypes('ptExport'));
+    var showFreight=anyTypeSelected(sectionTypes('ptFreight'));
+    function inventoryString(){
+      var parts=[];
+      [['qInvBedrooms','Bedrooms'],['qInvLiving','Living rooms'],['qInvDining','Dining rooms'],['qInvKitchens','Kitchens'],['qInvBathrooms','Bathrooms'],['qInvOffice','Home office / study'],['qInvGarage','Garage'],['qInvBasement','Basement'],['qInvLoft','Loft'],['qInvPatio','Patio / deck'],['qInvStorage','On-property storage']].forEach(function(r){ var v=g(r[0]); if(v) parts.push(r[1]+': '+v); });
+      return parts.join(' · ');
+    }
+    var invStr=inventoryString();
+    var extraNotes=[];
+    if(showRes && invStr) extraNotes.push('Room-by-room inventory: '+invStr);
+    if(showExport){ if(g('qExportDest')) extraNotes.push('Export destination: '+g('qExportDest')); if(g('qExportItems')) extraNotes.push('Items to pack & crate for export: '+g('qExportItems')); }
+    if(showFreight){ if(g('qFreightSituation')) extraNotes.push('Freight situation: '+g('qFreightSituation')); if(g('qFreightLoad')) extraNotes.push('The load: '+g('qFreightLoad')); }
     var walkLink='', walkCode='';
     var walkChecked=document.getElementById('qWalk') && document.getElementById('qWalk').checked;
     if(walkChecked){
@@ -506,19 +583,21 @@
       'Heavy / high-value: '+pickText('heavyPick')
     ];
     if(quoteMode==='detailed'){
-      lines.push(
+      var dLines=[
         '--- DETAILED PROJECT ---',
         'Contact name: '+(g('qName')||'—'), 'Phone: '+(g('qPhone')||'—'), 'Email: '+(g('qEmail')||'—'), 'Best way to reach: '+(selVal('qReach')||'—'),
         'Project type: '+pickText('projectPick'),
         'From (full city/ZIP): '+(g('qFromFull')||'—'), 'To (full city/ZIP): '+(g('qToFull')||'—'),
         'Preferred date: '+(g('qDate')||'—'), 'Date range end: '+(g('qDateEnd')||'—'), 'Timing: '+(selVal('qFlex')||'—'),
-        'Rooms / facility size: '+(g('qSize')||'—'),
-        'Heavy & sensitive items: '+(g('qHeavyList')||'—'), 'Weight, if known: '+(g('qHeavyWeight')||'—'), 'Dimensions, if known: '+(g('qHeavyDims')||'—'),
-        'Access at origin — '+(accessString('qOrigin')||'—'),
-        'Access at destination — '+(accessString('qDest')||'—'),
-        'Services needed: '+pickText('servicesPick'),
-        'Project notes / inventory: '+(g('qNotes')||'—')
-      );
+        'Rooms / facility size: '+(g('qSize')||'—')
+      ];
+      if(showRes) dLines.push('Room-by-room inventory: '+(invStr||'—'));
+      if(showHeavy) dLines.push('Heavy & sensitive items: '+(g('qHeavyList')||'—'), 'Weight, if known: '+(g('qHeavyWeight')||'—'), 'Dimensions, if known: '+(g('qHeavyDims')||'—'));
+      if(showAccess) dLines.push('Access at origin — '+(accessString('qOrigin')||'—'), 'Access at destination — '+(accessString('qDest')||'—'));
+      if(showExport) dLines.push('Export destination: '+(g('qExportDest')||'—'), 'Items to pack & crate for export: '+(g('qExportItems')||'—'));
+      if(showFreight) dLines.push('Freight situation: '+(g('qFreightSituation')||'—'), 'The load: '+(g('qFreightLoad')||'—'));
+      dLines.push('Services needed: '+pickText('servicesPick'), 'Project notes / inventory: '+(g('qNotes')||'—'));
+      lines.push.apply(lines, dLines);
     }
     if(walkChecked){ lines.push('--- VIDEO WALKTHROUGH ---'); if(walkLink){ lines.push('Walkthrough requested: yes', 'Room code: '+walkCode, 'Room link: '+walkLink); } else { lines.push('Walkthrough requested: yes (room link could not be created — we will call you to arrange one)'); } }
     document.getElementById('qSummary').textContent=lines.join('\n');
@@ -526,7 +605,8 @@
     // Send the same summary to The Flat Rate Movers by email via the Pages Function.
     // The mail button below remains as a fallback if this automatic send fails.
     try {
-      var payload = { mode: quoteMode, from: g('qFrom'), to: g('qTo'), moving: g('qMoving'), type: document.getElementById('qType').value, heavy: pickList('heavyPick'), name: g('qName'), phone: g('qPhone'), email: g('qEmail'), reach: selVal('qReach'), project: pickList('projectPick'), fromFull: g('qFromFull'), toFull: g('qToFull'), date: g('qDate'), dateEnd: g('qDateEnd'), flex: selVal('qFlex'), size: g('qSize'), heavyList: g('qHeavyList'), heavyWeight: g('qHeavyWeight'), heavyDims: g('qHeavyDims'), originAccess: accessString('qOrigin'), destAccess: accessString('qDest'), services: pickList('servicesPick'), notes: g('qNotes'), website: '', walkthrough: walkChecked?{requested:true, code:walkCode, url:walkLink}:{requested:false} };
+      var payloadNotes=[g('qNotes')].concat(extraNotes).filter(function(x){ return !!x; }).join('\n');
+      var payload = { mode: quoteMode, from: g('qFrom'), to: g('qTo'), moving: g('qMoving'), type: document.getElementById('qType').value, heavy: pickList('heavyPick'), name: g('qName'), phone: g('qPhone'), email: g('qEmail'), reach: selVal('qReach'), project: pickList('projectPick'), fromFull: g('qFromFull'), toFull: g('qToFull'), date: g('qDate'), dateEnd: g('qDateEnd'), flex: selVal('qFlex'), size: g('qSize'), heavyList: showHeavy?g('qHeavyList'):'', heavyWeight: showHeavy?g('qHeavyWeight'):'', heavyDims: showHeavy?g('qHeavyDims'):'', originAccess: showAccess?accessString('qOrigin'):'', destAccess: showAccess?accessString('qDest'):'', services: pickList('servicesPick'), notes: payloadNotes, website: '', walkthrough: walkChecked?{requested:true, code:walkCode, url:walkLink}:{requested:false} };
       fetch('/api/quote', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) }).then(function(r){ return r.json().catch(function(){ return { ok: false }; }); }).then(function(res){ if (res && res.ok) { toast('Sent to The Flat Rate Movers — check your email for a reply.'); } else { toast('Automatic send failed — please tap Email below to send it.'); } }).catch(function(){ toast('Automatic send failed — please tap Email below to send it.'); });
     } catch (err) { toast('Automatic send failed — please tap Email below to send it.'); }
     document.getElementById('qResult').style.display='block';
@@ -547,7 +627,7 @@
   /* Per-route init dispatch (Solution A, 2026-10-31): each page's
      bindings run once, when its div is first present — at load for
      the served route, after the swap fetch for later routes. */
-  function initHome(){ initHeroToggles(); initHeroForm(); }
+  function initHome(){ initHeroToggles(); initHeroPicks(); initHeroForm(); }
   function initQuote(){ initQuoteToggles(); initQuotePicks(); initQuoteSelects(); initQuoteMandatory(); initQuoteSubmit(); }
   var PAGE_INITS={ home: initHome, quote: initQuote, route81: initRoute81, heavy: initHeavy, services: initServices, export: initExport };
   var inited={};

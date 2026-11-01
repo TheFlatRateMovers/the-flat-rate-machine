@@ -1363,10 +1363,18 @@ async function main() {
     // asserted on BOTH documents — the same property, proved at least
     // as strictly. Record: out/verify-fix-2026-10-31-per-route-shell.md.
     const heroOk = /<form id="heroQuote"[^>]*toolname="start_flat_rate_quote"[^>]*tooldescription="/.test(servedHtml);
+    // Re-expressed by Batch Quote-Form Fixes, 2026-11-01: the quote
+    // form's markup changed (hero heavy group added on the home
+    // document; project types expanded to 20 with five conditional
+    // per-type sections on the quote form), so the canonical segment
+    // md5 moved to the value below. The property asserted is the same
+    // and is now kept company by W-5, which pins the new form
+    // structure to the served bytes. Record:
+    // out/verify-fix-2026-11-01-quote-form-fixes.md.
     const segM = quoteHtml.match(/<form id="quoteForm"[\s\S]*?<\/form>/);
     const segMd5 = segM ? crypto.createHash('md5').update(segM[0], 'utf8').digest('hex') : 'segment-not-found';
     check('W-2 served forms: hero identified for agents, no toolautosubmit anywhere, quote-form segment md5 canonical',
-      heroOk && quoteRes.status === 200 && !servedHtml.includes('toolautosubmit') && !quoteHtml.includes('toolautosubmit') && segMd5 === '4d8d49f05b22b129eac623a41370d9cb',
+      heroOk && quoteRes.status === 200 && !servedHtml.includes('toolautosubmit') && !quoteHtml.includes('toolautosubmit') && segMd5 === '23d1825f2f5c87ff519e60bba628805d',
       'heroAnnotated=' + heroOk + ', quote doc status=' + quoteRes.status + ', toolautosubmit absent (home+quote)=' + (!servedHtml.includes('toolautosubmit') && !quoteHtml.includes('toolautosubmit')) + ', quote segment md5=' + segMd5);
 
     // W-3: execute the SERVED WebMCP script against a mock provider and
@@ -1492,8 +1500,37 @@ async function main() {
         ', fields named+described=' + fieldsOk4;
     }
     check('W-4 served WebMCP annotation never exposes a half-annotated connected form (schema-issue mechanism)', w4ok, w4detail);
+
+    // W-5: quote-form chip groups + conditional per-type sections on
+    // the served bytes (Batch Quote-Form Fixes, 2026-11-01; record:
+    // out/verify-fix-2026-11-01-quote-form-fixes.md). The form's heavy
+    // chips failed live because their binding lived in another page's
+    // init; these assertions pin the fixed structure to the SERVED
+    // documents so the failure class cannot silently return: every
+    // pick group present with its full button set, the hero Short
+    // form carrying its own heavy group, the five per-type sections
+    // present with their data-types, every conditional-section
+    // control present, and the delegated single-handler binding
+    // present in the served script.
+    const pickCount = (html, id) => { const m = html.match(new RegExp('<div class="pick" id="' + id + '">([\\s\\S]*?)</div>')); return m ? (m[1].match(/<button/g) || []).length : -1; };
+    const w5problems = [];
+    if (pickCount(quoteHtml, 'heavyPick') !== 6) w5problems.push('quote heavyPick buttons=' + pickCount(quoteHtml, 'heavyPick'));
+    if (pickCount(quoteHtml, 'projectPick') !== 20) w5problems.push('quote projectPick buttons=' + pickCount(quoteHtml, 'projectPick'));
+    if (pickCount(quoteHtml, 'servicesPick') !== 7) w5problems.push('quote servicesPick buttons=' + pickCount(quoteHtml, 'servicesPick'));
+    if (pickCount(servedHtml, 'heroHeavyPick') !== 6) w5problems.push('hero heroHeavyPick buttons=' + pickCount(servedHtml, 'heroHeavyPick'));
+    for (const sec of ['ptResidential', 'ptHeavy', 'ptAccess', 'ptExport', 'ptFreight']) {
+      if (!quoteHtml.includes('id="' + sec + '" data-types="')) w5problems.push('section ' + sec + ' missing data-types');
+    }
+    for (const cid of ['qInvBedrooms', 'qInvLiving', 'qInvDining', 'qInvKitchens', 'qInvBathrooms', 'qInvOffice', 'qInvGarage', 'qInvBasement', 'qInvLoft', 'qInvPatio', 'qInvStorage', 'qExportDest', 'qExportItems', 'qFreightSituation', 'qFreightLoad']) {
+      if (!quoteHtml.includes('id="' + cid + '"')) w5problems.push('control ' + cid + ' missing');
+    }
+    if (!quoteHtml.includes('__pickBound')) w5problems.push('delegated pick binding missing from served script');
+    if (!quoteHtml.includes('refreshProjectSections')) w5problems.push('refreshProjectSections missing from served script');
+    check('W-5 quote-form chip groups, hero heavy group, per-type sections and delegated binding on the served bytes',
+      w5problems.length === 0,
+      w5problems.length ? w5problems.join('; ') : 'heavyPick=6, projectPick=20, servicesPick=7, heroHeavyPick=6, 5 ptype sections with data-types, 15 conditional controls, delegated binding present');
   } catch (e) {
-    check('WebMCP checks (W-1..W-4) evaluated', false, e.message);
+    check('WebMCP checks (W-1..W-5) evaluated', false, e.message);
   }
 
   // --- 16. llms-full.txt — Batch Per-Route Shell (Solution A) Live,
