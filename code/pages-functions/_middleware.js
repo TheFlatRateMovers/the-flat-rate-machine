@@ -31,6 +31,8 @@ const STATIC_FILES = new Set([
   "/ai-master-index.json",
   "/ai-master-index.jws",
   "/ai-sitemap.json",
+  "/ai-verification-report-2026-11-01-e6b2.json",
+  "/ai-verification-report-2026-11-01-e6b2.jws",
   "/ai-verification-report-2026-11-01.json",
   "/ai-verification-report-2026-11-01.jws",
   "/all-pages.json",

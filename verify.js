@@ -770,7 +770,7 @@ async function main() {
     let p5detail = '', p5ok = false;
     try {
       const pubDir = path.join(path.resolve(ROOT, '..', 'the-flat-rate-movers-pages'), 'public');
-      const nonPage = new Set(['ai-master-index.json', 'ai-sitemap.json', 'entity-graph.json', 'best-json-entity-graph.json', 'ai-catalog.json', 'ai-verification-report-2026-11-01.json']);
+      const nonPage = new Set(['ai-master-index.json', 'ai-sitemap.json', 'entity-graph.json', 'best-json-entity-graph.json', 'ai-catalog.json', 'ai-verification-report-2026-11-01.json', 'ai-verification-report-2026-11-01-e6b2.json']);
       const pageFiles = fs.readdirSync(pubDir).filter((f) => f.endsWith('.json') && !nonPage.has(f) && !f.startsWith('datasets-')).sort();
       const distUrls = new Set((servedIndex.distribution || []).map((e) => e.contentUrl));
       const missingPages = pageFiles.filter((f) => !distUrls.has('https://theflatratemovers.com/' + f));
@@ -779,12 +779,12 @@ async function main() {
       const hasLlmsFull = distUrls.has('https://theflatratemovers.com/llms-full.txt');
       p5ok = !!servedIndex && pageFiles.length === 210 && missingPages.length === 0 && missingCode.length === 0 &&
         missingRoutes.length === 0 && hasLlmsFull &&
-        (servedIndex.distribution || []).length === 491;
+        (servedIndex.distribution || []).length === 492;
       p5detail = 'pageFiles=' + pageFiles.length + ', missingPages=' + (missingPages.join(',') || '0') +
         ', missingCode=' + (missingCode.join(',') || '0') + ', missingRoutes=' + (missingRoutes.slice(0, 3).join(',') || '0') +
         ', llmsFull=' + hasLlmsFull + ', distributions=' + (servedIndex ? (servedIndex.distribution || []).length : 0);
     } catch (e) { p5ok = false; p5detail = e.message; }
-    check('P-5 certificate covers all 210 per-page JSONs + all 210 route documents + llms-full.txt + the site shell + the deployed code sets (491 distributions)',
+    check('P-5 certificate covers all 210 per-page JSONs + all 210 route documents + llms-full.txt + the site shell + the deployed code sets (492 distributions)',
       p5ok, p5detail);
 
     // P-6: repo-served distribution digests re-computed over live bytes
@@ -2185,7 +2185,7 @@ async function main() {
     check('crawl-presence registry dataset checks (CP-1..CP-5) evaluated', false, e.message);
   }
 
-  // --- 23. Archive registry dataset — Retrieval Machine Build E6-B1 (2026-11-01; checks AR-1..AR-6) ---
+  // --- 23. Archive registry dataset — Retrieval Machine Build E6-B1 (2026-11-01; checks AR-1..AR-6) + E6-B2 re-snapshot generation (AR-7) ---
   // The archives element's standing registry (Dossier 06 design;
   // reconciliation build inputs E6-1/E6-2/E6-3): every preservation
   // copy of the estate — Wayback captures CDX-verified live, Zenodo
@@ -2290,8 +2290,46 @@ async function main() {
       gapsAR.length === 6 && gapBadAR.length === 0 &&
       ['A1', 'A2', 'A3', 'A4', 'A5', 'A6'].every((id) => gapsAR.some((g) => g.gapId === id)) && regenAR,
       'gaps=' + gapsAR.length + ', badGaps=' + gapBadAR.length + ', regenerated=' + regenAR + (regenDetailAR ? ', ' + regenDetailAR : ''));
+    // AR-7: the second signed report (E6-B2 re-snapshot wave) stands
+    // beside the index, pinned by the wave run record: bytes hash to
+    // the recorded SHA-256, JWS verifies vs the JWKS, the report's
+    // leg tallies equal the run record's tallies, and every wave
+    // capture row carries verified fixity under the pre-B2 seal's
+    // manifest version. Record:
+    // out/verify-fix-2026-11-01-archive-resnapshot.md.
+    let ar7ok = false, ar7detail = '';
+    try {
+      const runsAR = nodeAR('#dataset-archive-registry-runs').snapshotRuns || [];
+      const runB2 = runsAR.find((r) => r.runId === 'run-2026-11-01-e6b2-resnapshot') || {};
+      const rep2Bytes = fs.readFileSync(path.join(PAGES_PUBLIC, 'ai-verification-report-2026-11-01-e6b2.json'));
+      const rep2Sha = cryptoAR.createHash('sha256').update(rep2Bytes).digest('hex');
+      const rep2 = JSON.parse(rep2Bytes.toString('utf8'));
+      const jws2 = fs.readFileSync(path.join(PAGES_PUBLIC, 'ai-verification-report-2026-11-01-e6b2.jws'), 'utf8').trim();
+      const [h2, p2, s2] = jws2.split('.');
+      const hdr2 = JSON.parse(Buffer.from(h2, 'base64url').toString('utf8'));
+      const jwks2 = JSON.parse(fs.readFileSync(path.join(PAGES_PUBLIC, '.well-known', 'signing-keys.json'), 'utf8'));
+      const k2 = (jwks2.keys || []).find((k) => k.kid === hdr2.kid);
+      const pub2 = cryptoAR.createPublicKey({ key: { kty: k2.kty, crv: k2.crv, x: k2.x }, format: 'jwk' });
+      const leg0 = (rep2.legs || [])[0] || {};
+      const leg1 = (rep2.legs || [])[1] || {};
+      const waveRows = capsAR.filter((c) => /-e6b2-/.test(c.captureId || ''));
+      const waveRowsOk = waveRows.length >= (runB2.savesConfirmed || 0) && waveRows.every((c) =>
+        c.fixityStatus === 'verified' &&
+        (String(c.url).includes('zenodo.org') ||
+         String(c.manifestVersion || '').includes('3fb30cd7c02debbdc3eaf5d949b44a1e1730d38c74e0296062b5d851c7fafc4e')));
+      ar7ok = rep2Sha === runB2.verificationReportSha256 &&
+        runB2.verificationReportUrl === 'https://theflatratemovers.com/ai-verification-report-2026-11-01-e6b2.json' &&
+        cryptoAR.verify(null, Buffer.from(h2 + '.' + p2), pub2, Buffer.from(s2, 'base64url')) &&
+        leg0.savesConfirmed === runB2.savesConfirmed && leg0.preexistingCurrentEra === runB2.preexistingCurrentEra &&
+        leg0.submittedUnverified === runB2.submittedUnverified && leg0.failed === runB2.failed &&
+        leg1.sampledCaptures === runB2.sampleSize && leg1.cdxDigestVerified === runB2.sampleDigestVerified &&
+        runB2.confirmed === runB2.savesConfirmed + runB2.preexistingCurrentEra && waveRowsOk;
+      ar7detail = 'reportSha=' + rep2Sha.slice(0, 16) + ', waveRows=' + waveRows.length + ', runConfirmed=' + runB2.confirmed + ', kid=' + hdr2.kid;
+    } catch (e) { ar7detail = e.message; }
+    check('AR-7 the signed E6-B2 verification report stands beside the index at the wave run record’s URL, its bytes hash to the run-recorded SHA-256, its detached JWS verifies against the published JWKS, its leg tallies equal the run record’s, and every wave capture row carries verified fixity under the pre-B2 seal’s manifest version',
+      ar7ok, ar7detail);
   } catch (e) {
-    check('archive registry dataset checks (AR-1..AR-6) evaluated', false, e.message);
+    check('archive registry dataset checks (AR-1..AR-7) evaluated', false, e.message);
   }
 
   // --- 9. Guardrail scan: no placeholders, no invented license identifiers ---
