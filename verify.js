@@ -762,6 +762,7 @@ async function main() {
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/scripts/build-search-index.js',
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/scripts/build-answer-evidence.js',
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/scripts/build-local-graph.js',
+      'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/scripts/build-crawl-presence.js',
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/scripts/route-assets/main.js',
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/scripts/route-assets/webmcp.js',
     ];
@@ -775,14 +776,14 @@ async function main() {
       const missingCode = P2_CODE_URLS.filter((u) => !distUrls.has(u));
       const missingRoutes = pages.pages.map((p) => p.url).filter((u) => !distUrls.has(u));
       const hasLlmsFull = distUrls.has('https://theflatratemovers.com/llms-full.txt');
-      p5ok = !!servedIndex && pageFiles.length === 208 && missingPages.length === 0 && missingCode.length === 0 &&
+      p5ok = !!servedIndex && pageFiles.length === 209 && missingPages.length === 0 && missingCode.length === 0 &&
         missingRoutes.length === 0 && hasLlmsFull &&
-        (servedIndex.distribution || []).length === 482;
+        (servedIndex.distribution || []).length === 486;
       p5detail = 'pageFiles=' + pageFiles.length + ', missingPages=' + (missingPages.join(',') || '0') +
         ', missingCode=' + (missingCode.join(',') || '0') + ', missingRoutes=' + (missingRoutes.slice(0, 3).join(',') || '0') +
         ', llmsFull=' + hasLlmsFull + ', distributions=' + (servedIndex ? (servedIndex.distribution || []).length : 0);
     } catch (e) { p5ok = false; p5detail = e.message; }
-    check('P-5 certificate covers all 208 per-page JSONs + all 208 route documents + llms-full.txt + the site shell + the deployed code sets (482 distributions)',
+    check('P-5 certificate covers all 209 per-page JSONs + all 209 route documents + llms-full.txt + the site shell + the deployed code sets (486 distributions)',
       p5ok, p5detail);
 
     // P-6: repo-served distribution digests re-computed over live bytes
@@ -1242,8 +1243,8 @@ async function main() {
         for (const n of ns) if (n && n['@type'] === 'Dataset') { shellCountD++; checkNodeD(n, rel); }
       }
     }
-    check('D-2 every Dataset node (dataset files + all 208 route documents) carries landing url/unique sameAs, an identifier, isAccessibleForFree, typed distributions and a self-referencing DataDownload',
-      badNodesD.length === 0 && shellCountD === 332 && routeDocsD.length === 208,
+    check('D-2 every Dataset node (dataset files + all 209 route documents) carries landing url/unique sameAs, an identifier, isAccessibleForFree, typed distributions and a self-referencing DataDownload',
+      badNodesD.length === 0 && shellCountD === 343 && routeDocsD.length === 209,
       'files + ' + shellCountD + ' route-document instances across ' + routeDocsD.length + ' documents' + (badNodesD.length ? ', bad: ' + badNodesD.slice(0, 4).join('; ') : ''));
     // D-3: local sitemap set == registry pages + dataset files.
     const localXmlD = fs.readFileSync(path.join(PAGES_PUBLIC, 'sitemap.xml'), 'utf8');
@@ -1839,7 +1840,7 @@ async function main() {
   // @id (DC-4); and the Zenodo concept DOI in URL form on exactly
   // its holder nodes — the four intent collection nodes, the intent
   // landing node and the master-index root — and nowhere else in
-  // the corpus (DC-5). Corpus: the 35 dataset files, the 35
+  // the corpus (DC-5). Corpus: the 36 dataset files, the 36
   // per-page dataset JSONs, ai-sitemap.json, entity-graph.json and
   // every route document's non-baked ld+json (the D-2 population).
   // The master index itself is DC-2's comparison source, not
@@ -2028,6 +2029,131 @@ async function main() {
       'holders: 4 intent collection nodes + intent landing node + master-index root, ' + holderInstancesC + ' holder instances incl. route copies' + (bad5.length ? ', bad: ' + bad5.slice(0, 4).join('; ') : ''));
   } catch (e) {
     check('dataset catalog checks (DC-1..DC-5) evaluated', false, e.message);
+  }
+
+  // --- 22. Crawl-presence registry dataset — Retrieval Machine Build E5-B1 (2026-10-31; checks CP-1..CP-5) ---
+  // Added in the same motion as the dataset shipped (record:
+  // out/verify-fix-2026-10-31-crawl-presence.md).
+  // datasets-crawl-presence.json is the standing registry of the
+  // Retrieval Machine's training/research-corpora element (Dossier
+  // 05 section 5): every Common Crawl collection's recorded answer
+  // for this domain (query state + verbatim method + attempts) x
+  // capture rows classified by computed URL class and content era x
+  // the robots posture recorded as the owner's decision (Option 1,
+  // open training, 2026-10-31) with the served-vs-source drift gate
+  // x the signed signal-observation log x the honesty tables
+  // (filter_inspection empty by design, corpus_release_check
+  // not-checked by design) x gaps P1–P6 with designed solutions x
+  // the mechanism pins. These checks assert the design's gates,
+  // including its honesty gates: an unreadable collection is an
+  // explicit unverifiable-index-error row, never a zero-filled
+  // capture set (CP-4); the recorded posture must equal the decided
+  // state and the live robots.txt must still digest-match the
+  // recorded served file (CP-2 — the drift gate); the signal log's
+  // genesis entry must carry the full 22-field shape and a signature
+  // that verifies against the published JWKS key (CP-3).
+  try {
+    const { execFileSync: execCP } = require('child_process');
+    const cryptoCP = require('crypto');
+    const dsCP = JSON.parse(fs.readFileSync(path.join(PAGES_PUBLIC, 'datasets-crawl-presence.json'), 'utf8'));
+    const gCP = dsCP['@graph'] || [];
+    const nodeCP = (suffix) => gCP.find((n) => String(n['@id']).endsWith(suffix));
+    const collsCP = (nodeCP('#dataset-crawl-presence-collections') || {}).collections || [];
+    const rowsCP = (nodeCP('#dataset-crawl-presence-crawl-presence') || {}).crawlPresence || [];
+    const summCP = (nodeCP('#dataset-crawl-presence-presence-summary') || {}).presenceSummary || {};
+    const policyCP = (nodeCP('#dataset-crawl-presence-robots-policy') || {}).robotsPolicy || {};
+    const sigsCP = (nodeCP('#dataset-crawl-presence-signal-observations') || {}).signalObservations || [];
+    const inspCP = (nodeCP('#dataset-crawl-presence-filter-inspections') || {}).filterInspections;
+    const relCP = nodeCP('#dataset-crawl-presence-corpus-release-checks') || {};
+    const gapsCP = (nodeCP('#dataset-crawl-presence-gaps') || {}).gapRecords || [];
+    const pinsCP = (nodeCP('#dataset-crawl-presence-mechanism-pins') || {}).mechanismPins || [];
+    const totCP = (nodeCP('#dataset-crawl-presence-totals') || {}).totals || {};
+    // CP-1: totals reconcile with the rows.
+    const perCollSumCP = collsCP.reduce((a, c) => a + (c.captureCount || 0), 0);
+    const summSumCP = (summCP.perCollection || []).reduce((a, c) => a + (c.totalCaptures || 0), 0);
+    const eraSumCP = Object.values(summCP.byEra || {}).reduce((a, v) => a + (v.captures || 0), 0);
+    const classSumCP = Object.values(summCP.byClass || {}).reduce((a, v) => a + (v.captures || 0), 0);
+    const stateCountsCP = { 'queried-clean': 0, 'partial': 0, 'unverifiable-index-error': 0 };
+    for (const c of collsCP) if (Object.prototype.hasOwnProperty.call(stateCountsCP, c.queryState)) stateCountsCP[c.queryState]++;
+    check('CP-1 crawl-presence totals reconcile with the collection and capture rows (collections, captures, per-collection summary, per-era and per-class sums, query-state counts)',
+      collsCP.length === totCP.collections && rowsCP.length === totCP.captureRows &&
+      perCollSumCP === rowsCP.length && summSumCP === rowsCP.length &&
+      eraSumCP === rowsCP.length && classSumCP === rowsCP.length &&
+      JSON.stringify(stateCountsCP) === JSON.stringify(totCP.collectionsByQueryState || {}) &&
+      totCP.capturesOk200 === rowsCP.filter((r) => r.status === '200').length &&
+      totCP.currentEstateCaptures === rowsCP.filter((r) => r.contentEra === 'current-estate').length,
+      'collections=' + collsCP.length + ', rows=' + rowsCP.length + ', perCollSum=' + perCollSumCP +
+      ', eraSum=' + eraSumCP + ', classSum=' + classSumCP);
+    // CP-2: the recorded decision + the drift gate against the LIVE file.
+    const liveRobotsCP = fs.readFileSync(path.join(PAGES_PUBLIC, 'robots.txt'));
+    const liveDigestCP = cryptoCP.createHash('sha256').update(liveRobotsCP).digest('hex');
+    const decCP = policyCP.decision || {};
+    const liveGroupsCP = (liveRobotsCP.toString('utf8').match(/^User-agent:/gim) || []).length;
+    check('CP-2 robots policy records the owner decision (Option 1, open training, decided 2026-10-31) and the drift gate holds: served digest, recorded source digest and the live robots.txt digest are one value, with the dated no-drift result and the agent table matching the live file',
+      decCP.state === 'decided' && decCP.option === 1 && decCP.optionName === 'open-training' &&
+      decCP.posture === 'open-training' && decCP.decidedBy === 'owner' && decCP.decidedOn === '2026-10-31' &&
+      (policyCP.servedFile || {}).sha256 === liveDigestCP &&
+      (policyCP.sourceFile || {}).sha256 === liveDigestCP &&
+      (policyCP.driftGate || {}).result === 'no-drift-observed' &&
+      /^\d{4}-\d{2}-\d{2}$/.test((policyCP.driftGate || {}).checkedOn || '') &&
+      (policyCP.agents || []).length === liveGroupsCP && liveGroupsCP > 0 &&
+      policyCP.contentSignalSearch === 'unset' && policyCP.contentSignalAiInput === 'unset' &&
+      policyCP.contentSignalAiTrain === 'unset' && (policyCP.usageTokenAiTraining || {}).state === 'absent',
+      'liveDigest=' + liveDigestCP.slice(0, 12) + ', agents=' + (policyCP.agents || []).length + '/' + liveGroupsCP +
+      ', drift=' + ((policyCP.driftGate || {}).result || 'missing'));
+    // CP-3: the signal-observation log shape + signature.
+    const FIELDS_CP = ['entry_id', 'schema_version', 'observed_at', 'capturing_agent', 'mechanism', 'signal_url', 'scope', 'scope_value', 'http_status', 'response_headers_digest', 'body_digest', 'body_byte_size', 'raw_artifact_uri', 'parsed_directives', 'spec_version', 'archive_snapshot_uri', 'change_ref', 'effective_from', 'effective_to', 'prev_entry_digest', 'entry_digest', 'signature', 'signing_key_id'];
+    let sigOkCP = false, sigDetailCP = '';
+    try {
+      const jwksCP = JSON.parse(fs.readFileSync(path.join(PAGES_PUBLIC, '.well-known', 'signing-keys.json'), 'utf8'));
+      const keyCP = (jwksCP.keys || []).find((k) => k.kid === 'theflatratemovers-2026-10-29-1');
+      const e0 = sigsCP[0] || {};
+      const jwkCP = { kty: keyCP.kty, crv: keyCP.crv, x: keyCP.x };
+      const pubCP = cryptoCP.createPublicKey({ key: jwkCP, format: 'jwk' });
+      sigOkCP = cryptoCP.verify(null, Buffer.from(e0.entry_digest || '', 'hex'), pubCP,
+        Buffer.from(e0.signature || '', 'base64url'));
+    } catch (e) { sigDetailCP = String(e.message).slice(0, 120); }
+    const e0CP = sigsCP[0] || {};
+    const fieldsOkCP = FIELDS_CP.every((f) => Object.prototype.hasOwnProperty.call(e0CP, f)) &&
+      Object.prototype.hasOwnProperty.call(e0CP, 'timestamp_token') && e0CP.timestamp_token === null &&
+      e0CP.prev_entry_digest === null && e0CP.http_status === 200 &&
+      e0CP.body_digest === liveDigestCP && e0CP.signing_key_id === 'theflatratemovers-2026-10-29-1';
+    check('CP-3 the signal-observation log carries the full 22-field shape (plus the unpopulated optional timestamp_token), the genesis entry digest-chains from null, its body digest equals the live robots.txt digest, and its Ed25519 signature verifies against the published JWKS key',
+      sigsCP.length === totCP.signalObservations && sigsCP.length >= 1 && fieldsOkCP && sigOkCP,
+      'entries=' + sigsCP.length + ', fieldsOk=' + fieldsOkCP + ', signatureVerifies=' + sigOkCP + (sigDetailCP ? ', ' + sigDetailCP : ''));
+    // CP-4: honesty states — no zero-filled presence.
+    const QS_CP = ['queried-clean', 'partial', 'unverifiable-index-error'];
+    const ERAS_CP = ['current-estate', 'pre-cutover-wordpress', 'wix-era', 'earlier-predecessor'];
+    const CLASSES_CP = ['page', 'dataset-file', 'llms', 'graph', 'index', 'robots', 'taxonomy', 'other'];
+    const badCollCP = collsCP.filter((c) => !QS_CP.includes(c.queryState) || !c.method ||
+      (c.queryState === 'unverifiable-index-error' && (!c.errorNote || c.captureCount !== 0)) ||
+      c.captureCount !== rowsCP.filter((r) => r.collectionId === c.collectionId).length);
+    const badRowCP = rowsCP.filter((r) => !ERAS_CP.includes(r.contentEra) || !CLASSES_CP.includes(r.urlClass) ||
+      typeof r.eraReview !== 'boolean' || !r.url || !r.timestamp || !r.status);
+    check('CP-4 no zero-filled presence: every collection carries a controlled query state with its method, unverifiable collections stand as explicit error rows with zero captures, every capture row carries a computed era and class from the vocabularies, and the filter-inspection and corpus-release tables hold their honest empty / not-checked states',
+      badCollCP.length === 0 && badRowCP.length === 0 &&
+      Array.isArray(inspCP) && inspCP.length === 0 &&
+      Array.isArray(relCP.corpusReleaseChecks) && relCP.corpusReleaseChecks.length === 0 &&
+      relCP.releaseCheckState === 'not-checked',
+      'badCollections=' + badCollCP.length + ', badRows=' + badRowCP.length +
+      ', unverifiable=' + collsCP.filter((c) => c.queryState === 'unverifiable-index-error').length);
+    // CP-5: gaps with solutions, mechanism pins, byte-identical regen.
+    const gapBadCP = gapsCP.filter((g) => !g.solution || !g.status || !g.resolvingBatch || !g.title);
+    const p3CP = gapsCP.find((g) => g.gapId === 'P3') || {};
+    const pinBadCP = pinsCP.filter((p) => !p.mechanism || !p.pinnedFact || !p.source);
+    let regenCP = false, regenDetailCP = '';
+    try {
+      execCP('node', [path.join(ROOT, 'scripts', 'build-crawl-presence.js'), '--check'], { maxBuffer: 64 * 1024 * 1024 });
+      regenCP = true;
+    } catch (e) { regenDetailCP = String(e.message).slice(0, 160); }
+    check('CP-5 gaps P1–P6 each carry a designed solution and status (P3 resolved by the recorded owner decision), the mechanism pins carry their sources, and the dataset regenerates byte-identical from the sweep seed, the signed observation and the live estate',
+      gapsCP.length === 6 && gapBadCP.length === 0 &&
+      ['P1', 'P2', 'P3', 'P4', 'P5', 'P6'].every((id) => gapsCP.some((g) => g.gapId === id)) &&
+      String(p3CP.status || '').startsWith('resolved') && pinsCP.length >= 4 && pinBadCP.length === 0 && regenCP,
+      'gaps=' + gapsCP.length + ', badGaps=' + gapBadCP.length + ', pins=' + pinsCP.length +
+      ', regenerated=' + regenCP + (regenDetailCP ? ', ' + regenDetailCP : ''));
+  } catch (e) {
+    check('crawl-presence registry dataset checks (CP-1..CP-5) evaluated', false, e.message);
   }
 
   // --- 9. Guardrail scan: no placeholders, no invented license identifiers ---
