@@ -298,6 +298,31 @@ still occurs 0 times estate-wide.
   Sole open: P-6 — repo-served copies closed by the pushes and the
   parent upload below, exactly as in the parent batch.
 
+### FIX closing addendum (2026-11-01, after the pushes)
+
+- AI push LANDED: theflatratemovers-ai commit
+  31a5d5af9dda8b2046a10b5a41b180eb29d43978 (2 files:
+  data/ai-master-index.json, data/ai-master-index.jws).
+- Machine push LANDED: the-flat-rate-machine commit
+  6652954fae9432a366dbe1b11210c7a5423631fe (2 files:
+  scripts/route-assets/main.js, this record).
+- Read-backs (cache-busted raw, SHA-256 vs sealed): ai index =
+  9852fdae… (the final seal itself), ai JWS byte-identical,
+  machine route-assets/main.js 48581d93… — 3/3 match. Pre-push
+  key-content grep across both push trees = 0.
+- The gist-based ai data/entity-graph.json re-confirmed intact
+  (2,486 B, parses) after both pushes.
+- Remaining for full P-6 closure (145/145 on the parent's
+  confirming run): ONE parent web upload — machine repo
+  code/site-shell/index.html, 23,352,509 B, SHA-256
+  c527f97f1ef0780975b8e37cd05b04b7c85d7e6f8abbbefe583036c0362ad42e
+  (source: repo-dir/index.html). No ai-repo upload is needed this
+  time: datasets-answer-evidence.json is byte-unchanged.
+- Remaining parent closing step: the live browser click-test —
+  the original list plus the two retests in this fix's close-out
+  report (carried-over chip first tap; hero CTA with empty
+  From/To). No form submission.
+
 ## Closing addendum (2026-11-01, after the pushes)
 
 - AI push LANDED: theflatratemovers-ai commit
