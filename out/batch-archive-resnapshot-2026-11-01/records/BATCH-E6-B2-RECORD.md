@@ -262,3 +262,30 @@ the same self-reference E6-B1 carried.
 - Gap A4 stays open by design until E6-B3 executes on a real
   release. The local BagIt archive's next regeneration also rides
   E6-B3 (AR-4 continues to pin the E6-B1 bag, unchanged).
+
+## Correction cycle (post-push, inside this batch — disclosed)
+
+The post-push verify run exposed one divergence the pre-push P-6
+run could not: the estate's verify.js exists in two copies — the
+working copy at the machine repo root (which every batch run
+executes) and the sealed distribution copy in repo-dir/, from
+which the digest is taken. This batch's verify edits (the P-5
+re-expression and AR-7) had landed in the root copy only, so the
+index sealed the pre-batch repo-dir text (166,619 bytes) while the
+repo push — staged from the root — carried the new text
+(169,892 bytes): one file, two truths. The fix, executed in this
+batch: the root copy (the text every green run in this batch
+actually executed, 140 checks incl. AR-7) was synced into
+repo-dir/, the index was re-digested and re-signed (seal passes 4
+and 5 — pass 5 reproduces pass 4's index exactly:
+**783fb17bf871107b9c2d150240c4c6b55de14ae97969e0927a130e412339c
+367**, the batch's final seal, superseding the pass-3 value
+ec8ee611… named above), the dataset fixpoint re-converged with no
+content movement, Pages was redeployed (live index == sealed),
+the API cadence re-ran (worker 4dc9d64a-e049-44ad-8681-3dd598944
+e2d), and one disclosed correction push per repo followed the
+initial pair (ai: the re-sealed index + JWS; machine: verify.js +
+this amended record) — the same follow-on pattern E6-B1's record
+documents. The parent flags above are unaffected (neither file's
+digest moved). Final verify state after the correction pushes:
+139/140, P-6 open on the site shell alone — the parent's upload.
