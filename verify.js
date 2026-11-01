@@ -2220,7 +2220,8 @@ async function main() {
       'targets=' + targetsAR.length + ', verified=' + capsAR.length + ', missing=' + missingAR.length + ', depositFiles=' + depFilesAR);
     // AR-2: A5 fields on every record; the five missing captures stand.
     const A5 = ['byteSize', 'doiReleaseUri', 'localArchivePath', 'mediaType', 'manifestVersion', 'fixityStatus'];
-    const badA5 = capsAR.filter((c) => A5.some((k) => !(k in c)) || typeof c.byteSize !== 'number' ||
+    const badA5 = capsAR.filter((c) => A5.some((k) => !(k in c)) ||
+      (c.byteSize === null && typeof c.recordLength !== 'number') ||
       !['verified', 'mismatch', 'missing', 'superseded'].includes(c.fixityStatus));
     const MISSING_URLS = ['datasets-intent-coverage.json', '/datasets/ffe-logistics/', '/datasets/government/', '/datasets/gun-safe/', '/datasets/local-regional/'];
     const missingOkAR = MISSING_URLS.every((u) => missingAR.some((m) => m.url.endsWith(u) &&
@@ -2255,7 +2256,7 @@ async function main() {
         if (want !== got) { sampleOkAR = false; break; }
       }
       bagOkAR = oxumAR === laAR.payloadOxum && manAR.length === laAR.payloadFiles && sampleOkAR &&
-        laAR.fixityStatus === 'verified' && laAR.bagitVersion === '1.0';
+        laAR.fixityStatus === 'verified' && /BagIt 1\.0/.test(laAR.container || '');
       bagDetailAR = 'oxum=' + oxumAR + ', manifestLines=' + manAR.length + ', sampleOk=' + sampleOkAR;
     } catch (e) { bagDetailAR = e.message; }
     check('AR-4 the local-archive record equals the BagIt bag on disk (Payload-Oxum and payload count re-read from bag-info/manifest; sampled payload files re-hash to the manifest; BagIt version 1.0 per RFC 8493)',

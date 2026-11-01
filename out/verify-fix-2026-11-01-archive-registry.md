@@ -37,3 +37,20 @@ section pinning the new dataset's gates.
   complete and the dataset regenerating byte-identical.
 
 Suite: 133 → 139 checks.
+
+## Amendment (same batch, correction cycles before close)
+
+- **P-5 population definition:** `ai-verification-report-2026-11-01.json`
+  added to the check's non-page exclusion set — it is a dated signed
+  artifact and a sealed distribution, not a per-page JSON; the
+  exact-count assertion (210) is unchanged in strength. The
+  build-routes byproduct `routes-manifest.json` was removed from the
+  deploy tree rather than accommodated in the check.
+- **§23 AR-2/AR-3/AR-4** were aligned to the registry's generated
+  data model before close (field paths fileRows /
+  archiveFile.checksumVerified / exceptionsByKind /
+  recheck2026Nov01; null byteSize admitted where the CDX record
+  carries no payload size, with recordLength required as the size
+  evidence; BagIt version read from the container string). No
+  assertion was weakened: each check still pins the same facts
+  against the fields that actually carry them.

@@ -142,3 +142,63 @@ verify.js gains §23 AR-1..AR-6 and the same-motion re-expressions
 (P-5 210/491, D-2 353/210, P2_CODE_URLS + the new generator,
 build-routes D-2 pin 343 → 353); record:
 out/verify-fix-2026-11-01-archive-registry.md. Suite target 139.
+
+## CORRECTION CYCLES (in-batch, before close — pipeline standard)
+
+The first full verify run scored 128/139; every failure was diagnosed
+to a root cause and fixed inside the batch; nothing was waived.
+
+1. **Seal ordering (P-6/M-2/M-3, verify.js item):** seal pass 2 had
+   run before the §23 verify.js edits, so the sealed verify.js digest
+   described the pre-§23 file. Fixed by re-sealing over the final
+   files (passes 3–4 below).
+2. **I-1 rubric fixed point:** the rubric generator reads cert
+   digests from the CURRENT public index, so the DB must be built
+   against the final seal. Two extra cycles (rubric rebuild → SQL
+   load → fixpoint → seal) converged: generator --check now reproduces
+   the DB digest exactly (6e98064c…). The generator's standing v2
+   generation stamp (2026-10-31) governs; an env override used
+   mid-batch was reverted for the same reason.
+3. **DC-5 intent landing holder:** the batch's first per-page re-sync
+   replaced the intent landing's @graph[0] wholesale and dropped its
+   concept-DOI identifier. Repaired from the local BagIt archive's
+   pre-batch copy (the archive's first working use): the original
+   node restored byte-for-byte except its description (re-synced to
+   the current dataset text) — the intent-fix batch's raw-text
+   method. DC-5 green again.
+4. **P-5 population:** public/routes-manifest.json (a build-routes
+   byproduct) removed from the deploy tree, and the dated signed
+   verification report added to P-5's non-page exclusion set (it is
+   a sealed distribution, not a per-page JSON) — recorded in the
+   verify-fix record amendment.
+5. **AR-2/AR-3/AR-4/AR-5 check-side fixes:** the new §23 checks were
+   aligned to the registry's actual data model (deposit rows under
+   fileRows; MD5 state at archiveFile.checksumVerified; exceptions
+   reconciled via exceptionsByKind; the missing-capture trail field
+   recheck2026Nov01; null byteSize stands where the CDX record
+   carries no payload size, with recordLength as the size evidence;
+   the BagIt version read from the container string; a section-local
+   crypto import). The dataset itself was not changed for these.
+6. **Pushes:** the correction cycles required two follow-on pushes
+   per repo after the initial pair (ai 75f603f4 → 4e2e32f8 → final;
+   machine 8e683905 → 57b399d2 → final), each disclosed here per the
+   transport-exception precedent: the batch does not close on a
+   failed gate, and the re-sealed index must match the pushed files.
+   Final index SHA-256 (seal pass 4):
+   3fb30cd7c02debbdc3eaf5d949b44a1e1730d38c74e0296062b5d851c7fafc4e.
+   Final API worker version f275ad01-f842-4e8c-a51d-8d0a74861893.
+   Final verify state: 138/139 — the single open item is P-6's
+   site-shell mirror digest, which closes when the parent lands the
+   flagged web upload below (the exact E5-B1/intent-fix close-out
+   pattern).
+
+## FLAGGED FOR PARENT (final values, post-correction)
+
+- machine `code/site-shell/index.html` ← repo-dir/index.html:
+  23,361,355 bytes, SHA-256
+  159f21d7489ad64e43478f54cb803b00ef384f3af20a4443c37ddd5ca960eba0
+- ai `data/datasets-answer-evidence.json`:
+  7,324,348 bytes, SHA-256
+  a5e9886e516bcadad7a90e04bf3b2af1b3b081f6ad3d7ba25e924fc5432f3d54
+  — NOTE: this file's bytes moved again in the final fixpoint; use
+  these values, not the earlier handoff figures.
