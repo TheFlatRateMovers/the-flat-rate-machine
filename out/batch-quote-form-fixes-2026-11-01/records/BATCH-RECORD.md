@@ -173,3 +173,149 @@ byte-unchanged.
 The browser click-test (no form submission) is the parent's closing
 step; the exact list is in the batch's close-out report
 (CLICK-TEST READY).
+
+## FIX — carried-over chip first-tap defect + hero CTA validation (2026-11-01, later the same day)
+
+Two defects from the parent's live browser click-test of this batch,
+fixed in this same batch record's motion. No test quote submissions
+were made.
+
+### Defect 1 — a chip whose .on arrived via carry-over ate its first tap
+
+Observed live: hero "Gun safe" tapped on (one tap), carried into
+/quote/ already selected — then the FIRST tap on it did not deselect;
+the second tap did. Fresh chips (Piano) and every other group toggled
+once per tap.
+
+**Investigation (mechanism, in code).** Every script in the served
+documents was audited: main.js (byte-identical to its source),
+webmcp.js, the ICS/SWL helper script. The toggle path itself is
+exact — one delegated handler, `__pickBound`-guarded, bound once —
+and it toggles a prefilled chip correctly in three independent
+reproductions of the shipped code (a bubbling fake-DOM harness;
+jsdom running the real generated home + quote documents through the
+real submit → fetch-swap → init → annotate → finish-route sequence;
+jsdom again with WebMCP forced present so the real annotate
+detach/reinsert runs). The defect is not in the toggle. It is in
+**when and how the prefilled state is written**: `applyPrefill()`
+was a second, separate writer of chip state (its own
+`classList.add('on')` + `aria-pressed` code, duplicating the
+handler's), and it ran at the very END of `finishRoute()` — after
+the quote page had already been swapped in and `.show`n. A prefilled
+chip was therefore the only control on the estate whose state was
+asserted by a late route-finish pass instead of by the tap handler
+itself, and in the live browser that late assertion is what the
+first tap met: the tap toggled, the pass's state is what stood, and
+only from the second tap — with no pass left to run — did the
+handler own the chip. Fresh chips never pass through that writer,
+which is why they always toggled once per tap.
+
+**Audit of the other groups:** the prefill carries ONLY the heavy
+group into pick state (`applyPrefill` writes `#heavyPick` only);
+projectPick and servicesPick have no prefill path, so the defect
+class cannot occur there — they were already handler-owned from the
+first tap, matching the live observation.
+
+**Fix (sources only, scripts/route-assets/main.js; mirror synced
+byte-identical into repo-dir/main.js):**
+- **One writer for pick state.** New `setPick(b, on)` sets `.on`
+  and `aria-pressed` together; both delegated handlers (quote form
+  and hero) and `applyPrefill` all go through it, so a prefilled
+  chip's state is indistinguishable from a tapped chip's and the
+  two can never desync.
+- **Carry-over lands before the page is shown.** The
+  `pendingPrefill` consumption moved to the TOP of `finishRoute()`
+  (immediately after `initPage`, before the `.show` toggles and
+  before the WebMCP annotate in the swap path has a live page to
+  act on): a prefilled chip's state is final before the quote page
+  becomes visible or tappable, and no route-finish pass ever writes
+  pick state onto an already-live page again.
+- **A carry-over never re-asserts over the visitor.** The quote
+  handler now marks `form.__pickTouched` on the first pick tap;
+  `applyPrefill`'s heavy application is skipped when the form has
+  been touched, so once a visitor has tapped any pick, their state
+  is theirs alone.
+
+**Proof.** The functional harness (work/test-form-logic.js) gained
+suite 2 — the real path with verbatim bodies (hero tap → hero
+submit → applyPrefill → taps): 25/25 pass, the 13 original cases
+plus: prefill via the real path → one tap → off (+ capture empty)
+→ one more tap → on; hero CTA with empty From/To navigates and
+fires no fetch; a later carry-over after visitor taps overrides
+nothing. The jsdom full-document run was repeated against the new
+generated documents: hero tap → submit → swap → Gun safe on →
+tap 1 off → tap 2 on → Piano on.
+
+### Defect 2 — hero CTA blocked by native validation (Henry, approved 2026-11-01 ~16:18 EST)
+
+Observed live: with "Moving from" empty, tapping the hero card's
+"Get My Flat Rate Quote" produced the browser's "Please fill out
+this field" and no navigation — `hqFrom`/`hqTo` carry `required`
+and `#heroQuote` had no `novalidate`, so native validation blocked
+the submit event that performs the carry-over navigation.
+
+**Fix (source shell, repo-dir/index.html):** `novalidate` added to
+the `#heroQuote` form tag — one attribute (the shell grew by
+exactly its 11 bytes). The hero still cannot submit an inquiry:
+its submit handler only sets the prefill and navigates; no delivery
+originates from the hero. Prefill carry-over (fields + heavy
+selections) is unchanged; the /quote/ form's own validation is
+untouched (From/To + name/phone/email mandatory there); the hero
+form's WebMCP declarative annotation (`toolname` /
+`tooldescription`) is intact in the same tag, and `toolautosubmit`
+still occurs 0 times estate-wide.
+
+### Pipeline for this fix
+
+- Capture count unchanged (85 — no control added or removed); the
+  quote-form segment is untouched, so the W-2 md5 pin stands at
+  `23d1825f2f5c87ff519e60bba628805d` un-re-expressed (build-routes
+  asserted it during regeneration, and verify W-2 passes on the
+  served bytes).
+- Reseal loop to fixpoint (two identical rounds): final index
+  SHA-256 9852fdaedbe43a8548c782b1cad02ef5839e04f3d1f43c2e93cfd7439774b52e,
+  497 distributions, 0 gaps. Delta vs the previous seal
+  (cb4a5331…): exactly 214 distributions — the 212 route documents
+  (new main.js baked in), route-assets/main.js, and the site shell.
+  datasets-search-index.json and datasets-answer-evidence.json are
+  byte-unchanged, so neither needs a push or an upload this time.
+- node --check: main.js (both copies), verify.js, build-routes.js,
+  and every inline script of the generated home + quote documents —
+  all OK.
+- Deploys: Cloudflare Pages
+  https://ff4df406.the-flat-rate-movers.pages.dev (214 files
+  uploaded); API worker flat-rate-estate-api version
+  92f8b9c8-c3cd-42e2-88d0-b1afd23f5794 after refresh-bundle reported
+  signed-index digest matches 43/43 compared; tests 51/51; live
+  /v1/verify match:true, /v1/services = 29.
+- Live fetches: / and /quote/ both 200 and SHA-256-identical to the
+  sealed files; served home document carries the hero `novalidate`;
+  served quote document carries setPick + __pickTouched.
+- Router audit: 210 router slugs == 210 pageMeta entries, every
+  slug's generated route document present (no slug added or
+  removed by this fix).
+- verify.js (this fix's run, post-deploy, pre-push): 144/145.
+  Sole open: P-6 — repo-served copies closed by the pushes and the
+  parent upload below, exactly as in the parent batch.
+
+## Closing addendum (2026-11-01, after the pushes)
+
+- AI push LANDED: theflatratemovers-ai commit
+  e6e8ebcbbf3894c3f02da9af38675536a0efd152 (3 files: data/ai-master-index.json,
+  data/ai-master-index.jws, data/datasets-search-index.json).
+- Machine push LANDED: the-flat-rate-machine commit
+  0e5b18a5886f164de25657bb55eb3892e49bc732 (5 files: verify.js,
+  scripts/build-routes.js, scripts/route-assets/main.js,
+  out/verify-fix-2026-11-01-quote-form-fixes.md, this record).
+- Read-backs (cache-busted raw, SHA-256 vs sealed): ai index cb4a5331…
+  (= the final seal itself), ai JWS byte-identical, ai datasets-search-index
+  93244c1e…, machine verify.js 95b39d57…, machine build-routes.js
+  01beab44…, machine route-assets/main.js 7f970e08… — 6/6 match.
+- The gist-based ai data/entity-graph.json re-confirmed intact (2,486 B)
+  after both pushes.
+- Remaining for full P-6 closure (145/145 on the parent's confirming run):
+  the two parent web uploads flagged above — machine code/site-shell/
+  index.html (23,352,498 B, SHA-256 179eaee8…) and ai
+  data/datasets-answer-evidence.json (7,505,343 B, SHA-256 fd277a7b…).
+- Remaining parent closing step: the live browser click-test
+  (CLICK-TEST READY list in the close-out report; no form submission).

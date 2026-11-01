@@ -249,6 +249,12 @@
   }
   function finishRoute(h){
     initPage(h);
+    /* Carry-over lands BEFORE the page is shown (fix, 2026-11-01):
+       a prefilled chip's selected state is final before the quote
+       page becomes visible or tappable, so no route-finish pass ever
+       writes pick state onto an already-live page, where a late
+       write can only read as a swallowed first tap. */
+    if(h==='quote' && pendingPrefill){ pendingPrefill=false; applyPrefill(); }
     document.getElementById('app').classList.add('routed');
     pages.forEach(function(p){ var el=document.getElementById('page-'+p); if(el) el.classList.toggle('show', p===h); });
     document.querySelectorAll('[data-nav]').forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-nav')===h); });
@@ -258,7 +264,6 @@
     setPageLD(h);
     if(h==='industrial-commercial-services') loadIcsAreas();
     if(h==='specialized-workforce-labor') loadSwlData();
-    if(h==='quote' && pendingPrefill){ pendingPrefill=false; applyPrefill(); }
   }
   /* Solution A (2026-10-31): pages arrive as per-route documents. When
      in-site navigation targets a page whose div is not in this
@@ -330,8 +335,7 @@
     form.addEventListener('click', function(e){
       var b=pickButtonFromEvent(form, e);
       if(!b) return;
-      b.classList.toggle('on');
-      b.setAttribute('aria-pressed', b.classList.contains('on')?'true':'false');
+      setPick(b, !b.classList.contains('on'));
     });
   }
   function initHeroForm(){
@@ -346,7 +350,13 @@
     if(prefill.from) document.getElementById('qFrom').value=prefill.from;
     if(prefill.to) document.getElementById('qTo').value=prefill.to;
     if(prefill.type){ document.getElementById('qMoving').value=prefill.type; var s=document.getElementById('qType'); for(var i=0;i<s.options.length;i++){ if(prefill.type.indexOf(s.options[i].text.split(' — ')[0].split(' (')[0])===0 || s.options[i].text.indexOf(prefill.type.split(' — ')[0])===0){ s.selectedIndex=i; break; } } }
-    if(prefill.heavy){ var hv=prefill.heavy.split(', '); document.querySelectorAll('#heavyPick button').forEach(function(b){ if(hv.indexOf(b.textContent.trim())>=0){ b.classList.add('on'); b.setAttribute('aria-pressed','true'); } }); }
+    /* Carry-over writes go through setPick — the same writer a tap
+       uses — so a prefilled chip's state is identical in kind to a
+       tapped chip's. And once the visitor has tapped any pick on
+       this form (__pickTouched), their state is theirs: a
+       carry-over never re-asserts over a form already interacted
+       with (fix, 2026-11-01). */
+    if(prefill.heavy){ var qf=document.getElementById('quoteForm'); if(!(qf && qf.__pickTouched)){ var hv=prefill.heavy.split(', '); document.querySelectorAll('#heavyPick button').forEach(function(b){ if(hv.indexOf(b.textContent.trim())>=0) setPick(b, true); }); } }
     if(prefill.mode) setQuoteMode(prefill.mode);
     var wq=document.getElementById('qWalk'); if(wq && prefill.walkthrough) wq.checked=true;
   }
@@ -459,6 +469,16 @@
      form, and the __pickBound guard makes a second binding
      impossible (a double binding toggles twice per tap and reads as
      a dead chip). */
+  /* ONE writer for pick state (fix, 2026-11-01): the .on class and
+     aria-pressed always move together, and every path that sets a
+     chip's state — a tap in either delegated handler, or the hero
+     carry-over in applyPrefill — goes through this same function, so
+     a prefilled chip's state is indistinguishable from a tapped
+     chip's state and the two can never desync. */
+  function setPick(b, on){
+    b.classList.toggle('on', on);
+    b.setAttribute('aria-pressed', on ? 'true' : 'false');
+  }
   function pickButtonFromEvent(form, e){
     var t=e.target;
     while(t && t!==form){
@@ -474,8 +494,8 @@
       form.addEventListener('click', function(e){
         var b=pickButtonFromEvent(form, e);
         if(!b) return;
-        b.classList.toggle('on');
-        b.setAttribute('aria-pressed', b.classList.contains('on')?'true':'false');
+        form.__pickTouched=true;
+        setPick(b, !b.classList.contains('on'));
         if(b.parentNode && b.parentNode.id==='projectPick') refreshProjectSections();
       });
     }
