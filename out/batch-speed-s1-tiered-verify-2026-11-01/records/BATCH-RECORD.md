@@ -122,3 +122,34 @@ public/ by the loop); no route document changed.
 
 Pages deploy + API refresh/redeploy + pushes + the closing full run
 are recorded in the closing section below.
+
+## Closing
+
+- **Pages deploy:** exactly 2 files uploaded (ai-master-index.json +
+  .jws; 542 already current) — deployment
+  https://5c32d18b.the-flat-rate-movers.pages.dev. Served index
+  read-back SHA-256 = 4e96f02e… (the new seal).
+- **API:** refresh-bundle gate "signed-index digest matches: 43/43
+  compared"; tests 51/51; worker flat-rate-estate-api redeployed,
+  version 4a928d6f-379c-410e-93f4-6c3d1ab1837a; /v1/index reads 497
+  distributions; /v1/verify match:true.
+- **Pushes (one per repo, back-to-back):** ai
+  `337a05cdaf46fc2ef927cc31eca8fcede6c77a1c` (index + JWS); machine
+  `1ca17e821ed11ea2d74b5dab088480c207e93436` (verify.js + this
+  record). Pre-push private-key-content grep = 0 (marker grep and
+  key-body check). Cache-busted read-back of the pushed verify.js:
+  abe8eea3… — matches the sealed digest.
+- **Closing gate — FULL `node verify.js`: 145/145 PASS, exit 0,
+  zero SKIP lines**, wall 131,287 ms (baseline 128,781 ms — full mode
+  unchanged in behavior and count). The batch closed on the full live
+  run, not on --local.
+- **Oversized files for the parent: none.** Largest push/deploy
+  payloads: ai-master-index.json 559 KB, verify.js 182 KB — everything
+  went through the connector.
+
+## Usage rule (standing, from this batch)
+
+- Build iterations: `node verify.js --local` (disk evidence only,
+  ~35 s; prints every live-only check as a named SKIP).
+- Batch close: the FULL `node verify.js` once, green, plus the
+  parent's own full run. --local never closes a batch.
