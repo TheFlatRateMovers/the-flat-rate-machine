@@ -200,6 +200,29 @@ the verified backup); seal.py run once on the batch's real change-set
   in the closing section; every other check, including P-3/P-5
   against the newly served index, passes.
 
+## Closing
+
+- **Pushes (one per repo, back-to-back):** ai
+  `0a9086aadc84691e300d2ae02631676ea7f716b2` (index + JWS); machine
+  `3eb5b4a0f4e65bcf32bfb1c3a9aff9731bdc20c3` (build-intent-rubric.js +
+  scripts/seal.py + this record). Pre-push private-key-content grep
+  over both push trees = 0. Remote pre-push state verified (ai index
+  at head = 4e96f02e…, machine generator at head = e8a05297… — exactly
+  the digests the pre-batch seal carries; scripts/seal.py absent).
+- **Read-backs (cache-busted):** ai data/ai-master-index.json =
+  16bf7a9a… (== the sealed digest); machine scripts/seal.py =
+  2006b7fd…; machine scripts/build-intent-rubric.js = 44c40150… —
+  the branch-ref CDN served the pre-push bytes (e8a05297…) for the
+  first minutes after the push while the commit-pinned raw URL
+  already returned 44c40150…; the branch ref refreshed on its normal
+  TTL and the closing run below confirms it.
+- **Closing gate — FULL `node verify.js`: 145/145 PASS, VERIFY OK,
+  exit 0, zero SKIP lines** (wall 144 s). The batch closed on the
+  full live run, not on --local.
+- This closing section rides the disclosed record-only follow-on
+  machine push (the standing exception), which also updates the
+  push sync record.
+
 ## Usage rule (standing, from this batch)
 
 - Seal with `python3 scripts/seal.py` — one pass + proof round. The
