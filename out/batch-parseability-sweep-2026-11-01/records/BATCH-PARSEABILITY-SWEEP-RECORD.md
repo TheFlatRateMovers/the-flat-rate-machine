@@ -243,3 +243,26 @@ artifact page (goal goal_79b71a3dfb7b), three sections
 (Website / GitHub / Machine), every item verified three ways
 (parseable / live / deployed) at the final post-fix state, with
 G2 and G5 carried as named open items with their solutions.
+
+## Close-out addendum (same batch, after the pushes)
+
+- Pushes landed, back-to-back, one per repo: ai
+  **d55fa8fb3151c3b34788c9ce896686083948f522** (index + JWS +
+  README); machine **5761e0ac6b05d552204b42b9f15ee741ca355da5**
+  (verify.js, build-routes.js, README, verify-fix record, this
+  record). Read-backs: **8/8 files byte-identical** to the pushed
+  bytes (cache-busted raw fetches). HEADs confirmed by list_commits.
+  This addendum rides one disclosed follow-on push (machine,
+  record only) — the E6-B1/E6-B2 correction-cycle pattern.
+- Final live re-sweep against the new seal (full, no sampling):
+  492/492 fetch 200, every JSON parses, **491/492 live bytes match
+  the sealed digests** — the sole open distribution is the
+  GitHub-served site shell, awaiting the flagged parent upload
+  above (23,241,161 B, c5afc6f2…). Its still-served old bytes also
+  carry the batch's one unparseable ld+json block; both close with
+  the same upload, after which P-6 reads 27/27 and the suite
+  stands at 144/144 on the parent's run.
+- Deliverable artifact: "The Flat Rate Machine Parseability
+  Checklist", slug `flat-rate-machine-parseability-checklist`
+  (goal goal_79b71a3dfb7b); canonical content source preserved at
+  work/checklist-source.md.
