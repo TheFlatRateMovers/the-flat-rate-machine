@@ -358,7 +358,7 @@ const ROLLUP_SETS = {
 };
 const ROLLUP_ALL = new Set([
   'home', 'services', 'all-pages', 'sitemap', 'blog', 'datasets',
-  'datasets/intent-coverage', 'datasets/search-index', 'datasets/answer-evidence', 'datasets/local-graph-registry', 'datasets/crawl-presence', 'faq', 'moving-questions-answers',
+  'datasets/intent-coverage', 'datasets/search-index', 'datasets/answer-evidence', 'datasets/local-graph-registry', 'datasets/crawl-presence', 'datasets/archive-registry', 'faq', 'moving-questions-answers',
   'quote', 'online-estimate', 'flat-rate-moving-quote-winchester',
   'flat-rate-guarantee', 'areas-served', 'service-areas-moving-company',
   'find-us', 'moving-cost-guide-winchester-va', 'developer', 'entities',

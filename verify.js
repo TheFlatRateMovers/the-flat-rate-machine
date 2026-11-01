@@ -763,6 +763,7 @@ async function main() {
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/scripts/build-answer-evidence.js',
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/scripts/build-local-graph.js',
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/scripts/build-crawl-presence.js',
+      'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/scripts/build-archive-registry.js',
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/scripts/route-assets/main.js',
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/scripts/route-assets/webmcp.js',
     ];
@@ -776,14 +777,14 @@ async function main() {
       const missingCode = P2_CODE_URLS.filter((u) => !distUrls.has(u));
       const missingRoutes = pages.pages.map((p) => p.url).filter((u) => !distUrls.has(u));
       const hasLlmsFull = distUrls.has('https://theflatratemovers.com/llms-full.txt');
-      p5ok = !!servedIndex && pageFiles.length === 209 && missingPages.length === 0 && missingCode.length === 0 &&
+      p5ok = !!servedIndex && pageFiles.length === 210 && missingPages.length === 0 && missingCode.length === 0 &&
         missingRoutes.length === 0 && hasLlmsFull &&
-        (servedIndex.distribution || []).length === 486;
+        (servedIndex.distribution || []).length === 491;
       p5detail = 'pageFiles=' + pageFiles.length + ', missingPages=' + (missingPages.join(',') || '0') +
         ', missingCode=' + (missingCode.join(',') || '0') + ', missingRoutes=' + (missingRoutes.slice(0, 3).join(',') || '0') +
         ', llmsFull=' + hasLlmsFull + ', distributions=' + (servedIndex ? (servedIndex.distribution || []).length : 0);
     } catch (e) { p5ok = false; p5detail = e.message; }
-    check('P-5 certificate covers all 209 per-page JSONs + all 209 route documents + llms-full.txt + the site shell + the deployed code sets (486 distributions)',
+    check('P-5 certificate covers all 210 per-page JSONs + all 210 route documents + llms-full.txt + the site shell + the deployed code sets (491 distributions)',
       p5ok, p5detail);
 
     // P-6: repo-served distribution digests re-computed over live bytes
@@ -1271,8 +1272,8 @@ async function main() {
         for (const n of ns) if (n && n['@type'] === 'Dataset') { shellCountD++; checkNodeD(n, rel); }
       }
     }
-    check('D-2 every Dataset node (dataset files + all 209 route documents) carries landing url/unique sameAs, an identifier, isAccessibleForFree, typed distributions and a self-referencing DataDownload',
-      badNodesD.length === 0 && shellCountD === 343 && routeDocsD.length === 209,
+    check('D-2 every Dataset node (dataset files + all 210 route documents) carries landing url/unique sameAs, an identifier, isAccessibleForFree, typed distributions and a self-referencing DataDownload',
+      badNodesD.length === 0 && shellCountD === 353 && routeDocsD.length === 210,
       'files + ' + shellCountD + ' route-document instances across ' + routeDocsD.length + ' documents' + (badNodesD.length ? ', bad: ' + badNodesD.slice(0, 4).join('; ') : ''));
     // D-3: local sitemap set == registry pages + dataset files.
     const localXmlD = fs.readFileSync(path.join(PAGES_PUBLIC, 'sitemap.xml'), 'utf8');
@@ -1868,7 +1869,7 @@ async function main() {
   // @id (DC-4); and the Zenodo concept DOI in URL form on exactly
   // its holder nodes — the four intent collection nodes, the intent
   // landing node and the master-index root — and nowhere else in
-  // the corpus (DC-5). Corpus: the 36 dataset files, the 36
+  // the corpus (DC-5). Corpus: the 37 dataset files, the 37
   // per-page dataset JSONs, ai-sitemap.json, entity-graph.json and
   // every route document's non-baked ld+json (the D-2 population).
   // The master index itself is DC-2's comparison source, not
@@ -2182,6 +2183,115 @@ async function main() {
       ', regenerated=' + regenCP + (regenDetailCP ? ', ' + regenDetailCP : ''));
   } catch (e) {
     check('crawl-presence registry dataset checks (CP-1..CP-5) evaluated', false, e.message);
+  }
+
+  // --- 23. Archive registry dataset — Retrieval Machine Build E6-B1 (2026-11-01; checks AR-1..AR-6) ---
+  // The archives element's standing registry (Dossier 06 design;
+  // reconciliation build inputs E6-1/E6-2/E6-3): every preservation
+  // copy of the estate — Wayback captures CDX-verified live, Zenodo
+  // deposits verified per file, GitHub HEADs, the local BagIt 1.0
+  // archive — plus the signed verification report of the runbook's
+  // first execution. Absences stand as themselves: the five captures
+  // the Archive no longer serves are pinned as missing, never
+  // omitted (AR-2). Record:
+  // out/verify-fix-2026-11-01-archive-registry.md.
+  try {
+    const { execFileSync: execAR } = require('child_process');
+    const dsAR = JSON.parse(fs.readFileSync(path.join(PAGES_PUBLIC, 'datasets-archive-registry.json'), 'utf8'));
+    const gAR = (dsAR['@graph'] || []);
+    const nodeAR = (sfx) => gAR.find((n) => String(n['@id'] || '').endsWith(sfx)) || {};
+    const totAR = nodeAR('#dataset-archive-registry-totals').totals || {};
+    const targetsAR = nodeAR('#dataset-archive-registry-targets').archiveTargets || [];
+    const capsAR = nodeAR('#dataset-archive-registry-captures').captures || [];
+    const missingAR = nodeAR('#dataset-archive-registry-captures').missingCaptures || [];
+    const depsAR = nodeAR('#dataset-archive-registry-deposits').deposits || [];
+    const laAR = nodeAR('#dataset-archive-registry-local-archive').localArchive || {};
+    const verAR = nodeAR('#dataset-archive-registry-verification').verification || {};
+    const gapsAR = nodeAR('#dataset-archive-registry-gaps').gapRecords || [];
+    // AR-1: totals reconcile with the rows they summarize.
+    const depFilesAR = depsAR.reduce((a, d) => a + (d.archiveFiles || []).length, 0);
+    const statesAR = {};
+    for (const t of targetsAR) statesAR[t.captureState] = (statesAR[t.captureState] || 0) + 1;
+    check('AR-1 archive registry totals reconcile with their rows (targets = target rows, verified + missing = capture records, deposit files = per-file rows, capture states recomputed from the target rows)',
+      totAR.targets === targetsAR.length && totAR.capturesVerified === capsAR.length &&
+      totAR.capturesMissing === missingAR.length && totAR.depositFiles === depFilesAR &&
+      JSON.stringify(totAR.captureStates) === JSON.stringify(statesAR),
+      'targets=' + targetsAR.length + ', verified=' + capsAR.length + ', missing=' + missingAR.length + ', depositFiles=' + depFilesAR);
+    // AR-2: A5 fields on every record; the five missing captures stand.
+    const A5 = ['byteSize', 'doiReleaseUri', 'localArchivePath', 'mediaType', 'manifestVersion', 'fixityStatus'];
+    const badA5 = capsAR.filter((c) => A5.some((k) => !(k in c)) || c.byteSize === null || !c.localArchivePath ||
+      !['verified', 'mismatch', 'missing', 'superseded'].includes(c.fixityStatus));
+    const MISSING_URLS = ['datasets-intent-coverage.json', '/datasets/ffe-logistics/', '/datasets/government/', '/datasets/gun-safe/', '/datasets/local-regional/'];
+    const missingOkAR = MISSING_URLS.every((u) => missingAR.some((m) => m.url.endsWith(u) &&
+      m.fixityStatus === 'missing' && m.recheckEvidence && String(m.recheckEvidence.cdxRowsAllVariants) === '0'));
+    check('AR-2 every capture record carries the A5 fields (byte size, DOI release URI slot, local archive path, media type, manifest version, fixity status from the enum), and the five captures the Archive no longer serves stand as missing with their re-check trail — recorded, never omitted or zero-filled',
+      badA5.length === 0 && missingAR.length === 5 && missingOkAR,
+      'badA5=' + badA5.length + ', missing=' + missingAR.length + ', trailOk=' + missingOkAR);
+    // AR-3: deposit exceptions reconcile exactly (9 divergent + 2 different-artifact + 5 not-verifiable = 16).
+    const excAR = verAR.exceptionsList || [];
+    const byClassAR = {};
+    for (const x of excAR) byClassAR[x.classification] = (byClassAR[x.classification] || 0) + 1;
+    const depCountOkAR = depsAR.every((d) => d.counts &&
+      d.counts.releaseSealMatch + d.counts.releaseSealMismatch + d.counts.notInReleaseIndex === d.files &&
+      d.archiveFileMd5Status === 'match');
+    check('AR-3 both Zenodo deposits MD5-match the archive-file checksums Zenodo serves, per-file counts reconcile against both seals, and the verification exceptions reconcile exactly (9 deposit-divergent + 2 different-artifact + 5 capture-not-verifiable = 16, each with both digests)',
+      depCountOkAR && verAR.exceptions === 16 && excAR.length === 16 &&
+      byClassAR['deposit-divergent'] === 9 && byClassAR['different-artifact'] === 2 && byClassAR['capture-not-verifiable'] === 5 &&
+      excAR.every((x) => x.artifact && x.classification && x.action),
+      'exceptions=' + excAR.length + ', byClass=' + JSON.stringify(byClassAR) + ', depCountsOk=' + depCountOkAR);
+    // AR-4: the local-archive record equals the bag on disk.
+    let bagOkAR = false, bagDetailAR = '';
+    try {
+      const bagDir = path.join(ROOT, 'out', 'estate-archive', 'bag');
+      const infoAR = fs.readFileSync(path.join(bagDir, 'bag-info.txt'), 'utf8');
+      const oxumAR = (infoAR.match(/Payload-Oxum: (\S+)/) || [])[1];
+      const manAR = fs.readFileSync(path.join(bagDir, 'manifest-sha256.txt'), 'utf8').trim().split('\n');
+      const sampleAR = ['data/ai-sitemap.json', 'data/llms-full.txt', 'data/datasets-intent-coverage.json'];
+      let sampleOkAR = true;
+      for (const rel of sampleAR) {
+        const line = manAR.find((l) => l.endsWith(' ' + rel) || l.endsWith('*' + rel));
+        if (!line) { sampleOkAR = false; break; }
+        const want = line.split(/\s+/)[0];
+        const got = crypto.createHash('sha256').update(fs.readFileSync(path.join(bagDir, rel))).digest('hex');
+        if (want !== got) { sampleOkAR = false; break; }
+      }
+      bagOkAR = oxumAR === laAR.payloadOxum && manAR.length === laAR.payloadFiles && sampleOkAR &&
+        laAR.fixityStatus === 'verified' && laAR.bagitVersion === '1.0';
+      bagDetailAR = 'oxum=' + oxumAR + ', manifestLines=' + manAR.length + ', sampleOk=' + sampleOkAR;
+    } catch (e) { bagDetailAR = e.message; }
+    check('AR-4 the local-archive record equals the BagIt bag on disk (Payload-Oxum and payload count re-read from bag-info/manifest; sampled payload files re-hash to the manifest; BagIt version 1.0 per RFC 8493)',
+      bagOkAR, bagDetailAR);
+    // AR-5: the signed verification report stands beside the index,
+    // byte-identical to the registry's record, JWS valid vs the JWKS.
+    let jwsOkAR = false, jwsDetailAR = '';
+    try {
+      const repBytes = fs.readFileSync(path.join(PAGES_PUBLIC, 'ai-verification-report-2026-11-01.json'));
+      const repSha = crypto.createHash('sha256').update(repBytes).digest('hex');
+      const jwsAR = fs.readFileSync(path.join(PAGES_PUBLIC, 'ai-verification-report-2026-11-01.jws'), 'utf8').trim();
+      const jwksAR = JSON.parse(fs.readFileSync(path.join(PAGES_PUBLIC, '.well-known', 'signing-keys.json'), 'utf8'));
+      const [hAR, pAR, sAR] = jwsAR.split('.');
+      const hdrAR = JSON.parse(Buffer.from(hAR, 'base64url').toString('utf8'));
+      const keyAR = (jwksAR.keys || []).find((k) => k.kid === hdrAR.kid);
+      const pubKeyAR = crypto.createPublicKey({ key: { kty: keyAR.kty, crv: keyAR.crv, x: keyAR.x }, format: 'jwk' });
+      jwsOkAR = repSha === verAR.reportSha256 && verAR.reportUrl === 'https://theflatratemovers.com/ai-verification-report-2026-11-01.json' &&
+        crypto.verify(null, Buffer.from(hAR + '.' + pAR), pubKeyAR, Buffer.from(sAR, 'base64url'));
+      jwsDetailAR = 'reportSha=' + repSha.slice(0, 16) + ', kid=' + hdrAR.kid;
+    } catch (e) { jwsDetailAR = e.message; }
+    check('AR-5 the signed 2026-11-01 verification report stands beside the index at the registry-linked URL, its bytes hash to the registry-recorded SHA-256, and its detached JWS verifies against the published JWKS',
+      jwsOkAR, jwsDetailAR);
+    // AR-6: gaps with solutions + byte-identical regeneration.
+    const gapBadAR = gapsAR.filter((g) => !g.solution || !g.status || !g.resolvingBatch || !g.title || !g.evidence);
+    let regenAR = false, regenDetailAR = '';
+    try {
+      execAR('node', [path.join(ROOT, 'scripts', 'build-archive-registry.js'), '--check'], { maxBuffer: 64 * 1024 * 1024 });
+      regenAR = true;
+    } catch (e) { regenDetailAR = String(e.message).slice(0, 160); }
+    check('AR-6 gaps A1–A6 each carry their evidence, designed solution, status and resolving batch, and the registry regenerates byte-identical from its verified evidence seed',
+      gapsAR.length === 6 && gapBadAR.length === 0 &&
+      ['A1', 'A2', 'A3', 'A4', 'A5', 'A6'].every((id) => gapsAR.some((g) => g.gapId === id)) && regenAR,
+      'gaps=' + gapsAR.length + ', badGaps=' + gapBadAR.length + ', regenerated=' + regenAR + (regenDetailAR ? ', ' + regenDetailAR : ''));
+  } catch (e) {
+    check('archive registry dataset checks (AR-1..AR-6) evaluated', false, e.message);
   }
 
   // --- 9. Guardrail scan: no placeholders, no invented license identifiers ---
