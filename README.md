@@ -12,12 +12,12 @@ is wrong — so Phase 0 ends with a gate, not a deploy.
 | File | Contents | Provenance |
 |---|---|---|
 | `data/locations.json` | Company + Winchester + Martinsburg, distinct | Owner-verified facts, GBP checks 2026-10-28 |
-| `data/services.json` | 18 services | Live head graph + pageMeta counts |
-| `data/pages.json` | 126-page registry | **Live sitemap** (fetched) joined to pageMeta |
+| `data/services.json` | 28 services | Live head graph + pageMeta counts |
+| `data/pages.json` | 210-page registry | **Live sitemap** (fetched) joined to pageMeta |
 | `data/corridors.json` | I-81 live; I-66, I-70 gaps | Sitemap + head graph + verified area list |
-| `data/service-area.geojson` | 52 features | Byte-for-byte copy of the verified file |
-| `data/entity-graph.json` | Verified graph | Byte-for-byte copy (37 raw / 34 structural @ids) |
-| `data/best-json-entity-graph.json` | Verified graph | Byte-for-byte copy (89 raw / 86 structural @ids) |
+| `data/service-area.geojson` | 53 features | Byte-for-byte copy of the verified file |
+| `data/entity-graph.json` | Verified graph | Working snapshot (38 @graph nodes) |
+| `data/best-json-entity-graph.json` | Verified graph | Working snapshot (94 @graph nodes) |
 
 Schema for all nine datasets (including questions, assets, and media,
 which Phase 0 defines but does not populate) is in `DATA_MODEL.md`.
@@ -31,15 +31,15 @@ cd ~/workspace/the-flat-rate-machine
 # live source is unreachable — pages are never hand-typed).
 node scripts/build-data.js
 
-# Run the gate. Must print 43/43 and VERIFY OK before Phase 1.
+# Run the gate. Must print 144/144 and VERIFY OK before Phase 1.
 node verify.js
 ```
 
 `verify.js` (Node, no dependencies) checks, against freshly fetched live
-data: 126 pages with exact set equality to the live sitemap, 0 hash URLs,
-52 GeoJSON features, byte identity of the three copied files, both @id
+data: 210 pages with exact set equality to the live sitemap, 0 hash URLs,
+53 GeoJSON features, byte identity of the three copied files, both @id
 counting methods, branch facts exact and never blended (names, hours,
-ratings, addresses, service areas), 18 services with page counts matching
+ratings, addresses, service areas), 28 services with page counts matching
 the registry, corridor gaps recorded as gaps, and guardrail scans (no
 placeholders, no USDOT/MC numbers).
 

@@ -99,7 +99,7 @@ function transformHead(headHtml, entry, pageJsonText) {
   rep(/(<meta name="twitter:description" content=")[^"]*(")/, (m, a2, b) => a2 + escAttr(entry.d) + b);
   rep(/(<meta name="twitter:image" content=")[^"]*(")/, (m, a2, b) => a2 + escAttr(entry.img) + b);
   rep(/(<link rel="canonical" id="canonicalLink" href=")[^"]*(")/, (m, a2, b) => a2 + escAttr(entry.c) + b);
-  rep(/<script type="application\/ld\+json" id="page-jsonld"><\/script>/,
+  rep(/<script type="application\/ld\+json" id="page-jsonld">\{"@context":"https:\/\/schema\.org","@graph":\[\]\}<\/script>/,
     () => '<script type="application/ld+json" id="page-jsonld">' + entry.ld + '</script>');
   if (entry.imgSwapped) {
     rep(/<meta property="og:image:width"[^>]*>/, '');
@@ -140,7 +140,7 @@ const headEnd = shell.indexOf('</head>') + '</head>'.length;
 if (headEnd < 7) fail('no </head> in shell');
 const headTemplate = shell.slice(0, headEnd);
 if (!headTemplate.includes('id="canonicalLink"')) fail('head template lacks the canonical marker');
-if (!headTemplate.includes('<script type="application/ld+json" id="page-jsonld"></script>')) fail('head template lacks the empty page-jsonld slot');
+if (!headTemplate.includes('<script type="application/ld+json" id="page-jsonld">{"@context":"https://schema.org","@graph":[]}</script>')) fail('head template lacks the seeded page-jsonld slot');
 
 /* Script-aware, comment-aware div extraction. Page divs are the
    depth-0 divs whose opening tag matches the page pattern; other

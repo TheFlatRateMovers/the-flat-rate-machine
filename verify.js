@@ -2332,6 +2332,68 @@ async function main() {
     check('archive registry dataset checks (AR-1..AR-7) evaluated', false, e.message);
   }
 
+  // --- 24. Parseability sweep — Batch Parseability Sweep (2026-11-01; checks PS-1..PS-4) ---
+  // Pins the sweep's findings so they cannot regress: every ld+json
+  // block in the source shell parses (the #page-jsonld slot carries a
+  // seeded valid document, replaced per route at generation); every
+  // ld+json block in every route document in the deploy tree parses;
+  // every JSON file in the deploy tree parses; llms.txt represents
+  // every sitemap page. Record:
+  // out/batch-parseability-sweep-2026-11-01/records/BATCH-PARSEABILITY-SWEEP-RECORD.md.
+  try {
+    const ldRe = /<script[^>]+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g;
+    const parseBlocks = (text) => {
+      let n = 0, bad = 0;
+      for (const m of text.matchAll(ldRe)) {
+        n++;
+        try { JSON.parse(m[1]); } catch (e) { bad++; }
+      }
+      return { n, bad };
+    };
+    const shellText = fs.readFileSync(path.join(ROOT, 'repo-dir', 'index.html'), 'utf8');
+    const shellBlocks = parseBlocks(shellText);
+    check('PS-1 every ld+json block in the source shell parses as JSON, including the seeded #page-jsonld slot',
+      shellBlocks.bad === 0 && shellBlocks.n >= 80 &&
+      shellText.includes('<script type="application/ld+json" id="page-jsonld">{"@context":"https://schema.org","@graph":[]}</script>'),
+      'blocks=' + shellBlocks.n + ', unparseable=' + shellBlocks.bad);
+    const smXml = fs.readFileSync(path.join(PAGES_PUBLIC, 'sitemap.xml'), 'utf8');
+    const locs = [...smXml.matchAll(/<loc>(.*?)<\/loc>/g)].map((m) => m[1].trim());
+    const pageLocs = locs.filter((u) => !/\.(json|jsonld|geojson|txt)$/.test(u));
+    let routeBad = 0, routeBlocks = 0, routeDocs = 0;
+    for (const u of pageLocs) {
+      const rel = u.replace('https://theflatratemovers.com', '').replace(/^\//, '');
+      const fp = path.join(PAGES_PUBLIC, rel, 'index.html');
+      const t = fs.readFileSync(fp, 'utf8');
+      const r = parseBlocks(t);
+      routeDocs++; routeBlocks += r.n; routeBad += r.bad;
+    }
+    check('PS-2 every ld+json block in every route document in the deploy tree parses as JSON',
+      routeBad === 0 && routeDocs === pageLocs.length && routeDocs >= 210,
+      'docs=' + routeDocs + ', blocks=' + routeBlocks + ', unparseable=' + routeBad);
+    let jsonFiles = 0, jsonBad = [];
+    const walkJson = (dir) => {
+      for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+        const p = path.join(dir, e.name);
+        if (e.isDirectory()) walkJson(p);
+        else if (/\.(json|jsonld|geojson)$/.test(e.name)) {
+          jsonFiles++;
+          try { JSON.parse(fs.readFileSync(p, 'utf8')); } catch (err) { jsonBad.push(e.name); }
+        }
+      }
+    };
+    walkJson(PAGES_PUBLIC);
+    check('PS-3 every JSON file in the deploy tree parses as JSON',
+      jsonBad.length === 0 && jsonFiles >= 250,
+      'files=' + jsonFiles + ', unparseable=' + jsonBad.slice(0, 3).join(','));
+    const llmsText = fs.readFileSync(path.join(PAGES_PUBLIC, 'llms.txt'), 'utf8');
+    const unrepresented = pageLocs.filter((u) => !llmsText.includes(u));
+    check('PS-4 llms.txt represents every sitemap page URL',
+      unrepresented.length === 0,
+      'pages=' + pageLocs.length + ', unrepresented=' + unrepresented.slice(0, 3).join(','));
+  } catch (e) {
+    check('parseability sweep checks (PS-1..PS-4) evaluated', false, e.message);
+  }
+
   // --- 9. Guardrail scan: no placeholders, no invented license identifiers ---
   const registryText = JSON.stringify({ pages, services, locations, corridors });
   check('registry files contain no placeholder text',
