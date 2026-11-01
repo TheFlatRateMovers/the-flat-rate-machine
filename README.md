@@ -16,8 +16,8 @@ is wrong — so Phase 0 ends with a gate, not a deploy.
 | File | Contents | Provenance |
 |---|---|---|
 | `data/locations.json` | Company + Winchester + Martinsburg, distinct | Owner-verified facts, GBP checks 2026-10-28 |
-| `data/services.json` | 28 services | Live head graph + pageMeta counts |
-| `data/pages.json` | 210-page registry | **Live sitemap** (fetched) joined to pageMeta |
+| `data/services.json` | 29 services | Live head graph + pageMeta counts |
+| `data/pages.json` | 212-page registry | **Live sitemap** (fetched) joined to pageMeta |
 | `data/corridors.json` | I-81 live; I-66, I-70 gaps | Sitemap + head graph + verified area list |
 | `data/service-area.geojson` | 53 features | Byte-for-byte copy of the verified file |
 | `data/entity-graph.json` | Verified graph | Working snapshot (38 @graph nodes) |
@@ -40,10 +40,10 @@ node verify.js
 ```
 
 `verify.js` (Node, no dependencies) checks, against freshly fetched live
-data: 210 pages with exact set equality to the live sitemap, 0 hash URLs,
+data: 212 pages with exact set equality to the live sitemap, 0 hash URLs,
 53 GeoJSON features, byte identity of the three copied files, both @id
 counting methods, branch facts exact and never blended (names, hours,
-ratings, addresses, service areas), 28 services with page counts matching
+ratings, addresses, service areas), 29 services with page counts matching
 the registry, corridor gaps recorded as gaps, and guardrail scans (no
 placeholders, no USDOT/MC numbers).
 
