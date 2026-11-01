@@ -1,6 +1,10 @@
 // Flat Rate Machine — Phase 0 migration verifier (Node, no dependencies).
 // Proves the migrated data is identical to the verified live sources.
 //   node verify.js        (run from the-flat-rate-machine/)
+//   node verify.js --local   (Speed S1 fast tier: every check whose
+//     evidence is on disk; the live-only checks are SKIPPED and printed
+//     by name. A build-iteration aid only — NEVER the closing gate;
+//     batches close on the full run above.)
 //
 // Every check prints PASS or FAIL with exact detail. Any FAIL exits 1.
 // Checks are never weakened to force a pass: if a check fails, the DATA
@@ -25,6 +29,19 @@ const results = [];
 function check(name, ok, detail) {
   results.push({ name, ok });
   console.log((ok ? 'PASS  ' : 'FAIL  ') + name + (detail ? ' — ' + detail : ''));
+}
+// Speed S1 tiered verification (2026-11-01): in --local mode the checks
+// whose evidence is the served estate (fetched pages, the served signed
+// index, GitHub-served copies) do not run; each is reported by name via
+// skipLive — named and counted, never silently dropped. A check that
+// mixes local and live evidence is live-only as a whole (its logic is
+// never split). Full mode is unchanged and remains the only closing
+// gate; the local summary says so in plain words.
+const LOCAL = process.argv.includes('--local');
+const skippedLive = [];
+function skipLive(name) {
+  skippedLive.push(name);
+  console.log('SKIP  ' + name + ' — live-only (evidence is the served estate; not run in --local mode)');
 }
 function load(rel) {
   return JSON.parse(fs.readFileSync(path.join(ROOT, rel), 'utf8'));
@@ -74,13 +91,21 @@ async function main() {
   // set is pages.json URLs + dataset-file URLs, both derived —
   // stricter than the old pages-only premise, which this approved
   // batch superseded. Check names say what they now assert.
+  if (LOCAL) {
+    skipLive('live sitemap fetched');
+    skipLive('every pages.json URL is in the live sitemap');
+    skipLive('every live sitemap URL is a registry page or a published dataset file');
+    skipLive('live sitemap URL count matches registry + dataset files');
+  }
   let liveUrls = null;
-  try {
-    const xml = await fetchText(LIVE_SITEMAP);
-    liveUrls = new Set([...xml.matchAll(/<loc>(.*?)<\/loc>/g)].map((m) => m[1].trim()));
-    check('live sitemap fetched', liveUrls.size > 0, liveUrls.size + ' URLs');
-  } catch (e) {
-    check('live sitemap fetched', false, e.message);
+  if (!LOCAL) {
+    try {
+      const xml = await fetchText(LIVE_SITEMAP);
+      liveUrls = new Set([...xml.matchAll(/<loc>(.*?)<\/loc>/g)].map((m) => m[1].trim()));
+      check('live sitemap fetched', liveUrls.size > 0, liveUrls.size + ' URLs');
+    } catch (e) {
+      check('live sitemap fetched', false, e.message);
+    }
   }
   if (liveUrls) {
     const mine = new Set(pages.pages.map((p) => p.url));
@@ -100,6 +125,9 @@ async function main() {
   check('service-area.geojson is a FeatureCollection with features',
     geo.type === 'FeatureCollection' && Array.isArray(geo.features) && geo.features.length > 0,
     'type=' + geo.type + ', features=' + (geo.features ? geo.features.length : 'n/a'));
+  if (LOCAL) {
+    skipLive('data service-area.geojson matches live GeoJSON (feature count + names)');
+  } else {
   try {
     const liveGeo = JSON.parse(await fetchText(LIVE_GEOJSON));
     const liveNames = new Set((liveGeo.features || []).map((f) => f.properties && f.properties.name));
@@ -110,6 +138,7 @@ async function main() {
       'live=' + (liveGeo.features || []).length + ', data=' + (geo.features || []).length + (nameDiff.length ? ', diff: ' + nameDiff.join(', ') : ''));
   } catch (e) {
     check('live service-area.geojson fetched and compared', false, e.message);
+  }
   }
 
   // --- 4. Byte identity of the copied files ---
@@ -419,6 +448,10 @@ async function main() {
   // (200, application/json, 3,081 bytes, 4 nodes), so the original premise
   // ("SPA fallback — NO standalone JSON file") is dead. The first check now
   // asserts the current intended state instead; nothing was deleted or waived.
+  if (LOCAL) {
+    skipLive('old container .json URL returns application/json with Service #service-transloading + its WebPage node (standalone per-page JSON, Batch 3)');
+    skipLive('Martinsburg transloading .json URL returns application/json (real per-page JSON)');
+  } else {
   try {
     const fetchContentType = (url) => new Promise((resolve, reject) => {
       https.get(url, (res) => {
@@ -454,6 +487,7 @@ async function main() {
   } catch (e) {
     check('live .json content-types fetched', false, e.message);
   }
+  }
 
   // Rubric DB: canonical service rows + attestations must cover the registry.
   try {
@@ -479,6 +513,14 @@ async function main() {
   // the exact served bytes, and the index itself is signed (JWS, EdDSA)
   // over its RFC 8785 (JCS) canonical form. These checks assert the SERVED
   // state, so a silent change to any signed file fails the suite.
+  if (LOCAL) {
+    skipLive('P-1 well-known signing-keys.json live (200 + application/json) with the expected Ed25519 kid');
+    skipLive('P-2 ai-master-index.jws verifies against the published key over the canonical served index');
+    skipLive('P-3 all site-served distribution digests match the live served bytes');
+    skipLive('P-4 every served index distribution entry is complete (name, contentUrl, encodingFormat, license, dateModified, SHA-256 digest + byteSize)');
+    skipLive('P-5 certificate covers all 212 per-page JSONs + all 212 route documents + llms-full.txt + the site shell + the deployed code sets (497 distributions)');
+    skipLive('P-6 all repo-served distribution digests match the live served bytes');
+  } else {
   try {
     const crypto = require('crypto');
     const fetchFull = (url) => new Promise((resolve, reject) => {
@@ -807,6 +849,7 @@ async function main() {
   } catch (e) {
     check('provenance layer (P-1..P-6) fetched and evaluated', false, e.message);
   }
+  }
 
   // --- 12. Structural — Batch 9 (2026-10-29; checks S-1..S-6) ---
   // Added in the same motion as the structural batch shipped (record:
@@ -841,7 +884,7 @@ async function main() {
     const headByPath = {};
     for (const [k, v] of Object.entries(HEADMAP)) headByPath[k === '/' ? '/' : k + '/'] = v;
     let s3bad = [];
-    for (const route of routeSet) {
+    for (const route of LOCAL ? [] : routeSet) {
       const e = headByPath[route];
       try {
         const body = await fetchText('https://theflatratemovers.com' + route);
@@ -854,10 +897,14 @@ async function main() {
         if (title !== e.t || canon !== e.c || !ldOk || !headPart.includes('data-page-json="' + e.jf + '"')) s3bad.push(route);
       } catch (err) { s3bad.push(route + ' (' + err.message + ')'); }
     }
-    check('S-3 live routes serve their own head (title + canonical + page JSON-LD + per-page JSON) on the defined route set',
+    if (LOCAL) skipLive('S-3 live routes serve their own head (title + canonical + page JSON-LD + per-page JSON) on the defined route set');
+    else check('S-3 live routes serve their own head (title + canonical + page JSON-LD + per-page JSON) on the defined route set',
       s3bad.length === 0, routeSet.length + ' routes' + (s3bad.length ? ', bad: ' + s3bad.join(', ') : ''));
     // S-4: sitemap lastmod sanity — format, real dates, not in the future,
     // not one blanket date.
+    if (LOCAL) {
+      skipLive('S-4 live sitemap lastmod values are real per-URL dates (valid format, 2026-10-28..today ET, not one blanket date)');
+    } else {
     try {
       const xml = await fetchText(LIVE_SITEMAP);
       const mods = [...xml.matchAll(/<lastmod>(.*?)<\/lastmod>/g)].map((m) => m[1].trim());
@@ -870,7 +917,11 @@ async function main() {
     } catch (e) {
       check('S-4 live sitemap lastmod sanity', false, e.message);
     }
+    }
     // S-5: robots.txt carries the explicit AI-crawler groups.
+    if (LOCAL) {
+      skipLive('S-5 live robots.txt states explicit Allow groups for the 16 AI crawlers + wildcard + sitemap + llms.txt reference');
+    } else {
     try {
       const robots = await fetchText('https://theflatratemovers.com/robots.txt');
       const agents = ['GPTBot', 'ChatGPT-User', 'OAI-SearchBot', 'ClaudeBot', 'Claude-User', 'anthropic-ai',
@@ -883,6 +934,7 @@ async function main() {
         missingAgents.length ? 'missing: ' + missingAgents.join(', ') : 'all 16 groups present');
     } catch (e) {
       check('S-5 live robots.txt AI-crawler groups', false, e.message);
+    }
     }
     // S-6: rubric gates recorded (R8/R9 definitions + 23 + 23 scored rows).
     try {
@@ -946,8 +998,8 @@ async function main() {
       rowsI.length + ' rows, badTargets=' + badTargets.length + ', badGates=' + badGates.length);
     // I-3: every row target JSON + dataset file is a distribution in the
     // served signed index (and so is the rubric's own dataset file).
-    const servedIdxI = JSON.parse(await fetchText('https://theflatratemovers.com/ai-master-index.json'));
-    const distUrlsI = new Set((servedIdxI.distribution || []).map((e) => e.contentUrl));
+    const servedIdxI = LOCAL ? null : JSON.parse(await fetchText('https://theflatratemovers.com/ai-master-index.json'));
+    const distUrlsI = new Set(servedIdxI ? (servedIdxI.distribution || []).map((e) => e.contentUrl) : []);
     const missingI = new Set();
     for (const r of rowsI) {
       if (!distUrlsI.has(r.target_json)) missingI.add(r.target_json);
@@ -956,7 +1008,8 @@ async function main() {
         if (!distUrlsI.has(u)) missingI.add(u);
       }
     }
-    check('I-3 every intent row target JSON and backing dataset is a distribution in the served signed index',
+    if (LOCAL) skipLive('I-3 every intent row target JSON and backing dataset is a distribution in the served signed index');
+    else check('I-3 every intent row target JSON and backing dataset is a distribution in the served signed index',
       missingI.size === 0 && distUrlsI.has('https://theflatratemovers.com/datasets-intent-coverage.json'),
       'missing=' + (missingI.size ? [...missingI].slice(0, 5).join(', ') : '0') + ', intent dataset in index=' + distUrlsI.has('https://theflatratemovers.com/datasets-intent-coverage.json'));
     // I-4: published dataset counts + row digest equal the DB.
@@ -978,10 +1031,11 @@ async function main() {
       ', coverage nodes=' + covNodes.length + ', bad=' + covBad.length);
     // I-5: the live dataset URL serves the same document (JSON, not the
     // SPA fallback) with the DB's row digest.
-    const liveDsRes = await fetchFullI('https://theflatratemovers.com/datasets-intent-coverage.json');
+    const liveDsRes = LOCAL ? null : await fetchFullI('https://theflatratemovers.com/datasets-intent-coverage.json');
     let liveD8 = null;
-    try { liveD8 = (JSON.parse(liveDsRes.buf.toString('utf8'))['@graph'] || []).find((n) => n['@id'] === 'https://theflatratemovers.com/#dataset-intent-coverage-totals'); } catch (_) { liveD8 = null; }
-    check('I-5 live datasets-intent-coverage.json serves application/json with the rubric.db row digest',
+    if (liveDsRes) { try { liveD8 = (JSON.parse(liveDsRes.buf.toString('utf8'))['@graph'] || []).find((n) => n['@id'] === 'https://theflatratemovers.com/#dataset-intent-coverage-totals'); } catch (_) { liveD8 = null; } }
+    if (LOCAL) skipLive('I-5 live datasets-intent-coverage.json serves application/json with the rubric.db row digest');
+    else check('I-5 live datasets-intent-coverage.json serves application/json with the rubric.db row digest',
       liveDsRes.status === 200 && liveDsRes.ct.includes('application/json') && !!liveD8 && liveD8.intentRowsDigest === metaI.rows_digest,
       'status=' + liveDsRes.status + ', content-type=' + liveDsRes.ct + ', digest match=' + (liveD8 ? liveD8.intentRowsDigest === metaI.rows_digest : 'unparseable'));
   } catch (e) {
@@ -1194,8 +1248,8 @@ async function main() {
     const dsNodesOfD = (doc) => ((doc && doc['@graph']) || []).filter((n) => n && n['@type'] === 'Dataset');
     // D-1: a landing page per dataset file — registry entry, per-page
     // JSON sealed in the served signed index, head-data entry.
-    const servedIdxD = JSON.parse(await fetchText(SITE_D + '/ai-master-index.json'));
-    const distD = new Set((servedIdxD.distribution || []).map((e) => e.contentUrl));
+    const servedIdxD = LOCAL ? null : JSON.parse(await fetchText(SITE_D + '/ai-master-index.json'));
+    const distD = new Set(servedIdxD ? (servedIdxD.distribution || []).map((e) => e.contentUrl) : []);
     const headSrcD = fs.readFileSync(path.join(PAGES_PUBLIC, '..', 'functions', 'head-data.js'), 'utf8');
     const HEADD = JSON.parse(headSrcD.replace(/^\/\/[^\n]*\n/gm, '').replace('export const HEAD = ', '').replace(/;\s*$/, ''));
     const pageUrlsD = new Set(pages.pages.map((p) => p.url));
@@ -1207,7 +1261,8 @@ async function main() {
       if (!distD.has(SITE_D + '/' + jf)) d1bad.push(jf + ' not in signed index');
       if (!HEADD[u.replace(SITE_D, '').replace(/\/$/, '')]) d1bad.push(u + ' no head-data entry');
     }
-    check('D-1 every published dataset file has a landing page (registry + per-page JSON in the signed index + head-data entry)',
+    if (LOCAL) skipLive('D-1 every published dataset file has a landing page (registry + per-page JSON in the signed index + head-data entry)');
+    else check('D-1 every published dataset file has a landing page (registry + per-page JSON in the signed index + head-data entry)',
       d1bad.length === 0, dsFilesD.length + ' dataset files, ' + landingsD.length + ' landing pages' + (d1bad.length ? ', bad: ' + d1bad.slice(0, 4).join('; ') : ''));
     // D-2: Dataset-node invariants in the dataset files + the shell.
     // Re-expressed by Batch Per-Route Shell (Solution A) Live,
@@ -1304,11 +1359,12 @@ async function main() {
     // 4a Catalog Checks (2026-10-31, same motion): URL-form string
     // equality, as in D-2. Record:
     // out/verify-fix-2026-10-31-catalog-checks.md.
-    const liveIntentD = JSON.parse(await fetchText(SITE_D + '/datasets-intent-coverage.json'));
-    const collD = dsNodesOfD(liveIntentD).filter((n) => String(n['@id']).includes('#dataset-intent-coverage-'));
+    const liveIntentD = LOCAL ? null : JSON.parse(await fetchText(SITE_D + '/datasets-intent-coverage.json'));
+    const collD = liveIntentD ? dsNodesOfD(liveIntentD).filter((n) => String(n['@id']).includes('#dataset-intent-coverage-')) : [];
     const doiOkD = collD.length === 4 && collD.every((n) => n.identifier === 'https://doi.org/' + DOI_D);
-    const landingHtmlD = await fetchText(SITE_D + '/datasets/intent-coverage/');
-    check('D-5 live intent-coverage dataset carries the Zenodo concept DOI on its collection nodes and its landing page serves its own title',
+    const landingHtmlD = LOCAL ? '' : await fetchText(SITE_D + '/datasets/intent-coverage/');
+    if (LOCAL) skipLive('D-5 live intent-coverage dataset carries the Zenodo concept DOI on its collection nodes and its landing page serves its own title');
+    else check('D-5 live intent-coverage dataset carries the Zenodo concept DOI on its collection nodes and its landing page serves its own title',
       doiOkD && landingHtmlD.includes('<title>The Flat Rate Movers — Search Intent Coverage Dataset</title>'),
       'collection nodes=' + collD.length + ', doi=' + doiOkD + ', own title served=' + landingHtmlD.includes('Search Intent Coverage Dataset'));
   } catch (e) {
@@ -1328,6 +1384,13 @@ async function main() {
   // served registration script against a mock provider, so the layer
   // cannot silently fall out or rot. Record:
   // out/verify-fix-2026-10-31-webmcp.md.
+  if (LOCAL) {
+    skipLive('W-1 served shell registers the seven read-only WebMCP tools');
+    skipLive('W-2 served forms: hero identified for agents, no toolautosubmit anywhere, quote-form segment md5 canonical');
+    skipLive('W-3 served WebMCP descriptors execute and validate (schema + read-only annotations)');
+    skipLive('W-4 served WebMCP annotation never exposes a half-annotated connected form (schema-issue mechanism)');
+    skipLive('W-5 quote-form chip groups, hero heavy group, per-type sections and delegated binding on the served bytes');
+  } else {
   try {
     const vm = require('vm');
     const crypto = require('crypto');
@@ -1532,6 +1595,7 @@ async function main() {
   } catch (e) {
     check('WebMCP checks (W-1..W-5) evaluated', false, e.message);
   }
+  }
 
   // --- 16. llms-full.txt — Batch Per-Route Shell (Solution A) Live,
   // 2026-10-31 (checks L-1..L-4, added in the same motion as the file
@@ -1543,6 +1607,12 @@ async function main() {
   // a content-integrity spot rule (the estate's two branch names and
   // all 29 service names present; no placeholder braces and none of
   // the invented-string patterns the gate exists to keep out).
+  if (LOCAL) {
+    skipLive('L-1 llms-full.txt is served live as a text file');
+    skipLive('L-2 llms-full.txt is a sealed distribution in the signed index (digest matches the served bytes)');
+    skipLive('L-3 llms.txt links llms-full.txt');
+    skipLive('L-4 llms-full.txt content integrity (29 service names + both branch names present; no placeholders or invented strings)');
+  } else {
   try {
     const crypto = require('crypto');
     const fetchFullL = (url) => new Promise((resolve, reject) => {
@@ -1573,6 +1643,7 @@ async function main() {
       'missing services=' + (missingSvcL.join(', ') || '0') + ', forbidden present=' + (forbiddenL.join(', ') || '0'));
   } catch (e) {
     check('llms-full checks (L-1..L-4) evaluated', false, e.message);
+  }
   }
 
   // --- 17. Machinery — Batch Reliability (2026-10-31; checks M-1..M-5) ---
@@ -1663,15 +1734,16 @@ async function main() {
       badObsSI.length === 0 && regenSI,
       'observations=' + obsSI.length + ', missingDiscipline=' + badObsSI.length + ', regenerated=' + regenSI + (regenDetailSI ? ', ' + regenDetailSI : ''));
     const SITE_SI = 'https://theflatratemovers.com';
-    const servedIdxSI = JSON.parse(await fetchText(SITE_SI + '/ai-master-index.json'));
-    const distSI = new Map((servedIdxSI.distribution || []).map((e) => [e.contentUrl, e]));
+    const servedIdxSI = LOCAL ? null : JSON.parse(await fetchText(SITE_SI + '/ai-master-index.json'));
+    const distSI = new Map(servedIdxSI ? (servedIdxSI.distribution || []).map((e) => [e.contentUrl, e]) : []);
     const regUrlsSI = new Set(pages.pages.map((p) => p.url));
     const supplyUrlsSI = new Set(supplySI.map((s) => s.url));
     const digestBadSI = supplySI.filter((s) => {
       const e = distSI.get(SITE_SI + '/' + s.perPageJson);
       return !e || !e.digest || e.digest.value !== s.sealedDigest;
     });
-    check('SI-3 URL supply reconciles 1:1 with the page registry and every supply digest equals the served signed index digest for that per-page JSON',
+    if (LOCAL) skipLive('SI-3 URL supply reconciles 1:1 with the page registry and every supply digest equals the served signed index digest for that per-page JSON');
+    else check('SI-3 URL supply reconciles 1:1 with the page registry and every supply digest equals the served signed index digest for that per-page JSON',
       supplyUrlsSI.size === regUrlsSI.size && [...regUrlsSI].every((u) => supplyUrlsSI.has(u)) && digestBadSI.length === 0,
       'supply=' + supplySI.length + ', registry=' + regUrlsSI.size + ', digestMismatches=' + digestBadSI.length +
       (digestBadSI.length ? ' (' + digestBadSI.slice(0, 3).map((s) => s.perPageJson).join(', ') + ')' : ''));
@@ -1750,8 +1822,8 @@ async function main() {
       'observations=' + obsAE.length + ', missingDiscipline=' + badObsAE.length + ', nonProxyMethods=' + uiObsAE.length +
       ', panelRuns=' + panelAE.panelRuns + ', uiObservations=' + panelAE.answerUiObservations + ', regenerated=' + regenAE + (regenDetailAE ? ', ' + regenDetailAE : ''));
     const SITE_AE = 'https://theflatratemovers.com';
-    const servedIdxAE = JSON.parse(await fetchText(SITE_AE + '/ai-master-index.json'));
-    const distAE = new Map((servedIdxAE.distribution || []).map((e) => [e.contentUrl, e]));
+    const servedIdxAE = LOCAL ? null : JSON.parse(await fetchText(SITE_AE + '/ai-master-index.json'));
+    const distAE = new Map(servedIdxAE ? (servedIdxAE.distribution || []).map((e) => [e.contentUrl, e]) : []);
     const linkBadAE = [];
     const hashBadAE = [];
     for (const f of fragmentsAE) {
@@ -1766,7 +1838,8 @@ async function main() {
     const bindBadAE = questionsAE.filter((q) => q.fragmentBinding === 'bound-exact' &&
       (!q.owningFragmentId || !fragByIdAE.has(q.owningFragmentId) ||
         !(fragByIdAE.get(q.owningFragmentId).questionIdsAnswered || []).includes(q.rubricRowRef)));
-    check('AE-3 every fragment text hash recomputes from its text, every fragment evidence digest equals the served signed index digest, and every exact binding resolves to a fragment that lists the question',
+    if (LOCAL) skipLive('AE-3 every fragment text hash recomputes from its text, every fragment evidence digest equals the served signed index digest, and every exact binding resolves to a fragment that lists the question');
+    else check('AE-3 every fragment text hash recomputes from its text, every fragment evidence digest equals the served signed index digest, and every exact binding resolves to a fragment that lists the question',
       hashBadAE.length === 0 && linkBadAE.length === 0 && bindBadAE.length === 0,
       'fragments=' + fragmentsAE.length + ', hashMismatches=' + hashBadAE.length +
       ', digestMismatches=' + linkBadAE.length + (linkBadAE.length ? ' (' + linkBadAE.slice(0, 3).join(', ') + ')' : '') +
@@ -2439,6 +2512,18 @@ async function main() {
     !/USDOT|MC-\d{4,}/i.test(registryText));
 
   const failed = results.filter((r) => !r.ok);
+  if (LOCAL) {
+    console.log('\n' + results.filter((r) => r.ok).length + '/' + results.length + ' local checks passed; ' +
+      skippedLive.length + ' live-only checks skipped by name above (full suite: ' + (results.length + skippedLive.length) + ' checks).');
+    if (failed.length) {
+      console.log('FAILED CHECKS:');
+      for (const f of failed) console.log('  - ' + f.name);
+      console.log('LOCAL VERIFY FAILED — fix the data, not the checks.');
+      process.exit(1);
+    }
+    console.log('LOCAL VERIFY OK — disk evidence only. This is NOT the closing gate: a batch closes only on the full live run (node verify.js).');
+    return;
+  }
   console.log('\n' + results.filter((r) => r.ok).length + '/' + results.length + ' checks passed.');
   if (failed.length) {
     console.log('FAILED CHECKS:');
