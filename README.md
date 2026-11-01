@@ -2,6 +2,10 @@
 
 **"Verified facts in, pages, graphs, and answers out — over and over."**
 
+## Live API
+
+The Machine's verified estate data is served live at **https://api.theflatratemovers.com** — REST endpoints for all 29 services (`/v1/services`), the 38 dataset files (`/v1/datasets`), the search-intent rubric (`/v1/intent`), the entity graph (`/v1/graph`), and signed-index verification (`/v1/verify`), plus an MCP server at **https://api.theflatratemovers.com/mcp** (tools: `search_intent`, `get_service`, `get_dataset`, `verify_file`, `list_services`, `list_datasets`). Datasets are mirrored on Hugging Face (https://huggingface.co/datasets/theflatratemovers) and archived on Zenodo under concept DOI 10.5281/zenodo.23818766.
+
 Phase 0 is the freeze: the Machine's datasets, migrated from the verified
 live sources, provably identical to them. No generators yet, no pages
 built, nothing published. If the data is wrong here, everything downstream
