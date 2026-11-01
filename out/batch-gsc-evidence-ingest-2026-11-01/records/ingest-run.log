@@ -1,0 +1,52 @@
+migration: dedupe_key backfilled on 0 rows; unique index + run ledger armed.
+{
+  "verdicts": 17,
+  "urls_matched": 17,
+  "urls_unmatched": [],
+  "rows_updated": 405,
+  "evidence_appended": 485,
+  "evidence_skipped_duplicates": 0,
+  "gate_changes": 160
+}
+   "service-senior-moving": 76,
+    "service-sir-heavy": 102,
+    "service-transloading": 169,
+    "service-transloading-winchester-va": 78,
+    "service-warehouse-racking-relocation": 76,
+    "service-warehouse-relocation": 78
+  },
+  "excluded": 105,
+  "excludedByReason": {
+    "duplicate": 105
+  },
+  "questionBank": {
+    "parsed": 100,
+    "mapped": 100
+  },
+  "rowsDigest": "a3238842a4254f61782b1cd3b88e81c80836882437afed14ef2da622bf3f5a37",
+  "datasetNodes": 36,
+  "sql": "/home/hatch/workspace/the-flat-rate-machine/out/batch-intent-rubric/work/intent-rubric.sql",
+  "dataset": "/home/hatch/workspace/the-flat-rate-machine/out/batch-intent-rubric/work/datasets-intent-coverage.json",
+  "rowsFile": "/home/hatch/workspace/the-flat-rate-machine/out/batch-intent-rubric/work/intent-rows.json"
+}
+
+dataset republished to public/ (190349 bytes)
+{
+  "distributions": 492,
+  "license": 492,
+  "dateModified": 492,
+  "digest": 492,
+  "gaps": 0
+}
+signed: kid=theflatratemovers-2026-10-29-1 canonical_bytes=209097 jws_chars=278972
+[1] JWKS parses; kid theflatratemovers-2026-10-29-1 present (Ed25519, use=sig, alg=EdDSA)
+[2] JWS signature VERIFIED against the published public key
+[3] JWS payload == RFC 8785 canonical form of the published index (209097 bytes)
+[4] distribution digests re-computed: 492 match, 0 mismatch, 0 unresolved
+PROVENANCE OK
+run ledger: chain_completed_at set for run 166cb1ecc4a1…
+CHAIN COMPLETE: evidence ingested, dataset regenerated, index resealed, provenance proven.
+REMAINING (same motion, estate batch discipline):
+  1. Deploy Pages from the registered pages_dir (wrangler pages deploy public).
+  2. Refresh the API from the registered api_worker_dir (refresh-bundle, tests, wrangler deploy).
+  3. Push GitHub: one push per repo (ai: dataset + index + jws; machine: batch record).
