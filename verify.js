@@ -987,6 +987,34 @@ async function main() {
     check('intent-coverage rubric checks (I-1..I-5) evaluated', false, e.message);
   }
 
+  // --- 13c. Intent landing per-page JSON sync (Batch Intent Landing
+  // Fix, 2026-11-01; check I-10) ---
+  // The intent landing's per-page JSON (dataset-intent-coverage.json)
+  // is a batch-authored artifact with no standing generator; its
+  // @graph[0] description is a copy of the dataset file's @graph[0]
+  // description and went stale at v1 (1,218 rows / 167 pages) while
+  // build-intent-rubric.js regenerated the dataset file through v2.
+  // I-10 pins the copy to its source so the divergence cannot recur
+  // silently: descriptions byte-equal, the per-page node's
+  // dateModified no older than the dataset file's, and neither stale
+  // figure present anywhere in the per-page JSON. Record:
+  // out/verify-fix-2026-11-01-intent-landing-sync.md.
+  try {
+    const pubDirJ = path.resolve(ROOT, '..', 'the-flat-rate-movers-pages', 'public');
+    const ppRawJ = fs.readFileSync(path.join(pubDirJ, 'dataset-intent-coverage.json'), 'utf8');
+    const ppJ = JSON.parse(ppRawJ);
+    const dsJ = JSON.parse(fs.readFileSync(path.join(pubDirJ, 'datasets-intent-coverage.json'), 'utf8'));
+    const pp0 = (ppJ['@graph'] || [])[0] || {};
+    const ds0 = (dsJ['@graph'] || [])[0] || {};
+    const staleJ = /1218 generated rows|167 pages/.test(ppRawJ);
+    check('I-10 intent landing per-page JSON @graph[0] description equals the dataset file @graph[0] description (sync pinned; no stale v1 figures)',
+      !!pp0.description && pp0.description === ds0.description &&
+      String(pp0.dateModified || '') >= String(ds0.dateModified || '') && !staleJ,
+      'desc equal=' + (pp0.description === ds0.description) + ', per-page dateModified=' + pp0.dateModified + ', dataset dateModified=' + ds0.dateModified + ', stale text present=' + staleJ);
+  } catch (e) {
+    check('intent landing per-page JSON sync check (I-10) evaluated', false, e.message);
+  }
+
   // --- 13b. Intent Rubric v2 (Batch Intent Rubric v2 Live, 2026-10-31; checks I-6..I-9) ---
   // Applies the staged patch (verify-section-13-v2.patch.md) in the
   // same motion as rubric v2 shipped. Record:
