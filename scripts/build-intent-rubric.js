@@ -8,9 +8,11 @@
 // AI assistant can use to find a company service, each row resolved to
 // the exact estate surface that answers it — canonical page, per-page
 // JSON, backing dataset file(s), and entity-graph Service node — with
-// the SHA-256 certificate digests of the target JSON and datasets read
-// from the signed ai-master-index.json at generation time, so every row
-// inherits the estate's provenance seal (kid theflatratemovers-2026-10-29-1).
+// the SHA-256 certificate digests of the target JSON and datasets,
+// computed over the files' own bytes at generation time — the values
+// the signed ai-master-index.json seals (membership in that index is
+// a row gate) — so every row inherits the estate's provenance seal
+// (kid theflatratemovers-2026-10-29-1).
 //
 // Rows are GENERATED from the registries, never hand-typed:
 //   data/services.json, data/pages.json, data/locations.json,
@@ -68,17 +70,20 @@
 //      is in pages.json; the target page's per-page JSON file exists in
 //      the deployed public/ tree; the target JSON and every backing
 //      dataset file carry a distribution entry in the signed master
-//      index (their digests are copied into the row); the service has
+//      index (their digests, computed over the files' bytes, are
+//      carried into the row); the service has
 //      a Service node in best-json-entity-graph.json. Rows that fail
 //      any gate are EXCLUDED and counted with reasons — never pointed
 //      at a fallback page.
 //   R11 Dedupe on (query_text, service_id); first pattern wins in the
 //      fixed class order below.
 //
-// The signed index is read from the deployed public/ tree. Row-target
-// files (per-page JSONs, dataset files) are not edited by the rubric
-// batch, so their digests stay valid when the index is re-sealed with
-// the new dataset added; the build asserts that invariant at seal time.
+// The signed index is read from the deployed public/ tree for
+// distribution membership. Cert digest values are computed from the
+// row-target files themselves (Speed Program S2, 2026-11-01), so the
+// rows are correct in the same pass that re-seals the estate — no
+// fixpoint iteration; verify.js section 13 cross-checks every cert
+// digest against the sealed index.
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
@@ -493,8 +498,8 @@ function jsonFileFor(slug) { return slug.replace(/\//g, '-') + '.json'; }
 // Resolution: the slug-derived file when it exists; else the unique
 // root JSON whose own WebPage node names the page's canonical URL —
 // the file's own declaration is the proof. The R10 gates (file
-// present, distribution in the signed index, digest copied from the
-// index) apply unchanged to whichever file resolves; a page whose
+// present, distribution in the signed index, digest computed over
+// the file's bytes) apply unchanged to whichever file resolves; a page whose
 // JSON cannot be resolved uniquely still fails the gate honestly.
 // Resolution order (corrected 2026-10-31, v2 deploy): a UNIQUE
 // WebPage-@id match wins over the slug-derived filename. The derived
@@ -683,11 +688,21 @@ function generate() {
     const targetJsonUrl = SITE + '/' + jf;
     const tjEntry = distByUrl.get(targetJsonUrl);
     if (!tjEntry || !tjEntry.digest) { excluded.push({ reason: 'target-json-not-in-signed-index', serviceId, queryText, pattern }); return false; }
+    // S2 (2026-11-01): cert digest VALUES are computed from the target
+    // files' own bytes (pubFileDigest), not copied from the installed
+    // index. Membership in the signed index stays a gate (above); the
+    // values are the digests the index seals over these exact bytes,
+    // so a re-seal is correct in a single pass — the old copy-from-
+    // index read made every re-seal iterate to a fixpoint.
+    const tjDigest = pubFileDigest(targetJsonUrl);
+    if (!tjDigest) { excluded.push({ reason: 'target-json-digest-unreadable', serviceId, queryText, pattern }); return false; }
     const dsDigests = {};
     for (const f of DATASETS[serviceId]) {
       const e = distByUrl.get(SITE + '/' + f);
       if (!e || !e.digest) { excluded.push({ reason: 'dataset-not-in-signed-index', serviceId, queryText, pattern, file: f }); return false; }
-      dsDigests[f] = e.digest.value;
+      const d = pubFileDigest(SITE + '/' + f);
+      if (!d) { excluded.push({ reason: 'dataset-digest-unreadable', serviceId, queryText, pattern, file: f }); return false; }
+      dsDigests[f] = d;
     }
     const gn = graphNode(R, svc);
     if (!gn) { excluded.push({ reason: 'graph-node-missing', serviceId, queryText, pattern }); return false; }
@@ -701,7 +716,7 @@ function generate() {
       target_json: targetJsonUrl,
       dataset_ids: DATASETS[serviceId].slice(),
       graph_node: gn,
-      cert_target_json_sha256: tjEntry.digest.value,
+      cert_target_json_sha256: tjDigest,
       cert_dataset_digests: dsDigests,
       gate_page_in_registry: 1,
       gate_target_in_signed_index: 1,
