@@ -787,6 +787,25 @@
       ]
     },
     {
+      "@id": "https://theflatratemovers.com/#service-freight-rework-transloading",
+      "@type": "Service",
+      "name": "Freight Rework & Transloading",
+      "description": "Freight rework and transloading from Winchester, VA and Martinsburg, WV — shifted loads, loads refused at a receiver's dock, damaged or collapsed pallets, and overweight or axle-illegal loads, unloaded under control, documented as found, rebuilt to the receiver's specification and re-secured to the federal cargo securement standard, plus planned cross-docking and container and rail-to-truck transloading — for drivers, carriers, brokers, 3PLs, warehouses and receivers, quoted at one flat rate before work begins, with emergency and after-hours response available at premium rates. The work is performed where the job requires: leased space, the receiver's dock, or a yard. No rate schedule is published for this service. Quoted flat in writing through the same flat-rate quote path, from Winchester VA and Martinsburg WV.",
+      "serviceType": "Freight Rework & Transloading",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "url": "https://theflatratemovers.com/freight-rework-transloading/",
+      "areaServed": [
+        {
+          "@id": "https://theflatratemovers.com/#winchester"
+        },
+        {
+          "@id": "https://theflatratemovers.com/#martinsburg"
+        }
+      ]
+    },
+    {
       "@id": "https://theflatratemovers.com/#service-warehouse-racking-relocation",
       "@type": "Service",
       "name": "Warehouse Racking Relocation",
@@ -1026,5 +1045,33 @@
       "contentUrl": "https://theflatratemovers.com/entity-graph.json",
       "encodingFormat": "application/ld+json"
     }
-  ]
+  ],
+  "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+      "https://www.instagram.com/theflatratemovers/",
+      "https://www.threads.com/@theflatratemovers",
+      "https://x.com/ratemovers",
+      "https://www.youtube.com/@theflatratemovers",
+      "https://github.com/TheFlatRateMovers",
+      "https://medium.com/@ratemovers"
+    ]
+  },
+  "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+      "https://www.instagram.com/theflatratemovers/",
+      "https://www.threads.com/@theflatratemovers",
+      "https://x.com/ratemovers",
+      "https://www.youtube.com/@theflatratemovers",
+      "https://github.com/TheFlatRateMovers",
+      "https://medium.com/@ratemovers"
+    ]
+  }
 }

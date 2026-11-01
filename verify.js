@@ -777,14 +777,14 @@ async function main() {
       const missingCode = P2_CODE_URLS.filter((u) => !distUrls.has(u));
       const missingRoutes = pages.pages.map((p) => p.url).filter((u) => !distUrls.has(u));
       const hasLlmsFull = distUrls.has('https://theflatratemovers.com/llms-full.txt');
-      p5ok = !!servedIndex && pageFiles.length === 210 && missingPages.length === 0 && missingCode.length === 0 &&
+      p5ok = !!servedIndex && pageFiles.length === 212 && missingPages.length === 0 && missingCode.length === 0 &&
         missingRoutes.length === 0 && hasLlmsFull &&
-        (servedIndex.distribution || []).length === 492;
+        (servedIndex.distribution || []).length === 497;
       p5detail = 'pageFiles=' + pageFiles.length + ', missingPages=' + (missingPages.join(',') || '0') +
         ', missingCode=' + (missingCode.join(',') || '0') + ', missingRoutes=' + (missingRoutes.slice(0, 3).join(',') || '0') +
         ', llmsFull=' + hasLlmsFull + ', distributions=' + (servedIndex ? (servedIndex.distribution || []).length : 0);
     } catch (e) { p5ok = false; p5detail = e.message; }
-    check('P-5 certificate covers all 210 per-page JSONs + all 210 route documents + llms-full.txt + the site shell + the deployed code sets (492 distributions)',
+    check('P-5 certificate covers all 212 per-page JSONs + all 212 route documents + llms-full.txt + the site shell + the deployed code sets (497 distributions)',
       p5ok, p5detail);
 
     // P-6: repo-served distribution digests re-computed over live bytes
@@ -1167,8 +1167,8 @@ async function main() {
       d8V.pageCoverage.pagesTargeted === pages.pages.length && Array.isArray(d8V.pageCoverage.uncoveredPages) && d8V.pageCoverage.uncoveredPages.length === 0 &&
       Array.isArray(d8V.rowsByArea) && d8V.rowsByArea.length === (geoV.features || []).length &&
       d8V.rowsByArea.reduce((a, x) => a + x.rows, 0) + Object.values(d8V.rowsByNonFeatureArea || {}).reduce((a, x) => a + x, 0) === areaTaggedV;
-    check('I-9 published intent dataset v2 fields reconcile with the database (36-node frame, row sources with gscObservedRows=0, era-tagged evidence block, outcome roll-up + digest, full page coverage, per-area rows over all 53 GeoJSON features)',
-      graphV.length === 36 && d8okV && covBadV.length === 0 && !!d6V && /pre-rebuild/.test(d6V.description),
+    check('I-9 published intent dataset v2 fields reconcile with the database (37-node frame, row sources with gscObservedRows=0, era-tagged evidence block, outcome roll-up + digest, full page coverage, per-area rows over all 53 GeoJSON features)',
+      graphV.length === 37 && d8okV && covBadV.length === 0 && !!d6V && /pre-rebuild/.test(d6V.description),
       'nodes=' + graphV.length + '; coverage nodes bad=' + covBadV.length + '; d8 reconcile=' + d8okV +
         '; outcome digest=' + String(metaV.outcome_digest || '').slice(0, 12) + '…; areas=' + (d8V && d8V.rowsByArea ? d8V.rowsByArea.length : 0));
   } catch (e) {
@@ -1272,8 +1272,8 @@ async function main() {
         for (const n of ns) if (n && n['@type'] === 'Dataset') { shellCountD++; checkNodeD(n, rel); }
       }
     }
-    check('D-2 every Dataset node (dataset files + all 210 route documents) carries landing url/unique sameAs, an identifier, isAccessibleForFree, typed distributions and a self-referencing DataDownload',
-      badNodesD.length === 0 && shellCountD === 353 && routeDocsD.length === 210,
+    check('D-2 every Dataset node (dataset files + all 212 route documents) carries landing url/unique sameAs, an identifier, isAccessibleForFree, typed distributions and a self-referencing DataDownload',
+      badNodesD.length === 0 && shellCountD === 362 && routeDocsD.length === 212,
       'files + ' + shellCountD + ' route-document instances across ' + routeDocsD.length + ' documents' + (badNodesD.length ? ', bad: ' + badNodesD.slice(0, 4).join('; ') : ''));
     // D-3: local sitemap set == registry pages + dataset files.
     const localXmlD = fs.readFileSync(path.join(PAGES_PUBLIC, 'sitemap.xml'), 'utf8');
@@ -1504,7 +1504,7 @@ async function main() {
   // scripts/build-llms-full.js and sealed as a distribution. These
   // checks assert its live presence, its seal, its llms.txt link, and
   // a content-integrity spot rule (the estate's two branch names and
-  // all 28 service names present; no placeholder braces and none of
+  // all 29 service names present; no placeholder braces and none of
   // the invented-string patterns the gate exists to keep out).
   try {
     const crypto = require('crypto');
@@ -1531,7 +1531,7 @@ async function main() {
       'link present=' + llmsTxtL.includes('https://theflatratemovers.com/llms-full.txt'));
     const missingSvcL = services.services.filter((s) => !fullText.includes(s.name)).map((s) => s.name);
     const forbiddenL = ['{{', '25,000 lbs', 'lifecycle logistics'].filter((x) => fullText.includes(x));
-    check('L-4 llms-full.txt content integrity (28 service names + both branch names present; no placeholders or invented strings)',
+    check('L-4 llms-full.txt content integrity (29 service names + both branch names present; no placeholders or invented strings)',
       missingSvcL.length === 0 && fullText.includes('The Flat Rate Movers') && fullText.includes('Flat Rate Movers Martinsburg WV') && forbiddenL.length === 0,
       'missing services=' + (missingSvcL.join(', ') || '0') + ', forbidden present=' + (forbiddenL.join(', ') || '0'));
   } catch (e) {

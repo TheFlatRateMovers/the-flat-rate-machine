@@ -104,6 +104,10 @@ const GENERATOR = 'build-intent-rubric.js';
 // service-data-center-relocation added to HUB / PHRASE / DATASETS /
 // BASE_ONLY / BRANCH (hub data-center-relocation; base-only 'both', like
 // IT relocation — no GeoJSON capability mapping for this service).
+// 2026-11-01 (Batch Freight Rework & Transloading): new service
+// service-freight-rework-transloading added to HUB / PHRASE /
+// DATASETS / BASE_ONLY / BRANCH (hub freight-rework-transloading;
+// base-only 'both' — no GeoJSON capability mapping for this service).
 // 2026-10-30 (Batch Medical & Laboratory Equipment Relocation): new
 // service service-medical-lab-relocation added to HUB / PHRASE /
 // DATASETS / BASE_ONLY / BRANCH (hub medical-lab-equipment-relocation;
@@ -195,6 +199,7 @@ const HUB = {
   'service-transloading-winchester-va': 'transloading-winchester-va',
   'service-moving-and-storage': 'moving-and-storage',
   'service-junk-removal': 'junk-removal',
+  'service-freight-rework-transloading': 'freight-rework-transloading',
   'service-warehouse-racking-relocation': 'warehouse-racking-relocation',
   'service-ffe-logistics': 'ffe-logistics',
   'service-data-center-relocation': 'data-center-relocation',
@@ -227,6 +232,7 @@ const PHRASE = {
   'service-transloading-winchester-va': ['transloading', false],
   'service-moving-and-storage': ['moving and storage', false],
   'service-junk-removal': ['junk removal', false],
+  'service-freight-rework-transloading': ['freight rework', false],
   'service-warehouse-racking-relocation': ['warehouse racking relocation', false],
   'service-ffe-logistics': ['FF&E logistics', false],
   'service-data-center-relocation': ['data center movers', true],
@@ -260,6 +266,7 @@ const DATASETS = {
   'service-transloading-winchester-va': ['datasets-transloading-winchester.json'],
   'service-moving-and-storage': ['datasets-moving-and-storage.json'],
   'service-junk-removal': ['datasets-junk-removal.json'],
+  'service-freight-rework-transloading': ['datasets-freight-rework.json'],
   'service-warehouse-racking-relocation': ['datasets-warehouse-racking-relocation.json'],
   'service-ffe-logistics': ['datasets-ffe-logistics.json'],
   'service-data-center-relocation': ['datasets-data-center-relocation.json'],
@@ -303,6 +310,7 @@ const BASE_ONLY = {
   'service-it-relocation': 'both',
   'service-moving-and-storage': 'both',
   'service-junk-removal': 'both',
+  'service-freight-rework-transloading': 'both',
   'service-warehouse-racking-relocation': 'both',
   'service-ffe-logistics': 'both',
   'service-data-center-relocation': 'both',
@@ -440,6 +448,7 @@ const BRANCH = {
   'service-transloading-winchester-va': [null, null],
   'service-moving-and-storage': [null, null],
   'service-junk-removal': [null, null],
+  'service-freight-rework-transloading': [null, null],
   'service-warehouse-racking-relocation': [null, null],
   'service-ffe-logistics': [null, null],
   'service-data-center-relocation': [null, null],
