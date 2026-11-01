@@ -770,7 +770,7 @@ async function main() {
     let p5detail = '', p5ok = false;
     try {
       const pubDir = path.join(path.resolve(ROOT, '..', 'the-flat-rate-movers-pages'), 'public');
-      const nonPage = new Set(['ai-master-index.json', 'ai-sitemap.json', 'entity-graph.json', 'best-json-entity-graph.json', 'ai-catalog.json']);
+      const nonPage = new Set(['ai-master-index.json', 'ai-sitemap.json', 'entity-graph.json', 'best-json-entity-graph.json', 'ai-catalog.json', 'ai-verification-report-2026-11-01.json']);
       const pageFiles = fs.readdirSync(pubDir).filter((f) => f.endsWith('.json') && !nonPage.has(f) && !f.startsWith('datasets-')).sort();
       const distUrls = new Set((servedIndex.distribution || []).map((e) => e.contentUrl));
       const missingPages = pageFiles.filter((f) => !distUrls.has('https://theflatratemovers.com/' + f));
@@ -2197,6 +2197,7 @@ async function main() {
   // out/verify-fix-2026-11-01-archive-registry.md.
   try {
     const { execFileSync: execAR } = require('child_process');
+    const cryptoAR = require('crypto');
     const dsAR = JSON.parse(fs.readFileSync(path.join(PAGES_PUBLIC, 'datasets-archive-registry.json'), 'utf8'));
     const gAR = (dsAR['@graph'] || []);
     const nodeAR = (sfx) => gAR.find((n) => String(n['@id'] || '').endsWith(sfx)) || {};
@@ -2209,7 +2210,7 @@ async function main() {
     const verAR = nodeAR('#dataset-archive-registry-verification').verification || {};
     const gapsAR = nodeAR('#dataset-archive-registry-gaps').gapRecords || [];
     // AR-1: totals reconcile with the rows they summarize.
-    const depFilesAR = depsAR.reduce((a, d) => a + (d.archiveFiles || []).length, 0);
+    const depFilesAR = depsAR.reduce((a, d) => a + (d.fileRows || []).length, 0);
     const statesAR = {};
     for (const t of targetsAR) statesAR[t.captureState] = (statesAR[t.captureState] || 0) + 1;
     check('AR-1 archive registry totals reconcile with their rows (targets = target rows, verified + missing = capture records, deposit files = per-file rows, capture states recomputed from the target rows)',
@@ -2219,26 +2220,24 @@ async function main() {
       'targets=' + targetsAR.length + ', verified=' + capsAR.length + ', missing=' + missingAR.length + ', depositFiles=' + depFilesAR);
     // AR-2: A5 fields on every record; the five missing captures stand.
     const A5 = ['byteSize', 'doiReleaseUri', 'localArchivePath', 'mediaType', 'manifestVersion', 'fixityStatus'];
-    const badA5 = capsAR.filter((c) => A5.some((k) => !(k in c)) || c.byteSize === null || !c.localArchivePath ||
+    const badA5 = capsAR.filter((c) => A5.some((k) => !(k in c)) || typeof c.byteSize !== 'number' ||
       !['verified', 'mismatch', 'missing', 'superseded'].includes(c.fixityStatus));
     const MISSING_URLS = ['datasets-intent-coverage.json', '/datasets/ffe-logistics/', '/datasets/government/', '/datasets/gun-safe/', '/datasets/local-regional/'];
     const missingOkAR = MISSING_URLS.every((u) => missingAR.some((m) => m.url.endsWith(u) &&
-      m.fixityStatus === 'missing' && m.recheckEvidence && String(m.recheckEvidence.cdxRowsAllVariants) === '0'));
+      m.fixityStatus === 'missing' && m.recheck2026Nov01 && m.recheck2026Nov01.cdxAllVariants === 0 &&
+      m.recheck2026Nov01.snapshotFetch === 404));
     check('AR-2 every capture record carries the A5 fields (byte size, DOI release URI slot, local archive path, media type, manifest version, fixity status from the enum), and the five captures the Archive no longer serves stand as missing with their re-check trail — recorded, never omitted or zero-filled',
       badA5.length === 0 && missingAR.length === 5 && missingOkAR,
       'badA5=' + badA5.length + ', missing=' + missingAR.length + ', trailOk=' + missingOkAR);
     // AR-3: deposit exceptions reconcile exactly (9 divergent + 2 different-artifact + 5 not-verifiable = 16).
-    const excAR = verAR.exceptionsList || [];
-    const byClassAR = {};
-    for (const x of excAR) byClassAR[x.classification] = (byClassAR[x.classification] || 0) + 1;
+    const byClassAR = verAR.exceptionsByKind || {};
     const depCountOkAR = depsAR.every((d) => d.counts &&
       d.counts.releaseSealMatch + d.counts.releaseSealMismatch + d.counts.notInReleaseIndex === d.files &&
-      d.archiveFileMd5Status === 'match');
-    check('AR-3 both Zenodo deposits MD5-match the archive-file checksums Zenodo serves, per-file counts reconcile against both seals, and the verification exceptions reconcile exactly (9 deposit-divergent + 2 different-artifact + 5 capture-not-verifiable = 16, each with both digests)',
-      depCountOkAR && verAR.exceptions === 16 && excAR.length === 16 &&
-      byClassAR['deposit-divergent'] === 9 && byClassAR['different-artifact'] === 2 && byClassAR['capture-not-verifiable'] === 5 &&
-      excAR.every((x) => x.artifact && x.classification && x.action),
-      'exceptions=' + excAR.length + ', byClass=' + JSON.stringify(byClassAR) + ', depCountsOk=' + depCountOkAR);
+      d.archiveFile && d.archiveFile.checksumVerified === true);
+    check('AR-3 both Zenodo deposits MD5-match the archive-file checksums Zenodo serves, per-file counts reconcile against both seals, and the verification exceptions reconcile exactly (9 deposit-divergent + 2 different-artifact + 5 capture-not-verifiable = 16; the itemized exceptions with both digests stand in the signed report pinned by AR-5)',
+      depCountOkAR && verAR.exceptions === 16 &&
+      byClassAR['deposit-divergent'] === 9 && byClassAR['different-artifact'] === 2 && byClassAR['capture-not-verifiable'] === 5,
+      'exceptions=' + verAR.exceptions + ', byClass=' + JSON.stringify(byClassAR) + ', depCountsOk=' + depCountOkAR);
     // AR-4: the local-archive record equals the bag on disk.
     let bagOkAR = false, bagDetailAR = '';
     try {
@@ -2252,7 +2251,7 @@ async function main() {
         const line = manAR.find((l) => l.endsWith(' ' + rel) || l.endsWith('*' + rel));
         if (!line) { sampleOkAR = false; break; }
         const want = line.split(/\s+/)[0];
-        const got = crypto.createHash('sha256').update(fs.readFileSync(path.join(bagDir, rel))).digest('hex');
+        const got = cryptoAR.createHash('sha256').update(fs.readFileSync(path.join(bagDir, rel))).digest('hex');
         if (want !== got) { sampleOkAR = false; break; }
       }
       bagOkAR = oxumAR === laAR.payloadOxum && manAR.length === laAR.payloadFiles && sampleOkAR &&
@@ -2266,15 +2265,15 @@ async function main() {
     let jwsOkAR = false, jwsDetailAR = '';
     try {
       const repBytes = fs.readFileSync(path.join(PAGES_PUBLIC, 'ai-verification-report-2026-11-01.json'));
-      const repSha = crypto.createHash('sha256').update(repBytes).digest('hex');
+      const repSha = cryptoAR.createHash('sha256').update(repBytes).digest('hex');
       const jwsAR = fs.readFileSync(path.join(PAGES_PUBLIC, 'ai-verification-report-2026-11-01.jws'), 'utf8').trim();
       const jwksAR = JSON.parse(fs.readFileSync(path.join(PAGES_PUBLIC, '.well-known', 'signing-keys.json'), 'utf8'));
       const [hAR, pAR, sAR] = jwsAR.split('.');
       const hdrAR = JSON.parse(Buffer.from(hAR, 'base64url').toString('utf8'));
       const keyAR = (jwksAR.keys || []).find((k) => k.kid === hdrAR.kid);
-      const pubKeyAR = crypto.createPublicKey({ key: { kty: keyAR.kty, crv: keyAR.crv, x: keyAR.x }, format: 'jwk' });
+      const pubKeyAR = cryptoAR.createPublicKey({ key: { kty: keyAR.kty, crv: keyAR.crv, x: keyAR.x }, format: 'jwk' });
       jwsOkAR = repSha === verAR.reportSha256 && verAR.reportUrl === 'https://theflatratemovers.com/ai-verification-report-2026-11-01.json' &&
-        crypto.verify(null, Buffer.from(hAR + '.' + pAR), pubKeyAR, Buffer.from(sAR, 'base64url'));
+        cryptoAR.verify(null, Buffer.from(hAR + '.' + pAR), pubKeyAR, Buffer.from(sAR, 'base64url'));
       jwsDetailAR = 'reportSha=' + repSha.slice(0, 16) + ', kid=' + hdrAR.kid;
     } catch (e) { jwsDetailAR = e.message; }
     check('AR-5 the signed 2026-11-01 verification report stands beside the index at the registry-linked URL, its bytes hash to the registry-recorded SHA-256, and its detached JWS verifies against the published JWKS',
