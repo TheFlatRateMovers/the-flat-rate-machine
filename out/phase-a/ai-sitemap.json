@@ -5,7 +5,7 @@
   "@type": "Dataset",
   "name": "The Flat Rate Movers · AI Sitemap",
   "url": "https://theflatratemovers.com/ai-sitemap.json",
-  "description": "Machine-readable index of AI, developer, and operational JSON endpoints for The Flat Rate Movers LLC, plus the core pages, services, and SIR / KIM-GS authority for theflatratemovers.com. 213 clean canonical URLs in sitemap.xml, 29 services, 52 service-area features, branches distinct (Winchester: The Flat Rate Movers; Martinsburg: Flat Rate Movers Martinsburg WV), founded June 2010. No USDOT/MC number is listed (unconfirmed).",
+  "description": "Machine-readable index of AI, developer, and operational JSON endpoints for The Flat Rate Movers LLC, plus the core pages, services, and SIR / KIM-GS authority for theflatratemovers.com. 224 clean canonical URLs in sitemap.xml, 30 services, 53 service-area features, branches distinct (Winchester: The Flat Rate Movers; Martinsburg: Flat Rate Movers Martinsburg WV), founded June 2010. No USDOT/MC number is listed (unconfirmed).",
   "dateModified": "2026-10-28",
   "version": "2026-10-28",
   "creator": {
@@ -55,6 +55,7 @@
     "Custom Crating",
     "Loading, Transloading and Container Services",
     "Final-Mile Delivery",
+    "White-Glove Delivery",
     "Office Moving",
     "Industrial Offices Moving",
     "Government Moving",
@@ -121,6 +122,10 @@
     {
       "name": "Final-Mile Delivery",
       "description": "Final-mile delivery with in-home or in-business placement and verification — delivered to the room, placed, and confirmed on site."
+    },
+    {
+      "name": "White-Glove Delivery",
+      "description": "White-Glove Delivery — the top level of final-mile delivery and the handling standard for high-value, fragile and heavy pieces: brought in on a planned route, carried over the threshold, set in its final position, packaging removed, and condition verified with the recipient before the crew leaves — never left at a curb. Pieces are protected in padded blankets and stretch wrap, or in a custom crate when the piece requires it; heavy pieces of 1,500 to 3,500 lbs are surveyed and floor-checked to L/360 under SIR Structural Integrity Relocation and the KIM-GS Protocol. Offered from both branches across the full published footprint — all 53 GeoJSON service areas, Winchester VA and Martinsburg WV. Quoted at one flat rate in writing before dispatch. Guaranteed Flat Rate or Your Move is Free!"
     },
     {
       "name": "Office Moving",
@@ -204,6 +209,7 @@
     "Custom Crating",
     "Loading, Transloading and Container Services",
     "Final-Mile Delivery",
+    "White-Glove Delivery",
     "Office Moving",
     "Industrial Offices Moving",
     "Government Moving",
@@ -222,7 +228,7 @@
     "Medical & Laboratory Equipment Relocation Logistics",
     "Freight Rework & Transloading"
   ],
-  "hasPart": [
+  "pages": [
     {
       "@type": "WebPage",
       "name": "Home",
@@ -1287,6 +1293,61 @@
       "@type": "WebPage",
       "name": "Transloading at the Virginia Inland Port: how freight changes mode",
       "url": "https://theflatratemovers.com/transloading-at-the-virginia-inland-port/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Transloading Services — Winchester VA & Martinsburg WV",
+      "url": "https://theflatratemovers.com/transloading/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Long-Distance Moving — Winchester VA & Martinsburg WV",
+      "url": "https://theflatratemovers.com/long-distance-moving/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Government Moving — Winchester VA & Martinsburg WV",
+      "url": "https://theflatratemovers.com/government-moving/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Military Moving — Winchester VA & Martinsburg WV",
+      "url": "https://theflatratemovers.com/military-moving/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Custom Crating — Winchester VA & Martinsburg WV",
+      "url": "https://theflatratemovers.com/custom-crating/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Piano, Antique & White-Glove Moving — Winchester VA & Martinsburg WV",
+      "url": "https://theflatratemovers.com/piano-antique-white-glove-moving/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Office Moving — Winchester VA & Martinsburg WV",
+      "url": "https://theflatratemovers.com/office-moving/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Packing & Unpacking — Winchester VA & Martinsburg WV",
+      "url": "https://theflatratemovers.com/packing/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Final-Mile Delivery — Winchester VA & Martinsburg WV",
+      "url": "https://theflatratemovers.com/final-mile-delivery/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "White-Glove Delivery — Winchester VA & Martinsburg WV",
+      "url": "https://theflatratemovers.com/white-glove-delivery/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "White-Glove Delivery Datasets",
+      "url": "https://theflatratemovers.com/datasets/white-glove/"
     }
   ],
   "areaServedByBranch": {

@@ -73,8 +73,10 @@ async function main() {
 
   // ---------- ai-sitemap.json (deterministic core) ----------
   // Phase A (2026-10-29): services = all services.json entries (was 6
-  // curated in the live file), hasPart = all pages.json entries (was 41
-  // curated), keywords = the service names. All three derive from data/
+  // curated in the live file), the page inventory = all pages.json
+  // entries (was 41 curated; emitted under the extension key `pages`
+  // since the WS2 fix, 2026-11-02 — never under Dataset.hasPart),
+  // keywords = the service names. All three derive from data/
   // only — no editorial selection. The live file's curated lists are
   // therefore superseded by this generated parity, not copied.
   const ai = {
@@ -84,7 +86,7 @@ async function main() {
     '@type': 'Dataset',
     name: 'The Flat Rate Movers · AI Sitemap',
     url: SITE + '/ai-sitemap.json',
-    description: 'Machine-readable index of AI, developer, and operational JSON endpoints for ' + company.name + ', plus the core pages, services, and SIR / KIM-GS authority for theflatratemovers.com. ' + pages.length + ' clean canonical URLs in sitemap.xml, ' + services.length + ' services, 52 service-area features, branches distinct (Winchester: The Flat Rate Movers; Martinsburg: Flat Rate Movers Martinsburg WV), founded June 2010. No USDOT/MC number is listed (unconfirmed).',
+    description: 'Machine-readable index of AI, developer, and operational JSON endpoints for ' + company.name + ', plus the core pages, services, and SIR / KIM-GS authority for theflatratemovers.com. ' + pages.length + ' clean canonical URLs in sitemap.xml, ' + services.length + ' services, 53 service-area features, branches distinct (Winchester: The Flat Rate Movers; Martinsburg: Flat Rate Movers Martinsburg WV), founded June 2010. No USDOT/MC number is listed (unconfirmed).',
     dateModified: DATA_VERSION,
     version: DATA_VERSION,
     creator: {
@@ -107,7 +109,18 @@ async function main() {
     about: services.map((s) => s.name),
     services: services.map((s) => ({ name: s.name, description: s.description })),
     keywords: services.map((s) => s.name),
-    hasPart: pages.map((p) => ({ '@type': 'WebPage', name: p.title, url: p.url })),
+    // WS2 fix (2026-11-02; GSC: Datasets — "Invalid object type for field
+    // 'hasPart'"): Google's Dataset profile accepts Dataset.hasPart only
+    // as a URL or as a Dataset instance, so a WebPage object is rejected.
+    // A page is not a dataset, so the inventory must not be retyped as
+    // Dataset either. It therefore leaves hasPart entirely and is emitted,
+    // unchanged in shape, under the extension key `pages` — the same
+    // non-schema extension convention this node already uses for
+    // `services` and `areaServedByBranch`, which no structured-data
+    // validator reads as a schema.org property. (verify.js's staged
+    // ai-sitemap parity checks must read `pages`, not `hasPart` — see
+    // ws2/READY.md.)
+    pages: pages.map((p) => ({ '@type': 'WebPage', name: p.title, url: p.url })),
     // Phase A: per-branch areas derived from the GeoJSON branch property
     // (winchester / martinsburg / both) — 31 / 35 incl. shared, matching
     // the footprint counts. The live file additionally appends conceptual
@@ -197,7 +210,7 @@ async function main() {
       { field: 'llms.txt social links + company email', reason: 'Social URLs and email are not in any Phase 0 dataset (same gap as the graph builder). Phase 0 amendment needed.' },
       { field: 'llms.txt service page links', reason: 'No canonical-page mapping exists in services.json (pages reference services, not the reverse). Generated services list carries names + descriptions without page links.' },
       { field: 'ai-sitemap description (1522-char prose)', reason: 'Hand-written prose, not a dataset fact. The Phase A generated file carries a factual description composed from data/ (page count, service count, geo features, branch distinction, founding) instead of copying the live prose.' },
-      { field: 'ai-sitemap hasPart / keywords (live: 41 curated pages, 11 curated keywords)', reason: 'RESOLVED in Phase A (2026-10-29): the generator now emits hasPart = all pages.json entries and keywords = all services.json names, so the staged file has full parity by construction. The live file keeps its curated lists until the Phase A deploy batch.' },
+      { field: 'ai-sitemap page inventory / keywords (live: 41 curated pages, 11 curated keywords)', reason: 'RESOLVED in Phase A (2026-10-29): the generator now emits the page inventory = all pages.json entries and keywords = all services.json names, so the staged file has full parity by construction. The live file keeps its curated lists until the Phase A deploy batch. WS2 (2026-11-02): the inventory is emitted under the extension key `pages`, not Dataset.hasPart (Google Dataset profile: hasPart = URL or Dataset only; GSC flagged the WebPage-object form).' },
       { field: 'ai-sitemap areaServed (merged list)', reason: 'Live list merges both branches into one list. The branch rule forbids merging; per-branch areas live in locations.json and the GeoJSON.' },
       { field: 'ai-sitemap mainEntity (live: WebSite + sitemap.xml)', reason: 'RESOLVED in Phase A (2026-10-29): the generator now emits the same WebSite mainEntity. (The old gap note about sitemap_index.xml is stale — the live file was fixed 2026-10-28 to point at sitemap.xml; verified 2026-10-29.)' },
       { field: 'ai-sitemap areaServedByBranch conceptual labels (live appends Port of Virginia, Virginia Inland Port, Shenandoah Valley, Eastern Panhandle, corridor names)', reason: 'Not GeoJSON features, so not generated. The staged areaServedByBranch lists are exactly the 52 geo features per branch (31 / 35 incl. shared).' },

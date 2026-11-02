@@ -28,6 +28,7 @@
 - Custom Crating: Custom-built crates and high-value item protection for domestic and export moves.
 - Loading, Transloading and Container Services: Container loading and unloading, and transloading between truck, container and warehouse.
 - Final-Mile Delivery: Final-mile delivery with in-home or in-business placement and verification.
+- White-Glove Delivery: White-glove delivery — the top final-mile tier: threshold crossing, placement in final position, packaging removal and condition verification with the recipient, offered from both branches across the full 53-area footprint.
 - Office Moving: Complete office relocations — workstations, files and office equipment — planned and quoted flat.
 - Industrial Offices Moving: Office moves for industrial and facility sites — office areas within plants, warehouses and industrial facilities.
 - Government Moving: Moving services for government offices and public-sector relocations.
@@ -56,7 +57,7 @@
 
 - [AI Sitemap](https://theflatratemovers.com/ai-sitemap.json): AI knowledge sitemap for The Flat Rate Movers
 - [Full Text — llms-full.txt](https://theflatratemovers.com/llms-full.txt): the complete published text of the estate in one file — company identity, both branches with their own hours and ratings, all 28 services with their full page content, the 53-area footprint, the flat-rate guarantee, the published FAQs, the datasets and the 2,794-row search-intent rubric, the certificate and how to verify it, the API, MCP and WebMCP surfaces, the book, and how to cite. Generated from the same published sources as this file and sealed in the signed AI master index. LLC
-- [Sitemap](https://theflatratemovers.com/sitemap.xml): live Cloudflare Pages site, 213 clean canonical URLs (no hash URLs)
+- [Sitemap](https://theflatratemovers.com/sitemap.xml): live Cloudflare Pages site, 224 clean canonical URLs (no hash URLs)
 - [Service Area GeoJSON](https://theflatratemovers.com/service-area.geojson): 53 features, per branch, verified 2026-10-28
 - [Entity Graph](https://theflatratemovers.com/entity-graph.json): chained entity graph for The Flat Rate Movers LLC
 - [Search Intent Coverage Datasets](https://theflatratemovers.com/datasets-intent-coverage.json): the generative intent-coverage rubric, version 2 — 2,962 generated query rows mapping search and AI-assistant query strings for all 28 services to the page, per-page JSON, dataset files and entity-graph node that answer each one; every one of the site's 210 pages is a rubric target, with coverage per service and per service area and an outcome record on every row, certificate-sealed in the signed AI master index

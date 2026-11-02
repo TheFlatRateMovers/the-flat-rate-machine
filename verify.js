@@ -272,12 +272,12 @@ async function main() {
     const pageUrls = new Set(pages.pages.map((p) => p.url));
     const svcNames = new Set(services.services.map((s) => s.name));
     const aiSvcNames = (stagedAi.services || []).map((s) => s.name);
-    const aiUrls = (stagedAi.hasPart || []).map((p) => p.url);
+    const aiUrls = (stagedAi.pages || []).map((p) => p.url); // WS2 (2026-11-02): inventory key renamed hasPart -> pages (Google Dataset profile: hasPart = URL or Dataset only)
     check('staged ai-sitemap services count matches services.json', (stagedAi.services || []).length === services.services.length,
       'staged=' + (stagedAi.services || []).length + ', registry=' + services.services.length);
-    check('staged ai-sitemap hasPart count matches pages.json', (stagedAi.hasPart || []).length === pages.pages.length,
-      'staged=' + (stagedAi.hasPart || []).length + ', registry=' + pages.pages.length);
-    check('staged ai-sitemap hasPart URLs are all registry URLs',
+    check('staged ai-sitemap pages count matches pages.json', (stagedAi.pages || []).length === pages.pages.length,
+      'staged=' + (stagedAi.pages || []).length + ', registry=' + pages.pages.length);
+    check('staged ai-sitemap pages URLs are all registry URLs',
       aiUrls.length > 0 && aiUrls.every((u) => pageUrls.has(u)),
       aiUrls.length + ' urls' + (aiUrls.every((u) => pageUrls.has(u)) ? '' : ' — non-registry: ' + aiUrls.filter((u) => !pageUrls.has(u)).join(', ')));
     check('staged ai-sitemap service names are all registry names',
@@ -518,7 +518,7 @@ async function main() {
     skipLive('P-2 ai-master-index.jws verifies against the published key over the canonical served index');
     skipLive('P-3 all site-served distribution digests match the live served bytes');
     skipLive('P-4 every served index distribution entry is complete (name, contentUrl, encodingFormat, license, dateModified, SHA-256 digest + byteSize)');
-    skipLive('P-5 certificate covers all 213 per-page JSONs + all 213 route documents + llms-full.txt + the site shell + the deployed code sets (500 distributions)');
+    skipLive('P-5 certificate covers all 224 per-page JSONs + all 224 route documents + llms-full.txt + the site shell + the deployed code sets (500 distributions)');
     skipLive('P-6 all repo-served distribution digests match the live served bytes');
   } else {
   try {
@@ -819,14 +819,14 @@ async function main() {
       const missingCode = P2_CODE_URLS.filter((u) => !distUrls.has(u));
       const missingRoutes = pages.pages.map((p) => p.url).filter((u) => !distUrls.has(u));
       const hasLlmsFull = distUrls.has('https://theflatratemovers.com/llms-full.txt');
-      p5ok = !!servedIndex && pageFiles.length === 213 && missingPages.length === 0 && missingCode.length === 0 &&
+      p5ok = !!servedIndex && pageFiles.length === 224 && missingPages.length === 0 && missingCode.length === 0 &&
         missingRoutes.length === 0 && hasLlmsFull &&
-        (servedIndex.distribution || []).length === 500;
+        (servedIndex.distribution || []).length === 523;
       p5detail = 'pageFiles=' + pageFiles.length + ', missingPages=' + (missingPages.join(',') || '0') +
         ', missingCode=' + (missingCode.join(',') || '0') + ', missingRoutes=' + (missingRoutes.slice(0, 3).join(',') || '0') +
         ', llmsFull=' + hasLlmsFull + ', distributions=' + (servedIndex ? (servedIndex.distribution || []).length : 0);
     } catch (e) { p5ok = false; p5detail = e.message; }
-    check('P-5 certificate covers all 213 per-page JSONs + all 213 route documents + llms-full.txt + the site shell + the deployed code sets (500 distributions)',
+    check('P-5 certificate covers all 224 per-page JSONs + all 224 route documents + llms-full.txt + the site shell + the deployed code sets (500 distributions)',
       p5ok, p5detail);
 
     // P-6: repo-served distribution digests re-computed over live bytes
@@ -1024,7 +1024,7 @@ async function main() {
       const svcId = 'service-' + String(n['@id']).split('/#intent-coverage-')[1];
       return n.queryRows !== perSvcDb[svcId];
     });
-    check('I-4 published intent-coverage dataset counts and row digest equal rubric.db (totals node + 28 coverage nodes)',
+    check('I-4 published intent-coverage dataset counts and row digest equal rubric.db (totals node + 30 coverage nodes)',
       !!d8 && d8.intentRowsDigest === metaI.rows_digest && parseInt(metaI.row_count, 10) === rowsI.length &&
       covNodes.length === services.services.length && covBad.length === 0,
       'rows=' + rowsI.length + ', digest match=' + (d8 ? d8.intentRowsDigest === metaI.rows_digest : 'no D8') +
@@ -1221,8 +1221,8 @@ async function main() {
       d8V.pageCoverage.pagesTargeted === pages.pages.length && Array.isArray(d8V.pageCoverage.uncoveredPages) && d8V.pageCoverage.uncoveredPages.length === 0 &&
       Array.isArray(d8V.rowsByArea) && d8V.rowsByArea.length === (geoV.features || []).length &&
       d8V.rowsByArea.reduce((a, x) => a + x.rows, 0) + Object.values(d8V.rowsByNonFeatureArea || {}).reduce((a, x) => a + x, 0) === areaTaggedV;
-    check('I-9 published intent dataset v2 fields reconcile with the database (37-node frame, row sources with gscObservedRows=0, era-tagged evidence block, outcome roll-up + digest, full page coverage, per-area rows over all 53 GeoJSON features)',
-      graphV.length === 37 && d8okV && covBadV.length === 0 && !!d6V && /pre-rebuild/.test(d6V.description),
+    check('I-9 published intent dataset v2 fields reconcile with the database (38-node frame, row sources with gscObservedRows=0, era-tagged evidence block, outcome roll-up + digest, full page coverage, per-area rows over all 53 GeoJSON features)',
+      graphV.length === 38 && d8okV && covBadV.length === 0 && !!d6V && /pre-rebuild/.test(d6V.description),
       'nodes=' + graphV.length + '; coverage nodes bad=' + covBadV.length + '; d8 reconcile=' + d8okV +
         '; outcome digest=' + String(metaV.outcome_digest || '').slice(0, 12) + '…; areas=' + (d8V && d8V.rowsByArea ? d8V.rowsByArea.length : 0));
   } catch (e) {
@@ -1327,8 +1327,8 @@ async function main() {
         for (const n of ns) if (n && n['@type'] === 'Dataset') { shellCountD++; checkNodeD(n, rel); }
       }
     }
-    check('D-2 every Dataset node (dataset files + all 213 route documents) carries landing url/unique sameAs, an identifier, isAccessibleForFree, typed distributions and a self-referencing DataDownload',
-      badNodesD.length === 0 && shellCountD === 362 && routeDocsD.length === 213,
+    check('D-2 every Dataset node (dataset files + all 224 route documents) carries landing url/unique sameAs, an identifier, isAccessibleForFree, typed distributions and a self-referencing DataDownload',
+      badNodesD.length === 0 && shellCountD === 367 && routeDocsD.length === 224,
       'files + ' + shellCountD + ' route-document instances across ' + routeDocsD.length + ' documents' + (badNodesD.length ? ', bad: ' + badNodesD.slice(0, 4).join('; ') : ''));
     // D-3: local sitemap set == registry pages + dataset files.
     const localXmlD = fs.readFileSync(path.join(PAGES_PUBLIC, 'sitemap.xml'), 'utf8');
@@ -1605,13 +1605,13 @@ async function main() {
   // scripts/build-llms-full.js and sealed as a distribution. These
   // checks assert its live presence, its seal, its llms.txt link, and
   // a content-integrity spot rule (the estate's two branch names and
-  // all 29 service names present; no placeholder braces and none of
+  // all 30 service names present; no placeholder braces and none of
   // the invented-string patterns the gate exists to keep out).
   if (LOCAL) {
     skipLive('L-1 llms-full.txt is served live as a text file');
     skipLive('L-2 llms-full.txt is a sealed distribution in the signed index (digest matches the served bytes)');
     skipLive('L-3 llms.txt links llms-full.txt');
-    skipLive('L-4 llms-full.txt content integrity (29 service names + both branch names present; no placeholders or invented strings)');
+    skipLive('L-4 llms-full.txt content integrity (30 service names + both branch names present; no placeholders or invented strings)');
   } else {
   try {
     const crypto = require('crypto');
@@ -1638,7 +1638,7 @@ async function main() {
       'link present=' + llmsTxtL.includes('https://theflatratemovers.com/llms-full.txt'));
     const missingSvcL = services.services.filter((s) => !fullText.includes(s.name)).map((s) => s.name);
     const forbiddenL = ['{{', '25,000 lbs', 'lifecycle logistics'].filter((x) => fullText.includes(x));
-    check('L-4 llms-full.txt content integrity (29 service names + both branch names present; no placeholders or invented strings)',
+    check('L-4 llms-full.txt content integrity (30 service names + both branch names present; no placeholders or invented strings)',
       missingSvcL.length === 0 && fullText.includes('The Flat Rate Movers') && fullText.includes('Flat Rate Movers Martinsburg WV') && forbiddenL.length === 0,
       'missing services=' + (missingSvcL.join(', ') || '0') + ', forbidden present=' + (forbiddenL.join(', ') || '0'));
   } catch (e) {
@@ -1979,7 +1979,7 @@ async function main() {
   // @id (DC-4); and the Zenodo concept DOI in URL form on exactly
   // its holder nodes — the four intent collection nodes, the intent
   // landing node and the master-index root — and nowhere else in
-  // the corpus (DC-5). Corpus: the 37 dataset files, the 37
+  // the corpus (DC-5). Corpus: the 39 dataset files, the 37
   // per-page dataset JSONs, ai-sitemap.json, entity-graph.json and
   // every route document's non-baked ld+json (the D-2 population).
   // The master index itself is DC-2's comparison source, not
@@ -2502,6 +2502,85 @@ async function main() {
       'pages=' + pageLocs.length + ', unrepresented=' + unrepresented.slice(0, 3).join(','));
   } catch (e) {
     check('parseability sweep checks (PS-1..PS-4) evaluated', false, e.message);
+  }
+
+  // --- 25. Head-hub existence — Batch Head-Hubs (2026-11-02; checks HH-1..HH-4) ---
+  // Every registry service must resolve a dedicated head hub: its
+  // head-graph Service url is unique across services (no shared
+  // canonical), is not a category route, is not a "-2" artifact slug,
+  // names a pages.json registry page that claims the service as its
+  // own, and that page exists as a generated route document with a
+// per-page JSON.
+  // Record: out/batch-head-hubs-2026-11-02/ws1/READY.md.
+  try {
+    const shellHH = fs.readFileSync(path.join(ROOT, 'repo-dir', 'index.html'), 'utf8');
+    const headEndHH = shellHH.indexOf('</head>');
+    const headHH = headEndHH > 0 ? shellHH.slice(0, headEndHH) : shellHH;
+    const svcNodesHH = [];
+    for (const m of headHH.matchAll(/<script[^>]+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)) {
+      let docHH;
+      try { docHH = JSON.parse(m[1]); } catch (e) { continue; }
+      for (const n of (docHH['@graph'] || [])) {
+        if (n['@type'] === 'Service' && String(n['@id'] || '').includes('/#service-')) svcNodesHH.push(n);
+      }
+    }
+    const byUrlHH = new Map();
+    for (const n of svcNodesHH) {
+      if (!n.url) continue;
+      if (!byUrlHH.has(n.url)) byUrlHH.set(n.url, []);
+      byUrlHH.get(n.url).push(String(n['@id']).split('#')[1]);
+    }
+    const sharedHH = [...byUrlHH.entries()].filter(([, ids]) => ids.length > 1);
+    check('HH-1 every head-graph Service node carries a url and no two services share a canonical url',
+      svcNodesHH.length >= 29 && svcNodesHH.every((n) => !!n.url) && sharedHH.length === 0,
+      'serviceNodes=' + svcNodesHH.length + ', shared=' + sharedHH.map(([u, ids]) => u + ' <- ' + ids.join('+')).join('; '));
+    const pageByUrlHH = new Map(pages.pages.map((p) => [p.url, p]));
+    const badFormHH = [], unclaimedHH = [];
+    for (const n of svcNodesHH) {
+      const id = String(n['@id']).split('#')[1];
+      const u = n.url || '';
+      if (u.includes('/category/') || /-2\/$/.test(u)) badFormHH.push(id + ' -> ' + u);
+      // A city branch page standing in as the canonical (the
+      // long-distance defect) — exempt only when the service itself is
+      // the city-specific service (service-transloading-winchester-va).
+      const citySuffix = /-(winchester-va|martinsburg-wv)\/$/.exec(u);
+      if (citySuffix && !id.endsWith('-' + citySuffix[1])) badFormHH.push(id + ' -> ' + u + ' (branch page as canonical)');
+      const pg = pageByUrlHH.get(u);
+      if (!pg || !(pg.services || []).includes(id)) unclaimedHH.push(id + ' -> ' + u);
+    }
+    check('HH-2 no service canonical is a category route, a "-2" artifact slug, or a city branch page, and the canonical page claims the service in pages.json',
+      badFormHH.length === 0 && unclaimedHH.length === 0,
+      'badForm=' + badFormHH.join('; ') + ' unclaimed=' + unclaimedHH.join('; '));
+    const missingHH = [];
+    for (const n of svcNodesHH) {
+      const pg = pageByUrlHH.get(n.url || '');
+      if (!pg) { missingHH.push((n.url || '?') + ' (no registry page)'); continue; }
+      // The route document in the deploy tree is the existence proof
+      // (shell div ids use legacy page keys, not registry slugs, for
+      // older pages — build-routes maps them via pageMeta).
+      if (!fs.existsSync(path.join(PAGES_PUBLIC, pg.slug, 'index.html'))) missingHH.push(pg.slug + ' (no route document)');
+      const jsonFlat = pg.slug + '.json';
+      const jsonDash = pg.slug.replace(/\//g, '-') + '.json';
+      if (!fs.existsSync(path.join(PAGES_PUBLIC, jsonFlat)) && !fs.existsSync(path.join(PAGES_PUBLIC, jsonDash))) missingHH.push(pg.slug + ' (no per-page JSON)');
+    }
+    check('HH-3 every service canonical resolves to a registry page with a generated route document and a per-page JSON (the head hub exists)',
+      missingHH.length === 0, missingHH.slice(0, 6).join('; '));
+    if (LOCAL) {
+      skipLive('HH-4 every service hub url returns HTTP 200 live with its own slug content');
+    } else {
+      const deadHH = [];
+      for (const n of svcNodesHH) {
+        try {
+          const body = await fetchText(n.url);
+          const pg = pageByUrlHH.get(n.url);
+          if (!pg || !body.includes(pg.slug)) deadHH.push(n.url);
+        } catch (e) { deadHH.push(n.url + ' (' + e.message + ')'); }
+      }
+      check('HH-4 every service hub url returns HTTP 200 live with its own slug content',
+        deadHH.length === 0, deadHH.slice(0, 6).join('; '));
+    }
+  } catch (e) {
+    check('head-hub checks (HH-1..HH-4) evaluated', false, e.message);
   }
 
   // --- 9. Guardrail scan: no placeholders, no invented license identifiers ---

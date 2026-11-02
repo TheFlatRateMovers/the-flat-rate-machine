@@ -183,19 +183,20 @@ const HUB = {
   'service-residential': 'residential-moving',
   'service-commercial': 'commercial-moving',
   'service-local-regional': 'local-regional-moving',
-  'service-long-distance': 'long-distance-cross-country-moving',
-  'service-packing': 'packing-unpacking-services-2',
+  'service-long-distance': 'long-distance-moving',
+  'service-packing': 'packing',
   'service-sir-heavy': 'heavy',
   'service-gun-safe': 'gun-safe-movers',
-  'service-piano-antique': 'elite-asset-transition-white-glove-discreet-logistics',
+  'service-piano-antique': 'piano-antique-white-glove-moving',
   'service-ispm15': 'export',
-  'service-crating': 'international-export-packing-crating-winchester-va',
-  'service-transloading': 'container-deconsolidation-cross-docking-transloading-services-virginia',
-  'service-final-mile': 'commercial-freight-handling-white-glove-final-mile-services',
-  'service-office-moving': 'commercial-office-moving-2',
+  'service-crating': 'custom-crating',
+  'service-transloading': 'transloading',
+  'service-final-mile': 'final-mile-delivery',
+  'service-white-glove': 'white-glove-delivery', // first-class service (30th) — owner decision 2026-11-02
+  'service-office-moving': 'office-moving',
   'service-industrial-offices': 'industrial-offices-moving',
-  'service-government': 'military-government-moving',
-  'service-military': 'military-government-moving',
+  'service-government': 'government-moving',
+  'service-military': 'military-moving',
   'service-route81': 'route81',
   'service-industrial-commercial': 'industrial-commercial-services',
   'service-senior-moving': 'senior-moving',
@@ -225,6 +226,7 @@ const PHRASE = {
   'service-crating': ['custom crating', false],
   'service-transloading': ['transloading services', true],
   'service-final-mile': ['final mile delivery', false],
+  'service-white-glove': ['white glove delivery', false],
   'service-office-moving': ['office movers', true],
   'service-industrial-offices': ['industrial movers', true],
   'service-government': ['government movers', true],
@@ -259,6 +261,7 @@ const DATASETS = {
   'service-crating': ['datasets-crating.json'],
   'service-transloading': ['datasets-transloading.json', 'datasets-transloading-inland-port.json', 'datasets-ocean-container.json'],
   'service-final-mile': ['datasets-final-mile.json'],
+  'service-white-glove': ['datasets-white-glove.json'],
   'service-office-moving': ['datasets-office.json'],
   'service-industrial-offices': ['datasets-industrial-offices.json'],
   'service-government': ['datasets-government.json'],
@@ -321,7 +324,58 @@ const BASE_ONLY = {
   'service-data-center-relocation': 'both',
   'service-medical-lab-relocation': 'both',
   'service-transloading-winchester-va': 'winchester',
+  // White-glove (2026-11-02): the full 53-area footprint is carried in
+  // the service schema shapes (head graph, hub JSON, dataset areas
+  // node); the rubric footprint treatment for a both-branch service is
+  // the BASE_ONLY 'both' pattern (freight precedent) — base rows for
+  // both branch features + scoped rows + page rows. No GeoJSON
+  // capability token was added: service-area.geojson's SHA-256 is
+  // embedded in per-page JSONs and dataset distributions estate-wide.
+  'service-white-glove': 'both'
 };
+// EXTRA_PATTERNS (Head-Hub Programme / F4, 2026-11-02): explicit bound
+// rows for money phrasings the template families do not generate — the
+// exact screenshot queries, the singular "transload" forms, localized
+// cross-docking, container+city, the rail-to-truck family (previously
+// zero "rail" rows estate-wide) and the exact-name Inland Port phrase
+// (F4d: emitted here, before R13 page-derived rows, so dedupe keeps the
+// exact-name page as owner). Targets must be pages whose per-page JSON
+// is a signed distribution at regeneration time (the emit gates apply).
+const EXTRA_PATTERNS = {
+  'service-transloading': [
+    ['transloading services Winchester, VA', 'navigational-local', 'scope-winchester', 'transloading-winchester-va'],
+    ['transloading services Martinsburg, WV', 'navigational-local', 'scope-martinsburg', 'transloading-movers-martinsburg-wv'],
+    ['transload services near Winchester, VA', 'navigational-local', 'scope-winchester', 'transloading-winchester-va'],
+    ['transload services near Martinsburg, WV', 'navigational-local', 'scope-martinsburg', 'transloading-movers-martinsburg-wv'],
+    ['cross-docking Winchester, VA', 'navigational-local', 'scope-winchester', 'transloading-winchester-va'],
+    ['cross-docking Martinsburg, WV', 'navigational-local', 'scope-martinsburg', 'transloading-movers-martinsburg-wv'],
+    ['cross-docking services Winchester, VA', 'navigational-local', 'scope-winchester', 'transloading-winchester-va'],
+    ['cross-docking services Martinsburg, WV', 'navigational-local', 'scope-martinsburg', 'transloading-movers-martinsburg-wv'],
+    ['container transloading Winchester, VA', 'navigational-local', 'scope-winchester', 'transloading-winchester-va'],
+    ['container transloading Martinsburg, WV', 'navigational-local', 'scope-martinsburg', 'transloading-movers-martinsburg-wv'],
+    ['rail-to-truck transloading', 'navigational-local', null, 'virginia-inland-port-transloading'],
+    ['rail-to-truck transloading Virginia', 'navigational-local', null, 'virginia-inland-port-transloading'],
+    ['rail-to-truck transloading services', 'navigational-local', null, 'virginia-inland-port-transloading'],
+    ['Virginia Inland Port transloading', 'navigational-local', null, 'virginia-inland-port-transloading'],
+  ],
+  'service-white-glove': [
+    ['white glove delivery Winchester, VA', 'navigational-local', 'scope-winchester', 'white-glove-delivery-winchester-va'],
+    ['white glove delivery service', 'navigational-local', null, 'white-glove-delivery'],
+  ],
+  // Head-hubs batch repair (2026-11-02): the combined government +
+  // military DEPTH page (military-government-moving) lost every
+  // targeting row when both services' hubs repointed to their own
+  // pages — it is bound to both services and carries the combined
+  // offer, so combined phrasings target it directly and the page
+  // keeps full rubric coverage (I-6).
+  'service-government': [
+    ['military and government moving', 'navigational-local', null, 'military-government-moving'],
+  ],
+  'service-military': [
+    ['government and military moving services', 'navigational-local', null, 'military-government-moving'],
+  ],
+};
+
 // Question bank category -> service (category 9 splits per question).
 const QB_MAP = {
   1: 'service-piano-antique',
@@ -439,8 +493,9 @@ const BRANCH = {
   'service-piano-antique': [null, 'piano-antique-movers-martinsburg-wv'],
   'service-ispm15': ['international-export-packing-crating-winchester-va', 'ispm15-movers-martinsburg-wv'],
   'service-crating': ['international-export-packing-crating-winchester-va', 'crating-movers-martinsburg-wv'],
-  'service-transloading': [null, 'transloading-movers-martinsburg-wv'],
+  'service-transloading': ['transloading-winchester-va', 'transloading-movers-martinsburg-wv'],
   'service-final-mile': ['white-glove-delivery-winchester-va', 'final-mile-movers-martinsburg-wv'],
+  'service-white-glove': ['white-glove-delivery-winchester-va', null],
   'service-office-moving': ['office-moving-movers-winchester-va', 'office-moving-movers-martinsburg-wv'],
   'service-industrial-offices': ['industrial-offices-movers-winchester-va', 'industrial-offices-movers-martinsburg-wv'],
   'service-government': ['government-movers-winchester-va', 'government-movers-martinsburg-wv'],
@@ -759,7 +814,12 @@ function generate() {
       }
     }
     // R5/R6/R7 scoped patterns.
+    // F4b scope guard (2026-11-02): BASE_ONLY naming a single branch
+    // marks a one-branch service; it emits no scoped rows for the other
+    // branch (wrong-branch binding defect).
+    const singleBranch = (BASE_ONLY[id] === 'winchester' || BASE_ONLY[id] === 'martinsburg') ? BASE_ONLY[id] : null;
     for (const sc of SCOPES) {
+      if (singleBranch && sc.branch && sc.branch !== singleBranch) continue;
       const t = scopeTarget(sc.branch);
       emit(id, 'cost', 'how much ' + (plural ? 'do' : 'does') + ' ' + phrase + ' cost in ' + sc.label, sc.id, t, 'R5-cost-howmuch');
       emit(id, 'cost', phrase + ' cost in ' + sc.label, sc.id, t, 'R5-cost-noun');
@@ -769,6 +829,11 @@ function generate() {
     }
     emit(id, 'how-process', 'how to book ' + phrase, null, hub, 'R6-how-book');
     emit(id, 'ai-question', 'what should I ask before hiring ' + phrase, null, hub, 'R8-generated');
+    // F4 (2026-11-02): explicit extra phrasings, ahead of R12/R13 so the
+    // dedupe keeps these bindings.
+    for (const [qText, qClass, qArea, qTarget] of (EXTRA_PATTERNS[id] || [])) {
+      emit(id, qClass, qText, qArea, qTarget, 'R15-extra-pattern');
+    }
   }
   // R8 question bank.
   const qb = parseQuestionBank();
