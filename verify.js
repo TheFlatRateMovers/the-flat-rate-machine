@@ -518,7 +518,7 @@ async function main() {
     skipLive('P-2 ai-master-index.jws verifies against the published key over the canonical served index');
     skipLive('P-3 all site-served distribution digests match the live served bytes');
     skipLive('P-4 every served index distribution entry is complete (name, contentUrl, encodingFormat, license, dateModified, SHA-256 digest + byteSize)');
-    skipLive('P-5 certificate covers all 212 per-page JSONs + all 212 route documents + llms-full.txt + the site shell + the deployed code sets (498 distributions)');
+    skipLive('P-5 certificate covers all 213 per-page JSONs + all 213 route documents + llms-full.txt + the site shell + the deployed code sets (500 distributions)');
     skipLive('P-6 all repo-served distribution digests match the live served bytes');
   } else {
   try {
@@ -819,14 +819,14 @@ async function main() {
       const missingCode = P2_CODE_URLS.filter((u) => !distUrls.has(u));
       const missingRoutes = pages.pages.map((p) => p.url).filter((u) => !distUrls.has(u));
       const hasLlmsFull = distUrls.has('https://theflatratemovers.com/llms-full.txt');
-      p5ok = !!servedIndex && pageFiles.length === 212 && missingPages.length === 0 && missingCode.length === 0 &&
+      p5ok = !!servedIndex && pageFiles.length === 213 && missingPages.length === 0 && missingCode.length === 0 &&
         missingRoutes.length === 0 && hasLlmsFull &&
-        (servedIndex.distribution || []).length === 498;
+        (servedIndex.distribution || []).length === 500;
       p5detail = 'pageFiles=' + pageFiles.length + ', missingPages=' + (missingPages.join(',') || '0') +
         ', missingCode=' + (missingCode.join(',') || '0') + ', missingRoutes=' + (missingRoutes.slice(0, 3).join(',') || '0') +
         ', llmsFull=' + hasLlmsFull + ', distributions=' + (servedIndex ? (servedIndex.distribution || []).length : 0);
     } catch (e) { p5ok = false; p5detail = e.message; }
-    check('P-5 certificate covers all 212 per-page JSONs + all 212 route documents + llms-full.txt + the site shell + the deployed code sets (498 distributions)',
+    check('P-5 certificate covers all 213 per-page JSONs + all 213 route documents + llms-full.txt + the site shell + the deployed code sets (500 distributions)',
       p5ok, p5detail);
 
     // P-6: repo-served distribution digests re-computed over live bytes
@@ -1327,8 +1327,8 @@ async function main() {
         for (const n of ns) if (n && n['@type'] === 'Dataset') { shellCountD++; checkNodeD(n, rel); }
       }
     }
-    check('D-2 every Dataset node (dataset files + all 212 route documents) carries landing url/unique sameAs, an identifier, isAccessibleForFree, typed distributions and a self-referencing DataDownload',
-      badNodesD.length === 0 && shellCountD === 362 && routeDocsD.length === 212,
+    check('D-2 every Dataset node (dataset files + all 213 route documents) carries landing url/unique sameAs, an identifier, isAccessibleForFree, typed distributions and a self-referencing DataDownload',
+      badNodesD.length === 0 && shellCountD === 362 && routeDocsD.length === 213,
       'files + ' + shellCountD + ' route-document instances across ' + routeDocsD.length + ' documents' + (badNodesD.length ? ', bad: ' + badNodesD.slice(0, 4).join('; ') : ''));
     // D-3: local sitemap set == registry pages + dataset files.
     const localXmlD = fs.readFileSync(path.join(PAGES_PUBLIC, 'sitemap.xml'), 'utf8');
