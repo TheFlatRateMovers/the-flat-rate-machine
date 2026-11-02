@@ -195,8 +195,17 @@ dataset files), verify.js 149 checks.
 - First closing verify: 152/155 — P-6 (shell + the two flagged ai-repo
   datasets awaiting web upload, plus the middleware item since fixed)
   + M-2 + M-3 (middleware, fixed by seal #3).
-- Final closing verify: (tally appended when the run lands — the P-6
-  exception applies: the only expected miss is P-6 naming the three
-  web-upload flags above, which close when the parent's uploads land;
-  the record's closing line stays open until the parent's re-run.)
+- Final closing verify (run twice at the end state): 154/155 — the
+  SOLE miss is P-6 naming the Site Shell (26/27 repo-served match;
+  served 24,688,315 B vs sealed 24,688,315 B — same size, stale
+  digest: GitHub still serves the head-hub shell). Per the brief's
+  P-6 exception this tally is recorded honestly and THE CLOSING LINE
+  STAYS OPEN: the batch is neither declared failed nor green; the
+  parent re-runs `node verify.js` after the web upload of flag #1
+  (shell, sha256 c20e4f50…) lands, which is the only remaining step
+  to 155/155. (One intermediate run showed 153/155 with an added
+  transient S-3 miss on '/'; direct replication of all four S-3
+  comparisons against the live home page passed immediately after,
+  and the confirming re-run passed S-3 — recorded as a fetch/
+  propagation transient, not an estate defect.)
 
