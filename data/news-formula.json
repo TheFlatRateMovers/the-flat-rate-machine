@@ -112,6 +112,18 @@
         "status": "owner-photo-needed",
         "reason": "No estate photo depicts the Virginia Inland Port (Front Royal); the maritime port photo on file (img-16) is a barge port, not the inland terminal, and warehouse photos depict the company’s own warehouse. Owner photo needed: the Virginia Inland Port terminal."
       }
+    },
+    {
+      "slug": "long-distance-moving-for-high-value-items",
+      "ledgerDate": "2026-11-02",
+      "lane": "guide",
+      "instant": "2026-11-02T08:56:05-05:00",
+      "image": {
+        "status": "pass",
+        "url": "https://theflatratemovers.com/assets/img-07-b39ba374a49a.jpg",
+        "width": 1280,
+        "height": 960
+      }
     }
   ]
 }

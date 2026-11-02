@@ -1,6 +1,6 @@
 {
   "attestation": "Every URL below was fetched from the live sitemap on 2026-10-28; titles and service links come from pageMeta in the live site source. No URL was hand-typed.",
-  "count": 225,
+  "count": 226,
   "dataset": "pages",
   "generated": "2026-10-29",
   "pages": [
@@ -2784,6 +2784,19 @@
       "title": "White-Glove Delivery Datasets",
       "type": "page",
       "url": "https://theflatratemovers.com/datasets/white-glove/"
+    },
+    {
+      "attested": "2026-11-02",
+      "lastmod": "2026-11-02",
+      "services": [
+        "service-long-distance"
+      ],
+      "slug": "long-distance-moving-for-high-value-items",
+      "source": "Blog Wave 1 flagship batch 2026-11-02 (Henry standing authorization 2026-10-31; Wave 1 Day 1 PM slot, paired with W1-01 Transloading)",
+      "status": "live",
+      "title": "Long-distance moving for high-value items: planning, protection, and timing",
+      "type": "page",
+      "url": "https://theflatratemovers.com/long-distance-moving-for-high-value-items/"
     }
   ],
   "source": "https://theflatratemovers.com/sitemap.xml joined to pageMeta in ../the-flat-rate-movers-pages/public/index.html",
