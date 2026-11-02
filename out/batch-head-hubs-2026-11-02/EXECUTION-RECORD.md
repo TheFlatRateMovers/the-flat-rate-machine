@@ -68,6 +68,16 @@ and Amendment #2 (Winchester 16→17 + FTZ correction, verdict REFUTED).
    PS-4 llms representation failure that did not reproduce. **Second
    full run on the unchanged estate: 149/149 GREEN** (log:
    /tmp/verify-full-2.log at run time; DataCite + PS-4 both PASS).
+6. **Push error (coordinator's own, fixed in-window):** the ai-repo push
+   set wrongly included `data/entity-graph.json` from the public tree,
+   overwriting the gist-maintained file (protected blob
+   cda897e61319a0f52172ef1365402e4d7179cddf) with the live graph
+   (39f85117…). Caught on the read-back. Restored byte-exact from a
+   blob-verified local archive copy (out/batch-founding/ai-fetch/) in
+   commit adb16725…; read-back confirms the file is again at
+   cda897e6…. `data/best-json-entity-graph.json` did not exist in the
+   ai repo before this batch; the push created it as a new mirror
+   (addition, not an overwrite) and it stays.
 
 ## RESULTS
 
@@ -252,7 +262,21 @@ sweep will catch them.
 
 ## PUSHES
 
-(filled in below on completion — ai repo commit, machine repo commit,
-read-backs by git blob SHA; pre-push key-content grep = 0 across both
-push sets; the gist-based ai-repo data/entity-graph.json was NOT in the
-push set and remains untouched at cda897e61319a0f52172ef1365402e4d7179cddf.)
+Pre-push key-content grep = 0 across both push sets.
+
+- **AI repo (TheFlatRateMovers/theflatratemovers-ai), 3 commits:**
+  `1f71f2918ad441eb4ddb027841abded233d81090` (56-file set split after a
+  first 413: root llms.txt / ai-sitemap.json / data txt, data/ index +
+  JWS + datasets, schemas/ 13 per-page JSONs incl. the 10 hubs,
+  dataset-white-glove.json and dataset-local-graph-registry.json);
+  `45393a1547647bd6a8f525b92a7cf514082a4a4c` (search-index +
+  archive-registry datasets); `adb16725e0f73ba9e5e2c9d178c7a5cdd3499713`
+  (gist entity-graph restore — see error 6). Read-backs by git blob
+  SHA: ai-master-index.json 76e5df2b… == local; entity-graph.json back
+  at cda897e6… (protected gist blob).
+- **Machine repo (TheFlatRateMovers/the-flat-rate-machine), 1 commit:**
+  `c1bb6bf5ce64f510005e600b9638342dfffccf5e` (verify.js, registries,
+  graphs, scripts, head-data + middleware, phase-a copies, this
+  record). Read-back: verify.js blob 571cf405… == local.
+- This record's pushes section was completed in a follow-up commit
+  carrying the final record text.
