@@ -926,28 +926,60 @@ async function main() {
     if (LOCAL) skipLive('S-3 live routes serve their own head (title + canonical + page JSON-LD + per-page JSON) on the defined route set');
     else check('S-3 live routes serve their own head (title + canonical + page JSON-LD + per-page JSON) on the defined route set',
       s3bad.length === 0, routeSet.length + ' routes' + (s3bad.length ? ', bad: ' + s3bad.join(', ') : ''));
-    // S-4: sitemap lastmod sanity — format, real dates, not in the future,
-    // not one blanket date.
+    // S-4: sitemap lastmod TRUTH — rewritten stricter by the Crawl Demand
+    // batch, 2026-11-02 (supersedes the format/blanket sanity below it in
+    // history): every live sitemap <lastmod> must EQUAL the seal-maintained
+    // ledger (data/lastmod-ledger.json) for that URL; the ledger must cover
+    // the sitemap union exactly; its seal anchor (the index SHA phase 6b
+    // stamped against) must match the installed index while the live index
+    // matches it distribution-for-distribution; and every union URL whose
+    // distribution changed in the last recorded transition (the seal-work
+    // prior-index snapshot -> the installed index) must carry the last
+    // seal's date. Truth by construction, recomputed here from the chain.
     if (LOCAL) {
-      skipLive('S-4 live sitemap lastmod values are real per-URL dates (valid format, 2026-10-28..today ET, not one blanket date)');
+      skipLive('S-4 live sitemap lastmod values equal the seal-maintained ledger for every URL (format/range valid; ledger covers the union exactly; seal anchor + last-transition recompute clean)');
     } else {
     try {
+      const cryptoS4 = require('crypto');
       const indexXmlS4 = await fetchText(LIVE_SITEMAP);
       const sectionUrlsS4 = [...indexXmlS4.matchAll(/<loc>(.*?)<\/loc>/g)].map((m) => m[1].trim())
         .filter((u) => u.includes('/sitemaps/'));
-      let mods = [];
+      const liveMods = new Map();
       for (const u of sectionUrlsS4) {
         const sx = await fetchText(u);
-        mods = mods.concat([...sx.matchAll(/<lastmod>(.*?)<\/lastmod>/g)].map((m) => m[1].trim()));
+        for (const block of sx.matchAll(/<url>([\s\S]*?)<\/url>/g)) {
+          const loc = (block[1].match(/<loc>(.*?)<\/loc>/) || [])[1];
+          const lm = (block[1].match(/<lastmod>(.*?)<\/lastmod>/) || [])[1];
+          if (loc) liveMods.set(loc.trim(), (lm || '').trim());
+        }
       }
+      const ledgerS4 = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'lastmod-ledger.json'), 'utf8'));
+      const led = ledgerS4.urls || {};
       const todayET = new Date().toLocaleDateString('en-CA', { timeZone: 'America/New_York' });
-      const fmtOk = mods.every((d) => /^\d{4}-\d{2}-\d{2}$/.test(d) && !isNaN(Date.parse(d)));
-      const rangeOk = mods.every((d) => d >= '2026-10-28' && d <= todayET);
-      check('S-4 live sitemap lastmod values are real per-URL dates (valid format, 2026-10-28..today ET, not one blanket date)',
-        mods.length === pages.pages.length + DATASET_FILES.length && fmtOk && rangeOk && new Set(mods).size >= 2,
-        mods.length + ' values, distinct=' + new Set(mods).size + ', range ' + (mods.length ? [...mods].sort()[0] + '..' + [...mods].sort()[mods.length - 1] : 'n/a'));
+      const fmtOk = [...liveMods.values()].every((d) => /^\d{4}-\d{2}-\d{2}$/.test(d) && !isNaN(Date.parse(d)) && d >= '2026-10-28' && d <= todayET);
+      const mismatch = [...liveMods.entries()].filter(([u, d]) => led[u] !== d).map(([u]) => u);
+      const uncovered = Object.keys(led).filter((u) => !liveMods.has(u));
+      const localIndexBuf = fs.readFileSync(path.join(PAGES_PUBLIC, 'ai-master-index.json'));
+      const localIndexSha = cryptoS4.createHash('sha256').update(localIndexBuf).digest('hex');
+      const localIdx = JSON.parse(localIndexBuf.toString('utf8'));
+      const liveIdx = JSON.parse(await fetchText('https://theflatratemovers.com/ai-master-index.json'));
+      const mapOf = (ix) => { const m = new Map(); for (const e of ix.distribution || []) m.set(e.contentUrl, (e.digest || {}).value); return m; };
+      const liveMap = mapOf(liveIdx), localMap = mapOf(localIdx);
+      const mapsEqual = liveMap.size === localMap.size && [...liveMap].every(([u, d]) => localMap.get(u) === d);
+      const anchorOk = mapsEqual && !!ledgerS4.lastSeal && ledgerS4.lastSeal.indexSha256 === localIndexSha;
+      let transBad = [];
+      if (anchorOk) {
+        const prior = JSON.parse(fs.readFileSync(path.join(ROOT, 'out', 'seal-work', 'prior-index.json'), 'utf8'));
+        const priorMap = mapOf(prior);
+        for (const [u, d] of localMap) {
+          if (liveMods.has(u) && priorMap.get(u) !== d && led[u] !== ledgerS4.lastSeal.date) transBad.push(u);
+        }
+      }
+      check('S-4 live sitemap lastmod values equal the seal-maintained ledger for every URL (format/range valid; ledger covers the union exactly; seal anchor + last-transition recompute clean)',
+        liveMods.size === pages.pages.length + DATASET_FILES.length && fmtOk && mismatch.length === 0 && uncovered.length === 0 && anchorOk && transBad.length === 0,
+        liveMods.size + ' values, ledger=' + Object.keys(led).length + ', mismatch=' + mismatch.length + (mismatch.length ? ' (' + mismatch.slice(0, 3).join(', ') + ')' : '') + ', uncovered=' + uncovered.length + ', anchor=' + (anchorOk ? 'ok' : 'STALE') + ', transition-bad=' + transBad.length + (transBad.length ? ' (' + transBad.slice(0, 3).join(', ') + ')' : ''));
     } catch (e) {
-      check('S-4 live sitemap lastmod sanity', false, e.message);
+      check('S-4 live sitemap lastmod truth (ledger equality)', false, e.message);
     }
     }
     // S-5: robots.txt carries the explicit AI-crawler groups AND the

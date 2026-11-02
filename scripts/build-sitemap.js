@@ -26,10 +26,14 @@
  * files exactly; the classes are disjoint by construction and the generator
  * proves both properties on every run.
  *
- * lastmod: registry pages carry their own lastmod in data/pages.json.
- * Dataset files keep the lastmod the pre-architecture sitemap (or the
- * existing datasets section) already published for them — continuity, never
- * invented; a brand-new dataset file falls back to its file mtime (UTC date).
+ * lastmod: EVERY entry's date comes from the seal-maintained ledger
+ * data/lastmod-ledger.json (Crawl Demand batch, 2026-11-02) — for each URL,
+ * the date of the last seal generation in which its own signed distribution
+ * changed, stamped by seal.py's ledger phase (6b) from the signed-index
+ * diff. The ledger is the single source: the registry pass-through, the
+ * prior-sitemap continuity rule and the file-mtime fallback are abolished.
+ * A URL missing from the ledger fails the seal loudly — seed its true
+ * last-change date in the ledger in the same edit that adds the URL.
  *
  * EXTENSION LAYER (batch-sitemap-extensions-2026-11-02): section entries
  * for registry pages also carry Google extension children, enumerated at
@@ -97,16 +101,6 @@ function parseCsv(text) {
   }
   if (field.length || row.length) { row.push(field); rows.push(row); }
   return rows;
-}
-
-function locLastmodMap(file) {
-  const map = new Map();
-  if (!fs.existsSync(file)) return map;
-  const xml = fs.readFileSync(file, 'utf8');
-  for (const m of xml.matchAll(/<url><loc>(.*?)<\/loc><lastmod>(.*?)<\/lastmod><\/url>/g)) {
-    map.set(m[1], m[2]);
-  }
-  return map;
 }
 
 function xmlEscape(s) {
@@ -298,18 +292,22 @@ function main() {
     if (row[slugIx] && /published/i.test(row[statusIx] || '')) blogSlugs.add(row[slugIx].trim());
   }
 
-  // Dataset-file lastmod continuity: pre-architecture sitemap or the
-  // existing datasets section, whichever is present.
-  const prior = locLastmodMap(path.join(PUBLIC, 'sitemap.xml'));
-  const priorSection = locLastmodMap(path.join(SECTIONS_DIR, 'datasets.xml'));
-  for (const [k, v] of priorSection) if (!prior.has(k)) prior.set(k, v);
+  // lastmod ledger (Crawl Demand batch, 2026-11-02): the single source
+  // for every entry's date — registry pages and dataset files alike.
+  const LASTMOD_LEDGER = JSON.parse(fs.readFileSync(path.join(MACHINE, 'data/lastmod-ledger.json'), 'utf8'));
+  const LASTMOD = LASTMOD_LEDGER.urls || {};
+  const ledgerDate = (url) => {
+    const d = LASTMOD[url];
+    if (!d) fail('URL missing from data/lastmod-ledger.json (seed its true last-change date in the same edit that adds it): ' + url);
+    return d;
+  };
 
   const datasetFiles = fs.readdirSync(PUBLIC)
     .filter((f) => /^datasets-.*\.json$/.test(f)).sort();
 
   const sections = { pages: [], datasets: [], blog: [] };
   for (const p of pages) {
-    const entry = { url: p.url, lastmod: p.lastmod };
+    const entry = { url: p.url, lastmod: ledgerDate(p.url) };
     const urlPath = new URL(p.url).pathname;
     if (urlPath.startsWith('/datasets/')) sections.datasets.push(entry);
     else if (p.slug === 'blog' || blogSlugs.has(p.slug)) sections.blog.push(entry);
@@ -317,11 +315,7 @@ function main() {
   }
   for (const f of datasetFiles) {
     const url = SITE + '/' + f;
-    let lastmod = prior.get(url);
-    if (!lastmod) {
-      lastmod = fs.statSync(path.join(PUBLIC, f)).mtime.toISOString().slice(0, 10);
-    }
-    sections.datasets.push({ url, lastmod });
+    sections.datasets.push({ url, lastmod: ledgerDate(url) });
   }
   for (const key of Object.keys(sections)) sections[key].sort((a, b) => a.url.localeCompare(b.url));
 

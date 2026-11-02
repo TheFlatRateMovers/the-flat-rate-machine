@@ -53,6 +53,16 @@ identity: the final signed index differs from the pre-index only in
 the updates.xml entry itself (the feed cannot cite a hash that
 contains its own digest — that fixpoint does not exist).
 
+Ledger phase (6b, Crawl Demand batch 2026-11-02): after the digest
+pass, the new index is diffed against the phase-0 prior snapshot and
+every sitemap-union URL whose own distribution changed (or is new) is
+stamped with the seal date in data/lastmod-ledger.json — the single
+source build-sitemap.js reads for every <lastmod> (phase 2b). The
+ledger records the seal's index SHA as its anchor and mirrors the
+union dates back into data/pages.json. Because phase 2b runs before
+6b, a change reaches the sitemap on the NEXT pass — the estate's
+standing second-pass convergence absorbs the one-phase lag.
+
 PROOF ROUND (mandatory, fail-loud — it is a proof, not a loop):
 after installing, digest-index is re-run over the sealed tree and
 must reproduce the installed index BYTE-FOR-BYTE; verify-provenance.py
@@ -69,6 +79,7 @@ America/New_York (the value content batches have always used).
 import hashlib
 import json
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -282,6 +293,78 @@ def main():
     if totals.get("gaps") != 0 or totals.get("distributions") != count:
         fail(f"digest audit: {totals}")
     print(f"    digest totals: {totals}")
+
+    phase("6b. lastmod ledger (diff-stamp vs prior index + registry mirror)")
+    ledger_path = os.path.join(ROOT, "data", "lastmod-ledger.json")
+    if os.path.exists(ledger_path):
+        with open(ledger_path, encoding="utf-8") as f:
+            ledger = json.load(f)
+    else:
+        ledger = {"version": 1, "urls": {}}
+    with open(os.path.join(WORK, "prior-index.json"),
+              encoding="utf-8") as f:
+        prior_map = {e.get("contentUrl", ""):
+                     (e.get("digest") or {}).get("value")
+                     for e in json.load(f).get("distribution", [])}
+    with open(digested, encoding="utf-8") as f:
+        new_map = {e.get("contentUrl", ""):
+                   (e.get("digest") or {}).get("value")
+                   for e in json.load(f).get("distribution", [])}
+    # The sitemap union exactly as phase 2b built it in THIS pass.
+    union = {}
+    for sec in ("pages", "datasets", "blog"):
+        sx = os.path.join(PUB, "sitemaps", sec + ".xml")
+        if not os.path.exists(sx):
+            continue
+        with open(sx, encoding="utf-8") as f:
+            sx_text = f.read()
+        for block in re.findall(r"<url>(.*?)</url>", sx_text, re.S):
+            lm_loc = re.search(r"<loc>(.*?)</loc>", block)
+            lm_mod = re.search(r"<lastmod>(.*?)</lastmod>", block)
+            if lm_loc and lm_mod:
+                union[lm_loc.group(1)] = lm_mod.group(1)
+    if not union:
+        fail("ledger phase: sitemap union parsed empty — phase 2b output missing")
+    urls = ledger.setdefault("urls", {})
+    stamped = backfilled = 0
+    for u in sorted(union):
+        if u in new_map and new_map[u] != prior_map.get(u) \
+                and urls.get(u) != RUBRIC_DATE:
+            urls[u] = RUBRIC_DATE
+            stamped += 1
+        if u not in urls:
+            urls[u] = union[u]
+            backfilled += 1
+    pruned = 0
+    for u in sorted(set(urls) - set(union)):
+        del urls[u]
+        pruned += 1
+    ledger["lastSeal"] = {"date": RUBRIC_DATE,
+                          "indexSha256": sha(digested)}
+    with open(ledger_path, "w", encoding="utf-8") as f:
+        json.dump(ledger, f, indent=1, ensure_ascii=False, sort_keys=True)
+        f.write("\n")
+    # Mirror the union dates into the registry so every other consumer of
+    # the registry lastmod (search-index dataset, gates) reads the same
+    # truth the sitemap publishes. pages.json round-trips byte-identically
+    # under this dump format (verified at the batch that built this phase).
+    pages_path = os.path.join(ROOT, "data", "pages.json")
+    with open(pages_path, encoding="utf-8") as f:
+        registry = json.load(f)
+    mirrored = 0
+    for p in registry.get("pages", []):
+        d = urls.get(p.get("url", ""))
+        if d and p.get("lastmod") != d:
+            p["lastmod"] = d
+            mirrored += 1
+    if mirrored:
+        with open(pages_path, "w", encoding="utf-8") as f:
+            json.dump(registry, f, indent=1, ensure_ascii=False,
+                      sort_keys=True)
+            f.write("\n")
+    print(f"    ledger: {len(urls)} URLs; stamped {stamped}, "
+          f"backfilled {backfilled}, pruned {pruned}; "
+          f"registry mirrored {mirrored}")
 
     phase("7. sign + install")
     jws_out = os.path.join(WORK, "ai-master-index.jws")
