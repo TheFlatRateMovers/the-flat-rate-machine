@@ -143,7 +143,8 @@ const GENERATOR = 'build-intent-rubric.js';
 // the row's target page appears in the export's Pages aggregate
 // (existed in the window) and is still live at the same URL. Every
 // attachment is stored in intent_row_gsc_evidence with its window
-// and era='pre-rebuild'. Unattached queries remain evidence only.
+// and an era derived from its import window (eraForWindow).
+// Unattached queries remain evidence only.
 // Rows for pages with no presence in the evidence window carry the
 // outcome status 'awaiting-observation' — unmeasured, not failing.
 // (2) PER-ROW OUTCOME STATE. Every row carries an outcome summary
@@ -360,21 +361,33 @@ const EXTRA_PATTERNS = {
     // Ports P1 foundation tranche (2026-11-02): dossier section 5 master
     // templates instantiated per port against the ports dataset landing
     // (the only ports target at P1; P2-P6 re-target to hubs and spokes).
-    ['transloading near Virginia Inland Port', 'navigational-local', 'scope-winchester', 'datasets/ports'],
-    ['transloading services Front Royal Virginia', 'navigational-local', 'scope-winchester', 'datasets/ports'],
-    ['Virginia Inland Port transload services', 'navigational-local', 'scope-winchester', 'datasets/ports'],
-    ['container unloading labor Front Royal Virginia', 'navigational-local', 'scope-winchester', 'datasets/ports'],
-    ['container devanning Virginia Inland Port', 'navigational-local', 'scope-winchester', 'datasets/ports'],
-    ['cross docking services Front Royal Virginia', 'navigational-local', 'scope-winchester', 'datasets/ports'],
-    ['warehouse labor near Virginia Inland Port', 'navigational-local', 'scope-winchester', 'datasets/ports'],
-    ['3pl support services Virginia Inland Port', 'navigational-local', 'scope-winchester', 'datasets/ports'],
-    ['freight rework near Virginia Inland Port', 'navigational-local', 'scope-winchester', 'datasets/ports'],
-    ['logistics project management Front Royal Virginia', 'navigational-local', 'scope-winchester', 'datasets/ports'],
-    ['who can unload containers at Virginia Inland Port', 'ai-question', 'scope-winchester', 'datasets/ports'],
-    ['who does transloading at Virginia Inland Port', 'ai-question', 'scope-winchester', 'datasets/ports'],
-    ['lumper services Front Royal Virginia', 'navigational-local', 'scope-winchester', 'datasets/ports'],
-    ['Virginia Inland Port warehouse and logistics services from Winchester VA', 'navigational-local', 'scope-winchester', 'datasets/ports'],
-    ['rail to truck transloading Front Royal Virginia', 'navigational-local', 'scope-winchester', 'datasets/ports'],
+    ['transloading near Virginia Inland Port', 'navigational-local', 'scope-winchester', 'virginia-inland-port-transloading'],
+    ['transloading services Front Royal Virginia', 'navigational-local', 'scope-winchester', 'virginia-inland-port-transloading'],
+    ['Virginia Inland Port transload services', 'navigational-local', 'scope-winchester', 'virginia-inland-port-transloading'],
+    ['container unloading labor Front Royal Virginia', 'navigational-local', 'scope-winchester', 'virginia-inland-port-transloading'],
+    ['container devanning Virginia Inland Port', 'navigational-local', 'scope-winchester', 'virginia-inland-port-transloading'],
+    ['cross docking services Front Royal Virginia', 'navigational-local', 'scope-winchester', 'virginia-inland-port-transloading'],
+    ['warehouse labor near Virginia Inland Port', 'navigational-local', 'scope-winchester', 'virginia-inland-port-transloading'],
+    ['3pl support services Virginia Inland Port', 'navigational-local', 'scope-winchester', 'virginia-inland-port-3pl-project-support'],
+    ['freight rework near Virginia Inland Port', 'navigational-local', 'scope-winchester', 'virginia-inland-port-transloading'],
+    ['logistics project management Front Royal Virginia', 'navigational-local', 'scope-winchester', 'virginia-inland-port-transloading'],
+    ['who can unload containers at Virginia Inland Port', 'ai-question', 'scope-winchester', 'virginia-inland-port-transloading'],
+    ['who does transloading at Virginia Inland Port', 'ai-question', 'scope-winchester', 'virginia-inland-port-transloading'],
+    ['lumper services Front Royal Virginia', 'navigational-local', 'scope-winchester', 'virginia-inland-port-transloading'],
+    ['Virginia Inland Port warehouse and logistics services from Winchester VA', 'navigational-local', 'scope-winchester', 'virginia-inland-port-transloading'],
+    ['rail to truck transloading Front Royal Virginia', 'navigational-local', 'scope-winchester', 'virginia-inland-port-transloading'],
+    // Ports P2 VIP family (batch P2, 2026-11-02): the spoke's own rows
+    // plus the hub's project-management section rows.
+    ['3pl support services Front Royal Virginia', 'navigational-local', 'scope-winchester', 'virginia-inland-port-3pl-project-support'],
+    ['3pl project support Virginia Inland Port', 'navigational-local', 'scope-winchester', 'virginia-inland-port-3pl-project-support'],
+    ['overflow labor for 3pl Front Royal Virginia', 'navigational-local', 'scope-winchester', 'virginia-inland-port-3pl-project-support'],
+    ['overflow labor for 3pl Virginia', 'navigational-local', 'scope-winchester', 'virginia-inland-port-3pl-project-support'],
+    ['surge labor for warehouses Front Royal Virginia', 'navigational-local', 'scope-winchester', 'virginia-inland-port-3pl-project-support'],
+    ['container crews for 3pl Virginia Inland Port', 'navigational-local', 'scope-winchester', 'virginia-inland-port-3pl-project-support'],
+    ['warehouse project crew Front Royal Virginia', 'navigational-local', 'scope-winchester', 'virginia-inland-port-3pl-project-support'],
+    ['who provides 3pl support at Virginia Inland Port', 'ai-question', 'scope-winchester', 'virginia-inland-port-3pl-project-support'],
+    ['logistics project management Virginia Inland Port', 'navigational-local', 'scope-winchester', 'virginia-inland-port-transloading'],
+    ['warehouse project management Front Royal Virginia', 'navigational-local', 'scope-winchester', 'virginia-inland-port-transloading'],
     ['transloading near Port of Virginia', 'navigational-local', 'scope-winchester', 'datasets/ports'],
     ['transloading services Norfolk Virginia', 'navigational-local', 'scope-winchester', 'datasets/ports'],
     ['Port of Virginia transload services', 'navigational-local', 'scope-winchester', 'datasets/ports'],
@@ -814,6 +827,19 @@ function loadObservedQueries() {
   const rows = sqliteJson('SELECT id, query_text_raw, query_text_normalized, linked_page_url, link_method, clicks, impressions, ctr, avg_position, window_start, window_end FROM gsc_observed_queries ORDER BY id;');
   return rows || [];
 }
+// Era derivation (2026-11-02, Ports batch P2): an import batch's era
+// derives from its window against the 2026-10-29 estate rebuild
+// cutover — a window ending on or before 2026-10-28 is 'pre-rebuild';
+// a window starting on or after 2026-10-29 is 'current'; a window
+// straddling the cutover is 'transition'. (Before P2 every attachment
+// was stamped 'pre-rebuild' regardless of its window.)
+const ERA_CUTOVER = '2026-10-29';
+function eraForWindow(windowStart, windowEnd) {
+  if (windowEnd && windowEnd < ERA_CUTOVER) return 'pre-rebuild';
+  if (windowStart && windowStart >= ERA_CUTOVER) return 'current';
+  return 'transition';
+}
+
 function loadObservedPages() {
   if (!fs.existsSync(DB_PATH)) return [];
   const rows = sqliteJson('SELECT id, page_url, clicks, impressions, ctr, avg_position, window_start, window_end FROM gsc_observed_pages ORDER BY id;');
@@ -1163,11 +1189,13 @@ function generate() {
   // normalized text match AND only when the row's target page is
   // present in the export's Pages aggregate (proof the page existed
   // in the window) and still live in the current registry. Every
-  // attachment is era-tagged 'pre-rebuild' with its window. Pages in
+  // attachment is era-tagged from its import window (eraForWindow:
+  // pre-rebuild / transition / current against the 2026-10-29 rebuild
+  // cutover). Pages in
   // the export that no longer resolve are counted as stale; queries
   // with no matching row stay unattached evidence — they create
   // nothing and exclude nothing.
-  const evidenceStats = { queriesImported: 0, queriesAttached: 0, rowsEnriched: 0, queriesUnattached: 0, pagesImported: 0, pagesStillLive: 0, pagesStale: 0, windowStart: null, windowEnd: null, era: 'pre-rebuild' };
+  const evidenceStats = { queriesImported: 0, queriesAttached: 0, rowsEnriched: 0, queriesUnattached: 0, pagesImported: 0, pagesStillLive: 0, pagesStale: 0, windowStart: null, windowEnd: null, era: null };
   const observationLinks = [];
   const observationResolutions = [];
   const existedInWindow = new Set();
@@ -1177,8 +1205,14 @@ function generate() {
     evidenceStats.queriesImported = observed.length;
     evidenceStats.pagesImported = observedPages.length;
     if (observed.length) {
-      evidenceStats.windowStart = observed[0].window_start || null;
-      evidenceStats.windowEnd = observed[0].window_end || null;
+      // Span of ALL import batches (2026-11-02, batch P2): the overlay
+      // can hold several batches; the summary window is their full span
+      // and the summary era derives from that span (eraForWindow).
+      for (const o of observed) {
+        if (o.window_start && (!evidenceStats.windowStart || o.window_start < evidenceStats.windowStart)) evidenceStats.windowStart = o.window_start;
+        if (o.window_end && (!evidenceStats.windowEnd || o.window_end > evidenceStats.windowEnd)) evidenceStats.windowEnd = o.window_end;
+      }
+      evidenceStats.era = eraForWindow(evidenceStats.windowStart, evidenceStats.windowEnd);
     }
     const liveUrls = new Set(R.pages.pages.map((pg) => pg.url));
     const normUrl = (u) => String(u || '').replace('://www.', '://');
@@ -1240,6 +1274,22 @@ function generate() {
         o.outcome_basis = p.outcome_basis || o.outcome_basis;
         o.updated_at = p.updated_at || RUBRIC_DATE;
         r.outcome = o;
+        // Re-derive persisted awaiting-observation states (2026-11-02,
+        // Ports P2): a later import batch can give a page presence in
+        // the evidence window after its awaiting state was written; the
+        // persisted state is then stale and the row returns to the
+        // unmeasured default. Still-absent targets keep the status with
+        // the basis refreshed to the current evidence span.
+        if (o.outcome_status === 'awaiting-observation') {
+          const normU3 = String(r.target_url || '').replace('://www.', '://');
+          if (existedInWindow && existedInWindow.size && existedInWindow.has(normU3)) {
+            r.outcome = defaultOutcome();
+          } else {
+            r.outcome.outcome_basis = 'awaiting observation — target page has no presence in the ' +
+              (evidenceStats.windowStart || 'historical') + ' to ' + (evidenceStats.windowEnd || '') +
+              ' evidence window; it belongs to the current era and has no search history yet';
+          }
+        }
       } else {
         r.outcome = defaultOutcome();
         // Owner correction 2026-10-31: a page with no presence in the
@@ -1455,7 +1505,7 @@ function buildDataset(gen) {
     ['question bank', 'query sources', 'customer questions'],
     [{ '@id': SITE + '/#dataset-intent-coverage-operations' }]);
 
-  d6.description += ' Version 2 separates the rubric\u2019s sources from its evidence. Every row is generated from the live estate itself \u2014 the registries, the pages and what each page is for (rule R13 page-derived rows join the v1 pattern families). Real Google Search Console queries enter only as a historical evidence overlay: the available export covers the pre-rebuild era (2026-07-29 to 2026-10-28), so its metrics attach, era-tagged pre-rebuild, only to rows whose target page existed in that window and is still live at the same URL. Current-era pages carry no borrowed metrics and no zero-filled values; their rows stand as awaiting observation until the new era produces evidence of its own. The deploy generation adds rule R14: hub, category and estate pages that carry no service of their own gain bounded roll-up rows derived from the services they group, so every published page is a rubric target, and the totals node carries the per-area row counts for the whole 53-feature footprint, zero counts included.';
+  d6.description += ' Version 2 separates the rubric\u2019s sources from its evidence. Every row is generated from the live estate itself \u2014 the registries, the pages and what each page is for (rule R13 page-derived rows join the v1 pattern families). Real Google Search Console queries enter only as a historical evidence overlay: the exports on file cover the pre-rebuild era (2026-07-29 to 2026-10-28) and a transition window straddling the rebuild (2026-10-04 to 2026-10-31), and their metrics attach, each era-tagged from its own import window against the 2026-10-29 rebuild cutover, only to rows whose target page existed in that window and is still live at the same URL. Current-era pages carry no borrowed metrics and no zero-filled values; their rows stand as awaiting observation until the new era produces evidence of its own. The deploy generation adds rule R14: hub, category and estate pages that carry no service of their own gain bounded roll-up rows derived from the services they group, so every published page is a rubric target, and the totals node carries the per-area row counts for the whole 53-feature footprint, zero counts included.';
 
   const d7 = baseNode(
     SITE + '/#dataset-intent-coverage-boundaries', 'Service',
@@ -1476,7 +1526,7 @@ function buildDataset(gen) {
   d8.gscEvidence = {
     era: gen.evidenceStats.era,
     window: [gen.evidenceStats.windowStart, gen.evidenceStats.windowEnd],
-    basis: 'Historical Google Search Console Performance export, pre-rebuild era. Metrics attach only to rows whose target page existed in the window (present in the export Pages aggregate) and is still live at the same URL; attachments are evidence, never current performance. Pages of the current era carry no metrics and no zero-filled values.',
+    basis: 'Historical Google Search Console Performance exports. Every attachment is era-tagged from its own import window against the 2026-10-29 rebuild cutover: a window ending on or before 2026-10-28 is pre-rebuild, a window starting on or after 2026-10-29 is current, and a window straddling the cutover is transition. Metrics attach only to rows whose target page existed in the window (present in the export Pages aggregate) and is still live at the same URL; attachments are evidence, never current performance. Pages of the current era carry no borrowed metrics and no zero-filled values.',
     queriesImported: gen.evidenceStats.queriesImported,
     queriesAttachedToRows: gen.evidenceStats.queriesAttached,
     rowsEnriched: gen.evidenceStats.rowsEnriched,
@@ -1584,6 +1634,10 @@ function writeDb(gen, workDir) {
   lines.push('DROP TABLE IF EXISTS intent_meta;');
   lines.push('DROP TABLE IF EXISTS intent_row_outcome;');
   lines.push('DROP TABLE IF EXISTS gsc_observation_links;');
+  // 2026-11-02 (Ports P2): the evidence projection is dropped and rebuilt
+  // like the other derived tables — with INSERT OR IGNORE over a persisting
+  // table, era/window corrections from eraForWindow would never land.
+  lines.push('DROP TABLE IF EXISTS intent_row_gsc_evidence;');
   lines.push(`CREATE TABLE intent_query (
   id INTEGER PRIMARY KEY,
   query_text TEXT NOT NULL,
@@ -1674,7 +1728,7 @@ ${gateCols},
   avg_position REAL NOT NULL,
   window_start TEXT,
   window_end TEXT,
-  era TEXT NOT NULL DEFAULT 'pre-rebuild',
+  era TEXT NOT NULL DEFAULT 'transition',
   basis TEXT NOT NULL,
   attached_at TEXT NOT NULL,
   UNIQUE(query_text, service_id, observation_id)
@@ -1688,8 +1742,8 @@ ${gateCols},
         if (!o) continue;
         lines.push('INSERT OR IGNORE INTO intent_row_gsc_evidence (query_text, service_id, observation_id, clicks, impressions, ctr, avg_position, window_start, window_end, era, basis, attached_at) VALUES (' +
           [sqlEsc(r.query_text), sqlEsc(r.service_id), oid, o.clicks || 0, o.impressions || 0, o.ctr || 0, o.avg_position || 0,
-           sqlEsc(o.window_start || null), sqlEsc(o.window_end || null), sqlEsc('pre-rebuild'),
-           sqlEsc('query-text match; target page present in the export Pages aggregate (existed in window) and live in the current registry; metrics are historical, pre-rebuild era'),
+           sqlEsc(o.window_start || null), sqlEsc(o.window_end || null), sqlEsc(eraForWindow(o.window_start, o.window_end)),
+           sqlEsc('query-text match; target page present in the export Pages aggregate (existed in window) and live in the current registry; metrics are historical evidence, era-tagged ' + eraForWindow(o.window_start, o.window_end) + ' from the import window against the 2026-10-29 rebuild cutover'),
            sqlEsc(RUBRIC_DATE)].join(', ') + ');');
       }
     }

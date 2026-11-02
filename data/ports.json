@@ -207,7 +207,9 @@
    ],
    "estatePages": [
     "https://theflatratemovers.com/virginia-inland-port-transloading/",
-    "https://theflatratemovers.com/transloading-at-the-virginia-inland-port/"
+    "https://theflatratemovers.com/transloading-at-the-virginia-inland-port/",
+    "https://theflatratemovers.com/virginia-inland-port-3pl-project-support/",
+    "https://theflatratemovers.com/who-unloads-containers-at-the-virginia-inland-port/"
    ],
    "datasetFile": "datasets-ports.json",
    "lastVerified": "2026-11-02"
@@ -1346,7 +1348,7 @@
    "treatment": "S",
    "serviceStatus": "registered in batch P4",
    "spokePage": true,
-   "treatmentNote": "new spoke lands in batch P2"
+   "treatmentNote": "spoke live (batch P2)"
   },
   {
    "port": "port-of-virginia-norfolk",

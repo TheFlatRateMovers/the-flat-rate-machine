@@ -1,6 +1,6 @@
 {
  "attestation": "Every URL below was fetched from the live sitemap on 2026-10-28; titles and service links come from pageMeta in the live site source. No URL was hand-typed.",
- "count": 227,
+ "count": 229,
  "dataset": "pages",
  "generated": "2026-10-29",
  "pages": [
@@ -2808,6 +2808,32 @@
    "title": "Ports & Intermodal Logistics Datasets",
    "type": "page",
    "url": "https://theflatratemovers.com/datasets/ports/"
+  },
+  {
+   "attested": "2026-11-02",
+   "lastmod": "2026-11-02",
+   "services": [
+    "service-transloading"
+   ],
+   "slug": "virginia-inland-port-3pl-project-support",
+   "source": "Ports & Intermodal Takeover Program batch P2 2026-11-02 (dossier section 2.4 spoke; Virginia Inland Port binds Winchester)",
+   "status": "live",
+   "title": "3PL & Project Support — Virginia Inland Port",
+   "type": "service",
+   "url": "https://theflatratemovers.com/virginia-inland-port-3pl-project-support/"
+  },
+  {
+   "attested": "2026-11-02",
+   "lastmod": "2026-11-02",
+   "services": [
+    "service-transloading"
+   ],
+   "slug": "who-unloads-containers-at-the-virginia-inland-port",
+   "source": "Ports & Intermodal Takeover Program article A1 2026-11-02 (dossier §6; lands with Batch P2)",
+   "status": "live",
+   "title": "Transloading at the Virginia Inland Port: the support layer behind the rail ramps",
+   "type": "page",
+   "url": "https://theflatratemovers.com/who-unloads-containers-at-the-virginia-inland-port/"
   }
  ],
  "source": "https://theflatratemovers.com/sitemap.xml joined to pageMeta in ../the-flat-rate-movers-pages/public/index.html",

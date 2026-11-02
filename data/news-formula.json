@@ -1,129 +1,139 @@
 {
-  "batch": "batch-news-formula-2026-11-02",
-  "rule": "News Formula (Google aspect) remediation record. Every published post carries one row: the ledger date, the single recorded publication instant that feeds the visible byline line, the schema dates and the news sitemap (null = no time of day is recorded anywhere; the post stays date-only and no time may be invented), its lane (story posts carry the Spec B NewsArticle profile; guides stay pure BlogPosting), and its N-8 image state (pass = a true landscape subject photo at >=1200 px in page + schema; owner-photo-needed = a recorded flag, never filled with the logo, stock or a photo of another subject). Future posts add their row at publish; verify.js section 27 (NF-1..NF-7) enforces this file.",
-  "authorPage": "https://theflatratemovers.com/author/henry-pitts-jr/",
-  "posts": [
-    {
-      "slug": "do-movers-pack-for-you",
-      "ledgerDate": "2026-10-30",
-      "lane": "guide",
-      "instant": "2026-10-30T09:00:00-04:00",
-      "image": {
-        "status": "owner-photo-needed",
-        "reason": "No owner-supplied photo depicts packing. The estate’s packing-pages image (img-15) is captioned a “Reference photo” of undocumented origin/license, so it is not used as the article’s representative image. Owner photo needed: a packing job in progress (blanket wrap / stretch wrap)."
-      }
-    },
-    {
-      "slug": "reading-an-ispm-15-mark",
-      "ledgerDate": "2026-10-30",
-      "lane": "guide",
-      "instant": "2026-10-30T09:00:00-04:00",
-      "image": {
-        "status": "owner-photo-needed",
-        "reason": "No estate photo shows an ISPM 15 / IPPC mark (the img-20 crate photo was visually checked — no mark in frame). Owner photo needed: a legible ISPM 15 mark on a crate or pallet."
-      }
-    },
-    {
-      "slug": "moving-a-piano",
-      "ledgerDate": "2026-10-30",
-      "lane": "guide",
-      "instant": null,
-      "dateOnlyReason": "No publication time of day is recorded for this post in any batch record, memory log, ledger entry or draft QA report (instant audit, batch-news-formula-2026-11-02); the date-only value is kept — no time invented.",
-      "image": {
-        "status": "owner-photo-needed",
-        "reason": "No piano photo exists in the estate assets or the owner media library. Owner photo needed: a piano move (upright or grand) in progress."
-      }
-    },
-    {
-      "slug": "curbside-vs-inside-vs-white-glove-delivery",
-      "ledgerDate": "2026-10-30",
-      "lane": "guide",
-      "instant": null,
-      "dateOnlyReason": "No publication time of day is recorded for this post in any batch record, memory log, ledger entry or draft QA report (instant audit, batch-news-formula-2026-11-02); the date-only value is kept — no time invented.",
-      "image": {
-        "status": "owner-photo-needed",
-        "reason": "The estate’s white-glove reference photo (img-04) is 1024 px wide — below the 1200 px rule — and is a Reference photo, not owner-supplied. Owner photo needed: an in-home white-glove placement."
-      }
-    },
-    {
-      "slug": "when-an-item-needs-a-custom-crate",
-      "ledgerDate": "2026-10-31",
-      "lane": "guide",
-      "instant": "2026-10-31T04:35:00-04:00",
-      "image": {
-        "status": "pass",
-        "url": "https://theflatratemovers.com/assets/img-20-custom-crate-foam-lined-ramp-door-4x3.webp",
-        "width": 1304,
-        "height": 978
-      }
-    },
-    {
-      "slug": "i-81-shenandoah-valley-move-timing",
-      "ledgerDate": "2026-10-31",
-      "lane": "guide",
-      "instant": "2026-10-31T04:35:00-04:00",
-      "image": {
-        "status": "pass",
-        "url": "https://theflatratemovers.com/assets/img-02-0b80bbb82653.jpg",
-        "width": 1600,
-        "height": 1200
-      }
-    },
-    {
-      "slug": "transloading-vs-cross-docking-vs-deconsolidation",
-      "ledgerDate": "2026-10-31",
-      "lane": "guide",
-      "instant": "2026-10-31T07:30:00-04:00",
-      "image": {
-        "status": "pass",
-        "url": "https://theflatratemovers.com/assets/img-13-d15077b65507.jpg",
-        "width": 1600,
-        "height": 1200
-      }
-    },
-    {
-      "slug": "moving-an-office-inside-a-plant-or-warehouse",
-      "ledgerDate": "2026-10-31",
-      "lane": "guide",
-      "instant": "2026-10-31T07:30:00-04:00",
-      "image": {
-        "status": "owner-photo-needed",
-        "reason": "No estate photo depicts an office relocation (desks/workstations) inside a plant or warehouse. Owner photo needed: an office move in industrial space."
-      }
-    },
-    {
-      "slug": "1650-lb-gun-safe-delivered-and-installed-moorefield-wv",
-      "ledgerDate": "2026-10-31",
-      "lane": "story",
-      "instant": "2026-10-31T08:23:00-04:00",
-      "image": {
-        "status": "pass",
-        "url": "https://theflatratemovers.com/assets/moorefield-wv-gun-safe-installed-basement-wide-angle.webp",
-        "width": 1600,
-        "height": 1200
-      }
-    },
-    {
-      "slug": "transloading-at-the-virginia-inland-port",
-      "ledgerDate": "2026-11-02",
-      "lane": "guide",
-      "instant": "2026-11-02T04:08:00-05:00",
-      "image": {
-        "status": "owner-photo-needed",
-        "reason": "No estate photo depicts the Virginia Inland Port (Front Royal); the maritime port photo on file (img-16) is a barge port, not the inland terminal, and warehouse photos depict the company’s own warehouse. Owner photo needed: the Virginia Inland Port terminal."
-      }
-    },
-    {
-      "slug": "long-distance-moving-for-high-value-items",
-      "ledgerDate": "2026-11-02",
-      "lane": "guide",
-      "instant": "2026-11-02T08:56:05-05:00",
-      "image": {
-        "status": "pass",
-        "url": "https://theflatratemovers.com/assets/img-07-b39ba374a49a.jpg",
-        "width": 1280,
-        "height": 960
-      }
-    }
-  ]
+ "batch": "batch-news-formula-2026-11-02",
+ "rule": "News Formula (Google aspect) remediation record. Every published post carries one row: the ledger date, the single recorded publication instant that feeds the visible byline line, the schema dates and the news sitemap (null = no time of day is recorded anywhere; the post stays date-only and no time may be invented), its lane (story posts carry the Spec B NewsArticle profile; guides stay pure BlogPosting), and its N-8 image state (pass = a true landscape subject photo at >=1200 px in page + schema; owner-photo-needed = a recorded flag, never filled with the logo, stock or a photo of another subject). Future posts add their row at publish; verify.js section 27 (NF-1..NF-7) enforces this file.",
+ "authorPage": "https://theflatratemovers.com/author/henry-pitts-jr/",
+ "posts": [
+  {
+   "slug": "do-movers-pack-for-you",
+   "ledgerDate": "2026-10-30",
+   "lane": "guide",
+   "instant": "2026-10-30T09:00:00-04:00",
+   "image": {
+    "status": "owner-photo-needed",
+    "reason": "No owner-supplied photo depicts packing. The estate’s packing-pages image (img-15) is captioned a “Reference photo” of undocumented origin/license, so it is not used as the article’s representative image. Owner photo needed: a packing job in progress (blanket wrap / stretch wrap)."
+   }
+  },
+  {
+   "slug": "reading-an-ispm-15-mark",
+   "ledgerDate": "2026-10-30",
+   "lane": "guide",
+   "instant": "2026-10-30T09:00:00-04:00",
+   "image": {
+    "status": "owner-photo-needed",
+    "reason": "No estate photo shows an ISPM 15 / IPPC mark (the img-20 crate photo was visually checked — no mark in frame). Owner photo needed: a legible ISPM 15 mark on a crate or pallet."
+   }
+  },
+  {
+   "slug": "moving-a-piano",
+   "ledgerDate": "2026-10-30",
+   "lane": "guide",
+   "instant": null,
+   "dateOnlyReason": "No publication time of day is recorded for this post in any batch record, memory log, ledger entry or draft QA report (instant audit, batch-news-formula-2026-11-02); the date-only value is kept — no time invented.",
+   "image": {
+    "status": "owner-photo-needed",
+    "reason": "No piano photo exists in the estate assets or the owner media library. Owner photo needed: a piano move (upright or grand) in progress."
+   }
+  },
+  {
+   "slug": "curbside-vs-inside-vs-white-glove-delivery",
+   "ledgerDate": "2026-10-30",
+   "lane": "guide",
+   "instant": null,
+   "dateOnlyReason": "No publication time of day is recorded for this post in any batch record, memory log, ledger entry or draft QA report (instant audit, batch-news-formula-2026-11-02); the date-only value is kept — no time invented.",
+   "image": {
+    "status": "owner-photo-needed",
+    "reason": "The estate’s white-glove reference photo (img-04) is 1024 px wide — below the 1200 px rule — and is a Reference photo, not owner-supplied. Owner photo needed: an in-home white-glove placement."
+   }
+  },
+  {
+   "slug": "when-an-item-needs-a-custom-crate",
+   "ledgerDate": "2026-10-31",
+   "lane": "guide",
+   "instant": "2026-10-31T04:35:00-04:00",
+   "image": {
+    "status": "pass",
+    "url": "https://theflatratemovers.com/assets/img-20-custom-crate-foam-lined-ramp-door-4x3.webp",
+    "width": 1304,
+    "height": 978
+   }
+  },
+  {
+   "slug": "i-81-shenandoah-valley-move-timing",
+   "ledgerDate": "2026-10-31",
+   "lane": "guide",
+   "instant": "2026-10-31T04:35:00-04:00",
+   "image": {
+    "status": "pass",
+    "url": "https://theflatratemovers.com/assets/img-02-0b80bbb82653.jpg",
+    "width": 1600,
+    "height": 1200
+   }
+  },
+  {
+   "slug": "transloading-vs-cross-docking-vs-deconsolidation",
+   "ledgerDate": "2026-10-31",
+   "lane": "guide",
+   "instant": "2026-10-31T07:30:00-04:00",
+   "image": {
+    "status": "pass",
+    "url": "https://theflatratemovers.com/assets/img-13-d15077b65507.jpg",
+    "width": 1600,
+    "height": 1200
+   }
+  },
+  {
+   "slug": "moving-an-office-inside-a-plant-or-warehouse",
+   "ledgerDate": "2026-10-31",
+   "lane": "guide",
+   "instant": "2026-10-31T07:30:00-04:00",
+   "image": {
+    "status": "owner-photo-needed",
+    "reason": "No estate photo depicts an office relocation (desks/workstations) inside a plant or warehouse. Owner photo needed: an office move in industrial space."
+   }
+  },
+  {
+   "slug": "1650-lb-gun-safe-delivered-and-installed-moorefield-wv",
+   "ledgerDate": "2026-10-31",
+   "lane": "story",
+   "instant": "2026-10-31T08:23:00-04:00",
+   "image": {
+    "status": "pass",
+    "url": "https://theflatratemovers.com/assets/moorefield-wv-gun-safe-installed-basement-wide-angle.webp",
+    "width": 1600,
+    "height": 1200
+   }
+  },
+  {
+   "slug": "transloading-at-the-virginia-inland-port",
+   "ledgerDate": "2026-11-02",
+   "lane": "guide",
+   "instant": "2026-11-02T04:08:00-05:00",
+   "image": {
+    "status": "owner-photo-needed",
+    "reason": "No estate photo depicts the Virginia Inland Port (Front Royal); the maritime port photo on file (img-16) is a barge port, not the inland terminal, and warehouse photos depict the company’s own warehouse. Owner photo needed: the Virginia Inland Port terminal."
+   }
+  },
+  {
+   "slug": "long-distance-moving-for-high-value-items",
+   "ledgerDate": "2026-11-02",
+   "lane": "guide",
+   "instant": "2026-11-02T08:56:05-05:00",
+   "image": {
+    "status": "pass",
+    "url": "https://theflatratemovers.com/assets/img-07-b39ba374a49a.jpg",
+    "width": 1280,
+    "height": 960
+   }
+  },
+  {
+   "slug": "who-unloads-containers-at-the-virginia-inland-port",
+   "ledgerDate": "2026-11-02",
+   "lane": "guide",
+   "instant": "2026-11-02T17:16:59-05:00",
+   "image": {
+    "status": "owner-photo-needed",
+    "reason": "No estate photo depicts the Virginia Inland Port (Front Royal); the maritime port photo on file (img-16) is a barge port, not the inland terminal, and warehouse photos depict the company’s own warehouse. Owner photo needed: the Virginia Inland Port terminal."
+   }
+  }
+ ]
 }

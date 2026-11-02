@@ -543,7 +543,7 @@ async function main() {
     skipLive('P-2 ai-master-index.jws verifies against the published key over the canonical served index');
     skipLive('P-3 all site-served distribution digests match the live served bytes');
     skipLive('P-4 every served index distribution entry is complete (name, contentUrl, encodingFormat, license, dateModified, SHA-256 digest + byteSize)');
-    skipLive('P-5 certificate covers all 227 per-page JSONs + all 227 route documents + llms-full.txt + the site shell + the deployed code sets (535 distributions)');
+    skipLive('P-5 certificate covers all 229 per-page JSONs + all 229 route documents + llms-full.txt + the site shell + the deployed code sets (539 distributions)');
     skipLive('P-6 all repo-served distribution digests match the live served bytes');
   } else {
   try {
@@ -845,14 +845,14 @@ async function main() {
       const missingCode = P2_CODE_URLS.filter((u) => !distUrls.has(u));
       const missingRoutes = pages.pages.map((p) => p.url).filter((u) => !distUrls.has(u));
       const hasLlmsFull = distUrls.has('https://theflatratemovers.com/llms-full.txt');
-      p5ok = !!servedIndex && pageFiles.length === 227 && missingPages.length === 0 && missingCode.length === 0 &&
+      p5ok = !!servedIndex && pageFiles.length === 229 && missingPages.length === 0 && missingCode.length === 0 &&
         missingRoutes.length === 0 && hasLlmsFull &&
-        (servedIndex.distribution || []).length === 535; // 226 -> 227 and 530 -> 534 re-expressed 2026-11-02 (Ports P1 Foundation): +1 page (the /datasets/ports/ landing), +4 distributions (dataset file, landing JSON, route document, build-ports.js); 534 -> 535 re-expressed 2026-11-02 (Pulse): +1 distribution (the estate update feed, updates.xml)
+        (servedIndex.distribution || []).length === 539; // 226 -> 227 and 530 -> 534 re-expressed 2026-11-02 (Ports P1 Foundation): +1 page (the /datasets/ports/ landing), +4 distributions (dataset file, landing JSON, route document, build-ports.js); 534 -> 535 re-expressed 2026-11-02 (Pulse): +1 distribution (the estate update feed, updates.xml); 227 -> 228 and 535 -> 537 re-expressed 2026-11-02 (Ports P2): +1 page (the Virginia Inland Port 3PL spoke), +2 distributions (spoke per-page JSON, spoke route document); 228 -> 229 and 537 -> 539 re-expressed 2026-11-02 (Ports P2 article A1): +1 page (who unloads containers at the Virginia Inland Port), +2 distributions (article per-page JSON, article route document)
       p5detail = 'pageFiles=' + pageFiles.length + ', missingPages=' + (missingPages.join(',') || '0') +
         ', missingCode=' + (missingCode.join(',') || '0') + ', missingRoutes=' + (missingRoutes.slice(0, 3).join(',') || '0') +
         ', llmsFull=' + hasLlmsFull + ', distributions=' + (servedIndex ? (servedIndex.distribution || []).length : 0);
     } catch (e) { p5ok = false; p5detail = e.message; }
-    check('P-5 certificate covers all 227 per-page JSONs + all 227 route documents + llms-full.txt + the site shell + the deployed code sets (535 distributions)',
+    check('P-5 certificate covers all 229 per-page JSONs + all 229 route documents + llms-full.txt + the site shell + the deployed code sets (539 distributions)',
       p5ok, p5detail);
 
     // P-6: repo-served distribution digests re-computed over live bytes
@@ -1029,7 +1029,7 @@ async function main() {
   try {
     const { execFileSync } = require('child_process');
     const dbPathI = path.resolve(ROOT, '..', 'theflatratemovers', 'rubric.db');
-    const qI = (sql) => execFileSync('sqlite3', ['-json', dbPathI, sql]).toString();
+    const qI = (sql) => execFileSync('sqlite3', ['-json', dbPathI, sql], { maxBuffer: 64 * 1024 * 1024 }).toString(); // maxBuffer raised 2026-11-02 (Ports P2): the 3,373-row intent table outgrew the 1 MB default (spawnSync ENOBUFS); matches the section-13 v2 block
     const fetchFullI = (url) => new Promise((resolve, reject) => {
       https.get(url, (res) => {
         const chunks = [];
@@ -1152,6 +1152,12 @@ async function main() {
     const genSummaryV = JSON.parse(fs.readFileSync(path.join(ROOT, 'out', 'batch-intent-rubric', 'work', 'generation-summary.json'), 'utf8'));
     const batchV = oneV('SELECT window_start, window_end FROM gsc_import_batches ORDER BY id DESC LIMIT 1;');
     const rowsV = rowsOfV('SELECT query_text, service_id, target_url, observation_ids FROM intent_query;');
+    // Era/window span (2026-11-02, Ports P2): the overlay can hold
+    // several import batches; the generator's summary window is the
+    // full observed span and its era derives from that span against
+    // the 2026-10-29 rebuild cutover (eraForWindow in the generator).
+    const spanV = oneV('SELECT MIN(window_start) AS ws, MAX(window_end) AS we FROM gsc_observed_queries;');
+    const eraForSpanV = (ws, we) => (we && we < '2026-10-29') ? 'pre-rebuild' : (ws && ws >= '2026-10-29') ? 'current' : 'transition';
     const obsPageSetV = new Set(rowsOfV('SELECT page_url FROM gsc_observed_pages;').map((r) => r.page_url.replace('://www.', '://')));
     const registrySetV = new Set(pages.pages.map((p) => p.url.replace('://www.', '://')));
 
@@ -1164,8 +1170,8 @@ async function main() {
       parseInt(metaV.target_pages_covered, 10) === pages.pages.length &&
       parseInt(metaV.target_pages_total, 10) === pages.pages.length &&
       Array.isArray(genSummaryV.targetCoverage.uncovered) && genSummaryV.targetCoverage.uncovered.length === 0 &&
-      metaV.evidence_era === 'pre-rebuild' &&
-      metaV.evidence_window === String(batchV.window_start) + '/' + String(batchV.window_end) &&
+      metaV.evidence_era === eraForSpanV(spanV.ws, spanV.we) &&
+      metaV.evidence_window === String(spanV.ws) + '/' + String(spanV.we) &&
       parseInt(metaV.evidence_queries_attached, 10) === countsV.ev_attached;
     check('I-6 rubric v2 generator version, source accounting (v1 + page-derived + roll-up = total), full page-registry target coverage and evidence window reconcile',
       i6ok, 'generator ' + metaV.generator_version + ' / schema ' + metaV.schema_version + '; rows=' + countsV.rows_n +
@@ -1175,7 +1181,7 @@ async function main() {
 
     // I-7: evidence attachments are era-tagged, metric-true, gated to existed-in-window + still-live targets.
     const evJoinV = oneV("SELECT " +
-      "SUM(CASE WHEN e.era != 'pre-rebuild' THEN 1 ELSE 0 END) AS bad_era, " +
+      "SUM(CASE WHEN e.era != (CASE WHEN e.window_end < '2026-10-29' THEN 'pre-rebuild' WHEN e.window_start >= '2026-10-29' THEN 'current' ELSE 'transition' END) THEN 1 ELSE 0 END) AS bad_era, " +
       "SUM(CASE WHEN e.window_start != o.window_start OR e.window_end != o.window_end THEN 1 ELSE 0 END) AS bad_window, " +
       "SUM(CASE WHEN e.clicks != o.clicks OR e.impressions != o.impressions OR e.ctr != o.ctr OR e.avg_position != o.avg_position THEN 1 ELSE 0 END) AS bad_metrics " +
       "FROM intent_row_gsc_evidence e JOIN gsc_observed_queries o ON o.id = e.observation_id");
@@ -1194,7 +1200,7 @@ async function main() {
       const r = rowByKeyV.get(e.query_text + '|' + e.service_id);
       if (!r || !JSON.parse(r.observation_ids || '[]').includes(e.observation_id)) danglingV++;
     }
-    check('I-7 v2 evidence attachments are era-tagged pre-rebuild, metric-true to the import, and attach only to rows whose target existed in the window and is still live',
+    check('I-7 v2 evidence attachments are era-tagged by import window (pre-rebuild / transition / current against the 2026-10-29 cutover; re-expressed 2026-11-02, Ports P2), metric-true to the import, and attach only to rows whose target existed in the window and is still live',
       sum0(evJoinV.bad_era) === 0 && sum0(evJoinV.bad_window) === 0 && sum0(evJoinV.bad_metrics) === 0 &&
         badExistV === 0 && danglingV === 0 && countsV.ev_rows > 0,
       'evidence rows=' + countsV.ev_rows + ', attached queries=' + countsV.ev_attached + '; bad era/window/metrics=' +
@@ -1387,8 +1393,8 @@ async function main() {
         for (const n of ns) if (n && n['@type'] === 'Dataset') { shellCountD++; checkNodeD(n, rel); }
       }
     }
-    check('D-2 every Dataset node (dataset files + all 227 route documents) carries landing url/unique sameAs, an identifier, isAccessibleForFree, typed distributions and a self-referencing DataDownload',
-      badNodesD.length === 0 && shellCountD === 372 && routeDocsD.length === 227, // 368 -> 372 and 226 -> 227 re-expressed 2026-11-02 (Ports P1 Foundation): +4 Dataset instances = the ports master + coverage-matrix nodes of datasets-ports.json embedded in two route documents (the /datasets/ports/ landing and the /transloading/ hub); +1 route document = the ports landing; build-routes.js D-2 pin moved in the same motion
+    check('D-2 every Dataset node (dataset files + all 229 route documents) carries landing url/unique sameAs, an identifier, isAccessibleForFree, typed distributions and a self-referencing DataDownload',
+      badNodesD.length === 0 && shellCountD === 372 && routeDocsD.length === 229, // 368 -> 372 and 226 -> 227 re-expressed 2026-11-02 (Ports P1 Foundation): +4 Dataset instances = the ports master + coverage-matrix nodes of datasets-ports.json embedded in two route documents (the /datasets/ports/ landing and the /transloading/ hub); +1 route document = the ports landing; build-routes.js D-2 pin moved in the same motion; 227 -> 228 route documents re-expressed 2026-11-02 (Ports P2): +1 route document = the Virginia Inland Port 3PL spoke (its graph carries no Dataset node, so the 372 shell count stands); build-routes.js D-2 pin reviewed in the same motion (count unchanged); 228 -> 229 route documents re-expressed 2026-11-02 (Ports P2 article A1): +1 route document = the A1 article (its graph carries no Dataset node, so the 372 shell count stands)
       'files + ' + shellCountD + ' route-document instances across ' + routeDocsD.length + ' documents' + (badNodesD.length ? ', bad: ' + badNodesD.slice(0, 4).join('; ') : ''));
     // D-3: local sitemap architecture — sitemap.xml is an index whose
     // children are exactly the three section sitemaps plus the news
