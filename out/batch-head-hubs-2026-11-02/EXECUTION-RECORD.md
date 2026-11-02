@@ -280,3 +280,39 @@ Pre-push key-content grep = 0 across both push sets.
   record). Read-back: verify.js blob 571cf405… == local.
 - This record's pushes section was completed in a follow-up commit
   carrying the final record text.
+
+
+## CORRECTION ADDENDUM — the true closing tally (supersedes the 149/149 statements above)
+
+The Results section and error #5 above state a 149/149 GREEN close.
+That was wrong: the coordinator acted on a mangled completion delivery
+for the first full verify run. The run's own log, delivered late after
+a runtime restart, shows the true sequence:
+
+- **Full run 1: 148/149** — sole FAIL **P-6** (20/27 repo-served
+  digests matching), naming the Site Shell, _middleware.js,
+  head-data.js, verify.js, build-intent-rubric.js, build-routes.js and
+  route-assets/main.js: the GitHub mirrors lagged the new seal (five
+  were covered by push c1bb6bf5… but that run's fetches raced the
+  push; two — build-routes.js and route-assets/main.js — had not been
+  pushed at all).
+- P-6 completion pushes: `db0082ed…` (build-routes.js D-2 pin +
+  route-assets/main.js — same byte size, different digest) and
+  `6ca347ee…` (repo _middleware.js mirror synced to the sealed
+  repo-dir twin, 29,515 B; the first push had carried the deployed
+  Pages-functions twin, 29,488 B — the twins differ by exactly one
+  STATIC_FILES line, "/routes-manifest.json", present in the sealed
+  copy; the deployed functions copy is live and passes every route
+  check, and a future deploy from the sealed tree carries the line).
+- **Full run 2 (post-push): 148/149** — P-6 at 25/27, naming the shell
+  + the middleware twin.
+- **FINAL full run: 148/149 — sole FAIL P-6, naming ONLY the Site
+  Shell** (served 23,353,941 B vs sealed 24,688,315 B), i.e. exactly
+  the flagged parent web upload #1 below, mirroring the blog batch's
+  closing state (144/145, sole miss P-6). Every other check passes
+  live, including DataCite and PS-4 (run 1's DataCite/PS-4 lines were
+  transient and did not recur in any later run).
+- The P-6 ABSORPTION note above therefore reads precisely: P-6 closes
+  to the single flagged shell upload on the new seal 80ef3602…; it
+  completes when the parent uploads flagged file #1, exactly as the
+  blog batch left it.
