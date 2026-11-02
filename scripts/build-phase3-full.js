@@ -271,7 +271,7 @@ function main() {
     return { gbp, extras, full: fullByBranch[bid].join(', ') };
   }
   function footprintAttribution() {
-    return 'Full footprint (GBP lists + extended areas) — owner decision 2026-10-28: GBP areas from GBP service-area screenshots supplied by owner 2026-10-27, confirmed 2026-10-28 (Winchester 16, Martinsburg 14); extended areas from live service-area.geojson feature branch properties 2026-10-28, NOT from GBP screenshots (the GeoJSON source label claiming GBP origin for those towns is incorrect and is on the publish checklist to fix). Branch assignment from GeoJSON branch properties only; shared areas noted as shared, never silently assigned to one branch.';
+    return 'Full footprint (GBP lists + extended areas) — owner decision 2026-10-28: GBP areas from GBP service-area screenshots supplied by owner 2026-10-27, confirmed 2026-10-28 (Winchester 17, Martinsburg 14); extended areas from live service-area.geojson feature branch properties 2026-10-28, NOT from GBP screenshots (the GeoJSON source label claiming GBP origin for those towns is incorrect and is on the publish checklist to fix). Branch assignment from GeoJSON branch properties only; shared areas noted as shared, never silently assigned to one branch.';
   }
 
   // ---- Branch page builder (new + revised; same code path) ----
@@ -575,7 +575,7 @@ gaps were hit.
 
 ## Footprint mapping (GeoJSON branch property is the source)
 
-- Winchester: 31 = GBP 16 + extended 15. Extended: Clarke County,
+- Winchester: 32 = GBP 17 + extended 15. Extended: Clarke County,
   Fauquier County (branch=winchester) + Front Royal, VA, Strasburg, VA,
   Woodstock, VA, Warren County, Shenandoah County, Hardy County, Port of
   Virginia, Virginia Inland Port, Shenandoah Valley, Eastern Panhandle

@@ -543,7 +543,7 @@ async function main() {
     skipLive('P-2 ai-master-index.jws verifies against the published key over the canonical served index');
     skipLive('P-3 all site-served distribution digests match the live served bytes');
     skipLive('P-4 every served index distribution entry is complete (name, contentUrl, encodingFormat, license, dateModified, SHA-256 digest + byteSize)');
-    skipLive('P-5 certificate covers all 225 per-page JSONs + all 225 route documents + llms-full.txt + the site shell + the deployed code sets (526 distributions)');
+    skipLive('P-5 certificate covers all 225 per-page JSONs + all 225 route documents + llms-full.txt + the site shell + the deployed code sets (527 distributions)');
     skipLive('P-6 all repo-served distribution digests match the live served bytes');
   } else {
   try {
@@ -816,6 +816,7 @@ async function main() {
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/code/pages-functions/head-data.js',
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/code/pages-functions/quote.js',
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/code/quote-worker/index.js',
+      'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/code/api-worker/src-index.js',
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/verify.js',
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/tools/keygen.py',
       'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/tools/digest-index.py',
@@ -846,12 +847,12 @@ async function main() {
       const hasLlmsFull = distUrls.has('https://theflatratemovers.com/llms-full.txt');
       p5ok = !!servedIndex && pageFiles.length === 225 && missingPages.length === 0 && missingCode.length === 0 &&
         missingRoutes.length === 0 && hasLlmsFull &&
-        (servedIndex.distribution || []).length === 526;
+        (servedIndex.distribution || []).length === 527;
       p5detail = 'pageFiles=' + pageFiles.length + ', missingPages=' + (missingPages.join(',') || '0') +
         ', missingCode=' + (missingCode.join(',') || '0') + ', missingRoutes=' + (missingRoutes.slice(0, 3).join(',') || '0') +
         ', llmsFull=' + hasLlmsFull + ', distributions=' + (servedIndex ? (servedIndex.distribution || []).length : 0);
     } catch (e) { p5ok = false; p5detail = e.message; }
-    check('P-5 certificate covers all 225 per-page JSONs + all 225 route documents + llms-full.txt + the site shell + the deployed code sets (526 distributions)',
+    check('P-5 certificate covers all 225 per-page JSONs + all 225 route documents + llms-full.txt + the site shell + the deployed code sets (527 distributions)',
       p5ok, p5detail);
 
     // P-6: repo-served distribution digests re-computed over live bytes
@@ -2953,6 +2954,81 @@ async function main() {
         check('NF-6 48x48 and 192x192 PNG favicon links present on served routes',
           bad.length === 0, bad.join(', ') || '3 routes');
       } catch (e) { check('NF-6 48x48 and 192x192 PNG favicon links present on served routes', false, e.message); }
+    }
+  }
+
+
+  // ------------------------------------------------------------------
+  // 28. API certificate + head coverage (Added Items #1/#2, News
+  // Formula batch 2026-11-02, owner-priority). AC-1: the estate API
+  // worker's CODE (flat-rate-estate-api, entry module src/index.js) is
+  // a signed distribution whose digest equals BOTH the canonical
+  // repo-dir copy and the deployed project source — the gap the P2
+  // certificate directive missed must never recur silently. (The
+  // worker's generated data module, data/bundle-index.js, is
+  // deliberately NOT a distribution: it embeds the master index that
+  // would carry its digest — the same self-reference that keeps the
+  // index from distributing itself; its constituent files are each
+  // signed and are verified by the worker at runtime. Cadence: every
+  // bundle refresh re-stages the canonical code copy — refresh-bundle.py
+  // does it — and the next seal re-digests it.) AC-2/AC-3: EVERY route
+  // document's head graph carries the one shared API node
+  // (https://theflatratemovers.com/#api, a WebAPI node naming
+  // https://api.theflatratemovers.com) — full coverage, generated
+  // files locally (AC-2) and served documents live (AC-3). Before this
+  // batch only 3 of 224 heads named the API (the crawl-presence,
+  // local-graph-registry and archive-registry dataset landings, via
+  // per-dataset identifier entries).
+  // ------------------------------------------------------------------
+  {
+    const crypto = require('crypto');
+    const AC_API_ID = 'https://theflatratemovers.com/#api';
+    const AC_API_URL = 'https://api.theflatratemovers.com';
+    const AC_CODE_URL = 'https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/code/api-worker/src-index.js';
+
+    // AC-1 (local evidence, both modes): presence + three-way digest.
+    try {
+      const idxAC = JSON.parse(fs.readFileSync(path.join(PAGES_PUBLIC, 'ai-master-index.json'), 'utf8'));
+      const ent = (idxAC.distribution || []).find((e) => e.contentUrl === AC_CODE_URL);
+      const sha = (p) => crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex');
+      const repoCopy = path.join(ROOT, 'repo-dir', 'src-index.js');
+      const projSrc = path.join(ROOT, '..', 'theflatratemovers', 'api-worker', 'src', 'index.js');
+      const okAC1 = !!ent && !!ent.digest &&
+        ent.digest.value === sha(repoCopy) && ent.digest.value === sha(projSrc);
+      check('AC-1 estate API worker code (src/index.js) is a signed distribution matching the deployed source and its canonical copy',
+        okAC1, ent ? ('digest=' + String(ent.digest && ent.digest.value).slice(0, 12) + '…') : 'entry absent from the sealed index');
+    } catch (e) { check('AC-1 estate API worker code (src/index.js) is a signed distribution matching the deployed source and its canonical copy', false, e.message); }
+
+    // AC-2 (local): every generated route document's head carries the node.
+    try {
+      const missing = [];
+      for (const p of pages.pages) {
+        const rel = p.url.replace('https://theflatratemovers.com/', '');
+        const docPath = path.join(PAGES_PUBLIC, rel, 'index.html');
+        let doc = '';
+        try { doc = fs.readFileSync(docPath, 'utf8'); } catch (_) { /* counted as missing */ }
+        const headPart = doc.split('</head>')[0] || '';
+        if (!headPart.includes(AC_API_ID) || !headPart.includes(AC_API_URL)) missing.push(p.slug);
+      }
+      check('AC-2 every generated route document head graph carries the shared API node (#api)',
+        missing.length === 0, (pages.pages.length - missing.length) + '/' + pages.pages.length + ' route documents' + (missing.length ? '; missing: ' + missing.slice(0, 5).join(', ') : ''));
+    } catch (e) { check('AC-2 every generated route document head graph carries the shared API node (#api)', false, e.message); }
+
+    // AC-3 (live): every served route document's head carries the node.
+    if (LOCAL) {
+      skipLive('AC-3 every served route document head graph carries the shared API node (#api)');
+    } else {
+      try {
+        const missing = [];
+        for (const p of pages.pages) {
+          let doc = '';
+          try { doc = await fetchText(p.url); } catch (_) { /* counted as missing */ }
+          const headPart = doc.split('</head>')[0] || '';
+          if (!headPart.includes(AC_API_ID) || !headPart.includes(AC_API_URL)) missing.push(p.slug);
+        }
+        check('AC-3 every served route document head graph carries the shared API node (#api)',
+          missing.length === 0, (pages.pages.length - missing.length) + '/' + pages.pages.length + ' route documents' + (missing.length ? '; missing: ' + missing.slice(0, 5).join(', ') : ''));
+      } catch (e) { check('AC-3 every served route document head graph carries the shared API node (#api)', false, e.message); }
     }
   }
 

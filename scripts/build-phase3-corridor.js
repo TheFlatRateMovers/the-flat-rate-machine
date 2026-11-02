@@ -244,7 +244,7 @@ function main() {
       notes: [
         'R6=2: no image assigned in staged content; publish step must assign a real credited photo (company photo with honest caption, or a labelled style example).',
         'R7=2: quote card uses exact "Get My Flat Rate Quote" wording and describes the Short/Detailed toggle; toggle behavior lives in the verified live form and is re-checked at publish.',
-        'Audience per owner decision 2026-10-28: households and businesses across both branches\' published GBP service areas (Winchester 16 + Martinsburg 14), anchored on ' + anchor.city + '.',
+        'Audience per owner decision 2026-10-28: households and businesses across both branches\' published GBP service areas (Winchester 17 + Martinsburg 14), anchored on ' + anchor.city + '.',
         'Route description covers the VERIFIED dispatch network only (published dispatch claim, both hub tags, both full service areas, cross-links). Turn-by-turn path, exits, and stops are deliberately NOT published: no verified source states them, and none are invented. The scope disclaimer is printed on the page.',
         'Schema note: both corridor pages attach to the verified #service-route81 node, because its published description covers all three corridors ("along Interstate 81, I-66 and I-70"). No new service node was invented. Owner approval item.',
         'Title rule: corridor name + "Corridor Moving", from the Phase 1 corridor description template phrasing. Owner may rename at approval.',

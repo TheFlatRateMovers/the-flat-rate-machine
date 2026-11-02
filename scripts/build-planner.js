@@ -154,7 +154,7 @@ const corridorOutlines = {
       {
         section: 'Where we serve',
         status: 'verified',
-        content: 'Winchester home base: 116 W Piccadilly St, Suite 11 — at the I-81 × I-66 junction (live site, Winchester card). Branch service areas as published: Winchester 16 areas, Martinsburg 14 areas (data/locations.json). These are branch areas, NOT a claim that any listed town sits on I-66.',
+        content: 'Winchester home base: 116 W Piccadilly St, Suite 11 — at the I-81 × I-66 junction (live site, Winchester card). Branch service areas as published: Winchester 17 areas, Martinsburg 14 areas (data/locations.json). These are branch areas, NOT a claim that any listed town sits on I-66.',
         source: 'data/locations.json + live site source (Winchester card)',
       },
       {
@@ -197,7 +197,7 @@ const corridorOutlines = {
       {
         section: 'Where we serve',
         status: 'verified',
-        content: 'Martinsburg hub is tagged "Eastern Panhandle base · I-81 × I-70 side" in the live Route 81 stops data (quoted as published copy, not a geographic claim). Branch service areas as published: Winchester 16 areas, Martinsburg 14 areas (data/locations.json). These are branch areas, NOT a claim that any listed town sits on I-70.',
+        content: 'Martinsburg hub is tagged "Eastern Panhandle base · I-81 × I-70 side" in the live Route 81 stops data (quoted as published copy, not a geographic claim). Branch service areas as published: Winchester 17 areas, Martinsburg 14 areas (data/locations.json). These are branch areas, NOT a claim that any listed town sits on I-70.',
         source: 'data/locations.json + live site source (Route 81 stops data)',
       },
       {

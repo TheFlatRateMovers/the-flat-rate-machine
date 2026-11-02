@@ -1075,6 +1075,16 @@
       "worksFor": {
         "@id": "https://theflatratemovers.com/#organization"
       }
+    },
+    {
+      "@id": "https://theflatratemovers.com/#api",
+      "@type": "WebAPI",
+      "documentation": "https://theflatratemovers.com/developer/",
+      "name": "The Flat Rate Movers API",
+      "provider": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "url": "https://api.theflatratemovers.com"
     }
   ],
   "@id": "https://theflatratemovers.com/entity-graph.json",
