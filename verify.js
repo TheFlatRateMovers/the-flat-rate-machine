@@ -3223,9 +3223,12 @@ async function main() {
       return cards;
     }
     function pageDivSX(html, slug) {
-      const marker = '<div class="page" id="page-' + slug + '">';
-      const start = html.indexOf(marker);
-      if (start < 0) return '';
+      // Served route documents mark the active page's div with the
+      // additional 'show' class ('<div class="page show" id="...">'),
+      // so the marker match tolerates extra classes.
+      const mm = html.match(new RegExp('<div class="page[^"]*" id="page-' + slug + '">'));
+      if (!mm) return '';
+      const start = mm.index;
       let depth = 0, k = start;
       const nextToken = (from) => {
         let best = null;
