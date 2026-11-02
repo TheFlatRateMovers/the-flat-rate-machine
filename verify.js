@@ -543,7 +543,7 @@ async function main() {
     skipLive('P-2 ai-master-index.jws verifies against the published key over the canonical served index');
     skipLive('P-3 all site-served distribution digests match the live served bytes');
     skipLive('P-4 every served index distribution entry is complete (name, contentUrl, encodingFormat, license, dateModified, SHA-256 digest + byteSize)');
-    skipLive('P-5 certificate covers all 226 per-page JSONs + all 226 route documents + llms-full.txt + the site shell + the deployed code sets (530 distributions)');
+    skipLive('P-5 certificate covers all 227 per-page JSONs + all 227 route documents + llms-full.txt + the site shell + the deployed code sets (534 distributions)');
     skipLive('P-6 all repo-served distribution digests match the live served bytes');
   } else {
   try {
@@ -845,14 +845,14 @@ async function main() {
       const missingCode = P2_CODE_URLS.filter((u) => !distUrls.has(u));
       const missingRoutes = pages.pages.map((p) => p.url).filter((u) => !distUrls.has(u));
       const hasLlmsFull = distUrls.has('https://theflatratemovers.com/llms-full.txt');
-      p5ok = !!servedIndex && pageFiles.length === 226 && missingPages.length === 0 && missingCode.length === 0 &&
+      p5ok = !!servedIndex && pageFiles.length === 227 && missingPages.length === 0 && missingCode.length === 0 &&
         missingRoutes.length === 0 && hasLlmsFull &&
-        (servedIndex.distribution || []).length === 530;
+        (servedIndex.distribution || []).length === 534; // 226 -> 227 and 530 -> 534 re-expressed 2026-11-02 (Ports P1 Foundation): +1 page (the /datasets/ports/ landing), +4 distributions (dataset file, landing JSON, route document, build-ports.js)
       p5detail = 'pageFiles=' + pageFiles.length + ', missingPages=' + (missingPages.join(',') || '0') +
         ', missingCode=' + (missingCode.join(',') || '0') + ', missingRoutes=' + (missingRoutes.slice(0, 3).join(',') || '0') +
         ', llmsFull=' + hasLlmsFull + ', distributions=' + (servedIndex ? (servedIndex.distribution || []).length : 0);
     } catch (e) { p5ok = false; p5detail = e.message; }
-    check('P-5 certificate covers all 226 per-page JSONs + all 226 route documents + llms-full.txt + the site shell + the deployed code sets (530 distributions)',
+    check('P-5 certificate covers all 227 per-page JSONs + all 227 route documents + llms-full.txt + the site shell + the deployed code sets (534 distributions)',
       p5ok, p5detail);
 
     // P-6: repo-served distribution digests re-computed over live bytes
@@ -1387,8 +1387,8 @@ async function main() {
         for (const n of ns) if (n && n['@type'] === 'Dataset') { shellCountD++; checkNodeD(n, rel); }
       }
     }
-    check('D-2 every Dataset node (dataset files + all 226 route documents) carries landing url/unique sameAs, an identifier, isAccessibleForFree, typed distributions and a self-referencing DataDownload',
-      badNodesD.length === 0 && shellCountD === 368 && routeDocsD.length === 226, // 367 -> 368 re-expressed 2026-11-02 (Consolidated Visibility Batch): +1 Dataset instance = the new Local Graph Registry backlinks node in its landing embedding; build-routes.js D-2 pin moved in the same motion
+    check('D-2 every Dataset node (dataset files + all 227 route documents) carries landing url/unique sameAs, an identifier, isAccessibleForFree, typed distributions and a self-referencing DataDownload',
+      badNodesD.length === 0 && shellCountD === 372 && routeDocsD.length === 227, // 368 -> 372 and 226 -> 227 re-expressed 2026-11-02 (Ports P1 Foundation): +4 Dataset instances = the ports master + coverage-matrix nodes of datasets-ports.json embedded in two route documents (the /datasets/ports/ landing and the /transloading/ hub); +1 route document = the ports landing; build-routes.js D-2 pin moved in the same motion
       'files + ' + shellCountD + ' route-document instances across ' + routeDocsD.length + ' documents' + (badNodesD.length ? ', bad: ' + badNodesD.slice(0, 4).join('; ') : ''));
     // D-3: local sitemap architecture — sitemap.xml is an index whose
     // children are exactly the three section sitemaps plus the news
@@ -3732,7 +3732,7 @@ async function main() {
     // variableMeasured on exactly six files, spatialCoverage shape,
     // and no version anywhere (parent decision D3).
     {
-      const DATES = { 'answer-evidence': '2026-10-31', 'archive-registry': '2026-11-01', 'commercial': '2026-10-29', 'crating': '2026-10-29', 'crawl-presence': '2026-10-31', 'data-center-relocation': '2026-10-30', 'ffe-logistics': '2026-10-30', 'final-mile': '2026-10-29', 'freight-rework': '2026-11-01', 'government': '2026-10-29', 'gun-safe': '2026-10-29', 'industrial-commercial': '2026-10-29', 'industrial-offices': '2026-10-29', 'intent-coverage': '2026-10-30', 'ispm15': '2026-10-29', 'it': '2026-10-29', 'junk-removal': '2026-10-30', 'local-graph-registry': '2026-10-31', 'local-regional': '2026-10-29', 'long-distance': '2026-10-29', 'medical-lab-relocation': '2026-10-30', 'military': '2026-10-29', 'moving-and-storage': '2026-10-29', 'ocean-container': '2026-10-29', 'office': '2026-10-29', 'packing': '2026-10-29', 'piano-antique': '2026-10-29', 'residential': '2026-10-29', 'route81': '2026-10-29', 'search-index': '2026-10-31', 'senior': '2026-10-29', 'sir-heavy': '2026-10-29', 'transloading': '2026-10-29', 'transloading-inland-port': '2026-10-30', 'transloading-winchester': '2026-10-29', 'warehouse': '2026-10-29', 'warehouse-racking-relocation': '2026-10-30', 'white-glove': '2026-11-02' };
+      const DATES = { 'answer-evidence': '2026-10-31', 'archive-registry': '2026-11-01', 'commercial': '2026-10-29', 'crating': '2026-10-29', 'crawl-presence': '2026-10-31', 'data-center-relocation': '2026-10-30', 'ffe-logistics': '2026-10-30', 'final-mile': '2026-10-29', 'freight-rework': '2026-11-01', 'government': '2026-10-29', 'gun-safe': '2026-10-29', 'industrial-commercial': '2026-10-29', 'industrial-offices': '2026-10-29', 'intent-coverage': '2026-10-30', 'ispm15': '2026-10-29', 'it': '2026-10-29', 'junk-removal': '2026-10-30', 'local-graph-registry': '2026-10-31', 'local-regional': '2026-10-29', 'long-distance': '2026-10-29', 'medical-lab-relocation': '2026-10-30', 'military': '2026-10-29', 'moving-and-storage': '2026-10-29', 'ocean-container': '2026-10-29', 'office': '2026-10-29', 'packing': '2026-10-29', 'piano-antique': '2026-10-29', 'ports': '2026-11-02', 'residential': '2026-10-29', 'route81': '2026-10-29', 'search-index': '2026-10-31', 'senior': '2026-10-29', 'sir-heavy': '2026-10-29', 'transloading': '2026-10-29', 'transloading-inland-port': '2026-10-30', 'transloading-winchester': '2026-10-29', 'warehouse': '2026-10-29', 'warehouse-racking-relocation': '2026-10-30', 'white-glove': '2026-11-02' };
       const VM = new Set(['intent-coverage', 'search-index', 'answer-evidence', 'crawl-presence', 'local-graph-registry', 'archive-registry']);
       const NO_SC = new Set(['archive-registry', 'crawl-presence', 'local-graph-registry', 'videos']);
       const bad = [];
@@ -3757,8 +3757,8 @@ async function main() {
           if (bad.length > 6) break;
         }
       }
-      check('CV-6 enrichment complete on all 38 Dataset-bearing files (datePublished per the sourced table, catalog pointer, variableMeasured on exactly the six measurement files, full-Place spatialCoverage on 35, version nowhere)',
-        bad.length === 0, bad.slice(0, 4).join('; ') || '38 files enriched per table');
+      check('CV-6 enrichment complete on all 39 Dataset-bearing files (datePublished per the sourced table, catalog pointer, variableMeasured on exactly the six measurement files, full-Place spatialCoverage on 36, version nowhere)',
+        bad.length === 0, bad.slice(0, 4).join('; ') || '39 files enriched per table');
     }
 
     // CV-7 + CV-8: local-graph registry totals and the backlink tier.
@@ -3820,6 +3820,128 @@ async function main() {
         bad8.length === 0, bad8.slice(0, 4).join('; ') || entries.length + ' entries (' + recorded + ' recorded, ' + review + ' review)');
     }
   }
+
+
+  // ================================================================
+  // 32. PORTS & INTERMODAL PROGRAM GATES (Ports P1 Foundation,
+  // 2026-11-02; dossier section 7.5 / section 10). PB-1 binding
+  // consistency, PB-2 no orphan numbers, PB-3 no-claim scan — over
+  // the ports database (data/ports.json, the single source), the
+  // generated ports dataset file, its landing per-page JSON, and the
+  // port nodes in both live graphs. GBP service assignment derives
+  // from the same binding map and is recorded in the batch record
+  // (Winchester GBP: VIP, Norfolk, Richmond; Martinsburg GBP:
+  // Baltimore, Wilmington, PhilaPort).
+  // ================================================================
+  try {
+    const readPB = (p) => JSON.parse(fs.readFileSync(p, 'utf8'));
+    const dbPB = readPB(path.join(ROOT, 'data', 'ports.json'));
+    const dsPB = readPB(pathx.join(PUB, 'datasets-ports.json'));
+    const ldPB = readPB(pathx.join(PUB, 'dataset-ports.json'));
+    const egPB = readPB(pathx.join(PUB, 'entity-graph.json'));
+    const bgPB = readPB(pathx.join(PUB, 'best-json-entity-graph.json'));
+    const portNodesOf = (doc) => new Map(((doc && doc['@graph']) || [])
+      .filter((n) => n && n['@type'] === 'Place' && String(n['@id'] || '').includes('/datasets/ports/#port-'))
+      .map((n) => [String(n['@id']).split('#').pop(), n]));
+    const dsPorts = portNodesOf(dsPB);
+    const egPorts = portNodesOf(egPB);
+    const bgPorts = portNodesOf(bgPB);
+
+    // PB-1: binding consistency — database binding map, dataset port
+    // nodes, graph port nodes and every coverage cell must agree.
+    {
+      const bad = [];
+      if (!dbPB.bindingMap || Object.keys(dbPB.bindingMap).length !== 6) bad.push('bindingMap does not carry 6 ports');
+      for (const p of dbPB.ports || []) {
+        const mapBranch = dbPB.bindingMap && dbPB.bindingMap[p.id] && dbPB.bindingMap[p.id].branch;
+        if (mapBranch !== p.branchBinding.branch) bad.push(p.id + ': entity binding != bindingMap');
+        for (const [label, m] of [['dataset', dsPorts], ['entity graph', egPorts], ['best graph', bgPorts]]) {
+          const n = m.get(p.id);
+          if (!n) { bad.push(p.id + ': missing from ' + label); continue; }
+          if (!n.branchBinding || n.branchBinding.branch !== p.branchBinding.branch) bad.push(p.id + ': branch in ' + label);
+          if (n.branchBinding && n.branchBinding.bindingBasis !== p.branchBinding.bindingBasis) bad.push(p.id + ': basis in ' + label);
+        }
+      }
+      for (const c of dbPB.serviceCoverage || []) {
+        if (!dbPB.bindingMap[c.port] || c.boundBranch !== dbPB.bindingMap[c.port].branch) bad.push('coverage cell binding: ' + c.port + '/' + c.serviceColumn);
+      }
+      const masterPB = ((dsPB['@graph'] || []).find((n) => n && n['@type'] === 'Dataset' && String(n['@id'] || '').endsWith('#dataset-ports')) || {});
+      if (!ldPB['@graph'] || !ldPB['@graph'][0] || ldPB['@graph'][0].description !== masterPB.description) bad.push('landing per-page JSON description != dataset master description');
+      check('PB-1 ports branch binding is consistent everywhere it is stated (database binding map == port entities == dataset nodes == both graph copies == all 48 coverage cells; landing description == master description)',
+        bad.length === 0, bad.slice(0, 4).join('; ') || '6 ports, one binding map, 48 cells in agreement');
+    }
+
+    // PB-2: no orphan numbers — every volume figure in the dataset
+    // and the graphs traces to a database volumes[] entry (value +
+    // unit + period), and every port node carries its sources.
+    {
+      const bad = [];
+      for (const p of dbPB.ports || []) {
+        for (const [label, m] of [['dataset', dsPorts], ['entity graph', egPorts], ['best graph', bgPorts]]) {
+          const n = m.get(p.id);
+          if (!n) continue;
+          if (!Array.isArray(n.sources) || !n.sources.length) bad.push(p.id + ': no sources in ' + label);
+          const dv = n.volumes || [];
+          if (dv.length !== (p.volumes || []).length) bad.push(p.id + ': volume count in ' + label + ' (' + dv.length + ' != ' + (p.volumes || []).length + ')');
+          for (const v of dv) {
+            if (!(p.volumes || []).some((w) => w.value === v.value && w.unit === v.unit && w.period === v.period)) {
+              bad.push(p.id + ': orphan volume in ' + label + ' (' + v.value + ' ' + v.unit + ' ' + v.period + ')');
+            }
+          }
+        }
+        for (const v of p.volumes || []) {
+          if (v.value == null || !v.unit || !v.period || !v.source) bad.push(p.id + ': database volume without value/unit/period/source');
+        }
+      }
+      check('PB-2 no orphan numbers in the ports surfaces (every volume figure traces to the ports database with value, unit, period and source; every port node carries sources)',
+        bad.length === 0, bad.slice(0, 4).join('; ') || 'all volumes trace to data/ports.json');
+    }
+
+    // PB-3: no-claim scan — TWIC credential claims not grounded in
+    // crew/contractor card-holding, drayage as the company's own
+    // service, port tenancy or port-authority relationship claims,
+    // any Wilmington volume figure, and any PhilaPort mileage-
+    // advantage claim are barred from the ports surfaces.
+    {
+      const surfaces = {
+        'datasets-ports.json': JSON.stringify(dsPB),
+        'dataset-ports.json': JSON.stringify(ldPB),
+        'data/ports.json': JSON.stringify(dbPB),
+        'graph port nodes': JSON.stringify([...egPorts.values()]) + JSON.stringify([...bgPorts.values()]),
+      };
+      const bad = [];
+      const claimPats = [
+        [/twic[-\s]?(certified|certification|credentialed)/i, 'TWIC credential claim'],
+        [/our (own )?(terminal|berth|dock) at/i, 'port tenancy claim'],
+        [/port (partner|partnership)/i, 'port-authority relationship claim'],
+        [/official (port|terminal)/i, 'official port claim'],
+        [/we (offer|provide|run|do) (port )?drayage/i, 'drayage as own service'],
+        [/drayage (services|company|provider)/i, 'drayage as own service'],
+        [/world'?s largest banana/i, 'unverified Wilmington banana claim'],
+        [/#1 automobile port|first port for automobiles/i, 'stale Baltimore autos claim'],
+        [/philaport[^.]{0,140}(mileage advantage|fewer miles|less miles|shorter (route|distance))/i, 'PhilaPort mileage-advantage claim'],
+      ];
+      for (const [label, text] of Object.entries(surfaces)) {
+        for (const [re, why] of claimPats) {
+          const hits = text.match(new RegExp('[^.]*' + re.source + '[^.]*', 'gi')) || [];
+          for (const h of hits) {
+            if (/\b(not|no|never)\b/i.test(h) && /mileage advantage/i.test(h)) continue;
+            bad.push(label + ': ' + why);
+          }
+        }
+        const gt = text.match(/[^.]*(gulftainer|gt usa)[^.]*/gi) || [];
+        for (const h of gt) if (!/\b(former|cancelled|canceled|gone|no longer|not|never|stale)\b/i.test(h)) bad.push(label + ': stale Wilmington operator credited');
+        const dr = text.match(/[^.]*\bdrayage\b[^.]*/gi) || [];
+        for (const h of dr) if (!/\b(not|no|never|does not|do not)\b/i.test(h)) bad.push(label + ': drayage outside a negation context');
+      }
+      const wil = dsPorts.get('port-of-wilmington-de');
+      if (!wil || (wil.volumes || []).length !== 0) bad.push('Wilmington carries a volume figure in the dataset');
+      const masterText = ((dsPB['@graph'] || []).find((n) => n && n['@type'] === 'Dataset') || {}).description || '';
+      if (!/crews hold TWIC cards/.test(masterText) || !/contractors hold valid TWIC cards/.test(masterText)) bad.push('settled TWIC card-holding wording missing from the master dataset description');
+      check('PB-3 ports no-claim scan (no TWIC credential claims — crew/contractor card-holding wording only; no drayage as own service; no port tenancy or relationship claims; no Wilmington volume; no PhilaPort mileage advantage)',
+        bad.length === 0, bad.slice(0, 4).join('; ') || 'ports surfaces clean');
+    }
+  } catch (e) { check('§32 ports gates PB-1..PB-3 execute', false, String(e && e.message || e)); }
 
   // --- 9. Guardrail scan: no placeholders, no invented license identifiers ---
   const registryText = JSON.stringify({ pages, services, locations, corridors });

@@ -1,1329 +1,2529 @@
 {
-  "@context": "https://schema.org",
-  "@graph": [
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@id": "https://theflatratemovers.com/#organization",
+   "@type": [
+    "Organization",
+    "LocalBusiness",
+    "MovingCompany"
+   ],
+   "address": {
+    "@id": "https://theflatratemovers.com/#winchester-address"
+   },
+   "email": "ratemovers@gmail.com",
+   "foundingDate": "2010-06",
+   "logo": {
+    "@type": "ImageObject",
+    "url": "https://theflatratemovers.com/assets/img-01-9c77693ba66b.png",
+    "width": 1024,
+    "height": 1024
+   },
+   "hasOfferCatalog": {
+    "@id": "https://theflatratemovers.com/#service-catalog"
+   },
+   "location": [
     {
-      "@id": "https://theflatratemovers.com/#organization",
-      "@type": [
-        "Organization",
-        "LocalBusiness",
-        "MovingCompany"
-      ],
-      "address": {
-        "@id": "https://theflatratemovers.com/#winchester-address"
-      },
-      "email": "ratemovers@gmail.com",
-      "foundingDate": "2010-06",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://theflatratemovers.com/assets/img-01-9c77693ba66b.png",
-        "width": 1024,
-        "height": 1024
-      },
-      "hasOfferCatalog": {
-        "@id": "https://theflatratemovers.com/#service-catalog"
-      },
-      "location": [
-        {
-          "@id": "https://theflatratemovers.com/#winchester"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#martinsburg"
-        }
-      ],
-      "name": "The Flat Rate Movers LLC",
-      "priceRange": "$$",
-      "sameAs": [
-        "https://www.instagram.com/theflatratemoversllc/",
-        "https://www.threads.com/@theflatratemoversllc",
-        "https://x.com/ratemovers",
-        "https://www.youtube.com/@theflatratemovers",
-        "https://github.com/TheFlatRateMovers",
-        "https://medium.com/@ratemovers",
-        "https://www.wikidata.org/wiki/Q141969215"
-      ],
-      "slogan": "Guaranteed Flat Rate or Your Move is Free!",
-      "telephone": "+1-540-422-2153",
-      "url": "https://theflatratemovers.com/"
+     "@id": "https://theflatratemovers.com/#winchester"
     },
     {
-      "@id": "https://theflatratemovers.com/#winchester",
-      "@type": "Place",
-      "address": {
-        "@id": "https://theflatratemovers.com/#winchester-address"
-      },
-      "areaServed": [
-        "Berryville, VA",
-        "Bristow, VA",
-        "Clarke County",
-        "Eastern Panhandle of West Virginia",
-        "Fauquier County",
-        "Frederick County, VA",
-        "Front Royal, VA",
-        "Hardy County",
-        "Interstate 66 Corridor",
-        "Interstate 70 Corridor",
-        "Interstate 81 Corridor",
-        "Leesburg, VA",
-        "Loudoun County, VA",
-        "Marshall, VA",
-        "Middleburg, VA",
-        "Middletown, VA",
-        "Moorefield, WV",
-        "Port of Virginia",
-        "Purcellville, VA",
-        "Round Hill, VA",
-        "Shenandoah County",
-        "Shenandoah Valley",
-        "South Riding, VA",
-        "Stephens City, VA",
-        "Stephenson, VA",
-        "Sterling, VA",
-        "Strasburg, VA",
-        "Upperville, VA",
-        "Virginia Inland Port",
-        "Warren County",
-        "Winchester, VA",
-        "Woodstock, VA"
-      ],
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 39.18711576,
-        "longitude": -78.1668352
-      },
-      "name": "The Flat Rate Movers — Winchester",
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "closes": "18:00",
-          "dayOfWeek": [
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday"
-          ],
-          "opens": "08:00"
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          "closes": "16:00",
-          "dayOfWeek": "Saturday",
-          "opens": "08:00"
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          "closes": "16:00",
-          "dayOfWeek": "Sunday",
-          "opens": "09:00"
-        }
-      ],
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": 5.0,
-        "reviewCount": 1,
-        "bestRating": 5,
-        "worstRating": 1,
-        "itemReviewed": {
-          "@id": "https://theflatratemovers.com/#winchester"
-        }
-      },
-      "sameAs": [
-        "https://www.openstreetmap.org/node/14340286372"
-      ]
-    },
-    {
-      "@id": "https://theflatratemovers.com/#winchester-address",
-      "@type": "PostalAddress",
-      "addressCountry": "US",
-      "addressLocality": "Winchester",
-      "addressRegion": "VA",
-      "postalCode": "22601",
-      "streetAddress": "116 W Piccadilly St Suite 11"
-    },
-    {
-      "@id": "https://theflatratemovers.com/#martinsburg",
-      "@type": "Place",
-      "address": {
-        "@id": "https://theflatratemovers.com/#martinsburg-address"
-      },
-      "areaServed": [
-        "Berkeley County, WV",
-        "Berkeley Springs, WV",
-        "Bunker Hill, WV",
-        "Charles Town, WV",
-        "Clear Spring, MD",
-        "Eastern Panhandle of West Virginia",
-        "Frederick, MD",
-        "Front Royal, VA",
-        "Hagerstown, MD",
-        "Hampshire County",
-        "Hancock, MD",
-        "Hardy County",
-        "Harpers Ferry, WV",
-        "Hedgesville, WV",
-        "Interstate 66 Corridor",
-        "Interstate 70 Corridor",
-        "Interstate 81 Corridor",
-        "Inwood, WV",
-        "Jefferson County",
-        "Kearneysville, WV",
-        "Martinsburg, WV",
-        "Moorefield, WV",
-        "Morgan County",
-        "Paw Paw, WV",
-        "Port of Virginia",
-        "Romney, WV",
-        "Shenandoah County",
-        "Shenandoah Valley",
-        "Shepherdstown, WV",
-        "Strasburg, VA",
-        "Summit Point, WV",
-        "Virginia Inland Port",
-        "Warren County",
-        "Washington County",
-        "Woodstock, VA"
-      ],
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 39.48319665,
-        "longitude": -77.94760443
-      },
-      "name": "Flat Rate Movers Martinsburg WV",
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": [
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday"
-          ],
-          "opens": "09:00",
-          "closes": "18:00"
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": "Saturday",
-          "opens": "09:00",
-          "closes": "16:00"
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": "Sunday",
-          "opens": "09:00",
-          "closes": "16:00"
-        }
-      ],
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": 4.7,
-        "reviewCount": 6,
-        "bestRating": 5,
-        "worstRating": 1,
-        "itemReviewed": {
-          "@id": "https://theflatratemovers.com/#martinsburg"
-        }
-      },
-      "sameAs": [
-        "https://www.openstreetmap.org/node/14340286373"
-      ]
-    },
-    {
-      "@id": "https://theflatratemovers.com/#martinsburg-address",
-      "@type": "PostalAddress",
-      "addressCountry": "US",
-      "addressLocality": "Martinsburg",
-      "addressRegion": "WV",
-      "postalCode": "25404",
-      "streetAddress": "736 Williamsport Pike Suite 2"
-    },
-    {
-      "@id": "https://theflatratemovers.com/#service-catalog",
-      "@type": "OfferCatalog",
-      "itemListElement": [
-        {
-          "@id": "https://theflatratemovers.com/residential-moving/#service"
-        },
-        {
-          "@id": "https://theflatratemovers.com/commercial-moving/#service"
-        },
-        {
-          "@id": "https://theflatratemovers.com/commercial-office-moving-2/#service"
-        },
-        {
-          "@id": "https://theflatratemovers.com/gun-safe-movers/#service"
-        },
-        {
-          "@id": "https://theflatratemovers.com/military-government-moving/#service"
-        },
-        {
-          "@id": "https://theflatratemovers.com/international-export-packing-crating-winchester-va/#service"
-        },
-        {
-          "@id": "https://theflatratemovers.com/long-distance-movers-winchester-va/#service"
-        }
-      ],
-      "name": "The Flat Rate Movers Services"
-    },
-    {
-      "@id": "https://theflatratemovers.com/gun-safe-movers/#service",
-      "@type": "Service",
-      "areaServed": [
-        {
-          "@id": "https://theflatratemovers.com/#winchester"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#martinsburg"
-        }
-      ],
-      "description": "Flat-rate gun safe moving with SIR Structural Integrity Relocation and KIM-GS Kinetic Integrity Method for high-mass assets 1,500-3,500 lbs, with L/360 floor deflection analysis, substrate and load-path protection.",
-      "name": "Gun Safe Moving",
-      "provider": {
-        "@id": "https://theflatratemovers.com/#organization"
-      },
-      "serviceType": "Gun Safe Moving"
-    },
-    {
-      "@id": "https://theflatratemovers.com/residential-moving/#service",
-      "@type": "Service",
-      "areaServed": [
-        {
-          "@id": "https://theflatratemovers.com/#winchester"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#martinsburg"
-        }
-      ],
-      "name": "Residential Moving",
-      "serviceType": "Residential Moving",
-      "provider": {
-        "@id": "https://theflatratemovers.com/#organization"
-      },
-      "description": "Flat-rate residential moving from Winchester, VA and Martinsburg, WV — houses and apartments, full or partial packing, and heavy pieces under SIR/KIM-GS, local, regional and long-distance, surveyed in advance and quoted at one price in writing before move day."
-    },
-    {
-      "@id": "https://theflatratemovers.com/commercial-moving/#service",
-      "@type": "Service",
-      "areaServed": [
-        {
-          "@id": "https://theflatratemovers.com/#winchester"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#martinsburg"
-        }
-      ],
-      "name": "Commercial Moving",
-      "serviceType": "Commercial Moving",
-      "provider": {
-        "@id": "https://theflatratemovers.com/#organization"
-      },
-      "description": "Business moves, planned around your operation. Commercial relocations quoted flat and agreed in writing before move day — planned around your hours, your site and your equipment, with our own warehouse and transload operation behind the job."
-    },
-    {
-      "@id": "https://theflatratemovers.com/international-export-packing-crating-winchester-va/#service",
-      "@type": "Service",
-      "description": "ISPM 15 International Standards for Phytosanitary Measures No. 15 export packing, custom crates, loading, transloading, final mile delivery, and high-value protection.",
-      "name": "ISPM 15 Export Packing and Custom Crating",
-      "serviceType": "ISPM 15 Export Packing and Custom Crating",
-      "provider": {
-        "@id": "https://theflatratemovers.com/#organization"
-      },
-      "areaServed": [
-        {
-          "@id": "https://theflatratemovers.com/#winchester"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#martinsburg"
-        }
-      ]
-    },
-    {
-      "@id": "https://theflatratemovers.com/#service-commercial",
-      "@type": "Service",
-      "name": "Commercial and Office Moving",
-      "alternateName": "Commercial Moving",
-      "description": "Business moves, planned around your operation. Commercial relocations quoted flat and agreed in writing before move day — planned around your hours, your site and your equipment, with our own warehouse and transload operation behind the job.",
-      "serviceType": "Commercial Moving",
-      "provider": {
-        "@id": "https://theflatratemovers.com/#organization"
-      },
-      "url": "https://theflatratemovers.com/commercial-moving/",
-      "areaServed": [
-        {
-          "@id": "https://theflatratemovers.com/#winchester"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#martinsburg"
-        }
-      ]
-    },
-    {
-      "@id": "https://theflatratemovers.com/#service-crating",
-      "@type": "Service",
-      "name": "Custom Crating",
-      "serviceType": "Custom Crating",
-      "provider": {
-        "@id": "https://theflatratemovers.com/#organization"
-      },
-      "areaServed": [
-        {
-          "@id": "https://theflatratemovers.com/#winchester"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#martinsburg"
-        }
-      ],
-      "description": "Custom-built crates and high-value item protection for domestic and export moves — measured, built and fitted to the piece, not a stock box.",
-      "url": "https://theflatratemovers.com/custom-crating/"
-    },
-    {
-      "@id": "https://theflatratemovers.com/#service-final-mile",
-      "@type": "Service",
-      "name": "Final-Mile Delivery",
-      "serviceType": "Final-Mile Delivery",
-      "provider": {
-        "@id": "https://theflatratemovers.com/#organization"
-      },
-      "areaServed": [
-        {
-          "@id": "https://theflatratemovers.com/#winchester"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#martinsburg"
-        }
-      ],
-      "description": "Final-mile delivery with in-home or in-business placement and verification — delivered to the room, placed, and confirmed on site.",
-      "url": "https://theflatratemovers.com/final-mile-delivery/"
-    },
-    {
-      "@id": "https://theflatratemovers.com/#service-white-glove",
-      "@type": "Service",
-      "name": "White-Glove Delivery",
-      "serviceType": "White-Glove Delivery",
-      "provider": {
-        "@id": "https://theflatratemovers.com/#organization"
-      },
-      "areaServed": [
-        {
-          "@id": "https://theflatratemovers.com/#place-winchester-va"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#place-martinsburg-wv"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#place-leesburg-va"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#place-marshall-va"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#place-sterling-va"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#place-stephens-city-va"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#place-berryville-va"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#place-middleburg-va"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#place-middletown-va"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#place-moorefield-wv"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#place-round-hill-va"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#place-stephenson-va"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#place-upperville-va"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#place-purcellville-va"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#place-south-riding-va"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#place-inwood-wv"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#place-hagerstown-md"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#place-hedgesville-wv"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#place-paw-paw-wv"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#place-shepherdstown-wv"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#place-bunker-hill-wv"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#place-charles-town-wv"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#place-clear-spring-md"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#place-summit-point-wv"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#place-harpers-ferry-wv"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#place-kearneysville-wv"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#place-front-royal-va"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#place-strasburg-va"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#place-woodstock-va"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#place-bristow-va"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#place-berkeley-springs-wv"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#place-romney-wv"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#place-frederick-md"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#place-hancock-md"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#county-frederick-county"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#county-loudoun-county"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#county-berkeley-county"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#county-jefferson-county"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#county-morgan-county"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#county-clarke-county"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#county-warren-county"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#county-shenandoah-county"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#county-hampshire-county"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#county-hardy-county"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#county-washington-county"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#county-fauquier-county"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#landmark-port-of-virginia"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#landmark-virginia-inland-port"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#landmark-shenandoah-valley"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#landmark-eastern-panhandle-of-west-virginia"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#landmark-interstate-81-corridor"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#landmark-interstate-66-corridor"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#landmark-interstate-70-corridor"
-        }
-      ],
-      "description": "White-Glove Delivery — the top level of final-mile delivery and the handling standard for high-value, fragile and heavy pieces: brought in on a planned route, carried over the threshold, set in its final position, packaging removed, and condition verified with the recipient before the crew leaves — never left at a curb. Pieces are protected in padded blankets and stretch wrap, or in a custom crate when the piece requires it; heavy pieces of 1,500 to 3,500 lbs are surveyed and floor-checked to L/360 under SIR Structural Integrity Relocation and the KIM-GS Protocol. Offered from both branches across the full published footprint — all 53 GeoJSON service areas, Winchester VA and Martinsburg WV. Quoted at one flat rate in writing before dispatch. Guaranteed Flat Rate or Your Move is Free!",
-      "url": "https://theflatratemovers.com/white-glove-delivery/"
-    },
-    {
-      "@id": "https://theflatratemovers.com/#service-government",
-      "@type": "Service",
-      "name": "Government Moving",
-      "serviceType": "Government Moving",
-      "provider": {
-        "@id": "https://theflatratemovers.com/#organization"
-      },
-      "areaServed": [
-        {
-          "@id": "https://theflatratemovers.com/#winchester"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#martinsburg"
-        }
-      ],
-      "description": "Moving services for government offices and public-sector relocations — planned, documented and quoted flat, around the agency’s schedule and site requirements. The company performs moves for federal agencies, including the FBI and the DEA.",
-      "url": "https://theflatratemovers.com/government-moving/"
-    },
-    {
-      "@id": "https://theflatratemovers.com/#service-gun-safe",
-      "@type": "Service",
-      "name": "Gun Safe Moving",
-      "description": "Gun safe and high-mass safe moving under SIR Structural Integrity Relocation and the KIM-GS Protocol, for safes of 1,500 to 3,500 lbs, plus safes under 1,500 lbs handled the same careful way under standard heavy care — route and clearance survey, floor deflection analysis to L/360, load spreading, floor protection and verified placement, quoted at one flat rate in writing. Moving gun safes since 2010. The safe is emptied first, always; stairs go up and down; equipment is matched to the project; re-anchoring at the destination is available on request; vault work covers any size; standard safe classes; no locksmith services.",
-      "serviceType": "Gun Safe Moving",
-      "provider": {
-        "@id": "https://theflatratemovers.com/#organization"
-      },
-      "url": "https://theflatratemovers.com/gun-safe-movers/",
-      "areaServed": [
-        {
-          "@id": "https://theflatratemovers.com/#winchester"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#martinsburg"
-        }
-      ]
-    },
-    {
-      "@id": "https://theflatratemovers.com/#service-industrial-commercial",
-      "@type": "Service",
-      "name": "Industrial & Commercial Services",
-      "serviceType": "Industrial & Commercial Services",
-      "provider": {
-        "@id": "https://theflatratemovers.com/#organization"
-      },
-      "url": "https://theflatratemovers.com/industrial-commercial-services/",
-      "areaServed": [
-        {
-          "@id": "https://theflatratemovers.com/#winchester"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#martinsburg"
-        }
-      ],
-      "description": "Industrial & Commercial Services — Trained, Supervised Moving and Warehouse Teams for industrial and commercial project support: warehouse and distribution, commercial relocation and logistics including white-glove/blanket-wrap, FF&E installation and project support, and flexible workforce deployment, priced per job with no required contract duration. Standard Job Pricing: Unload $8.00/CWT, Load $10.00/CWT, APU $12.00/CWT, Residential/Driver Meet $400-$425 per man."
-    },
-    {
-      "@id": "https://theflatratemovers.com/#service-industrial-offices",
-      "@type": "Service",
-      "name": "Industrial Offices Moving",
-      "serviceType": "Industrial Offices Moving",
-      "provider": {
-        "@id": "https://theflatratemovers.com/#organization"
-      },
-      "url": "https://theflatratemovers.com/industrial-offices-moving/",
-      "areaServed": [
-        {
-          "@id": "https://theflatratemovers.com/#winchester"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#martinsburg"
-        }
-      ],
-      "description": "Office moves for industrial and facility sites — office areas within plants, warehouses and industrial facilities — planned around production and site access, quoted flat."
-    },
-    {
-      "@id": "https://theflatratemovers.com/#service-route81",
-      "@type": "Service",
-      "name": "Route 81 Corridor Moving and Dispatch",
-      "serviceType": "Route 81 Corridor Moving and Dispatch",
-      "provider": {
-        "@id": "https://theflatratemovers.com/#organization"
-      },
-      "areaServed": [
-        {
-          "@id": "https://theflatratemovers.com/#winchester"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#martinsburg"
-        }
-      ],
-      "description": "Moving and logistics dispatch along Interstate 81, I-66 and I-70 from Winchester, VA and Martinsburg, WV — corridor moves run from two dispatch branches on one flat-rate standard."
-    },
-    {
-      "@id": "https://theflatratemovers.com/#service-ispm15",
-      "@type": "Service",
-      "name": "ISPM 15 Export Packing",
-      "serviceType": "ISPM 15 Export Packing",
-      "provider": {
-        "@id": "https://theflatratemovers.com/#organization"
-      },
-      "areaServed": [
-        {
-          "@id": "https://theflatratemovers.com/#winchester"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#martinsburg"
-        }
-      ],
-      "description": "Export packing to ISPM 15 (International Standards for Phytosanitary Measures No. 15) for international shipping, with crates built and marked to the ISPM 15 standard.",
-      "url": "https://theflatratemovers.com/export/"
-    },
-    {
-      "@id": "https://theflatratemovers.com/#service-local-regional",
-      "@type": "Service",
-      "name": "Local and Regional Moving",
-      "description": "Local and regional moves along the I-81, I-66 and I-70 corridors, from our two home bases in Winchester, VA and Martinsburg, WV — homes and businesses across the Shenandoah Valley and the Eastern Panhandle, at a flat rate agreed in writing before move day. Packing and unpacking, loading and unloading, priced by the job, not by the hour. Where a move includes a high-mass piece, that item moves under SIR Structural Integrity Relocation with L/360 floor-deflection analysis, as part of the same flat-rate move.",
-      "serviceType": "Local and Regional Moving",
-      "provider": {
-        "@id": "https://theflatratemovers.com/#organization"
-      },
-      "url": "https://theflatratemovers.com/local-regional-moving/",
-      "areaServed": [
-        {
-          "@id": "https://theflatratemovers.com/#winchester"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#martinsburg"
-        }
-      ]
-    },
-    {
-      "@id": "https://theflatratemovers.com/#service-long-distance",
-      "@type": "Service",
-      "name": "Long-Distance Moving",
-      "description": "Flat-rate long-distance moving from Winchester, VA and Martinsburg, WV — one price agreed in writing before the truck rolls, dispatched from the Winchester junction where I-81 meets I-66 and along the I-81, I-66 and I-70 corridor network. Homes and businesses, moved at one flat rate with no hourly meter, from either home base across the region and beyond.",
-      "serviceType": "Long-Distance Moving",
-      "provider": {
-        "@id": "https://theflatratemovers.com/#organization"
-      },
-      "url": "https://theflatratemovers.com/long-distance-moving/",
-      "areaServed": [
-        {
-          "@id": "https://theflatratemovers.com/#winchester"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#martinsburg"
-        }
-      ]
-    },
-    {
-      "@id": "https://theflatratemovers.com/#service-military",
-      "@type": "Service",
-      "name": "Military Moving",
-      "serviceType": "Military Moving",
-      "provider": {
-        "@id": "https://theflatratemovers.com/#organization"
-      },
-      "areaServed": [
-        {
-          "@id": "https://theflatratemovers.com/#winchester"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#martinsburg"
-        }
-      ],
-      "description": "Moving services for U.S. military households and service members relocating to or from the Winchester and Martinsburg area, quoted flat in writing before move day.",
-      "url": "https://theflatratemovers.com/military-moving/"
-    },
-    {
-      "@id": "https://theflatratemovers.com/#service-office-moving",
-      "@type": "Service",
-      "name": "Office Moving",
-      "description": "Complete office relocations, quoted flat and agreed in writing: desks and workstations, files and records runs, and office equipment, moved in a planned, phased sequence — what leaves first, what arrives first, and where each workstation, file run and piece of equipment lands — so your team can sit down and work at the new address. Professional, shop and industrial offices are served, with full or partial packing and staging when the dates do not line up neatly. One agreed price before move day, no hourly meter running over a weekend move.",
-      "serviceType": "Office Moving",
-      "provider": {
-        "@id": "https://theflatratemovers.com/#organization"
-      },
-      "url": "https://theflatratemovers.com/office-moving/",
-      "areaServed": [
-        {
-          "@id": "https://theflatratemovers.com/#winchester"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#martinsburg"
-        }
-      ]
-    },
-    {
-      "@id": "https://theflatratemovers.com/#service-packing",
-      "@type": "Service",
-      "name": "Packing and Unpacking",
-      "serviceType": "Packing and Unpacking",
-      "provider": {
-        "@id": "https://theflatratemovers.com/#organization"
-      },
-      "areaServed": [
-        {
-          "@id": "https://theflatratemovers.com/#winchester"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#martinsburg"
-        }
-      ],
-      "description": "Packing and unpacking services from Winchester, VA and Martinsburg, WV — full, partial and fragile-only packing, furniture fully covered in blue padded blankets and sealed with clear stretch wrap, staged cleanly in the room, plus unpacking and placement at destination, quoted inside one flat rate in writing before move day. High-value and fragile pieces receive white-glove handling or a custom crate, and export pieces are packed to ISPM 15 when the journey crosses a border.",
-      "url": "https://theflatratemovers.com/packing/"
-    },
-    {
-      "@id": "https://theflatratemovers.com/#service-piano-antique",
-      "@type": "Service",
-      "name": "Piano, Antique and White-Glove Moving",
-      "serviceType": "Piano, Antique and White-Glove Moving",
-      "provider": {
-        "@id": "https://theflatratemovers.com/#organization"
-      },
-      "areaServed": [
-        {
-          "@id": "https://theflatratemovers.com/#winchester"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#martinsburg"
-        }
-      ],
-      "description": "White-glove handling of pianos, antiques and high-value items — surveyed, protected, and moved with custom crating when the piece requires it, at one flat rate agreed in writing.",
-      "url": "https://theflatratemovers.com/piano-antique-white-glove-moving/"
-    },
-    {
-      "@id": "https://theflatratemovers.com/#service-sir-heavy",
-      "@type": "Service",
-      "name": "SIR Heavy Asset Relocation (KIM-GS Protocol)",
-      "serviceType": "SIR Heavy Asset Relocation (KIM-GS Protocol)",
-      "provider": {
-        "@id": "https://theflatratemovers.com/#organization"
-      },
-      "areaServed": [
-        {
-          "@id": "https://theflatratemovers.com/#winchester"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#martinsburg"
-        }
-      ],
-      "description": "SIR Structural Integrity Relocation and the KIM-GS Protocol for high-mass assets of 1,500 to 3,500 lbs — safes, medical devices, cryogenic equipment, pianos and antiques — with floor deflection analysis to L/360. Every SIR move starts with the building, not the item: the asset is assessed, the route and stair clearances are surveyed, the floor is checked against L/360 before any lift, the load path is spread and protected, the crew and rigging are matched to the plan, the move runs controlled and supervised along the planned path, and the asset is placed, levelled and verified with the client — at the flat rate agreed in writing.",
-      "url": "https://theflatratemovers.com/heavy/"
-    },
-    {
-      "@id": "https://theflatratemovers.com/#service-transloading",
-      "@type": "Service",
-      "name": "Loading, Transloading and Container Services",
-      "serviceType": "Transloading",
-      "provider": {
-        "@id": "https://theflatratemovers.com/#organization"
-      },
-      "areaServed": [
-        {
-          "@id": "https://theflatratemovers.com/#winchester"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#martinsburg"
-        }
-      ],
-      "description": "Container loading and unloading, and transloading between truck, container and warehouse — counted, sorted and restacked for the inland leg, with cross-docking and warehouse staging.",
-      "url": "https://theflatratemovers.com/transloading/"
-    },
-    {
-      "@id": "https://theflatratemovers.com/#service-senior-moving",
-      "@type": "Service",
-      "areaServed": [
-        {
-          "@id": "https://theflatratemovers.com/#winchester"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#martinsburg"
-        }
-      ],
-      "description": "Flat-rate senior moves quoted in writing for seniors downsizing, transitioning to assisted or independent living, or relocating closer to family, with families coordinating — including adult children coordinating from out of town. Packing support, including fragile items and keepsakes, and a free film-only video-walkthrough survey room with a human-made estimate. One flat price agreed in writing before move day, no hourly clock. Where a senior move actually involves a high-mass asset of 1,500 to 3,500 lbs, that item moves under SIR with floor deflection analysis to L/360, as part of the same flat-rate move. Served from Winchester, VA and Martinsburg, WV across the Shenandoah Valley and Eastern Panhandle.",
-      "name": "Senior Moving",
-      "alternateName": "Senior Advocacy Logistics",
-      "provider": {
-        "@id": "https://theflatratemovers.com/#organization"
-      },
-      "url": "https://theflatratemovers.com/senior-moving/",
-      "serviceType": "Senior Moving"
-    },
-    {
-      "@id": "https://theflatratemovers.com/#service-warehouse-relocation",
-      "@type": "Service",
-      "areaServed": [
-        {
-          "@id": "https://theflatratemovers.com/#winchester"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#martinsburg"
-        }
-      ],
-      "description": "Flat-rate warehouse relocation from The Flat Rate Movers: warehouse and distribution moves, warehouse load-outs and inbound unloads, transload staging, and restacking, carried out by supervised warehouse teams and planned around the site — access, floor space, staging, and equipment handling — quoted flat per job with no required contract duration. Standard Job Pricing: Unload $8.00/CWT, Load $10.00/CWT, APU $12.00/CWT, Residential/Driver Meet $400–$425 per man, quoted per job, adjustable for scope, equipment, travel and after-hours agreed before dispatch. Served from Winchester, VA and Martinsburg, WV across the Shenandoah Valley and Eastern Panhandle.",
-      "name": "Warehouse Relocation",
-      "provider": {
-        "@id": "https://theflatratemovers.com/#organization"
-      },
-      "serviceType": "Warehouse Relocation",
-      "url": "https://theflatratemovers.com/warehouse-relocation/"
-    },
-    {
-      "@id": "https://theflatratemovers.com/#service-it-relocation",
-      "@type": "Service",
-      "areaServed": [
-        {
-          "@id": "https://theflatratemovers.com/#winchester"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#martinsburg"
-        }
-      ],
-      "description": "IT equipment and data center logistics from The Flat Rate Movers: servers, racks, workstations, and network equipment moved in a planned, labelled sequence so systems come back up in order, as part of commercial and office relocations across the Shenandoah Valley and Eastern Panhandle. Commercial moves are planned around the operation: what moves first, what moves last, and what must be working on day one. Flat rate quoted in writing before move day. Heavy racks and cabinets in the 1,500–3,500 lb band are surveyed under SIR/KIM-GS with an L/360 floor check, like any high-mass asset.",
-      "name": "IT Relocation & Setup",
-      "provider": {
-        "@id": "https://theflatratemovers.com/#organization"
-      },
-      "serviceType": "IT Relocation & Setup",
-      "url": "https://theflatratemovers.com/it-equipment-moving-data-center-logistics-services-virginia/"
-    },
-    {
-      "@id": "https://theflatratemovers.com/#service-transloading-winchester-va",
-      "@type": "Service",
-      "areaServed": [
-        {
-          "@id": "https://theflatratemovers.com/#winchester"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#martinsburg"
-        }
-      ],
-      "description": "Winchester transloading from The Flat Rate Movers: ocean containers devanned and destuffed, counted, inspected and photographed with same-day written exception reporting, reworked (palletized, wrapped, labeled, sorted by destination, purchase order or SKU), restacked into 53ft domestic trailers, dispatched on I-81, I-66 and I-70 through the Virginia Inland Port and Port of Virginia chain, empty returned before per-diem, final mile by appointment. Container transloading jobs are quoted per job, agreed in writing before dispatch. Heavy assets in the 1,500–3,500 lb range move under SIR (Structural Integrity Relocation, L/360 floor deflection) as part of the same flat-rate job.",
-      "name": "Transloading Services — Winchester VA",
-      "provider": {
-        "@id": "https://theflatratemovers.com/#organization"
-      },
-      "serviceType": "Transloading",
-      "url": "https://theflatratemovers.com/transloading-winchester-va/"
-    },
-    {
-      "@id": "https://theflatratemovers.com/#service-residential",
-      "@type": "Service",
-      "areaServed": [
-        {
-          "@id": "https://theflatratemovers.com/#winchester"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#martinsburg"
-        }
-      ],
-      "description": "Flat-rate residential moving from Winchester, VA and Martinsburg, WV — houses and apartments, full or partial packing, and heavy pieces under SIR/KIM-GS, local, regional and long-distance, surveyed in advance and quoted at one price in writing before move day.",
-      "name": "Residential Moving",
-      "provider": {
-        "@id": "https://theflatratemovers.com/#organization"
-      },
-      "url": "https://theflatratemovers.com/residential-moving/",
-      "serviceType": "Residential Moving"
-    },
-    {
-      "@id": "https://theflatratemovers.com/#service-moving-and-storage",
-      "@type": "Service",
-      "name": "Moving and Storage",
-      "description": "Moves with a storage interval between move-out and move-in, in leased storage for any type of items — including containers, household goods, and machines such as robotic arms — 30-day minimum stay, customers can access stored items while stored. Storage is quoted per job, monthly, or by volume, agreed flat in writing through the same flat-rate quote path, from Winchester VA and Martinsburg WV.",
-      "serviceType": "Moving and Storage",
-      "provider": {
-        "@id": "https://theflatratemovers.com/#organization"
-      },
-      "url": "https://theflatratemovers.com/moving-and-storage/",
-      "areaServed": [
-        {
-          "@id": "https://theflatratemovers.com/#winchester"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#martinsburg"
-        }
-      ]
-    },
-    {
-      "@id": "https://theflatratemovers.com/#service-junk-removal",
-      "@type": "Service",
-      "name": "Junk Removal",
-      "description": "Junk removal from Winchester, VA and Martinsburg, WV — furniture, appliances, mattresses, hot tubs, electronics, yard debris, renovation debris, and whole-property cleanouts for homes, estates, evictions and businesses — surveyed in advance and quoted at one flat rate in writing before work begins, never by the hour. After pickup, every load is sorted: usable goods are routed toward donation, recyclable materials toward recycling, and the remainder to lawful disposal. Hazardous and regulated waste is not taken. Quoted flat in writing through the same flat-rate quote path, from Winchester VA and Martinsburg WV.",
-      "serviceType": "Junk Removal",
-      "provider": {
-        "@id": "https://theflatratemovers.com/#organization"
-      },
-      "url": "https://theflatratemovers.com/junk-removal/",
-      "areaServed": [
-        {
-          "@id": "https://theflatratemovers.com/#winchester"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#martinsburg"
-        }
-      ]
-    },
-    {
-      "@id": "https://theflatratemovers.com/#service-freight-rework-transloading",
-      "@type": "Service",
-      "name": "Freight Rework & Transloading",
-      "description": "Freight rework and transloading from Winchester, VA and Martinsburg, WV — shifted loads, loads refused at a receiver's dock, damaged or collapsed pallets, and overweight or axle-illegal loads, unloaded under control, documented as found, rebuilt to the receiver's specification and re-secured to the federal cargo securement standard, plus planned cross-docking and container and rail-to-truck transloading — for drivers, carriers, brokers, 3PLs, warehouses and receivers, quoted at one flat rate before work begins, with emergency and after-hours response available at premium rates. The work is performed where the job requires: leased space, the receiver's dock, or a yard. No rate schedule is published for this service. Quoted flat in writing through the same flat-rate quote path, from Winchester VA and Martinsburg WV.",
-      "serviceType": "Freight Rework & Transloading",
-      "provider": {
-        "@id": "https://theflatratemovers.com/#organization"
-      },
-      "url": "https://theflatratemovers.com/freight-rework-transloading/",
-      "areaServed": [
-        {
-          "@id": "https://theflatratemovers.com/#winchester"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#martinsburg"
-        }
-      ]
-    },
-    {
-      "@id": "https://theflatratemovers.com/#service-warehouse-racking-relocation",
-      "@type": "Service",
-      "name": "Warehouse Racking Relocation",
-      "description": "Warehouse racking relocation from Winchester, VA and Martinsburg, WV — pallet rack teardown and reinstallation, the inventory move that belongs with the steel, storage staging between buildings, industrial equipment disassembly and reassembly, and cubicle and office-systems teardown and reassembly — surveyed in advance and quoted per job at one flat rate in writing, never by the hour. Racking is torn down, transported, reinstalled and anchored to the floor by the company's crews, to the manufacturer's specification and ANSI MH16.1 / RMI guidance. Where a project requires engineering, seismic calculation or permits, the company consults and arranges them through the certified contractors it engages, so the full scope — any rack type, height or mezzanine configuration — is handled inside the one flat-rate engagement; the engineering and permit authority itself rests with those certified contractors. Components found damaged at teardown are set aside and reported, never re-erected. From Winchester VA and Martinsburg WV, along the I-81, I-66 and I-70 corridors.",
-      "serviceType": "Warehouse Racking Relocation",
-      "provider": {
-        "@id": "https://theflatratemovers.com/#organization"
-      },
-      "url": "https://theflatratemovers.com/warehouse-racking-relocation/",
-      "areaServed": [
-        {
-          "@id": "https://theflatratemovers.com/#winchester"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#martinsburg"
-        }
-      ]
-    },
-    {
-      "@id": "https://theflatratemovers.com/#service-ffe-logistics",
-      "@type": "Service",
-      "name": "FF&E Logistics",
-      "description": "FF&E logistics from The Flat Rate Movers — purchase-order receiving, dock inventory and condition documentation, warehousing in leased space, sequenced delivery by model room, floor, room, department, classroom, office, or project phase, installation support, packaging and debris removal, punch support, and opening-day readiness for hospitality, healthcare and senior-living, office, education, restaurant, and commercial fit-outs from Winchester, VA and Martinsburg, WV. Installation support covers unpacking, furniture assembly, placement, leveling, and set-in-place support; licensed-trade connections and manufacturer or clinical commissioning remain with the responsible trade or technical team. The company does not procure, design, or purchase FF&E. Every job is reviewed in full and quoted per job at one flat rate in writing. Guaranteed Flat Rate or Your Move is Free!",
-      "serviceType": "FF&E Logistics",
-      "provider": {
-        "@id": "https://theflatratemovers.com/#organization"
-      },
-      "url": "https://theflatratemovers.com/ffe-logistics/",
-      "areaServed": [
-        {
-          "@id": "https://theflatratemovers.com/#winchester"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#martinsburg"
-        }
-      ]
-    },
-    {
-      "@id": "https://theflatratemovers.com/#service-data-center-relocation",
-      "@type": "Service",
-      "name": "Data Center Relocation — Physical Layer",
-      "description": "Data center relocation — the physical layer — from The Flat Rate Movers: servers, populated and de-racked racks and cabinets, storage and network equipment moved between server rooms, colocation facilities and data centers in Northern Virginia and the I-81 corridor as a planned, labelled, documented sequence. The crew performs disconnect and reconnect, de-install and placement — shutdown and unplug in the sequence fixed at survey with the client's IT team, and reconnection, re-cabling and power-up at the destination to the scope agreed at survey; where an element requires certified specialists, the company engages certified contractors for that element. Equipment is inventoried and manifested before anything is unplugged, packed padded, wrapped and strapped with custom crating where needed, sealed with tamper-evident seals, transported in the planned order, and placed in labelled rack and U order, physically verified with the client's team. Retired equipment is packed, sealed, manifested and hauled to the certified ITAD partner engaged for the job; data sanitization, destruction and certification belong to that partner and are never claimed by the company. Populated racks and cabinets in the 1,500–3,500 lb band are surveyed under SIR/KIM-GS with an L/360 floor check. Flat rate quoted in writing before move day. No workload migration or recommissioning is offered or claimed, and the company claims no IT certifications of its own.",
-      "serviceType": "Data Center Physical Relocation",
-      "provider": {
-        "@id": "https://theflatratemovers.com/#organization"
-      },
-      "url": "https://theflatratemovers.com/data-center-relocation/",
-      "areaServed": [
-        {
-          "@id": "https://theflatratemovers.com/#winchester"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#martinsburg"
-        }
-      ]
-    },
-    {
-      "@id": "https://theflatratemovers.com/#service-medical-lab-relocation",
-      "@type": "Service",
-      "name": "Medical & Laboratory Equipment Relocation Logistics",
-      "description": "Medical and laboratory equipment relocation from Winchester, VA and Martinsburg, WV — the heavy physical layer of hospital, imaging, laboratory and university moves, run under SIR (Structural Integrity Relocation) and the KIM-GS Protocol for heavy units of 1,500 to 3,500 lbs with floor deflection analysis to L/360: survey and structural check, coordination with the manufacturer's technicians and the facility's EHS team, de-installation support, packing and custom crating, sealed documented transport, and placement and leveling for vendor recommissioning. Transport-only by design: calibration, certification, commissioning, decontamination and requalification are performed by the customer's vendor and EHS teams, never by the mover; specimens, chemicals and cryogenic contents are never transported. Surveyed in full and quoted per job at one flat rate in writing, never by the hour.",
-      "serviceType": "Medical & Laboratory Equipment Relocation",
-      "provider": {
-        "@id": "https://theflatratemovers.com/#organization"
-      },
-      "url": "https://theflatratemovers.com/medical-lab-equipment-relocation/",
-      "areaServed": [
-        {
-          "@id": "https://theflatratemovers.com/#winchester"
-        },
-        {
-          "@id": "https://theflatratemovers.com/#martinsburg"
-        }
-      ],
-      "isPartOf": {
-        "@id": "https://theflatratemovers.com/#service-sir-heavy"
-      }
-    },
-    {
-      "@id": "https://theflatratemovers.com/author/henry-pitts-jr/#person",
-      "@type": "Person",
-      "jobTitle": "Owner, The Flat Rate Movers",
-      "name": "Henry Pitts Jr.",
-      "sameAs": [
-        "https://theflatratemovers.com/",
-        "https://www.instagram.com/theflatratemoversllc/",
-        "https://www.threads.com/@theflatratemoversllc",
-        "https://www.youtube.com/@theflatratemovers",
-        "https://medium.com/@ratemovers",
-        "https://github.com/TheFlatRateMovers"
-      ],
-      "url": "https://theflatratemovers.com/author/henry-pitts-jr/",
-      "worksFor": {
-        "@id": "https://theflatratemovers.com/#organization"
-      }
-    },
-    {
-      "@id": "https://theflatratemovers.com/#api",
-      "@type": "WebAPI",
-      "documentation": "https://theflatratemovers.com/developer/",
-      "name": "The Flat Rate Movers API",
-      "provider": {
-        "@id": "https://theflatratemovers.com/#organization"
-      },
-      "url": "https://api.theflatratemovers.com"
-    },
-    {
-      "@type": "Book",
-      "@id": "https://theflatratemovers.com/author/henry-pitts-jr/#book",
-      "name": "The Strategic Integrator: A Professional Guide to Precision Moving and Digital Dominance in the AI Era",
-      "author": {
-        "@id": "https://theflatratemovers.com/author/henry-pitts-jr/#person"
-      },
-      "datePublished": "2026-03-01",
-      "inLanguage": "en",
-      "identifier": [
-        {
-          "@type": "PropertyValue",
-          "propertyID": "ASIN",
-          "value": "B0GRBKR5DS"
-        },
-        {
-          "@type": "PropertyValue",
-          "propertyID": "EAN",
-          "value": "2940185300718"
-        }
-      ],
-      "sameAs": [
-        "https://www.wikidata.org/wiki/Q141969268"
-      ]
-    },
-    {
-      "@type": "DataCatalog",
-      "@id": "https://theflatratemovers.com/datasets/#collection",
-      "name": "The Flat Rate Movers — AI Authority Estate Datasets",
-      "url": "https://theflatratemovers.com/datasets/",
-      "publisher": {
-        "@id": "https://theflatratemovers.com/#organization"
-      },
-      "license": "https://creativecommons.org/licenses/by/4.0/",
-      "isAccessibleForFree": true,
-      "identifier": "https://doi.org/10.5281/zenodo.23879048",
-      "sameAs": [
-        "https://www.wikidata.org/wiki/Q141969285",
-        "https://doi.org/10.5281/zenodo.23879048"
-      ]
+     "@id": "https://theflatratemovers.com/#martinsburg"
     }
-  ],
-  "@id": "https://theflatratemovers.com/entity-graph.json",
-  "@type": "Dataset",
-  "attestations": [
-    {
-      "claim": "Founding date June 2010",
-      "evidence": "https://theflatratemovers.com/",
-      "source": "Henry confirmation 2026-10-27 and live site Upperville page: family-owned established 2010",
-      "verified": "2026-10-27"
-    },
-    {
-      "claim": "Winchester address, geo, phone, hours",
-      "evidence": "https://theflatratemovers.com/",
-      "source": "Places record and Google Business Profile Winchester, hours Mon-Fri 8-6, Sat 8-4, Sun 9-4",
-      "verified": "2026-10-27"
-    },
-    {
-      "claim": "Martinsburg address, geo, phone",
-      "evidence": "https://theflatratemovers.com/",
-      "source": "Places record and Google Business Profile Martinsburg",
-      "verified": "2026-10-27"
-    },
-    {
-      "claim": "Martinsburg hours are distinct: Mon-Fri 9-6, Sat 9-4, Sun 9-4, name Flat Rate Movers Martinsburg WV, Google rating 4.7 with 6 reviews",
-      "source": "Henry correction 2026-10-27, superseding earlier same-day unified-hours note; Google Business Profile Martinsburg, verified 2026-10-27",
-      "verified": "2026-10-28"
-    },
-    {
-      "claim": "Winchester full footprint, 32 areas (17 Google Business Profile areas plus expansion areas)",
-      "source": "Google Business Profile Business information, Location, screenshot supplied by Henry 2026-10-27",
-      "verified": "2026-10-27"
-    },
-    {
-      "claim": "Martinsburg full footprint, 35 areas (14 Google Business Profile areas plus expansion areas)",
-      "source": "Google Business Profile Business information, Hours/Location, screenshot supplied by Henry 2026-10-27",
-      "verified": "2026-10-27"
-    },
-    {
-      "claim": "Winchester Google rating 5.0 with 1 review; Martinsburg Google rating 4.7 with 6 reviews",
-      "source": "Google Business Profile check 2026-10-27, read-only, per branch, not blended; per-branch ratings are carried on each Place node",
-      "verified": "2026-10-27"
-    },
-    {
-      "claim": "SIR/KIM-GS, 1,500-3,500 lbs, L/360",
-      "source": "The Flat Rate Movers live site and GitHub SIR authority repos",
-      "verified": "2026-10-27"
-    },
-    {
-      "claim": "ISPM 15 export packing, custom crating, transloading, final mile, high-value protection",
-      "source": "Henry addition 2026-10-27 and live ai-sitemap.json",
-      "verified": "2026-10-27"
-    },
-    {
-      "claim": "License details are private and are not published in this graph",
-      "source": "Henry instruction 2026-10-27",
-      "verified": "2026-10-27"
-    },
-    {
-      "claim": "24 new branch & corridor pages (full footprint 31/35, shared 14), each with Service JSON-LD, logo image, backlinks",
-      "source": "Flat Rate Machine Phase 3 full build, owner-approved content 2026-10-28; GBP screenshots 2026-10-27 confirmed 2026-10-28; GeoJSON branch properties 2026-10-28",
-      "verified": "2026-10-28"
-    }
-  ],
-  "chain": [
-    {
-      "from": "https://theflatratemovers.com/#organization",
-      "relation": "location",
-      "to": "https://theflatratemovers.com/#winchester"
-    },
-    {
-      "from": "https://theflatratemovers.com/#organization",
-      "relation": "location",
-      "to": "https://theflatratemovers.com/#martinsburg"
-    },
-    {
-      "from": "https://theflatratemovers.com/#winchester",
-      "relation": "address",
-      "to": "https://theflatratemovers.com/#winchester-address"
-    },
-    {
-      "from": "https://theflatratemovers.com/#martinsburg",
-      "relation": "address",
-      "to": "https://theflatratemovers.com/#martinsburg-address"
-    },
-    {
-      "from": "https://theflatratemovers.com/gun-safe-movers/#service",
-      "relation": "provider",
-      "to": "https://theflatratemovers.com/#organization"
-    },
-    {
-      "from": "https://theflatratemovers.com/gun-safe-movers/#service",
-      "relation": "areaServed",
-      "to": "https://theflatratemovers.com/#winchester"
-    },
-    {
-      "from": "https://theflatratemovers.com/gun-safe-movers/#service",
-      "relation": "areaServed",
-      "to": "https://theflatratemovers.com/#martinsburg"
-    },
-    {
-      "from": "https://theflatratemovers.com/#service-catalog",
-      "relation": "itemListElement",
-      "to": "https://theflatratemovers.com/gun-safe-movers/#service"
-    },
-    {
-      "from": "https://theflatratemovers.com/#organization",
-      "relation": "sameAs",
-      "to": "https://www.instagram.com/theflatratemoversllc/"
-    },
-    {
-      "from": "https://theflatratemovers.com/#organization",
-      "relation": "sameAs",
-      "to": "https://www.threads.com/@theflatratemoversllc"
-    },
-    {
-      "from": "https://theflatratemovers.com/#organization",
-      "relation": "sameAs",
-      "to": "https://x.com/ratemovers"
-    },
-    {
-      "from": "https://theflatratemovers.com/#organization",
-      "relation": "sameAs",
-      "to": "https://www.youtube.com/@theflatratemovers"
-    },
-    {
-      "from": "https://theflatratemovers.com/#winchester",
-      "relation": "areaServed",
-      "to": "Winchester full footprint, 32 areas"
-    },
-    {
-      "from": "https://theflatratemovers.com/#martinsburg",
-      "relation": "areaServed",
-      "to": "Martinsburg full footprint, 35 areas"
-    }
-  ],
-  "dateModified": "2026-10-30",
-  "description": "Machine-readable entity graph for The Flat Rate Movers LLC. Every node has a stable @id, every Service and Place chains to the Organization by @id, every service area chains to its branch Place, and every fact carries a named source and verification date. Per-branch Google ratings live on each Place node, distinct, never blended. License details are private and are not published in this graph.",
-  "name": "The Flat Rate Movers — Entity Graph, Nodes and Chains",
-  "rubric": {
-    "checks": [
-      "Every page has Organization, WebPage, BreadcrumbList, and Service nodes, all linked by stable @id, not by copied text",
-      "Every Place chains Organization -> Place -> PostalAddress -> GeoCoordinates -> OpeningHoursSpecification -> areaServed",
-      "Every Service chains Service -> provider Organization -> Place -> areaServed",
-      "Every fact in a node appears in a source note with source and date, or it is omitted",
-      "No rating, price, license detail, testimonial, or move count appears without a named, visible, verified source",
-      "Service areas match the full footprint per branch (Winchester 32, Martinsburg 35), not a generic county list",
-      "Captions and credits are honest: style examples are labelled as examples, never presented as his work"
-    ],
-    "purpose": "Use this rubric to check any page, node, or graph before go-live: does it chain, does it cite, does it source?"
+   ],
+   "name": "The Flat Rate Movers LLC",
+   "priceRange": "$$",
+   "sameAs": [
+    "https://www.instagram.com/theflatratemoversllc/",
+    "https://www.threads.com/@theflatratemoversllc",
+    "https://x.com/ratemovers",
+    "https://www.youtube.com/@theflatratemovers",
+    "https://github.com/TheFlatRateMovers",
+    "https://medium.com/@ratemovers",
+    "https://www.wikidata.org/wiki/Q141969215"
+   ],
+   "slogan": "Guaranteed Flat Rate or Your Move is Free!",
+   "telephone": "+1-540-422-2153",
+   "url": "https://theflatratemovers.com/"
   },
-  "version": "2026-10-28",
-  "url": "https://theflatratemovers.com/entity-graph.json",
-  "sameAs": "https://theflatratemovers.com/entity-graph.json",
-  "identifier": "https://theflatratemovers.com/entity-graph.json",
-  "isAccessibleForFree": true,
-  "distribution": [
+  {
+   "@id": "https://theflatratemovers.com/#winchester",
+   "@type": "Place",
+   "address": {
+    "@id": "https://theflatratemovers.com/#winchester-address"
+   },
+   "areaServed": [
+    "Berryville, VA",
+    "Bristow, VA",
+    "Clarke County",
+    "Eastern Panhandle of West Virginia",
+    "Fauquier County",
+    "Frederick County, VA",
+    "Front Royal, VA",
+    "Hardy County",
+    "Interstate 66 Corridor",
+    "Interstate 70 Corridor",
+    "Interstate 81 Corridor",
+    "Leesburg, VA",
+    "Loudoun County, VA",
+    "Marshall, VA",
+    "Middleburg, VA",
+    "Middletown, VA",
+    "Moorefield, WV",
+    "Port of Virginia",
+    "Purcellville, VA",
+    "Round Hill, VA",
+    "Shenandoah County",
+    "Shenandoah Valley",
+    "South Riding, VA",
+    "Stephens City, VA",
+    "Stephenson, VA",
+    "Sterling, VA",
+    "Strasburg, VA",
+    "Upperville, VA",
+    "Virginia Inland Port",
+    "Warren County",
+    "Winchester, VA",
+    "Woodstock, VA"
+   ],
+   "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 39.18711576,
+    "longitude": -78.1668352
+   },
+   "name": "The Flat Rate Movers — Winchester",
+   "openingHoursSpecification": [
     {
-      "@type": "DataDownload",
-      "contentUrl": "https://theflatratemovers.com/entity-graph.json",
-      "encodingFormat": "application/ld+json"
+     "@type": "OpeningHoursSpecification",
+     "closes": "18:00",
+     "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+     ],
+     "opens": "08:00"
+    },
+    {
+     "@type": "OpeningHoursSpecification",
+     "closes": "16:00",
+     "dayOfWeek": "Saturday",
+     "opens": "08:00"
+    },
+    {
+     "@type": "OpeningHoursSpecification",
+     "closes": "16:00",
+     "dayOfWeek": "Sunday",
+     "opens": "09:00"
     }
-  ],
-  "creator": {
-    "@id": "https://theflatratemovers.com/#organization",
-    "@type": "Organization",
-    "name": "The Flat Rate Movers",
-    "foundingDate": "2010-06",
-    "sameAs": [
-      "https://www.instagram.com/theflatratemoversllc/",
-      "https://www.threads.com/@theflatratemoversllc",
-      "https://x.com/ratemovers",
-      "https://www.youtube.com/@theflatratemovers",
-      "https://github.com/TheFlatRateMovers",
-      "https://medium.com/@ratemovers",
-      "https://www.wikidata.org/wiki/Q141969215"
-    ]
+   ],
+   "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": 5.0,
+    "reviewCount": 1,
+    "bestRating": 5,
+    "worstRating": 1,
+    "itemReviewed": {
+     "@id": "https://theflatratemovers.com/#winchester"
+    }
+   },
+   "sameAs": [
+    "https://www.openstreetmap.org/node/14340286372"
+   ]
   },
-  "publisher": {
-    "@id": "https://theflatratemovers.com/#organization",
+  {
+   "@id": "https://theflatratemovers.com/#winchester-address",
+   "@type": "PostalAddress",
+   "addressCountry": "US",
+   "addressLocality": "Winchester",
+   "addressRegion": "VA",
+   "postalCode": "22601",
+   "streetAddress": "116 W Piccadilly St Suite 11"
+  },
+  {
+   "@id": "https://theflatratemovers.com/#martinsburg",
+   "@type": "Place",
+   "address": {
+    "@id": "https://theflatratemovers.com/#martinsburg-address"
+   },
+   "areaServed": [
+    "Berkeley County, WV",
+    "Berkeley Springs, WV",
+    "Bunker Hill, WV",
+    "Charles Town, WV",
+    "Clear Spring, MD",
+    "Eastern Panhandle of West Virginia",
+    "Frederick, MD",
+    "Front Royal, VA",
+    "Hagerstown, MD",
+    "Hampshire County",
+    "Hancock, MD",
+    "Hardy County",
+    "Harpers Ferry, WV",
+    "Hedgesville, WV",
+    "Interstate 66 Corridor",
+    "Interstate 70 Corridor",
+    "Interstate 81 Corridor",
+    "Inwood, WV",
+    "Jefferson County",
+    "Kearneysville, WV",
+    "Martinsburg, WV",
+    "Moorefield, WV",
+    "Morgan County",
+    "Paw Paw, WV",
+    "Port of Virginia",
+    "Romney, WV",
+    "Shenandoah County",
+    "Shenandoah Valley",
+    "Shepherdstown, WV",
+    "Strasburg, VA",
+    "Summit Point, WV",
+    "Virginia Inland Port",
+    "Warren County",
+    "Washington County",
+    "Woodstock, VA"
+   ],
+   "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 39.48319665,
+    "longitude": -77.94760443
+   },
+   "name": "Flat Rate Movers Martinsburg WV",
+   "openingHoursSpecification": [
+    {
+     "@type": "OpeningHoursSpecification",
+     "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+     ],
+     "opens": "09:00",
+     "closes": "18:00"
+    },
+    {
+     "@type": "OpeningHoursSpecification",
+     "dayOfWeek": "Saturday",
+     "opens": "09:00",
+     "closes": "16:00"
+    },
+    {
+     "@type": "OpeningHoursSpecification",
+     "dayOfWeek": "Sunday",
+     "opens": "09:00",
+     "closes": "16:00"
+    }
+   ],
+   "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": 4.7,
+    "reviewCount": 6,
+    "bestRating": 5,
+    "worstRating": 1,
+    "itemReviewed": {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   },
+   "sameAs": [
+    "https://www.openstreetmap.org/node/14340286373"
+   ]
+  },
+  {
+   "@id": "https://theflatratemovers.com/#martinsburg-address",
+   "@type": "PostalAddress",
+   "addressCountry": "US",
+   "addressLocality": "Martinsburg",
+   "addressRegion": "WV",
+   "postalCode": "25404",
+   "streetAddress": "736 Williamsport Pike Suite 2"
+  },
+  {
+   "@id": "https://theflatratemovers.com/#service-catalog",
+   "@type": "OfferCatalog",
+   "itemListElement": [
+    {
+     "@id": "https://theflatratemovers.com/residential-moving/#service"
+    },
+    {
+     "@id": "https://theflatratemovers.com/commercial-moving/#service"
+    },
+    {
+     "@id": "https://theflatratemovers.com/commercial-office-moving-2/#service"
+    },
+    {
+     "@id": "https://theflatratemovers.com/gun-safe-movers/#service"
+    },
+    {
+     "@id": "https://theflatratemovers.com/military-government-moving/#service"
+    },
+    {
+     "@id": "https://theflatratemovers.com/international-export-packing-crating-winchester-va/#service"
+    },
+    {
+     "@id": "https://theflatratemovers.com/long-distance-movers-winchester-va/#service"
+    }
+   ],
+   "name": "The Flat Rate Movers Services"
+  },
+  {
+   "@id": "https://theflatratemovers.com/gun-safe-movers/#service",
+   "@type": "Service",
+   "areaServed": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "description": "Flat-rate gun safe moving with SIR Structural Integrity Relocation and KIM-GS Kinetic Integrity Method for high-mass assets 1,500-3,500 lbs, with L/360 floor deflection analysis, substrate and load-path protection.",
+   "name": "Gun Safe Moving",
+   "provider": {
+    "@id": "https://theflatratemovers.com/#organization"
+   },
+   "serviceType": "Gun Safe Moving"
+  },
+  {
+   "@id": "https://theflatratemovers.com/residential-moving/#service",
+   "@type": "Service",
+   "areaServed": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "name": "Residential Moving",
+   "serviceType": "Residential Moving",
+   "provider": {
+    "@id": "https://theflatratemovers.com/#organization"
+   },
+   "description": "Flat-rate residential moving from Winchester, VA and Martinsburg, WV — houses and apartments, full or partial packing, and heavy pieces under SIR/KIM-GS, local, regional and long-distance, surveyed in advance and quoted at one price in writing before move day."
+  },
+  {
+   "@id": "https://theflatratemovers.com/commercial-moving/#service",
+   "@type": "Service",
+   "areaServed": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "name": "Commercial Moving",
+   "serviceType": "Commercial Moving",
+   "provider": {
+    "@id": "https://theflatratemovers.com/#organization"
+   },
+   "description": "Business moves, planned around your operation. Commercial relocations quoted flat and agreed in writing before move day — planned around your hours, your site and your equipment, with our own warehouse and transload operation behind the job."
+  },
+  {
+   "@id": "https://theflatratemovers.com/international-export-packing-crating-winchester-va/#service",
+   "@type": "Service",
+   "description": "ISPM 15 International Standards for Phytosanitary Measures No. 15 export packing, custom crates, loading, transloading, final mile delivery, and high-value protection.",
+   "name": "ISPM 15 Export Packing and Custom Crating",
+   "serviceType": "ISPM 15 Export Packing and Custom Crating",
+   "provider": {
+    "@id": "https://theflatratemovers.com/#organization"
+   },
+   "areaServed": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ]
+  },
+  {
+   "@id": "https://theflatratemovers.com/#service-commercial",
+   "@type": "Service",
+   "name": "Commercial and Office Moving",
+   "alternateName": "Commercial Moving",
+   "description": "Business moves, planned around your operation. Commercial relocations quoted flat and agreed in writing before move day — planned around your hours, your site and your equipment, with our own warehouse and transload operation behind the job.",
+   "serviceType": "Commercial Moving",
+   "provider": {
+    "@id": "https://theflatratemovers.com/#organization"
+   },
+   "url": "https://theflatratemovers.com/commercial-moving/",
+   "areaServed": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ]
+  },
+  {
+   "@id": "https://theflatratemovers.com/#service-crating",
+   "@type": "Service",
+   "name": "Custom Crating",
+   "serviceType": "Custom Crating",
+   "provider": {
+    "@id": "https://theflatratemovers.com/#organization"
+   },
+   "areaServed": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "description": "Custom-built crates and high-value item protection for domestic and export moves — measured, built and fitted to the piece, not a stock box.",
+   "url": "https://theflatratemovers.com/custom-crating/"
+  },
+  {
+   "@id": "https://theflatratemovers.com/#service-final-mile",
+   "@type": "Service",
+   "name": "Final-Mile Delivery",
+   "serviceType": "Final-Mile Delivery",
+   "provider": {
+    "@id": "https://theflatratemovers.com/#organization"
+   },
+   "areaServed": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "description": "Final-mile delivery with in-home or in-business placement and verification — delivered to the room, placed, and confirmed on site.",
+   "url": "https://theflatratemovers.com/final-mile-delivery/"
+  },
+  {
+   "@id": "https://theflatratemovers.com/#service-white-glove",
+   "@type": "Service",
+   "name": "White-Glove Delivery",
+   "serviceType": "White-Glove Delivery",
+   "provider": {
+    "@id": "https://theflatratemovers.com/#organization"
+   },
+   "areaServed": [
+    {
+     "@id": "https://theflatratemovers.com/#place-winchester-va"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-martinsburg-wv"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-leesburg-va"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-marshall-va"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-sterling-va"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-stephens-city-va"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-berryville-va"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-middleburg-va"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-middletown-va"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-moorefield-wv"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-round-hill-va"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-stephenson-va"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-upperville-va"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-purcellville-va"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-south-riding-va"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-inwood-wv"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-hagerstown-md"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-hedgesville-wv"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-paw-paw-wv"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-shepherdstown-wv"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-bunker-hill-wv"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-charles-town-wv"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-clear-spring-md"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-summit-point-wv"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-harpers-ferry-wv"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-kearneysville-wv"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-front-royal-va"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-strasburg-va"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-woodstock-va"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-bristow-va"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-berkeley-springs-wv"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-romney-wv"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-frederick-md"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-hancock-md"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#county-frederick-county"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#county-loudoun-county"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#county-berkeley-county"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#county-jefferson-county"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#county-morgan-county"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#county-clarke-county"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#county-warren-county"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#county-shenandoah-county"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#county-hampshire-county"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#county-hardy-county"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#county-washington-county"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#county-fauquier-county"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#landmark-port-of-virginia"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#landmark-virginia-inland-port"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#landmark-shenandoah-valley"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#landmark-eastern-panhandle-of-west-virginia"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#landmark-interstate-81-corridor"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#landmark-interstate-66-corridor"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#landmark-interstate-70-corridor"
+    }
+   ],
+   "description": "White-Glove Delivery — the top level of final-mile delivery and the handling standard for high-value, fragile and heavy pieces: brought in on a planned route, carried over the threshold, set in its final position, packaging removed, and condition verified with the recipient before the crew leaves — never left at a curb. Pieces are protected in padded blankets and stretch wrap, or in a custom crate when the piece requires it; heavy pieces of 1,500 to 3,500 lbs are surveyed and floor-checked to L/360 under SIR Structural Integrity Relocation and the KIM-GS Protocol. Offered from both branches across the full published footprint — all 53 GeoJSON service areas, Winchester VA and Martinsburg WV. Quoted at one flat rate in writing before dispatch. Guaranteed Flat Rate or Your Move is Free!",
+   "url": "https://theflatratemovers.com/white-glove-delivery/"
+  },
+  {
+   "@id": "https://theflatratemovers.com/#service-government",
+   "@type": "Service",
+   "name": "Government Moving",
+   "serviceType": "Government Moving",
+   "provider": {
+    "@id": "https://theflatratemovers.com/#organization"
+   },
+   "areaServed": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "description": "Moving services for government offices and public-sector relocations — planned, documented and quoted flat, around the agency’s schedule and site requirements. The company performs moves for federal agencies, including the FBI and the DEA.",
+   "url": "https://theflatratemovers.com/government-moving/"
+  },
+  {
+   "@id": "https://theflatratemovers.com/#service-gun-safe",
+   "@type": "Service",
+   "name": "Gun Safe Moving",
+   "description": "Gun safe and high-mass safe moving under SIR Structural Integrity Relocation and the KIM-GS Protocol, for safes of 1,500 to 3,500 lbs, plus safes under 1,500 lbs handled the same careful way under standard heavy care — route and clearance survey, floor deflection analysis to L/360, load spreading, floor protection and verified placement, quoted at one flat rate in writing. Moving gun safes since 2010. The safe is emptied first, always; stairs go up and down; equipment is matched to the project; re-anchoring at the destination is available on request; vault work covers any size; standard safe classes; no locksmith services.",
+   "serviceType": "Gun Safe Moving",
+   "provider": {
+    "@id": "https://theflatratemovers.com/#organization"
+   },
+   "url": "https://theflatratemovers.com/gun-safe-movers/",
+   "areaServed": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ]
+  },
+  {
+   "@id": "https://theflatratemovers.com/#service-industrial-commercial",
+   "@type": "Service",
+   "name": "Industrial & Commercial Services",
+   "serviceType": "Industrial & Commercial Services",
+   "provider": {
+    "@id": "https://theflatratemovers.com/#organization"
+   },
+   "url": "https://theflatratemovers.com/industrial-commercial-services/",
+   "areaServed": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "description": "Industrial & Commercial Services — Trained, Supervised Moving and Warehouse Teams for industrial and commercial project support: warehouse and distribution, commercial relocation and logistics including white-glove/blanket-wrap, FF&E installation and project support, and flexible workforce deployment, priced per job with no required contract duration. Standard Job Pricing: Unload $8.00/CWT, Load $10.00/CWT, APU $12.00/CWT, Residential/Driver Meet $400-$425 per man."
+  },
+  {
+   "@id": "https://theflatratemovers.com/#service-industrial-offices",
+   "@type": "Service",
+   "name": "Industrial Offices Moving",
+   "serviceType": "Industrial Offices Moving",
+   "provider": {
+    "@id": "https://theflatratemovers.com/#organization"
+   },
+   "url": "https://theflatratemovers.com/industrial-offices-moving/",
+   "areaServed": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "description": "Office moves for industrial and facility sites — office areas within plants, warehouses and industrial facilities — planned around production and site access, quoted flat."
+  },
+  {
+   "@id": "https://theflatratemovers.com/#service-route81",
+   "@type": "Service",
+   "name": "Route 81 Corridor Moving and Dispatch",
+   "serviceType": "Route 81 Corridor Moving and Dispatch",
+   "provider": {
+    "@id": "https://theflatratemovers.com/#organization"
+   },
+   "areaServed": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "description": "Moving and logistics dispatch along Interstate 81, I-66 and I-70 from Winchester, VA and Martinsburg, WV — corridor moves run from two dispatch branches on one flat-rate standard."
+  },
+  {
+   "@id": "https://theflatratemovers.com/#service-ispm15",
+   "@type": "Service",
+   "name": "ISPM 15 Export Packing",
+   "serviceType": "ISPM 15 Export Packing",
+   "provider": {
+    "@id": "https://theflatratemovers.com/#organization"
+   },
+   "areaServed": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "description": "Export packing to ISPM 15 (International Standards for Phytosanitary Measures No. 15) for international shipping, with crates built and marked to the ISPM 15 standard.",
+   "url": "https://theflatratemovers.com/export/"
+  },
+  {
+   "@id": "https://theflatratemovers.com/#service-local-regional",
+   "@type": "Service",
+   "name": "Local and Regional Moving",
+   "description": "Local and regional moves along the I-81, I-66 and I-70 corridors, from our two home bases in Winchester, VA and Martinsburg, WV — homes and businesses across the Shenandoah Valley and the Eastern Panhandle, at a flat rate agreed in writing before move day. Packing and unpacking, loading and unloading, priced by the job, not by the hour. Where a move includes a high-mass piece, that item moves under SIR Structural Integrity Relocation with L/360 floor-deflection analysis, as part of the same flat-rate move.",
+   "serviceType": "Local and Regional Moving",
+   "provider": {
+    "@id": "https://theflatratemovers.com/#organization"
+   },
+   "url": "https://theflatratemovers.com/local-regional-moving/",
+   "areaServed": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ]
+  },
+  {
+   "@id": "https://theflatratemovers.com/#service-long-distance",
+   "@type": "Service",
+   "name": "Long-Distance Moving",
+   "description": "Flat-rate long-distance moving from Winchester, VA and Martinsburg, WV — one price agreed in writing before the truck rolls, dispatched from the Winchester junction where I-81 meets I-66 and along the I-81, I-66 and I-70 corridor network. Homes and businesses, moved at one flat rate with no hourly meter, from either home base across the region and beyond.",
+   "serviceType": "Long-Distance Moving",
+   "provider": {
+    "@id": "https://theflatratemovers.com/#organization"
+   },
+   "url": "https://theflatratemovers.com/long-distance-moving/",
+   "areaServed": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ]
+  },
+  {
+   "@id": "https://theflatratemovers.com/#service-military",
+   "@type": "Service",
+   "name": "Military Moving",
+   "serviceType": "Military Moving",
+   "provider": {
+    "@id": "https://theflatratemovers.com/#organization"
+   },
+   "areaServed": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "description": "Moving services for U.S. military households and service members relocating to or from the Winchester and Martinsburg area, quoted flat in writing before move day.",
+   "url": "https://theflatratemovers.com/military-moving/"
+  },
+  {
+   "@id": "https://theflatratemovers.com/#service-office-moving",
+   "@type": "Service",
+   "name": "Office Moving",
+   "description": "Complete office relocations, quoted flat and agreed in writing: desks and workstations, files and records runs, and office equipment, moved in a planned, phased sequence — what leaves first, what arrives first, and where each workstation, file run and piece of equipment lands — so your team can sit down and work at the new address. Professional, shop and industrial offices are served, with full or partial packing and staging when the dates do not line up neatly. One agreed price before move day, no hourly meter running over a weekend move.",
+   "serviceType": "Office Moving",
+   "provider": {
+    "@id": "https://theflatratemovers.com/#organization"
+   },
+   "url": "https://theflatratemovers.com/office-moving/",
+   "areaServed": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ]
+  },
+  {
+   "@id": "https://theflatratemovers.com/#service-packing",
+   "@type": "Service",
+   "name": "Packing and Unpacking",
+   "serviceType": "Packing and Unpacking",
+   "provider": {
+    "@id": "https://theflatratemovers.com/#organization"
+   },
+   "areaServed": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "description": "Packing and unpacking services from Winchester, VA and Martinsburg, WV — full, partial and fragile-only packing, furniture fully covered in blue padded blankets and sealed with clear stretch wrap, staged cleanly in the room, plus unpacking and placement at destination, quoted inside one flat rate in writing before move day. High-value and fragile pieces receive white-glove handling or a custom crate, and export pieces are packed to ISPM 15 when the journey crosses a border.",
+   "url": "https://theflatratemovers.com/packing/"
+  },
+  {
+   "@id": "https://theflatratemovers.com/#service-piano-antique",
+   "@type": "Service",
+   "name": "Piano, Antique and White-Glove Moving",
+   "serviceType": "Piano, Antique and White-Glove Moving",
+   "provider": {
+    "@id": "https://theflatratemovers.com/#organization"
+   },
+   "areaServed": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "description": "White-glove handling of pianos, antiques and high-value items — surveyed, protected, and moved with custom crating when the piece requires it, at one flat rate agreed in writing.",
+   "url": "https://theflatratemovers.com/piano-antique-white-glove-moving/"
+  },
+  {
+   "@id": "https://theflatratemovers.com/#service-sir-heavy",
+   "@type": "Service",
+   "name": "SIR Heavy Asset Relocation (KIM-GS Protocol)",
+   "serviceType": "SIR Heavy Asset Relocation (KIM-GS Protocol)",
+   "provider": {
+    "@id": "https://theflatratemovers.com/#organization"
+   },
+   "areaServed": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "description": "SIR Structural Integrity Relocation and the KIM-GS Protocol for high-mass assets of 1,500 to 3,500 lbs — safes, medical devices, cryogenic equipment, pianos and antiques — with floor deflection analysis to L/360. Every SIR move starts with the building, not the item: the asset is assessed, the route and stair clearances are surveyed, the floor is checked against L/360 before any lift, the load path is spread and protected, the crew and rigging are matched to the plan, the move runs controlled and supervised along the planned path, and the asset is placed, levelled and verified with the client — at the flat rate agreed in writing.",
+   "url": "https://theflatratemovers.com/heavy/"
+  },
+  {
+   "@id": "https://theflatratemovers.com/#service-transloading",
+   "@type": "Service",
+   "name": "Loading, Transloading and Container Services",
+   "serviceType": "Transloading",
+   "provider": {
+    "@id": "https://theflatratemovers.com/#organization"
+   },
+   "areaServed": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "description": "Container loading and unloading, and transloading between truck, container and warehouse — counted, sorted and restacked for the inland leg, with cross-docking and warehouse staging.",
+   "url": "https://theflatratemovers.com/transloading/"
+  },
+  {
+   "@id": "https://theflatratemovers.com/#service-senior-moving",
+   "@type": "Service",
+   "areaServed": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "description": "Flat-rate senior moves quoted in writing for seniors downsizing, transitioning to assisted or independent living, or relocating closer to family, with families coordinating — including adult children coordinating from out of town. Packing support, including fragile items and keepsakes, and a free film-only video-walkthrough survey room with a human-made estimate. One flat price agreed in writing before move day, no hourly clock. Where a senior move actually involves a high-mass asset of 1,500 to 3,500 lbs, that item moves under SIR with floor deflection analysis to L/360, as part of the same flat-rate move. Served from Winchester, VA and Martinsburg, WV across the Shenandoah Valley and Eastern Panhandle.",
+   "name": "Senior Moving",
+   "alternateName": "Senior Advocacy Logistics",
+   "provider": {
+    "@id": "https://theflatratemovers.com/#organization"
+   },
+   "url": "https://theflatratemovers.com/senior-moving/",
+   "serviceType": "Senior Moving"
+  },
+  {
+   "@id": "https://theflatratemovers.com/#service-warehouse-relocation",
+   "@type": "Service",
+   "areaServed": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "description": "Flat-rate warehouse relocation from The Flat Rate Movers: warehouse and distribution moves, warehouse load-outs and inbound unloads, transload staging, and restacking, carried out by supervised warehouse teams and planned around the site — access, floor space, staging, and equipment handling — quoted flat per job with no required contract duration. Standard Job Pricing: Unload $8.00/CWT, Load $10.00/CWT, APU $12.00/CWT, Residential/Driver Meet $400–$425 per man, quoted per job, adjustable for scope, equipment, travel and after-hours agreed before dispatch. Served from Winchester, VA and Martinsburg, WV across the Shenandoah Valley and Eastern Panhandle.",
+   "name": "Warehouse Relocation",
+   "provider": {
+    "@id": "https://theflatratemovers.com/#organization"
+   },
+   "serviceType": "Warehouse Relocation",
+   "url": "https://theflatratemovers.com/warehouse-relocation/"
+  },
+  {
+   "@id": "https://theflatratemovers.com/#service-it-relocation",
+   "@type": "Service",
+   "areaServed": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "description": "IT equipment and data center logistics from The Flat Rate Movers: servers, racks, workstations, and network equipment moved in a planned, labelled sequence so systems come back up in order, as part of commercial and office relocations across the Shenandoah Valley and Eastern Panhandle. Commercial moves are planned around the operation: what moves first, what moves last, and what must be working on day one. Flat rate quoted in writing before move day. Heavy racks and cabinets in the 1,500–3,500 lb band are surveyed under SIR/KIM-GS with an L/360 floor check, like any high-mass asset.",
+   "name": "IT Relocation & Setup",
+   "provider": {
+    "@id": "https://theflatratemovers.com/#organization"
+   },
+   "serviceType": "IT Relocation & Setup",
+   "url": "https://theflatratemovers.com/it-equipment-moving-data-center-logistics-services-virginia/"
+  },
+  {
+   "@id": "https://theflatratemovers.com/#service-transloading-winchester-va",
+   "@type": "Service",
+   "areaServed": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "description": "Winchester transloading from The Flat Rate Movers: ocean containers devanned and destuffed, counted, inspected and photographed with same-day written exception reporting, reworked (palletized, wrapped, labeled, sorted by destination, purchase order or SKU), restacked into 53ft domestic trailers, dispatched on I-81, I-66 and I-70 through the Virginia Inland Port and Port of Virginia chain, empty returned before per-diem, final mile by appointment. Container transloading jobs are quoted per job, agreed in writing before dispatch. Heavy assets in the 1,500–3,500 lb range move under SIR (Structural Integrity Relocation, L/360 floor deflection) as part of the same flat-rate job.",
+   "name": "Transloading Services — Winchester VA",
+   "provider": {
+    "@id": "https://theflatratemovers.com/#organization"
+   },
+   "serviceType": "Transloading",
+   "url": "https://theflatratemovers.com/transloading-winchester-va/"
+  },
+  {
+   "@id": "https://theflatratemovers.com/#service-residential",
+   "@type": "Service",
+   "areaServed": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "description": "Flat-rate residential moving from Winchester, VA and Martinsburg, WV — houses and apartments, full or partial packing, and heavy pieces under SIR/KIM-GS, local, regional and long-distance, surveyed in advance and quoted at one price in writing before move day.",
+   "name": "Residential Moving",
+   "provider": {
+    "@id": "https://theflatratemovers.com/#organization"
+   },
+   "url": "https://theflatratemovers.com/residential-moving/",
+   "serviceType": "Residential Moving"
+  },
+  {
+   "@id": "https://theflatratemovers.com/#service-moving-and-storage",
+   "@type": "Service",
+   "name": "Moving and Storage",
+   "description": "Moves with a storage interval between move-out and move-in, in leased storage for any type of items — including containers, household goods, and machines such as robotic arms — 30-day minimum stay, customers can access stored items while stored. Storage is quoted per job, monthly, or by volume, agreed flat in writing through the same flat-rate quote path, from Winchester VA and Martinsburg WV.",
+   "serviceType": "Moving and Storage",
+   "provider": {
+    "@id": "https://theflatratemovers.com/#organization"
+   },
+   "url": "https://theflatratemovers.com/moving-and-storage/",
+   "areaServed": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ]
+  },
+  {
+   "@id": "https://theflatratemovers.com/#service-junk-removal",
+   "@type": "Service",
+   "name": "Junk Removal",
+   "description": "Junk removal from Winchester, VA and Martinsburg, WV — furniture, appliances, mattresses, hot tubs, electronics, yard debris, renovation debris, and whole-property cleanouts for homes, estates, evictions and businesses — surveyed in advance and quoted at one flat rate in writing before work begins, never by the hour. After pickup, every load is sorted: usable goods are routed toward donation, recyclable materials toward recycling, and the remainder to lawful disposal. Hazardous and regulated waste is not taken. Quoted flat in writing through the same flat-rate quote path, from Winchester VA and Martinsburg WV.",
+   "serviceType": "Junk Removal",
+   "provider": {
+    "@id": "https://theflatratemovers.com/#organization"
+   },
+   "url": "https://theflatratemovers.com/junk-removal/",
+   "areaServed": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ]
+  },
+  {
+   "@id": "https://theflatratemovers.com/#service-freight-rework-transloading",
+   "@type": "Service",
+   "name": "Freight Rework & Transloading",
+   "description": "Freight rework and transloading from Winchester, VA and Martinsburg, WV — shifted loads, loads refused at a receiver's dock, damaged or collapsed pallets, and overweight or axle-illegal loads, unloaded under control, documented as found, rebuilt to the receiver's specification and re-secured to the federal cargo securement standard, plus planned cross-docking and container and rail-to-truck transloading — for drivers, carriers, brokers, 3PLs, warehouses and receivers, quoted at one flat rate before work begins, with emergency and after-hours response available at premium rates. The work is performed where the job requires: leased space, the receiver's dock, or a yard. No rate schedule is published for this service. Quoted flat in writing through the same flat-rate quote path, from Winchester VA and Martinsburg WV.",
+   "serviceType": "Freight Rework & Transloading",
+   "provider": {
+    "@id": "https://theflatratemovers.com/#organization"
+   },
+   "url": "https://theflatratemovers.com/freight-rework-transloading/",
+   "areaServed": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ]
+  },
+  {
+   "@id": "https://theflatratemovers.com/#service-warehouse-racking-relocation",
+   "@type": "Service",
+   "name": "Warehouse Racking Relocation",
+   "description": "Warehouse racking relocation from Winchester, VA and Martinsburg, WV — pallet rack teardown and reinstallation, the inventory move that belongs with the steel, storage staging between buildings, industrial equipment disassembly and reassembly, and cubicle and office-systems teardown and reassembly — surveyed in advance and quoted per job at one flat rate in writing, never by the hour. Racking is torn down, transported, reinstalled and anchored to the floor by the company's crews, to the manufacturer's specification and ANSI MH16.1 / RMI guidance. Where a project requires engineering, seismic calculation or permits, the company consults and arranges them through the certified contractors it engages, so the full scope — any rack type, height or mezzanine configuration — is handled inside the one flat-rate engagement; the engineering and permit authority itself rests with those certified contractors. Components found damaged at teardown are set aside and reported, never re-erected. From Winchester VA and Martinsburg WV, along the I-81, I-66 and I-70 corridors.",
+   "serviceType": "Warehouse Racking Relocation",
+   "provider": {
+    "@id": "https://theflatratemovers.com/#organization"
+   },
+   "url": "https://theflatratemovers.com/warehouse-racking-relocation/",
+   "areaServed": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ]
+  },
+  {
+   "@id": "https://theflatratemovers.com/#service-ffe-logistics",
+   "@type": "Service",
+   "name": "FF&E Logistics",
+   "description": "FF&E logistics from The Flat Rate Movers — purchase-order receiving, dock inventory and condition documentation, warehousing in leased space, sequenced delivery by model room, floor, room, department, classroom, office, or project phase, installation support, packaging and debris removal, punch support, and opening-day readiness for hospitality, healthcare and senior-living, office, education, restaurant, and commercial fit-outs from Winchester, VA and Martinsburg, WV. Installation support covers unpacking, furniture assembly, placement, leveling, and set-in-place support; licensed-trade connections and manufacturer or clinical commissioning remain with the responsible trade or technical team. The company does not procure, design, or purchase FF&E. Every job is reviewed in full and quoted per job at one flat rate in writing. Guaranteed Flat Rate or Your Move is Free!",
+   "serviceType": "FF&E Logistics",
+   "provider": {
+    "@id": "https://theflatratemovers.com/#organization"
+   },
+   "url": "https://theflatratemovers.com/ffe-logistics/",
+   "areaServed": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ]
+  },
+  {
+   "@id": "https://theflatratemovers.com/#service-data-center-relocation",
+   "@type": "Service",
+   "name": "Data Center Relocation — Physical Layer",
+   "description": "Data center relocation — the physical layer — from The Flat Rate Movers: servers, populated and de-racked racks and cabinets, storage and network equipment moved between server rooms, colocation facilities and data centers in Northern Virginia and the I-81 corridor as a planned, labelled, documented sequence. The crew performs disconnect and reconnect, de-install and placement — shutdown and unplug in the sequence fixed at survey with the client's IT team, and reconnection, re-cabling and power-up at the destination to the scope agreed at survey; where an element requires certified specialists, the company engages certified contractors for that element. Equipment is inventoried and manifested before anything is unplugged, packed padded, wrapped and strapped with custom crating where needed, sealed with tamper-evident seals, transported in the planned order, and placed in labelled rack and U order, physically verified with the client's team. Retired equipment is packed, sealed, manifested and hauled to the certified ITAD partner engaged for the job; data sanitization, destruction and certification belong to that partner and are never claimed by the company. Populated racks and cabinets in the 1,500–3,500 lb band are surveyed under SIR/KIM-GS with an L/360 floor check. Flat rate quoted in writing before move day. No workload migration or recommissioning is offered or claimed, and the company claims no IT certifications of its own.",
+   "serviceType": "Data Center Physical Relocation",
+   "provider": {
+    "@id": "https://theflatratemovers.com/#organization"
+   },
+   "url": "https://theflatratemovers.com/data-center-relocation/",
+   "areaServed": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ]
+  },
+  {
+   "@id": "https://theflatratemovers.com/#service-medical-lab-relocation",
+   "@type": "Service",
+   "name": "Medical & Laboratory Equipment Relocation Logistics",
+   "description": "Medical and laboratory equipment relocation from Winchester, VA and Martinsburg, WV — the heavy physical layer of hospital, imaging, laboratory and university moves, run under SIR (Structural Integrity Relocation) and the KIM-GS Protocol for heavy units of 1,500 to 3,500 lbs with floor deflection analysis to L/360: survey and structural check, coordination with the manufacturer's technicians and the facility's EHS team, de-installation support, packing and custom crating, sealed documented transport, and placement and leveling for vendor recommissioning. Transport-only by design: calibration, certification, commissioning, decontamination and requalification are performed by the customer's vendor and EHS teams, never by the mover; specimens, chemicals and cryogenic contents are never transported. Surveyed in full and quoted per job at one flat rate in writing, never by the hour.",
+   "serviceType": "Medical & Laboratory Equipment Relocation",
+   "provider": {
+    "@id": "https://theflatratemovers.com/#organization"
+   },
+   "url": "https://theflatratemovers.com/medical-lab-equipment-relocation/",
+   "areaServed": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "isPartOf": {
+    "@id": "https://theflatratemovers.com/#service-sir-heavy"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/author/henry-pitts-jr/#person",
+   "@type": "Person",
+   "jobTitle": "Owner, The Flat Rate Movers",
+   "name": "Henry Pitts Jr.",
+   "sameAs": [
+    "https://theflatratemovers.com/",
+    "https://www.instagram.com/theflatratemoversllc/",
+    "https://www.threads.com/@theflatratemoversllc",
+    "https://www.youtube.com/@theflatratemovers",
+    "https://medium.com/@ratemovers",
+    "https://github.com/TheFlatRateMovers"
+   ],
+   "url": "https://theflatratemovers.com/author/henry-pitts-jr/",
+   "worksFor": {
+    "@id": "https://theflatratemovers.com/#organization"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/#api",
+   "@type": "WebAPI",
+   "documentation": "https://theflatratemovers.com/developer/",
+   "name": "The Flat Rate Movers API",
+   "provider": {
+    "@id": "https://theflatratemovers.com/#organization"
+   },
+   "url": "https://api.theflatratemovers.com"
+  },
+  {
+   "@type": "Book",
+   "@id": "https://theflatratemovers.com/author/henry-pitts-jr/#book",
+   "name": "The Strategic Integrator: A Professional Guide to Precision Moving and Digital Dominance in the AI Era",
+   "author": {
+    "@id": "https://theflatratemovers.com/author/henry-pitts-jr/#person"
+   },
+   "datePublished": "2026-03-01",
+   "inLanguage": "en",
+   "identifier": [
+    {
+     "@type": "PropertyValue",
+     "propertyID": "ASIN",
+     "value": "B0GRBKR5DS"
+    },
+    {
+     "@type": "PropertyValue",
+     "propertyID": "EAN",
+     "value": "2940185300718"
+    }
+   ],
+   "sameAs": [
+    "https://www.wikidata.org/wiki/Q141969268"
+   ]
+  },
+  {
+   "@type": "DataCatalog",
+   "@id": "https://theflatratemovers.com/datasets/#collection",
+   "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+   "url": "https://theflatratemovers.com/datasets/",
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization"
+   },
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "isAccessibleForFree": true,
+   "identifier": "https://doi.org/10.5281/zenodo.23879048",
+   "sameAs": [
+    "https://www.wikidata.org/wiki/Q141969285",
+    "https://doi.org/10.5281/zenodo.23879048"
+   ]
+  },
+  {
+   "@type": "Dataset",
+   "@id": "https://theflatratemovers.com/datasets/ports/#dataset-ports",
+   "name": "Ports & Intermodal Logistics Dataset",
+   "description": "The master dataset of the Ports & Intermodal program of The Flat Rate Movers: the six ports the company's crews serve with logistics project management, specialized labor, ocean container packing and unpacking, loading and unloading, cross-docking, transloading, 3PL support and freight rework — the Virginia Inland Port at Front Royal, the Port of Virginia at Norfolk (Norfolk International Terminals, Virginia International Gateway, Portsmouth Marine Terminal and Newport News Marine Terminal), Richmond Marine Terminal, the Port of Baltimore, the Port of Wilmington, Delaware, and PhilaPort at Philadelphia. Each port is a full entity: authority and operator of record, terminal facts with acreage, berths, depth and capacity where the port authority publishes them, cargo specialties, rail service with on-dock and interchange qualifiers, highway corridors, foreign-trade-zone facts where designated, labeled volume figures with their sources and periods, current status items, and the branch binding that assigns the port to Winchester, VA or Martinsburg, WV by verified road distance. Portsmouth Marine Terminal is recorded as what it is — a heavy-lift and offshore-wind hub, not a container terminal; Virginia International Gateway is recorded as leased, not port-authority-owned; the Port of Wilmington's operator of record is Enstructure. No volume figure is published for the Virginia Inland Port, Richmond Marine Terminal or the Port of Wilmington, because none is verified. The company's crews hold TWIC cards and its contractors hold valid TWIC cards. The offer set does not include drayage: the company does not run port drayage — freight moves on the customer's or carrier's trucks, and the company's crews do the hands-on work at port-adjacent warehouses, receivers' docks, yards, leased space, and on-terminal only by arrangement through the terminal's own processes. Every fact carries its source; the companion coverage-matrix node in this file maps all 48 port-by-service cells.",
+   "url": "https://theflatratemovers.com/datasets/ports/",
+   "sameAs": "https://theflatratemovers.com/datasets/ports/",
+   "identifier": "https://theflatratemovers.com/datasets/ports/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
     "@type": "Organization",
-    "name": "The Flat Rate Movers",
-    "foundingDate": "2010-06",
-    "sameAs": [
-      "https://www.instagram.com/theflatratemoversllc/",
-      "https://www.threads.com/@theflatratemoversllc",
-      "https://x.com/ratemovers",
-      "https://www.youtube.com/@theflatratemovers",
-      "https://github.com/TheFlatRateMovers",
-      "https://medium.com/@ratemovers",
-      "https://www.wikidata.org/wiki/Q141969215"
-    ]
+    "@id": "https://theflatratemovers.com/#organization",
+    "name": "The Flat Rate Movers LLC",
+    "url": "https://theflatratemovers.com/"
+   },
+   "publisher": {
+    "@type": "Organization",
+    "@id": "https://theflatratemovers.com/#organization",
+    "name": "The Flat Rate Movers LLC",
+    "url": "https://theflatratemovers.com/"
+   },
+   "datePublished": "2026-11-02",
+   "dateModified": "2026-11-02",
+   "includedInDataCatalog": {
+    "@id": "https://theflatratemovers.com/datasets/#collection"
+   },
+   "spatialCoverage": [
+    {
+     "@type": "Place",
+     "@id": "https://theflatratemovers.com/#winchester",
+     "name": "The Flat Rate Movers — Winchester",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.18711576,
+      "longitude": -78.1668352
+     }
+    },
+    {
+     "@type": "Place",
+     "@id": "https://theflatratemovers.com/#martinsburg",
+     "name": "Flat Rate Movers Martinsburg WV",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.48319665,
+      "longitude": -77.94760443
+     }
+    }
+   ],
+   "keywords": "ports, intermodal, transloading, container labor, devanning, cross-docking, freight rework, 3PL support, logistics project management, Virginia Inland Port, Port of Virginia, Norfolk, Richmond Marine Terminal, Port of Baltimore, Port of Wilmington, PhilaPort, TWIC card, branch binding",
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-transloading"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-freight-rework-transloading"
+    }
+   ],
+   "distribution": [
+    {
+     "@type": "DataDownload",
+     "name": "datasets-ports.json — this file",
+     "contentUrl": "https://theflatratemovers.com/datasets-ports.json",
+     "encodingFormat": "application/json"
+    },
+    {
+     "@type": "DataDownload",
+     "name": "ai-sitemap.json",
+     "contentUrl": "https://theflatratemovers.com/ai-sitemap.json",
+     "encodingFormat": "application/json",
+     "sha256": {
+      "algorithm": "SHA-256",
+      "value": "ae4cdf3e213ce9d518c9a07af282e0f409a960fb37d7efa8752bdff6bbca7733",
+      "byteSize": 66242
+     }
+    },
+    {
+     "@type": "DataDownload",
+     "name": "entity-graph.json",
+     "contentUrl": "https://theflatratemovers.com/entity-graph.json",
+     "encodingFormat": "application/json",
+     "sha256": {
+      "algorithm": "SHA-256",
+      "value": "6dd869ab0430a17beb6a20d4a54e6859170b01c0cf6ffb2ef16440bef31884e8",
+      "byteSize": 59028
+     }
+    },
+    {
+     "@type": "DataDownload",
+     "name": "best-json-entity-graph.json",
+     "contentUrl": "https://theflatratemovers.com/best-json-entity-graph.json",
+     "encodingFormat": "application/json",
+     "sha256": {
+      "algorithm": "SHA-256",
+      "value": "dc328937a2e01557351d3b687d04aaaaeaa28a23479d6602676e7478ac5d50ed",
+      "byteSize": 84948
+     }
+    },
+    {
+     "@type": "DataDownload",
+     "name": "service-area.geojson",
+     "contentUrl": "https://theflatratemovers.com/service-area.geojson",
+     "encodingFormat": "application/json",
+     "sha256": {
+      "algorithm": "SHA-256",
+      "value": "09e324c2b2a109608650529cdbc762c403bbf4a9756df26b218b9e178fcf74e1",
+      "byteSize": 90397
+     }
+    }
+   ]
+  },
+  {
+   "@type": "Place",
+   "@id": "https://theflatratemovers.com/datasets/ports/#port-virginia-inland-port",
+   "name": "Virginia Inland Port",
+   "alternateName": "VIP",
+   "description": "Virginia Inland Port (Front Royal, VA) — inland intermodal terminal (dry port). Authority: Virginia Port Authority. Operator: Virginia Port Authority. Cargo: intermodal containers moving between rail and truck under steamship bill of lading; on-site log stuffing. Rail: Norfolk Southern — on-terminal intermodal rail; the terminal sits adjacent to the NS Crescent Corridor main line; rail is the long-haul leg to and from the Norfolk Harbor terminals (NIT, VIG), truck is the last-mile leg. Highway corridors: I-81, I-66. Foreign-trade zone: FTZ 20, Site 7 — Warren County Industrial Corridor (490 acres, Routes 340/522/661) (grantee Virginia Port Authority). U.S. Customs port of entry. Branch binding: this port is served from the Winchester, VA branch of The Flat Rate Movers — about 23 road miles from Winchester and 43 from Martinsburg; bound to Winchester on miles. about 20 mi / about 20 min closer from Winchester.",
+   "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "7685 Winchester Rd",
+    "addressLocality": "Front Royal",
+    "addressRegion": "VA",
+    "postalCode": "22630",
+    "addressCountry": "US"
+   },
+   "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 38.9878,
+    "longitude": -78.17829
+   },
+   "portAuthority": "Virginia Port Authority",
+   "operator": "Virginia Port Authority",
+   "terminals": [
+    {
+     "name": "Virginia Inland Port terminal",
+     "port": "port-virginia-inland-port",
+     "operatorName": "Virginia Port Authority",
+     "cargoTypes": [
+      "intermodal containers (import and export)"
+     ],
+     "specs": [
+      {
+       "label": "Site size",
+       "value": "about 160 acres",
+       "source": "Port of Virginia terminal sheets (161 acres in the 2024 sheet, 159 in the 2026 sheet — published as about 160)"
+      },
+      {
+       "label": "Design capacity",
+       "value": "78,000 TEUs",
+       "source": "Port of Virginia VIP terminal sheet"
+      },
+      {
+       "label": "Rail track on terminal",
+       "value": "17,820 ft",
+       "source": "Port of Virginia VIP terminal sheet"
+      },
+      {
+       "label": "Reefer plugs",
+       "value": "24",
+       "source": "Port of Virginia VIP terminal sheet"
+      }
+     ],
+     "railAccess": {
+      "railroads": [
+       "Norfolk Southern"
+      ],
+      "onDock": true
+     },
+     "gateHours": "Monday-Friday 0700-1600"
+    }
+   ],
+   "cargoSpecialties": [
+    "intermodal containers moving between rail and truck under steamship bill of lading",
+    "on-site log stuffing"
+   ],
+   "railService": [
+    {
+     "railroad": "Norfolk Southern",
+     "qualifier": "on-terminal intermodal rail; the terminal sits adjacent to the NS Crescent Corridor main line; rail is the long-haul leg to and from the Norfolk Harbor terminals (NIT, VIG), truck is the last-mile leg"
+    }
+   ],
+   "corridors": [
+    "I-81",
+    "I-66"
+   ],
+   "ftz": {
+    "zone": "FTZ 20",
+    "site": "Site 7 — Warren County Industrial Corridor (490 acres, Routes 340/522/661)",
+    "grantee": "Virginia Port Authority",
+    "note": "FTZ 185's grantee is the County of Culpeper; its service area includes Warren County, which is the source of the widespread FTZ 185 error — the designated Front Royal site is FTZ 20 Site 7."
+   },
+   "customsPortOfEntry": true,
+   "volumes": [],
+   "statusItems": [
+    {
+     "title": "No standalone throughput figure published",
+     "state": "The Port of Virginia publishes no current standalone volume for this terminal; no volume figure is published for it. The terminal is described by the Virginia Economic Development Partnership as the highest-volume Virginia port facility by container count (dated characterization).",
+     "asOf": "2026-11-02",
+     "source": "Ports program dossier §1.1 (Port of Virginia terminal sheets; VEDP)"
+    },
+    {
+     "title": "On-terminal rail expansion",
+     "state": "$15M project expanding on-terminal rail track capacity about 40 percent (three new sidings) with four rubber-tire gantry cranes transferred from Norfolk Harbor; estimated completion Q4 2024-2025.",
+     "asOf": "2026-11-02",
+     "source": "Progressive Railroading, via ports program dossier §1.1"
+    }
+   ],
+   "branchBinding": {
+    "branch": "winchester",
+    "bindingBasis": "miles",
+    "milesFromWinchester": 23,
+    "timeFromWinchester": "0:30",
+    "milesFromMartinsburg": 43,
+    "timeFromMartinsburg": "0:51",
+    "routeFromBindingBranch": "I-81 S to I-66 E (Exit 300), Front Royal",
+    "marginNote": "about 20 mi / about 20 min closer from Winchester",
+    "branchPageUrl": "https://theflatratemovers.com/locations/winchester-va/"
+   },
+   "sources": [
+    "https://www.portofvirginia.com/wp-content/uploads/2024/03/2024-VIP-1-Pager.pdf",
+    "https://www.portofvirginia.com/wp-content/uploads/2026/08/POV_2026-VIP.pdf",
+    "https://www.federalregister.gov/documents/full_text/xml/2000/11/27/00-30146.xml",
+    "https://www.federalregister.gov/documents/full_text/xml/2014/02/21/2014-03709.xml",
+    "https://www.vedp.org/incentive/foreign-trade-zones-ftzs"
+   ],
+   "lastVerified": "2026-11-02"
+  },
+  {
+   "@type": "Place",
+   "@id": "https://theflatratemovers.com/datasets/ports/#port-of-virginia-norfolk",
+   "name": "Port of Virginia — Norfolk Harbor",
+   "alternateName": "Port of Virginia (Norfolk)",
+   "description": "Port of Virginia — Norfolk Harbor (Norfolk, VA) — deepwater marine port (container, RoRo, breakbulk). Authority: Virginia Port Authority. Operator: Virginia International Terminals, LLC (operating arm of the Virginia Port Authority). Cargo: containers (NIT, VIG); RoRo and breakbulk (NNMT — the port's primary RoRo and breakbulk terminal); offshore-wind and heavy-lift project cargo (PMT). Rail: Norfolk Southern — on-dock at NIT and VIG; CSX — on-dock at NNMT and PMT; intermodal access at NIT. Highway corridors: I-64, I-264, I-464, I-664. Foreign-trade zone: FTZ 20 (grantee Virginia Port Authority). U.S. Customs port of entry. Volume (FY2024, fiscal (Jul 2023-Jun 2024)): 3,499,639 TEU — Port of Virginia system (source: AJOT, Virginia FY2024 results, via ports program dossier §1.2). Volume (CY2025, calendar): 3,239,638 TEU — Port of Virginia system (source: Ports program dossier §1.2 (calendar 2025, -8.1%)). Volume (FY2024, fiscal): 283,817 short tons — Port of Virginia breakbulk tonnage (source: AJOT, Virginia FY2024 results, via ports program dossier §1.2). Branch binding: this port is served from the Winchester, VA branch of The Flat Rate Movers — about 222 road miles from Winchester and 245 from Martinsburg; bound to Winchester on miles. about 23 mi / 25-40 min closer from Winchester.",
+   "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "7737 Hampton Blvd",
+    "addressLocality": "Norfolk",
+    "addressRegion": "VA",
+    "postalCode": "23505",
+    "addressCountry": "US"
+   },
+   "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 36.91683,
+    "longitude": -76.3098
+   },
+   "portAuthority": "Virginia Port Authority",
+   "operator": "Virginia International Terminals, LLC (operating arm of the Virginia Port Authority)",
+   "terminals": [
+    {
+     "name": "Norfolk International Terminals (NIT)",
+     "port": "port-of-virginia-norfolk",
+     "operatorName": "Virginia International Terminals, LLC",
+     "cargoTypes": [
+      "containers"
+     ],
+     "specs": [
+      {
+       "label": "Container capacity",
+       "value": "2.2M TEUs (3.6M post-expansion, 2027)",
+       "source": "Port of Virginia NIT terminal sheet, 2026"
+      },
+      {
+       "label": "Channel depth",
+       "value": "55 ft",
+       "source": "Port of Virginia NIT terminal sheet, 2026"
+      }
+     ],
+     "railAccess": {
+      "railroads": [
+       "Norfolk Southern",
+       "CSX"
+      ],
+      "onDock": true,
+      "note": "on-dock NS; CSX intermodal access"
+     },
+     "gateHours": null
+    },
+    {
+     "name": "Virginia International Gateway (VIG)",
+     "port": "port-of-virginia-norfolk",
+     "operatorName": "Virginia International Terminals, LLC",
+     "cargoTypes": [
+      "containers"
+     ],
+     "specs": [
+      {
+       "label": "Ownership",
+       "value": "leased facility — VIG is leased, not owned by the Virginia Port Authority",
+       "source": "Ports program dossier §1.2"
+      }
+     ],
+     "railAccess": {
+      "railroads": [
+       "Norfolk Southern",
+       "CSX"
+      ],
+      "onDock": true
+     },
+     "gateHours": null
+    },
+    {
+     "name": "Portsmouth Marine Terminal (PMT)",
+     "port": "port-of-virginia-norfolk",
+     "operatorName": "Virginia International Terminals, LLC",
+     "cargoTypes": [
+      "offshore wind components",
+      "heavy-lift / project cargo"
+     ],
+     "specs": [
+      {
+       "label": "Container status",
+       "value": "NOT a container terminal — converted under a $220M program to a deep-water heavy-lift and offshore-wind hub staging Dominion Energy's Coastal Virginia Offshore Wind project; three heavy-lift berths substantially completed March 2025",
+       "source": "Port of Virginia PMT terminal sheet, 2026"
+      },
+      {
+       "label": "Site size",
+       "value": "278 acres",
+       "source": "Port of Virginia PMT terminal sheet, 2026"
+      },
+      {
+       "label": "Depth",
+       "value": "43 ft",
+       "source": "Port of Virginia PMT terminal sheet, 2026"
+      }
+     ],
+     "railAccess": {
+      "railroads": [
+       "CSX"
+      ],
+      "onDock": true,
+      "note": "CSX direct; NS via the Norfolk & Portsmouth Belt Line"
+     },
+     "gateHours": null
+    },
+    {
+     "name": "Newport News Marine Terminal (NNMT)",
+     "port": "port-of-virginia-norfolk",
+     "operatorName": "Virginia International Terminals, LLC",
+     "cargoTypes": [
+      "RoRo (autos, construction and farm equipment)",
+      "breakbulk",
+      "heavy-lift",
+      "lumber",
+      "metals",
+      "military and out-of-gauge cargo"
+     ],
+     "specs": [
+      {
+       "label": "Site size",
+       "value": "165 acres",
+       "source": "Port of Virginia NNMT terminal sheet, 2025"
+      },
+      {
+       "label": "Depth",
+       "value": "41 ft",
+       "source": "Port of Virginia NNMT terminal sheet, 2025"
+      },
+      {
+       "label": "Covered storage",
+       "value": "more than 1M sq ft",
+       "source": "Port of Virginia NNMT terminal sheet, 2025"
+      }
+     ],
+     "railAccess": {
+      "railroads": [
+       "CSX"
+      ],
+      "onDock": true,
+      "note": "CSX direct on-dock; NS via transfer"
+     },
+     "gateHours": null
+    }
+   ],
+   "cargoSpecialties": [
+    "containers (NIT, VIG)",
+    "RoRo and breakbulk (NNMT — the port's primary RoRo and breakbulk terminal)",
+    "offshore-wind and heavy-lift project cargo (PMT)"
+   ],
+   "railService": [
+    {
+     "railroad": "Norfolk Southern",
+     "qualifier": "on-dock at NIT and VIG"
+    },
+    {
+     "railroad": "CSX",
+     "qualifier": "on-dock at NNMT and PMT; intermodal access at NIT"
+    }
+   ],
+   "corridors": [
+    "I-64",
+    "I-264",
+    "I-464",
+    "I-664"
+   ],
+   "ftz": {
+    "zone": "FTZ 20",
+    "site": null,
+    "grantee": "Virginia Port Authority",
+    "note": "NNMT sits in FTZ #20 and is a U.S. Customs port of entry (Port of Virginia NNMT terminal sheet)."
+   },
+   "customsPortOfEntry": true,
+   "volumes": [
+    {
+     "value": 3499639,
+     "unit": "TEU",
+     "period": "FY2024",
+     "fiscalOrCalendar": "fiscal (Jul 2023-Jun 2024)",
+     "scope": "Port of Virginia system",
+     "source": "AJOT, Virginia FY2024 results, via ports program dossier §1.2"
+    },
+    {
+     "value": 3239638,
+     "unit": "TEU",
+     "period": "CY2025",
+     "fiscalOrCalendar": "calendar",
+     "scope": "Port of Virginia system",
+     "source": "Ports program dossier §1.2 (calendar 2025, -8.1%)"
+    },
+    {
+     "value": 283817,
+     "unit": "short tons",
+     "period": "FY2024",
+     "fiscalOrCalendar": "fiscal",
+     "scope": "Port of Virginia breakbulk tonnage",
+     "source": "AJOT, Virginia FY2024 results, via ports program dossier §1.2"
+    }
+   ],
+   "statusItems": [
+    {
+     "title": "PMT container status",
+     "state": "Portsmouth Marine Terminal is not a container terminal; container work at Norfolk Harbor runs through NIT and VIG only.",
+     "asOf": "2026-11-02",
+     "source": "Port of Virginia PMT terminal sheet, 2026, via ports program dossier §1.2"
+    }
+   ],
+   "branchBinding": {
+    "branch": "winchester",
+    "bindingBasis": "miles",
+    "milesFromWinchester": 222,
+    "timeFromWinchester": "3:53-4:10",
+    "milesFromMartinsburg": 245,
+    "timeFromMartinsburg": "about 4:32",
+    "routeFromBindingBranch": "I-81 S to I-64 E to Norfolk",
+    "marginNote": "about 23 mi / 25-40 min closer from Winchester",
+    "branchPageUrl": "https://theflatratemovers.com/locations/winchester-va/"
+   },
+   "sources": [
+    "https://www.portofvirginia.com/wp-content/uploads/2026/08/POV_2026-NIT.pdf",
+    "https://www.portofvirginia.com/wp-content/uploads/2026/08/POV_2026-PMT.pdf",
+    "https://www.portofvirginia.com/wp-content/uploads/2025/03/POV_2025-NNMT.pdf",
+    "https://www.ajot.com/news/virginia-completes-fy-2024-with-growth-in-cargo-volumes-and-progress-on-infrastructure-projects"
+   ],
+   "lastVerified": "2026-11-02"
+  },
+  {
+   "@type": "Place",
+   "@id": "https://theflatratemovers.com/datasets/ports/#port-richmond-marine-terminal",
+   "name": "Richmond Marine Terminal",
+   "alternateName": "RMT",
+   "description": "Richmond Marine Terminal (Richmond, VA) — river barge terminal (inland port). Authority: Virginia Port Authority (operator under lease). Operator: Virginia International Terminals, LLC — the City of Richmond owns the terminal; the Virginia Port Authority leases it under a 40-year lease signed 2016 (to 2056). Cargo: barge containers on the Richmond Express (64 Express) James River barge service linking Richmond with NIT, VIG and PMT; breakbulk. Rail: CSX — direct; Norfolk Southern — via local switch. Highway corridors: I-95, I-64, I-85, I-295. Branch binding: this port is served from the Winchester, VA branch of The Flat Rate Movers — about 135 road miles from Winchester and 158 from Martinsburg; bound to Winchester on miles. about 23 mi / about 20 min closer from Winchester; secondary node (section of the Port of Virginia hub, no dedicated hub page or dataset file in wave 1).",
+   "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "5000 Deepwater Terminal Rd",
+    "addressLocality": "Richmond",
+    "addressRegion": "VA",
+    "postalCode": "23234",
+    "addressCountry": "US"
+   },
+   "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 37.45564,
+    "longitude": -77.42259
+   },
+   "portAuthority": "Virginia Port Authority (operator under lease)",
+   "operator": "Virginia International Terminals, LLC — the City of Richmond owns the terminal; the Virginia Port Authority leases it under a 40-year lease signed 2016 (to 2056)",
+   "terminals": [
+    {
+     "name": "Richmond Marine Terminal",
+     "port": "port-richmond-marine-terminal",
+     "operatorName": "Virginia International Terminals, LLC",
+     "cargoTypes": [
+      "containers (barge)",
+      "breakbulk"
+     ],
+     "specs": [
+      {
+       "label": "Site size",
+       "value": "124 acres",
+       "source": "Port of Virginia RMT terminal sheet, 2026 (the 2023 sheet said 121 acres; the 2026 sheet governs)"
+      },
+      {
+       "label": "Storage",
+       "value": "300,000 sq ft covered and uncovered",
+       "source": "Port of Virginia RMT terminal sheet, 2026"
+      },
+      {
+       "label": "Crane",
+       "value": "mobile harbor crane, 124-ton class",
+       "source": "Port of Virginia RMT terminal sheet, 2026"
+      },
+      {
+       "label": "On-terminal capability",
+       "value": "on-terminal transload and cross-docking for container cargo to and from railcars or domestic trucks",
+       "source": "Port of Virginia RMT terminal sheet, 2026"
+      }
+     ],
+     "railAccess": {
+      "railroads": [
+       "CSX"
+      ],
+      "onDock": true,
+      "note": "CSX direct; NS via local switch"
+     },
+     "gateHours": "Monday-Friday 0700-1600"
+    }
+   ],
+   "cargoSpecialties": [
+    "barge containers on the Richmond Express (64 Express) James River barge service linking Richmond with NIT, VIG and PMT",
+    "breakbulk"
+   ],
+   "railService": [
+    {
+     "railroad": "CSX",
+     "qualifier": "direct"
+    },
+    {
+     "railroad": "Norfolk Southern",
+     "qualifier": "via local switch"
+    }
+   ],
+   "corridors": [
+    "I-95",
+    "I-64",
+    "I-85",
+    "I-295"
+   ],
+   "volumes": [],
+   "statusItems": [
+    {
+     "title": "No standalone volume published",
+     "state": "No standalone annual TEU is published for Richmond Marine Terminal; no volume figure is published for it.",
+     "asOf": "2026-11-02",
+     "source": "Ports program dossier §1.3"
+    },
+    {
+     "title": "Barge service",
+     "state": "The Richmond Express (64 Express, James River Barge Line for VIT) links RMT with NIT, VIG and PMT — three barges in rotation, 500 FEU combined capacity, about 12-hour overnight transit; the Port's 2025 growth report credits the 2024 barge service with keeping 30,000 trucks off the road.",
+     "asOf": "2026-11-02",
+     "source": "Port of Virginia RMT sheets and 2025 growth report, via ports program dossier §1.3"
+    }
+   ],
+   "branchBinding": {
+    "branch": "winchester",
+    "bindingBasis": "miles",
+    "milesFromWinchester": 135,
+    "timeFromWinchester": "about 2:39",
+    "milesFromMartinsburg": 158,
+    "timeFromMartinsburg": "about 3:00",
+    "routeFromBindingBranch": "I-81 S to I-64 E to I-95 S, Richmond",
+    "marginNote": "about 23 mi / about 20 min closer from Winchester; secondary node (section of the Port of Virginia hub, no dedicated hub page or dataset file in wave 1)",
+    "branchPageUrl": "https://theflatratemovers.com/locations/winchester-va/"
+   },
+   "sources": [
+    "https://www.portofvirginia.com/wp-content/uploads/2026/08/POV_2026-RMT.pdf",
+    "https://portofvirginia.com/wp-content/uploads/2023/09/2023-RMT-1-Pager.pdf",
+    "https://www.portofvirginia.com/wp-content/uploads/2025/10/POV_2025_RMT_GrowthReport_v14.pdf",
+    "https://www.freightwaves.com/news/city-of-richmond-leases-port-to-state-for-40-years"
+   ],
+   "lastVerified": "2026-11-02"
+  },
+  {
+   "@type": "Place",
+   "@id": "https://theflatratemovers.com/datasets/ports/#port-of-baltimore",
+   "name": "Helen Delich Bentley Port of Baltimore",
+   "alternateName": "Port of Baltimore",
+   "description": "Helen Delich Bentley Port of Baltimore (Baltimore, MD) — deepwater marine port (containers, RoRo, autos, forest products, breakbulk). Authority: Maryland Port Administration (MDOT MPA). Operator: Maryland Port Administration (public terminals are state-owned and MPA-managed; Seagirt is operated by Ports America Chesapeake under a 50-year public-private partnership from 2010). Cargo: containers (Seagirt); RoRo farm and construction equipment — highest tonnage of any U.S. port (887,513 tons, 2025); forest products — first among U.S. ports (1.1M tons, 2025); autos and light trucks — second in the U.S. (728,225 units, 2025). Rail: CSX — on-dock at the ICTF adjacent to Seagirt (CSX Intermodal); CSX direct to all North Locust Point berths; Norfolk Southern — serves the port via interchange / Canton Railroad — not an on-dock Seagirt operator. Highway corridors: I-95, I-695, I-70, I-83, I-81. Volume (CY2025, calendar): 1,113,309 TEU — Port of Baltimore containers — a port record (source: Maryland Port Administration 2025 results release, 2026-03-24). Volume (CY2025, calendar): 887,513 short tons — RoRo farm and construction equipment — highest of any U.S. port (source: Maryland Port Administration 2025 results release, 2026-03-24). Volume (CY2025, calendar): 1,100,000 short tons — Forest products — first among U.S. ports (published as 1.1M tons) (source: Maryland Port Administration 2025 results release, 2026-03-24). Volume (CY2025, calendar): 728,225 units — Autos and light trucks — second in the U.S. (source: Maryland Port Administration 2025 results release, 2026-03-24). Branch binding: this port is served from the Martinsburg, WV branch of The Flat Rate Movers — about 106-116 road miles from Winchester and 91-96 from Martinsburg; bound to Martinsburg on miles. modest margin, about 12-18 mi; Winchester is a credible support branch.",
+   "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "2600 Broening Hwy",
+    "addressLocality": "Baltimore",
+    "addressRegion": "MD",
+    "postalCode": "21224",
+    "addressCountry": "US"
+   },
+   "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 39.25707,
+    "longitude": -76.5378
+   },
+   "portAuthority": "Maryland Port Administration (MDOT MPA)",
+   "operator": "Maryland Port Administration (public terminals are state-owned and MPA-managed; Seagirt is operated by Ports America Chesapeake under a 50-year public-private partnership from 2010)",
+   "terminals": [
+    {
+     "name": "Seagirt Marine Terminal",
+     "port": "port-of-baltimore",
+     "operatorName": "Ports America Chesapeake",
+     "cargoTypes": [
+      "containers"
+     ],
+     "specs": [
+      {
+       "label": "Berths",
+       "value": "4",
+       "source": "Maryland Port Administration, Seagirt Marine Terminal page"
+      },
+      {
+       "label": "Depth",
+       "value": "50 ft",
+       "source": "Maryland Port Administration, Seagirt Marine Terminal page"
+      },
+      {
+       "label": "Capacity",
+       "value": "1.5M TEU/yr",
+       "source": "Maryland Port Administration, Seagirt Marine Terminal page"
+      },
+      {
+       "label": "Grain transload facility",
+       "value": "opened in 2026 reporting (Ports America Chesapeake with Frey Commodities: 3 silos, 60,000 bushels, 200+ containers/week, Canton Railroad interchange with CSX and NS)",
+       "source": "Governor of Maryland press release, 2026, via ports program dossier §1.4"
+      }
+     ],
+     "railAccess": {
+      "railroads": [
+       "CSX"
+      ],
+      "onDock": true,
+      "note": "on-dock rail is the adjacent ICTF (CSX Intermodal); Norfolk Southern serves the port via interchange / Canton Railroad and is not an on-dock Seagirt operator"
+     },
+     "gateHours": null
+    },
+    {
+     "name": "Intermodal Container Transfer Facility (ICTF)",
+     "port": "port-of-baltimore",
+     "operatorName": "CSX Intermodal",
+     "cargoTypes": [
+      "intermodal containers (rail)"
+     ],
+     "specs": [
+      {
+       "label": "Site size",
+       "value": "68 acres",
+       "source": "Maryland Port Administration, Intermodal page"
+      },
+      {
+       "label": "Service",
+       "value": "CSX direct service only, about 6 trains/day; a $42M expansion is in construction (5 new working tracks, electrified RTGs) taking design lift capacity from about 60-70k/yr toward 160,000+",
+       "source": "Maryland Port Administration, Intermodal page; Progressive Railroading, via ports program dossier §1.4"
+      }
+     ],
+     "railAccess": {
+      "railroads": [
+       "CSX"
+      ],
+      "onDock": true
+     },
+     "gateHours": null
+    },
+    {
+     "name": "Dundalk Marine Terminal",
+     "port": "port-of-baltimore",
+     "operatorName": "Maryland Port Administration",
+     "cargoTypes": [
+      "containers",
+      "breakbulk",
+      "wood pulp",
+      "RoRo",
+      "autos",
+      "project cargo",
+      "farm and construction equipment"
+     ],
+     "specs": [
+      {
+       "label": "Site size",
+       "value": "570 acres",
+       "source": "Maryland State Archives / MPA terminal data, via ports program dossier §1.4"
+      },
+      {
+       "label": "Berths",
+       "value": "13",
+       "source": "Maryland State Archives / MPA terminal data, via ports program dossier §1.4"
+      },
+      {
+       "label": "Inside storage",
+       "value": "about 790,000 sq ft",
+       "source": "Maryland State Archives / MPA terminal data, via ports program dossier §1.4"
+      }
+     ],
+     "railAccess": {
+      "railroads": [
+       "CSX",
+       "Norfolk Southern"
+      ],
+      "onDock": "interchange"
+     },
+     "gateHours": null
+    },
+    {
+     "name": "North Locust Point",
+     "port": "port-of-baltimore",
+     "operatorName": "Maryland Port Administration",
+     "cargoTypes": [
+      "forest products",
+      "steel",
+      "breakbulk",
+      "project cargo",
+      "wood pulp",
+      "lumber",
+      "latex",
+      "paper"
+     ],
+     "specs": [
+      {
+       "label": "Heavy-lift",
+       "value": "45-long-ton container crane and two 75-ton whirley cranes; CSX direct to all berths; 2.25 mi to I-95",
+       "source": "Maryland Port Administration, North Locust Point page"
+      }
+     ],
+     "railAccess": {
+      "railroads": [
+       "CSX"
+      ],
+      "onDock": true
+     },
+     "gateHours": null
+    },
+    {
+     "name": "South Locust Point (incl. Maryland Cruise Terminal)",
+     "port": "port-of-baltimore",
+     "operatorName": "Maryland Port Administration",
+     "cargoTypes": [
+      "forest products",
+      "cruise"
+     ],
+     "specs": [
+      {
+       "label": "Inside storage",
+       "value": "about 935,000 sq ft",
+       "source": "Maryland State Archives / MPA terminal data, via ports program dossier §1.4"
+      }
+     ],
+     "railAccess": {
+      "railroads": [
+       "CSX"
+      ],
+      "onDock": "interchange"
+     },
+     "gateHours": null
+    },
+    {
+     "name": "Fairfield / Masonville (auto and RoRo complex)",
+     "port": "port-of-baltimore",
+     "operatorName": "Maryland Port Administration",
+     "cargoTypes": [
+      "autos",
+      "RoRo"
+     ],
+     "specs": [
+      {
+       "label": "Footprint",
+       "value": "160-acre public Fairfield/Masonville terminals adjacent to 250 acres of private auto terminals; combined port auto/RoRo footprint 710 acres",
+       "source": "Maryland Port Administration, auto page"
+      }
+     ],
+     "railAccess": {
+      "railroads": [
+       "CSX",
+       "Norfolk Southern"
+      ],
+      "onDock": "interchange"
+     },
+     "gateHours": null
+    }
+   ],
+   "cargoSpecialties": [
+    "containers (Seagirt)",
+    "RoRo farm and construction equipment — highest tonnage of any U.S. port (887,513 tons, 2025)",
+    "forest products — first among U.S. ports (1.1M tons, 2025)",
+    "autos and light trucks — second in the U.S. (728,225 units, 2025)"
+   ],
+   "railService": [
+    {
+     "railroad": "CSX",
+     "qualifier": "on-dock at the ICTF adjacent to Seagirt (CSX Intermodal); CSX direct to all North Locust Point berths"
+    },
+    {
+     "railroad": "Norfolk Southern",
+     "qualifier": "serves the port via interchange / Canton Railroad — not an on-dock Seagirt operator"
+    }
+   ],
+   "corridors": [
+    "I-95",
+    "I-695",
+    "I-70",
+    "I-83",
+    "I-81"
+   ],
+   "volumes": [
+    {
+     "value": 1113309,
+     "unit": "TEU",
+     "period": "CY2025",
+     "fiscalOrCalendar": "calendar",
+     "scope": "Port of Baltimore containers — a port record",
+     "source": "Maryland Port Administration 2025 results release, 2026-03-24"
+    },
+    {
+     "value": 887513,
+     "unit": "short tons",
+     "period": "CY2025",
+     "fiscalOrCalendar": "calendar",
+     "scope": "RoRo farm and construction equipment — highest of any U.S. port",
+     "source": "Maryland Port Administration 2025 results release, 2026-03-24"
+    },
+    {
+     "value": 1100000,
+     "unit": "short tons",
+     "period": "CY2025",
+     "fiscalOrCalendar": "calendar",
+     "scope": "Forest products — first among U.S. ports (published as 1.1M tons)",
+     "source": "Maryland Port Administration 2025 results release, 2026-03-24"
+    },
+    {
+     "value": 728225,
+     "unit": "units",
+     "period": "CY2025",
+     "fiscalOrCalendar": "calendar",
+     "scope": "Autos and light trucks — second in the U.S.",
+     "source": "Maryland Port Administration 2025 results release, 2026-03-24"
+    }
+   ],
+   "statusItems": [
+    {
+     "title": "Francis Scott Key Bridge rebuild",
+     "state": "MDTA's current position is $4.3-5.2B with opening late 2030; the channel was fully restored 10 June 2024 (700 ft x 50 ft). Until late 2030 the I-695 beltway's south-east quadrant stays severed; port trucks route via the I-95/I-895 tunnels and the I-695 west side.",
+     "asOf": "2026-11-02",
+     "source": "MDTA / USACE reporting, via ports program dossier §1.4"
+    },
+    {
+     "title": "Howard Street Tunnel double-stack",
+     "state": "The $496M CSX clearance project reopened the tunnel Sept 2025; double-stack service formally began June 2026 (about 160,000 containers/yr expected gain).",
+     "asOf": "2026-11-02",
+     "source": "Progressive Railroading, via ports program dossier §1.4"
+    }
+   ],
+   "branchBinding": {
+    "branch": "martinsburg",
+    "bindingBasis": "miles",
+    "milesFromWinchester": "106-116",
+    "timeFromWinchester": "1:51-1:56",
+    "milesFromMartinsburg": "91-96",
+    "timeFromMartinsburg": "1:37-1:46",
+    "routeFromBindingBranch": "I-81 N to I-70 E to I-695 (west side) / I-95, Baltimore",
+    "marginNote": "modest margin, about 12-18 mi; Winchester is a credible support branch",
+    "branchPageUrl": "https://theflatratemovers.com/locations/martinsburg-wv/"
+   },
+   "sources": [
+    "https://mpa.maryland.gov/Press%20Releases/Press03242026.pdf",
+    "https://mpa.maryland.gov/pages/seagirt-marine-terminal.aspx",
+    "https://mpa.maryland.gov/Pages/intermodal.aspx",
+    "https://mpa.maryland.gov/Pages/north-locust-point.aspx",
+    "https://msa.maryland.gov/msa/mdmanual/01glance/html/port.html"
+   ],
+   "lastVerified": "2026-11-02"
+  },
+  {
+   "@type": "Place",
+   "@id": "https://theflatratemovers.com/datasets/ports/#port-of-wilmington-de",
+   "name": "Port of Wilmington",
+   "alternateName": "Port of Wilmington, DE",
+   "description": "Port of Wilmington (Wilmington, DE) — deepwater marine port (fruit, reefer, breakbulk, RoRo). Authority: Diamond State Port Corporation (State of Delaware). Operator: Enstructure (operator since 31 July 2023 under a long-term concession; the former GT USA Wilmington / Gulftainer concession was cancelled). Cargo: fresh fruit, bananas and juice concentrate (verified claim form only: North America's top port for imports of fresh fruit, bananas and juice concentrate); refrigerated cargo; breakbulk and project cargo; autos (RoRo). Rail: Norfolk Southern — direct access per operator material; CSX — serves the Wilmington area via Wilsmere Yard; on-dock status unverified. Highway corridors: I-495, I-95, I-295. Branch binding: this port is served from the Martinsburg, WV branch of The Flat Rate Movers — about 165 road miles from Winchester and 150 from Martinsburg; bound to Martinsburg on miles. about 16 mi closer from Martinsburg; drive time near-tied.",
+   "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "1 Hausel Rd",
+    "addressLocality": "Wilmington",
+    "addressRegion": "DE",
+    "postalCode": "19801",
+    "addressCountry": "US"
+   },
+   "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 39.71517,
+    "longitude": -75.52987
+   },
+   "portAuthority": "Diamond State Port Corporation (State of Delaware)",
+   "operator": "Enstructure (operator since 31 July 2023 under a long-term concession; the former GT USA Wilmington / Gulftainer concession was cancelled)",
+   "terminals": [
+    {
+     "name": "Port of Wilmington main terminal",
+     "port": "port-of-wilmington-de",
+     "operatorName": "Enstructure",
+     "cargoTypes": [
+      "fresh fruit",
+      "bananas",
+      "juice concentrate",
+      "autos",
+      "steel",
+      "forest products",
+      "livestock",
+      "containers",
+      "breakbulk and project cargo"
+     ],
+     "specs": [
+      {
+       "label": "Fruit position",
+       "value": "North America's top port for imports of fresh fruit, bananas and juice concentrate; the largest U.S. banana-import facility (Dole); second worldwide for bananas, after Antwerp",
+       "source": "Choose Delaware / CLUI / Site Selection, via ports program dossier §1.6"
+      },
+      {
+       "label": "Banana throughput",
+       "value": "Dole and Chiquita together handle more than 1M tons of bananas a year; Chiquita renewed Wilmington as its mid-Atlantic hub in June 2025",
+       "source": "Choose Delaware, via ports program dossier §1.6"
+      },
+      {
+       "label": "Juice",
+       "value": "Citrosuco operates the largest dockside juice terminal in the USA here",
+       "source": "Ports program dossier §1.6"
+      }
+     ],
+     "railAccess": {
+      "railroads": [
+       "Norfolk Southern"
+      ],
+      "onDock": true,
+      "note": "operator material lists direct access to Norfolk Southern; CSX serves the Wilmington area via Wilsmere Yard — on-dock CSX status unverified"
+     },
+     "gateHours": null
+    },
+    {
+     "name": "Edgemoor / Delaware Container Terminal (DCT) — future capacity",
+     "port": "port-of-wilmington-de",
+     "operatorName": "Enstructure (DSPC-owned site)",
+     "cargoTypes": [
+      "containers (future)"
+     ],
+     "specs": [
+      {
+       "label": "Site",
+       "value": "137 acres, 45-ft depth, 16,000-TEU vessels, 1.2M TEU/yr at full build (Phase 1 about 520,000 TEU)",
+       "source": "WorldCargo News / Delaware state releases, via ports program dossier §1.6"
+      },
+      {
+       "label": "Schedule",
+       "value": "groundbreaking 14 Sept 2026; opening targeted early 2029; litigation remains live, so the schedule is not risk-free; final funding $669M ($225M Enstructure + $325M State + $119M federal)",
+       "source": "Delaware state release, 2026-09-14; WorldCargo News, via ports program dossier §1.6"
+      }
+     ],
+     "railAccess": {
+      "railroads": [],
+      "onDock": null
+     },
+     "gateHours": null
+    }
+   ],
+   "cargoSpecialties": [
+    "fresh fruit, bananas and juice concentrate (verified claim form only: North America's top port for imports of fresh fruit, bananas and juice concentrate)",
+    "refrigerated cargo",
+    "breakbulk and project cargo",
+    "autos (RoRo)"
+   ],
+   "railService": [
+    {
+     "railroad": "Norfolk Southern",
+     "qualifier": "direct access per operator material"
+    },
+    {
+     "railroad": "CSX",
+     "qualifier": "serves the Wilmington area via Wilsmere Yard; on-dock status unverified"
+    }
+   ],
+   "corridors": [
+    "I-495",
+    "I-95",
+    "I-295"
+   ],
+   "volumes": [],
+   "statusItems": [
+    {
+     "title": "No verified current volume — none published",
+     "state": "No verified current annual figure exists for the Port of Wilmington (operator material circulates conflicting figures; the last clean published series is 2018). No Wilmington volume figure is published anywhere in this program.",
+     "asOf": "2026-11-02",
+     "source": "Ports program dossier §1.6"
+    },
+    {
+     "title": "Edgemoor / Delaware Container Terminal",
+     "state": "Future container capacity: groundbreaking 14 Sept 2026, opening targeted early 2029, litigation live. Wilmington is a fruit and breakbulk port today and a container port from 2029.",
+     "asOf": "2026-11-02",
+     "source": "Delaware state release, 2026-09-14, via ports program dossier §1.6"
+    }
+   ],
+   "branchBinding": {
+    "branch": "martinsburg",
+    "bindingBasis": "miles",
+    "milesFromWinchester": 165,
+    "timeFromWinchester": "about 3:11",
+    "milesFromMartinsburg": 150,
+    "timeFromMartinsburg": "about 3:04",
+    "routeFromBindingBranch": "I-81 N to I-70 E to I-95 N, Wilmington",
+    "marginNote": "about 16 mi closer from Martinsburg; drive time near-tied",
+    "branchPageUrl": "https://theflatratemovers.com/locations/martinsburg-wv/"
+   },
+   "sources": [
+    "https://documents.dnrec.delaware.gov/Admin/Orders/Secretarys-Order-No-2025-A-0033.pdf",
+    "https://breakbulk.news/enstructure-completes-transfer-of-port-of-wilmington-operations-from-gt-usa/",
+    "https://www.choosedelaware.com/success-stories/chiquita-deal-a-boon-for-port-wilmington/",
+    "https://clui.org/ludb/site/port-wilmington",
+    "https://news.delaware.gov/2026/09/14/enstructure-diamond-state-port-corporation-stakeholders-celebrate-groundbreaking-of-the-delaware-container-terminal/"
+   ],
+   "lastVerified": "2026-11-02"
+  },
+  {
+   "@type": "Place",
+   "@id": "https://theflatratemovers.com/datasets/ports/#port-philaport",
+   "name": "PhilaPort — Port of Philadelphia",
+   "alternateName": "PhilaPort",
+   "description": "PhilaPort — Port of Philadelphia (Philadelphia, PA) — deepwater marine port (containers, reefer, breakbulk, forest products, autos). Authority: PhilaPort (Philadelphia Regional Port Authority, Commonwealth of Pennsylvania). Operator: Private terminal operators under lease (landlord port): Packer Avenue — Greenwich Terminals LLC; Tioga — Delaware River Stevedores; Southport Auto — Glovis America. Cargo: refrigerated and perishable cargo — 64 percent of containerized imports were refrigerated (CY2025); containers; forest products (newsprint, coated paper, wood pulp); breakbulk and project cargo; cocoa (Pier 84); autos. Rail: CSX — at every PhilaPort terminal, via Conrail Shared Assets switching; Norfolk Southern — at every PhilaPort terminal, via Conrail Shared Assets switching. Highway corridors: I-95, I-76, I-70, I-81. Volume (CY2025, calendar): 889,268 TEU — PhilaPort containers — a port record (+6 percent; +39 percent since 2020) (source: The Produce News / PhilaPort, CY2025 results, via ports program dossier §1.5). Branch binding: this port is served from the Martinsburg, WV branch of The Flat Rate Movers — about 193 road miles from Winchester and 191 from Martinsburg; bound to Martinsburg on time. bound on drive time only — road miles are tied (difference 0-3 mi); no mileage advantage is claimed.",
+   "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "3301 S Christopher Columbus Blvd",
+    "addressLocality": "Philadelphia",
+    "addressRegion": "PA",
+    "postalCode": "19148",
+    "addressCountry": "US"
+   },
+   "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 39.90606,
+    "longitude": -75.13803
+   },
+   "portAuthority": "PhilaPort (Philadelphia Regional Port Authority, Commonwealth of Pennsylvania)",
+   "operator": "Private terminal operators under lease (landlord port): Packer Avenue — Greenwich Terminals LLC; Tioga — Delaware River Stevedores; Southport Auto — Glovis America",
+   "terminals": [
+    {
+     "name": "Packer Avenue Marine Terminal",
+     "port": "port-philaport",
+     "operatorName": "Greenwich Terminals LLC",
+     "cargoTypes": [
+      "containers",
+      "steel",
+      "frozen meat",
+      "fruit",
+      "heavy-lift",
+      "project cargo",
+      "paper"
+     ],
+     "specs": [
+      {
+       "label": "Site size",
+       "value": "160 acres",
+       "source": "PhilaPort, Packer Avenue Marine Terminal page"
+      },
+      {
+       "label": "Berths",
+       "value": "6 berths + 1 RoRo berth",
+       "source": "PhilaPort, Packer Avenue Marine Terminal page"
+      },
+      {
+       "label": "Depth",
+       "value": "45 ft",
+       "source": "PhilaPort, Packer Avenue Marine Terminal page"
+      },
+      {
+       "label": "Refrigeration",
+       "value": "on-dock refrigeration; immediate I-95/I-76 access",
+       "source": "PhilaPort, Packer Avenue Marine Terminal page"
+      },
+      {
+       "label": "Largest vessel call",
+       "value": "CMA CGM Marco Polo, 16,200 TEU, March 2024",
+       "source": "PhilaPort, via ports program dossier §1.5"
+      }
+     ],
+     "railAccess": {
+      "railroads": [
+       "CSX",
+       "Norfolk Southern",
+       "CN"
+      ],
+      "onDock": true
+     },
+     "gateHours": null
+    },
+    {
+     "name": "Tioga Marine Terminal",
+     "port": "port-philaport",
+     "operatorName": "Delaware River Stevedores",
+     "cargoTypes": [
+      "forest products",
+      "containers",
+      "steel",
+      "over-dimensional",
+      "project and breakbulk cargo"
+     ],
+     "specs": [
+      {
+       "label": "Site size",
+       "value": "116 acres; long-standing Chilean fruit and Brazilian eucalyptus pulp base; cold storage",
+       "source": "PhilaPort / Delaware River Stevedores, via ports program dossier §1.5"
+      }
+     ],
+     "railAccess": {
+      "railroads": [
+       "CSX",
+       "Norfolk Southern"
+      ],
+      "onDock": true
+     },
+     "gateHours": null
+    },
+    {
+     "name": "Southport Auto Terminal",
+     "port": "port-philaport",
+     "operatorName": "Glovis America",
+     "cargoTypes": [
+      "autos"
+     ],
+     "specs": [
+      {
+       "label": "Opened",
+       "value": "October 2019; 155 acres; about 350,000 autos/yr capacity; Glovis signed an MOU in Oct 2026 to extend its lease through 2056 and expand",
+       "source": "AJOT / Baird Maritime, via ports program dossier §1.5"
+      }
+     ],
+     "railAccess": {
+      "railroads": [
+       "CSX",
+       "Norfolk Southern"
+      ],
+      "onDock": true
+     },
+     "gateHours": null
+    }
+   ],
+   "cargoSpecialties": [
+    "refrigerated and perishable cargo — 64 percent of containerized imports were refrigerated (CY2025)",
+    "containers",
+    "forest products (newsprint, coated paper, wood pulp)",
+    "breakbulk and project cargo",
+    "cocoa (Pier 84)",
+    "autos"
+   ],
+   "railService": [
+    {
+     "railroad": "CSX",
+     "qualifier": "at every PhilaPort terminal, via Conrail Shared Assets switching"
+    },
+    {
+     "railroad": "Norfolk Southern",
+     "qualifier": "at every PhilaPort terminal, via Conrail Shared Assets switching"
+    }
+   ],
+   "corridors": [
+    "I-95",
+    "I-76",
+    "I-70",
+    "I-81"
+   ],
+   "volumes": [
+    {
+     "value": 889268,
+     "unit": "TEU",
+     "period": "CY2025",
+     "fiscalOrCalendar": "calendar",
+     "scope": "PhilaPort containers — a port record (+6 percent; +39 percent since 2020)",
+     "source": "The Produce News / PhilaPort, CY2025 results, via ports program dossier §1.5"
+    }
+   ],
+   "statusItems": [
+    {
+     "title": "Productivity ranking",
+     "state": "Ranked #1 in North America for productivity in the World Bank/S&P Container Port Performance Index (2024 index). Port-wide total tonnage for 2024/2025 is unverified — none is published.",
+     "asOf": "2026-11-02",
+     "source": "PhilaPort, via ports program dossier §1.5"
+    },
+    {
+     "title": "Southport Marine Terminal expansion (distinct from the Southport Auto Terminal)",
+     "state": "Announced 13 Oct 2026: $371.5M state within an $837M package, a new 2,000-ft berth (first in 50 years), +122 percent container-capacity projection, and development of the 152-acre Mustin Yard acquired from Norfolk Southern (Sept 2025).",
+     "asOf": "2026-11-02",
+     "source": "Baird Maritime, via ports program dossier §1.5"
+    }
+   ],
+   "branchBinding": {
+    "branch": "martinsburg",
+    "bindingBasis": "time",
+    "milesFromWinchester": 193,
+    "timeFromWinchester": "3:36-3:45",
+    "milesFromMartinsburg": 191,
+    "timeFromMartinsburg": "about 3:23",
+    "routeFromBindingBranch": "I-81 N to I-70 E to I-95 N, Philadelphia",
+    "marginNote": "bound on drive time only — road miles are tied (difference 0-3 mi); no mileage advantage is claimed",
+    "branchPageUrl": "https://theflatratemovers.com/locations/martinsburg-wv/"
+   },
+   "sources": [
+    "https://www.philaport.com/facilities/packer-avenue-marine-terminal/",
+    "https://www.theproducenews.com/philaport-sets-record-container-volume-2025",
+    "https://www.philaport.com/philadelphia-named-most-productive-port-in-north-america/",
+    "https://d-r-s.com/Philadelphia.aspx"
+   ],
+   "lastVerified": "2026-11-02"
   }
+ ],
+ "@id": "https://theflatratemovers.com/entity-graph.json",
+ "@type": "Dataset",
+ "attestations": [
+  {
+   "claim": "Founding date June 2010",
+   "evidence": "https://theflatratemovers.com/",
+   "source": "Henry confirmation 2026-10-27 and live site Upperville page: family-owned established 2010",
+   "verified": "2026-10-27"
+  },
+  {
+   "claim": "Winchester address, geo, phone, hours",
+   "evidence": "https://theflatratemovers.com/",
+   "source": "Places record and Google Business Profile Winchester, hours Mon-Fri 8-6, Sat 8-4, Sun 9-4",
+   "verified": "2026-10-27"
+  },
+  {
+   "claim": "Martinsburg address, geo, phone",
+   "evidence": "https://theflatratemovers.com/",
+   "source": "Places record and Google Business Profile Martinsburg",
+   "verified": "2026-10-27"
+  },
+  {
+   "claim": "Martinsburg hours are distinct: Mon-Fri 9-6, Sat 9-4, Sun 9-4, name Flat Rate Movers Martinsburg WV, Google rating 4.7 with 6 reviews",
+   "source": "Henry correction 2026-10-27, superseding earlier same-day unified-hours note; Google Business Profile Martinsburg, verified 2026-10-27",
+   "verified": "2026-10-28"
+  },
+  {
+   "claim": "Winchester full footprint, 32 areas (17 Google Business Profile areas plus expansion areas)",
+   "source": "Google Business Profile Business information, Location, screenshot supplied by Henry 2026-10-27",
+   "verified": "2026-10-27"
+  },
+  {
+   "claim": "Martinsburg full footprint, 35 areas (14 Google Business Profile areas plus expansion areas)",
+   "source": "Google Business Profile Business information, Hours/Location, screenshot supplied by Henry 2026-10-27",
+   "verified": "2026-10-27"
+  },
+  {
+   "claim": "Winchester Google rating 5.0 with 1 review; Martinsburg Google rating 4.7 with 6 reviews",
+   "source": "Google Business Profile check 2026-10-27, read-only, per branch, not blended; per-branch ratings are carried on each Place node",
+   "verified": "2026-10-27"
+  },
+  {
+   "claim": "SIR/KIM-GS, 1,500-3,500 lbs, L/360",
+   "source": "The Flat Rate Movers live site and GitHub SIR authority repos",
+   "verified": "2026-10-27"
+  },
+  {
+   "claim": "ISPM 15 export packing, custom crating, transloading, final mile, high-value protection",
+   "source": "Henry addition 2026-10-27 and live ai-sitemap.json",
+   "verified": "2026-10-27"
+  },
+  {
+   "claim": "License details are private and are not published in this graph",
+   "source": "Henry instruction 2026-10-27",
+   "verified": "2026-10-27"
+  },
+  {
+   "claim": "24 new branch & corridor pages (full footprint 31/35, shared 14), each with Service JSON-LD, logo image, backlinks",
+   "source": "Flat Rate Machine Phase 3 full build, owner-approved content 2026-10-28; GBP screenshots 2026-10-27 confirmed 2026-10-28; GeoJSON branch properties 2026-10-28",
+   "verified": "2026-10-28"
+  }
+ ],
+ "chain": [
+  {
+   "from": "https://theflatratemovers.com/#organization",
+   "relation": "location",
+   "to": "https://theflatratemovers.com/#winchester"
+  },
+  {
+   "from": "https://theflatratemovers.com/#organization",
+   "relation": "location",
+   "to": "https://theflatratemovers.com/#martinsburg"
+  },
+  {
+   "from": "https://theflatratemovers.com/#winchester",
+   "relation": "address",
+   "to": "https://theflatratemovers.com/#winchester-address"
+  },
+  {
+   "from": "https://theflatratemovers.com/#martinsburg",
+   "relation": "address",
+   "to": "https://theflatratemovers.com/#martinsburg-address"
+  },
+  {
+   "from": "https://theflatratemovers.com/gun-safe-movers/#service",
+   "relation": "provider",
+   "to": "https://theflatratemovers.com/#organization"
+  },
+  {
+   "from": "https://theflatratemovers.com/gun-safe-movers/#service",
+   "relation": "areaServed",
+   "to": "https://theflatratemovers.com/#winchester"
+  },
+  {
+   "from": "https://theflatratemovers.com/gun-safe-movers/#service",
+   "relation": "areaServed",
+   "to": "https://theflatratemovers.com/#martinsburg"
+  },
+  {
+   "from": "https://theflatratemovers.com/#service-catalog",
+   "relation": "itemListElement",
+   "to": "https://theflatratemovers.com/gun-safe-movers/#service"
+  },
+  {
+   "from": "https://theflatratemovers.com/#organization",
+   "relation": "sameAs",
+   "to": "https://www.instagram.com/theflatratemoversllc/"
+  },
+  {
+   "from": "https://theflatratemovers.com/#organization",
+   "relation": "sameAs",
+   "to": "https://www.threads.com/@theflatratemoversllc"
+  },
+  {
+   "from": "https://theflatratemovers.com/#organization",
+   "relation": "sameAs",
+   "to": "https://x.com/ratemovers"
+  },
+  {
+   "from": "https://theflatratemovers.com/#organization",
+   "relation": "sameAs",
+   "to": "https://www.youtube.com/@theflatratemovers"
+  },
+  {
+   "from": "https://theflatratemovers.com/#winchester",
+   "relation": "areaServed",
+   "to": "Winchester full footprint, 32 areas"
+  },
+  {
+   "from": "https://theflatratemovers.com/#martinsburg",
+   "relation": "areaServed",
+   "to": "Martinsburg full footprint, 35 areas"
+  }
+ ],
+ "dateModified": "2026-11-02",
+ "description": "Machine-readable entity graph for The Flat Rate Movers LLC. Every node has a stable @id, every Service and Place chains to the Organization by @id, every service area chains to its branch Place, and every fact carries a named source and verification date. Per-branch Google ratings live on each Place node, distinct, never blended. License details are private and are not published in this graph.",
+ "name": "The Flat Rate Movers — Entity Graph, Nodes and Chains",
+ "rubric": {
+  "checks": [
+   "Every page has Organization, WebPage, BreadcrumbList, and Service nodes, all linked by stable @id, not by copied text",
+   "Every Place chains Organization -> Place -> PostalAddress -> GeoCoordinates -> OpeningHoursSpecification -> areaServed",
+   "Every Service chains Service -> provider Organization -> Place -> areaServed",
+   "Every fact in a node appears in a source note with source and date, or it is omitted",
+   "No rating, price, license detail, testimonial, or move count appears without a named, visible, verified source",
+   "Service areas match the full footprint per branch (Winchester 32, Martinsburg 35), not a generic county list",
+   "Captions and credits are honest: style examples are labelled as examples, never presented as his work"
+  ],
+  "purpose": "Use this rubric to check any page, node, or graph before go-live: does it chain, does it cite, does it source?"
+ },
+ "version": "2026-10-28",
+ "url": "https://theflatratemovers.com/entity-graph.json",
+ "sameAs": "https://theflatratemovers.com/entity-graph.json",
+ "identifier": "https://theflatratemovers.com/entity-graph.json",
+ "isAccessibleForFree": true,
+ "distribution": [
+  {
+   "@type": "DataDownload",
+   "contentUrl": "https://theflatratemovers.com/entity-graph.json",
+   "encodingFormat": "application/ld+json"
+  }
+ ],
+ "creator": {
+  "@id": "https://theflatratemovers.com/#organization",
+  "@type": "Organization",
+  "name": "The Flat Rate Movers",
+  "foundingDate": "2010-06",
+  "sameAs": [
+   "https://www.instagram.com/theflatratemoversllc/",
+   "https://www.threads.com/@theflatratemoversllc",
+   "https://x.com/ratemovers",
+   "https://www.youtube.com/@theflatratemovers",
+   "https://github.com/TheFlatRateMovers",
+   "https://medium.com/@ratemovers",
+   "https://www.wikidata.org/wiki/Q141969215"
+  ]
+ },
+ "publisher": {
+  "@id": "https://theflatratemovers.com/#organization",
+  "@type": "Organization",
+  "name": "The Flat Rate Movers",
+  "foundingDate": "2010-06",
+  "sameAs": [
+   "https://www.instagram.com/theflatratemoversllc/",
+   "https://www.threads.com/@theflatratemoversllc",
+   "https://x.com/ratemovers",
+   "https://www.youtube.com/@theflatratemovers",
+   "https://github.com/TheFlatRateMovers",
+   "https://medium.com/@ratemovers",
+   "https://www.wikidata.org/wiki/Q141969215"
+  ]
+ }
 }

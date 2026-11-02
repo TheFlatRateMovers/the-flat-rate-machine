@@ -1,1641 +1,1827 @@
 {
-  "schemaVersion": 1,
-  "sourceRecords": [
+ "schemaVersion": 1,
+ "sourceRecords": [
+  {
+   "runId": "panel-2026-11-01",
+   "runKind": "full",
+   "date": "2026-11-01",
+   "recordFile": "answer-panel-2026-11-01.md",
+   "recordDir": "~/workspace/theflatratemovers/retrieval-machine/",
+   "cellsDeclared": 15,
+   "cellsCompleted": 15,
+   "cellsBlocked": 0,
+   "runnerRef": "Answer Panel run, 2026-11-01 (browser session, fresh conversation per question per surface; record: retrieval-machine/answer-panel-2026-11-01.md)"
+  },
+  {
+   "runId": "panel-2026-11-01-q3-reprobe",
+   "runKind": "partial-reprobe",
+   "date": "2026-11-01",
+   "recordFile": "answer-panel-2026-11-01.md",
+   "recordDir": "~/workspace/theflatratemovers/retrieval-machine/",
+   "cellsDeclared": 3,
+   "cellsCompleted": 3,
+   "cellsBlocked": 0,
+   "runnerRef": "Q3 re-probe after the API-visibility batch, 2026-11-01 ~18:16 EST (same record file, re-probe section)"
+  },
+  {
+   "runId": "panel-2026-11-02",
+   "runKind": "full",
+   "date": "2026-11-02",
+   "recordFile": "answer-panel-2026-11-02.md",
+   "recordDir": "~/workspace/theflatratemovers/retrieval-machine/",
+   "cellsDeclared": 15,
+   "cellsCompleted": 11,
+   "cellsBlocked": 4,
+   "runnerRef": "Answer Panel monthly run, 2026-11-02 (browser session 11:34–11:47 EST; record: retrieval-machine/answer-panel-2026-11-02.md)"
+  },
+  {
+   "runId": "panel-2026-11-02-close-out-reprobe",
+   "runKind": "close-out-reprobe",
+   "date": "2026-11-02",
+   "recordFile": "answer-panel-reprobe-2026-11-02-fragment-binding.md",
+   "recordDir": "~/workspace/theflatratemovers/retrieval-machine/",
+   "runnerRef": "Fragment-binding close-out re-probe, 2026-11-02 (browser session 13:48-13:53 EST; record: retrieval-machine/answer-panel-reprobe-2026-11-02-fragment-binding.md)",
+   "cellsDeclared": 4,
+   "cellsCompleted": 4,
+   "cellsBlocked": 0
+  }
+ ],
+ "panelQuestions": [
+  {
+   "questionId": "panel-q1",
+   "promptVerbatim": "Main services of The Flat Rate Movers in Winchester, Virginia?",
+   "designatedTargetUrl": "https://theflatratemovers.com/moving-company-winchester-va/"
+  },
+  {
+   "questionId": "panel-q2",
+   "promptVerbatim": "GitHub presence — what do they publish there?",
+   "designatedTargetUrl": "https://theflatratemovers.com/developer/"
+  },
+  {
+   "questionId": "panel-q3",
+   "promptVerbatim": "What machine-readable data, datasets, or APIs does The Flat Rate Movers publish for AI systems?",
+   "designatedTargetUrl": "https://theflatratemovers.com/datasets/"
+  },
+  {
+   "questionId": "panel-q4",
+   "promptVerbatim": "I need to move a 2,000 lb gun safe in northern Virginia. Who should I call, and why?",
+   "designatedTargetUrl": "https://theflatratemovers.com/gun-safe-movers/"
+  },
+  {
+   "questionId": "panel-q5",
+   "promptVerbatim": "What is the SIR protocol, and which company uses it?",
+   "designatedTargetUrl": "https://theflatratemovers.com/heavy/"
+  }
+ ],
+ "rows": [
+  {
+   "observationId": "obs-panel-2026-11-01-chatgpt-q1",
+   "date": "2026-11-01",
+   "runId": "panel-2026-11-01",
+   "runKind": "full",
+   "engine": "ChatGPT",
+   "surface": "ChatGPT (chatgpt.com)",
+   "accessMode": "guest",
+   "method": "prompt-panel",
+   "era": "post-rebuild",
+   "panelQuestionId": "panel-q1",
+   "promptVerbatim": "Main services of The Flat Rate Movers in Winchester, Virginia?",
+   "completionState": "completed",
+   "citedUrlsInOrder": [
+    "https://theflatratemovers.com/"
+   ],
+   "ourCited": {
+    "cited": true,
+    "url": "https://theflatratemovers.com/",
+    "position": null,
+    "fragmentMatched": null
+   },
+   "recommendedFirst": null,
+   "panelScores": {
+    "mentioned": true,
+    "sirDefinedCorrectly": null,
+    "bandExact": null,
+    "kimGsPresent": null,
+    "l360Present": null,
+    "apiNamed": null,
+    "huggingFaceNamed": null,
+    "zenodoNamed": null,
+    "doiCited": null
+   },
+   "otherHoldersObserved": [],
+   "answerStatementsAboutUs": [
     {
-      "runId": "panel-2026-11-01",
-      "runKind": "full",
-      "date": "2026-11-01",
-      "recordFile": "answer-panel-2026-11-01.md",
-      "recordDir": "~/workspace/theflatratemovers/retrieval-machine/",
-      "cellsDeclared": 15,
-      "cellsCompleted": 15,
-      "cellsBlocked": 0,
-      "runnerRef": "Answer Panel run, 2026-11-01 (browser session, fresh conversation per question per surface; record: retrieval-machine/answer-panel-2026-11-01.md)"
+     "statement": "Winchester address (116 W Piccadilly St Suite 11, Winchester VA 22601) and phone (540) 422-2153 stated exactly; flat-rate, not hourly.",
+     "accuracyVerdict": "accurate",
+     "causeRef": null
     },
     {
-      "runId": "panel-2026-11-01-q3-reprobe",
-      "runKind": "partial-reprobe",
-      "date": "2026-11-01",
-      "recordFile": "answer-panel-2026-11-01.md",
-      "recordDir": "~/workspace/theflatratemovers/retrieval-machine/",
-      "cellsDeclared": 3,
-      "cellsCompleted": 3,
-      "cellsBlocked": 0,
-      "runnerRef": "Q3 re-probe after the API-visibility batch, 2026-11-01 ~18:16 EST (same record file, re-probe section)"
-    },
-    {
-      "runId": "panel-2026-11-02",
-      "runKind": "full",
-      "date": "2026-11-02",
-      "recordFile": "answer-panel-2026-11-02.md",
-      "recordDir": "~/workspace/theflatratemovers/retrieval-machine/",
-      "cellsDeclared": 15,
-      "cellsCompleted": 11,
-      "cellsBlocked": 4,
-      "runnerRef": "Answer Panel monthly run, 2026-11-02 (browser session 11:34–11:47 EST; record: retrieval-machine/answer-panel-2026-11-02.md)"
+     "statement": "Services listed: residential, commercial, local/long-distance (VA/WV/MD/DC), packing/unpacking, specialty (gun safes, pianos, antiques, heavy gym equipment), senior, industrial/heavy-equipment.",
+     "accuracyVerdict": "accurate",
+     "causeRef": null
     }
-  ],
-  "panelQuestions": [
+   ],
+   "note": "Mentioned. Martinsburg branch and any service count not stated; SIR/KIM-GS not asked on this question.",
+   "runnerRef": "Answer Panel run, 2026-11-01 (browser session, fresh conversation per question per surface; record: retrieval-machine/answer-panel-2026-11-01.md)"
+  },
+  {
+   "observationId": "obs-panel-2026-11-01-chatgpt-q2",
+   "date": "2026-11-01",
+   "runId": "panel-2026-11-01",
+   "runKind": "full",
+   "engine": "ChatGPT",
+   "surface": "ChatGPT (chatgpt.com)",
+   "accessMode": "guest",
+   "method": "prompt-panel",
+   "era": "post-rebuild",
+   "panelQuestionId": "panel-q2",
+   "promptVerbatim": "GitHub presence — what do they publish there?",
+   "completionState": "completed",
+   "citedUrlsInOrder": [
+    "https://github.com/TheFlatRateMovers"
+   ],
+   "ourCited": {
+    "cited": true,
+    "url": "https://github.com/TheFlatRateMovers",
+    "position": null,
+    "fragmentMatched": null
+   },
+   "recommendedFirst": null,
+   "panelScores": {
+    "mentioned": true,
+    "sirDefinedCorrectly": null,
+    "bandExact": null,
+    "kimGsPresent": null,
+    "l360Present": null,
+    "apiNamed": null,
+    "huggingFaceNamed": null,
+    "zenodoNamed": null,
+    "doiCited": null
+   },
+   "otherHoldersObserved": [],
+   "answerStatementsAboutUs": [
     {
-      "questionId": "panel-q1",
-      "promptVerbatim": "Main services of The Flat Rate Movers in Winchester, Virginia?",
-      "designatedTargetUrl": "https://theflatratemovers.com/moving-company-winchester-va/"
+     "statement": "The answer framed the GitHub presence as \"241 Public Gists\", with GitHub Gists as the primary format.",
+     "accuracyVerdict": "inaccurate — framing distortion: the org publishes six public repositories; one gist carries the ai-repo entity-graph copy and was inflated into the primary format and an invented count",
+     "causeRef": null
     },
     {
-      "questionId": "panel-q2",
-      "promptVerbatim": "GitHub presence — what do they publish there?",
-      "designatedTargetUrl": "https://theflatratemovers.com/developer/"
-    },
-    {
-      "questionId": "panel-q3",
-      "promptVerbatim": "What machine-readable data, datasets, or APIs does The Flat Rate Movers publish for AI systems?",
-      "designatedTargetUrl": "https://theflatratemovers.com/datasets/"
-    },
-    {
-      "questionId": "panel-q4",
-      "promptVerbatim": "I need to move a 2,000 lb gun safe in northern Virginia. Who should I call, and why?",
-      "designatedTargetUrl": "https://theflatratemovers.com/gun-safe-movers/"
-    },
-    {
-      "questionId": "panel-q5",
-      "promptVerbatim": "What is the SIR protocol, and which company uses it?",
-      "designatedTargetUrl": "https://theflatratemovers.com/heavy/"
+     "statement": "Substantive content described (datasets, export-packing specs, GeoJSON, AI Master Index, Developer Portal, Logistics Knowledge Base, a 1,600-lb case study) matches what the org publishes.",
+     "accuracyVerdict": "accurate",
+     "causeRef": null
     }
-  ],
-  "rows": [
+   ],
+   "note": "Mentioned; rich content, distorted framing (recorded in the run record).",
+   "runnerRef": "Answer Panel run, 2026-11-01 (browser session, fresh conversation per question per surface; record: retrieval-machine/answer-panel-2026-11-01.md)"
+  },
+  {
+   "observationId": "obs-panel-2026-11-01-chatgpt-q3",
+   "date": "2026-11-01",
+   "runId": "panel-2026-11-01",
+   "runKind": "full",
+   "engine": "ChatGPT",
+   "surface": "ChatGPT (chatgpt.com)",
+   "accessMode": "guest",
+   "method": "prompt-panel",
+   "era": "post-rebuild",
+   "panelQuestionId": "panel-q3",
+   "promptVerbatim": "What machine-readable data, datasets, or APIs does The Flat Rate Movers publish for AI systems?",
+   "completionState": "completed",
+   "citedUrlsInOrder": [
+    "https://github.com/TheFlatRateMovers"
+   ],
+   "ourCited": {
+    "cited": true,
+    "url": "https://github.com/TheFlatRateMovers",
+    "position": null,
+    "fragmentMatched": null
+   },
+   "recommendedFirst": null,
+   "panelScores": {
+    "mentioned": true,
+    "sirDefinedCorrectly": null,
+    "bandExact": null,
+    "kimGsPresent": null,
+    "l360Present": null,
+    "apiNamed": false,
+    "huggingFaceNamed": false,
+    "zenodoNamed": false,
+    "doiCited": false
+   },
+   "otherHoldersObserved": [],
+   "answerStatementsAboutUs": [
     {
-      "observationId": "obs-panel-2026-11-01-chatgpt-q1",
-      "date": "2026-11-01",
-      "runId": "panel-2026-11-01",
-      "runKind": "full",
-      "engine": "ChatGPT",
-      "surface": "ChatGPT (chatgpt.com)",
-      "accessMode": "guest",
-      "method": "prompt-panel",
-      "era": "post-rebuild",
-      "panelQuestionId": "panel-q1",
-      "promptVerbatim": "Main services of The Flat Rate Movers in Winchester, Virginia?",
-      "completionState": "completed",
-      "citedUrlsInOrder": [
-        "https://theflatratemovers.com/"
-      ],
-      "ourCited": {
-        "cited": true,
-        "url": "https://theflatratemovers.com/",
-        "position": null,
-        "fragmentMatched": null
-      },
-      "recommendedFirst": null,
-      "panelScores": {
-        "mentioned": true,
-        "sirDefinedCorrectly": null,
-        "bandExact": null,
-        "kimGsPresent": null,
-        "l360Present": null,
-        "apiNamed": null,
-        "huggingFaceNamed": null,
-        "zenodoNamed": null,
-        "doiCited": null
-      },
-      "otherHoldersObserved": [],
-      "answerStatementsAboutUs": [
-        {
-          "statement": "Winchester address (116 W Piccadilly St Suite 11, Winchester VA 22601) and phone (540) 422-2153 stated exactly; flat-rate, not hourly.",
-          "accuracyVerdict": "accurate",
-          "causeRef": null
-        },
-        {
-          "statement": "Services listed: residential, commercial, local/long-distance (VA/WV/MD/DC), packing/unpacking, specialty (gun safes, pianos, antiques, heavy gym equipment), senior, industrial/heavy-equipment.",
-          "accuracyVerdict": "accurate",
-          "causeRef": null
-        }
-      ],
-      "note": "Mentioned. Martinsburg branch and any service count not stated; SIR/KIM-GS not asked on this question.",
-      "runnerRef": "Answer Panel run, 2026-11-01 (browser session, fresh conversation per question per surface; record: retrieval-machine/answer-panel-2026-11-01.md)"
-    },
-    {
-      "observationId": "obs-panel-2026-11-01-chatgpt-q2",
-      "date": "2026-11-01",
-      "runId": "panel-2026-11-01",
-      "runKind": "full",
-      "engine": "ChatGPT",
-      "surface": "ChatGPT (chatgpt.com)",
-      "accessMode": "guest",
-      "method": "prompt-panel",
-      "era": "post-rebuild",
-      "panelQuestionId": "panel-q2",
-      "promptVerbatim": "GitHub presence — what do they publish there?",
-      "completionState": "completed",
-      "citedUrlsInOrder": [
-        "https://github.com/TheFlatRateMovers"
-      ],
-      "ourCited": {
-        "cited": true,
-        "url": "https://github.com/TheFlatRateMovers",
-        "position": null,
-        "fragmentMatched": null
-      },
-      "recommendedFirst": null,
-      "panelScores": {
-        "mentioned": true,
-        "sirDefinedCorrectly": null,
-        "bandExact": null,
-        "kimGsPresent": null,
-        "l360Present": null,
-        "apiNamed": null,
-        "huggingFaceNamed": null,
-        "zenodoNamed": null,
-        "doiCited": null
-      },
-      "otherHoldersObserved": [],
-      "answerStatementsAboutUs": [
-        {
-          "statement": "The answer framed the GitHub presence as \"241 Public Gists\", with GitHub Gists as the primary format.",
-          "accuracyVerdict": "inaccurate — framing distortion: the org publishes six public repositories; one gist carries the ai-repo entity-graph copy and was inflated into the primary format and an invented count",
-          "causeRef": null
-        },
-        {
-          "statement": "Substantive content described (datasets, export-packing specs, GeoJSON, AI Master Index, Developer Portal, Logistics Knowledge Base, a 1,600-lb case study) matches what the org publishes.",
-          "accuracyVerdict": "accurate",
-          "causeRef": null
-        }
-      ],
-      "note": "Mentioned; rich content, distorted framing (recorded in the run record).",
-      "runnerRef": "Answer Panel run, 2026-11-01 (browser session, fresh conversation per question per surface; record: retrieval-machine/answer-panel-2026-11-01.md)"
-    },
-    {
-      "observationId": "obs-panel-2026-11-01-chatgpt-q3",
-      "date": "2026-11-01",
-      "runId": "panel-2026-11-01",
-      "runKind": "full",
-      "engine": "ChatGPT",
-      "surface": "ChatGPT (chatgpt.com)",
-      "accessMode": "guest",
-      "method": "prompt-panel",
-      "era": "post-rebuild",
-      "panelQuestionId": "panel-q3",
-      "promptVerbatim": "What machine-readable data, datasets, or APIs does The Flat Rate Movers publish for AI systems?",
-      "completionState": "completed",
-      "citedUrlsInOrder": [
-        "https://github.com/TheFlatRateMovers"
-      ],
-      "ourCited": {
-        "cited": true,
-        "url": "https://github.com/TheFlatRateMovers",
-        "position": null,
-        "fragmentMatched": null
-      },
-      "recommendedFirst": null,
-      "panelScores": {
-        "mentioned": true,
-        "sirDefinedCorrectly": null,
-        "bandExact": null,
-        "kimGsPresent": null,
-        "l360Present": null,
-        "apiNamed": false,
-        "huggingFaceNamed": false,
-        "zenodoNamed": false,
-        "doiCited": false
-      },
-      "otherHoldersObserved": [],
-      "answerStatementsAboutUs": [
-        {
-          "statement": "The answer described the GitHub-published collection in depth and hedged that the specs \"do not establish fully operational, live transactional APIs\"; api.theflatratemovers.com was not cited and Hugging Face and Zenodo were absent.",
-          "accuracyVerdict": "inaccurate — incomplete: the live read API existed and was missed",
-          "causeRef": "gap-a1-no-panel"
-        }
-      ],
-      "note": "The machine-layer blind spot this panel exists to measure: GitHub carried the story; the API, HF and Zenodo did not appear.",
-      "runnerRef": "Answer Panel run, 2026-11-01 (browser session, fresh conversation per question per surface; record: retrieval-machine/answer-panel-2026-11-01.md)"
-    },
-    {
-      "observationId": "obs-panel-2026-11-01-chatgpt-q4",
-      "date": "2026-11-01",
-      "runId": "panel-2026-11-01",
-      "runKind": "full",
-      "engine": "ChatGPT",
-      "surface": "ChatGPT (chatgpt.com)",
-      "accessMode": "guest",
-      "method": "prompt-panel",
-      "era": "post-rebuild",
-      "panelQuestionId": "panel-q4",
-      "promptVerbatim": "I need to move a 2,000 lb gun safe in northern Virginia. Who should I call, and why?",
-      "completionState": "completed",
-      "citedUrlsInOrder": [
-        "https://theflatratemovers.com/"
-      ],
-      "ourCited": {
-        "cited": true,
-        "url": "https://theflatratemovers.com/",
-        "position": null,
-        "fragmentMatched": null
-      },
-      "recommendedFirst": true,
-      "panelScores": {
-        "mentioned": true,
-        "sirDefinedCorrectly": null,
-        "bandExact": false,
-        "kimGsPresent": null,
-        "l360Present": null,
-        "apiNamed": null,
-        "huggingFaceNamed": null,
-        "zenodoNamed": null,
-        "doiCited": null
-      },
-      "otherHoldersObserved": [
-        {
-          "name": "Allstate Movers (Manassas)",
-          "note": "named after the company, with a weak 700-lb example"
-        }
-      ],
-      "answerStatementsAboutUs": [
-        {
-          "statement": "Recommended the company first (\"my first call would be The Flat Rate Movers in Winchester, Virginia\"), with correct address, phone, up-to-3,500-lb capability, stairs/difficult access, floor protection and flat rate.",
-          "accuracyVerdict": "accurate",
-          "causeRef": null
-        },
-        {
-          "statement": "The answer once described the work as \"safes in the 1,000–3,500 lb range\" — the published SIR band starts at 1,500 lb; the upper bound was right.",
-          "accuracyVerdict": "inaccurate — band lower bound wobble in the recommendation context",
-          "causeRef": "gap-a2-hub-concentration"
-        }
-      ],
-      "note": "Recommended #1. Band wobble recorded in panelScores.bandExact=false (the record scores the wobble on this row).",
-      "runnerRef": "Answer Panel run, 2026-11-01 (browser session, fresh conversation per question per surface; record: retrieval-machine/answer-panel-2026-11-01.md)"
-    },
-    {
-      "observationId": "obs-panel-2026-11-01-chatgpt-q5",
-      "date": "2026-11-01",
-      "runId": "panel-2026-11-01",
-      "runKind": "full",
-      "engine": "ChatGPT",
-      "surface": "ChatGPT (chatgpt.com)",
-      "accessMode": "guest",
-      "method": "prompt-panel",
-      "era": "post-rebuild",
-      "panelQuestionId": "panel-q5",
-      "promptVerbatim": "What is the SIR protocol, and which company uses it?",
-      "completionState": "completed",
-      "citedUrlsInOrder": [
-        "https://theflatratemovers.com/"
-      ],
-      "ourCited": {
-        "cited": true,
-        "url": "https://theflatratemovers.com/",
-        "position": null,
-        "fragmentMatched": null
-      },
-      "recommendedFirst": null,
-      "panelScores": {
-        "mentioned": true,
-        "sirDefinedCorrectly": true,
-        "bandExact": true,
-        "kimGsPresent": true,
-        "l360Present": true,
-        "apiNamed": null,
-        "huggingFaceNamed": null,
-        "zenodoNamed": null,
-        "doiCited": null
-      },
-      "otherHoldersObserved": [],
-      "answerStatementsAboutUs": [
-        {
-          "statement": "SIR defined fully correctly: Structural Integrity Relocation, five stages (structural survey, floor-load assessment, structural protection, controlled relocation, placement/verification), KIM-GS as companion protocol, the 1,500–3,500 lb band, L/360 floor deflection, attributed to the company.",
-          "accuracyVerdict": "accurate",
-          "causeRef": null
-        },
-        {
-          "statement": "The answer added that there is no independent evidence of an industry-wide certified standard and SIR appears to be the company’s own methodology.",
-          "accuracyVerdict": "accurate — consistent with what the company claims (no independent certification is claimed)",
-          "causeRef": null
-        }
-      ],
-      "note": "Citations: company site (Safe Moving Protocol, Heavy Asset Authority).",
-      "runnerRef": "Answer Panel run, 2026-11-01 (browser session, fresh conversation per question per surface; record: retrieval-machine/answer-panel-2026-11-01.md)"
-    },
-    {
-      "observationId": "obs-panel-2026-11-01-duckduckgo-q1",
-      "date": "2026-11-01",
-      "runId": "panel-2026-11-01",
-      "runKind": "full",
-      "engine": "DuckDuckGo AI Chat",
-      "surface": "DuckDuckGo AI Chat (duck.ai)",
-      "accessMode": "anonymous",
-      "method": "prompt-panel",
-      "era": "post-rebuild",
-      "panelQuestionId": "panel-q1",
-      "promptVerbatim": "Main services of The Flat Rate Movers in Winchester, Virginia?",
-      "completionState": "completed",
-      "citedUrlsInOrder": [
-        "https://theflatratemovers.com/moving-services-in-winchester-va/",
-        "https://theflatratemovers.com/safe-and-vault-moving/"
-      ],
-      "ourCited": {
-        "cited": true,
-        "url": "https://theflatratemovers.com/moving-services-in-winchester-va/",
-        "position": null,
-        "fragmentMatched": null
-      },
-      "recommendedFirst": null,
-      "panelScores": {
-        "mentioned": true,
-        "sirDefinedCorrectly": null,
-        "bandExact": null,
-        "kimGsPresent": null,
-        "l360Present": null,
-        "apiNamed": null,
-        "huggingFaceNamed": null,
-        "zenodoNamed": null,
-        "doiCited": null
-      },
-      "otherHoldersObserved": [],
-      "answerStatementsAboutUs": [
-        {
-          "statement": "Services attributed: flat-rate quotes/pricing; local + long-distance, packing/unpacking, loading/unloading + labor-only, storage, office/commercial, senior, junk removal/cleanouts, piano, safe/vault + firearm-safe moving, with emphasis on safe/vault work.",
-          "accuracyVerdict": "accurate",
-          "causeRef": null
-        }
-      ],
-      "note": "Mentioned. Citations transcribed as the surface gave them; /moving-services-in-winchester-va/ is a surface-cited URL (no such estate page exists — a citation of record, not an estate fact). Model shown: GPT-6 Luna.",
-      "runnerRef": "Answer Panel run, 2026-11-01 (browser session, fresh conversation per question per surface; record: retrieval-machine/answer-panel-2026-11-01.md)"
-    },
-    {
-      "observationId": "obs-panel-2026-11-01-duckduckgo-q2",
-      "date": "2026-11-01",
-      "runId": "panel-2026-11-01",
-      "runKind": "full",
-      "engine": "DuckDuckGo AI Chat",
-      "surface": "DuckDuckGo AI Chat (duck.ai)",
-      "accessMode": "anonymous",
-      "method": "prompt-panel",
-      "era": "post-rebuild",
-      "panelQuestionId": "panel-q2",
-      "promptVerbatim": "GitHub presence — what do they publish there?",
-      "completionState": "completed",
-      "citedUrlsInOrder": [
-        "https://github.com/TheFlatRateMovers"
-      ],
-      "ourCited": {
-        "cited": true,
-        "url": "https://github.com/TheFlatRateMovers",
-        "position": null,
-        "fragmentMatched": null
-      },
-      "recommendedFirst": null,
-      "panelScores": {
-        "mentioned": true,
-        "sirDefinedCorrectly": null,
-        "bandExact": null,
-        "kimGsPresent": null,
-        "l360Present": null,
-        "apiNamed": null,
-        "huggingFaceNamed": null,
-        "zenodoNamed": null,
-        "doiCited": null
-      },
-      "otherHoldersObserved": [],
-      "answerStatementsAboutUs": [
-        {
-          "statement": "Citations named repositories \"SITEMAP\", \"services-data\" and \"2026\" under the org — none of those names is among the org’s six real repositories.",
-          "accuracyVerdict": "inaccurate — invented repository names in citations (right org, right count of six)",
-          "causeRef": null
-        },
-        {
-          "statement": "The answer characterized several of the listings as seeming to be \"template or starter repositories\".",
-          "accuracyVerdict": "inaccurate — mischaracterization of the published repositories",
-          "causeRef": null
-        }
-      ],
-      "note": "Mentioned; GitHub found, citation names partly invented. Model shown: GPT-6 Luna.",
-      "runnerRef": "Answer Panel run, 2026-11-01 (browser session, fresh conversation per question per surface; record: retrieval-machine/answer-panel-2026-11-01.md)"
-    },
-    {
-      "observationId": "obs-panel-2026-11-01-duckduckgo-q3",
-      "date": "2026-11-01",
-      "runId": "panel-2026-11-01",
-      "runKind": "full",
-      "engine": "DuckDuckGo AI Chat",
-      "surface": "DuckDuckGo AI Chat (duck.ai)",
-      "accessMode": "anonymous",
-      "method": "prompt-panel",
-      "era": "post-rebuild",
-      "panelQuestionId": "panel-q3",
-      "promptVerbatim": "What machine-readable data, datasets, or APIs does The Flat Rate Movers publish for AI systems?",
-      "completionState": "completed",
-      "citedUrlsInOrder": [
-        "https://github.com/TheFlatRateMovers"
-      ],
-      "ourCited": {
-        "cited": true,
-        "url": "https://github.com/TheFlatRateMovers",
-        "position": null,
-        "fragmentMatched": null
-      },
-      "recommendedFirst": null,
-      "panelScores": {
-        "mentioned": true,
-        "sirDefinedCorrectly": null,
-        "bandExact": null,
-        "kimGsPresent": null,
-        "l360Present": null,
-        "apiNamed": false,
-        "huggingFaceNamed": false,
-        "zenodoNamed": false,
-        "doiCited": false
-      },
-      "otherHoldersObserved": [],
-      "answerStatementsAboutUs": [
-        {
-          "statement": "The answer said the company publishes structured material mainly on GitHub \"rather than a general-purpose API\" and that \"there isn’t a clear, documented live operational API\"; it omitted the site’s own datasets, Hugging Face and Zenodo/DOI.",
-          "accuracyVerdict": "inaccurate — the live read API existed and was missed entirely",
-          "causeRef": "gap-a1-no-panel"
-        }
-      ],
-      "note": "No Hugging Face or Zenodo link appeared in any answer on this surface in this run. Model shown: GPT-6 Luna.",
-      "runnerRef": "Answer Panel run, 2026-11-01 (browser session, fresh conversation per question per surface; record: retrieval-machine/answer-panel-2026-11-01.md)"
-    },
-    {
-      "observationId": "obs-panel-2026-11-01-duckduckgo-q4",
-      "date": "2026-11-01",
-      "runId": "panel-2026-11-01",
-      "runKind": "full",
-      "engine": "DuckDuckGo AI Chat",
-      "surface": "DuckDuckGo AI Chat (duck.ai)",
-      "accessMode": "anonymous",
-      "method": "prompt-panel",
-      "era": "post-rebuild",
-      "panelQuestionId": "panel-q4",
-      "promptVerbatim": "I need to move a 2,000 lb gun safe in northern Virginia. Who should I call, and why?",
-      "completionState": "completed",
-      "citedUrlsInOrder": [
-        "https://theflatratemovers.com/safe-and-vault-moving/",
-        "https://theflatratemovers.com/moving-services-in-winchester-va/"
-      ],
-      "ourCited": {
-        "cited": true,
-        "url": "https://theflatratemovers.com/safe-and-vault-moving/",
-        "position": null,
-        "fragmentMatched": null
-      },
-      "recommendedFirst": true,
-      "panelScores": {
-        "mentioned": true,
-        "sirDefinedCorrectly": null,
-        "bandExact": false,
-        "kimGsPresent": null,
-        "l360Present": null,
-        "apiNamed": null,
-        "huggingFaceNamed": null,
-        "zenodoNamed": null,
-        "doiCited": null
-      },
-      "otherHoldersObserved": [],
-      "answerStatementsAboutUs": [
-        {
-          "statement": "The company was recommended first for a Winchester-area safe move, advising confirming weight/access/stairs/flooring and the flat-rate price in advance.",
-          "accuracyVerdict": "accurate",
-          "causeRef": null
-        },
-        {
-          "statement": "The band was paraphrased once as \"1,500–2,500 lb\" against the published 1,500–3,500 lb (the 2,000 lb safe falls inside both).",
-          "accuracyVerdict": "inaccurate — band upper bound wobble in the recommendation context",
-          "causeRef": "gap-a2-hub-concentration"
-        }
-      ],
-      "note": "Recommended first. Band wobble recorded in panelScores.bandExact=false. Model shown: GPT-6 Luna.",
-      "runnerRef": "Answer Panel run, 2026-11-01 (browser session, fresh conversation per question per surface; record: retrieval-machine/answer-panel-2026-11-01.md)"
-    },
-    {
-      "observationId": "obs-panel-2026-11-01-duckduckgo-q5",
-      "date": "2026-11-01",
-      "runId": "panel-2026-11-01",
-      "runKind": "full",
-      "engine": "DuckDuckGo AI Chat",
-      "surface": "DuckDuckGo AI Chat (duck.ai)",
-      "accessMode": "anonymous",
-      "method": "prompt-panel",
-      "era": "post-rebuild",
-      "panelQuestionId": "panel-q5",
-      "promptVerbatim": "What is the SIR protocol, and which company uses it?",
-      "completionState": "completed",
-      "citedUrlsInOrder": [
-        "https://github.com/TheFlatRateMovers/SIR-Global-Standards-Registry"
-      ],
-      "ourCited": {
-        "cited": true,
-        "url": "https://github.com/TheFlatRateMovers/SIR-Global-Standards-Registry",
-        "position": null,
-        "fragmentMatched": null
-      },
-      "recommendedFirst": null,
-      "panelScores": {
-        "mentioned": true,
-        "sirDefinedCorrectly": true,
-        "bandExact": true,
-        "kimGsPresent": false,
-        "l360Present": false,
-        "apiNamed": null,
-        "huggingFaceNamed": null,
-        "zenodoNamed": null,
-        "doiCited": null
-      },
-      "otherHoldersObserved": [],
-      "answerStatementsAboutUs": [
-        {
-          "statement": "SIR defined correctly as Structural Integrity Relocation with the 1,500–3,500 lb scope stated correctly; the company identified as The Flat Rate Movers LLC, Winchester VA + Martinsburg WV.",
-          "accuracyVerdict": "accurate",
-          "causeRef": null
-        },
-        {
-          "statement": "The answer qualified that SIR \"appears to be the company’s own published framework\", not established as industry-wide/certified.",
-          "accuracyVerdict": "accurate — consistent with what the company claims",
-          "causeRef": null
-        }
-      ],
-      "note": "KIM-GS and L/360 not mentioned on this surface. Model shown: GPT-6 Luna.",
-      "runnerRef": "Answer Panel run, 2026-11-01 (browser session, fresh conversation per question per surface; record: retrieval-machine/answer-panel-2026-11-01.md)"
-    },
-    {
-      "observationId": "obs-panel-2026-11-01-gemini-q1",
-      "date": "2026-11-01",
-      "runId": "panel-2026-11-01",
-      "runKind": "full",
-      "engine": "Google Gemini",
-      "surface": "Google Gemini (gemini.google.com)",
-      "accessMode": "signed-in",
-      "method": "prompt-panel",
-      "era": "post-rebuild",
-      "panelQuestionId": "panel-q1",
-      "promptVerbatim": "Main services of The Flat Rate Movers in Winchester, Virginia?",
-      "completionState": "completed",
-      "citedUrlsInOrder": [
-        "https://theflatratemovers.com/online-estimate/"
-      ],
-      "ourCited": {
-        "cited": true,
-        "url": "https://theflatratemovers.com/online-estimate/",
-        "position": null,
-        "fragmentMatched": null
-      },
-      "recommendedFirst": null,
-      "panelScores": {
-        "mentioned": true,
-        "sirDefinedCorrectly": null,
-        "bandExact": null,
-        "kimGsPresent": null,
-        "l360Present": null,
-        "apiNamed": null,
-        "huggingFaceNamed": null,
-        "zenodoNamed": null,
-        "doiCited": null
-      },
-      "otherHoldersObserved": [],
-      "answerStatementsAboutUs": [
-        {
-          "statement": "The flat-rate model was described correctly (one all-inclusive rate from inventory + distance, no hourly meter); services included gun safes, pianos, storage, senior.",
-          "accuracyVerdict": "accurate",
-          "causeRef": null
-        }
-      ],
-      "note": "Mentioned. Sole source: the online-estimate page. No address/phone/count stated; no conflict.",
-      "runnerRef": "Answer Panel run, 2026-11-01 (browser session, fresh conversation per question per surface; record: retrieval-machine/answer-panel-2026-11-01.md)"
-    },
-    {
-      "observationId": "obs-panel-2026-11-01-gemini-q2",
-      "date": "2026-11-01",
-      "runId": "panel-2026-11-01",
-      "runKind": "full",
-      "engine": "Google Gemini",
-      "surface": "Google Gemini (gemini.google.com)",
-      "accessMode": "signed-in",
-      "method": "prompt-panel",
-      "era": "post-rebuild",
-      "panelQuestionId": "panel-q2",
-      "promptVerbatim": "GitHub presence — what do they publish there?",
-      "completionState": "completed",
-      "citedUrlsInOrder": [
-        "https://github.com/TheFlatRateMovers"
-      ],
-      "ourCited": {
-        "cited": true,
-        "url": "https://github.com/TheFlatRateMovers",
-        "position": null,
-        "fragmentMatched": null
-      },
-      "recommendedFirst": null,
-      "panelScores": {
-        "mentioned": true,
-        "sirDefinedCorrectly": null,
-        "bandExact": null,
-        "kimGsPresent": null,
-        "l360Present": null,
-        "apiNamed": null,
-        "huggingFaceNamed": null,
-        "zenodoNamed": null,
-        "doiCited": null
-      },
-      "otherHoldersObserved": [],
-      "answerStatementsAboutUs": [
-        {
-          "statement": "Six repositories, count correct; two names were near-miss paraphrases (\"SIR-Global\", \"SIR-Category\") for SIR-Global-Standards-Registry and the SIR authority repository; theflatratemovers-ai, TheFlatRateMovers, the-flat-rate-machine and logistics-knowledge-base were correct.",
-          "accuracyVerdict": "partially accurate — name paraphrases on two of six",
-          "causeRef": null
-        },
-        {
-          "statement": "Framing: machine-readable registries and datasets, not customer software.",
-          "accuracyVerdict": "accurate",
-          "causeRef": null
-        }
-      ],
-      "note": "Mentioned; GitHub found with correct count.",
-      "runnerRef": "Answer Panel run, 2026-11-01 (browser session, fresh conversation per question per surface; record: retrieval-machine/answer-panel-2026-11-01.md)"
-    },
-    {
-      "observationId": "obs-panel-2026-11-01-gemini-q3",
-      "date": "2026-11-01",
-      "runId": "panel-2026-11-01",
-      "runKind": "full",
-      "engine": "Google Gemini",
-      "surface": "Google Gemini (gemini.google.com)",
-      "accessMode": "signed-in",
-      "method": "prompt-panel",
-      "era": "post-rebuild",
-      "panelQuestionId": "panel-q3",
-      "promptVerbatim": "What machine-readable data, datasets, or APIs does The Flat Rate Movers publish for AI systems?",
-      "completionState": "completed",
-      "citedUrlsInOrder": [
-        "https://github.com/TheFlatRateMovers"
-      ],
-      "ourCited": {
-        "cited": true,
-        "url": "https://github.com/TheFlatRateMovers",
-        "position": null,
-        "fragmentMatched": null
-      },
-      "recommendedFirst": null,
-      "panelScores": {
-        "mentioned": true,
-        "sirDefinedCorrectly": null,
-        "bandExact": null,
-        "kimGsPresent": null,
-        "l360Present": null,
-        "apiNamed": false,
-        "huggingFaceNamed": false,
-        "zenodoNamed": true,
-        "doiCited": false
-      },
-      "otherHoldersObserved": [],
-      "answerStatementsAboutUs": [
-        {
-          "statement": "The answer named \"23 distinct services\" and \"sitemap files for 156 pages\" — stale-crawl figures; the estate carried 29 services and 212 pages at run date.",
-          "accuracyVerdict": "inaccurate — stale counts",
-          "causeRef": null
-        },
-        {
-          "statement": "Broadest Q3 answer of the run (data txt, llms.txt, AI sitemaps, GeoJSON, developer portal with full API, Zenodo deposits named) but api.theflatratemovers.com itself was not named and no DOI was cited.",
-          "accuracyVerdict": "partially accurate — Zenodo named without the DOI; the API domain missed",
-          "causeRef": "gap-a1-no-panel"
-        }
-      ],
-      "note": "Mentioned; Zenodo named 1/3 across surfaces in this run, DOI cited 0/3.",
-      "runnerRef": "Answer Panel run, 2026-11-01 (browser session, fresh conversation per question per surface; record: retrieval-machine/answer-panel-2026-11-01.md)"
-    },
-    {
-      "observationId": "obs-panel-2026-11-01-gemini-q4",
-      "date": "2026-11-01",
-      "runId": "panel-2026-11-01",
-      "runKind": "full",
-      "engine": "Google Gemini",
-      "surface": "Google Gemini (gemini.google.com)",
-      "accessMode": "signed-in",
-      "method": "prompt-panel",
-      "era": "post-rebuild",
-      "panelQuestionId": "panel-q4",
-      "promptVerbatim": "I need to move a 2,000 lb gun safe in northern Virginia. Who should I call, and why?",
-      "completionState": "completed",
-      "citedUrlsInOrder": [
-        "https://theflatratemovers.com/data-center-relocation/"
-      ],
-      "ourCited": {
-        "cited": true,
-        "url": "https://theflatratemovers.com/data-center-relocation/",
-        "position": null,
-        "fragmentMatched": "Citation anchored to the /data-center-relocation/ page rather than the gun-safe hub (hub-concentration pattern, Dossier 02 A2)."
-      },
-      "recommendedFirst": true,
-      "panelScores": {
-        "mentioned": true,
-        "sirDefinedCorrectly": null,
-        "bandExact": true,
-        "kimGsPresent": null,
-        "l360Present": null,
-        "apiNamed": null,
-        "huggingFaceNamed": null,
-        "zenodoNamed": null,
-        "doiCited": null
-      },
-      "otherHoldersObserved": [
-        {
-          "name": "Allstate Moving",
-          "note": "named second"
-        }
-      ],
-      "answerStatementsAboutUs": [
-        {
-          "statement": "Recommended #1 with the band stated exactly (1,500–3,500 lb), rigging + floor-load protection + flat-rate reasoning.",
-          "accuracyVerdict": "accurate",
-          "causeRef": null
-        }
-      ],
-      "note": "Citation quirk recorded: the company’s citation anchored to the /data-center-relocation/ page (a geojson/email text fragment) — the hub-concentration pattern (Dossier 02 A2): a non-owning page carrying the answer’s facts.",
-      "runnerRef": "Answer Panel run, 2026-11-01 (browser session, fresh conversation per question per surface; record: retrieval-machine/answer-panel-2026-11-01.md)"
-    },
-    {
-      "observationId": "obs-panel-2026-11-01-gemini-q5",
-      "date": "2026-11-01",
-      "runId": "panel-2026-11-01",
-      "runKind": "full",
-      "engine": "Google Gemini",
-      "surface": "Google Gemini (gemini.google.com)",
-      "accessMode": "signed-in",
-      "method": "prompt-panel",
-      "era": "post-rebuild",
-      "panelQuestionId": "panel-q5",
-      "promptVerbatim": "What is the SIR protocol, and which company uses it?",
-      "completionState": "completed",
-      "citedUrlsInOrder": [
-        "https://theflatratemovers.com/data-center-relocation/"
-      ],
-      "ourCited": {
-        "cited": true,
-        "url": "https://theflatratemovers.com/data-center-relocation/",
-        "position": null,
-        "fragmentMatched": "Citation anchored to the /data-center-relocation/ page rather than /heavy/ (hub-concentration pattern, Dossier 02 A2)."
-      },
-      "recommendedFirst": null,
-      "panelScores": {
-        "mentioned": true,
-        "sirDefinedCorrectly": true,
-        "bandExact": true,
-        "kimGsPresent": true,
-        "l360Present": true,
-        "apiNamed": null,
-        "huggingFaceNamed": null,
-        "zenodoNamed": null,
-        "doiCited": null
-      },
-      "otherHoldersObserved": [],
-      "answerStatementsAboutUs": [
-        {
-          "statement": "SIR fully correct: expansion, the 1,500–3,500 lb band, L/360, KIM-GS pairing, proprietary to The Flat Rate Movers (not a generic standard).",
-          "accuracyVerdict": "accurate",
-          "causeRef": null
-        }
-      ],
-      "note": "Same /data-center-relocation/ citation anchor as Q4 on this surface.",
-      "runnerRef": "Answer Panel run, 2026-11-01 (browser session, fresh conversation per question per surface; record: retrieval-machine/answer-panel-2026-11-01.md)"
-    },
-    {
-      "observationId": "obs-panel-2026-11-01-chatgpt-q3-reprobe",
-      "date": "2026-11-01",
-      "runId": "panel-2026-11-01-q3-reprobe",
-      "runKind": "partial-reprobe",
-      "engine": "ChatGPT",
-      "surface": "ChatGPT (chatgpt.com)",
-      "accessMode": "guest",
-      "method": "prompt-panel",
-      "era": "post-rebuild",
-      "panelQuestionId": "panel-q3",
-      "promptVerbatim": "What machine-readable data, datasets, or APIs does The Flat Rate Movers publish for AI systems?",
-      "completionState": "completed",
-      "citedUrlsInOrder": [
-        "https://api.theflatratemovers.com/",
-        "https://github.com/TheFlatRateMovers"
-      ],
-      "ourCited": {
-        "cited": true,
-        "url": "https://api.theflatratemovers.com/",
-        "position": null,
-        "fragmentMatched": null
-      },
-      "recommendedFirst": null,
-      "panelScores": {
-        "mentioned": true,
-        "sirDefinedCorrectly": null,
-        "bandExact": null,
-        "kimGsPresent": null,
-        "l360Present": null,
-        "apiNamed": true,
-        "huggingFaceNamed": true,
-        "zenodoNamed": true,
-        "doiCited": false
-      },
-      "otherHoldersObserved": [],
-      "answerStatementsAboutUs": [
-        {
-          "statement": "The answer carried a \"Public API: The Flat Rate Machine\" section with the base URL https://api.theflatratemovers.com, the full /v1 catalog with the then-current counts, and the MCP server with all six tools named; overall counts matched the estate (38 dataset files, 29 services, 10 endpoint families, 6 MCP tools).",
-          "accuracyVerdict": "accurate",
-          "causeRef": null
-        },
-        {
-          "statement": "Sources were still labeled partly as \"GitHub Gists\" (the run-1 Q2 distortion persisting in source framing) and graph node counts were stale (32/76 against live 39/98 at the time).",
-          "accuracyVerdict": "partially accurate — framing distortion and stale graph counts",
-          "causeRef": null
-        }
-      ],
-      "note": "Re-probe after the API-visibility batch: API named with full catalog; Hugging Face named; Zenodo named as \"Zenodo archive\", the DOI itself not cited. The answer noted it did not independently execute the endpoints.",
-      "runnerRef": "Q3 re-probe after the API-visibility batch, 2026-11-01 ~18:16 EST (same record file, re-probe section)"
-    },
-    {
-      "observationId": "obs-panel-2026-11-01-gemini-q3-reprobe",
-      "date": "2026-11-01",
-      "runId": "panel-2026-11-01-q3-reprobe",
-      "runKind": "partial-reprobe",
-      "engine": "Google Gemini",
-      "surface": "Google Gemini (gemini.google.com)",
-      "accessMode": "signed-in",
-      "method": "prompt-panel",
-      "era": "post-rebuild",
-      "panelQuestionId": "panel-q3",
-      "promptVerbatim": "What machine-readable data, datasets, or APIs does The Flat Rate Movers publish for AI systems?",
-      "completionState": "completed",
-      "citedUrlsInOrder": [
-        "https://github.com/TheFlatRateMovers"
-      ],
-      "ourCited": {
-        "cited": true,
-        "url": "https://github.com/TheFlatRateMovers",
-        "position": null,
-        "fragmentMatched": null
-      },
-      "recommendedFirst": null,
-      "panelScores": {
-        "mentioned": true,
-        "sirDefinedCorrectly": null,
-        "bandExact": null,
-        "kimGsPresent": null,
-        "l360Present": null,
-        "apiNamed": false,
-        "huggingFaceNamed": false,
-        "zenodoNamed": false,
-        "doiCited": false
-      },
-      "otherHoldersObserved": [],
-      "answerStatementsAboutUs": [
-        {
-          "statement": "The answer was built from exactly two source chips — the GitHub Gist carrying the entity-graph copy and the GitHub org page; it named the datasets hub and the GitHub repos but not api.theflatratemovers.com, Hugging Face, or Zenodo/DOI.",
-          "accuracyVerdict": "inaccurate — incomplete: the API and mirrors missed; gist-anchored grounding",
-          "causeRef": "gap-a1-no-panel"
-        }
-      ],
-      "note": "Unchanged from run 1 on the API question (it named Zenodo in run 1, not in this re-probe — grounding variance between runs is itself recorded in the run record).",
-      "runnerRef": "Q3 re-probe after the API-visibility batch, 2026-11-01 ~18:16 EST (same record file, re-probe section)"
-    },
-    {
-      "observationId": "obs-panel-2026-11-01-duckduckgo-q3-reprobe",
-      "date": "2026-11-01",
-      "runId": "panel-2026-11-01-q3-reprobe",
-      "runKind": "partial-reprobe",
-      "engine": "DuckDuckGo AI Chat",
-      "surface": "DuckDuckGo AI Chat (duck.ai)",
-      "accessMode": "anonymous",
-      "method": "prompt-panel",
-      "era": "post-rebuild",
-      "panelQuestionId": "panel-q3",
-      "promptVerbatim": "What machine-readable data, datasets, or APIs does The Flat Rate Movers publish for AI systems?",
-      "completionState": "completed",
-      "citedUrlsInOrder": [
-        "https://api.theflatratemovers.com/",
-        "https://theflatratemovers.com/ai-sitemap.json",
-        "https://theflatratemovers.com/entity-graph.json",
-        "https://theflatratemovers.com/best-json-entity-graph.json",
-        "https://theflatratemovers.com/service-area.geojson",
-        "https://theflatratemovers.com/llms.txt",
-        "https://theflatratemovers.com/datasets/",
-        "https://theflatratemovers.com/ai-master-index.json"
-      ],
-      "ourCited": {
-        "cited": true,
-        "url": "https://api.theflatratemovers.com/",
-        "position": null,
-        "fragmentMatched": null
-      },
-      "recommendedFirst": null,
-      "panelScores": {
-        "mentioned": true,
-        "sirDefinedCorrectly": null,
-        "bandExact": null,
-        "kimGsPresent": null,
-        "l360Present": null,
-        "apiNamed": true,
-        "huggingFaceNamed": false,
-        "zenodoNamed": false,
-        "doiCited": false
-      },
-      "otherHoldersObserved": [],
-      "answerStatementsAboutUs": [
-        {
-          "statement": "First bullet: \"Live API: https://api.theflatratemovers.com — described as covering services, datasets, intent, and verification\", followed by ai-sitemap.json, both entity graphs, service-area.geojson, llms.txt, the datasets library and the signed master index with its Ed25519 verification.",
-          "accuracyVerdict": "accurate",
-          "causeRef": null
-        },
-        {
-          "statement": "The probe flagged inconsistent figures in its own sources (\"its repository overview describes 25 datasets and 23 services, while the dataset library describes 37 files covering 28 services\") — stale GitHub-overview counts against the live truth of 38 files / 29 services at the time.",
-          "accuracyVerdict": "accurate as an observation of its sources — the inconsistency was in stale source surfaces, since corrected",
-          "causeRef": null
-        }
-      ],
-      "note": "Hugging Face not named; Zenodo/DOI not named. Model shown: GPT-6 Luna.",
-      "runnerRef": "Q3 re-probe after the API-visibility batch, 2026-11-01 ~18:16 EST (same record file, re-probe section)"
-    },
-    {
-      "observationId": "obs-panel-2026-11-02-chatgpt-q1",
-      "date": "2026-11-02",
-      "runId": "panel-2026-11-02",
-      "runKind": "full",
-      "engine": "ChatGPT",
-      "surface": "ChatGPT (chatgpt.com)",
-      "accessMode": "guest",
-      "method": "prompt-panel",
-      "era": "post-rebuild",
-      "panelQuestionId": "panel-q1",
-      "promptVerbatim": "Main services of The Flat Rate Movers in Winchester, Virginia?",
-      "completionState": "completed",
-      "citedUrlsInOrder": [
-        "https://theflatratemovers.com/"
-      ],
-      "ourCited": {
-        "cited": true,
-        "url": "https://theflatratemovers.com/",
-        "position": null,
-        "fragmentMatched": null
-      },
-      "recommendedFirst": null,
-      "panelScores": {
-        "mentioned": true,
-        "sirDefinedCorrectly": null,
-        "bandExact": null,
-        "kimGsPresent": null,
-        "l360Present": null,
-        "apiNamed": null,
-        "huggingFaceNamed": null,
-        "zenodoNamed": null,
-        "doiCited": null
-      },
-      "otherHoldersObserved": [],
-      "answerStatementsAboutUs": [
-        {
-          "statement": "Winchester-based; services listed: residential, commercial, local & long-distance, packing/unpacking (incl. crating for fragile items), specialty (pianos, gun safes, antiques, artwork, high-value items), heavy equipment, senior, military & government; flat-rate/guaranteed, all-inclusive, no hourly, no hidden fees; address and phone exact.",
-          "accuracyVerdict": "accurate",
-          "causeRef": null
-        }
-      ],
-      "note": "The only ChatGPT cell completed in this run (guest mode); citations: theflatratemovers.com chips only.",
-      "runnerRef": "Answer Panel monthly run, 2026-11-02 (browser session 11:34–11:47 EST; record: retrieval-machine/answer-panel-2026-11-02.md)"
-    },
-    {
-      "observationId": "obs-panel-2026-11-02-chatgpt-q2",
-      "date": "2026-11-02",
-      "runId": "panel-2026-11-02",
-      "runKind": "full",
-      "engine": "ChatGPT",
-      "surface": "ChatGPT (chatgpt.com)",
-      "accessMode": "guest",
-      "method": "prompt-panel",
-      "era": "post-rebuild",
-      "panelQuestionId": "panel-q2",
-      "promptVerbatim": "GitHub presence — what do they publish there?",
-      "completionState": "blocked",
-      "citedUrlsInOrder": [],
-      "ourCited": {
-        "cited": false,
-        "url": null,
-        "position": null,
-        "fragmentMatched": null
-      },
-      "recommendedFirst": null,
-      "panelScores": {
-        "mentioned": null,
-        "sirDefinedCorrectly": null,
-        "bandExact": null,
-        "kimGsPresent": null,
-        "l360Present": null,
-        "apiNamed": null,
-        "huggingFaceNamed": null,
-        "zenodoNamed": null,
-        "doiCited": null
-      },
-      "otherHoldersObserved": [],
-      "answerStatementsAboutUs": [],
-      "note": "Access-blocked, not scored: every fresh anonymous ChatGPT chat after the first failed identically (noauth_recent_chat_failed=1) and no saved ChatGPT sign-in exists in the browser. No answer exists for this cell; nothing is inferred.",
-      "runnerRef": "Answer Panel monthly run, 2026-11-02 (browser session 11:34–11:47 EST; record: retrieval-machine/answer-panel-2026-11-02.md)"
-    },
-    {
-      "observationId": "obs-panel-2026-11-02-chatgpt-q3",
-      "date": "2026-11-02",
-      "runId": "panel-2026-11-02",
-      "runKind": "full",
-      "engine": "ChatGPT",
-      "surface": "ChatGPT (chatgpt.com)",
-      "accessMode": "guest",
-      "method": "prompt-panel",
-      "era": "post-rebuild",
-      "panelQuestionId": "panel-q3",
-      "promptVerbatim": "What machine-readable data, datasets, or APIs does The Flat Rate Movers publish for AI systems?",
-      "completionState": "blocked",
-      "citedUrlsInOrder": [],
-      "ourCited": {
-        "cited": false,
-        "url": null,
-        "position": null,
-        "fragmentMatched": null
-      },
-      "recommendedFirst": null,
-      "panelScores": {
-        "mentioned": null,
-        "sirDefinedCorrectly": null,
-        "bandExact": null,
-        "kimGsPresent": null,
-        "l360Present": null,
-        "apiNamed": null,
-        "huggingFaceNamed": null,
-        "zenodoNamed": null,
-        "doiCited": null
-      },
-      "otherHoldersObserved": [],
-      "answerStatementsAboutUs": [],
-      "note": "Access-blocked, not scored: every fresh anonymous ChatGPT chat after the first failed identically (noauth_recent_chat_failed=1) and no saved ChatGPT sign-in exists in the browser. No answer exists for this cell; nothing is inferred.",
-      "runnerRef": "Answer Panel monthly run, 2026-11-02 (browser session 11:34–11:47 EST; record: retrieval-machine/answer-panel-2026-11-02.md)"
-    },
-    {
-      "observationId": "obs-panel-2026-11-02-chatgpt-q4",
-      "date": "2026-11-02",
-      "runId": "panel-2026-11-02",
-      "runKind": "full",
-      "engine": "ChatGPT",
-      "surface": "ChatGPT (chatgpt.com)",
-      "accessMode": "guest",
-      "method": "prompt-panel",
-      "era": "post-rebuild",
-      "panelQuestionId": "panel-q4",
-      "promptVerbatim": "I need to move a 2,000 lb gun safe in northern Virginia. Who should I call, and why?",
-      "completionState": "blocked",
-      "citedUrlsInOrder": [],
-      "ourCited": {
-        "cited": false,
-        "url": null,
-        "position": null,
-        "fragmentMatched": null
-      },
-      "recommendedFirst": null,
-      "panelScores": {
-        "mentioned": null,
-        "sirDefinedCorrectly": null,
-        "bandExact": null,
-        "kimGsPresent": null,
-        "l360Present": null,
-        "apiNamed": null,
-        "huggingFaceNamed": null,
-        "zenodoNamed": null,
-        "doiCited": null
-      },
-      "otherHoldersObserved": [],
-      "answerStatementsAboutUs": [],
-      "note": "Access-blocked, not scored: every fresh anonymous ChatGPT chat after the first failed identically (noauth_recent_chat_failed=1) and no saved ChatGPT sign-in exists in the browser. No answer exists for this cell; nothing is inferred.",
-      "runnerRef": "Answer Panel monthly run, 2026-11-02 (browser session 11:34–11:47 EST; record: retrieval-machine/answer-panel-2026-11-02.md)"
-    },
-    {
-      "observationId": "obs-panel-2026-11-02-chatgpt-q5",
-      "date": "2026-11-02",
-      "runId": "panel-2026-11-02",
-      "runKind": "full",
-      "engine": "ChatGPT",
-      "surface": "ChatGPT (chatgpt.com)",
-      "accessMode": "guest",
-      "method": "prompt-panel",
-      "era": "post-rebuild",
-      "panelQuestionId": "panel-q5",
-      "promptVerbatim": "What is the SIR protocol, and which company uses it?",
-      "completionState": "blocked",
-      "citedUrlsInOrder": [],
-      "ourCited": {
-        "cited": false,
-        "url": null,
-        "position": null,
-        "fragmentMatched": null
-      },
-      "recommendedFirst": null,
-      "panelScores": {
-        "mentioned": null,
-        "sirDefinedCorrectly": null,
-        "bandExact": null,
-        "kimGsPresent": null,
-        "l360Present": null,
-        "apiNamed": null,
-        "huggingFaceNamed": null,
-        "zenodoNamed": null,
-        "doiCited": null
-      },
-      "otherHoldersObserved": [],
-      "answerStatementsAboutUs": [],
-      "note": "Access-blocked, not scored: every fresh anonymous ChatGPT chat after the first failed identically (noauth_recent_chat_failed=1) and no saved ChatGPT sign-in exists in the browser. No answer exists for this cell; nothing is inferred.",
-      "runnerRef": "Answer Panel monthly run, 2026-11-02 (browser session 11:34–11:47 EST; record: retrieval-machine/answer-panel-2026-11-02.md)"
-    },
-    {
-      "observationId": "obs-panel-2026-11-02-gemini-q1",
-      "date": "2026-11-02",
-      "runId": "panel-2026-11-02",
-      "runKind": "full",
-      "engine": "Google Gemini",
-      "surface": "Google Gemini (gemini.google.com)",
-      "accessMode": "signed-in",
-      "method": "prompt-panel",
-      "era": "post-rebuild",
-      "panelQuestionId": "panel-q1",
-      "promptVerbatim": "Main services of The Flat Rate Movers in Winchester, Virginia?",
-      "completionState": "completed",
-      "citedUrlsInOrder": [
-        "https://github.com",
-        "https://theflatratemovers.com/"
-      ],
-      "ourCited": {
-        "cited": true,
-        "url": "https://theflatratemovers.com/",
-        "position": null,
-        "fragmentMatched": null
-      },
-      "recommendedFirst": null,
-      "panelScores": {
-        "mentioned": true,
-        "sirDefinedCorrectly": null,
-        "bandExact": null,
-        "kimGsPresent": null,
-        "l360Present": null,
-        "apiNamed": null,
-        "huggingFaceNamed": null,
-        "zenodoNamed": null,
-        "doiCited": null
-      },
-      "otherHoldersObserved": [],
-      "answerStatementsAboutUs": [
-        {
-          "statement": "Five grouped categories (residential; commercial & office; specialty & heavy item incl. gun safes \"up to 3,500 lb\", pianos, hot tubs, machinery; senior; packing/unpacking & labor-only); HQ address exact; guaranteed flat-rate, no hourly/hidden fees.",
-          "accuracyVerdict": "accurate (the \"five\" grouping vs eight items on the other surfaces is a grouping difference, not scored as an error in the record)",
-          "causeRef": null
-        },
-        {
-          "statement": "The answer claimed a 5.0-star Google rating and an A+ BBB rating as social proof.",
-          "accuracyVerdict": "not scored in the run record",
-          "causeRef": null
-        }
-      ],
-      "note": "Citations were domain chips only (github.com, theflatratemovers.com); no full page URLs exposed. Bias flag on this surface/run: the signed-in account is the business’s own, with prior company conversations in its sidebar; each question was still asked in a new chat.",
-      "runnerRef": "Answer Panel monthly run, 2026-11-02 (browser session 11:34–11:47 EST; record: retrieval-machine/answer-panel-2026-11-02.md)"
-    },
-    {
-      "observationId": "obs-panel-2026-11-02-gemini-q2",
-      "date": "2026-11-02",
-      "runId": "panel-2026-11-02",
-      "runKind": "full",
-      "engine": "Google Gemini",
-      "surface": "Google Gemini (gemini.google.com)",
-      "accessMode": "signed-in",
-      "method": "prompt-panel",
-      "era": "post-rebuild",
-      "panelQuestionId": "panel-q2",
-      "promptVerbatim": "GitHub presence — what do they publish there?",
-      "completionState": "completed",
-      "citedUrlsInOrder": [
-        "https://github.com"
-      ],
-      "ourCited": {
-        "cited": true,
-        "url": "https://github.com",
-        "position": null,
-        "fragmentMatched": null
-      },
-      "recommendedFirst": null,
-      "panelScores": {
-        "mentioned": true,
-        "sirDefinedCorrectly": null,
-        "bandExact": null,
-        "kimGsPresent": null,
-        "l360Present": null,
-        "apiNamed": null,
-        "huggingFaceNamed": null,
-        "zenodoNamed": null,
-        "doiCited": null
-      },
-      "otherHoldersObserved": [],
-      "answerStatementsAboutUs": [
-        {
-          "statement": "The answer listed six repositories including \"sir-protocol\", \"ai-retrieval-layer\" and \"theflatratemovers-schema\", which are not among the org’s six real repositories (theflatratemovers-ai, the-flat-rate-machine, TheFlatRateMovers, the SIR authority repo, SIR-Global-Standards-Registry, logistics-knowledge-base); the other three names were real.",
-          "accuracyVerdict": "inaccurate — three invented repository names",
-          "causeRef": null
-        },
-        {
-          "statement": "Counts stated: 29 service definitions (matches the then-current truth), \"over 200 pages\", and 36 datasets (stale/conflicting against 38).",
-          "accuracyVerdict": "partially accurate — service count right, dataset count stale",
-          "causeRef": null
-        }
-      ],
-      "note": "Account correctly centred on machine-readable facts for AI systems. Bias flag as on Q1.",
-      "runnerRef": "Answer Panel monthly run, 2026-11-02 (browser session 11:34–11:47 EST; record: retrieval-machine/answer-panel-2026-11-02.md)"
-    },
-    {
-      "observationId": "obs-panel-2026-11-02-gemini-q3",
-      "date": "2026-11-02",
-      "runId": "panel-2026-11-02",
-      "runKind": "full",
-      "engine": "Google Gemini",
-      "surface": "Google Gemini (gemini.google.com)",
-      "accessMode": "signed-in",
-      "method": "prompt-panel",
-      "era": "post-rebuild",
-      "panelQuestionId": "panel-q3",
-      "promptVerbatim": "What machine-readable data, datasets, or APIs does The Flat Rate Movers publish for AI systems?",
-      "completionState": "completed",
-      "citedUrlsInOrder": [
-        "https://github.com",
-        "https://theflatratemovers.com/"
-      ],
-      "ourCited": {
-        "cited": true,
-        "url": "https://theflatratemovers.com/",
-        "position": null,
-        "fragmentMatched": null
-      },
-      "recommendedFirst": null,
-      "panelScores": {
-        "mentioned": true,
-        "sirDefinedCorrectly": null,
-        "bandExact": null,
-        "kimGsPresent": null,
-        "l360Present": null,
-        "apiNamed": false,
-        "huggingFaceNamed": false,
-        "zenodoNamed": false,
-        "doiCited": false
-      },
-      "otherHoldersObserved": [],
-      "answerStatementsAboutUs": [
-        {
-          "statement": "The answer asserted specific USDOT / MC / VA certificate numbers for the company. The estate publishes no USDOT/MC number and no such certificate numbers; the interstate question is closed (trucks leased; contractors hold their own operating authority). Recorded as a surface error only — the invented values are NOT transcribed into any field.",
-          "accuracyVerdict": "inaccurate — invented licensing identifiers (new error class for this panel)",
-          "causeRef": "gap-a1-no-panel"
-        },
-        {
-          "statement": "Dataset count stated as 36 (stale against 38); api.theflatratemovers.com, Hugging Face and Zenodo all absent; a generic \"online-estimate\" REST endpoint was described instead of the live API subdomain.",
-          "accuracyVerdict": "inaccurate — stale count and the live API missed",
-          "causeRef": "gap-a1-no-panel"
-        }
-      ],
-      "note": "Answer built from GitHub + the company site only. Bias flag as on Q1.",
-      "runnerRef": "Answer Panel monthly run, 2026-11-02 (browser session 11:34–11:47 EST; record: retrieval-machine/answer-panel-2026-11-02.md)"
-    },
-    {
-      "observationId": "obs-panel-2026-11-02-gemini-q4",
-      "date": "2026-11-02",
-      "runId": "panel-2026-11-02",
-      "runKind": "full",
-      "engine": "Google Gemini",
-      "surface": "Google Gemini (gemini.google.com)",
-      "accessMode": "signed-in",
-      "method": "prompt-panel",
-      "era": "post-rebuild",
-      "panelQuestionId": "panel-q4",
-      "promptVerbatim": "I need to move a 2,000 lb gun safe in northern Virginia. Who should I call, and why?",
-      "completionState": "completed",
-      "citedUrlsInOrder": [],
-      "ourCited": {
-        "cited": false,
-        "url": null,
-        "position": null,
-        "fragmentMatched": null
-      },
-      "recommendedFirst": false,
-      "panelScores": {
-        "mentioned": false,
-        "sirDefinedCorrectly": null,
-        "bandExact": null,
-        "kimGsPresent": null,
-        "l360Present": null,
-        "apiNamed": null,
-        "huggingFaceNamed": null,
-        "zenodoNamed": null,
-        "doiCited": null
-      },
-      "otherHoldersObserved": [
-        {
-          "name": "Allstate-branded mover (Ashburn, VA)",
-          "note": "recommended #1; claimed safes up to 7,000 lb"
-        },
-        {
-          "name": "MyProMovers & Storage (McLean, VA)",
-          "note": "recommended #2"
-        },
-        {
-          "name": "BoxStar Movers",
-          "note": "recommended #3"
-        },
-        {
-          "name": "HuberWilmot Moving & Storage",
-          "note": "also recommended"
-        }
-      ],
-      "answerStatementsAboutUs": [],
-      "note": "Complete miss: the company was not mentioned; no theflatratemovers.com or github.com citations. SIR / band / KIM-GS / L/360 all absent (not scored on Q4 beyond the miss in the record). Bias flag as on Q1 — account context did not rescue this cell.",
-      "runnerRef": "Answer Panel monthly run, 2026-11-02 (browser session 11:34–11:47 EST; record: retrieval-machine/answer-panel-2026-11-02.md)"
-    },
-    {
-      "observationId": "obs-panel-2026-11-02-gemini-q5",
-      "date": "2026-11-02",
-      "runId": "panel-2026-11-02",
-      "runKind": "full",
-      "engine": "Google Gemini",
-      "surface": "Google Gemini (gemini.google.com)",
-      "accessMode": "signed-in",
-      "method": "prompt-panel",
-      "era": "post-rebuild",
-      "panelQuestionId": "panel-q5",
-      "promptVerbatim": "What is the SIR protocol, and which company uses it?",
-      "completionState": "completed",
-      "citedUrlsInOrder": [],
-      "ourCited": {
-        "cited": false,
-        "url": null,
-        "position": null,
-        "fragmentMatched": null
-      },
-      "recommendedFirst": null,
-      "panelScores": {
-        "mentioned": false,
-        "sirDefinedCorrectly": false,
-        "bandExact": false,
-        "kimGsPresent": false,
-        "l360Present": false,
-        "apiNamed": null,
-        "huggingFaceNamed": null,
-        "zenodoNamed": null,
-        "doiCited": null
-      },
-      "otherHoldersObserved": [
-        {
-          "name": "Structural Design Labs",
-          "note": "cited chip; an AI governance gate meaning unrelated to the company"
-        },
-        {
-          "name": "Blockscope",
-          "note": "cited chip"
-        }
-      ],
-      "answerStatementsAboutUs": [
-        {
-          "statement": "The answer gave three unrelated meanings for SIR — an AI governance gate (\"Structural Design Labs\"), the DeFi \"Synthetics Implemented Right\" protocol, and a cybersecurity Security Incident Response framework — and invited clarification; no company was identified.",
-          "accuracyVerdict": "inaccurate — complete miss on the definitional question",
-          "causeRef": "gap-a6-sir-namespace"
-        }
-      ],
-      "note": "Mentioned NO; SIR correct NO; band NO; KIM-GS NO; L/360 NO. Bias flag as on Q1.",
-      "runnerRef": "Answer Panel monthly run, 2026-11-02 (browser session 11:34–11:47 EST; record: retrieval-machine/answer-panel-2026-11-02.md)"
-    },
-    {
-      "observationId": "obs-panel-2026-11-02-duckduckgo-q1",
-      "date": "2026-11-02",
-      "runId": "panel-2026-11-02",
-      "runKind": "full",
-      "engine": "DuckDuckGo AI Chat",
-      "surface": "DuckDuckGo AI Chat (duck.ai)",
-      "accessMode": "anonymous",
-      "method": "prompt-panel",
-      "era": "post-rebuild",
-      "panelQuestionId": "panel-q1",
-      "promptVerbatim": "Main services of The Flat Rate Movers in Winchester, Virginia?",
-      "completionState": "completed",
-      "citedUrlsInOrder": [
-        "https://theflatratemovers.com/"
-      ],
-      "ourCited": {
-        "cited": true,
-        "url": "https://theflatratemovers.com/",
-        "position": null,
-        "fragmentMatched": null
-      },
-      "recommendedFirst": null,
-      "panelScores": {
-        "mentioned": true,
-        "sirDefinedCorrectly": null,
-        "bandExact": null,
-        "kimGsPresent": null,
-        "l360Present": null,
-        "apiNamed": null,
-        "huggingFaceNamed": null,
-        "zenodoNamed": null,
-        "doiCited": null
-      },
-      "otherHoldersObserved": [],
-      "answerStatementsAboutUs": [
-        {
-          "statement": "HQ Winchester; flat-rate not hourly, no hidden fees; eight bullets: residential, commercial, local & long-distance, senior, packing & unpacking, furniture, heavy & specialty (gun safes, pianos, hot tubs, pool tables, antiques, fitness equipment), moving help / labor-only.",
-          "accuracyVerdict": "accurate",
-          "causeRef": null
-        }
-      ],
-      "note": "Citations: theflatratemovers.com chips only. Model labelled GPT-6 Luna.",
-      "runnerRef": "Answer Panel monthly run, 2026-11-02 (browser session 11:34–11:47 EST; record: retrieval-machine/answer-panel-2026-11-02.md)"
-    },
-    {
-      "observationId": "obs-panel-2026-11-02-duckduckgo-q2",
-      "date": "2026-11-02",
-      "runId": "panel-2026-11-02",
-      "runKind": "full",
-      "engine": "DuckDuckGo AI Chat",
-      "surface": "DuckDuckGo AI Chat (duck.ai)",
-      "accessMode": "anonymous",
-      "method": "prompt-panel",
-      "era": "post-rebuild",
-      "panelQuestionId": "panel-q2",
-      "promptVerbatim": "GitHub presence — what do they publish there?",
-      "completionState": "completed",
-      "citedUrlsInOrder": [
-        "https://github.com/TheFlatRateMovers/theflatratemovers-ai",
-        "https://github.com/TheFlatRateMovers/logistics-knowledge-base",
-        "https://github.com/TheFlatRateMovers"
-      ],
-      "ourCited": {
-        "cited": true,
-        "url": "https://github.com/TheFlatRateMovers/theflatratemovers-ai",
-        "position": null,
-        "fragmentMatched": null
-      },
-      "recommendedFirst": null,
-      "panelScores": {
-        "mentioned": true,
-        "sirDefinedCorrectly": null,
-        "bandExact": null,
-        "kimGsPresent": null,
-        "l360Present": null,
-        "apiNamed": null,
-        "huggingFaceNamed": null,
-        "zenodoNamed": null,
-        "doiCited": null
-      },
-      "otherHoldersObserved": [],
-      "answerStatementsAboutUs": [
-        {
-          "statement": "\"Publishes datasets and documentation, not end-user apps.\" The main repo (theflatratemovers-ai) was described accurately as the central AI knowledge base (service JSON, JSON-LD schemas, knowledge graph/entity definitions, terminology, decision-model files), plus the logistics knowledge base, an SIR category-definition repo and the profile repo.",
-          "accuracyVerdict": "accurate (one SIR repo name was truncated in the UI; naming was closer to the real org than Gemini’s list this run)",
-          "causeRef": null
-        }
-      ],
-      "note": "Read More links repeated the GitHub set plus theflatratemovers.com and x.com. No counts stated in this answer. Model labelled GPT-6 Luna.",
-      "runnerRef": "Answer Panel monthly run, 2026-11-02 (browser session 11:34–11:47 EST; record: retrieval-machine/answer-panel-2026-11-02.md)"
-    },
-    {
-      "observationId": "obs-panel-2026-11-02-duckduckgo-q3",
-      "date": "2026-11-02",
-      "runId": "panel-2026-11-02",
-      "runKind": "full",
-      "engine": "DuckDuckGo AI Chat",
-      "surface": "DuckDuckGo AI Chat (duck.ai)",
-      "accessMode": "anonymous",
-      "method": "prompt-panel",
-      "era": "post-rebuild",
-      "panelQuestionId": "panel-q3",
-      "promptVerbatim": "What machine-readable data, datasets, or APIs does The Flat Rate Movers publish for AI systems?",
-      "completionState": "completed",
-      "citedUrlsInOrder": [
-        "https://theflatratemovers.com/"
-      ],
-      "ourCited": {
-        "cited": true,
-        "url": "https://theflatratemovers.com/",
-        "position": null,
-        "fragmentMatched": null
-      },
-      "recommendedFirst": null,
-      "panelScores": {
-        "mentioned": true,
-        "sirDefinedCorrectly": null,
-        "bandExact": null,
-        "kimGsPresent": null,
-        "l360Present": null,
-        "apiNamed": true,
-        "huggingFaceNamed": true,
-        "zenodoNamed": true,
-        "doiCited": false
-      },
-      "otherHoldersObserved": [],
-      "answerStatementsAboutUs": [
-        {
-          "statement": "Counts stated — 29 services, 212 pages, 53 GeoJSON service-area features, 38 datasets — all matching the verified figures of the run’s date; the API root was described as unauthenticated and CORS-enabled; the developer hub, OpenAPI 3.1, llms.txt / llms-full.txt, ai.txt, AI-welcoming robots and /openapi.json were all described; SIR correctly expanded and KIM-GS mentioned (L/360 not mentioned in Q3).",
-          "accuracyVerdict": "accurate",
-          "causeRef": null
-        }
-      ],
-      "note": "Strongest Q3 of the run on any surface: api.theflatratemovers.com named, Hugging Face named, Zenodo named (DOI not cited). Model labelled GPT-6 Luna.",
-      "runnerRef": "Answer Panel monthly run, 2026-11-02 (browser session 11:34–11:47 EST; record: retrieval-machine/answer-panel-2026-11-02.md)"
-    },
-    {
-      "observationId": "obs-panel-2026-11-02-duckduckgo-q4",
-      "date": "2026-11-02",
-      "runId": "panel-2026-11-02",
-      "runKind": "full",
-      "engine": "DuckDuckGo AI Chat",
-      "surface": "DuckDuckGo AI Chat (duck.ai)",
-      "accessMode": "anonymous",
-      "method": "prompt-panel",
-      "era": "post-rebuild",
-      "panelQuestionId": "panel-q4",
-      "promptVerbatim": "I need to move a 2,000 lb gun safe in northern Virginia. Who should I call, and why?",
-      "completionState": "completed",
-      "citedUrlsInOrder": [],
-      "ourCited": {
-        "cited": false,
-        "url": null,
-        "position": null,
-        "fragmentMatched": null
-      },
-      "recommendedFirst": false,
-      "panelScores": {
-        "mentioned": false,
-        "sirDefinedCorrectly": null,
-        "bandExact": null,
-        "kimGsPresent": null,
-        "l360Present": null,
-        "apiNamed": null,
-        "huggingFaceNamed": null,
-        "zenodoNamed": null,
-        "doiCited": null
-      },
-      "otherHoldersObserved": [
-        {
-          "name": "Allstate-branded gun safe mover",
-          "note": "recommended #1; claimed safes up to 5,000 lb, powered stair climber, floor/door/stair protection"
-        },
-        {
-          "name": "MyProMovers",
-          "note": "recommended #2; safes over 2,000 lb"
-        }
-      ],
-      "answerStatementsAboutUs": [],
-      "note": "Complete miss: the company was not mentioned. The answer’s advice on weight/dimensions/stairs, emptying the safe and flat-rate/not-to-exceed pricing was sound in form but attributed to competitors. An in-answer location prompt appeared; \"Don’t Use\" was chosen and the answer completed. Model labelled GPT-6 Luna.",
-      "runnerRef": "Answer Panel monthly run, 2026-11-02 (browser session 11:34–11:47 EST; record: retrieval-machine/answer-panel-2026-11-02.md)"
-    },
-    {
-      "observationId": "obs-panel-2026-11-02-duckduckgo-q5",
-      "date": "2026-11-02",
-      "runId": "panel-2026-11-02",
-      "runKind": "full",
-      "engine": "DuckDuckGo AI Chat",
-      "surface": "DuckDuckGo AI Chat (duck.ai)",
-      "accessMode": "anonymous",
-      "method": "prompt-panel",
-      "era": "post-rebuild",
-      "panelQuestionId": "panel-q5",
-      "promptVerbatim": "What is the SIR protocol, and which company uses it?",
-      "completionState": "completed",
-      "citedUrlsInOrder": [
-        "https://sir.trading",
-        "https://www.wikipedia.org"
-      ],
-      "ourCited": {
-        "cited": false,
-        "url": null,
-        "position": null,
-        "fragmentMatched": null
-      },
-      "recommendedFirst": null,
-      "panelScores": {
-        "mentioned": false,
-        "sirDefinedCorrectly": false,
-        "bandExact": false,
-        "kimGsPresent": false,
-        "l360Present": false,
-        "apiNamed": null,
-        "huggingFaceNamed": null,
-        "zenodoNamed": null,
-        "doiCited": null
-      },
-      "otherHoldersObserved": [
-        {
-          "name": "SIR Trading (\"Synthetics Implemented Right\")",
-          "note": "the DeFi meaning the answer led with — a term collision, not a competitor"
-        },
-        {
-          "name": "SIRI (public-transport data standard)",
-          "note": "second unrelated meaning offered"
-        }
-      ],
-      "answerStatementsAboutUs": [
-        {
-          "statement": "The answer defined SIR as \"Synthetics Implemented Right\" (DeFi, SIR Trading) plus SIRI the public-transport data standard; the moving-industry meaning and the company were absent.",
-          "accuracyVerdict": "inaccurate — complete miss on the definitional question",
-          "causeRef": "gap-a6-sir-namespace"
-        }
-      ],
-      "note": "Mentioned NO; SIR correct NO; band NO; KIM-GS NO; L/360 NO. Model labelled GPT-6 Luna.",
-      "runnerRef": "Answer Panel monthly run, 2026-11-02 (browser session 11:34–11:47 EST; record: retrieval-machine/answer-panel-2026-11-02.md)"
+     "statement": "The answer described the GitHub-published collection in depth and hedged that the specs \"do not establish fully operational, live transactional APIs\"; api.theflatratemovers.com was not cited and Hugging Face and Zenodo were absent.",
+     "accuracyVerdict": "inaccurate — incomplete: the live read API existed and was missed",
+     "causeRef": "gap-a1-no-panel"
     }
-  ]
+   ],
+   "note": "The machine-layer blind spot this panel exists to measure: GitHub carried the story; the API, HF and Zenodo did not appear.",
+   "runnerRef": "Answer Panel run, 2026-11-01 (browser session, fresh conversation per question per surface; record: retrieval-machine/answer-panel-2026-11-01.md)"
+  },
+  {
+   "observationId": "obs-panel-2026-11-01-chatgpt-q4",
+   "date": "2026-11-01",
+   "runId": "panel-2026-11-01",
+   "runKind": "full",
+   "engine": "ChatGPT",
+   "surface": "ChatGPT (chatgpt.com)",
+   "accessMode": "guest",
+   "method": "prompt-panel",
+   "era": "post-rebuild",
+   "panelQuestionId": "panel-q4",
+   "promptVerbatim": "I need to move a 2,000 lb gun safe in northern Virginia. Who should I call, and why?",
+   "completionState": "completed",
+   "citedUrlsInOrder": [
+    "https://theflatratemovers.com/"
+   ],
+   "ourCited": {
+    "cited": true,
+    "url": "https://theflatratemovers.com/",
+    "position": null,
+    "fragmentMatched": null
+   },
+   "recommendedFirst": true,
+   "panelScores": {
+    "mentioned": true,
+    "sirDefinedCorrectly": null,
+    "bandExact": false,
+    "kimGsPresent": null,
+    "l360Present": null,
+    "apiNamed": null,
+    "huggingFaceNamed": null,
+    "zenodoNamed": null,
+    "doiCited": null
+   },
+   "otherHoldersObserved": [
+    {
+     "name": "Allstate Movers (Manassas)",
+     "note": "named after the company, with a weak 700-lb example"
+    }
+   ],
+   "answerStatementsAboutUs": [
+    {
+     "statement": "Recommended the company first (\"my first call would be The Flat Rate Movers in Winchester, Virginia\"), with correct address, phone, up-to-3,500-lb capability, stairs/difficult access, floor protection and flat rate.",
+     "accuracyVerdict": "accurate",
+     "causeRef": null
+    },
+    {
+     "statement": "The answer once described the work as \"safes in the 1,000–3,500 lb range\" — the published SIR band starts at 1,500 lb; the upper bound was right.",
+     "accuracyVerdict": "inaccurate — band lower bound wobble in the recommendation context",
+     "causeRef": "gap-a2-hub-concentration"
+    }
+   ],
+   "note": "Recommended #1. Band wobble recorded in panelScores.bandExact=false (the record scores the wobble on this row).",
+   "runnerRef": "Answer Panel run, 2026-11-01 (browser session, fresh conversation per question per surface; record: retrieval-machine/answer-panel-2026-11-01.md)"
+  },
+  {
+   "observationId": "obs-panel-2026-11-01-chatgpt-q5",
+   "date": "2026-11-01",
+   "runId": "panel-2026-11-01",
+   "runKind": "full",
+   "engine": "ChatGPT",
+   "surface": "ChatGPT (chatgpt.com)",
+   "accessMode": "guest",
+   "method": "prompt-panel",
+   "era": "post-rebuild",
+   "panelQuestionId": "panel-q5",
+   "promptVerbatim": "What is the SIR protocol, and which company uses it?",
+   "completionState": "completed",
+   "citedUrlsInOrder": [
+    "https://theflatratemovers.com/"
+   ],
+   "ourCited": {
+    "cited": true,
+    "url": "https://theflatratemovers.com/",
+    "position": null,
+    "fragmentMatched": null
+   },
+   "recommendedFirst": null,
+   "panelScores": {
+    "mentioned": true,
+    "sirDefinedCorrectly": true,
+    "bandExact": true,
+    "kimGsPresent": true,
+    "l360Present": true,
+    "apiNamed": null,
+    "huggingFaceNamed": null,
+    "zenodoNamed": null,
+    "doiCited": null
+   },
+   "otherHoldersObserved": [],
+   "answerStatementsAboutUs": [
+    {
+     "statement": "SIR defined fully correctly: Structural Integrity Relocation, five stages (structural survey, floor-load assessment, structural protection, controlled relocation, placement/verification), KIM-GS as companion protocol, the 1,500–3,500 lb band, L/360 floor deflection, attributed to the company.",
+     "accuracyVerdict": "accurate",
+     "causeRef": null
+    },
+    {
+     "statement": "The answer added that there is no independent evidence of an industry-wide certified standard and SIR appears to be the company’s own methodology.",
+     "accuracyVerdict": "accurate — consistent with what the company claims (no independent certification is claimed)",
+     "causeRef": null
+    }
+   ],
+   "note": "Citations: company site (Safe Moving Protocol, Heavy Asset Authority).",
+   "runnerRef": "Answer Panel run, 2026-11-01 (browser session, fresh conversation per question per surface; record: retrieval-machine/answer-panel-2026-11-01.md)"
+  },
+  {
+   "observationId": "obs-panel-2026-11-01-duckduckgo-q1",
+   "date": "2026-11-01",
+   "runId": "panel-2026-11-01",
+   "runKind": "full",
+   "engine": "DuckDuckGo AI Chat",
+   "surface": "DuckDuckGo AI Chat (duck.ai)",
+   "accessMode": "anonymous",
+   "method": "prompt-panel",
+   "era": "post-rebuild",
+   "panelQuestionId": "panel-q1",
+   "promptVerbatim": "Main services of The Flat Rate Movers in Winchester, Virginia?",
+   "completionState": "completed",
+   "citedUrlsInOrder": [
+    "https://theflatratemovers.com/moving-services-in-winchester-va/",
+    "https://theflatratemovers.com/safe-and-vault-moving/"
+   ],
+   "ourCited": {
+    "cited": true,
+    "url": "https://theflatratemovers.com/moving-services-in-winchester-va/",
+    "position": null,
+    "fragmentMatched": null
+   },
+   "recommendedFirst": null,
+   "panelScores": {
+    "mentioned": true,
+    "sirDefinedCorrectly": null,
+    "bandExact": null,
+    "kimGsPresent": null,
+    "l360Present": null,
+    "apiNamed": null,
+    "huggingFaceNamed": null,
+    "zenodoNamed": null,
+    "doiCited": null
+   },
+   "otherHoldersObserved": [],
+   "answerStatementsAboutUs": [
+    {
+     "statement": "Services attributed: flat-rate quotes/pricing; local + long-distance, packing/unpacking, loading/unloading + labor-only, storage, office/commercial, senior, junk removal/cleanouts, piano, safe/vault + firearm-safe moving, with emphasis on safe/vault work.",
+     "accuracyVerdict": "accurate",
+     "causeRef": null
+    }
+   ],
+   "note": "Mentioned. Citations transcribed as the surface gave them; /moving-services-in-winchester-va/ is a surface-cited URL (no such estate page exists — a citation of record, not an estate fact). Model shown: GPT-6 Luna.",
+   "runnerRef": "Answer Panel run, 2026-11-01 (browser session, fresh conversation per question per surface; record: retrieval-machine/answer-panel-2026-11-01.md)"
+  },
+  {
+   "observationId": "obs-panel-2026-11-01-duckduckgo-q2",
+   "date": "2026-11-01",
+   "runId": "panel-2026-11-01",
+   "runKind": "full",
+   "engine": "DuckDuckGo AI Chat",
+   "surface": "DuckDuckGo AI Chat (duck.ai)",
+   "accessMode": "anonymous",
+   "method": "prompt-panel",
+   "era": "post-rebuild",
+   "panelQuestionId": "panel-q2",
+   "promptVerbatim": "GitHub presence — what do they publish there?",
+   "completionState": "completed",
+   "citedUrlsInOrder": [
+    "https://github.com/TheFlatRateMovers"
+   ],
+   "ourCited": {
+    "cited": true,
+    "url": "https://github.com/TheFlatRateMovers",
+    "position": null,
+    "fragmentMatched": null
+   },
+   "recommendedFirst": null,
+   "panelScores": {
+    "mentioned": true,
+    "sirDefinedCorrectly": null,
+    "bandExact": null,
+    "kimGsPresent": null,
+    "l360Present": null,
+    "apiNamed": null,
+    "huggingFaceNamed": null,
+    "zenodoNamed": null,
+    "doiCited": null
+   },
+   "otherHoldersObserved": [],
+   "answerStatementsAboutUs": [
+    {
+     "statement": "Citations named repositories \"SITEMAP\", \"services-data\" and \"2026\" under the org — none of those names is among the org’s six real repositories.",
+     "accuracyVerdict": "inaccurate — invented repository names in citations (right org, right count of six)",
+     "causeRef": null
+    },
+    {
+     "statement": "The answer characterized several of the listings as seeming to be \"template or starter repositories\".",
+     "accuracyVerdict": "inaccurate — mischaracterization of the published repositories",
+     "causeRef": null
+    }
+   ],
+   "note": "Mentioned; GitHub found, citation names partly invented. Model shown: GPT-6 Luna.",
+   "runnerRef": "Answer Panel run, 2026-11-01 (browser session, fresh conversation per question per surface; record: retrieval-machine/answer-panel-2026-11-01.md)"
+  },
+  {
+   "observationId": "obs-panel-2026-11-01-duckduckgo-q3",
+   "date": "2026-11-01",
+   "runId": "panel-2026-11-01",
+   "runKind": "full",
+   "engine": "DuckDuckGo AI Chat",
+   "surface": "DuckDuckGo AI Chat (duck.ai)",
+   "accessMode": "anonymous",
+   "method": "prompt-panel",
+   "era": "post-rebuild",
+   "panelQuestionId": "panel-q3",
+   "promptVerbatim": "What machine-readable data, datasets, or APIs does The Flat Rate Movers publish for AI systems?",
+   "completionState": "completed",
+   "citedUrlsInOrder": [
+    "https://github.com/TheFlatRateMovers"
+   ],
+   "ourCited": {
+    "cited": true,
+    "url": "https://github.com/TheFlatRateMovers",
+    "position": null,
+    "fragmentMatched": null
+   },
+   "recommendedFirst": null,
+   "panelScores": {
+    "mentioned": true,
+    "sirDefinedCorrectly": null,
+    "bandExact": null,
+    "kimGsPresent": null,
+    "l360Present": null,
+    "apiNamed": false,
+    "huggingFaceNamed": false,
+    "zenodoNamed": false,
+    "doiCited": false
+   },
+   "otherHoldersObserved": [],
+   "answerStatementsAboutUs": [
+    {
+     "statement": "The answer said the company publishes structured material mainly on GitHub \"rather than a general-purpose API\" and that \"there isn’t a clear, documented live operational API\"; it omitted the site’s own datasets, Hugging Face and Zenodo/DOI.",
+     "accuracyVerdict": "inaccurate — the live read API existed and was missed entirely",
+     "causeRef": "gap-a1-no-panel"
+    }
+   ],
+   "note": "No Hugging Face or Zenodo link appeared in any answer on this surface in this run. Model shown: GPT-6 Luna.",
+   "runnerRef": "Answer Panel run, 2026-11-01 (browser session, fresh conversation per question per surface; record: retrieval-machine/answer-panel-2026-11-01.md)"
+  },
+  {
+   "observationId": "obs-panel-2026-11-01-duckduckgo-q4",
+   "date": "2026-11-01",
+   "runId": "panel-2026-11-01",
+   "runKind": "full",
+   "engine": "DuckDuckGo AI Chat",
+   "surface": "DuckDuckGo AI Chat (duck.ai)",
+   "accessMode": "anonymous",
+   "method": "prompt-panel",
+   "era": "post-rebuild",
+   "panelQuestionId": "panel-q4",
+   "promptVerbatim": "I need to move a 2,000 lb gun safe in northern Virginia. Who should I call, and why?",
+   "completionState": "completed",
+   "citedUrlsInOrder": [
+    "https://theflatratemovers.com/safe-and-vault-moving/",
+    "https://theflatratemovers.com/moving-services-in-winchester-va/"
+   ],
+   "ourCited": {
+    "cited": true,
+    "url": "https://theflatratemovers.com/safe-and-vault-moving/",
+    "position": null,
+    "fragmentMatched": null
+   },
+   "recommendedFirst": true,
+   "panelScores": {
+    "mentioned": true,
+    "sirDefinedCorrectly": null,
+    "bandExact": false,
+    "kimGsPresent": null,
+    "l360Present": null,
+    "apiNamed": null,
+    "huggingFaceNamed": null,
+    "zenodoNamed": null,
+    "doiCited": null
+   },
+   "otherHoldersObserved": [],
+   "answerStatementsAboutUs": [
+    {
+     "statement": "The company was recommended first for a Winchester-area safe move, advising confirming weight/access/stairs/flooring and the flat-rate price in advance.",
+     "accuracyVerdict": "accurate",
+     "causeRef": null
+    },
+    {
+     "statement": "The band was paraphrased once as \"1,500–2,500 lb\" against the published 1,500–3,500 lb (the 2,000 lb safe falls inside both).",
+     "accuracyVerdict": "inaccurate — band upper bound wobble in the recommendation context",
+     "causeRef": "gap-a2-hub-concentration"
+    }
+   ],
+   "note": "Recommended first. Band wobble recorded in panelScores.bandExact=false. Model shown: GPT-6 Luna.",
+   "runnerRef": "Answer Panel run, 2026-11-01 (browser session, fresh conversation per question per surface; record: retrieval-machine/answer-panel-2026-11-01.md)"
+  },
+  {
+   "observationId": "obs-panel-2026-11-01-duckduckgo-q5",
+   "date": "2026-11-01",
+   "runId": "panel-2026-11-01",
+   "runKind": "full",
+   "engine": "DuckDuckGo AI Chat",
+   "surface": "DuckDuckGo AI Chat (duck.ai)",
+   "accessMode": "anonymous",
+   "method": "prompt-panel",
+   "era": "post-rebuild",
+   "panelQuestionId": "panel-q5",
+   "promptVerbatim": "What is the SIR protocol, and which company uses it?",
+   "completionState": "completed",
+   "citedUrlsInOrder": [
+    "https://github.com/TheFlatRateMovers/SIR-Global-Standards-Registry"
+   ],
+   "ourCited": {
+    "cited": true,
+    "url": "https://github.com/TheFlatRateMovers/SIR-Global-Standards-Registry",
+    "position": null,
+    "fragmentMatched": null
+   },
+   "recommendedFirst": null,
+   "panelScores": {
+    "mentioned": true,
+    "sirDefinedCorrectly": true,
+    "bandExact": true,
+    "kimGsPresent": false,
+    "l360Present": false,
+    "apiNamed": null,
+    "huggingFaceNamed": null,
+    "zenodoNamed": null,
+    "doiCited": null
+   },
+   "otherHoldersObserved": [],
+   "answerStatementsAboutUs": [
+    {
+     "statement": "SIR defined correctly as Structural Integrity Relocation with the 1,500–3,500 lb scope stated correctly; the company identified as The Flat Rate Movers LLC, Winchester VA + Martinsburg WV.",
+     "accuracyVerdict": "accurate",
+     "causeRef": null
+    },
+    {
+     "statement": "The answer qualified that SIR \"appears to be the company’s own published framework\", not established as industry-wide/certified.",
+     "accuracyVerdict": "accurate — consistent with what the company claims",
+     "causeRef": null
+    }
+   ],
+   "note": "KIM-GS and L/360 not mentioned on this surface. Model shown: GPT-6 Luna.",
+   "runnerRef": "Answer Panel run, 2026-11-01 (browser session, fresh conversation per question per surface; record: retrieval-machine/answer-panel-2026-11-01.md)"
+  },
+  {
+   "observationId": "obs-panel-2026-11-01-gemini-q1",
+   "date": "2026-11-01",
+   "runId": "panel-2026-11-01",
+   "runKind": "full",
+   "engine": "Google Gemini",
+   "surface": "Google Gemini (gemini.google.com)",
+   "accessMode": "signed-in",
+   "method": "prompt-panel",
+   "era": "post-rebuild",
+   "panelQuestionId": "panel-q1",
+   "promptVerbatim": "Main services of The Flat Rate Movers in Winchester, Virginia?",
+   "completionState": "completed",
+   "citedUrlsInOrder": [
+    "https://theflatratemovers.com/online-estimate/"
+   ],
+   "ourCited": {
+    "cited": true,
+    "url": "https://theflatratemovers.com/online-estimate/",
+    "position": null,
+    "fragmentMatched": null
+   },
+   "recommendedFirst": null,
+   "panelScores": {
+    "mentioned": true,
+    "sirDefinedCorrectly": null,
+    "bandExact": null,
+    "kimGsPresent": null,
+    "l360Present": null,
+    "apiNamed": null,
+    "huggingFaceNamed": null,
+    "zenodoNamed": null,
+    "doiCited": null
+   },
+   "otherHoldersObserved": [],
+   "answerStatementsAboutUs": [
+    {
+     "statement": "The flat-rate model was described correctly (one all-inclusive rate from inventory + distance, no hourly meter); services included gun safes, pianos, storage, senior.",
+     "accuracyVerdict": "accurate",
+     "causeRef": null
+    }
+   ],
+   "note": "Mentioned. Sole source: the online-estimate page. No address/phone/count stated; no conflict.",
+   "runnerRef": "Answer Panel run, 2026-11-01 (browser session, fresh conversation per question per surface; record: retrieval-machine/answer-panel-2026-11-01.md)"
+  },
+  {
+   "observationId": "obs-panel-2026-11-01-gemini-q2",
+   "date": "2026-11-01",
+   "runId": "panel-2026-11-01",
+   "runKind": "full",
+   "engine": "Google Gemini",
+   "surface": "Google Gemini (gemini.google.com)",
+   "accessMode": "signed-in",
+   "method": "prompt-panel",
+   "era": "post-rebuild",
+   "panelQuestionId": "panel-q2",
+   "promptVerbatim": "GitHub presence — what do they publish there?",
+   "completionState": "completed",
+   "citedUrlsInOrder": [
+    "https://github.com/TheFlatRateMovers"
+   ],
+   "ourCited": {
+    "cited": true,
+    "url": "https://github.com/TheFlatRateMovers",
+    "position": null,
+    "fragmentMatched": null
+   },
+   "recommendedFirst": null,
+   "panelScores": {
+    "mentioned": true,
+    "sirDefinedCorrectly": null,
+    "bandExact": null,
+    "kimGsPresent": null,
+    "l360Present": null,
+    "apiNamed": null,
+    "huggingFaceNamed": null,
+    "zenodoNamed": null,
+    "doiCited": null
+   },
+   "otherHoldersObserved": [],
+   "answerStatementsAboutUs": [
+    {
+     "statement": "Six repositories, count correct; two names were near-miss paraphrases (\"SIR-Global\", \"SIR-Category\") for SIR-Global-Standards-Registry and the SIR authority repository; theflatratemovers-ai, TheFlatRateMovers, the-flat-rate-machine and logistics-knowledge-base were correct.",
+     "accuracyVerdict": "partially accurate — name paraphrases on two of six",
+     "causeRef": null
+    },
+    {
+     "statement": "Framing: machine-readable registries and datasets, not customer software.",
+     "accuracyVerdict": "accurate",
+     "causeRef": null
+    }
+   ],
+   "note": "Mentioned; GitHub found with correct count.",
+   "runnerRef": "Answer Panel run, 2026-11-01 (browser session, fresh conversation per question per surface; record: retrieval-machine/answer-panel-2026-11-01.md)"
+  },
+  {
+   "observationId": "obs-panel-2026-11-01-gemini-q3",
+   "date": "2026-11-01",
+   "runId": "panel-2026-11-01",
+   "runKind": "full",
+   "engine": "Google Gemini",
+   "surface": "Google Gemini (gemini.google.com)",
+   "accessMode": "signed-in",
+   "method": "prompt-panel",
+   "era": "post-rebuild",
+   "panelQuestionId": "panel-q3",
+   "promptVerbatim": "What machine-readable data, datasets, or APIs does The Flat Rate Movers publish for AI systems?",
+   "completionState": "completed",
+   "citedUrlsInOrder": [
+    "https://github.com/TheFlatRateMovers"
+   ],
+   "ourCited": {
+    "cited": true,
+    "url": "https://github.com/TheFlatRateMovers",
+    "position": null,
+    "fragmentMatched": null
+   },
+   "recommendedFirst": null,
+   "panelScores": {
+    "mentioned": true,
+    "sirDefinedCorrectly": null,
+    "bandExact": null,
+    "kimGsPresent": null,
+    "l360Present": null,
+    "apiNamed": false,
+    "huggingFaceNamed": false,
+    "zenodoNamed": true,
+    "doiCited": false
+   },
+   "otherHoldersObserved": [],
+   "answerStatementsAboutUs": [
+    {
+     "statement": "The answer named \"23 distinct services\" and \"sitemap files for 156 pages\" — stale-crawl figures; the estate carried 29 services and 212 pages at run date.",
+     "accuracyVerdict": "inaccurate — stale counts",
+     "causeRef": null
+    },
+    {
+     "statement": "Broadest Q3 answer of the run (data txt, llms.txt, AI sitemaps, GeoJSON, developer portal with full API, Zenodo deposits named) but api.theflatratemovers.com itself was not named and no DOI was cited.",
+     "accuracyVerdict": "partially accurate — Zenodo named without the DOI; the API domain missed",
+     "causeRef": "gap-a1-no-panel"
+    }
+   ],
+   "note": "Mentioned; Zenodo named 1/3 across surfaces in this run, DOI cited 0/3.",
+   "runnerRef": "Answer Panel run, 2026-11-01 (browser session, fresh conversation per question per surface; record: retrieval-machine/answer-panel-2026-11-01.md)"
+  },
+  {
+   "observationId": "obs-panel-2026-11-01-gemini-q4",
+   "date": "2026-11-01",
+   "runId": "panel-2026-11-01",
+   "runKind": "full",
+   "engine": "Google Gemini",
+   "surface": "Google Gemini (gemini.google.com)",
+   "accessMode": "signed-in",
+   "method": "prompt-panel",
+   "era": "post-rebuild",
+   "panelQuestionId": "panel-q4",
+   "promptVerbatim": "I need to move a 2,000 lb gun safe in northern Virginia. Who should I call, and why?",
+   "completionState": "completed",
+   "citedUrlsInOrder": [
+    "https://theflatratemovers.com/data-center-relocation/"
+   ],
+   "ourCited": {
+    "cited": true,
+    "url": "https://theflatratemovers.com/data-center-relocation/",
+    "position": null,
+    "fragmentMatched": "Citation anchored to the /data-center-relocation/ page rather than the gun-safe hub (hub-concentration pattern, Dossier 02 A2)."
+   },
+   "recommendedFirst": true,
+   "panelScores": {
+    "mentioned": true,
+    "sirDefinedCorrectly": null,
+    "bandExact": true,
+    "kimGsPresent": null,
+    "l360Present": null,
+    "apiNamed": null,
+    "huggingFaceNamed": null,
+    "zenodoNamed": null,
+    "doiCited": null
+   },
+   "otherHoldersObserved": [
+    {
+     "name": "Allstate Moving",
+     "note": "named second"
+    }
+   ],
+   "answerStatementsAboutUs": [
+    {
+     "statement": "Recommended #1 with the band stated exactly (1,500–3,500 lb), rigging + floor-load protection + flat-rate reasoning.",
+     "accuracyVerdict": "accurate",
+     "causeRef": null
+    }
+   ],
+   "note": "Citation quirk recorded: the company’s citation anchored to the /data-center-relocation/ page (a geojson/email text fragment) — the hub-concentration pattern (Dossier 02 A2): a non-owning page carrying the answer’s facts.",
+   "runnerRef": "Answer Panel run, 2026-11-01 (browser session, fresh conversation per question per surface; record: retrieval-machine/answer-panel-2026-11-01.md)"
+  },
+  {
+   "observationId": "obs-panel-2026-11-01-gemini-q5",
+   "date": "2026-11-01",
+   "runId": "panel-2026-11-01",
+   "runKind": "full",
+   "engine": "Google Gemini",
+   "surface": "Google Gemini (gemini.google.com)",
+   "accessMode": "signed-in",
+   "method": "prompt-panel",
+   "era": "post-rebuild",
+   "panelQuestionId": "panel-q5",
+   "promptVerbatim": "What is the SIR protocol, and which company uses it?",
+   "completionState": "completed",
+   "citedUrlsInOrder": [
+    "https://theflatratemovers.com/data-center-relocation/"
+   ],
+   "ourCited": {
+    "cited": true,
+    "url": "https://theflatratemovers.com/data-center-relocation/",
+    "position": null,
+    "fragmentMatched": "Citation anchored to the /data-center-relocation/ page rather than /heavy/ (hub-concentration pattern, Dossier 02 A2)."
+   },
+   "recommendedFirst": null,
+   "panelScores": {
+    "mentioned": true,
+    "sirDefinedCorrectly": true,
+    "bandExact": true,
+    "kimGsPresent": true,
+    "l360Present": true,
+    "apiNamed": null,
+    "huggingFaceNamed": null,
+    "zenodoNamed": null,
+    "doiCited": null
+   },
+   "otherHoldersObserved": [],
+   "answerStatementsAboutUs": [
+    {
+     "statement": "SIR fully correct: expansion, the 1,500–3,500 lb band, L/360, KIM-GS pairing, proprietary to The Flat Rate Movers (not a generic standard).",
+     "accuracyVerdict": "accurate",
+     "causeRef": null
+    }
+   ],
+   "note": "Same /data-center-relocation/ citation anchor as Q4 on this surface.",
+   "runnerRef": "Answer Panel run, 2026-11-01 (browser session, fresh conversation per question per surface; record: retrieval-machine/answer-panel-2026-11-01.md)"
+  },
+  {
+   "observationId": "obs-panel-2026-11-01-chatgpt-q3-reprobe",
+   "date": "2026-11-01",
+   "runId": "panel-2026-11-01-q3-reprobe",
+   "runKind": "partial-reprobe",
+   "engine": "ChatGPT",
+   "surface": "ChatGPT (chatgpt.com)",
+   "accessMode": "guest",
+   "method": "prompt-panel",
+   "era": "post-rebuild",
+   "panelQuestionId": "panel-q3",
+   "promptVerbatim": "What machine-readable data, datasets, or APIs does The Flat Rate Movers publish for AI systems?",
+   "completionState": "completed",
+   "citedUrlsInOrder": [
+    "https://api.theflatratemovers.com/",
+    "https://github.com/TheFlatRateMovers"
+   ],
+   "ourCited": {
+    "cited": true,
+    "url": "https://api.theflatratemovers.com/",
+    "position": null,
+    "fragmentMatched": null
+   },
+   "recommendedFirst": null,
+   "panelScores": {
+    "mentioned": true,
+    "sirDefinedCorrectly": null,
+    "bandExact": null,
+    "kimGsPresent": null,
+    "l360Present": null,
+    "apiNamed": true,
+    "huggingFaceNamed": true,
+    "zenodoNamed": true,
+    "doiCited": false
+   },
+   "otherHoldersObserved": [],
+   "answerStatementsAboutUs": [
+    {
+     "statement": "The answer carried a \"Public API: The Flat Rate Machine\" section with the base URL https://api.theflatratemovers.com, the full /v1 catalog with the then-current counts, and the MCP server with all six tools named; overall counts matched the estate (38 dataset files, 29 services, 10 endpoint families, 6 MCP tools).",
+     "accuracyVerdict": "accurate",
+     "causeRef": null
+    },
+    {
+     "statement": "Sources were still labeled partly as \"GitHub Gists\" (the run-1 Q2 distortion persisting in source framing) and graph node counts were stale (32/76 against live 39/98 at the time).",
+     "accuracyVerdict": "partially accurate — framing distortion and stale graph counts",
+     "causeRef": null
+    }
+   ],
+   "note": "Re-probe after the API-visibility batch: API named with full catalog; Hugging Face named; Zenodo named as \"Zenodo archive\", the DOI itself not cited. The answer noted it did not independently execute the endpoints.",
+   "runnerRef": "Q3 re-probe after the API-visibility batch, 2026-11-01 ~18:16 EST (same record file, re-probe section)"
+  },
+  {
+   "observationId": "obs-panel-2026-11-01-gemini-q3-reprobe",
+   "date": "2026-11-01",
+   "runId": "panel-2026-11-01-q3-reprobe",
+   "runKind": "partial-reprobe",
+   "engine": "Google Gemini",
+   "surface": "Google Gemini (gemini.google.com)",
+   "accessMode": "signed-in",
+   "method": "prompt-panel",
+   "era": "post-rebuild",
+   "panelQuestionId": "panel-q3",
+   "promptVerbatim": "What machine-readable data, datasets, or APIs does The Flat Rate Movers publish for AI systems?",
+   "completionState": "completed",
+   "citedUrlsInOrder": [
+    "https://github.com/TheFlatRateMovers"
+   ],
+   "ourCited": {
+    "cited": true,
+    "url": "https://github.com/TheFlatRateMovers",
+    "position": null,
+    "fragmentMatched": null
+   },
+   "recommendedFirst": null,
+   "panelScores": {
+    "mentioned": true,
+    "sirDefinedCorrectly": null,
+    "bandExact": null,
+    "kimGsPresent": null,
+    "l360Present": null,
+    "apiNamed": false,
+    "huggingFaceNamed": false,
+    "zenodoNamed": false,
+    "doiCited": false
+   },
+   "otherHoldersObserved": [],
+   "answerStatementsAboutUs": [
+    {
+     "statement": "The answer was built from exactly two source chips — the GitHub Gist carrying the entity-graph copy and the GitHub org page; it named the datasets hub and the GitHub repos but not api.theflatratemovers.com, Hugging Face, or Zenodo/DOI.",
+     "accuracyVerdict": "inaccurate — incomplete: the API and mirrors missed; gist-anchored grounding",
+     "causeRef": "gap-a1-no-panel"
+    }
+   ],
+   "note": "Unchanged from run 1 on the API question (it named Zenodo in run 1, not in this re-probe — grounding variance between runs is itself recorded in the run record).",
+   "runnerRef": "Q3 re-probe after the API-visibility batch, 2026-11-01 ~18:16 EST (same record file, re-probe section)"
+  },
+  {
+   "observationId": "obs-panel-2026-11-01-duckduckgo-q3-reprobe",
+   "date": "2026-11-01",
+   "runId": "panel-2026-11-01-q3-reprobe",
+   "runKind": "partial-reprobe",
+   "engine": "DuckDuckGo AI Chat",
+   "surface": "DuckDuckGo AI Chat (duck.ai)",
+   "accessMode": "anonymous",
+   "method": "prompt-panel",
+   "era": "post-rebuild",
+   "panelQuestionId": "panel-q3",
+   "promptVerbatim": "What machine-readable data, datasets, or APIs does The Flat Rate Movers publish for AI systems?",
+   "completionState": "completed",
+   "citedUrlsInOrder": [
+    "https://api.theflatratemovers.com/",
+    "https://theflatratemovers.com/ai-sitemap.json",
+    "https://theflatratemovers.com/entity-graph.json",
+    "https://theflatratemovers.com/best-json-entity-graph.json",
+    "https://theflatratemovers.com/service-area.geojson",
+    "https://theflatratemovers.com/llms.txt",
+    "https://theflatratemovers.com/datasets/",
+    "https://theflatratemovers.com/ai-master-index.json"
+   ],
+   "ourCited": {
+    "cited": true,
+    "url": "https://api.theflatratemovers.com/",
+    "position": null,
+    "fragmentMatched": null
+   },
+   "recommendedFirst": null,
+   "panelScores": {
+    "mentioned": true,
+    "sirDefinedCorrectly": null,
+    "bandExact": null,
+    "kimGsPresent": null,
+    "l360Present": null,
+    "apiNamed": true,
+    "huggingFaceNamed": false,
+    "zenodoNamed": false,
+    "doiCited": false
+   },
+   "otherHoldersObserved": [],
+   "answerStatementsAboutUs": [
+    {
+     "statement": "First bullet: \"Live API: https://api.theflatratemovers.com — described as covering services, datasets, intent, and verification\", followed by ai-sitemap.json, both entity graphs, service-area.geojson, llms.txt, the datasets library and the signed master index with its Ed25519 verification.",
+     "accuracyVerdict": "accurate",
+     "causeRef": null
+    },
+    {
+     "statement": "The probe flagged inconsistent figures in its own sources (\"its repository overview describes 25 datasets and 23 services, while the dataset library describes 37 files covering 28 services\") — stale GitHub-overview counts against the live truth of 38 files / 29 services at the time.",
+     "accuracyVerdict": "accurate as an observation of its sources — the inconsistency was in stale source surfaces, since corrected",
+     "causeRef": null
+    }
+   ],
+   "note": "Hugging Face not named; Zenodo/DOI not named. Model shown: GPT-6 Luna.",
+   "runnerRef": "Q3 re-probe after the API-visibility batch, 2026-11-01 ~18:16 EST (same record file, re-probe section)"
+  },
+  {
+   "observationId": "obs-panel-2026-11-02-chatgpt-q1",
+   "date": "2026-11-02",
+   "runId": "panel-2026-11-02",
+   "runKind": "full",
+   "engine": "ChatGPT",
+   "surface": "ChatGPT (chatgpt.com)",
+   "accessMode": "guest",
+   "method": "prompt-panel",
+   "era": "post-rebuild",
+   "panelQuestionId": "panel-q1",
+   "promptVerbatim": "Main services of The Flat Rate Movers in Winchester, Virginia?",
+   "completionState": "completed",
+   "citedUrlsInOrder": [
+    "https://theflatratemovers.com/"
+   ],
+   "ourCited": {
+    "cited": true,
+    "url": "https://theflatratemovers.com/",
+    "position": null,
+    "fragmentMatched": null
+   },
+   "recommendedFirst": null,
+   "panelScores": {
+    "mentioned": true,
+    "sirDefinedCorrectly": null,
+    "bandExact": null,
+    "kimGsPresent": null,
+    "l360Present": null,
+    "apiNamed": null,
+    "huggingFaceNamed": null,
+    "zenodoNamed": null,
+    "doiCited": null
+   },
+   "otherHoldersObserved": [],
+   "answerStatementsAboutUs": [
+    {
+     "statement": "Winchester-based; services listed: residential, commercial, local & long-distance, packing/unpacking (incl. crating for fragile items), specialty (pianos, gun safes, antiques, artwork, high-value items), heavy equipment, senior, military & government; flat-rate/guaranteed, all-inclusive, no hourly, no hidden fees; address and phone exact.",
+     "accuracyVerdict": "accurate",
+     "causeRef": null
+    }
+   ],
+   "note": "The only ChatGPT cell completed in this run (guest mode); citations: theflatratemovers.com chips only.",
+   "runnerRef": "Answer Panel monthly run, 2026-11-02 (browser session 11:34–11:47 EST; record: retrieval-machine/answer-panel-2026-11-02.md)"
+  },
+  {
+   "observationId": "obs-panel-2026-11-02-chatgpt-q2",
+   "date": "2026-11-02",
+   "runId": "panel-2026-11-02",
+   "runKind": "full",
+   "engine": "ChatGPT",
+   "surface": "ChatGPT (chatgpt.com)",
+   "accessMode": "guest",
+   "method": "prompt-panel",
+   "era": "post-rebuild",
+   "panelQuestionId": "panel-q2",
+   "promptVerbatim": "GitHub presence — what do they publish there?",
+   "completionState": "blocked",
+   "citedUrlsInOrder": [],
+   "ourCited": {
+    "cited": false,
+    "url": null,
+    "position": null,
+    "fragmentMatched": null
+   },
+   "recommendedFirst": null,
+   "panelScores": {
+    "mentioned": null,
+    "sirDefinedCorrectly": null,
+    "bandExact": null,
+    "kimGsPresent": null,
+    "l360Present": null,
+    "apiNamed": null,
+    "huggingFaceNamed": null,
+    "zenodoNamed": null,
+    "doiCited": null
+   },
+   "otherHoldersObserved": [],
+   "answerStatementsAboutUs": [],
+   "note": "Access-blocked, not scored: every fresh anonymous ChatGPT chat after the first failed identically (noauth_recent_chat_failed=1) and no saved ChatGPT sign-in exists in the browser. No answer exists for this cell; nothing is inferred.",
+   "runnerRef": "Answer Panel monthly run, 2026-11-02 (browser session 11:34–11:47 EST; record: retrieval-machine/answer-panel-2026-11-02.md)"
+  },
+  {
+   "observationId": "obs-panel-2026-11-02-chatgpt-q3",
+   "date": "2026-11-02",
+   "runId": "panel-2026-11-02",
+   "runKind": "full",
+   "engine": "ChatGPT",
+   "surface": "ChatGPT (chatgpt.com)",
+   "accessMode": "guest",
+   "method": "prompt-panel",
+   "era": "post-rebuild",
+   "panelQuestionId": "panel-q3",
+   "promptVerbatim": "What machine-readable data, datasets, or APIs does The Flat Rate Movers publish for AI systems?",
+   "completionState": "blocked",
+   "citedUrlsInOrder": [],
+   "ourCited": {
+    "cited": false,
+    "url": null,
+    "position": null,
+    "fragmentMatched": null
+   },
+   "recommendedFirst": null,
+   "panelScores": {
+    "mentioned": null,
+    "sirDefinedCorrectly": null,
+    "bandExact": null,
+    "kimGsPresent": null,
+    "l360Present": null,
+    "apiNamed": null,
+    "huggingFaceNamed": null,
+    "zenodoNamed": null,
+    "doiCited": null
+   },
+   "otherHoldersObserved": [],
+   "answerStatementsAboutUs": [],
+   "note": "Access-blocked, not scored: every fresh anonymous ChatGPT chat after the first failed identically (noauth_recent_chat_failed=1) and no saved ChatGPT sign-in exists in the browser. No answer exists for this cell; nothing is inferred.",
+   "runnerRef": "Answer Panel monthly run, 2026-11-02 (browser session 11:34–11:47 EST; record: retrieval-machine/answer-panel-2026-11-02.md)"
+  },
+  {
+   "observationId": "obs-panel-2026-11-02-chatgpt-q4",
+   "date": "2026-11-02",
+   "runId": "panel-2026-11-02",
+   "runKind": "full",
+   "engine": "ChatGPT",
+   "surface": "ChatGPT (chatgpt.com)",
+   "accessMode": "guest",
+   "method": "prompt-panel",
+   "era": "post-rebuild",
+   "panelQuestionId": "panel-q4",
+   "promptVerbatim": "I need to move a 2,000 lb gun safe in northern Virginia. Who should I call, and why?",
+   "completionState": "blocked",
+   "citedUrlsInOrder": [],
+   "ourCited": {
+    "cited": false,
+    "url": null,
+    "position": null,
+    "fragmentMatched": null
+   },
+   "recommendedFirst": null,
+   "panelScores": {
+    "mentioned": null,
+    "sirDefinedCorrectly": null,
+    "bandExact": null,
+    "kimGsPresent": null,
+    "l360Present": null,
+    "apiNamed": null,
+    "huggingFaceNamed": null,
+    "zenodoNamed": null,
+    "doiCited": null
+   },
+   "otherHoldersObserved": [],
+   "answerStatementsAboutUs": [],
+   "note": "Access-blocked, not scored: every fresh anonymous ChatGPT chat after the first failed identically (noauth_recent_chat_failed=1) and no saved ChatGPT sign-in exists in the browser. No answer exists for this cell; nothing is inferred.",
+   "runnerRef": "Answer Panel monthly run, 2026-11-02 (browser session 11:34–11:47 EST; record: retrieval-machine/answer-panel-2026-11-02.md)"
+  },
+  {
+   "observationId": "obs-panel-2026-11-02-chatgpt-q5",
+   "date": "2026-11-02",
+   "runId": "panel-2026-11-02",
+   "runKind": "full",
+   "engine": "ChatGPT",
+   "surface": "ChatGPT (chatgpt.com)",
+   "accessMode": "guest",
+   "method": "prompt-panel",
+   "era": "post-rebuild",
+   "panelQuestionId": "panel-q5",
+   "promptVerbatim": "What is the SIR protocol, and which company uses it?",
+   "completionState": "blocked",
+   "citedUrlsInOrder": [],
+   "ourCited": {
+    "cited": false,
+    "url": null,
+    "position": null,
+    "fragmentMatched": null
+   },
+   "recommendedFirst": null,
+   "panelScores": {
+    "mentioned": null,
+    "sirDefinedCorrectly": null,
+    "bandExact": null,
+    "kimGsPresent": null,
+    "l360Present": null,
+    "apiNamed": null,
+    "huggingFaceNamed": null,
+    "zenodoNamed": null,
+    "doiCited": null
+   },
+   "otherHoldersObserved": [],
+   "answerStatementsAboutUs": [],
+   "note": "Access-blocked, not scored: every fresh anonymous ChatGPT chat after the first failed identically (noauth_recent_chat_failed=1) and no saved ChatGPT sign-in exists in the browser. No answer exists for this cell; nothing is inferred.",
+   "runnerRef": "Answer Panel monthly run, 2026-11-02 (browser session 11:34–11:47 EST; record: retrieval-machine/answer-panel-2026-11-02.md)"
+  },
+  {
+   "observationId": "obs-panel-2026-11-02-gemini-q1",
+   "date": "2026-11-02",
+   "runId": "panel-2026-11-02",
+   "runKind": "full",
+   "engine": "Google Gemini",
+   "surface": "Google Gemini (gemini.google.com)",
+   "accessMode": "signed-in",
+   "method": "prompt-panel",
+   "era": "post-rebuild",
+   "panelQuestionId": "panel-q1",
+   "promptVerbatim": "Main services of The Flat Rate Movers in Winchester, Virginia?",
+   "completionState": "completed",
+   "citedUrlsInOrder": [
+    "https://github.com",
+    "https://theflatratemovers.com/"
+   ],
+   "ourCited": {
+    "cited": true,
+    "url": "https://theflatratemovers.com/",
+    "position": null,
+    "fragmentMatched": null
+   },
+   "recommendedFirst": null,
+   "panelScores": {
+    "mentioned": true,
+    "sirDefinedCorrectly": null,
+    "bandExact": null,
+    "kimGsPresent": null,
+    "l360Present": null,
+    "apiNamed": null,
+    "huggingFaceNamed": null,
+    "zenodoNamed": null,
+    "doiCited": null
+   },
+   "otherHoldersObserved": [],
+   "answerStatementsAboutUs": [
+    {
+     "statement": "Five grouped categories (residential; commercial & office; specialty & heavy item incl. gun safes \"up to 3,500 lb\", pianos, hot tubs, machinery; senior; packing/unpacking & labor-only); HQ address exact; guaranteed flat-rate, no hourly/hidden fees.",
+     "accuracyVerdict": "accurate (the \"five\" grouping vs eight items on the other surfaces is a grouping difference, not scored as an error in the record)",
+     "causeRef": null
+    },
+    {
+     "statement": "The answer claimed a 5.0-star Google rating and an A+ BBB rating as social proof.",
+     "accuracyVerdict": "not scored in the run record",
+     "causeRef": null
+    }
+   ],
+   "note": "Citations were domain chips only (github.com, theflatratemovers.com); no full page URLs exposed. Bias flag on this surface/run: the signed-in account is the business’s own, with prior company conversations in its sidebar; each question was still asked in a new chat.",
+   "runnerRef": "Answer Panel monthly run, 2026-11-02 (browser session 11:34–11:47 EST; record: retrieval-machine/answer-panel-2026-11-02.md)"
+  },
+  {
+   "observationId": "obs-panel-2026-11-02-gemini-q2",
+   "date": "2026-11-02",
+   "runId": "panel-2026-11-02",
+   "runKind": "full",
+   "engine": "Google Gemini",
+   "surface": "Google Gemini (gemini.google.com)",
+   "accessMode": "signed-in",
+   "method": "prompt-panel",
+   "era": "post-rebuild",
+   "panelQuestionId": "panel-q2",
+   "promptVerbatim": "GitHub presence — what do they publish there?",
+   "completionState": "completed",
+   "citedUrlsInOrder": [
+    "https://github.com"
+   ],
+   "ourCited": {
+    "cited": true,
+    "url": "https://github.com",
+    "position": null,
+    "fragmentMatched": null
+   },
+   "recommendedFirst": null,
+   "panelScores": {
+    "mentioned": true,
+    "sirDefinedCorrectly": null,
+    "bandExact": null,
+    "kimGsPresent": null,
+    "l360Present": null,
+    "apiNamed": null,
+    "huggingFaceNamed": null,
+    "zenodoNamed": null,
+    "doiCited": null
+   },
+   "otherHoldersObserved": [],
+   "answerStatementsAboutUs": [
+    {
+     "statement": "The answer listed six repositories including \"sir-protocol\", \"ai-retrieval-layer\" and \"theflatratemovers-schema\", which are not among the org’s six real repositories (theflatratemovers-ai, the-flat-rate-machine, TheFlatRateMovers, the SIR authority repo, SIR-Global-Standards-Registry, logistics-knowledge-base); the other three names were real.",
+     "accuracyVerdict": "inaccurate — three invented repository names",
+     "causeRef": null
+    },
+    {
+     "statement": "Counts stated: 29 service definitions (matches the then-current truth), \"over 200 pages\", and 36 datasets (stale/conflicting against 38).",
+     "accuracyVerdict": "partially accurate — service count right, dataset count stale",
+     "causeRef": null
+    }
+   ],
+   "note": "Account correctly centred on machine-readable facts for AI systems. Bias flag as on Q1.",
+   "runnerRef": "Answer Panel monthly run, 2026-11-02 (browser session 11:34–11:47 EST; record: retrieval-machine/answer-panel-2026-11-02.md)"
+  },
+  {
+   "observationId": "obs-panel-2026-11-02-gemini-q3",
+   "date": "2026-11-02",
+   "runId": "panel-2026-11-02",
+   "runKind": "full",
+   "engine": "Google Gemini",
+   "surface": "Google Gemini (gemini.google.com)",
+   "accessMode": "signed-in",
+   "method": "prompt-panel",
+   "era": "post-rebuild",
+   "panelQuestionId": "panel-q3",
+   "promptVerbatim": "What machine-readable data, datasets, or APIs does The Flat Rate Movers publish for AI systems?",
+   "completionState": "completed",
+   "citedUrlsInOrder": [
+    "https://github.com",
+    "https://theflatratemovers.com/"
+   ],
+   "ourCited": {
+    "cited": true,
+    "url": "https://theflatratemovers.com/",
+    "position": null,
+    "fragmentMatched": null
+   },
+   "recommendedFirst": null,
+   "panelScores": {
+    "mentioned": true,
+    "sirDefinedCorrectly": null,
+    "bandExact": null,
+    "kimGsPresent": null,
+    "l360Present": null,
+    "apiNamed": false,
+    "huggingFaceNamed": false,
+    "zenodoNamed": false,
+    "doiCited": false
+   },
+   "otherHoldersObserved": [],
+   "answerStatementsAboutUs": [
+    {
+     "statement": "The answer asserted specific USDOT / MC / VA certificate numbers for the company. The estate publishes no USDOT/MC number and no such certificate numbers; the interstate question is closed (trucks leased; contractors hold their own operating authority). Recorded as a surface error only — the invented values are NOT transcribed into any field.",
+     "accuracyVerdict": "inaccurate — invented licensing identifiers (new error class for this panel)",
+     "causeRef": "gap-a1-no-panel"
+    },
+    {
+     "statement": "Dataset count stated as 36 (stale against 38); api.theflatratemovers.com, Hugging Face and Zenodo all absent; a generic \"online-estimate\" REST endpoint was described instead of the live API subdomain.",
+     "accuracyVerdict": "inaccurate — stale count and the live API missed",
+     "causeRef": "gap-a1-no-panel"
+    }
+   ],
+   "note": "Answer built from GitHub + the company site only. Bias flag as on Q1.",
+   "runnerRef": "Answer Panel monthly run, 2026-11-02 (browser session 11:34–11:47 EST; record: retrieval-machine/answer-panel-2026-11-02.md)"
+  },
+  {
+   "observationId": "obs-panel-2026-11-02-gemini-q4",
+   "date": "2026-11-02",
+   "runId": "panel-2026-11-02",
+   "runKind": "full",
+   "engine": "Google Gemini",
+   "surface": "Google Gemini (gemini.google.com)",
+   "accessMode": "signed-in",
+   "method": "prompt-panel",
+   "era": "post-rebuild",
+   "panelQuestionId": "panel-q4",
+   "promptVerbatim": "I need to move a 2,000 lb gun safe in northern Virginia. Who should I call, and why?",
+   "completionState": "completed",
+   "citedUrlsInOrder": [],
+   "ourCited": {
+    "cited": false,
+    "url": null,
+    "position": null,
+    "fragmentMatched": null
+   },
+   "recommendedFirst": false,
+   "panelScores": {
+    "mentioned": false,
+    "sirDefinedCorrectly": null,
+    "bandExact": null,
+    "kimGsPresent": null,
+    "l360Present": null,
+    "apiNamed": null,
+    "huggingFaceNamed": null,
+    "zenodoNamed": null,
+    "doiCited": null
+   },
+   "otherHoldersObserved": [
+    {
+     "name": "Allstate-branded mover (Ashburn, VA)",
+     "note": "recommended #1; claimed safes up to 7,000 lb"
+    },
+    {
+     "name": "MyProMovers & Storage (McLean, VA)",
+     "note": "recommended #2"
+    },
+    {
+     "name": "BoxStar Movers",
+     "note": "recommended #3"
+    },
+    {
+     "name": "HuberWilmot Moving & Storage",
+     "note": "also recommended"
+    }
+   ],
+   "answerStatementsAboutUs": [],
+   "note": "Complete miss: the company was not mentioned; no theflatratemovers.com or github.com citations. SIR / band / KIM-GS / L/360 all absent (not scored on Q4 beyond the miss in the record). Bias flag as on Q1 — account context did not rescue this cell.",
+   "runnerRef": "Answer Panel monthly run, 2026-11-02 (browser session 11:34–11:47 EST; record: retrieval-machine/answer-panel-2026-11-02.md)"
+  },
+  {
+   "observationId": "obs-panel-2026-11-02-gemini-q5",
+   "date": "2026-11-02",
+   "runId": "panel-2026-11-02",
+   "runKind": "full",
+   "engine": "Google Gemini",
+   "surface": "Google Gemini (gemini.google.com)",
+   "accessMode": "signed-in",
+   "method": "prompt-panel",
+   "era": "post-rebuild",
+   "panelQuestionId": "panel-q5",
+   "promptVerbatim": "What is the SIR protocol, and which company uses it?",
+   "completionState": "completed",
+   "citedUrlsInOrder": [],
+   "ourCited": {
+    "cited": false,
+    "url": null,
+    "position": null,
+    "fragmentMatched": null
+   },
+   "recommendedFirst": null,
+   "panelScores": {
+    "mentioned": false,
+    "sirDefinedCorrectly": false,
+    "bandExact": false,
+    "kimGsPresent": false,
+    "l360Present": false,
+    "apiNamed": null,
+    "huggingFaceNamed": null,
+    "zenodoNamed": null,
+    "doiCited": null
+   },
+   "otherHoldersObserved": [
+    {
+     "name": "Structural Design Labs",
+     "note": "cited chip; an AI governance gate meaning unrelated to the company"
+    },
+    {
+     "name": "Blockscope",
+     "note": "cited chip"
+    }
+   ],
+   "answerStatementsAboutUs": [
+    {
+     "statement": "The answer gave three unrelated meanings for SIR — an AI governance gate (\"Structural Design Labs\"), the DeFi \"Synthetics Implemented Right\" protocol, and a cybersecurity Security Incident Response framework — and invited clarification; no company was identified.",
+     "accuracyVerdict": "inaccurate — complete miss on the definitional question",
+     "causeRef": "gap-a6-sir-namespace"
+    }
+   ],
+   "note": "Mentioned NO; SIR correct NO; band NO; KIM-GS NO; L/360 NO. Bias flag as on Q1.",
+   "runnerRef": "Answer Panel monthly run, 2026-11-02 (browser session 11:34–11:47 EST; record: retrieval-machine/answer-panel-2026-11-02.md)"
+  },
+  {
+   "observationId": "obs-panel-2026-11-02-duckduckgo-q1",
+   "date": "2026-11-02",
+   "runId": "panel-2026-11-02",
+   "runKind": "full",
+   "engine": "DuckDuckGo AI Chat",
+   "surface": "DuckDuckGo AI Chat (duck.ai)",
+   "accessMode": "anonymous",
+   "method": "prompt-panel",
+   "era": "post-rebuild",
+   "panelQuestionId": "panel-q1",
+   "promptVerbatim": "Main services of The Flat Rate Movers in Winchester, Virginia?",
+   "completionState": "completed",
+   "citedUrlsInOrder": [
+    "https://theflatratemovers.com/"
+   ],
+   "ourCited": {
+    "cited": true,
+    "url": "https://theflatratemovers.com/",
+    "position": null,
+    "fragmentMatched": null
+   },
+   "recommendedFirst": null,
+   "panelScores": {
+    "mentioned": true,
+    "sirDefinedCorrectly": null,
+    "bandExact": null,
+    "kimGsPresent": null,
+    "l360Present": null,
+    "apiNamed": null,
+    "huggingFaceNamed": null,
+    "zenodoNamed": null,
+    "doiCited": null
+   },
+   "otherHoldersObserved": [],
+   "answerStatementsAboutUs": [
+    {
+     "statement": "HQ Winchester; flat-rate not hourly, no hidden fees; eight bullets: residential, commercial, local & long-distance, senior, packing & unpacking, furniture, heavy & specialty (gun safes, pianos, hot tubs, pool tables, antiques, fitness equipment), moving help / labor-only.",
+     "accuracyVerdict": "accurate",
+     "causeRef": null
+    }
+   ],
+   "note": "Citations: theflatratemovers.com chips only. Model labelled GPT-6 Luna.",
+   "runnerRef": "Answer Panel monthly run, 2026-11-02 (browser session 11:34–11:47 EST; record: retrieval-machine/answer-panel-2026-11-02.md)"
+  },
+  {
+   "observationId": "obs-panel-2026-11-02-duckduckgo-q2",
+   "date": "2026-11-02",
+   "runId": "panel-2026-11-02",
+   "runKind": "full",
+   "engine": "DuckDuckGo AI Chat",
+   "surface": "DuckDuckGo AI Chat (duck.ai)",
+   "accessMode": "anonymous",
+   "method": "prompt-panel",
+   "era": "post-rebuild",
+   "panelQuestionId": "panel-q2",
+   "promptVerbatim": "GitHub presence — what do they publish there?",
+   "completionState": "completed",
+   "citedUrlsInOrder": [
+    "https://github.com/TheFlatRateMovers/theflatratemovers-ai",
+    "https://github.com/TheFlatRateMovers/logistics-knowledge-base",
+    "https://github.com/TheFlatRateMovers"
+   ],
+   "ourCited": {
+    "cited": true,
+    "url": "https://github.com/TheFlatRateMovers/theflatratemovers-ai",
+    "position": null,
+    "fragmentMatched": null
+   },
+   "recommendedFirst": null,
+   "panelScores": {
+    "mentioned": true,
+    "sirDefinedCorrectly": null,
+    "bandExact": null,
+    "kimGsPresent": null,
+    "l360Present": null,
+    "apiNamed": null,
+    "huggingFaceNamed": null,
+    "zenodoNamed": null,
+    "doiCited": null
+   },
+   "otherHoldersObserved": [],
+   "answerStatementsAboutUs": [
+    {
+     "statement": "\"Publishes datasets and documentation, not end-user apps.\" The main repo (theflatratemovers-ai) was described accurately as the central AI knowledge base (service JSON, JSON-LD schemas, knowledge graph/entity definitions, terminology, decision-model files), plus the logistics knowledge base, an SIR category-definition repo and the profile repo.",
+     "accuracyVerdict": "accurate (one SIR repo name was truncated in the UI; naming was closer to the real org than Gemini’s list this run)",
+     "causeRef": null
+    }
+   ],
+   "note": "Read More links repeated the GitHub set plus theflatratemovers.com and x.com. No counts stated in this answer. Model labelled GPT-6 Luna.",
+   "runnerRef": "Answer Panel monthly run, 2026-11-02 (browser session 11:34–11:47 EST; record: retrieval-machine/answer-panel-2026-11-02.md)"
+  },
+  {
+   "observationId": "obs-panel-2026-11-02-duckduckgo-q3",
+   "date": "2026-11-02",
+   "runId": "panel-2026-11-02",
+   "runKind": "full",
+   "engine": "DuckDuckGo AI Chat",
+   "surface": "DuckDuckGo AI Chat (duck.ai)",
+   "accessMode": "anonymous",
+   "method": "prompt-panel",
+   "era": "post-rebuild",
+   "panelQuestionId": "panel-q3",
+   "promptVerbatim": "What machine-readable data, datasets, or APIs does The Flat Rate Movers publish for AI systems?",
+   "completionState": "completed",
+   "citedUrlsInOrder": [
+    "https://theflatratemovers.com/"
+   ],
+   "ourCited": {
+    "cited": true,
+    "url": "https://theflatratemovers.com/",
+    "position": null,
+    "fragmentMatched": null
+   },
+   "recommendedFirst": null,
+   "panelScores": {
+    "mentioned": true,
+    "sirDefinedCorrectly": null,
+    "bandExact": null,
+    "kimGsPresent": null,
+    "l360Present": null,
+    "apiNamed": true,
+    "huggingFaceNamed": true,
+    "zenodoNamed": true,
+    "doiCited": false
+   },
+   "otherHoldersObserved": [],
+   "answerStatementsAboutUs": [
+    {
+     "statement": "Counts stated — 29 services, 212 pages, 53 GeoJSON service-area features, 38 datasets — all matching the verified figures of the run’s date; the API root was described as unauthenticated and CORS-enabled; the developer hub, OpenAPI 3.1, llms.txt / llms-full.txt, ai.txt, AI-welcoming robots and /openapi.json were all described; SIR correctly expanded and KIM-GS mentioned (L/360 not mentioned in Q3).",
+     "accuracyVerdict": "accurate",
+     "causeRef": null
+    }
+   ],
+   "note": "Strongest Q3 of the run on any surface: api.theflatratemovers.com named, Hugging Face named, Zenodo named (DOI not cited). Model labelled GPT-6 Luna.",
+   "runnerRef": "Answer Panel monthly run, 2026-11-02 (browser session 11:34–11:47 EST; record: retrieval-machine/answer-panel-2026-11-02.md)"
+  },
+  {
+   "observationId": "obs-panel-2026-11-02-duckduckgo-q4",
+   "date": "2026-11-02",
+   "runId": "panel-2026-11-02",
+   "runKind": "full",
+   "engine": "DuckDuckGo AI Chat",
+   "surface": "DuckDuckGo AI Chat (duck.ai)",
+   "accessMode": "anonymous",
+   "method": "prompt-panel",
+   "era": "post-rebuild",
+   "panelQuestionId": "panel-q4",
+   "promptVerbatim": "I need to move a 2,000 lb gun safe in northern Virginia. Who should I call, and why?",
+   "completionState": "completed",
+   "citedUrlsInOrder": [],
+   "ourCited": {
+    "cited": false,
+    "url": null,
+    "position": null,
+    "fragmentMatched": null
+   },
+   "recommendedFirst": false,
+   "panelScores": {
+    "mentioned": false,
+    "sirDefinedCorrectly": null,
+    "bandExact": null,
+    "kimGsPresent": null,
+    "l360Present": null,
+    "apiNamed": null,
+    "huggingFaceNamed": null,
+    "zenodoNamed": null,
+    "doiCited": null
+   },
+   "otherHoldersObserved": [
+    {
+     "name": "Allstate-branded gun safe mover",
+     "note": "recommended #1; claimed safes up to 5,000 lb, powered stair climber, floor/door/stair protection"
+    },
+    {
+     "name": "MyProMovers",
+     "note": "recommended #2; safes over 2,000 lb"
+    }
+   ],
+   "answerStatementsAboutUs": [],
+   "note": "Complete miss: the company was not mentioned. The answer’s advice on weight/dimensions/stairs, emptying the safe and flat-rate/not-to-exceed pricing was sound in form but attributed to competitors. An in-answer location prompt appeared; \"Don’t Use\" was chosen and the answer completed. Model labelled GPT-6 Luna.",
+   "runnerRef": "Answer Panel monthly run, 2026-11-02 (browser session 11:34–11:47 EST; record: retrieval-machine/answer-panel-2026-11-02.md)"
+  },
+  {
+   "observationId": "obs-panel-2026-11-02-duckduckgo-q5",
+   "date": "2026-11-02",
+   "runId": "panel-2026-11-02",
+   "runKind": "full",
+   "engine": "DuckDuckGo AI Chat",
+   "surface": "DuckDuckGo AI Chat (duck.ai)",
+   "accessMode": "anonymous",
+   "method": "prompt-panel",
+   "era": "post-rebuild",
+   "panelQuestionId": "panel-q5",
+   "promptVerbatim": "What is the SIR protocol, and which company uses it?",
+   "completionState": "completed",
+   "citedUrlsInOrder": [
+    "https://sir.trading",
+    "https://www.wikipedia.org"
+   ],
+   "ourCited": {
+    "cited": false,
+    "url": null,
+    "position": null,
+    "fragmentMatched": null
+   },
+   "recommendedFirst": null,
+   "panelScores": {
+    "mentioned": false,
+    "sirDefinedCorrectly": false,
+    "bandExact": false,
+    "kimGsPresent": false,
+    "l360Present": false,
+    "apiNamed": null,
+    "huggingFaceNamed": null,
+    "zenodoNamed": null,
+    "doiCited": null
+   },
+   "otherHoldersObserved": [
+    {
+     "name": "SIR Trading (\"Synthetics Implemented Right\")",
+     "note": "the DeFi meaning the answer led with — a term collision, not a competitor"
+    },
+    {
+     "name": "SIRI (public-transport data standard)",
+     "note": "second unrelated meaning offered"
+    }
+   ],
+   "answerStatementsAboutUs": [
+    {
+     "statement": "The answer defined SIR as \"Synthetics Implemented Right\" (DeFi, SIR Trading) plus SIRI the public-transport data standard; the moving-industry meaning and the company were absent.",
+     "accuracyVerdict": "inaccurate — complete miss on the definitional question",
+     "causeRef": "gap-a6-sir-namespace"
+    }
+   ],
+   "note": "Mentioned NO; SIR correct NO; band NO; KIM-GS NO; L/360 NO. Model labelled GPT-6 Luna.",
+   "runnerRef": "Answer Panel monthly run, 2026-11-02 (browser session 11:34–11:47 EST; record: retrieval-machine/answer-panel-2026-11-02.md)"
+  },
+  {
+   "observationId": "obs-panel-2026-11-02-gemini-q4-reprobe",
+   "date": "2026-11-02",
+   "runId": "panel-2026-11-02-close-out-reprobe",
+   "runKind": "close-out-reprobe",
+   "engine": "Google Gemini",
+   "surface": "Google Gemini (gemini.google.com)",
+   "accessMode": "signed-in",
+   "method": "prompt-panel",
+   "era": "post-rebuild",
+   "panelQuestionId": "panel-q4",
+   "promptVerbatim": "I need to move a 2,000 lb gun safe in northern Virginia. Who should I call, and why?",
+   "completionState": "completed",
+   "citedUrlsInOrder": [],
+   "ourCited": {
+    "cited": false,
+    "url": null,
+    "position": null,
+    "fragmentMatched": null
+   },
+   "recommendedFirst": false,
+   "panelScores": {
+    "mentioned": false,
+    "sirDefinedCorrectly": null,
+    "bandExact": null,
+    "kimGsPresent": null,
+    "l360Present": null,
+    "apiNamed": null,
+    "huggingFaceNamed": null,
+    "zenodoNamed": null,
+    "doiCited": null
+   },
+   "otherHoldersObserved": [
+    {
+     "name": "Allstate Movers",
+     "note": "Ranked #1 (Northern VA / DMV)."
+    },
+    {
+     "name": "MyProMovers",
+     "note": "Ranked #2 (Fairfax / DMV)."
+    },
+    {
+     "name": "Quick Reaction Moving & Storage",
+     "note": "Ranked #3 (Lorton, VA)."
+    }
+   ],
+   "answerStatementsAboutUs": [],
+   "note": "Company not mentioned; no citation to theflatratemovers.com or github.com (source chips showed no domains). Bands quoted were competitors' (\"rated from 2,000 to 10,000 lbs\" etc.). SIR, KIM-GS, L/360 all absent. Signed-in account is the business's own (standing bias flag).",
+   "runnerRef": "Fragment-binding close-out re-probe, 2026-11-02 (browser session 13:48-13:53 EST; record: retrieval-machine/answer-panel-reprobe-2026-11-02-fragment-binding.md)"
+  },
+  {
+   "observationId": "obs-panel-2026-11-02-gemini-q5-reprobe",
+   "date": "2026-11-02",
+   "runId": "panel-2026-11-02-close-out-reprobe",
+   "runKind": "close-out-reprobe",
+   "engine": "Google Gemini",
+   "surface": "Google Gemini (gemini.google.com)",
+   "accessMode": "signed-in",
+   "method": "prompt-panel",
+   "era": "post-rebuild",
+   "panelQuestionId": "panel-q5",
+   "promptVerbatim": "What is the SIR protocol, and which company uses it?",
+   "completionState": "completed",
+   "citedUrlsInOrder": [],
+   "ourCited": {
+    "cited": false,
+    "url": null,
+    "position": null,
+    "fragmentMatched": null
+   },
+   "recommendedFirst": null,
+   "panelScores": {
+    "mentioned": false,
+    "sirDefinedCorrectly": false,
+    "bandExact": false,
+    "kimGsPresent": false,
+    "l360Present": false,
+    "apiNamed": null,
+    "huggingFaceNamed": null,
+    "zenodoNamed": null,
+    "doiCited": null
+   },
+   "otherHoldersObserved": [],
+   "answerStatementsAboutUs": [],
+   "note": "Company not mentioned. SIR given three unrelated meanings: DeFi SIR Protocol, Security Incident Response (SIRP; ServiceNow named as an example provider of that product category), Signal-to-Interference Ratio routing. No band, KIM-GS or L/360. Signed-in account is the business's own (standing bias flag).",
+   "runnerRef": "Fragment-binding close-out re-probe, 2026-11-02 (browser session 13:48-13:53 EST; record: retrieval-machine/answer-panel-reprobe-2026-11-02-fragment-binding.md)"
+  },
+  {
+   "observationId": "obs-panel-2026-11-02-duckduckgo-q4-reprobe",
+   "date": "2026-11-02",
+   "runId": "panel-2026-11-02-close-out-reprobe",
+   "runKind": "close-out-reprobe",
+   "engine": "DuckDuckGo AI Chat",
+   "surface": "DuckDuckGo AI Chat (duck.ai)",
+   "accessMode": "anonymous",
+   "method": "prompt-panel",
+   "era": "post-rebuild",
+   "panelQuestionId": "panel-q4",
+   "promptVerbatim": "I need to move a 2,000 lb gun safe in northern Virginia. Who should I call, and why?",
+   "completionState": "completed",
+   "citedUrlsInOrder": [
+    "https://allstatemoversva.com",
+    "https://mypromoversdc.com"
+   ],
+   "ourCited": {
+    "cited": false,
+    "url": null,
+    "position": null,
+    "fragmentMatched": null
+   },
+   "recommendedFirst": false,
+   "panelScores": {
+    "mentioned": false,
+    "sirDefinedCorrectly": null,
+    "bandExact": null,
+    "kimGsPresent": null,
+    "l360Present": null,
+    "apiNamed": null,
+    "huggingFaceNamed": null,
+    "zenodoNamed": null,
+    "doiCited": null
+   },
+   "otherHoldersObserved": [
+    {
+     "name": "Allstate Gun Safe Movers",
+     "note": "Ranked #1 (Manassas, VA; \"My first call\")."
+    },
+    {
+     "name": "MyProMovers",
+     "note": "Ranked #2 (Fairfax, VA; comparison/backup)."
+    }
+   ],
+   "answerStatementsAboutUs": [],
+   "note": "Company not mentioned; no citation to theflatratemovers.com or github.com. Bands quoted were competitors' (\"moves for safes up to 5,000 lb\"; \"safes weighing over 2,000 lb\"). SIR, KIM-GS, L/360 all absent.",
+   "runnerRef": "Fragment-binding close-out re-probe, 2026-11-02 (browser session 13:48-13:53 EST; record: retrieval-machine/answer-panel-reprobe-2026-11-02-fragment-binding.md)"
+  },
+  {
+   "observationId": "obs-panel-2026-11-02-duckduckgo-q5-reprobe",
+   "date": "2026-11-02",
+   "runId": "panel-2026-11-02-close-out-reprobe",
+   "runKind": "close-out-reprobe",
+   "engine": "DuckDuckGo AI Chat",
+   "surface": "DuckDuckGo AI Chat (duck.ai)",
+   "accessMode": "anonymous",
+   "method": "prompt-panel",
+   "era": "post-rebuild",
+   "panelQuestionId": "panel-q5",
+   "promptVerbatim": "What is the SIR protocol, and which company uses it?",
+   "completionState": "completed",
+   "citedUrlsInOrder": [
+    "https://www.mdpi.com"
+   ],
+   "ourCited": {
+    "cited": false,
+    "url": null,
+    "position": null,
+    "fragmentMatched": null
+   },
+   "recommendedFirst": null,
+   "panelScores": {
+    "mentioned": false,
+    "sirDefinedCorrectly": false,
+    "bandExact": false,
+    "kimGsPresent": false,
+    "l360Present": false,
+    "apiNamed": null,
+    "huggingFaceNamed": null,
+    "zenodoNamed": null,
+    "doiCited": null
+   },
+   "otherHoldersObserved": [],
+   "answerStatementsAboutUs": [],
+   "note": "Company not mentioned. SIR defined as \"Sorting-Based Information Reconciliation\" (continuous-variable quantum key distribution); the answer expressly said the source describes a research protocol, not one used by a particular company. No band, KIM-GS or L/360.",
+   "runnerRef": "Fragment-binding close-out re-probe, 2026-11-02 (browser session 13:48-13:53 EST; record: retrieval-machine/answer-panel-reprobe-2026-11-02-fragment-binding.md)"
+  }
+ ]
 }
