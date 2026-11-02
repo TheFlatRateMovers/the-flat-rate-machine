@@ -15,6 +15,23 @@
  *     node's headline, description, datePublished, dateModified,
  *     articleSection — copied from the schema, so the feed can never
  *     drift from what the page itself declares.
+ *   - the source shell (repo-dir/index.html): each post's full body
+ *     HTML for <content:encoded>, taken from the post's own page div
+ *     (<div class="page" id="page-<slug>">) — the same block
+ *     build-routes.js lifts into the post's route document, so the
+ *     feed carries the body exactly as the site publishes it. The
+ *     shell is read rather than the generated route documents
+ *     because this generator runs in seal phase 2b, before phase 5
+ *     regenerates the routes: at 2b the shell is the current source
+ *     and the route documents on disk are the previous generation's.
+ *
+ * WebSub (batch-feed-push-2026-11-02): the channel declares Google's
+ * public hub (<atom:link rel="hub" href="https://pubsubhubbub.
+ * appspot.com/"/>) beside the self link, and every item carries its
+ * full body in <content:encoded>, so subscribers are pushed the
+ * complete post on publish instead of polling for a summary. The
+ * hub ping itself is a separate post-deploy step (ping-websub.py);
+ * this generator only declares the hub and carries the content.
  *
  * Dates: <pubDate> is the RFC-822 form of the post's datePublished
  * instant. Full ISO instants parse directly; a date-only datePublished
@@ -37,6 +54,8 @@ const os = require('os');
 const MACHINE = path.resolve(__dirname, '..');
 const PATHS = JSON.parse(fs.readFileSync(path.join(MACHINE, 'paths.json'), 'utf8'));
 const PUBLIC = PATHS.public_dir;
+const SHELL = path.join(PATHS.repo_dir, 'index.html');
+const HUB_URL = 'https://pubsubhubbub.appspot.com/';
 const LEDGER = path.join(os.homedir(), 'workspace/theflatratemovers/blog-project/ledger.csv');
 const SITE = 'https://theflatratemovers.com';
 const FEED_URL = SITE + '/feed.xml';
@@ -90,6 +109,66 @@ function xmlEscape(s) {
     .replace(/"/g, '&quot;').replace(/'/g, '&apos;');
 }
 
+/* CDATA-wrap a full HTML body for <content:encoded>. The terminator
+ * sequence is split across two CDATA sections so a body containing
+ * it (none does today) could never break the feed. */
+function cdata(s) {
+  return '<![CDATA[' + String(s).split(']]>').join(']]]]><![CDATA[>') + ']]>';
+}
+
+/* Extract every page div's inner HTML from the source shell, keyed by
+ * router slug. Same tokenizer discipline as build-routes.js: comments
+ * and script blocks are skipped whole, and <div> depth is tracked, so
+ * a "</div>" inside a script string or comment cannot end a page div
+ * early. Returns a Map of slug -> inner HTML (opening/closing page-div
+ * tags stripped, surrounding whitespace trimmed; the body itself is
+ * carried verbatim — never edited, never truncated). */
+function extractPageDivs(shell) {
+  const divs = new Map();
+  let i = 0, depth = 0, divStart = -1, divSlug = null;
+  const nextToken = (from) => {
+    let best = null;
+    for (const tok of ['<!--', '<script', '<div', '</div>']) {
+      const j = shell.indexOf(tok, from);
+      if (j >= 0 && (best === null || j < best.idx)) best = { tok, idx: j };
+    }
+    return best;
+  };
+  while (true) {
+    const t = nextToken(i);
+    if (!t) break;
+    if (t.tok === '<!--') {
+      const e = shell.indexOf('-->', t.idx);
+      if (e < 0) fail('shell: unterminated comment');
+      i = e + 3;
+    } else if (t.tok === '<script') {
+      const e = shell.indexOf('</script>', t.idx);
+      if (e < 0) fail('shell: unterminated script');
+      i = e + '</script>'.length;
+    } else if (t.tok === '<div') {
+      if (depth === 0) {
+        const m = shell.slice(t.idx, t.idx + 320).match(/^<div class="page" id="page-([^"]+)">/);
+        if (m) { divStart = t.idx; divSlug = m[1]; }
+      }
+      depth++;
+      i = t.idx + 4;
+    } else { // </div>
+      depth--;
+      if (depth < 0) fail('shell: div depth went negative');
+      if (depth === 0 && divSlug !== null) {
+        const end = shell.indexOf('>', t.idx) + 1;
+        const text = shell.slice(divStart, end);
+        const openEnd = text.indexOf('>') + 1;
+        divs.set(divSlug, text.slice(openEnd, text.length - '</div>'.length).trim());
+        divStart = -1; divSlug = null;
+      }
+      i = t.idx + 6;
+    }
+  }
+  if (depth !== 0) fail('shell: div depth did not return to 0');
+  return divs;
+}
+
 function main() {
   const now = Date.now();
   const registry = JSON.parse(fs.readFileSync(path.join(MACHINE, 'data/pages.json'), 'utf8'));
@@ -110,6 +189,12 @@ function main() {
     channelDesc = 'Articles and job stories from The Flat Rate Movers: flat-rate moving, ' +
       'heavy-asset relocation, transloading and logistics — Winchester, VA and Martinsburg, WV.';
   }
+
+  /* Full post bodies from the source shell (see header): one pass
+   * collects every page div; a published post whose div is missing
+   * fails the build rather than emitting a summary-only item. */
+  if (!fs.existsSync(SHELL)) fail('source shell missing: ' + SHELL);
+  const pageDivs = extractPageDivs(fs.readFileSync(SHELL, 'utf8'));
 
   const rows = parseCsv(fs.readFileSync(LEDGER, 'utf8'));
   const header = rows[0];
@@ -132,10 +217,13 @@ function main() {
     if (!bp || !bp.headline || !bp.description || !bp.datePublished) {
       fail(`BlogPosting node incomplete for post "${slug}" (headline/description/datePublished required)`);
     }
+    const content = pageDivs.get(slug);
+    if (!content) fail(`page div missing in the source shell for post "${slug}"`);
     items.push({
       slug, url: page.url, title: bp.headline, description: bp.description,
       instant: toInstant(bp.datePublished),
       section: bp.articleSection || null,
+      content,
     });
   }
   if (!items.length) fail('no published posts — refusing to emit an empty feed');
@@ -143,7 +231,7 @@ function main() {
 
   const lines = [
     '<?xml version="1.0" encoding="UTF-8"?>',
-    '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">',
+    '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">',
     '  <channel>',
     '    <title>The Flat Rate Movers — Articles</title>',
     `    <link>${blogPage.url}</link>`,
@@ -151,6 +239,7 @@ function main() {
     '    <language>en-us</language>',
     `    <lastBuildDate>${new Date(now).toUTCString()}</lastBuildDate>`,
     `    <atom:link href="${FEED_URL}" rel="self" type="application/rss+xml"/>`,
+    `    <atom:link rel="hub" href="${HUB_URL}"/>`,
   ];
   for (const it of items) {
     lines.push('    <item>');
@@ -161,6 +250,7 @@ function main() {
     lines.push(`      <author>${AUTHOR}</author>`);
     if (it.section) lines.push(`      <category>${xmlEscape(it.section)}</category>`);
     lines.push(`      <description>${xmlEscape(it.description)}</description>`);
+    lines.push(`      <content:encoded>${cdata(it.content)}</content:encoded>`);
     lines.push('    </item>');
   }
   lines.push('  </channel>');
