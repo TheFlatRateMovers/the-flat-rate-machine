@@ -513,6 +513,7 @@ const STATIC_FILES = new Set([
   "/robots.txt",
   "/route81.json",
   "/route81/index.html",
+  "/routes-manifest.json",
   "/safe-moving-protocol.json",
   "/safe-moving-protocol/index.html",
   "/senior-moving.json",
