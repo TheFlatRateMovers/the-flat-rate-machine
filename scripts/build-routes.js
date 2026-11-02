@@ -368,7 +368,7 @@ const srcSeg = shell.match(/<form id="heroQuote"[\s\S]*?<\/form>/);
 const homeDoc = fs.readFileSync(path.join(outDir, 'index.html'), 'utf8');
 const homeSeg = homeDoc.match(/<form id="heroQuote"[\s\S]*?<\/form>/);
 if (!srcSeg || !homeSeg || srcSeg[0] !== homeSeg[0]) fail('hero form segment differs in generated home document');
-if (d2Instances !== 362) fail("D-2 Dataset-node instances across route documents: " + d2Instances + " (expected 362)"); // 353 -> 362 in freight-rework batch 2026-11-01: +8 instances (4 Dataset-type nodes of datasets-freight-rework.json x hub + landing embeddings) + 1 (new service coverage node in the re-synced intent landing embed); previously 343 -> 353 in E6-B1 2026-11-01
+if (d2Instances !== 367) fail("D-2 Dataset-node instances across route documents: " + d2Instances + " (expected 367)"); // 362 -> 367 in head-hubs + white-glove batch 2026-11-02: +4 (Dataset-type nodes of datasets-white-glove.json in its landing embedding) + 1 (new service coverage node in the re-synced intent landing embed) // 353 -> 362 in freight-rework batch 2026-11-01: +8 instances (4 Dataset-type nodes of datasets-freight-rework.json x hub + landing embeddings) + 1 (new service coverage node in the re-synced intent landing embed); previously 343 -> 353 in E6-B1 2026-11-01
 
 manifest.sort((a, b) => (a.url < b.url ? -1 : 1));
 fs.writeFileSync(path.join(outDir, 'routes-manifest.json'), JSON.stringify({ generated: '2026-10-31', count: manifest.length, documents: manifest }, null, 1) + '\n');
