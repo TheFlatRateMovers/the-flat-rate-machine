@@ -163,6 +163,33 @@ pre-approved, no per-post sign-off; QA gates G1–G8 bind).
   page, freight hub, post #5, sitemap page, all-pages, and the four
   re-synced dataset landings).
 
+## ADDENDUM 2 — repo-dir middleware sync, FINAL seal, closing verify
+
+- The first post-push full verify (144/145) named one further P-6
+  mismatch: `_middleware.js` — the digest source for repo-served files
+  is `repo-dir/<basename>`, and `repo-dir/_middleware.js` was stale
+  (its STATIC_FILES block predated the freight-rework, IndexNow and
+  this batch's additions; the deployed Pages functions copy was
+  current). Fixed at source: `repo-dir/_middleware.js` synced from the
+  deployed functions copy, then re-sealed.
+- **FINAL SEAL: `5ad5c13cfbf582f0962ea95b475c60670ce3252bb05d0d91aed2a131c0adb591`**,
+  500 distributions, 0 gaps, reproduced byte-identical on a confirmation
+  run; local verify 114/114. (Supersedes c22c751b…; the flagged shell's
+  own sealed SHA-256 is unchanged at 9768d137… and the answer-evidence
+  file's at fa96201b… — neither file's bytes moved in this step.)
+- Third Pages deploy (final-seal index) exit 0; API bundle refreshed,
+  tests 51/51, worker redeployed — version
+  **589b0730-5c36-4c99-956f-ea80f57d7fd5**. Sealed index + JWS re-pushed
+  to the ai repo: commit **55b5c9857daf01b99beb4a09297d8a2a7ba67cf1**
+  (first ai push: f91d6c2db89fd13fd5e3416a1eed8e68c5253276; machine push:
+  51cfec8a65b308b0a0291442872f4a5fc627a0b1 — read-backs byte-identical by
+  git blob SHA; gist-based data/entity-graph.json verified untouched at
+  cda897e61319a0f52172ef1365402e4d7179cddf).
+- **CLOSING FULL VERIFY: 144/145 — the sole failure is P-6, naming ONLY
+  the Site Shell mirror** (served 23,353,941 B vs sealed 23,653,885 B),
+  which is the flagged parent web upload below. Every other check in
+  the 145-check suite passes live.
+
 ## FLAGGED FOR PARENT WEB UPLOAD (never via the connector)
 
 1. Machine repo `code/site-shell/index.html` ←
