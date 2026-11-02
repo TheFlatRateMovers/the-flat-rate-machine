@@ -409,7 +409,10 @@ const CLASS_ORDER = ['navigational-local', 'cost', 'how-process', 'best-choice',
 // taken from each page's own published description of what it
 // collects). Grouping is validated against the registries at run
 // time; a page matched by no rule and targeted by no row is reported
-// by slug in the run summary — never silently skipped.
+// by slug in the run summary — never silently skipped. News Formula
+// batch (2026-11-02): author/henry-pitts-jr joins ROLLUP_ALL — the
+// byline's author page is an estate-level knowledge surface of the
+// same class as the archive author page it sits beside.
 const ROLLUP_SETS = {
   // "freight, transloading, data and corridor logistics ... I-81, I-66,
   // I-70 network" (the page's own head description).
@@ -434,7 +437,7 @@ const ROLLUP_ALL = new Set([
   'logistics-data-engineering-center', 'recursive-indexing-layer',
   'the-flat-rate-logistics-data-hub', 'ai-license', 'docs',
   'docs/logistics-event-protocol', 'docs/logistics-ontology',
-  'author/ratemoversgmail-com', 'privacy-policy',
+  'author/ratemoversgmail-com', 'author/henry-pitts-jr', 'privacy-policy',
 ]);
 
 // --- Registry loading + validation ---

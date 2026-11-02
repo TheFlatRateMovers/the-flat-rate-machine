@@ -543,7 +543,7 @@ async function main() {
     skipLive('P-2 ai-master-index.jws verifies against the published key over the canonical served index');
     skipLive('P-3 all site-served distribution digests match the live served bytes');
     skipLive('P-4 every served index distribution entry is complete (name, contentUrl, encodingFormat, license, dateModified, SHA-256 digest + byteSize)');
-    skipLive('P-5 certificate covers all 224 per-page JSONs + all 224 route documents + llms-full.txt + the site shell + the deployed code sets (524 distributions)');
+    skipLive('P-5 certificate covers all 225 per-page JSONs + all 225 route documents + llms-full.txt + the site shell + the deployed code sets (526 distributions)');
     skipLive('P-6 all repo-served distribution digests match the live served bytes');
   } else {
   try {
@@ -844,14 +844,14 @@ async function main() {
       const missingCode = P2_CODE_URLS.filter((u) => !distUrls.has(u));
       const missingRoutes = pages.pages.map((p) => p.url).filter((u) => !distUrls.has(u));
       const hasLlmsFull = distUrls.has('https://theflatratemovers.com/llms-full.txt');
-      p5ok = !!servedIndex && pageFiles.length === 224 && missingPages.length === 0 && missingCode.length === 0 &&
+      p5ok = !!servedIndex && pageFiles.length === 225 && missingPages.length === 0 && missingCode.length === 0 &&
         missingRoutes.length === 0 && hasLlmsFull &&
-        (servedIndex.distribution || []).length === 524;
+        (servedIndex.distribution || []).length === 526;
       p5detail = 'pageFiles=' + pageFiles.length + ', missingPages=' + (missingPages.join(',') || '0') +
         ', missingCode=' + (missingCode.join(',') || '0') + ', missingRoutes=' + (missingRoutes.slice(0, 3).join(',') || '0') +
         ', llmsFull=' + hasLlmsFull + ', distributions=' + (servedIndex ? (servedIndex.distribution || []).length : 0);
     } catch (e) { p5ok = false; p5detail = e.message; }
-    check('P-5 certificate covers all 224 per-page JSONs + all 224 route documents + llms-full.txt + the site shell + the deployed code sets (524 distributions)',
+    check('P-5 certificate covers all 225 per-page JSONs + all 225 route documents + llms-full.txt + the site shell + the deployed code sets (526 distributions)',
       p5ok, p5detail);
 
     // P-6: repo-served distribution digests re-computed over live bytes
@@ -1359,8 +1359,8 @@ async function main() {
         for (const n of ns) if (n && n['@type'] === 'Dataset') { shellCountD++; checkNodeD(n, rel); }
       }
     }
-    check('D-2 every Dataset node (dataset files + all 224 route documents) carries landing url/unique sameAs, an identifier, isAccessibleForFree, typed distributions and a self-referencing DataDownload',
-      badNodesD.length === 0 && shellCountD === 367 && routeDocsD.length === 224,
+    check('D-2 every Dataset node (dataset files + all 225 route documents) carries landing url/unique sameAs, an identifier, isAccessibleForFree, typed distributions and a self-referencing DataDownload',
+      badNodesD.length === 0 && shellCountD === 367 && routeDocsD.length === 225,
       'files + ' + shellCountD + ' route-document instances across ' + routeDocsD.length + ' documents' + (badNodesD.length ? ', bad: ' + badNodesD.slice(0, 4).join('; ') : ''));
     // D-3: local sitemap architecture — sitemap.xml is an index whose
     // children are exactly the three section sitemaps plus the news
@@ -2789,6 +2789,171 @@ async function main() {
     }
   } catch (e) {
     check('news sitemap checks (NS-1..NS-5) evaluated', false, e.message);
+  }
+
+
+  // ------------------------------------------------------------------
+  // 27. News Formula gates (batch-news-formula-2026-11-02; dossier
+  // google-news-requirements-2026-11-02.md gates N-2/N-4/N-7/N-8/N-10 +
+  // Spec B). The recorded state lives in data/news-formula.json: per
+  // published post — the ledger date, the single recorded publication
+  // instant feeding the visible byline line, the schema dates and the
+  // news sitemap (null = no time of day is recorded anywhere; the post
+  // stays date-only and inventing one fails NF-3), the lane (story =
+  // Spec B NewsArticle profile; guide = pure BlogPosting) and the N-8
+  // image state (pass, or a recorded owner-photo-needed flag — filling
+  // a flagged post with the logo, stock or another subject fails NF-5).
+  // ------------------------------------------------------------------
+  {
+    const NF_SITE = 'https://theflatratemovers.com';
+    const NF_AUTHOR = NF_SITE + '/author/henry-pitts-jr/';
+    let nfManifest = null;
+    try { nfManifest = JSON.parse(fs.readFileSync('data/news-formula.json', 'utf8')); } catch (e) { /* reported below */ }
+    const nfPosts = nfManifest && Array.isArray(nfManifest.posts) ? nfManifest.posts : [];
+    const nfPub = PAGES_PUBLIC;
+    const nfPosting = (slug) => {
+      const d = JSON.parse(fs.readFileSync(path.join(nfPub, slug + '.json'), 'utf8'));
+      return (d['@graph'] || []).find((n) => String(n['@type']).includes('BlogPosting')) || null;
+    };
+
+    // NF-3 (local): schema instants — full ISO 8601 with offset where a
+    // publication instant is recorded; date-only only where the manifest
+    // records why no time exists.
+    try {
+      const bad = [];
+      for (const p of nfPosts) {
+        const bp = nfPosting(p.slug);
+        if (!bp) { bad.push(p.slug + ':no-posting'); continue; }
+        if (p.instant) {
+          if (!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:\d{2}$/.test(p.instant)) bad.push(p.slug + ':manifest-instant-malformed');
+          if (bp.datePublished !== p.instant || bp.dateModified !== p.instant) bad.push(p.slug + ':schema!=manifest-instant');
+        } else {
+          if (bp.datePublished !== p.ledgerDate || bp.dateModified !== p.ledgerDate) bad.push(p.slug + ':date-only-mismatch');
+          if (!p.dateOnlyReason || p.dateOnlyReason.length < 40) bad.push(p.slug + ':date-only-unrecorded');
+        }
+      }
+      check('NF-3 schema dates are the manifest instants (full ISO 8601 with New York offset) or recorded date-only',
+        !!nfManifest && nfPosts.length >= 1 && bad.length === 0, bad.join(', ') || (nfPosts.length + ' posts'));
+    } catch (e) { check('NF-3 schema dates are the manifest instants (full ISO 8601 with New York offset) or recorded date-only', false, e.message); }
+
+    // NF-4 (local): dossier QA gate — every headline <= 110 characters.
+    try {
+      const bad = [];
+      for (const p of nfPosts) {
+        const bp = nfPosting(p.slug);
+        if (!bp || typeof bp.headline !== 'string' || bp.headline.length > 110) bad.push(p.slug + ':' + (bp && bp.headline ? bp.headline.length : 'missing'));
+      }
+      check('NF-4 every article headline is 110 characters or fewer',
+        nfPosts.length >= 1 && bad.length === 0, bad.join(', ') || 'max ' + Math.max(...nfPosts.map((p) => nfPosting(p.slug).headline.length)));
+    } catch (e) { check('NF-4 every article headline is 110 characters or fewer', false, e.message); }
+
+    // NF-5 (local): the image rule — a passing post's first schema image
+    // is landscape (16:9 / 4:3 / 1:1 within 0.02), >= 1200 px wide, the
+    // file is in the tree, and the image is in the page body; a flagged
+    // post carries a recorded owner-photo-needed reason instead.
+    try {
+      const shellNF = fs.readFileSync(path.join(ROOT, 'repo-dir', 'index.html'), 'utf8');
+      const bad = [];
+      for (const p of nfPosts) {
+        const bp = nfPosting(p.slug);
+        if (!bp) { bad.push(p.slug + ':no-posting'); continue; }
+        if (p.image && p.image.status === 'pass') {
+          const imgs = Array.isArray(bp.image) ? bp.image : (bp.image ? [bp.image] : []);
+          const im = imgs[0];
+          if (!im || im.url !== p.image.url) { bad.push(p.slug + ':schema-image!=manifest'); continue; }
+          const ratio = im.width / im.height;
+          const ratioOk = [16 / 9, 4 / 3, 1].some((r) => Math.abs(ratio - r) <= 0.02);
+          if (!(im.width >= 1200 && ratioOk)) bad.push(p.slug + ':geometry');
+          const rel = im.url.replace('https://theflatratemovers.com/', '');
+          if (!fs.existsSync(path.join(nfPub, rel))) bad.push(p.slug + ':file-missing');
+          const divAt = shellNF.indexOf('<div class="page" id="page-' + p.slug + '">');
+          const divEnd = shellNF.indexOf('<div class="page"', divAt + 10);
+          const div = divAt >= 0 ? shellNF.slice(divAt, divEnd > divAt ? divEnd : undefined) : '';
+          if (!div.includes('/' + rel)) bad.push(p.slug + ':not-in-page-body');
+        } else if (p.image && p.image.status === 'owner-photo-needed') {
+          if (!p.image.reason || p.image.reason.length < 40) bad.push(p.slug + ':flag-unrecorded');
+        } else {
+          bad.push(p.slug + ':no-image-state');
+        }
+      }
+      check('NF-5 every post carries a true landscape article image (>=1200 px, page + schema) or a recorded owner-photo-needed flag',
+        nfPosts.length >= 1 && bad.length === 0, bad.join(', ') || (nfPosts.filter((p) => p.image.status === 'pass').length + ' pass / ' + nfPosts.filter((p) => p.image.status !== 'pass').length + ' flagged'));
+    } catch (e) { check('NF-5 every post carries a true landscape article image (>=1200 px, page + schema) or a recorded owner-photo-needed flag', false, e.message); }
+
+    // NF-7 (local): lane discipline (Spec B as a switch) + the author
+    // chain — every post's author node points at the author page.
+    try {
+      const bad = [];
+      for (const p of nfPosts) {
+        const bp = nfPosting(p.slug);
+        if (!bp) { bad.push(p.slug + ':no-posting'); continue; }
+        if (!bp.author || bp.author.url !== NF_AUTHOR) bad.push(p.slug + ':author-url');
+        if (!Array.isArray(bp.author && bp.author.sameAs) || bp.author.sameAs.length < 1) bad.push(p.slug + ':author-sameAs');
+        const types = Array.isArray(bp['@type']) ? bp['@type'] : [bp['@type']];
+        if (p.lane === 'story') {
+          if (!(types.includes('BlogPosting') && types.includes('NewsArticle'))) bad.push(p.slug + ':story-not-multityped');
+          if (bp.isAccessibleForFree !== true) bad.push(p.slug + ':story-free');
+          if (!bp.articleSection) bad.push(p.slug + ':story-section');
+        } else if (bp['@type'] !== 'BlogPosting') {
+          bad.push(p.slug + ':guide-not-pure');
+        }
+      }
+      check('NF-7 lane discipline: story posts carry the Spec B NewsArticle profile, guides stay pure BlogPosting, every author node carries the author-page url',
+        nfPosts.length >= 1 && bad.length === 0, bad.join(', ') || (nfPosts.filter((p) => p.lane === 'story').length + ' story / ' + nfPosts.filter((p) => p.lane !== 'story').length + ' guides'));
+    } catch (e) { check('NF-7 lane discipline: story posts carry the Spec B NewsArticle profile, guides stay pure BlogPosting, every author node carries the author-page url', false, e.message); }
+
+    // NF-1 (live): the byline + publication line in the SERVED article
+    // HTML, directly under the H1, its datetime equal to the one ledger
+    // instant (or the ledger date where no instant is recorded).
+    if (LOCAL) {
+      skipLive('NF-1 every served article carries the byline + publication line under its H1, datetime equal to the manifest instant');
+    } else {
+      try {
+        const bad = [];
+        for (const p of nfPosts) {
+          const doc = await fetchText(NF_SITE + '/' + p.slug + '/');
+          const m = doc.match(/<p class="post-byline">[\s\S]*?<time datetime="([^"]+)"/);
+          if (!m) { bad.push(p.slug + ':no-byline'); continue; }
+          if (!doc.includes('By <a href="#/author-henry-pitts-jr">Henry Pitts Jr.</a>')) bad.push(p.slug + ':byline-link');
+          if (m[1] !== (p.instant || p.ledgerDate)) bad.push(p.slug + ':datetime=' + m[1]);
+          const h1At = doc.indexOf('</h1>');
+          if (!(doc.indexOf('<p class="post-byline">') > h1At && doc.indexOf('<p class="post-byline">') < h1At + 400)) bad.push(p.slug + ':not-under-h1');
+        }
+        check('NF-1 every served article carries the byline + publication line under its H1, datetime equal to the manifest instant',
+          nfPosts.length >= 1 && bad.length === 0, bad.join(', ') || (nfPosts.length + ' articles'));
+      } catch (e) { check('NF-1 every served article carries the byline + publication line under its H1, datetime equal to the manifest instant', false, e.message); }
+    }
+
+    // NF-2 (live): the author page resolves with ProfilePage markup and
+    // links every live post back (the bidirectional author chain).
+    if (LOCAL) {
+      skipLive('NF-2 author page serves 200 with ProfilePage markup and links every live post');
+    } else {
+      try {
+        const doc = await fetchText(NF_SITE + '/author/henry-pitts-jr/');
+        const missing = nfPosts.filter((p) => !doc.includes('href="#/' + p.slug + '"')).map((p) => p.slug);
+        check('NF-2 author page serves 200 with ProfilePage markup and links every live post',
+          doc.length > 0 && doc.includes('ProfilePage') && missing.length === 0,
+          'len=' + doc.length + ', missingLinks=' + (missing.join(',') || '0'));
+      } catch (e) { check('NF-2 author page serves 200 with ProfilePage markup and links every live post', false, e.message); }
+    }
+
+    // NF-6 (live): the 48x48 + 192x192 PNG icon links ride the shell
+    // head onto the home page, an article and the author page.
+    if (LOCAL) {
+      skipLive('NF-6 48x48 and 192x192 PNG favicon links present on served routes');
+    } else {
+      try {
+        const bad = [];
+        for (const u of ['/', '/moving-a-piano/', '/author/henry-pitts-jr/']) {
+          const body = await fetchText(NF_SITE + u);
+          if (!body.includes('sizes="48x48" href="/favicon-48x48.png"')) bad.push(u + ':48');
+          if (!body.includes('sizes="192x192" href="/favicon-192x192.png"')) bad.push(u + ':192');
+        }
+        check('NF-6 48x48 and 192x192 PNG favicon links present on served routes',
+          bad.length === 0, bad.join(', ') || '3 routes');
+      } catch (e) { check('NF-6 48x48 and 192x192 PNG favicon links present on served routes', false, e.message); }
+    }
   }
 
   // --- 9. Guardrail scan: no placeholders, no invented license identifiers ---

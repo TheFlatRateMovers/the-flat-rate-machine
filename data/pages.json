@@ -1,6 +1,6 @@
 {
   "attestation": "Every URL below was fetched from the live sitemap on 2026-10-28; titles and service links come from pageMeta in the live site source. No URL was hand-typed.",
-  "count": 224,
+  "count": 225,
   "dataset": "pages",
   "generated": "2026-10-29",
   "pages": [
@@ -71,6 +71,17 @@
       "title": "Author — The Flat Rate Movers",
       "type": "page",
       "url": "https://theflatratemovers.com/author/ratemoversgmail-com/"
+    },
+    {
+      "attested": "2026-11-02",
+      "lastmod": "2026-11-02",
+      "services": [],
+      "slug": "author/henry-pitts-jr",
+      "source": "News Formula batch 2026-11-02 (Google News dossier gate N-4): author profile page for Henry Pitts Jr., owner and byline of the estate’s articles",
+      "status": "live",
+      "title": "Henry Pitts Jr. — Author",
+      "type": "page",
+      "url": "https://theflatratemovers.com/author/henry-pitts-jr/"
     },
     {
       "attested": "2026-10-28",

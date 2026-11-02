@@ -1057,6 +1057,24 @@
       "isPartOf": {
         "@id": "https://theflatratemovers.com/#service-sir-heavy"
       }
+    },
+    {
+      "@id": "https://theflatratemovers.com/author/henry-pitts-jr/#person",
+      "@type": "Person",
+      "jobTitle": "Owner, The Flat Rate Movers",
+      "name": "Henry Pitts Jr.",
+      "sameAs": [
+        "https://theflatratemovers.com/",
+        "https://www.instagram.com/theflatratemoversllc/",
+        "https://www.threads.com/@theflatratemoversllc",
+        "https://www.youtube.com/@theflatratemovers",
+        "https://medium.com/@ratemovers",
+        "https://github.com/TheFlatRateMovers"
+      ],
+      "url": "https://theflatratemovers.com/author/henry-pitts-jr/",
+      "worksFor": {
+        "@id": "https://theflatratemovers.com/#organization"
+      }
     }
   ],
   "@id": "https://theflatratemovers.com/entity-graph.json",
