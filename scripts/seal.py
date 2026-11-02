@@ -34,7 +34,24 @@ The fix has two parts:
                                        current file digest)
        -> routes                      (shell -> public/index.html,
                                        route documents, middleware)
+       -> update feed                 (phase 5.5: one scratch
+                                       digest-index pass produces the
+                                       seal's pre-index; the estate
+                                       update feed (updates.xml) is
+                                       rebuilt from the phase-0 index
+                                       snapshot vs that pre-index, so
+                                       phase 6 digests it in the SAME
+                                       seal it describes)
        -> digest-index -> sign-index -> install index + JWS
+
+Phase 0 also snapshots the installed index (and the installed
+updates.xml, when present) into the seal work dir. The snapshot is
+the "prior" for the phase-5.5 feed diff and for the close-out
+seal-pulse (scripts/pulse.mjs) — the Machine archives no prior index
+anywhere else. The feed cites the pre-index SHA as its seal
+identity: the final signed index differs from the pre-index only in
+the updates.xml entry itself (the feed cannot cite a hash that
+contains its own digest — that fixpoint does not exist).
 
 PROOF ROUND (mandatory, fail-loud — it is a proof, not a loop):
 after installing, digest-index is re-run over the sealed tree and
@@ -134,6 +151,15 @@ def main():
              f"{sorted(set(ROOT_FILES) - set(sealed_root))}")
     print(f"    distributions: {count}; pre-seal index sha: {old_seal}")
     print(f"    RUBRIC_DATE={RUBRIC_DATE}")
+    # Pulse (batch-pulse-2026-11-02): snapshot the installed index and
+    # updates.xml BEFORE any phase mutates the tree — the diff priors
+    # for phase 5.5 and for the close-out seal-pulse.
+    shutil.copyfile(index_path, os.path.join(WORK, "prior-index.json"))
+    upd_path = os.path.join(PUB, "updates.xml")
+    if os.path.exists(upd_path):
+        shutil.copyfile(upd_path, os.path.join(WORK, "prior-updates.xml"))
+    print("    pulse snapshots: prior-index.json"
+          " (+ prior-updates.xml if present)")
 
     phase("1. intent rubric (cert digests are file-sourced, S2)")
     run(["node", "scripts/build-intent-rubric.js"],
@@ -218,6 +244,31 @@ def main():
     run(["node", "scripts/build-routes.js", "--update-middleware",
          os.path.join(PAGES, "functions", "_middleware.js"),
          "--tree", PUB])
+
+    phase("5.5. estate update feed (pre-index diff -> updates.xml)")
+    pre = os.path.join(WORK, "index-pre.json")
+    run([VENV_PY, os.path.join(REPO, "digest-index.py"),
+         "--index", index_path, "--public-dir", PUB,
+         "--repo-dir", REPO, "--out", pre,
+         "--audit", os.path.join(WORK, "pre-digest-audit.json")])
+    with open(os.path.join(WORK, "pre-digest-audit.json"),
+              encoding="utf-8") as f:
+        pre_totals = json.load(f)["totals"]
+    if pre_totals.get("gaps") != 0 or \
+            pre_totals.get("distributions") != count:
+        fail(f"pre-digest audit: {pre_totals}")
+    pre_sha = sha(pre)
+    feed_args = ["node", "scripts/build-update-feed.js",
+                 "--prior-index", os.path.join(WORK, "prior-index.json"),
+                 "--index", pre,
+                 "--seal-date", RUBRIC_DATE,
+                 "--seal-sha", pre_sha,
+                 "--out", os.path.join(PUB, "updates.xml")]
+    prior_upd = os.path.join(WORK, "prior-updates.xml")
+    if os.path.exists(prior_upd):
+        feed_args += ["--existing", prior_upd]
+    run(feed_args)
+    print(f"    update feed rebuilt (pre-index sha: {pre_sha})")
 
     phase("6. digest-index (the single digest pass)")
     digested = os.path.join(WORK, "index-digested.json")

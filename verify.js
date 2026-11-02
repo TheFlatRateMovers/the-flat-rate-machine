@@ -543,7 +543,7 @@ async function main() {
     skipLive('P-2 ai-master-index.jws verifies against the published key over the canonical served index');
     skipLive('P-3 all site-served distribution digests match the live served bytes');
     skipLive('P-4 every served index distribution entry is complete (name, contentUrl, encodingFormat, license, dateModified, SHA-256 digest + byteSize)');
-    skipLive('P-5 certificate covers all 227 per-page JSONs + all 227 route documents + llms-full.txt + the site shell + the deployed code sets (534 distributions)');
+    skipLive('P-5 certificate covers all 227 per-page JSONs + all 227 route documents + llms-full.txt + the site shell + the deployed code sets (535 distributions)');
     skipLive('P-6 all repo-served distribution digests match the live served bytes');
   } else {
   try {
@@ -847,12 +847,12 @@ async function main() {
       const hasLlmsFull = distUrls.has('https://theflatratemovers.com/llms-full.txt');
       p5ok = !!servedIndex && pageFiles.length === 227 && missingPages.length === 0 && missingCode.length === 0 &&
         missingRoutes.length === 0 && hasLlmsFull &&
-        (servedIndex.distribution || []).length === 534; // 226 -> 227 and 530 -> 534 re-expressed 2026-11-02 (Ports P1 Foundation): +1 page (the /datasets/ports/ landing), +4 distributions (dataset file, landing JSON, route document, build-ports.js)
+        (servedIndex.distribution || []).length === 535; // 226 -> 227 and 530 -> 534 re-expressed 2026-11-02 (Ports P1 Foundation): +1 page (the /datasets/ports/ landing), +4 distributions (dataset file, landing JSON, route document, build-ports.js); 534 -> 535 re-expressed 2026-11-02 (Pulse): +1 distribution (the estate update feed, updates.xml)
       p5detail = 'pageFiles=' + pageFiles.length + ', missingPages=' + (missingPages.join(',') || '0') +
         ', missingCode=' + (missingCode.join(',') || '0') + ', missingRoutes=' + (missingRoutes.slice(0, 3).join(',') || '0') +
         ', llmsFull=' + hasLlmsFull + ', distributions=' + (servedIndex ? (servedIndex.distribution || []).length : 0);
     } catch (e) { p5ok = false; p5detail = e.message; }
-    check('P-5 certificate covers all 227 per-page JSONs + all 227 route documents + llms-full.txt + the site shell + the deployed code sets (534 distributions)',
+    check('P-5 certificate covers all 227 per-page JSONs + all 227 route documents + llms-full.txt + the site shell + the deployed code sets (535 distributions)',
       p5ok, p5detail);
 
     // P-6: repo-served distribution digests re-computed over live bytes
