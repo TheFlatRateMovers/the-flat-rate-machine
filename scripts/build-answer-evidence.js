@@ -44,17 +44,25 @@
 //   citation_observation     — what answer surfaces were observed
 //                              doing. METHOD IS FIRST-CLASS and rows
 //                              are never averaged across methods.
-//                              HONESTY STATE AT THIS BUILD: the Answer
-//                              Panel has never been run; observations
-//                              of the actual ChatGPT / Claude /
-//                              Perplexity / AI Overview UIs number
-//                              ZERO. The only observations on file are
-//                              the 2026-10-31 search-surface probes
-//                              (Dossier 02 §2.2), recorded as method
-//                              'search-surface' — a labeled proxy,
-//                              never a UI observation. The generator
-//                              REFUSES to emit a prompt-panel row:
-//                              no panel run exists to record.
+//                              HONESTY STATE: the Answer Panel HAS run
+//                              (first runs 2026-11-01 and 2026-11-02);
+//                              its rows enter ONLY through the
+//                              validated panel input file
+//                              (data/panel-observations.json,
+//                              transcribed from the dated run records)
+//                              with method 'prompt-panel' — the
+//                              generator refuses any prompt-panel row
+//                              not backed by that file, and refuses
+//                              brave-serp / console rows outright
+//                              (no run of those methods exists). The
+//                              2026-10-31 search-surface probes
+//                              (Dossier 02 §2.2) remain on file as
+//                              method 'search-surface' — a labeled
+//                              proxy, never a UI observation. Panel
+//                              state is COMPUTED from the merged rows,
+//                              never hard-coded (extension built
+//                              2026-11-02, Element 2 fragment-binding
+//                              batch, per PANEL-INGEST-DESIGN.md).
 //   review_distribution_snapshot — review evidence as distribution
 //                              and arithmetic only, per platform,
 //                              never blended, and never a raw count
@@ -87,7 +95,8 @@
 //   (per-page JSON filenames).
 //
 // DETERMINISM: the file's dateModified is the newest evidence date
-// among its inputs (the 2026-10-31 probing and snapshot date), never
+// among its inputs (the 2026-10-31 probing and snapshot date, or the
+// newest Answer Panel run date when panel rows are ingested), never
 // the wall clock, so --check is byte-stable across days.
 'use strict';
 const fs = require('fs');
@@ -120,6 +129,89 @@ const CREATOR = {
     'https://medium.com/@ratemovers',
   ],
 };
+
+// ------------------------------------------------------- panel input
+// Prompt-panel extension (2026-11-02, Element 2 fragment-binding
+// batch, per PANEL-INGEST-DESIGN.md): panel observations enter ONLY
+// through the panel input file named by paths.json
+// (panel_observations_file), transcribed from the dated Answer Panel
+// run records. Validation is fail-loud (design §5): a panel row can
+// exist only if its run record exists on disk, its run's census
+// reconciles, and every row rule holds. If the key or the file is
+// absent the generator behaves exactly as it did before the extension
+// (search-surface only, panel state zero) — the extension is additive.
+function loadPanel() {
+  const empty = { present: false, rows: [], questions: new Map(), runs: new Map(), runsByQuestion: new Map(), newestDate: null };
+  const p = REG.panel_observations_file;
+  if (!p || !fs.existsSync(p)) return empty;
+  const doc = JSON.parse(fs.readFileSync(p, 'utf8'));
+  const fail = (m) => { throw new Error('PANEL INPUT: ' + m); };
+  if (doc.schemaVersion !== 1) fail('schemaVersion must be 1');
+  const runs = new Map();
+  for (const sr of doc.sourceRecords || []) {
+    if (!sr.runId || runs.has(sr.runId)) fail('duplicate or missing runId in sourceRecords: ' + sr.runId);
+    const dir = String(sr.recordDir || '').replace(/^~\//, (process.env.HOME || '') + '/');
+    if (!sr.recordFile || !fs.existsSync(path.join(dir, sr.recordFile))) {
+      fail('run record file does not exist for ' + sr.runId + ': ' + sr.recordFile);
+    }
+    if (sr.cellsCompleted + sr.cellsBlocked !== sr.cellsDeclared) fail('declared census inconsistent for ' + sr.runId);
+    runs.set(sr.runId, sr);
+  }
+  const questions = new Map();
+  for (const q of doc.panelQuestions || []) {
+    if (!q.questionId || questions.has(q.questionId)) fail('duplicate or missing panel questionId: ' + q.questionId);
+    questions.set(q.questionId, q);
+  }
+  const rows = doc.rows || [];
+  const ids = new Set();
+  const perRun = new Map();
+  const runsByQuestion = new Map();
+  for (const r of rows) {
+    if (!r.observationId || ids.has(r.observationId)) fail('duplicate or missing observationId: ' + r.observationId);
+    ids.add(r.observationId);
+    if (r.method !== 'prompt-panel') fail('row method is not prompt-panel: ' + r.observationId);
+    if (!r.era || !r.promptVerbatim || !r.surface || !r.accessMode) fail('row missing era/promptVerbatim/surface/accessMode: ' + r.observationId);
+    const run = runs.get(r.runId);
+    if (!run) fail('row runId not in sourceRecords: ' + r.observationId);
+    if (r.date !== run.date) fail('row date differs from its run date: ' + r.observationId);
+    if (r.runnerRef !== run.runnerRef) fail('row runnerRef differs from its run record: ' + r.observationId);
+    const q = questions.get(r.panelQuestionId);
+    if (!q) fail('row panelQuestionId not in panelQuestions: ' + r.observationId);
+    if (r.promptVerbatim !== q.promptVerbatim) fail('row promptVerbatim differs from panelQuestions: ' + r.observationId);
+    if (r.completionState !== 'completed' && r.completionState !== 'blocked') fail('bad completionState: ' + r.observationId);
+    if (!r.ourCited || typeof r.ourCited.cited !== 'boolean') fail('row ourCited.cited not boolean: ' + r.observationId);
+    if (!Array.isArray(r.citedUrlsInOrder)) fail('row citedUrlsInOrder not an array: ' + r.observationId);
+    if (!r.panelScores || typeof r.panelScores !== 'object') fail('row panelScores missing: ' + r.observationId);
+    if (r.completionState === 'blocked') {
+      if (r.ourCited.cited !== false) fail('blocked row cited !== false: ' + r.observationId);
+      if (r.citedUrlsInOrder.length) fail('blocked row citedUrlsInOrder not empty: ' + r.observationId);
+      if (r.panelScores.mentioned !== null) fail('blocked row mentioned !== null: ' + r.observationId);
+      if (r.recommendedFirst !== null) fail('blocked row recommendedFirst !== null: ' + r.observationId);
+    } else {
+      if (typeof r.panelScores.mentioned !== 'boolean') fail('completed row mentioned not boolean: ' + r.observationId);
+      if (r.panelQuestionId === 'panel-q4') {
+        if (typeof r.recommendedFirst !== 'boolean') fail('completed Q4 row recommendedFirst not boolean: ' + r.observationId);
+      } else if (r.recommendedFirst !== null) fail('non-Q4 row recommendedFirst !== null: ' + r.observationId);
+    }
+    if (!perRun.has(r.runId)) perRun.set(r.runId, { total: 0, completed: 0, blocked: 0 });
+    const c = perRun.get(r.runId);
+    c.total += 1; c[r.completionState] += 1;
+    if (!runsByQuestion.has(r.panelQuestionId)) runsByQuestion.set(r.panelQuestionId, { runs: new Set(), latest: null });
+    const rq = runsByQuestion.get(r.panelQuestionId);
+    rq.runs.add(r.runId);
+    if (!rq.latest || run.date > rq.latest) rq.latest = run.date;
+  }
+  for (const [runId, sr] of runs) {
+    const c = perRun.get(runId) || { total: 0, completed: 0, blocked: 0 };
+    if (c.total !== sr.cellsDeclared || c.completed !== sr.cellsCompleted || c.blocked !== sr.cellsBlocked) {
+      fail('run census does not reconcile for ' + runId + ': rows ' + c.total + '/' + c.completed + '/' + c.blocked
+        + ' vs declared ' + sr.cellsDeclared + '/' + sr.cellsCompleted + '/' + sr.cellsBlocked);
+    }
+  }
+  const newestDate = [...runs.values()].map((s) => s.date).sort().slice(-1)[0] || null;
+  return { present: true, rows, questions, runs, runsByQuestion, newestDate };
+}
+const PANEL = loadPanel();
 
 function arg(name) {
   const i = process.argv.indexOf('--' + name);
@@ -656,6 +748,24 @@ for (const r of intentRows) {
   let owning = null;
   if (cands.length) { binding = 'bound-exact'; owning = cands[0]; owning.questionIdsAnswered.push(r.id); }
   else if (substantivePages.has(r.target_url)) binding = 'target-page-has-fragments';
+  // Panel membership is DERIVED (2026-11-02 extension): a rubric row
+  // is a panel member when its normalized text equals a panel prompt's
+  // normalized text AND its target URL equals that prompt's designated
+  // target in the panel input file. Without the input file the legacy
+  // unmeasured state is emitted unchanged.
+  let panelMember = false;
+  let panelState = 'not-flagged — the panel set is defined in this element’s build batch B2; no panel run has occurred (full statement on the scope node).';
+  if (PANEL.present) {
+    panelState = 'not a panel question.';
+    for (const [qid, pq] of PANEL.questions) {
+      if (normText(r.query_text) === normText(pq.promptVerbatim) && r.target_url === pq.designatedTargetUrl) {
+        panelMember = true;
+        const info = PANEL.runsByQuestion.get(qid) || { runs: new Set(), latest: PANEL.newestDate };
+        panelState = 'panel member — observed in ' + info.runs.size + ' run(s), latest ' + info.latest + '; observations are recorded in this dataset’s citation_observation table with method prompt-panel.';
+        break;
+      }
+    }
+  }
   questions.push({
     questionId: 'question-' + r.id,
     rubricRowRef: r.id,
@@ -665,8 +775,8 @@ for (const r of intentRows) {
     geoScope: r.area == null ? 'pattern-family' : r.area,
     targetUrl: r.target_url,
     moneyWeight: SAMPLED_WEIGHTS[r.query_text.toLowerCase()] || 'standard',
-    panelMember: false,
-    panelState: 'not-flagged — the panel set is defined in this element’s build batch B2; no panel run has occurred (full statement on the scope node).',
+    panelMember,
+    panelState,
     fragmentBinding: binding,
     owningFragmentId: owning ? owning.fragmentId : null,
   });
@@ -710,14 +820,17 @@ const coverageTotals = {
 };
 
 // ------------------------------------------------------------- honesty
-// gates (design §5.3): every observation carries method + era +
-// prompt verbatim; at this build the ONLY admissible method is
-// 'search-surface', because no prompt-panel run, no Brave SERP run
-// and no console observation of an answer surface exists to record.
-// A row claiming any other method would be a manufactured
-// observation, so the generator refuses it outright.
-const OBS_METHODS_ADMISSIBLE = ['search-surface'];
-const observations = OBSERVATIONS.map((o) => ({
+// gates (design §5.3, extended 2026-11-02): every observation carries
+// method + era + prompt verbatim. Admissibility is EVIDENCE-DRIVEN:
+// 'search-surface' rows come from the dossier seed below;
+// 'prompt-panel' rows are admissible ONLY through the validated panel
+// input file (loadPanel — a prompt-panel row appearing anywhere else
+// is structurally impossible here and the merged gate still refuses
+// any other method); 'brave-serp' and 'console' remain refused
+// outright — no run of those methods exists to record, and a row
+// claiming them would be a manufactured observation.
+const OBS_METHODS_ADMISSIBLE = ['search-surface', 'prompt-panel'];
+const seedObservations = OBSERVATIONS.map((o) => ({
   observationId: o.observationId,
   date: OBS_DATE,
   engine: o.engine,
@@ -732,17 +845,58 @@ const observations = OBSERVATIONS.map((o) => ({
   note: o.note,
   runnerRef: OBS_RUNNER,
 }));
-for (const o of observations) {
-  if (!o.method || !o.era || !o.promptVerbatim) throw new Error('observation missing method/era/prompt: ' + o.observationId);
-  if (!OBS_METHODS_ADMISSIBLE.includes(o.method)) throw new Error('method not admissible at this build: ' + o.method);
+const panelObservations = PANEL.present ? PANEL.rows.map((r) => ({
+  observationId: r.observationId,
+  date: r.date,
+  runId: r.runId,
+  runKind: r.runKind,
+  engine: r.engine,
+  surface: r.surface,
+  accessMode: r.accessMode,
+  method: 'prompt-panel',
+  era: r.era,
+  panelQuestionId: r.panelQuestionId,
+  promptVerbatim: r.promptVerbatim,
+  completionState: r.completionState,
+  citedUrlsInOrder: r.citedUrlsInOrder,
+  ourCited: r.ourCited,
+  recommendedFirst: r.recommendedFirst,
+  panelScores: r.panelScores,
+  otherHoldersObserved: r.otherHoldersObserved,
+  answerStatementsAboutUs: r.answerStatementsAboutUs,
+  note: r.note,
+  runnerRef: r.runnerRef,
+})).sort((a, b) => (a.observationId < b.observationId ? -1 : 1)) : [];
+// Deterministic merge: search-surface rows in seed order, then panel
+// rows sorted by observationId.
+const observations = [...seedObservations, ...panelObservations];
+{
+  const seenIds = new Set();
+  for (const o of observations) {
+    if (!o.method || !o.era || !o.promptVerbatim) throw new Error('observation missing method/era/prompt: ' + o.observationId);
+    if (!OBS_METHODS_ADMISSIBLE.includes(o.method)) throw new Error('method not admissible at this build: ' + o.method);
+    if (seenIds.has(o.observationId)) throw new Error('duplicate observationId across the merged set: ' + o.observationId);
+    seenIds.add(o.observationId);
+  }
 }
-const PANEL_STATE = {
+// Panel state is COMPUTED from the merged rows when the panel input
+// file is present (2026-11-02 extension); without it, the legacy
+// unmeasured literal is emitted unchanged.
+const PANEL_STATE = PANEL.present ? {
+  panelRuns: PANEL.runs.size,
+  promptPanelObservations: panelObservations.length,
+  answerUiObservations: panelObservations.length,
+  braveSerpObservations: 0,
+  consoleObservations: 0,
+  searchSurfaceObservations: seedObservations.length,
+  statement: 'Citation standing on the actual answer-engine UIs is MEASURED by the Answer Panel: ' + PANEL.runs.size + ' run(s) on file (' + [...PANEL.runs.keys()].sort().join(', ') + '), latest ' + PANEL.newestDate + ', with ' + panelObservations.length + ' prompt-panel observations recorded in this dataset (method prompt-panel, era post-rebuild), including access-blocked cells recorded as blocked and never scored. Standing is published per method and never averaged across methods: the ' + seedObservations.length + ' search-surface observations (2026-10-31 probes) remain a labeled proxy for what the retrieval layer surfaces and extracts, never an answer-engine citation, and brave-serp and console observations remain unmeasured (0).',
+} : {
   panelRuns: 0,
   promptPanelObservations: 0,
   answerUiObservations: 0,
   braveSerpObservations: 0,
   consoleObservations: 0,
-  searchSurfaceObservations: observations.length,
+  searchSurfaceObservations: seedObservations.length,
   statement: 'Citation standing on the actual answer-engine UIs (ChatGPT, Claude, Perplexity, Google AI Overviews / AI Mode) is UNMEASURED: no prompt panel has ever been run and zero UI observations exist. The only observations on file are the 2026-10-31 search-surface probes recorded in this dataset — a labeled proxy for what the retrieval layer surfaces and extracts, never an answer-engine citation. The panel instrument (question set flagged on the rubric rows, monthly cadence, method prompt-panel) is this element’s build batch B2.',
 };
 
@@ -766,10 +920,19 @@ function assertSnapshotBar(records) {
 assertSnapshotBar(SNAPSHOTS);
 const snapshots = SNAPSHOTS.map((s) => ({ ...s }));
 const gaps = GAPS.map((g) => ({ ...g }));
+// Gap A1 status follows the panel instrument's real state (2026-11-02
+// extension): when panel rows are ingested, the record states the
+// built instrument and the ingested runs; the record itself is never
+// deleted (AE-1 pins gapRecords at 9) and its solution text — the
+// design that was executed — is retained verbatim.
+if (PANEL.present) {
+  const g1 = gaps.find((g) => g.gapId === 'gap-a1-no-panel');
+  if (g1) g1.status = 'instrument built; first runs ingested 2026-11-01 and 2026-11-02 (33 rows); monthly cadence booked';
+}
 const profiles = ENGINE_PROFILES.map((p) => ({ ...p }));
 
 // -------------------------------------------------------------- totals
-const DATE_MOD = [OBS_DATE, SNAP_DATE, PROFILE_DATE].sort().slice(-1)[0];
+const DATE_MOD = [OBS_DATE, SNAP_DATE, PROFILE_DATE, ...(PANEL.present ? [PANEL.newestDate] : [])].sort().slice(-1)[0];
 const totals = {
   questions: questions.length,
   fragments: fragments.length,
@@ -783,7 +946,9 @@ const totals = {
   coverage: coverageTotals,
   engineProfiles: profiles.length,
   citationObservations: observations.length,
-  observationsByMethod: { 'search-surface': observations.length },
+  observationsByMethod: PANEL.present
+    ? { 'search-surface': seedObservations.length, 'prompt-panel': panelObservations.length }
+    : { 'search-surface': seedObservations.length },
   panelState: PANEL_STATE,
   reviewSnapshots: snapshots.length,
   reviewSnapshotsByNamespace: {
@@ -837,7 +1002,9 @@ function baseNode(id, type, name, description) {
     sameAs: LANDING, url: LANDING, identifier: LANDING, isAccessibleForFree: true,
   };
 }
-const D1_DESC = 'Answer-engine evidence operations for The Flat Rate Movers: the standing dataset of the Retrieval Machine’s answer-engine evidence element. One dataset file joins the demand side (every buyer-intent rubric question, generated from the estate’s own rubric database), the answer side (the fragments — FAQ answers and heading-led passages extracted from the live estate, each with its owning page, locator, full text, text hash for drift detection, the schema types on its page and the sealed evidence backing its facts), the measurement side (what answer surfaces were observed doing, era-tagged, with method as a first-class field), the engines’ documented pipelines (with contested and unknown fields recorded as such), the review-evidence layer stated as distribution and arithmetic only, and the named gaps with their designed solutions. The honesty state of the measurement side is stated wherever it appears: citation standing on the actual answer-engine interfaces is unmeasured — no prompt panel has ever been run — and the only observations on file are labeled search-surface probes, never presented as answer-engine citations.';
+const D1_DESC = 'Answer-engine evidence operations for The Flat Rate Movers: the standing dataset of the Retrieval Machine’s answer-engine evidence element. One dataset file joins the demand side (every buyer-intent rubric question, generated from the estate’s own rubric database), the answer side (the fragments — FAQ answers and heading-led passages extracted from the live estate, each with its owning page, locator, full text, text hash for drift detection, the schema types on its page and the sealed evidence backing its facts), the measurement side (what answer surfaces were observed doing, era-tagged, with method as a first-class field), the engines’ documented pipelines (with contested and unknown fields recorded as such), the review-evidence layer stated as distribution and arithmetic only, and the named gaps with their designed solutions.' + (PANEL.present
+  ? ' The honesty state of the measurement side is stated wherever it appears: citation standing on the actual answer-engine interfaces is measured by the Answer Panel — ' + PANEL.runs.size + ' run(s) on file, latest ' + PANEL.newestDate + ', ' + panelObservations.length + ' prompt-panel observations recorded with method prompt-panel — published per method and never averaged with the labeled search-surface probes, which remain a proxy and are never presented as answer-engine citations.'
+  : ' The honesty state of the measurement side is stated wherever it appears: citation standing on the actual answer-engine interfaces is unmeasured — no prompt panel has ever been run — and the only observations on file are labeled search-surface probes, never presented as answer-engine citations.');
 const graph = [
   {
     ...baseNode(SITE + '/#dataset-answer-evidence-operations', 'Service', 'Answer-Engine Evidence Operations', D1_DESC),
@@ -859,7 +1026,9 @@ const graph = [
   },
   {
     ...baseNode(SITE + '/#dataset-answer-evidence-scope', 'Dataset', 'Answer Evidence Scope and Measurement State',
-      'The scope this dataset measures: ' + pagesReg.pages.length + ' pages in the registry, ' + coverageTotals.servicesCovered + ' published services, ' + totals.questions + ' rubric questions, ' + profiles.length + ' answer engines profiled — and the measurement state of the answer layer, stated plainly: the Answer Panel has never been run, observations of the actual answer-engine interfaces number zero, and the only observations on file are the ' + observations.length + ' labeled search-surface probes of 2026-10-31.'),
+      'The scope this dataset measures: ' + pagesReg.pages.length + ' pages in the registry, ' + coverageTotals.servicesCovered + ' published services, ' + totals.questions + ' rubric questions, ' + profiles.length + ' answer engines profiled — and the measurement state of the answer layer, stated plainly: ' + (PANEL.present
+        ? 'the Answer Panel has run — ' + PANEL.runs.size + ' run(s) on file, latest ' + PANEL.newestDate + ', ' + panelObservations.length + ' prompt-panel observations of the actual answer-engine interfaces — alongside the ' + seedObservations.length + ' labeled search-surface probes of 2026-10-31, a proxy kept in its own method namespace and never averaged with panel rows.'
+        : 'the Answer Panel has never been run, observations of the actual answer-engine interfaces number zero, and the only observations on file are the ' + seedObservations.length + ' labeled search-surface probes of 2026-10-31.')),
     scope: {
       pagesInRegistry: pagesReg.pages.length,
       servicesCovered: coverageTotals.servicesCovered,
@@ -890,7 +1059,7 @@ const graph = [
   },
   {
     ...baseNode(SITE + '/#dataset-answer-evidence-observations', 'Dataset', 'Citation Observations',
-      'What answer surfaces were observed doing — ' + totals.citationObservations + ' observations, every one method search-surface (the 2026-10-31 probing of the public web-search surface, a labeled proxy). Each row carries its engine, surface, method, era, prompt verbatim, the URLs cited in order where the record states them, the company’s citation state, and a human-reviewed accuracy verdict on every statement the surface made about the company. There are no prompt-panel rows in this file because no panel run exists; the generator refuses to emit one.'),
+      'What answer surfaces were observed doing — ' + totals.citationObservations + ' observations in ' + (PANEL.present ? 'two method namespaces, never averaged: ' + seedObservations.length + ' method search-surface (the 2026-10-31 probing of the public web-search surface, a labeled proxy) and ' + panelObservations.length + ' method prompt-panel (the Answer Panel runs of 2026-11-01 and 2026-11-02, transcribed from the dated run records through the validated panel input file; the generator refuses any prompt-panel row not backed by that file, and access-blocked cells are recorded as blocked, never scored)' : 'one method only: search-surface (the 2026-10-31 probing of the public web-search surface, a labeled proxy)') + '. Each row carries its engine, surface, method, era, prompt verbatim, the URLs cited in order where the record states them, the company’s citation state, and a human-reviewed accuracy verdict on every statement the surface made about the company.' + (PANEL.present ? '' : ' There are no prompt-panel rows in this file because no panel run exists; the generator refuses to emit one.')),
     citationObservations: observations,
   },
   {
@@ -905,12 +1074,13 @@ const graph = [
   },
   {
     ...baseNode(SITE + '/#dataset-answer-evidence-totals', 'Dataset', 'Answer Evidence Totals',
-      'Totals for this generation of the answer-evidence dataset, computed by the generator from the live estate: ' + totals.questions + ' questions, ' + totals.fragments + ' fragments, ' + totals.engineProfiles + ' engine profiles, ' + totals.citationObservations + ' citation observations (all search-surface method; prompt-panel observations: 0 — unmeasured, stated as such), ' + totals.reviewSnapshots + ' review distribution snapshots and ' + totals.gapRecords + ' gap records. This file is itself a sealed distribution of the signed AI master index, under the certificate block recorded on the operations node.'),
+      'Totals for this generation of the answer-evidence dataset, computed by the generator from the live estate: ' + totals.questions + ' questions, ' + totals.fragments + ' fragments, ' + totals.engineProfiles + ' engine profiles, ' + totals.citationObservations + ' citation observations (' + (PANEL.present ? seedObservations.length + ' search-surface method; ' + panelObservations.length + ' prompt-panel observations from ' + PANEL.runs.size + ' panel run(s), latest ' + PANEL.newestDate + ' — measured, stated per method' : 'all search-surface method; prompt-panel observations: 0 — unmeasured, stated as such') + '), ' + totals.reviewSnapshots + ' review distribution snapshots and ' + totals.gapRecords + ' gap records. This file is itself a sealed distribution of the signed AI master index, under the certificate block recorded on the operations node.'),
     totals,
     sources: [
       { name: 'Intent rubric database', detail: intentRows.length + ' rows; rows digest ' + (meta.rows_digest || '') + '; generator build-intent-rubric.js (rubric v2)' },
       { name: 'Source shell + per-page JSONs', detail: 'fragment extraction from the live estate: FAQ schema pairs and heading-led passages, with per-page JSON and dataset digests computed from the public files the seal records' },
       { name: 'Live answer-surface probing', detail: 'Retrieval Machine Dossier 02 §2.2 (browser.search public web-search surface, 2026-10-31, single vantage) — a labeled proxy, never an answer-engine UI observation' },
+      ...(PANEL.present ? [{ name: 'Answer Panel run records', detail: 'Retrieval Machine answer-panel-2026-11-01.md and answer-panel-2026-11-02.md, transcribed through the validated panel input file (data/panel-observations.json): ' + panelObservations.length + ' prompt-panel observations — the 2026-11-01 full run, the 2026-11-01 Q3 re-probe and the 2026-11-02 monthly run (29 cells completed; 4 ChatGPT cells access-blocked, recorded as blocked and never scored)' }] : []),
       { name: 'Review platform displays', detail: 'Retrieval Machine Dossier 02 §§0, 2.4 (per-platform displays + aggregate arithmetic, observed 2026-10-31)' },
       { name: 'Engine documentation and studies', detail: 'Retrieval Machine Dossier 02 §1.2 (platform documentation via secondary summaries; Perplexity documentation read directly; vendor and academic studies era-labeled, conflicts kept as conflicts)' },
     ],
@@ -918,7 +1088,7 @@ const graph = [
   {
     '@id': SITE + '/#dataset-answer-evidence-method', '@type': 'Article',
     name: 'How the Answer-Evidence Dataset Is Built',
-    description: 'Method. The generator (scripts/build-answer-evidence.js in the Flat Rate Machine) reads the paths registry for every location and builds all tables from the live estate in one run: questions are generated mechanically from the rubric database; fragments are extracted from the source shell’s page divs (heading-led passages h1–h3 with at least one character of body text) and from the per-page JSONs’ FAQPage schema (exact question/answer pairs); a passage quoting a 64-hex SHA-256 string is excluded as self-referential certificate text and the exclusion count is published; each fragment’s text hash is the SHA-256 of its full text, so any later drift between the published fragment and the live page is detectable; binding is exact — a rubric question binds to a fragment only when the fragment’s normalized heading equals the question’s normalized text on the question’s own target page, with FAQ-schema fragments preferred over passages; coverage is computed per service from those bindings and from substantive-fragment presence (body of at least 120 characters), never asserted. Observations are admitted only from evidence on file: the dossier’s dated search-surface probing, transcribed with method, era, surface and prompt verbatim, and the generator refuses any observation row whose method is not admissible at this build — prompt-panel, brave-serp and console rows cannot be emitted until a real run of that method exists. Review snapshots are transcribed from the dossier’s per-platform records with their arithmetic; the generator enforces the schema bar on competitor-namespace records in code. The file’s dateModified is the newest evidence date among its inputs, never the wall clock, so regeneration is byte-stable and checkable. Update cadence: the dataset regenerates in every estate batch that changes pages, rubric rows, fragments or observations, and reseals in the same motion.',
+    description: 'Method. The generator (scripts/build-answer-evidence.js in the Flat Rate Machine) reads the paths registry for every location and builds all tables from the live estate in one run: questions are generated mechanically from the rubric database; fragments are extracted from the source shell’s page divs (heading-led passages h1–h3 with at least one character of body text) and from the per-page JSONs’ FAQPage schema (exact question/answer pairs); a passage quoting a 64-hex SHA-256 string is excluded as self-referential certificate text and the exclusion count is published; each fragment’s text hash is the SHA-256 of its full text, so any later drift between the published fragment and the live page is detectable; binding is exact — a rubric question binds to a fragment only when the fragment’s normalized heading equals the question’s normalized text on the question’s own target page, with FAQ-schema fragments preferred over passages; coverage is computed per service from those bindings and from substantive-fragment presence (body of at least 120 characters), never asserted. Observations are admitted only from evidence on file — the dossier’s dated search-surface probing and the panel input file transcribed from the dated Answer Panel run records — transcribed with method, era, surface and prompt verbatim, and the generator refuses any observation row whose method is not backed by an evidence file: prompt-panel rows are admissible only through the validated panel input file (run records must exist on disk and each run’s census must reconcile), and brave-serp and console rows cannot be emitted until a real run of those methods exists. Review snapshots are transcribed from the dossier’s per-platform records with their arithmetic; the generator enforces the schema bar on competitor-namespace records in code. The file’s dateModified is the newest evidence date among its inputs, never the wall clock, so regeneration is byte-stable and checkable. Update cadence: the dataset regenerates in every estate batch that changes pages, rubric rows, fragments or observations, and reseals in the same motion.',
     dateModified: DATE_MOD, author: { '@id': SITE + '/#organization' },
     isPartOf: { '@id': SITE + '/#dataset-answer-evidence-operations' },
     sameAs: LANDING, url: LANDING, identifier: LANDING, isAccessibleForFree: true,
@@ -933,7 +1103,7 @@ const graph = [
   },
   {
     ...baseNode(SITE + '/#dataset-answer-evidence-boundaries', 'Service', 'Answer Evidence Boundaries and Non-Claims',
-      'What this dataset never does. It never presents a search-surface probe as an answer-engine citation, and never claims citation standing on any answer interface that has not been measured — the panel state is published in this file precisely so the absence cannot be smoothed over. It never averages observations across methods, never blends review platforms, and never presents a raw review count — the company’s or any competitor’s — as a quality or authority signal; where reviews appear, they appear as distribution and arithmetic. It contains no representation of any service the company has not confirmed and published through the normal estate path: the research dossiers’ expansion candidates (after-hours cross-dock work, auction-exit medical logistics, data-center decommissioning’s physical layer, small-count rack moves as a named segment, a transloading buyer desk, video fragments) appear nowhere in this file as services and enter only if the owner confirms the capability and the service is published first. Competitor records are benchmark observations and feed no company claim; the one competitor-namespace review record carries the owner’s market-knowledge statement typed as unverified, and no finding rests on it. The provenance certificate proves origin and integrity of this file only; it is not a citation input for any engine and is not represented as one.'),
+      'What this dataset never does. It never presents a search-surface probe as an answer-engine citation, and never claims citation standing on any answer interface that has not been measured — standing is published per method, era-tagged, and never averaged across methods, and the panel state is published in this file precisely so measured and unmeasured surfaces cannot be smoothed over. It never averages observations across methods, never blends review platforms, and never presents a raw review count — the company’s or any competitor’s — as a quality or authority signal; where reviews appear, they appear as distribution and arithmetic. It contains no representation of any service the company has not confirmed and published through the normal estate path: the research dossiers’ expansion candidates (after-hours cross-dock work, auction-exit medical logistics, data-center decommissioning’s physical layer, small-count rack moves as a named segment, a transloading buyer desk, video fragments) appear nowhere in this file as services and enter only if the owner confirms the capability and the service is published first. Competitor records are benchmark observations and feed no company claim; the one competitor-namespace review record carries the owner’s market-knowledge statement typed as unverified, and no finding rests on it. The provenance certificate proves origin and integrity of this file only; it is not a citation input for any engine and is not represented as one.'),
     about: [{ '@id': SITE + '/#organization' }],
   },
 ];

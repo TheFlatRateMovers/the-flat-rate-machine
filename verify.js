@@ -1844,13 +1844,18 @@ async function main() {
   // observations with METHOD as a first-class field x review
   // distribution snapshots (schema-barred) x gap records. These
   // checks assert the design's gates, including its honesty gate:
-  // citation standing on the actual answer-engine UIs is UNMEASURED,
-  // so AE-2 requires every observation to carry method + era +
-  // prompt verbatim AND requires the prompt-panel / brave-serp /
-  // console observation counts to be exactly zero — a manufactured
-  // panel row fails the suite. AE-3 proves every fragment's evidence
-  // digests equal the served signed index and every text hash
-  // recomputes from its text.
+  // panel standing is MEASURED and published per method (Answer Panel
+  // first runs ingested 2026-11-01/02), so AE-2 — rewritten stricter
+  // in the same motion, 2026-11-02, Element 2 fragment-binding batch —
+  // requires every observation to carry method + era + prompt
+  // verbatim, admits only the search-surface and prompt-panel methods
+  // (any other method fails), reconciles the prompt-panel rows
+  // EXACTLY with the validated panel input file (same count, same
+  // observationId set), recomputes the published panel state from the
+  // rows, and requires blocked cells to be recorded unscored — a
+  // panel row not backed by the input file fails the suite. AE-3
+  // proves every fragment's evidence digests equal the served signed
+  // index and every text hash recomputes from its text.
   try {
     const { execFileSync: execAE } = require('child_process');
     const cryptoAE = require('crypto');
@@ -1885,19 +1890,42 @@ async function main() {
       ', profiles=' + profilesAE.length + ', observations=' + obsAE.length + ', snapshots=' + snapsAE.length +
       ', gaps=' + gapsAE.length + ', coverageServices=' + (coverageAE.byService || []).length);
     const badObsAE = obsAE.filter((o) => !o.method || !o.era || !o.promptVerbatim);
-    const uiObsAE = obsAE.filter((o) => o.method !== 'search-surface');
+    const badMethodAE = obsAE.filter((o) => o.method !== 'search-surface' && o.method !== 'prompt-panel');
+    const panelObsAE = obsAE.filter((o) => o.method === 'prompt-panel');
+    const searchObsAE = obsAE.filter((o) => o.method === 'search-surface');
     const panelAE = totAE.panelState || {};
+    // AE-2 panel reconciliation (rewritten 2026-11-02, fragment-binding
+    // batch, per PANEL-INGEST-DESIGN.md §7): the dataset's prompt-panel
+    // rows must reconcile EXACTLY with the panel input file read via
+    // paths.json — same count, same observationId set — and the
+    // published panelState must recompute from the rows themselves.
+    let panelFileAE = null, panelFileErrAE = '';
+    try {
+      panelFileAE = JSON.parse(fs.readFileSync(regAE.panel_observations_file, 'utf8'));
+    } catch (e) { panelFileErrAE = String(e.message).slice(0, 120); }
+    const filePanelIdsAE = new Set(panelFileAE ? (panelFileAE.rows || []).filter((r) => r.method === 'prompt-panel').map((r) => r.observationId) : []);
+    const dsPanelIdsAE = new Set(panelObsAE.map((o) => o.observationId));
+    const panelReconAE = !!panelFileAE && filePanelIdsAE.size === dsPanelIdsAE.size &&
+      [...filePanelIdsAE].every((id) => dsPanelIdsAE.has(id));
+    const runIdsAE = new Set(panelObsAE.map((o) => o.runId));
+    const panelStateOkAE = panelAE.panelRuns === runIdsAE.size &&
+      panelAE.promptPanelObservations === panelObsAE.length &&
+      panelAE.answerUiObservations === panelObsAE.length &&
+      panelAE.searchSurfaceObservations === searchObsAE.length &&
+      panelAE.braveSerpObservations === 0 && panelAE.consoleObservations === 0;
+    const panelFieldBadAE = panelObsAE.filter((o) => !o.surface || !o.accessMode || !o.completionState || !o.runnerRef ||
+      (o.completionState === 'blocked' && (!o.ourCited || o.ourCited.cited !== false || !o.panelScores || o.panelScores.mentioned !== null)));
     let regenAE = false, regenDetailAE = '';
     try {
       execAE('node', [path.join(ROOT, 'scripts', 'build-answer-evidence.js'), '--check'], { maxBuffer: 64 * 1024 * 1024 });
       regenAE = true;
     } catch (e) { regenDetailAE = String(e.message).slice(0, 160); }
-    check('AE-2 every citation observation carries method + era + verbatim prompt, no answer-UI observation is claimed (panel state: zero runs, zero UI observations), and the dataset regenerates byte-identical from the live estate',
-      badObsAE.length === 0 && uiObsAE.length === 0 &&
-      panelAE.panelRuns === 0 && panelAE.promptPanelObservations === 0 && panelAE.answerUiObservations === 0 &&
-      panelAE.braveSerpObservations === 0 && panelAE.consoleObservations === 0 && regenAE,
-      'observations=' + obsAE.length + ', missingDiscipline=' + badObsAE.length + ', nonProxyMethods=' + uiObsAE.length +
-      ', panelRuns=' + panelAE.panelRuns + ', uiObservations=' + panelAE.answerUiObservations + ', regenerated=' + regenAE + (regenDetailAE ? ', ' + regenDetailAE : ''));
+    check('AE-2 every citation observation carries method + era + verbatim prompt and an admissible method (search-surface or prompt-panel only), the prompt-panel rows reconcile exactly with the panel input file, the published panel state recomputes from the rows, blocked cells are recorded unscored, and the dataset regenerates byte-identical from the live estate',
+      badObsAE.length === 0 && badMethodAE.length === 0 && panelReconAE && panelStateOkAE && panelFieldBadAE.length === 0 && regenAE,
+      'observations=' + obsAE.length + ', missingDiscipline=' + badObsAE.length + ', inadmissibleMethods=' + badMethodAE.length +
+      ', panelRows=' + panelObsAE.length + ', panelFileRows=' + filePanelIdsAE.size + ', panelReconciled=' + panelReconAE +
+      ', panelRuns=' + panelAE.panelRuns + ', panelStateRecomputes=' + panelStateOkAE + ', panelFieldViolations=' + panelFieldBadAE.length +
+      ', regenerated=' + regenAE + (panelFileErrAE ? ', panelFile=' + panelFileErrAE : '') + (regenDetailAE ? ', ' + regenDetailAE : ''));
     const SITE_AE = 'https://theflatratemovers.com';
     const servedIdxAE = LOCAL ? null : JSON.parse(await fetchText(SITE_AE + '/ai-master-index.json'));
     const distAE = new Map(servedIdxAE ? (servedIdxAE.distribution || []).map((e) => [e.contentUrl, e]) : []);

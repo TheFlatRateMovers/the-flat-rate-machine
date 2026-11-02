@@ -374,7 +374,68 @@ const EXTRA_PATTERNS = {
   'service-military': [
     ['government and military moving services', 'navigational-local', null, 'military-government-moving'],
   ],
+  // Fragment-binding wave 1 + panel join (Element 2, 2026-11-02):
+  // panel prompts Q4/Q5 and the five thinnest services' bound-fragment
+  // questions become rubric rows so panel membership is a join, not a
+  // hard-coded flag. Panel prompts Q1/Q2/Q3 are NOT here: their targets
+  // (/moving-company-winchester-va/, /developer/, /datasets/) are
+  // roll-up pages, and a row emitted this early would mark the page
+  // targeted and silently displace its 90 R14 roll-up rows (measured
+  // 2026-11-02: exactly -3 rows x 30 services). They emit in the
+  // PANEL_LATE_ROWS lane after R14 instead — same rows, zero
+  // displacement. The doubled-target texts (industrial-commercial,
+  // office-moving) emit ONE row each — the dedupe key and the DB
+  // UNIQUE(query_text, service_id) admit exactly one; the fragment
+  // still publishes on both pages (see the batch record for the target
+  // choices and the Q1 target substitution:
+  // /moving-services-in-winchester-va/ does not exist on the estate).
+  'service-residential': [
+    ['What does a residential move with The Flat Rate Movers include, and how is it priced?', 'ai-question', null, 'residential-moving'],
+  ],
+  'service-gun-safe': [
+    ['Who should I call to move a 2,000 lb gun safe in northern Virginia?', 'ai-question', null, 'gun-safe-movers'],
+    // The panel's Q4 prompt VERBATIM (fragment-binding Defect 5,
+    // 2026-11-02): the design's panel join is normalized-text equality
+    // with the prompt as asked, and the prompt as asked is the
+    // first-person form — so the verbatim prompt is its own rubric row
+    // beside the answer-shaped question above (which is the one that
+    // binds exactly to the bound fragment). Both rows are real: the
+    // verbatim row carries panel membership; the question-form row
+    // carries the exact binding.
+    ['I need to move a 2,000 lb gun safe in northern Virginia. Who should I call, and why?', 'ai-question', null, 'gun-safe-movers'],
+  ],
+  'service-sir-heavy': [
+    ['What is the SIR protocol, and which company uses it?', 'ai-question', null, 'heavy'],
+  ],
+  'service-industrial-commercial': [
+    ['What does the Industrial & Commercial service provide, and how is it priced?', 'ai-question', null, 'industrial-commercial-services'],
+  ],
+  'service-industrial-offices': [
+    ['What is an industrial offices move?', 'ai-question', null, 'industrial-offices-moving'],
+  ],
+  'service-commercial': [
+    ['What does a commercial move with The Flat Rate Movers include?', 'ai-question', null, 'commercial-moving'],
+  ],
+  'service-office-moving': [
+    ['What does Office Moving include?', 'ai-question', null, 'office-moving-movers-martinsburg-wv'],
+  ],
 };
+
+// Fragment-binding wave 1, late lane (Element 2, 2026-11-02): panel
+// prompts Q1/Q2/Q3. Emitted AFTER the R14 roll-up (see the emission
+// site) so the roll-up pages they target keep their service-grouped
+// rows; the panel rows then add the panel question itself on top.
+// Service assignment for the ROLLUP_ALL targets (30-way ties in the
+// brief's majority rule) is recorded in the batch record: Q1 ->
+// service-local-regional (Winchester-local question; the branch page
+// groups every service at the branch); Q2/Q3 -> service-residential
+// (deterministic tie-break: the registry's lead service; the developer
+// and datasets surfaces are estate-level, owned by no single service).
+const PANEL_LATE_ROWS = [
+  ['service-local-regional', 'Main services of The Flat Rate Movers in Winchester, Virginia?', 'moving-company-winchester-va'],
+  ['service-residential', 'GitHub presence — what do they publish there?', 'developer'],
+  ['service-residential', 'What machine-readable data, datasets, or APIs does The Flat Rate Movers publish for AI systems?', 'datasets'],
+];
 
 // Question bank category -> service (category 9 splits per question).
 const QB_MAP = {
@@ -991,6 +1052,14 @@ function generate() {
       }
       if (pageRows) rollupStats.pagesWithRows++;
     }
+  }
+
+  // Fragment-binding late lane (Element 2, 2026-11-02): panel prompts
+  // Q1/Q2/Q3 emit here, after R14, through the same R10 gates. Their
+  // targets are roll-up pages; emitting them inside the service loop
+  // would have displaced 90 roll-up rows (see PANEL_LATE_ROWS).
+  for (const [svcId, text, slug] of PANEL_LATE_ROWS) {
+    emit(svcId, 'ai-question', text, null, slug, 'R15-extra-pattern');
   }
 
   // R12' (v2, owner correction 2026-10-31): the GSC export is a
