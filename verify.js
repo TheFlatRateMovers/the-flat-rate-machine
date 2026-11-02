@@ -3836,10 +3836,10 @@ async function main() {
   try {
     const readPB = (p) => JSON.parse(fs.readFileSync(p, 'utf8'));
     const dbPB = readPB(path.join(ROOT, 'data', 'ports.json'));
-    const dsPB = readPB(pathx.join(PUB, 'datasets-ports.json'));
-    const ldPB = readPB(pathx.join(PUB, 'dataset-ports.json'));
-    const egPB = readPB(pathx.join(PUB, 'entity-graph.json'));
-    const bgPB = readPB(pathx.join(PUB, 'best-json-entity-graph.json'));
+    const dsPB = readPB(path.join(PAGES_PUBLIC, 'datasets-ports.json'));
+    const ldPB = readPB(path.join(PAGES_PUBLIC, 'dataset-ports.json'));
+    const egPB = readPB(path.join(PAGES_PUBLIC, 'entity-graph.json'));
+    const bgPB = readPB(path.join(PAGES_PUBLIC, 'best-json-entity-graph.json'));
     const portNodesOf = (doc) => new Map(((doc && doc['@graph']) || [])
       .filter((n) => n && n['@type'] === 'Place' && String(n['@id'] || '').includes('/datasets/ports/#port-'))
       .map((n) => [String(n['@id']).split('#').pop(), n]));
