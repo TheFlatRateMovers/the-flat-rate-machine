@@ -543,7 +543,7 @@ async function main() {
     skipLive('P-2 ai-master-index.jws verifies against the published key over the canonical served index');
     skipLive('P-3 all site-served distribution digests match the live served bytes');
     skipLive('P-4 every served index distribution entry is complete (name, contentUrl, encodingFormat, license, dateModified, SHA-256 digest + byteSize)');
-    skipLive('P-5 certificate covers all 225 per-page JSONs + all 225 route documents + llms-full.txt + the site shell + the deployed code sets (527 distributions)');
+    skipLive('P-5 certificate covers all 225 per-page JSONs + all 225 route documents + llms-full.txt + the site shell + the deployed code sets (528 distributions)');
     skipLive('P-6 all repo-served distribution digests match the live served bytes');
   } else {
   try {
@@ -847,12 +847,12 @@ async function main() {
       const hasLlmsFull = distUrls.has('https://theflatratemovers.com/llms-full.txt');
       p5ok = !!servedIndex && pageFiles.length === 225 && missingPages.length === 0 && missingCode.length === 0 &&
         missingRoutes.length === 0 && hasLlmsFull &&
-        (servedIndex.distribution || []).length === 527;
+        (servedIndex.distribution || []).length === 528;
       p5detail = 'pageFiles=' + pageFiles.length + ', missingPages=' + (missingPages.join(',') || '0') +
         ', missingCode=' + (missingCode.join(',') || '0') + ', missingRoutes=' + (missingRoutes.slice(0, 3).join(',') || '0') +
         ', llmsFull=' + hasLlmsFull + ', distributions=' + (servedIndex ? (servedIndex.distribution || []).length : 0);
     } catch (e) { p5ok = false; p5detail = e.message; }
-    check('P-5 certificate covers all 225 per-page JSONs + all 225 route documents + llms-full.txt + the site shell + the deployed code sets (527 distributions)',
+    check('P-5 certificate covers all 225 per-page JSONs + all 225 route documents + llms-full.txt + the site shell + the deployed code sets (528 distributions)',
       p5ok, p5detail);
 
     // P-6: repo-served distribution digests re-computed over live bytes
@@ -950,9 +950,12 @@ async function main() {
       check('S-4 live sitemap lastmod sanity', false, e.message);
     }
     }
-    // S-5: robots.txt carries the explicit AI-crawler groups.
+    // S-5: robots.txt carries the explicit AI-crawler groups AND the
+    // open-training declaration (Content-Signal in every group + the
+    // __usage_ai-training group). Rewritten stricter by Batch Sitemap
+    // Extensions, 2026-11-02: the declaration is now part of the gate.
     if (LOCAL) {
-      skipLive('S-5 live robots.txt states explicit Allow groups for the 16 AI crawlers + wildcard + sitemap index + news sitemap + llms.txt reference');
+      skipLive('S-5 live robots.txt states explicit Allow groups for the 16 AI crawlers + wildcard, the open-training declaration (Content-Signal search=yes, ai-input=yes, ai-train=yes in every group) and the __usage_ai-training group (Allow: /), + sitemap index + news sitemap + llms.txt reference');
     } else {
     try {
       const robots = await fetchText('https://theflatratemovers.com/robots.txt');
@@ -960,11 +963,35 @@ async function main() {
         'Google-Extended', 'PerplexityBot', 'Perplexity-User', 'CCBot', 'Applebot-Extended',
         'Meta-ExternalAgent', 'cohere-ai', 'YouBot', 'DuckAssistBot', 'MistralAI-User'];
       const missingAgents = agents.filter((a) => !robots.includes('User-agent: ' + a));
-      check('S-5 live robots.txt states explicit Allow groups for the 16 AI crawlers + wildcard + sitemap index + news sitemap + llms.txt reference',
+      // Group-level declaration proof: split the file into RFC 9309
+      // groups; every group must carry a Content-Signal line whose
+      // value holds all three affirmative signals.
+      const groupsS5 = [];
+      let curS5 = null;
+      for (const rawLine of robots.split('\n')) {
+        const line = rawLine.trim();
+        if (/^user-agent:/i.test(line)) {
+          if (!curS5 || curS5.rules.length) { curS5 = { agents: [], rules: [] }; groupsS5.push(curS5); }
+          curS5.agents.push(line.split(':').slice(1).join(':').trim());
+        } else if (curS5 && /^(allow|disallow|content-signal):/i.test(line)) {
+          curS5.rules.push(line);
+        }
+      }
+      const signalOf = (g) => g.rules.find((r) => /^content-signal:/i.test(r)) || '';
+      const groupsLacking = groupsS5.filter((g) => {
+        const v = signalOf(g);
+        return !(v.includes('search=yes') && v.includes('ai-input=yes') && v.includes('ai-train=yes'));
+      });
+      const usageS5 = groupsS5.find((g) => g.agents.includes('__usage_ai-training'));
+      check('S-5 live robots.txt states explicit Allow groups for the 16 AI crawlers + wildcard, the open-training declaration (Content-Signal search=yes, ai-input=yes, ai-train=yes in every group) and the __usage_ai-training group (Allow: /), + sitemap index + news sitemap + llms.txt reference',
         missingAgents.length === 0 && robots.includes('User-agent: *') && robots.includes('Allow: /') &&
         robots.includes('Sitemap: https://theflatratemovers.com/sitemap.xml') &&
-        robots.includes('Sitemap: https://theflatratemovers.com/news-sitemap.xml') && robots.includes('llms.txt'),
-        missingAgents.length ? 'missing: ' + missingAgents.join(', ') : 'all 16 groups present');
+        robots.includes('Sitemap: https://theflatratemovers.com/news-sitemap.xml') && robots.includes('llms.txt') &&
+        groupsS5.length >= 18 && groupsLacking.length === 0 &&
+        !!usageS5 && usageS5.rules.some((r) => /^allow:\s*\/$/i.test(r)),
+        missingAgents.length ? 'missing: ' + missingAgents.join(', ') :
+          'groups=' + groupsS5.length + ', lacking-signal=' + groupsLacking.length +
+          ', usage-group=' + (usageS5 ? 'present' : 'absent'));
     } catch (e) {
       check('S-5 live robots.txt AI-crawler groups', false, e.message);
     }
@@ -2287,8 +2314,10 @@ async function main() {
       (policyCP.driftGate || {}).result === 'no-drift-observed' &&
       /^\d{4}-\d{2}-\d{2}$/.test((policyCP.driftGate || {}).checkedOn || '') &&
       (policyCP.agents || []).length === liveGroupsCP && liveGroupsCP > 0 &&
-      policyCP.contentSignalSearch === 'unset' && policyCP.contentSignalAiInput === 'unset' &&
-      policyCP.contentSignalAiTrain === 'unset' && (policyCP.usageTokenAiTraining || {}).state === 'absent',
+      policyCP.contentSignalSearch === 'yes' && policyCP.contentSignalAiInput === 'yes' &&
+      policyCP.contentSignalAiTrain === 'yes' && (policyCP.usageTokenAiTraining || {}).state === 'present' &&
+      (((policyCP.usageTokenAiTraining || {}).groups || [])[0] || { rules: [] }).rules
+        .some((r) => r.type === 'Allow' && r.value === '/'),
       'liveDigest=' + liveDigestCP.slice(0, 12) + ', agents=' + (policyCP.agents || []).length + '/' + liveGroupsCP +
       ', drift=' + ((policyCP.driftGate || {}).result || 'missing'));
     // CP-3: the signal-observation log — every entry's shape, the
@@ -3029,6 +3058,453 @@ async function main() {
         check('AC-3 every served route document head graph carries the shared API node (#api)',
           missing.length === 0, (pages.pages.length - missing.length) + '/' + pages.pages.length + ' route documents' + (missing.length ? '; missing: ' + missing.slice(0, 5).join(', ') : ''));
       } catch (e) { check('AC-3 every served route document head graph carries the shared API node (#api)', false, e.message); }
+    }
+  }
+
+  // ------------------------------------------------------------------
+  // 29. Sitemap extensions (Batch Sitemap Extensions, 2026-11-02;
+  // checks SX-1..SX-6). The section sitemaps carry Google extension
+  // children enumerated by build-sitemap.js from the source shell via
+  // the registry -> pageMeta -> div join: <image:image> entries
+  // (loc/caption/geo_location/title/license) on registry pages and
+  // <video:video> entries on /videos/. SX-2 recomputes the expected
+  // image map with the generator's own extraction and requires exact
+  // equality — the gate proves the tagging (parent standard: caption
+  // + title on every entry, geo only from the curated map, license
+  // only from the CC credit tail in the caption data).
+  // ------------------------------------------------------------------
+  {
+    const SITE_SX = 'https://theflatratemovers.com';
+    const fetchFullSX = (url) => new Promise((resolve, reject) => {
+      https.get(url, (res) => {
+        const chunks = [];
+        res.on('data', (c) => { chunks.push(c); });
+        res.on('end', () => resolve({ status: res.statusCode, ct: res.headers['content-type'] || '', buf: Buffer.concat(chunks) }));
+      }).on('error', reject);
+    });
+    const unescSX = (s) => String(s || '').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+      .replace(/&quot;/g, '"').replace(/&apos;/g, "'").replace(/&amp;/g, '&');
+    const cleanSX = (s) => String(s || '').replace(/<[^>]+>/g, ' ')
+      .replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+      .replace(/&quot;/g, '"').replace(/&#39;|&apos;/g, "'")
+      .replace(/\s+/g, ' ').trim();
+    const attrSX = (tag, name) => { const m = tag.match(new RegExp(name + '="([^"]*)"')); return m ? m[1] : ''; };
+
+    function parseSectionSX(xml) {
+      const out = [];
+      for (const um of xml.matchAll(/<url>([\s\S]*?)<\/url>/g)) {
+        const block = um[1];
+        const locM = block.match(/<loc>(.*?)<\/loc>/);
+        const entry = { url: locM ? unescSX(locM[1]) : '', images: [], videos: [] };
+        for (const im of block.matchAll(/<image:image>([\s\S]*?)<\/image:image>/g)) {
+          const b = im[1];
+          const g = (tag) => { const m = b.match(new RegExp('<image:' + tag + '>([\\s\\S]*?)</image:' + tag + '>')); return m ? unescSX(m[1]) : ''; };
+          const e = { loc: g('loc') };
+          if (g('caption')) e.caption = g('caption');
+          if (g('geo_location')) e.geo_location = g('geo_location');
+          if (g('title')) e.title = g('title');
+          if (g('license')) e.license = g('license');
+          entry.images.push(e);
+        }
+        for (const vm of block.matchAll(/<video:video>([\s\S]*?)<\/video:video>/g)) {
+          const b = vm[1];
+          const g = (tag) => { const m = b.match(new RegExp('<video:' + tag + '>([\\s\\S]*?)</video:' + tag + '>')); return m ? unescSX(m[1]) : ''; };
+          entry.videos.push({ thumbnail_loc: g('thumbnail_loc'), title: g('title'), description: g('description'), player_loc: g('player_loc') });
+        }
+        out.push(entry);
+      }
+      return out;
+    }
+
+    /* The generator's extraction, mirrored (build-sitemap.js). */
+    const GEO_SX = { 'moorefield-': 'Moorefield, West Virginia' };
+    function shellDivsSX(shell) {
+      let pageMeta;
+      const at = shell.indexOf('var pageMeta=');
+      if (at < 0) throw new Error('pageMeta not found in shell');
+      let i = shell.indexOf('{', at);
+      let depth = 0, inStr = null, esc = false, end = -1;
+      for (let j = i; j < shell.length; j++) {
+        const c = shell[j];
+        if (inStr) { if (esc) esc = false; else if (c === '\\') esc = true; else if (c === inStr) inStr = null; }
+        else if (c === '"' || c === "'") inStr = c;
+        else if (c === '{') depth++;
+        else if (c === '}') { depth--; if (depth === 0) { end = j; break; } }
+      }
+      if (end < 0) throw new Error('pageMeta literal did not balance');
+      pageMeta = Function('return (' + shell.slice(i, end + 1) + ')')();
+      const metaKeyByUrl = new Map();
+      for (const [k, v] of Object.entries(pageMeta)) {
+        if (v && v.canonical) metaKeyByUrl.set(v.canonical, k);
+      }
+      const divs = new Map();
+      const headEnd = shell.indexOf('</head>');
+      let k = headEnd, d2 = 0, divStart = -1, divIsPage = false;
+      const nextToken = (from) => {
+        let best = null;
+        for (const tok of ['<!--', '<script', '<div', '</div>']) {
+          const j = shell.indexOf(tok, from);
+          if (j >= 0 && (best === null || j < best.idx)) best = { tok, idx: j };
+        }
+        return best;
+      };
+      while (true) {
+        const t = nextToken(k); if (!t) break;
+        if (t.tok === '<!--') { k = shell.indexOf('-->', t.idx) + 3; }
+        else if (t.tok === '<script') { k = shell.indexOf('</script>', t.idx) + 9; }
+        else if (t.tok === '<div') {
+          if (d2 === 0) {
+            divStart = t.idx;
+            divIsPage = /^<div class="page" id="page-[^"]+">/.test(shell.slice(t.idx, t.idx + 320));
+          }
+          d2++; k = t.idx + 4;
+        } else {
+          d2--;
+          if (d2 === 0 && divIsPage) {
+            const e2 = shell.indexOf('>', t.idx) + 1;
+            const text = shell.slice(divStart, e2);
+            const m = text.match(/^<div class="page" id="page-([^"]+)">/);
+            if (m) divs.set(m[1], text);
+          }
+          k = t.idx + 6;
+        }
+      }
+      return { metaKeyByUrl, divs };
+    }
+    function imagesInDivSX(div) {
+      const out = []; const figSpans = [];
+      for (const fm of div.matchAll(/<figure.*?<\/figure>/gs)) {
+        figSpans.push([fm.index, fm.index + fm[0].length]);
+        const im = fm[0].match(/<img [^>]*>/);
+        if (!im) continue;
+        const src = attrSX(im[0], 'src'); if (!src) continue;
+        const cap = fm[0].match(/<figcaption[^>]*>(.*?)<\/figcaption>/s);
+        out.push({ src, alt: cleanSX(attrSX(im[0], 'alt')), caption: cap ? cleanSX(cap[1]) : '' });
+      }
+      for (const im of div.matchAll(/<img [^>]*>/g)) {
+        if (figSpans.some(([s, e]) => im.index >= s && im.index < e)) continue;
+        const src = attrSX(im[0], 'src'); if (!src) continue;
+        if (attrSX(im[0], 'class').includes('logo-img') || src.includes('img-01-9c77693ba66b')) continue;
+        out.push({ src, alt: cleanSX(attrSX(im[0], 'alt')), caption: '' });
+      }
+      return out.map((im) => {
+        const e = { loc: im.src.startsWith('http') ? im.src : SITE_SX + im.src };
+        const cap = im.caption || im.alt;
+        if (cap) e.caption = cap;
+        const base = im.src.split('/').pop();
+        for (const [pre, place] of Object.entries(GEO_SX)) {
+          if (base.startsWith(pre)) e.geo_location = place;
+        }
+        if (im.caption && im.alt && im.alt !== im.caption) e.title = im.alt;
+        const credit = (im.caption || '') + ' ' + (im.alt || '');
+        const cm = credit.match(/CC (BY-SA|BY) (\d\.\d)/);
+        if (cm) e.license = 'https://creativecommons.org/licenses/' + cm[1].toLowerCase() + '/' + cm[2] + '/';
+        return e;
+      });
+    }
+    function videosInDivSX(div) {
+      const iframes = [...div.matchAll(/<iframe [^>]*>/g)];
+      const cards = [];
+      for (let n = 0; n < iframes.length; n++) {
+        const src = attrSX(iframes[n][0], 'src');
+        const idm = src.match(/(?:youtube-nocookie\.com|youtube\.com)\/embed\/([A-Za-z0-9_-]{11})/);
+        if (!idm) continue;
+        const start = iframes[n].index + iframes[n][0].length;
+        const nextH3 = div.indexOf('<h3', start);
+        const end = Math.min(nextH3 < 0 ? div.length : nextH3,
+          n + 1 < iframes.length ? iframes[n + 1].index : div.length);
+        const ps = [...div.slice(start, end).matchAll(/<p[^>]*>(.*?)<\/p>/gs)]
+          .map((x) => cleanSX(x[1])).filter((t) => t.length > 25);
+        cards.push({
+          thumbnail_loc: 'https://i.ytimg.com/vi/' + idm[1] + '/hqdefault.jpg',
+          title: cleanSX(attrSX(iframes[n][0], 'title')), description: ps[0] || '', player_loc: src,
+        });
+      }
+      return cards;
+    }
+    function pageDivSX(html, slug) {
+      const marker = '<div class="page" id="page-' + slug + '">';
+      const start = html.indexOf(marker);
+      if (start < 0) return '';
+      let depth = 0, k = start;
+      const nextToken = (from) => {
+        let best = null;
+        for (const tok of ['<!--', '<script', '<div', '</div>']) {
+          const j = html.indexOf(tok, from);
+          if (j >= 0 && (best === null || j < best.idx)) best = { tok, idx: j };
+        }
+        return best;
+      };
+      while (true) {
+        const t = nextToken(k); if (!t) return '';
+        if (t.tok === '<!--') { k = html.indexOf('-->', t.idx) + 3; }
+        else if (t.tok === '<script') { k = html.indexOf('</script>', t.idx) + 9; }
+        else if (t.tok === '<div') { depth++; k = t.idx + 4; }
+        else {
+          depth--;
+          if (depth === 0) return html.slice(start, html.indexOf('>', t.idx) + 1);
+          k = t.idx + 6;
+        }
+      }
+    }
+
+    const SECTION_FILES_SX = ['pages.xml', 'datasets.xml', 'blog.xml'];
+    let localSectionsSX = null;
+    try {
+      localSectionsSX = SECTION_FILES_SX.map((f) => {
+        const text = fs.readFileSync(path.join(PAGES_PUBLIC, 'sitemaps', f), 'utf8');
+        return { file: f, text, entries: parseSectionSX(text) };
+      });
+    } catch (e) {
+      check('SX-1 section sitemaps are well-formed urlsets declaring the image and video namespaces, every image loc on the estate origin, no URL over the 1,000-image cap', false, e.message);
+    }
+    if (localSectionsSX) {
+      // SX-1 (local): shape + namespaces + loc origin + cap.
+      try {
+        const badShape = localSectionsSX.filter((s) =>
+          !s.text.startsWith('<?xml version="1.0" encoding="UTF-8"?>') ||
+          !s.text.includes('xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"') ||
+          !s.text.includes('xmlns:video="http://www.google.com/schemas/sitemap-video/1.1"') ||
+          !s.text.trimEnd().endsWith('</urlset>'));
+        const allImages = localSectionsSX.flatMap((s) => s.entries.flatMap((e) => e.images.map((im) => ({ url: e.url, im }))));
+        const offOrigin = allImages.filter((x) => !x.im.loc.startsWith(SITE_SX + '/'));
+        const overCap = localSectionsSX.flatMap((s) => s.entries).filter((e) => e.images.length > 1000);
+        check('SX-1 section sitemaps are well-formed urlsets declaring the image and video namespaces, every image loc on the estate origin, no URL over the 1,000-image cap',
+          badShape.length === 0 && offOrigin.length === 0 && overCap.length === 0,
+          'sections=' + localSectionsSX.map((s) => s.entries.length).join('/') +
+          ', images=' + allImages.length + ', off-origin=' + offOrigin.length + ', over-cap=' + overCap.length);
+      } catch (e) { check('SX-1 section sitemaps are well-formed urlsets declaring the image and video namespaces, every image loc on the estate origin, no URL over the 1,000-image cap', false, e.message); }
+
+      // SX-2 (local): image-set equality against the generator's extraction.
+      try {
+        const shellSX = fs.readFileSync(path.join(ROOT, 'repo-dir', 'index.html'), 'utf8');
+        const { metaKeyByUrl, divs } = shellDivsSX(shellSX);
+        const expected = new Map();
+        for (const p of pages.pages) {
+          const imgs = imagesInDivSX(divs.get(metaKeyByUrl.get(p.url)) || '');
+          if (imgs.length) expected.set(p.url, imgs);
+        }
+        const actual = new Map();
+        for (const s of localSectionsSX) {
+          for (const e of s.entries) if (e.images.length) actual.set(e.url, e.images);
+        }
+        const canon = (arr) => JSON.stringify([...arr].sort((a, b) => a.loc.localeCompare(b.loc)));
+        const diffUrls = [];
+        for (const u of new Set([...expected.keys(), ...actual.keys()])) {
+          if (canon(expected.get(u) || []) !== canon(actual.get(u) || [])) diffUrls.push(u);
+        }
+        check('SX-2 section image children exactly equal the set recomputed from the sealed shell (registry -> pageMeta -> div extraction, caption/title/geo/license fields equal)',
+          diffUrls.length === 0,
+          'expected pages=' + expected.size + ', actual pages=' + actual.size +
+          ', expected images=' + [...expected.values()].reduce((n, a) => n + a.length, 0) +
+          (diffUrls.length ? '; differing: ' + diffUrls.slice(0, 4).join(', ') : ''));
+      } catch (e) { check('SX-2 section image children exactly equal the set recomputed from the sealed shell (registry -> pageMeta -> div extraction, caption/title/geo/license fields equal)', false, e.message); }
+
+      // SX-5 (local): no textless entries; geo values only from the curated map.
+      try {
+        const allImages = localSectionsSX.flatMap((s) => s.entries.flatMap((e) => e.images));
+        const textless = allImages.filter((im) => !im.caption && !im.title);
+        const geoAllowed = new Set(['Moorefield, West Virginia']);
+        const badGeo = allImages.filter((im) => im.geo_location && !geoAllowed.has(im.geo_location));
+        const licensed = allImages.filter((im) => im.license);
+        check('SX-5 every image entry carries a caption or title, and every geo_location is in the curated map (Moorefield, West Virginia)',
+          textless.length === 0 && badGeo.length === 0,
+          'images=' + allImages.length + ', textless=' + textless.length + ', bad-geo=' + badGeo.length +
+          ', licensed=' + licensed.length + ', geo-tagged=' + allImages.filter((im) => im.geo_location).length);
+      } catch (e) { check('SX-5 every image entry carries a caption or title, and every geo_location is in the curated map (Moorefield, West Virginia)', false, e.message); }
+
+      // SX-6 (local + live): /videos/ children — sealed section vs shell
+      // extraction vs the served document's own iframes.
+      const VIDEOS_URL_SX = SITE_SX + '/videos/';
+      try {
+        const shellSX2 = fs.readFileSync(path.join(ROOT, 'repo-dir', 'index.html'), 'utf8');
+        const { metaKeyByUrl: mk2, divs: divs2 } = shellDivsSX(shellSX2);
+        const shellVideos = videosInDivSX(divs2.get(mk2.get(VIDEOS_URL_SX)) || '');
+        const localEntry = localSectionsSX.flatMap((s) => s.entries).find((e) => e.url === VIDEOS_URL_SX);
+        const localVideos = localEntry ? localEntry.videos : [];
+        let okSX6 = JSON.stringify(localVideos) === JSON.stringify(shellVideos) && localVideos.length > 0;
+        let detailSX6 = 'sealed=' + localVideos.length + ', shell=' + shellVideos.length;
+        if (!LOCAL) {
+          const servedDoc = await fetchText(VIDEOS_URL_SX);
+          const servedVideos = videosInDivSX(pageDivSX(servedDoc, 'videos'));
+          okSX6 = okSX6 && JSON.stringify(localVideos) === JSON.stringify(servedVideos);
+          detailSX6 += ', served=' + servedVideos.length;
+        }
+        check('SX-6 the /videos/ sitemap video children equal the set recomputed from the served page iframes (and the sealed shell extraction)',
+          okSX6, detailSX6);
+      } catch (e) { check('SX-6 the /videos/ sitemap video children equal the set recomputed from the served page iframes (and the sealed shell extraction)', false, e.message); }
+
+      // SX-3 (live): served section files byte-equal the sealed local files.
+      if (LOCAL) {
+        skipLive('SX-3 served section sitemaps byte-equal the sealed local section files');
+      } else {
+        try {
+          const diffs = [];
+          for (const s of localSectionsSX) {
+            const live = await fetchText(SITE_SX + '/sitemaps/' + s.file);
+            if (live !== s.text) diffs.push(s.file);
+          }
+          check('SX-3 served section sitemaps byte-equal the sealed local section files',
+            diffs.length === 0, diffs.length ? 'differing: ' + diffs.join(', ') : '3/3 sections byte-equal');
+        } catch (e) { check('SX-3 served section sitemaps byte-equal the sealed local section files', false, e.message); }
+      }
+
+      // SX-4 (live): every distinct image asset serves 200 + image/*.
+      if (LOCAL) {
+        skipLive('SX-4 every distinct image asset referenced in the sections returns HTTP 200 with an image content type');
+      } else {
+        try {
+          const locs = [...new Set(localSectionsSX.flatMap((s) => s.entries.flatMap((e) => e.images.map((im) => im.loc))))];
+          const bad = [];
+          for (const loc of locs) {
+            const r = await fetchFullSX(loc);
+            if (r.status !== 200 || !r.ct.startsWith('image/')) bad.push(loc.split('/').pop() + ':' + r.status + '/' + r.ct);
+          }
+          check('SX-4 every distinct image asset referenced in the sections returns HTTP 200 with an image content type',
+            bad.length === 0, 'assets=' + locs.length + (bad.length ? '; bad: ' + bad.slice(0, 4).join(', ') : ''));
+        } catch (e) { check('SX-4 every distinct image asset referenced in the sections returns HTTP 200 with an image content type', false, e.message); }
+      }
+    }
+  }
+
+  // ------------------------------------------------------------------
+  // 30. Article feed (Batch Sitemap Extensions, 2026-11-02; checks
+  // FD-1..FD-4). /feed.xml is an RSS 2.0 feed of every published post,
+  // generated by build-feed.js from the ledger + registry + per-page
+  // schema (the same inputs as the News sitemap), and a signed
+  // distribution in the estate index. FD-3 recomputes the item set
+  // from those inputs so the feed can never drift from the schema;
+  // date-only posts read as midnight America/New_York (Spec A).
+  // ------------------------------------------------------------------
+  {
+    const SITE_FD = 'https://theflatratemovers.com';
+    const unescFD = (s) => String(s || '').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+      .replace(/&quot;/g, '"').replace(/&apos;/g, "'").replace(/&amp;/g, '&');
+
+    // FD-2 (local): RSS shape, self-link, channel identity.
+    let feedTextFD = '';
+    try {
+      feedTextFD = fs.readFileSync(path.join(PAGES_PUBLIC, 'feed.xml'), 'utf8');
+      const blogPageFD = pages.pages.find((p) => p.slug === 'blog');
+      check('FD-2 feed.xml is well-formed RSS 2.0 with the exact atom self-link, the blog hub as channel link and the Articles channel title',
+        feedTextFD.startsWith('<?xml version="1.0" encoding="UTF-8"?>') &&
+        feedTextFD.includes('<rss version="2.0"') &&
+        feedTextFD.includes('<atom:link href="https://theflatratemovers.com/feed.xml" rel="self" type="application/rss+xml"/>') &&
+        !!blogPageFD && feedTextFD.includes('<link>' + blogPageFD.url + '</link>') &&
+        feedTextFD.includes('<title>The Flat Rate Movers — Articles</title>') &&
+        feedTextFD.trimEnd().endsWith('</rss>'),
+        'channel link=' + (blogPageFD ? blogPageFD.url : 'missing'));
+    } catch (e) { check('FD-2 feed.xml is well-formed RSS 2.0 with the exact atom self-link, the blog hub as channel link and the Articles channel title', false, e.message); }
+
+    // FD-3 (local): item set recomputed from ledger + registry + schema.
+    try {
+      const parseCsvFD = (text) => {
+        const rows = []; let row = [], field = '', inQ = false;
+        for (let i = 0; i < text.length; i++) {
+          const c = text[i];
+          if (inQ) {
+            if (c === '"') { if (text[i + 1] === '"') { field += '"'; i++; } else inQ = false; }
+            else field += c;
+          } else if (c === '"') inQ = true;
+          else if (c === ',') { row.push(field); field = ''; }
+          else if (c === '\n') { row.push(field); field = ''; rows.push(row); row = []; }
+          else if (c !== '\r') field += c;
+        }
+        if (field.length || row.length) { row.push(field); rows.push(row); }
+        return rows;
+      };
+      const nyOffsetFD = (utcMs) => {
+        const dtf = new Intl.DateTimeFormat('en-US', {
+          timeZone: 'America/New_York', hourCycle: 'h23',
+          year: 'numeric', month: '2-digit', day: '2-digit',
+          hour: '2-digit', minute: '2-digit', second: '2-digit',
+        });
+        const parts = {};
+        for (const p of dtf.formatToParts(new Date(utcMs))) parts[p.type] = p.value;
+        return Date.UTC(+parts.year, +parts.month - 1, +parts.day, +parts.hour, +parts.minute, +parts.second) - Math.floor(utcMs / 1000) * 1000;
+      };
+      const toInstantFD = (s) => {
+        if (/^\d{4}-\d{2}-\d{2}$/.test(s)) {
+          const guess = Date.parse(s + 'T00:00:00Z');
+          return guess - nyOffsetFD(guess);
+        }
+        return Date.parse(s);
+      };
+      const ledgerFD = fs.readFileSync(path.join(ROOT, '..', 'theflatratemovers', 'blog-project', 'ledger.csv'), 'utf8');
+      const rowsFD = parseCsvFD(ledgerFD);
+      const slugIxFD = rowsFD[0].indexOf('slug');
+      const statusIxFD = rowsFD[0].indexOf('status');
+      const bySlugFD = new Map(pages.pages.map((p) => [p.slug, p]));
+      const expectedFD = [];
+      for (const row of rowsFD.slice(1)) {
+        if (!row[slugIxFD]) continue;
+        const slug = row[slugIxFD].trim();
+        if (!/published/i.test(row[statusIxFD] || '')) continue;
+        const page = bySlugFD.get(slug);
+        const pj = JSON.parse(fs.readFileSync(path.join(PAGES_PUBLIC, slug + '.json'), 'utf8'));
+        const nodes = Array.isArray(pj['@graph']) ? pj['@graph'] : [pj];
+        const bp = nodes.find((n) => String(n['@type']).includes('BlogPosting'));
+        expectedFD.push({
+          slug, url: page.url, title: bp.headline, description: bp.description,
+          pubDate: new Date(toInstantFD(bp.datePublished)).toUTCString(),
+        });
+      }
+      expectedFD.sort((a, b) => Date.parse(b.pubDate) - Date.parse(a.pubDate) || a.slug.localeCompare(b.slug));
+      const actualFD = [];
+      for (const im of feedTextFD.matchAll(/<item>([\s\S]*?)<\/item>/g)) {
+        const b = im[1];
+        const g = (tag) => { const m = b.match(new RegExp('<' + tag + '>([\\s\\S]*?)</' + tag + '>')); return m ? unescFD(m[1]) : ''; };
+        const gm = b.match(/<guid[^>]*>([\s\S]*?)<\/guid>/);
+        actualFD.push({ url: g('link'), title: g('title'), description: g('description'), pubDate: g('pubDate'), guid: gm ? unescFD(gm[1]) : '' });
+      }
+      const badFD = [];
+      if (actualFD.length !== expectedFD.length) badFD.push('count ' + actualFD.length + '!=' + expectedFD.length);
+      for (let i = 0; i < Math.min(actualFD.length, expectedFD.length); i++) {
+        const a = actualFD[i], e = expectedFD[i];
+        if (a.url !== e.url || a.guid !== e.url || a.title !== e.title ||
+            a.description !== e.description || a.pubDate !== e.pubDate) badFD.push(e.slug);
+      }
+      check('FD-3 feed item set equals the published-ledger post set recomputed from the per-page schema (title/link/guid/description/pubDate per item)',
+        badFD.length === 0, 'items=' + actualFD.length + (badFD.length ? '; bad: ' + badFD.slice(0, 4).join(', ') : ''));
+    } catch (e) { check('FD-3 feed item set equals the published-ledger post set recomputed from the per-page schema (title/link/guid/description/pubDate per item)', false, e.message); }
+
+    // FD-4 (local + live sample): the RSS discovery link in the shell
+    // head, and in the served home + one served article head.
+    try {
+      const shellFD = fs.readFileSync(path.join(ROOT, 'repo-dir', 'index.html'), 'utf8');
+      const headFD = shellFD.split('</head>')[0] || '';
+      let okFD4 = headFD.includes('<link rel="alternate" type="application/rss+xml" href="https://theflatratemovers.com/feed.xml"');
+      let detailFD4 = 'shell head link=' + okFD4;
+      if (!LOCAL) {
+        const homeDoc = await fetchText(SITE_FD + '/');
+        const homeOk = (homeDoc.split('</head>')[0] || '').includes('application/rss+xml');
+        const firstPost = pages.pages.find((p) => p.slug === 'transloading-at-the-virginia-inland-port');
+        const artDoc = await fetchText(firstPost.url);
+        const artOk = (artDoc.split('</head>')[0] || '').includes('application/rss+xml');
+        okFD4 = okFD4 && homeOk && artOk;
+        detailFD4 += ', served home=' + homeOk + ', served article=' + artOk;
+      }
+      check('FD-4 the RSS alternate link is in the sealed shell head and in the served home + article heads',
+        okFD4, detailFD4);
+    } catch (e) { check('FD-4 the RSS alternate link is in the sealed shell head and in the served home + article heads', false, e.message); }
+
+    // FD-1 (live): the served feed byte-equals the sealed local file.
+    if (LOCAL) {
+      skipLive('FD-1 served feed.xml returns 200 with an XML/RSS content type and byte-equals the sealed local file');
+    } else {
+      try {
+        const r = await new Promise((resolve, reject) => {
+          https.get(SITE_FD + '/feed.xml', (res) => {
+            const chunks = [];
+            res.on('data', (c) => { chunks.push(c); });
+            res.on('end', () => resolve({ status: res.statusCode, ct: res.headers['content-type'] || '', buf: Buffer.concat(chunks) }));
+          }).on('error', reject);
+        });
+        const localBuf = fs.readFileSync(path.join(PAGES_PUBLIC, 'feed.xml'));
+        check('FD-1 served feed.xml returns 200 with an XML/RSS content type and byte-equals the sealed local file',
+          r.status === 200 && r.ct.includes('xml') && r.buf.equals(localBuf),
+          'status=' + r.status + ', content-type=' + r.ct + ', bytes=' + r.buf.length + '/' + localBuf.length);
+      } catch (e) { check('FD-1 served feed.xml returns 200 with an XML/RSS content type and byte-equals the sealed local file', false, e.message); }
     }
   }
 

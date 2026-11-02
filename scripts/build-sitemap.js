@@ -31,6 +31,39 @@
  * existing datasets section) already published for them — continuity, never
  * invented; a brand-new dataset file falls back to its file mtime (UTC date).
  *
+ * EXTENSION LAYER (batch-sitemap-extensions-2026-11-02): section entries
+ * for registry pages also carry Google extension children, enumerated at
+ * generation time from the SOURCE SHELL's page divs (the same extraction
+ * and the same registry -> pageMeta canonical -> router-slug join
+ * build-routes.js uses, so the sitemap can never list media the page does
+ * not carry, and media added to the shell is picked up in the same seal):
+ *   <image:image> — every content image in the page's div (figure blocks
+ *     and loose images; branding chrome excluded: the logo class and the
+ *     img-01 logo src family). image:loc is the absolute asset URL;
+ *     image:caption is the figcaption where the figure carries one, else
+ *     the alt text (the estate's geospatial caption standard);
+ *     image:title is the alt text when it differs from the caption;
+ *     image:geo_location comes ONLY from a curated filename map of true,
+ *     recorded places (today: the Moorefield WV photo set) — never
+ *     inferred from page text.
+ *     image:license is emitted for the CC-licensed place photos only,
+ *     derived from the credit tail the caption data already carries
+ *     ("Photo: <author>, CC BY-SA 4.0, Wikimedia Commons" -> the
+ *     canonical creativecommons.org license URL); owner photos carry
+ *     no license child. Emission order follows the protocol: loc,
+ *     caption, geo_location, title, license.
+ *   <video:video> — on the /videos/ page only: one child per YouTube
+ *     iframe embed in its div. video:title is the iframe's title
+ *     attribute verbatim; video:description is the card's first
+ *     substantial paragraph; video:player_loc is the embed URL exactly
+ *     as published; video:thumbnail_loc is YouTube's canonical thumbnail
+ *     for the same video ID. Optional fields the page does not carry
+ *     (duration, publication date) are omitted, never invented.
+ * Dataset-FILE entries (the .json URLs) never carry extension children.
+ * The generator fails the seal if the videos page yields no cards or a
+ * card lacks a title or description, or if any URL would exceed the
+ * 1,000-image protocol cap.
+ *
  * Runs inside every seal (seal.py phase 2b), before routes/middleware and
  * before the digest phase, so the sealed estate always carries the current
  * architecture.
@@ -43,6 +76,7 @@ const os = require('os');
 const MACHINE = path.resolve(__dirname, '..');
 const PATHS = JSON.parse(fs.readFileSync(path.join(MACHINE, 'paths.json'), 'utf8'));
 const PUBLIC = PATHS.public_dir;
+const REPO = PATHS.repo_dir;
 const LEDGER = path.join(os.homedir(), 'workspace/theflatratemovers/blog-project/ledger.csv');
 const SITE = 'https://theflatratemovers.com';
 const SECTIONS_DIR = path.join(PUBLIC, 'sitemaps');
@@ -75,12 +109,170 @@ function locLastmodMap(file) {
   return map;
 }
 
+function xmlEscape(s) {
+  return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&apos;');
+}
+function cleanText(s) {
+  return String(s || '').replace(/<[^>]+>/g, ' ')
+    .replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"').replace(/&#39;|&apos;/g, "'")
+    .replace(/\s+/g, ' ').trim();
+}
+function attrOf(tag, name) {
+  const m = tag.match(new RegExp(name + '="([^"]*)"'));
+  return m ? m[1] : '';
+}
+
+/* --- Extension extraction from the source shell (build-routes join) --- */
+const GEO_BY_PREFIX = { 'moorefield-': 'Moorefield, West Virginia' };
+function loadShellDivs(shell) {
+  let pageMeta;
+  {
+    const at = shell.indexOf('var pageMeta=');
+    if (at < 0) fail('pageMeta not found in shell');
+    let i = shell.indexOf('{', at);
+    let depth = 0, inStr = null, esc = false, end = -1;
+    for (let j = i; j < shell.length; j++) {
+      const c = shell[j];
+      if (inStr) { if (esc) esc = false; else if (c === '\\') esc = true; else if (c === inStr) inStr = null; }
+      else if (c === '"' || c === "'") inStr = c;
+      else if (c === '{') depth++;
+      else if (c === '}') { depth--; if (depth === 0) { end = j; break; } }
+    }
+    if (end < 0) fail('pageMeta literal did not balance');
+    pageMeta = Function('return (' + shell.slice(i, end + 1) + ')')();
+  }
+  const metaKeyByUrl = new Map();
+  for (const [k, v] of Object.entries(pageMeta)) {
+    if (v && v.canonical) metaKeyByUrl.set(v.canonical, k);
+  }
+  const divs = new Map();
+  const headEnd = shell.indexOf('</head>');
+  let i = headEnd, depth = 0, divStart = -1, divIsPage = false;
+  const nextToken = (from) => {
+    let best = null;
+    for (const tok of ['<!--', '<script', '<div', '</div>']) {
+      const j = shell.indexOf(tok, from);
+      if (j >= 0 && (best === null || j < best.idx)) best = { tok, idx: j };
+    }
+    return best;
+  };
+  while (true) {
+    const t = nextToken(i); if (!t) break;
+    if (t.tok === '<!--') { i = shell.indexOf('-->', t.idx) + 3; }
+    else if (t.tok === '<script') { i = shell.indexOf('</script>', t.idx) + 9; }
+    else if (t.tok === '<div') {
+      if (depth === 0) {
+        divStart = t.idx;
+        divIsPage = /^<div class="page" id="page-[^"]+">/.test(shell.slice(t.idx, t.idx + 320));
+      }
+      depth++; i = t.idx + 4;
+    } else {
+      depth--;
+      if (depth === 0 && divIsPage) {
+        const end = shell.indexOf('>', t.idx) + 1;
+        const text = shell.slice(divStart, end);
+        const m = text.match(/^<div class="page" id="page-([^"]+)">/);
+        if (m) divs.set(m[1], text);
+      }
+      i = t.idx + 6;
+    }
+  }
+  return { metaKeyByUrl, divs };
+}
+function imagesInDiv(div) {
+  const out = []; const figSpans = [];
+  for (const fm of div.matchAll(/<figure.*?<\/figure>/gs)) {
+    figSpans.push([fm.index, fm.index + fm[0].length]);
+    const im = fm[0].match(/<img [^>]*>/);
+    if (!im) continue;
+    const src = attrOf(im[0], 'src'); if (!src) continue;
+    const cap = fm[0].match(/<figcaption[^>]*>(.*?)<\/figcaption>/s);
+    out.push({ src, alt: cleanText(attrOf(im[0], 'alt')), caption: cap ? cleanText(cap[1]) : '' });
+  }
+  for (const im of div.matchAll(/<img [^>]*>/g)) {
+    if (figSpans.some(([s, e]) => im.index >= s && im.index < e)) continue;
+    const src = attrOf(im[0], 'src'); if (!src) continue;
+    if (attrOf(im[0], 'class').includes('logo-img') || src.includes('img-01-9c77693ba66b')) continue;
+    out.push({ src, alt: cleanText(attrOf(im[0], 'alt')), caption: '' });
+  }
+  return out.map((im) => {
+    const e = { loc: im.src.startsWith('http') ? im.src : SITE + im.src };
+    const cap = im.caption || im.alt;
+    if (cap) e.caption = cap;
+    if (im.caption && im.alt && im.alt !== im.caption) e.title = im.alt;
+    const base = im.src.split('/').pop();
+    for (const [pre, place] of Object.entries(GEO_BY_PREFIX)) {
+      if (base.startsWith(pre)) e.geo_location = place;
+    }
+    const credit = (im.caption || '') + ' ' + (im.alt || '');
+    const cm = credit.match(/CC (BY-SA|BY) (\d\.\d)/);
+    if (cm) {
+      e.license = 'https://creativecommons.org/licenses/' +
+        cm[1].toLowerCase() + '/' + cm[2] + '/';
+    }
+    return e;
+  });
+}
+function videosInDiv(div) {
+  const iframes = [...div.matchAll(/<iframe [^>]*>/g)];
+  const cards = [];
+  for (let n = 0; n < iframes.length; n++) {
+    const src = attrOf(iframes[n][0], 'src');
+    const idm = src.match(/(?:youtube-nocookie\.com|youtube\.com)\/embed\/([A-Za-z0-9_-]{11})/);
+    if (!idm) continue;
+    const start = iframes[n].index + iframes[n][0].length;
+    const nextH3 = div.indexOf('<h3', start);
+    const end = Math.min(nextH3 < 0 ? div.length : nextH3,
+      n + 1 < iframes.length ? iframes[n + 1].index : div.length);
+    const ps = [...div.slice(start, end).matchAll(/<p[^>]*>(.*?)<\/p>/gs)]
+      .map((x) => cleanText(x[1])).filter((t) => t.length > 25);
+    const title = cleanText(attrOf(iframes[n][0], 'title'));
+    const description = ps[0] || '';
+    if (!title || !description) fail('video card lacks title or description (video ' + idm[1] + ')');
+    cards.push({
+      thumbnail_loc: 'https://i.ytimg.com/vi/' + idm[1] + '/hqdefault.jpg',
+      title, description, player_loc: src,
+    });
+  }
+  return cards;
+}
+
 function urlsetXml(entries) {
   const lines = [
     '<?xml version="1.0" encoding="UTF-8"?>',
-    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">',
   ];
-  for (const e of entries) lines.push(`  <url><loc>${e.url}</loc><lastmod>${e.lastmod}</lastmod></url>`);
+  for (const e of entries) {
+    const kids = [];
+    for (const im of e.images || []) {
+      kids.push('    <image:image>');
+      kids.push(`      <image:loc>${xmlEscape(im.loc)}</image:loc>`);
+      if (im.caption) kids.push(`      <image:caption>${xmlEscape(im.caption)}</image:caption>`);
+      if (im.geo_location) kids.push(`      <image:geo_location>${xmlEscape(im.geo_location)}</image:geo_location>`);
+      if (im.title) kids.push(`      <image:title>${xmlEscape(im.title)}</image:title>`);
+      if (im.license) kids.push(`      <image:license>${xmlEscape(im.license)}</image:license>`);
+      kids.push('    </image:image>');
+    }
+    for (const v of e.videos || []) {
+      kids.push('    <video:video>');
+      kids.push(`      <video:thumbnail_loc>${xmlEscape(v.thumbnail_loc)}</video:thumbnail_loc>`);
+      kids.push(`      <video:title>${xmlEscape(v.title)}</video:title>`);
+      kids.push(`      <video:description>${xmlEscape(v.description)}</video:description>`);
+      kids.push(`      <video:player_loc>${xmlEscape(v.player_loc)}</video:player_loc>`);
+      kids.push('    </video:video>');
+    }
+    if (!kids.length) {
+      lines.push(`  <url><loc>${e.url}</loc><lastmod>${e.lastmod}</lastmod></url>`);
+    } else {
+      lines.push('  <url>');
+      lines.push(`    <loc>${e.url}</loc>`);
+      lines.push(`    <lastmod>${e.lastmod}</lastmod>`);
+      lines.push(...kids);
+      lines.push('  </url>');
+    }
+  }
   lines.push('</urlset>');
   return lines.join('\n') + '\n';
 }
@@ -152,6 +344,29 @@ function main() {
   const blogMissing = [...blogSlugs].filter((s) => !pages.some((p) => p.slug === s));
   if (blogMissing.length) fail('ledger posts missing from the registry: ' + blogMissing.join(', '));
 
+  /* Extension layer: attach image/video children to registry-page
+   * entries, enumerated from the source shell's page divs. */
+  const shell = fs.readFileSync(path.join(REPO, 'index.html'), 'utf8');
+  const { metaKeyByUrl, divs } = loadShellDivs(shell);
+  const entryByUrl = new Map();
+  for (const key of Object.keys(sections)) {
+    for (const e of sections[key]) if (!entryByUrl.has(e.url)) entryByUrl.set(e.url, e);
+  }
+  let imageTotal = 0, videoTotal = 0;
+  for (const p of pages) {
+    const entry = entryByUrl.get(p.url);
+    if (!entry) fail('no section entry for registry page ' + p.url);
+    const div = divs.get(metaKeyByUrl.get(p.url)) || '';
+    const images = imagesInDiv(div);
+    if (images.length > 1000) fail('image cap exceeded for ' + p.url);
+    if (images.length) { entry.images = images; imageTotal += images.length; }
+    if (new URL(p.url).pathname === '/videos/') {
+      const videos = videosInDiv(div);
+      if (!videos.length) fail('/videos/ yielded no video cards');
+      entry.videos = videos; videoTotal += videos.length;
+    }
+  }
+
   fs.mkdirSync(SECTIONS_DIR, { recursive: true });
   for (const key of Object.keys(sections)) {
     fs.writeFileSync(path.join(SECTIONS_DIR, key + '.xml'), urlsetXml(sections[key]));
@@ -170,6 +385,7 @@ function main() {
   console.log(JSON.stringify({
     sections: { pages: sections.pages.length, datasets: sections.datasets.length, blog: sections.blog.length },
     union: seen.size, expected: expected.size,
+    extensions: { images: imageTotal, videos: videoTotal },
     index: ['sitemaps/pages.xml', 'sitemaps/datasets.xml', 'sitemaps/blog.xml', 'news-sitemap.xml'],
   }, null, 1));
 }
