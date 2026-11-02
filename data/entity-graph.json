@@ -1191,58 +1191,6 @@
     {
      "@id": "https://theflatratemovers.com/#service-freight-rework-transloading"
     }
-   ],
-   "distribution": [
-    {
-     "@type": "DataDownload",
-     "name": "datasets-ports.json — this file",
-     "contentUrl": "https://theflatratemovers.com/datasets-ports.json",
-     "encodingFormat": "application/json"
-    },
-    {
-     "@type": "DataDownload",
-     "name": "ai-sitemap.json",
-     "contentUrl": "https://theflatratemovers.com/ai-sitemap.json",
-     "encodingFormat": "application/json",
-     "sha256": {
-      "algorithm": "SHA-256",
-      "value": "ae4cdf3e213ce9d518c9a07af282e0f409a960fb37d7efa8752bdff6bbca7733",
-      "byteSize": 66242
-     }
-    },
-    {
-     "@type": "DataDownload",
-     "name": "entity-graph.json",
-     "contentUrl": "https://theflatratemovers.com/entity-graph.json",
-     "encodingFormat": "application/json",
-     "sha256": {
-      "algorithm": "SHA-256",
-      "value": "6dd869ab0430a17beb6a20d4a54e6859170b01c0cf6ffb2ef16440bef31884e8",
-      "byteSize": 59028
-     }
-    },
-    {
-     "@type": "DataDownload",
-     "name": "best-json-entity-graph.json",
-     "contentUrl": "https://theflatratemovers.com/best-json-entity-graph.json",
-     "encodingFormat": "application/json",
-     "sha256": {
-      "algorithm": "SHA-256",
-      "value": "dc328937a2e01557351d3b687d04aaaaeaa28a23479d6602676e7478ac5d50ed",
-      "byteSize": 84948
-     }
-    },
-    {
-     "@type": "DataDownload",
-     "name": "service-area.geojson",
-     "contentUrl": "https://theflatratemovers.com/service-area.geojson",
-     "encodingFormat": "application/json",
-     "sha256": {
-      "algorithm": "SHA-256",
-      "value": "09e324c2b2a109608650529cdbc762c403bbf4a9756df26b218b9e178fcf74e1",
-      "byteSize": 90397
-     }
-    }
    ]
   },
   {

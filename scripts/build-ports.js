@@ -204,7 +204,7 @@ master.distribution = [
 ];
 for (const f of ['ai-sitemap.json', 'entity-graph.json', 'best-json-entity-graph.json', 'service-area.geojson']) {
   const e = sealedDigest(SITE + '/' + f);
-  master.distribution.push({ '@type': 'DataDownload', 'name': f, 'contentUrl': SITE + '/' + f, 'encodingFormat': 'application/json', 'contentSize': e.size, 'sha256': e.digest });
+  master.distribution.push({ '@type': 'DataDownload', 'name': f, 'contentUrl': SITE + '/' + f, 'encodingFormat': 'application/json', 'contentSize': e.digest.byteSize, 'sha256': e.digest.value });
 }
 
 const matrix = datasetShell('dataset-ports-coverage', 'Ports Service Coverage Matrix Dataset', MATRIX_DESC);
