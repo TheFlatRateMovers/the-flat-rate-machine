@@ -246,7 +246,28 @@ at A1 close ✓.
 
 ## 7. Push addendum (filled at close)
 
-<!-- PUSH-ADDENDUM -->
+- **AI repo (A1 motion):** ca900f85 (41 files, 3,080,004 B: ai-sitemap, llms
+  pair, data txt, index + JWS, 35 dataset files refreshed by the digest
+  cascade, schemas/who-unloads-containers-at-the-virginia-inland-port.json
+  NEW) and 4151fb37 (data/datasets-search-index.json, 1,966,918 B; repo head
+  after both pushes). datasets-answer-evidence.json excluded — flagged for
+  parent web upload (§8). Gist guard re-verified after all pushes:
+  data/entity-graph.json still cda897e61319a0f52172ef1365402e4d7179cddf.
+- **Machine repo (both motions):** 98e473c8 (8 files, 1,265,225 B:
+  verify.js, data/pages.json, data/ports.json, data/services.json,
+  data/news-formula.json, scripts/build-intent-rubric.js,
+  code/pages-functions/head-data.js, and this record). The site shell is
+  excluded — flagged for parent web upload (§8).
+- **Pulse (A1 close, seal mode):** main host 270 URLs → HTTP 200 (the A1
+  article carried as "added", accepted; the wide set is the seal-diff across
+  the A1 seal generations — every route document re-digested as llms/graph
+  digests rolled); API host 12 URLs → HTTP 200. Receipts
+  2026-11-02T22:47Z in out/pulse/receipts.ndjson; state advanced to seal
+  472f5a1b.
+- **P-6 status:** every repo-served distribution now matches the live
+  served bytes except the two flagged web uploads in §8 (shell +
+  answer-evidence), which close P-6 in substance on the parent's raw-fetch
+  SHA-256 proof, per the standing pattern of every 2026-11-02 batch.
 
 ## 8. Flagged for parent web upload (over the push ceiling)
 
