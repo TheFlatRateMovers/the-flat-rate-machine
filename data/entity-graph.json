@@ -33,12 +33,13 @@
       "name": "The Flat Rate Movers LLC",
       "priceRange": "$$",
       "sameAs": [
-        "https://www.instagram.com/theflatratemovers/",
-        "https://www.threads.com/@theflatratemovers",
+        "https://www.instagram.com/theflatratemoversllc/",
+        "https://www.threads.com/@theflatratemoversllc",
         "https://x.com/ratemovers",
         "https://www.youtube.com/@theflatratemovers",
         "https://github.com/TheFlatRateMovers",
-        "https://medium.com/@ratemovers"
+        "https://medium.com/@ratemovers",
+        "https://www.wikidata.org/wiki/Q141969215"
       ],
       "slogan": "Guaranteed Flat Rate or Your Move is Free!",
       "telephone": "+1-540-422-2153",
@@ -125,7 +126,10 @@
         "itemReviewed": {
           "@id": "https://theflatratemovers.com/#winchester"
         }
-      }
+      },
+      "sameAs": [
+        "https://www.openstreetmap.org/node/14340286372"
+      ]
     },
     {
       "@id": "https://theflatratemovers.com/#winchester-address",
@@ -220,7 +224,10 @@
         "itemReviewed": {
           "@id": "https://theflatratemovers.com/#martinsburg"
         }
-      }
+      },
+      "sameAs": [
+        "https://www.openstreetmap.org/node/14340286373"
+      ]
     },
     {
       "@id": "https://theflatratemovers.com/#martinsburg-address",
@@ -1085,6 +1092,47 @@
         "@id": "https://theflatratemovers.com/#organization"
       },
       "url": "https://api.theflatratemovers.com"
+    },
+    {
+      "@type": "Book",
+      "@id": "https://theflatratemovers.com/author/henry-pitts-jr/#book",
+      "name": "The Strategic Integrator: A Professional Guide to Precision Moving and Digital Dominance in the AI Era",
+      "author": {
+        "@id": "https://theflatratemovers.com/author/henry-pitts-jr/#person"
+      },
+      "datePublished": "2026-03-01",
+      "inLanguage": "en",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "ASIN",
+          "value": "B0GRBKR5DS"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "EAN",
+          "value": "2940185300718"
+        }
+      ],
+      "sameAs": [
+        "https://www.wikidata.org/wiki/Q141969268"
+      ]
+    },
+    {
+      "@type": "DataCatalog",
+      "@id": "https://theflatratemovers.com/datasets/#collection",
+      "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+      "url": "https://theflatratemovers.com/datasets/",
+      "publisher": {
+        "@id": "https://theflatratemovers.com/#organization"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "isAccessibleForFree": true,
+      "identifier": "https://doi.org/10.5281/zenodo.23879048",
+      "sameAs": [
+        "https://www.wikidata.org/wiki/Q141969285",
+        "https://doi.org/10.5281/zenodo.23879048"
+      ]
     }
   ],
   "@id": "https://theflatratemovers.com/entity-graph.json",
@@ -1193,12 +1241,12 @@
     {
       "from": "https://theflatratemovers.com/#organization",
       "relation": "sameAs",
-      "to": "https://www.instagram.com/theflatratemovers/"
+      "to": "https://www.instagram.com/theflatratemoversllc/"
     },
     {
       "from": "https://theflatratemovers.com/#organization",
       "relation": "sameAs",
-      "to": "https://www.threads.com/@theflatratemovers"
+      "to": "https://www.threads.com/@theflatratemoversllc"
     },
     {
       "from": "https://theflatratemovers.com/#organization",
@@ -1254,12 +1302,13 @@
     "name": "The Flat Rate Movers",
     "foundingDate": "2010-06",
     "sameAs": [
-      "https://www.instagram.com/theflatratemovers/",
-      "https://www.threads.com/@theflatratemovers",
+      "https://www.instagram.com/theflatratemoversllc/",
+      "https://www.threads.com/@theflatratemoversllc",
       "https://x.com/ratemovers",
       "https://www.youtube.com/@theflatratemovers",
       "https://github.com/TheFlatRateMovers",
-      "https://medium.com/@ratemovers"
+      "https://medium.com/@ratemovers",
+      "https://www.wikidata.org/wiki/Q141969215"
     ]
   },
   "publisher": {
@@ -1268,12 +1317,13 @@
     "name": "The Flat Rate Movers",
     "foundingDate": "2010-06",
     "sameAs": [
-      "https://www.instagram.com/theflatratemovers/",
-      "https://www.threads.com/@theflatratemovers",
+      "https://www.instagram.com/theflatratemoversllc/",
+      "https://www.threads.com/@theflatratemoversllc",
       "https://x.com/ratemovers",
       "https://www.youtube.com/@theflatratemovers",
       "https://github.com/TheFlatRateMovers",
-      "https://medium.com/@ratemovers"
+      "https://medium.com/@ratemovers",
+      "https://www.wikidata.org/wiki/Q141969215"
     ]
   }
 }

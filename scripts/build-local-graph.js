@@ -107,15 +107,15 @@ const CREATOR = {
   name: 'The Flat Rate Movers',
   foundingDate: '2010-06',
   sameAs: [
-    'https://www.instagram.com/theflatratemovers/',
-    'https://www.threads.com/@theflatratemovers',
+    'https://www.instagram.com/theflatratemoversllc/',
+    'https://www.threads.com/@theflatratemoversllc',
     'https://x.com/ratemovers',
     'https://www.youtube.com/@theflatratemovers',
     'https://github.com/TheFlatRateMovers',
     'https://medium.com/@ratemovers',
   ],
 };
-const DATE_MOD = '2026-10-31';
+const DATE_MOD = '2026-11-02';
 const STALE_WINDOW_DAYS = 35;
 
 function arg(name) {
@@ -242,7 +242,7 @@ const P2P = 'Backlink program Phase 2 plan, Wave 2 prep re-verification 2026-10-
 function rec(r) {
   return Object.assign({
     sourceUrl: null, sourceRecordId: null, correctRef: null, propagationParent: null,
-    solutionRef: null, ownerStep: null, creationPath: null, note: null,
+    solutionRef: null, ownerStep: null, creationPath: null, note: null, backlinks: null,
   }, r);
 }
 const RECORDS = [
@@ -900,7 +900,264 @@ RECORDS.push(
   absence('chamber-mbc-w-scope', 'chamber-martinsburg-berkeley', 'winchester', P1 + ' (Martinsburg–Berkeley County Chamber row)', {
     note: 'This chamber serves Berkeley County (Martinsburg); Winchester parity lives on the Top of Virginia chamber source, not here.',
     creationPath: 'Not applicable — regional chamber for the Martinsburg area' }),
+  rec({
+    "sourceUrl": "https://www.wikidata.org/wiki/Q141969215",
+    "sourceRecordId": "Q141969215",
+    "correctRef": null,
+    "propagationParent": null,
+    "solutionRef": null,
+    "ownerStep": null,
+    "creationPath": null,
+    "note": "Machine form: https://www.wikidata.org/wiki/Special:EntityData/Q141969215.json. Company-level item \u2014 covers both branches in the coverage matrix. Cross-linked from both OpenStreetMap nodes (wikidata=Q141969215, changeset 191354104).",
+    "recordId": "wikidata-company-item",
+    "source": "wikidata",
+    "branch": "company",
+    "field": "company item",
+    "observedValue": "Live Wikidata item Q141969215 for the company: 7 statements (P31 business, P571 inception 2010-06, P856 website, P17 US, P159 HQ Winchester, P452 transport industry, P276 location Martinsburg), all carrying the site as reference; EntityData JSON parsed OK; no notability/deletion warnings",
+    "correctValue": "A live Wikidata company item carrying the company facts in the observed value (founded June 2010; HQ Winchester; Martinsburg location; company website)",
+    "status": "verified-correct",
+    "lastVerified": {
+      "date": "2026-11-02",
+      "method": "direct-fetch",
+      "crawlAgeDays": null
+    },
+    "evidenceRef": "Retrieval Machine new-channels record, 2026-11-02 (~/workspace/theflatratemovers/retrieval-machine/new-channels-2026-11-02.md) \u2014 Wikidata section (parent-verified via EntityData JSON 2026-11-02)"
+  }),
+  rec({
+    "sourceUrl": "https://www.wikidata.org/wiki/Q141969268",
+    "sourceRecordId": "Q141969268",
+    "correctRef": null,
+    "propagationParent": null,
+    "solutionRef": null,
+    "ownerStep": null,
+    "creationPath": null,
+    "note": "No EAN property exists on Wikidata for 2940185300718 (searched; correctly not forced) \u2014 the Barnes & Noble EAN is therefore absent from the item by platform structure, not by omission. The ASIN statement carries no Amazon reference because Amazon refuses the agent browser (standing Amazon block, per the source record). Machine form: https://www.wikidata.org/wiki/Special:EntityData/Q141969268.json.",
+    "recordId": "wikidata-book-item",
+    "source": "wikidata",
+    "branch": "company",
+    "field": "book item",
+    "observedValue": "Live Wikidata item Q141969268 for the book: 6 properties (P31 written work + literary work, P1476 full title, P2093 author name string \"Henry Pitts Jr.\", P577 2026-03-01, P5749 ASIN B0GRBKR5DS, P407 English); EntityData JSON parsed OK; no notability/deletion warnings",
+    "correctValue": "A live Wikidata item for the book carrying ASIN B0GRBKR5DS and publication date 2026-03-01",
+    "status": "verified-correct",
+    "lastVerified": {
+      "date": "2026-11-02",
+      "method": "direct-fetch",
+      "crawlAgeDays": null
+    },
+    "evidenceRef": "Retrieval Machine new-channels record, 2026-11-02 (~/workspace/theflatratemovers/retrieval-machine/new-channels-2026-11-02.md) \u2014 Wikidata section (parent-verified via EntityData JSON 2026-11-02)"
+  }),
+  rec({
+    "sourceUrl": "https://www.wikidata.org/wiki/Q141969285",
+    "sourceRecordId": "Q141969285",
+    "correctRef": null,
+    "propagationParent": null,
+    "solutionRef": null,
+    "ownerStep": null,
+    "creationPath": null,
+    "note": "Machine form: https://www.wikidata.org/wiki/Special:EntityData/Q141969285.json. The DOI is the Zenodo dataset concept DOI recorded in the Zenodo section of the same source file.",
+    "recordId": "wikidata-dataset-item",
+    "source": "wikidata",
+    "branch": "company",
+    "field": "dataset item",
+    "observedValue": "Live Wikidata item Q141969285 for the dataset estate: 7 statements (P31 data set, P356 DOI 10.5281/zenodo.23879048 with Zenodo reference, P123 publisher -> Q141969215, P275 CC BY 4.0, P6216 copyrighted, P577 2026-11-02, P856 https://api.theflatratemovers.com/); EntityData JSON parsed OK; no notability/deletion warnings",
+    "correctValue": "A live Wikidata dataset item carrying concept DOI 10.5281/zenodo.23879048, publisher Q141969215 and CC BY 4.0",
+    "status": "verified-correct",
+    "lastVerified": {
+      "date": "2026-11-02",
+      "method": "direct-fetch",
+      "crawlAgeDays": null
+    },
+    "evidenceRef": "Retrieval Machine new-channels record, 2026-11-02 (~/workspace/theflatratemovers/retrieval-machine/new-channels-2026-11-02.md) \u2014 Wikidata section (parent-verified via EntityData JSON 2026-11-02)"
+  }),
+  rec({
+    "sourceUrl": "https://www.openstreetmap.org/node/14340286372",
+    "sourceRecordId": "14340286372",
+    "correctRef": null,
+    "propagationParent": null,
+    "solutionRef": null,
+    "ownerStep": null,
+    "creationPath": null,
+    "note": "No correctRef is used: the node's placed coordinates are an iD click placement ~5 m from the canonical branch geo, as the source records, so a geo correctRef would make the generator refuse the row (seed value would disagree with the computed canonical value). The field tracked is the node record as a whole.",
+    "recordId": "openstreetmap-w-node",
+    "source": "openstreetmap",
+    "branch": "winchester",
+    "field": "map node (place record)",
+    "observedValue": "OpenStreetMap node for The Flat Rate Movers, 116 W Piccadilly St Suite 11, Winchester VA 22601; placed 39.1870713, -78.1668261 (~5 m from the Places point 39.18711576, -78.1668352; iD click placement); 12 tags verified incl. phone, website, opening_hours Mo-Fr 08:00-18:00 / Sa 08:00-16:00 / Su 09:00-16:00; wikidata=Q141969215 tag present (Version #2, verified live on the node page)",
+    "correctValue": "Correct as displayed",
+    "status": "verified-correct",
+    "lastVerified": {
+      "date": "2026-11-02",
+      "method": "direct-fetch",
+      "crawlAgeDays": null
+    },
+    "evidenceRef": "Retrieval Machine new-channels record, 2026-11-02 (~/workspace/theflatratemovers/retrieval-machine/new-channels-2026-11-02.md) \u2014 OpenStreetMap section (creation changeset 191353533; wikidata cross-link changeset 191354104)"
+  }),
+  rec({
+    "sourceUrl": "https://www.openstreetmap.org/node/14340286373",
+    "sourceRecordId": "14340286373",
+    "correctRef": null,
+    "propagationParent": null,
+    "solutionRef": null,
+    "ownerStep": null,
+    "creationPath": null,
+    "note": "Branch record \u2014 the Martinsburg node is a separate node from the Winchester node and carries Martinsburg's own name, address and hours. No correctRef, for the same click-placement reason as the Winchester node row.",
+    "recordId": "openstreetmap-m-node",
+    "source": "openstreetmap",
+    "branch": "martinsburg",
+    "field": "map node (place record)",
+    "observedValue": "OpenStreetMap node for Flat Rate Movers Martinsburg WV, 736 Williamsport Pike Suite 2, Martinsburg WV 25404; placed 39.4831998, -77.9476545 (~5 m from the canonical point 39.48319665, -77.94760443); 12 tags verified incl. opening_hours Mo-Fr 09:00-18:00 / Sa 09:00-16:00 / Su 09:00-16:00; wikidata=Q141969215 tag present (Version #2, verified live on the node page)",
+    "correctValue": "Correct as displayed",
+    "status": "verified-correct",
+    "lastVerified": {
+      "date": "2026-11-02",
+      "method": "direct-fetch",
+      "crawlAgeDays": null
+    },
+    "evidenceRef": "Retrieval Machine new-channels record, 2026-11-02 (~/workspace/theflatratemovers/retrieval-machine/new-channels-2026-11-02.md) \u2014 OpenStreetMap section (creation changeset 191353533; wikidata cross-link changeset 191354104)"
+  }),
+  rec({
+    "sourceUrl": "https://publishercenter.google.com/?publication=CAoww5riCw",
+    "sourceRecordId": "CAoww5riCw",
+    "correctRef": null,
+    "propagationParent": null,
+    "solutionRef": null,
+    "ownerStep": null,
+    "creationPath": null,
+    "note": "The current UI offers no News section/feed/RSS mechanism (per the source record: \"March 2025 update: Google News now automatically generates publication pages\"); Reader Revenue Manager NOT STARTED (deliberately; not a News gate); the legacy publication \"Historic Apple Winchester VA Movers\" in the same account is untouched. The unfilled wide-logo slot is recorded in the observed value, not staged as a separate row (one record per channel, per the staging brief).",
+    "recordId": "google-publisher-center-company-publication",
+    "source": "google-publisher-center",
+    "branch": "company",
+    "field": "publication",
+    "observedValue": "Google Publisher Center publication \"The Flat Rate Movers\" created 2026-11-02 (org \"The Flat Rate Movers\", ratemovers@gmail.com); primary URL theflatratemovers.com VERIFIED in settings (Search Console ownership); square logo uploaded (estate logo 1024x1024), wide logo slot unfilled; contact ratemovers@gmail.com status Verified (update 2026-11-02 ~03:35 EST, read directly from the settings page)",
+    "correctValue": "A Publisher Center publication for the company with the primary URL verified and the contact verified",
+    "status": "verified-correct",
+    "lastVerified": {
+      "date": "2026-11-02",
+      "method": "owner-manager-read",
+      "crawlAgeDays": null
+    },
+    "evidenceRef": "Retrieval Machine new-channels record, 2026-11-02 (~/workspace/theflatratemovers/retrieval-machine/new-channels-2026-11-02.md) \u2014 Google Publisher Center section incl. the 2026-11-02 ~03:35 EST contact-verified update"
+  }),
+  rec({
+    "sourceUrl": "https://www.instagram.com/theflatratemoversllc/",
+    "sourceRecordId": "@theflatratemoversllc",
+    "correctRef": null,
+    "propagationParent": null,
+    "solutionRef": null,
+    "ownerStep": null,
+    "creationPath": null,
+    "note": "OPEN ITEM carried on this row (not a separate record, and deliberately NOT coded as an ownerStep \u2014 see D-registry.md): website links NOT set \u2014 Instagram's web editor refuses link editing (\"only available on mobile\"); the source record's route is the Instagram connector (update-bio --action add-link) once the account is linked through Meta Accounts Center, else the owner's mobile app. The older @theflatratemovers account is CLOSED by owner ruling 2026-11-02 (cannot be logged into; never propose recovery) \u2014 this llc account is its replacement.",
+    "recordId": "instagram-company-profile",
+    "source": "instagram",
+    "branch": "company",
+    "field": "profile (own channel)",
+    "observedValue": "Operating Instagram @theflatratemoversllc: Business (Professional) account, category \"Moving & Storage Service\"; name \"The Flat Rate Movers | Winchester & Martinsburg\"; 149-char company bio (flat-rate, Winchester VA & Martinsburg WV, gun safes/pianos/heavy, guarantee, Est. 2010); logo profile picture; contact email ratemovers@gmail.com and phone +1 540-422-2153 shown; no street address entered; privacy PUBLIC; 0 posts / 0 followers / 0 following at capture (~05:36 EST, browser-verified by profile reload); personal-name occurrences on the finished profile: 0",
+    "correctValue": "Correct as displayed",
+    "status": "verified-correct",
+    "lastVerified": {
+      "date": "2026-11-02",
+      "method": "direct-fetch",
+      "crawlAgeDays": null
+    },
+    "evidenceRef": "Retrieval Machine new-channels record, 2026-11-02 (~/workspace/theflatratemovers/retrieval-machine/new-channels-2026-11-02.md) \u2014 Instagram section (node captured 2026-11-02 ~05:36 EST)"
+  }),
+  rec({
+    "sourceUrl": "https://www.threads.com/@theflatratemoversllc",
+    "sourceRecordId": "@theflatratemoversllc",
+    "correctRef": null,
+    "propagationParent": null,
+    "solutionRef": null,
+    "ownerStep": null,
+    "creationPath": null,
+    "note": "Threads' own \"Finish your profile\" prompts (create thread, follow 10) were intentionally left undone \u2014 no posts/follows made (source record). Nothing was attempted with the closed @theflatratemovers account.",
+    "recordId": "threads-company-profile",
+    "source": "threads",
+    "branch": "company",
+    "field": "profile (own channel)",
+    "observedValue": "Threads @theflatratemoversllc (tied to the operating Instagram of the same handle): name \"The Flat Rate Movers\"; full company bio (flat-rate, Winchester VA & Martinsburg WV, gun safes/pianos/heavy, guarantee, Est. 2010); link https://theflatratemovers.com/; logo profile picture (carried from Instagram); privacy PUBLIC (confirmed in Edit profile); 0 followers, no posts at capture (~05:41 EST, browser-verified on the reloaded profile)",
+    "correctValue": "Correct as displayed",
+    "status": "verified-correct",
+    "lastVerified": {
+      "date": "2026-11-02",
+      "method": "direct-fetch",
+      "crawlAgeDays": null
+    },
+    "evidenceRef": "Retrieval Machine new-channels record, 2026-11-02 (~/workspace/theflatratemovers/retrieval-machine/new-channels-2026-11-02.md) \u2014 Threads section (node captured 2026-11-02 ~05:41 EST)"
+  }),
 );
+
+// Backlink attachments (Consolidated Visibility Batch 2026-11-02):
+// referring pages whose domain already has a registry source ride
+// on that source’s holder record as a `backlinks` array (the
+// minimal schema extension staged in D-registry); they create no
+// new third-party record and do not enter the coverage matrix.
+const BACKLINK_ATTACHMENTS = {
+  "cb-insights-hq-address": [
+    {
+      "referring_domain": "cbinsights.com",
+      "referring_page": "https://cbinsights.com/company/the-flat-rate-movers/alternatives-competitors",
+      "anchor_text": "theflatratemovers.com",
+      "target_url": "https://theflatratemovers.com",
+      "tier": "directory-or-platform",
+      "class": "recorded",
+      "source": "Bing Webmaster backlinks export 2026-11-01",
+      "observed_date": "2026-11-01",
+      "verification_status": "recorded (export-sourced; not fetch-verified)"
+    },
+    {
+      "referring_domain": "cbinsights.com",
+      "referring_page": "https://cbinsights.com/company/the-flat-rate-movers",
+      "anchor_text": "theflatratemovers.com",
+      "target_url": "https://theflatratemovers.com",
+      "tier": "directory-or-platform",
+      "class": "recorded",
+      "source": "Bing Webmaster backlinks export 2026-11-01",
+      "observed_date": "2026-11-01",
+      "verification_status": "recorded (export-sourced; not fetch-verified)"
+    }
+  ],
+  "birdeye-w-address": [
+    {
+      "referring_domain": "reviews.birdeye.com",
+      "referring_page": "https://reviews.birdeye.com/the-flat-rate-movers-163130362685696",
+      "anchor_text": "https://www.theflatratemovers.com/",
+      "target_url": "https://theflatratemovers.com",
+      "tier": "directory-or-platform",
+      "class": "recorded",
+      "source": "Bing Webmaster backlinks export 2026-11-01",
+      "observed_date": "2026-11-01",
+      "verification_status": "recorded (export-sourced; not fetch-verified)"
+    },
+    {
+      "referring_domain": "reviews.birdeye.com",
+      "referring_page": "https://reviews.birdeye.com/the-flat-rate-movers-163130362685696?filter=newest&rsource=100",
+      "anchor_text": "https://www.theflatratemovers.com/",
+      "target_url": "https://theflatratemovers.com",
+      "tier": "directory-or-platform",
+      "class": "recorded",
+      "source": "Bing Webmaster backlinks export 2026-11-01",
+      "observed_date": "2026-11-01",
+      "verification_status": "recorded (export-sourced; not fetch-verified)"
+    }
+  ],
+  "birdeye-m-nap": [
+    {
+      "referring_domain": "reviews.birdeye.com",
+      "referring_page": "https://reviews.birdeye.com/flat-rate-movers-martinsburg-wv-171614909716521",
+      "anchor_text": "https://www.theflatratemovers.com/",
+      "target_url": "https://theflatratemovers.com",
+      "tier": "directory-or-platform",
+      "class": "recorded",
+      "source": "Bing Webmaster backlinks export 2026-11-01",
+      "observed_date": "2026-11-01",
+      "verification_status": "recorded (export-sourced; not fetch-verified)"
+    }
+  ]
+};
+for (const seed of RECORDS) {
+  if (seed.recordId && BACKLINK_ATTACHMENTS[seed.recordId]) seed.backlinks = BACKLINK_ATTACHMENTS[seed.recordId];
+}
+
 
 // ------------------------------------------------------------- sources
 // The coverage-matrix source list (Dossier 03 §5.2: sources x 2
@@ -952,6 +1209,11 @@ const SOURCES = [
   ['chamber-top-of-virginia', 'Top of Virginia Regional Chamber', 'Real local chamber (paid membership)'],
   ['chamber-martinsburg-berkeley', 'Martinsburg–Berkeley County Chamber', 'Real local chamber (paid membership)'],
   ['estate-stale-index', 'Google index — stale estate page', 'Own stale artifact'],
+  ["wikidata", "Wikidata", "Knowledge base"],
+  ["openstreetmap", "OpenStreetMap", "Map / open geographic database"],
+  ["google-publisher-center", "Google Publisher Center", "Publisher platform (Google News)"],
+  ["instagram", "Instagram", "Own social channel"],
+  ["threads", "Threads", "Own social channel"],
 ];
 const SOURCE_NAMES = Object.fromEntries(SOURCES.map(([id, name, kind]) => [id, { name, kind }]));
 
@@ -1004,7 +1266,7 @@ const resolvedRecords = RECORDS.map((r) => {
     evidenceRef: r.evidenceRef,
     propagationParent: r.propagationParent,
     solutionRef: r.solutionRef, ownerStep: r.ownerStep,
-    creationPath: r.creationPath, note: r.note,
+    creationPath: r.creationPath, note: r.note, backlinks: r.backlinks || null,
     statusHistory: [{ status: r.status, date: r.lastVerified.date, method: r.lastVerified.method, evidenceRef: r.evidenceRef }],
   };
 });
@@ -1045,6 +1307,362 @@ const coverageRows = SOURCES.map(([sourceId, name, kind]) => {
   }
   return row;
 });
+
+
+// ------------------------------------------- verified backlink tier
+// Standalone backlink records (Consolidated Visibility Batch
+// 2026-11-02): referring pages recorded in the backlink ledger
+// whose domain has no registry source, plus the review-tier rows
+// fetch-verified on 2026-11-02 (E-review: 14 PASS rows only; the
+// 13 FAIL rows earn no record, per parent decision D9). A
+// separate class beside the third-party records — they never
+// enter SOURCES, the coverage matrix, or the record count.
+const BACKLINK_RECORDS = [
+  {
+    "backlinkRecordId": "backlink-linkcenter-com",
+    "referring_domain": "linkcenter.com",
+    "referring_page": "https://linkcenter.com/us/home-and-garden/house-moving/18.php",
+    "anchor_text": "The Flat Rate Movers",
+    "target_url": "https://theflatratemovers.com",
+    "tier": "directory-or-platform",
+    "class": "recorded",
+    "source": "Bing Webmaster backlinks export 2026-11-01",
+    "observed_date": "2026-11-01",
+    "verification_status": "recorded (export-sourced; not fetch-verified)"
+  },
+  {
+    "backlinkRecordId": "backlink-localmint-com",
+    "referring_domain": "localmint.com",
+    "referring_page": "https://localmint.com/us/the-flat-rate-movers-winchester-hours-1233741",
+    "anchor_text": "www.theflatratemovers.com",
+    "target_url": "https://theflatratemovers.com",
+    "tier": "directory-or-platform",
+    "class": "recorded",
+    "source": "Bing Webmaster backlinks export 2026-11-01",
+    "observed_date": "2026-11-01",
+    "verification_status": "recorded (export-sourced; not fetch-verified)"
+  },
+  {
+    "backlinkRecordId": "backlink-callupcontact-com",
+    "referring_domain": "callupcontact.com",
+    "referring_page": "https://callupcontact.com/b/businessprofile/the_flat_rate_movers/9698816",
+    "anchor_text": "https://www.theflatratemovers.com/",
+    "target_url": "https://theflatratemovers.com",
+    "tier": "directory-or-platform",
+    "class": "recorded",
+    "source": "Bing Webmaster backlinks export 2026-11-01",
+    "observed_date": "2026-11-01",
+    "verification_status": "recorded (export-sourced; not fetch-verified)"
+  },
+  {
+    "backlinkRecordId": "backlink-linkcentre-com",
+    "referring_domain": "linkcentre.com",
+    "referring_page": "https://linkcentre.com/profile/theflatratemovers",
+    "anchor_text": "The Flat Rate Movers",
+    "target_url": "https://theflatratemovers.com",
+    "tier": "directory-or-platform",
+    "class": "recorded",
+    "source": "Bing Webmaster backlinks export 2026-11-01",
+    "observed_date": "2026-11-01",
+    "verification_status": "recorded (export-sourced; not fetch-verified)"
+  },
+  {
+    "backlinkRecordId": "backlink-shenandoahvalleyweb-com",
+    "referring_domain": "shenandoahvalleyweb.com",
+    "referring_page": "https://shenandoahvalleyweb.com/services.html",
+    "anchor_text": "The Flat Rate Movers, LLC",
+    "target_url": "https://theflatratemovers.com",
+    "tier": "directory-or-platform",
+    "class": "recorded",
+    "source": "Bing Webmaster backlinks export 2026-11-01",
+    "observed_date": "2026-11-01",
+    "verification_status": "recorded (export-sourced; not fetch-verified)"
+  },
+  {
+    "backlinkRecordId": "backlink-find-us-here-com",
+    "referring_domain": "find-us-here.com",
+    "referring_page": "https://find-us-here.com/businesses/the-flat-rate-movers-winchester-virginia-usa/34304776",
+    "anchor_text": "https://www.theflatratemovers.com/",
+    "target_url": "https://theflatratemovers.com",
+    "tier": "directory-or-platform",
+    "class": "recorded",
+    "source": "Bing Webmaster backlinks export 2026-11-01",
+    "observed_date": "2026-11-01",
+    "verification_status": "recorded (export-sourced; not fetch-verified)"
+  },
+  {
+    "backlinkRecordId": "backlink-directory-coldlytics-com",
+    "referring_domain": "directory.coldlytics.com",
+    "referring_page": "https://directory.coldlytics.com/companies/theflatratemovers",
+    "anchor_text": "theflatratemovers.com",
+    "target_url": "https://theflatratemovers.com",
+    "tier": "directory-or-platform",
+    "class": "recorded",
+    "source": "Bing Webmaster backlinks export 2026-11-01",
+    "observed_date": "2026-11-01",
+    "verification_status": "recorded (export-sourced; not fetch-verified)"
+  },
+  {
+    "backlinkRecordId": "backlink-looklocally-com",
+    "referring_domain": "looklocally.com",
+    "referring_page": "https://looklocally.com/united-states/winchester/home-services/the-flat-rate-movers",
+    "anchor_text": "https://theflatratemovers.com",
+    "target_url": "https://theflatratemovers.com",
+    "tier": "directory-or-platform",
+    "class": "recorded",
+    "source": "Bing Webmaster backlinks export 2026-11-01",
+    "observed_date": "2026-11-01",
+    "verification_status": "recorded (export-sourced; not fetch-verified)"
+  },
+  {
+    "backlinkRecordId": "backlink-blackdirectory-com",
+    "referring_domain": "blackdirectory.com",
+    "referring_page": "https://blackdirectory.com/virginia/winchester/construction/flat-rate-movers-the",
+    "anchor_text": "https://www.theflatratemovers.com",
+    "target_url": "https://theflatratemovers.com",
+    "tier": "directory-or-platform",
+    "class": "recorded",
+    "source": "Bing Webmaster backlinks export 2026-11-01",
+    "observed_date": "2026-11-01",
+    "verification_status": "recorded (export-sourced; not fetch-verified)"
+  },
+  {
+    "backlinkRecordId": "backlink-yellowbot-com",
+    "referring_domain": "yellowbot.com",
+    "referring_page": "https://yellowbot.com/the-flat-rate-movers-winchester-va.html",
+    "anchor_text": "theflatratemovers.com",
+    "target_url": "https://theflatratemovers.com",
+    "tier": "directory-or-platform",
+    "class": "recorded",
+    "source": "Bing Webmaster backlinks export 2026-11-01",
+    "observed_date": "2026-11-01",
+    "verification_status": "recorded (export-sourced; not fetch-verified)"
+  },
+  {
+    "backlinkRecordId": "backlink-choice-directory",
+    "referring_domain": "choice.directory",
+    "referring_page": "https://choice.directory/business-consultants/the-flat-rate-movers",
+    "anchor_text": "https://www.theflatratemovers.com/",
+    "target_url": "https://theflatratemovers.com",
+    "tier": "directory-or-platform",
+    "class": "recorded",
+    "source": "Bing Webmaster backlinks export 2026-11-01",
+    "observed_date": "2026-11-01",
+    "verification_status": "recorded (export-sourced; not fetch-verified)"
+  },
+  {
+    "backlinkRecordId": "backlink-qdexx-com",
+    "referring_domain": "qdexx.com",
+    "referring_page": "https://qdexx.com/us/va/winchester/business services/us-va-winchester-business-services-the-flat-rate-movers",
+    "anchor_text": "https://www.theflatratemovers.com/",
+    "target_url": "https://theflatratemovers.com",
+    "tier": "directory-or-platform",
+    "class": "recorded",
+    "source": "Bing Webmaster backlinks export 2026-11-01",
+    "observed_date": "2026-11-01",
+    "verification_status": "recorded (export-sourced; not fetch-verified)"
+  },
+  {
+    "backlinkRecordId": "backlink-x-com",
+    "referring_domain": "x.com",
+    "referring_page": "https://x.com/theflatratemove",
+    "anchor_text": "theflatratemovers.com",
+    "target_url": "https://theflatratemovers.com",
+    "tier": "owned",
+    "class": "recorded",
+    "source": "Bing Webmaster backlinks export 2026-11-01",
+    "observed_date": "2026-11-01",
+    "verification_status": "recorded (export-sourced; not fetch-verified)"
+  },
+  {
+    "backlinkRecordId": "backlink-eliteservicesnetwork-com",
+    "referring_domain": "eliteservicesnetwork.com",
+    "referring_page": "https://eliteservicesnetwork.com/united-states/winchester/home-services/the-flat-rate-movers",
+    "anchor_text": "https://theflatratemovers.com",
+    "target_url": "https://theflatratemovers.com",
+    "tier": "directory-or-platform",
+    "class": "recorded",
+    "source": "Bing Webmaster backlinks export 2026-11-01",
+    "observed_date": "2026-11-01",
+    "verification_status": "recorded (export-sourced; not fetch-verified)"
+  },
+  {
+    "backlinkRecordId": "backlink-toptohigh-com",
+    "referring_domain": "toptohigh.com",
+    "referring_page": "https://toptohigh.com/make-money-at-home-with-affiliate-marketing",
+    "anchor_text": "theflatratemovers",
+    "target_url": "https://theflatratemovers.com",
+    "tier": "unverified-source",
+    "class": "review",
+    "source": "Bing Webmaster backlinks export 2026-11-01",
+    "observed_date": "2026-11-01",
+    "verification_status": "fetch-verified 2026-11-02"
+  },
+  {
+    "backlinkRecordId": "backlink-junk-haulers-blogspot-com",
+    "referring_domain": "junk-haulers.blogspot.com",
+    "referring_page": "https://junk-haulers.blogspot.com/2021/09/light-demolition-removal-of-flooring.html",
+    "anchor_text": "https://www.theflatratemovers.com/",
+    "target_url": "https://theflatratemovers.com",
+    "tier": "topical-blog",
+    "class": "review",
+    "source": "Bing Webmaster backlinks export 2026-11-01",
+    "observed_date": "2026-11-01",
+    "verification_status": "fetch-verified 2026-11-02"
+  },
+  {
+    "backlinkRecordId": "backlink-longdistancemovinginwinchesterva-blogspot-com",
+    "referring_domain": "longdistancemovinginwinchesterva.blogspot.com",
+    "referring_page": "https://longdistancemovinginwinchesterva.blogspot.com/2024/05/trusted-movers-in-frederick-county-va.html",
+    "anchor_text": "Specialized Care",
+    "target_url": "https://theflatratemovers.com/gun-safe-movers",
+    "tier": "topical-blog",
+    "class": "review",
+    "source": "Bing Webmaster backlinks export 2026-11-01",
+    "observed_date": "2026-11-01",
+    "verification_status": "fetch-verified 2026-11-02"
+  },
+  {
+    "backlinkRecordId": "backlink-jet-links-com",
+    "referring_domain": "jet-links.com",
+    "referring_page": "https://jet-links.com/index.php?c=213",
+    "anchor_text": "The Flat Rate Movers",
+    "target_url": "https://theflatratemovers.com",
+    "tier": "unverified-source",
+    "class": "review",
+    "source": "Bing Webmaster backlinks export 2026-11-01",
+    "observed_date": "2026-11-01",
+    "verification_status": "fetch-verified 2026-11-02"
+  },
+  {
+    "backlinkRecordId": "backlink-bestmovingcompaniesreviews-com",
+    "referring_domain": "bestmovingcompaniesreviews.com",
+    "referring_page": "https://bestmovingcompaniesreviews.com/theflatratemovers",
+    "anchor_text": "https://www.theflatratemovers.com",
+    "target_url": "https://theflatratemovers.com",
+    "tier": "unverified-source",
+    "class": "review",
+    "source": "Bing Webmaster backlinks export 2026-11-01",
+    "observed_date": "2026-11-01",
+    "verification_status": "fetch-verified 2026-11-02"
+  },
+  {
+    "backlinkRecordId": "backlink-zumvu-com",
+    "referring_domain": "zumvu.com",
+    "referring_page": "https://zumvu.com/theflatratemovers",
+    "anchor_text": "Website",
+    "target_url": "https://theflatratemovers.com",
+    "tier": "unverified-source",
+    "class": "review",
+    "source": "Bing Webmaster backlinks export 2026-11-01",
+    "observed_date": "2026-11-01",
+    "verification_status": "fetch-verified 2026-11-02"
+  },
+  {
+    "backlinkRecordId": "backlink-junk-haulers-blogspot-com-2",
+    "referring_domain": "junk-haulers.blogspot.com",
+    "referring_page": "https://junk-haulers.blogspot.com/2021/09/junk-removal-in-my-area-winchester.html",
+    "anchor_text": "https://www.theflatratemovers.com/",
+    "target_url": "https://theflatratemovers.com",
+    "tier": "topical-blog",
+    "class": "review",
+    "source": "Bing Webmaster backlinks export 2026-11-01",
+    "observed_date": "2026-11-01",
+    "verification_status": "fetch-verified 2026-11-02"
+  },
+  {
+    "backlinkRecordId": "backlink-junk-haulers-blogspot-com-3",
+    "referring_domain": "junk-haulers.blogspot.com",
+    "referring_page": "https://junk-haulers.blogspot.com/2021/09/local-junk-haulers-in-winchester.html",
+    "anchor_text": "https://www.theflatratemovers.com/",
+    "target_url": "https://theflatratemovers.com",
+    "tier": "topical-blog",
+    "class": "review",
+    "source": "Bing Webmaster backlinks export 2026-11-01",
+    "observed_date": "2026-11-01",
+    "verification_status": "fetch-verified 2026-11-02"
+  },
+  {
+    "backlinkRecordId": "backlink-jet-links-com-2",
+    "referring_domain": "jet-links.com",
+    "referring_page": "http://jet-links.com/landscaping-solutions-sydney:-landscape-garden-design/index.php?c=213",
+    "anchor_text": "The Flat Rate Movers",
+    "target_url": "https://theflatratemovers.com",
+    "tier": "unverified-source",
+    "class": "review",
+    "source": "Bing Webmaster backlinks export 2026-11-01",
+    "observed_date": "2026-11-01",
+    "verification_status": "fetch-verified 2026-11-02"
+  },
+  {
+    "backlinkRecordId": "backlink-jet-links-com-3",
+    "referring_domain": "jet-links.com",
+    "referring_page": "http://jet-links.com/bring-back-your-lost-love-/index.php?c=213",
+    "anchor_text": "The Flat Rate Movers",
+    "target_url": "https://theflatratemovers.com",
+    "tier": "unverified-source",
+    "class": "review",
+    "source": "Bing Webmaster backlinks export 2026-11-01",
+    "observed_date": "2026-11-01",
+    "verification_status": "fetch-verified 2026-11-02"
+  },
+  {
+    "backlinkRecordId": "backlink-longdistancemovinginwinchesterva-blogspot-com-2",
+    "referring_domain": "longdistancemovinginwinchesterva.blogspot.com",
+    "referring_page": "https://longdistancemovinginwinchesterva.blogspot.com/2024/05/trusted-movers-in-frederick-county-va.html",
+    "anchor_text": "Full-Service Moving",
+    "target_url": "https://theflatratemovers.com",
+    "tier": "topical-blog",
+    "class": "review",
+    "source": "Bing Webmaster backlinks export 2026-11-01",
+    "observed_date": "2026-11-01",
+    "verification_status": "fetch-verified 2026-11-02"
+  },
+  {
+    "backlinkRecordId": "backlink-jacksonvilleflmovers-blogspot-com",
+    "referring_domain": "jacksonvilleflmovers.blogspot.com",
+    "referring_page": "https://jacksonvilleflmovers.blogspot.com/2024/05/the-flat-rate-movers-jacksonville-your.html",
+    "anchor_text": "https://www.theflatratemovers.com/online-estimate",
+    "target_url": "https://theflatratemovers.com/online-estimate",
+    "tier": "topical-blog",
+    "class": "review",
+    "source": "Bing Webmaster backlinks export 2026-11-01",
+    "observed_date": "2026-11-01",
+    "verification_status": "fetch-verified 2026-11-02"
+  },
+  {
+    "backlinkRecordId": "backlink-junk-haulers-blogspot-com-4",
+    "referring_domain": "junk-haulers.blogspot.com",
+    "referring_page": "https://junk-haulers.blogspot.com/2021/09/reliable-professional-junk-haulers-in.html",
+    "anchor_text": "https://www.theflatratemovers.com/",
+    "target_url": "https://theflatratemovers.com",
+    "tier": "topical-blog",
+    "class": "review",
+    "source": "Bing Webmaster backlinks export 2026-11-01",
+    "observed_date": "2026-11-01",
+    "verification_status": "fetch-verified 2026-11-02"
+  },
+  {
+    "backlinkRecordId": "backlink-jet-links-com-4",
+    "referring_domain": "jet-links.com",
+    "referring_page": "http://jet-links.com/obstetrics-gynecology-in-abu-dhabi-uae-ivf/index.php?c=213",
+    "anchor_text": "The Flat Rate Movers",
+    "target_url": "https://theflatratemovers.com",
+    "tier": "unverified-source",
+    "class": "review",
+    "source": "Bing Webmaster backlinks export 2026-11-01",
+    "observed_date": "2026-11-01",
+    "verification_status": "fetch-verified 2026-11-02"
+  }
+];
+const BACKLINK_DEDUPE = new Set();
+for (const list of [BACKLINK_RECORDS, ...Object.values(BACKLINK_ATTACHMENTS)]) {
+  for (const b of list) {
+    const key = b.referring_domain + "|" + b.referring_page + "|" + b.target_url;
+    if (BACKLINK_DEDUPE.has(key)) throw new Error("backlink dedupe collision: " + key);
+    BACKLINK_DEDUPE.add(key);
+  }
+}
 
 // ------------------------------------------- review snapshots (shared
 // schema with build-answer-evidence.js; Dossier 03 §5). Distribution
@@ -1294,6 +1912,10 @@ const totals = {
   gapRecords: GAPS.length,
   gapsByStatus: countBy(GAPS, (g) => g.status),
   consolidatedOwnerSteps: ownerStepRows.length,
+  backlinkRecords: BACKLINK_RECORDS.length,
+  backlinksAttached: Object.values(BACKLINK_ATTACHMENTS).reduce((n, l) => n + l.length, 0),
+  backlinkEntriesTotal: BACKLINK_DEDUPE.size,
+  backlinkDomains: new Set([...BACKLINK_RECORDS, ...Object.values(BACKLINK_ATTACHMENTS).flat()].map((b) => b.referring_domain)).size,
   geojsonFeaturesTotal: geojson.features.length,
   dateModified: DATE_MOD,
 };
@@ -1376,6 +1998,7 @@ const nodes = [
         { '@type': 'Dataset', '@id': FILE_URL + '#dataset-local-graph-registry-gaps' },
         { '@type': 'Dataset', '@id': FILE_URL + '#dataset-local-graph-registry-owner-steps' },
         { '@type': 'Dataset', '@id': FILE_URL + '#dataset-local-graph-registry-totals' },
+        { '@type': 'Dataset', '@id': FILE_URL + '#dataset-local-graph-registry-backlinks' },
       ],
     }),
   baseNode('Dataset', 'dataset-local-graph-registry-scope',
@@ -1433,6 +2056,10 @@ const nodes = [
     'Local Graph Registry Dataset — Totals',
     'Registry totals, generated: records by status and by branch, coverage cells, snapshots by namespace, collisions, gaps by status, owner steps, and the stale-verification count under the ' + STALE_WINDOW_DAYS + '-day window.',
     { totals }),
+  baseNode('Dataset', 'dataset-local-graph-registry-backlinks',
+    'Local Graph Registry Dataset — Verified Backlink Tier',
+    'The verified backlink tier, added 2026-11-02: referring pages recorded in the estate backlink ledger (Bing Webmaster export 2026-11-01) and the review-tier rows fetch-verified the same day. Entries whose domain already carries a registry source ride on that source\u2019s holder record as a backlinks array; the rest stand here as their own class beside the third-party records — never inside the coverage matrix and never inside the record count. Fetch verification is direct-fetch evidence only: a page earns a review-tier record only when the fetched page itself carries the link.',
+    { backlinkRecords: BACKLINK_RECORDS, backlinkAttachments: Object.entries(BACKLINK_ATTACHMENTS).map(([holderRecordId, backlinks]) => ({ holderRecordId, backlinks })) }),
   baseNode('Article', 'dataset-local-graph-registry-method',
     'Local Graph Registry — Method',
     'How the registry is built and maintained. (1) The canonical side is generated from the estate registries; (2) the observation side is transcribed from the evidence base — Dossier 03’s audit of 2026-10-31 and the backlink program’s records — with every row carrying its evidence reference, and the fresher source governing conflicts (conflicts are noted on the row, never silently resolved); (3) statuses follow the controlled vocabulary and the direct-fetch rule for corrected-live; (4) the coverage matrix, owner-step list and totals are computed from the rows at generation, so the published views cannot drift from the underlying records; (5) maintenance runs on the measurement cadence — re-verification passes update rows only on page evidence, stale-verification flags mark rows past the window, and every regeneration re-seals the file in the estate’s signed index in the same motion.',
@@ -1470,6 +2097,32 @@ const nodes = [
     }),
 ];
 
+
+// --- Consolidated Visibility Batch 2026-11-02: dataset enrichment ---
+// datePublished (first publication per the file's deploy batch record),
+// includedInDataCatalog (the datasets hub node is retyped DataCatalog in
+// the same batch — parent decision D2), variableMeasured (measurement
+// datasets only, per the enrichment table) and spatialCoverage
+// strengthening (bare Place @id refs -> full Place objects with geo).
+const ENRICH_PLACES = {
+  'https://theflatratemovers.com/#winchester': { '@type': 'Place', '@id': 'https://theflatratemovers.com/#winchester', name: 'The Flat Rate Movers \u2014 Winchester', geo: { '@type': 'GeoCoordinates', latitude: 39.18711576, longitude: -78.1668352 } },
+  'https://theflatratemovers.com/#martinsburg': { '@type': 'Place', '@id': 'https://theflatratemovers.com/#martinsburg', name: 'Flat Rate Movers Martinsburg WV', geo: { '@type': 'GeoCoordinates', latitude: 39.48319665, longitude: -77.94760443 } },
+};
+function enrichDatasetNodes(nodes, datePublished, variableMeasured, strengthenSC) {
+  for (const n of nodes) {
+    if (!n || typeof n !== 'object') continue;
+    const types = Array.isArray(n['@type']) ? n['@type'] : [n['@type']];
+    if (!types.includes('Dataset')) continue;
+    n.datePublished = datePublished;
+    n.includedInDataCatalog = { '@id': 'https://theflatratemovers.com/datasets/#collection' };
+    if (variableMeasured) n.variableMeasured = variableMeasured;
+    if (strengthenSC && Array.isArray(n.spatialCoverage)) {
+      n.spatialCoverage = n.spatialCoverage.map((p) => (p && ENRICH_PLACES[p['@id']] && Object.keys(p).length === 1) ? ENRICH_PLACES[p['@id']] : p);
+    }
+  }
+}
+
+enrichDatasetNodes(nodes, '2026-10-31', ["thirdPartyRecords (field, observedValue vs correctValue, lastVerified)", "reviewDistributionSnapshots (displayedAverage, displayedCount, branch)", "coverageMatrix (winchester / martinsburg parity cells per source)", "collisionRecords (conflationEvents, presence)"], false);
 shaDistributions(nodes, FILE_URL);
 
 // Estate file shape (uniform across dataset files): {@context, @graph}.

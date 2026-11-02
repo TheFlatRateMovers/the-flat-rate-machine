@@ -36,8 +36,8 @@ const CREATOR = {
   '@type': 'Organization',
   name: 'The Flat Rate Movers',
   sameAs: [
-    'https://www.instagram.com/theflatratemovers/',
-    'https://www.threads.com/@theflatratemovers',
+    'https://www.instagram.com/theflatratemoversllc/',
+    'https://www.threads.com/@theflatratemoversllc',
     'https://x.com/ratemovers',
     'https://www.youtube.com/@theflatratemovers',
     'https://github.com/TheFlatRateMovers',

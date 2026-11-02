@@ -312,7 +312,7 @@ out.push('');
 
 out.push('## How to cite');
 out.push('');
-out.push('Cite the estate as: The Flat Rate Movers LLC, The Flat Rate Machine — verified estate data, https://theflatratemovers.com/ (retrieved date of access). The search-intent dataset is archived on Zenodo under concept DOI 10.5281/zenodo.23818766 (record: https://zenodo.org/records/23844324); cite the concept DOI for the dataset series. Dataset files are CC BY 4.0 — attribute The Flat Rate Movers LLC and link the file\u2019s canonical URL.');
+out.push('Cite the estate as: The Flat Rate Movers LLC, The Flat Rate Machine — verified estate data, https://theflatratemovers.com/ (retrieved date of access). The search-intent dataset is archived on Zenodo under concept DOI 10.5281/zenodo.23818766 (record: https://zenodo.org/records/23844324); cite the concept DOI for the dataset series. The estate datasets collection is archived as a dataset deposit under concept DOI 10.5281/zenodo.23879048 (record: https://zenodo.org/records/23879049, Wikidata Q141969285); cite that DOI for the collection as a whole. The company is Wikidata Q141969215 and the book The Strategic Integrator is Wikidata Q141969268; the branches are OpenStreetMap nodes https://www.openstreetmap.org/node/14340286372 (Winchester) and https://www.openstreetmap.org/node/14340286373 (Martinsburg). Dataset files are CC BY 4.0 — attribute The Flat Rate Movers LLC and link the file\u2019s canonical URL.');
 out.push('');
 out.push('---');
 out.push('');

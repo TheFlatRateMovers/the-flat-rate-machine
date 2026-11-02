@@ -2466,12 +2466,12 @@ export const HEAD = {
   "slug": "datasets",
   "key": "datasets",
   "t": "The Flat Rate Movers — Published Datasets",
-  "d": "Every dataset The Flat Rate Movers publishes — 32 CC BY 4.0 dataset files with canonical landing pages, node inventories, downloads and signed SHA-256 certificates, plus the estate’s Zenodo DOI for the intent-coverage rubric.",
+  "d": "Every dataset The Flat Rate Movers publishes — 39 CC BY 4.0 dataset files with canonical landing pages, node inventories, downloads and signed SHA-256 certificates, plus the estate’s Zenodo DOI for the intent-coverage rubric.",
   "c": "https://theflatratemovers.com/datasets/",
   "og": "website",
   "img": "https://theflatratemovers.com/assets/img-02-0b80bbb82653.jpg",
   "imgSwapped": false,
-  "ld": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebPage\",\"@id\":\"https://theflatratemovers.com/datasets/#webpage\",\"url\":\"https://theflatratemovers.com/datasets/\",\"name\":\"The Flat Rate Movers — Published Datasets\",\"isPartOf\":{\"@id\":\"https://theflatratemovers.com/#website\"},\"about\":{\"@id\":\"https://theflatratemovers.com/#organization\"},\"inLanguage\":\"en-US\",\"datePublished\":\"2026-10-27\",\"dateModified\":\"2026-10-28\",\"description\":\"Every dataset The Flat Rate Movers publishes — 32 CC BY 4.0 dataset files with canonical landing pages, node inventories, downloads and signed SHA-256 certificates, plus the estate’s Zenodo DOI for the intent-coverage rubric.\"},{\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://theflatratemovers.com/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Published Datasets\",\"item\":\"https://theflatratemovers.com/datasets/\"}]}]}",
+  "ld": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebPage\",\"@id\":\"https://theflatratemovers.com/datasets/#webpage\",\"url\":\"https://theflatratemovers.com/datasets/\",\"name\":\"The Flat Rate Movers — Published Datasets\",\"isPartOf\":{\"@id\":\"https://theflatratemovers.com/#website\"},\"about\":{\"@id\":\"https://theflatratemovers.com/#organization\"},\"inLanguage\":\"en-US\",\"datePublished\":\"2026-10-27\",\"dateModified\":\"2026-10-28\",\"description\":\"Every dataset The Flat Rate Movers publishes — 39 CC BY 4.0 dataset files with canonical landing pages, node inventories, downloads and signed SHA-256 certificates, plus the estate’s Zenodo DOI for the intent-coverage rubric.\"},{\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://theflatratemovers.com/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Published Datasets\",\"item\":\"https://theflatratemovers.com/datasets/\"}]}]}",
   "jf": "datasets.json"
  },
  "/when-an-item-needs-a-custom-crate": {

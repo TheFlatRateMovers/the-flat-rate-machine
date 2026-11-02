@@ -112,8 +112,8 @@ const CREATOR = {
   name: 'The Flat Rate Movers',
   foundingDate: '2010-06',
   sameAs: [
-    'https://www.instagram.com/theflatratemovers/',
-    'https://www.threads.com/@theflatratemovers',
+    'https://www.instagram.com/theflatratemoversllc/',
+    'https://www.threads.com/@theflatratemoversllc',
     'https://x.com/ratemovers',
     'https://www.youtube.com/@theflatratemovers',
     'https://github.com/TheFlatRateMovers',
@@ -938,6 +938,32 @@ const graph = [
   },
 ];
 shaDistributions(graph, FILE_URL);
+
+// --- Consolidated Visibility Batch 2026-11-02: dataset enrichment ---
+// datePublished (first publication per the file's deploy batch record),
+// includedInDataCatalog (the datasets hub node is retyped DataCatalog in
+// the same batch — parent decision D2), variableMeasured (measurement
+// datasets only, per the enrichment table) and spatialCoverage
+// strengthening (bare Place @id refs -> full Place objects with geo).
+const ENRICH_PLACES = {
+  'https://theflatratemovers.com/#winchester': { '@type': 'Place', '@id': 'https://theflatratemovers.com/#winchester', name: 'The Flat Rate Movers \u2014 Winchester', geo: { '@type': 'GeoCoordinates', latitude: 39.18711576, longitude: -78.1668352 } },
+  'https://theflatratemovers.com/#martinsburg': { '@type': 'Place', '@id': 'https://theflatratemovers.com/#martinsburg', name: 'Flat Rate Movers Martinsburg WV', geo: { '@type': 'GeoCoordinates', latitude: 39.48319665, longitude: -77.94760443 } },
+};
+function enrichDatasetNodes(nodes, datePublished, variableMeasured, strengthenSC) {
+  for (const n of nodes) {
+    if (!n || typeof n !== 'object') continue;
+    const types = Array.isArray(n['@type']) ? n['@type'] : [n['@type']];
+    if (!types.includes('Dataset')) continue;
+    n.datePublished = datePublished;
+    n.includedInDataCatalog = { '@id': 'https://theflatratemovers.com/datasets/#collection' };
+    if (variableMeasured) n.variableMeasured = variableMeasured;
+    if (strengthenSC && Array.isArray(n.spatialCoverage)) {
+      n.spatialCoverage = n.spatialCoverage.map((p) => (p && ENRICH_PLACES[p['@id']] && Object.keys(p).length === 1) ? ENRICH_PLACES[p['@id']] : p);
+    }
+  }
+}
+
+enrichDatasetNodes(graph, '2026-10-31', ["citationObservations (ourCited, citedUrlsInOrder, answerStatementsAboutUs, engine, date)", "questions (panelState, fragmentBinding, moneyWeight)", "answerFragments (bodyChars, substantive, questionShaped)", "reviewDistributionSnapshots (displayedAverage, displayedCount, platform, branchRef)"], true);
 const doc = { '@context': 'https://schema.org', '@graph': graph };
 const bytes = JSON.stringify(doc, null, 2) + '\n';
 if (CHECK) {

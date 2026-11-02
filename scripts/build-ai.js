@@ -86,7 +86,7 @@ async function main() {
     '@type': 'Dataset',
     name: 'The Flat Rate Movers · AI Sitemap',
     url: SITE + '/ai-sitemap.json',
-    description: 'Machine-readable index of AI, developer, and operational JSON endpoints for ' + company.name + ', plus the core pages, services, and SIR / KIM-GS authority for theflatratemovers.com. ' + pages.length + ' clean canonical URLs in sitemap.xml, ' + services.length + ' services, 53 service-area features, branches distinct (Winchester: The Flat Rate Movers; Martinsburg: Flat Rate Movers Martinsburg WV), founded June 2010. No USDOT/MC number is listed (unconfirmed).',
+    description: 'Machine-readable index of AI, developer, and operational JSON endpoints for ' + company.name + ', plus the core pages, services, and SIR / KIM-GS authority for theflatratemovers.com. ' + pages.length + ' clean canonical URLs in sitemap.xml, ' + services.length + ' services, ' + geoCount + ' service-area features, branches distinct (Winchester: The Flat Rate Movers; Martinsburg: Flat Rate Movers Martinsburg WV), founded June 2010. No USDOT/MC number is listed.',
     dateModified: DATA_VERSION,
     version: DATA_VERSION,
     creator: {
@@ -105,6 +105,7 @@ async function main() {
         streetAddress: b.street,
       })),
       location: branches.map((b) => ({ '@id': SITE + '/#' + b.id })),
+      sameAs: company.sameAs,
     },
     about: services.map((s) => s.name),
     services: services.map((s) => ({ name: s.name, description: s.description })),

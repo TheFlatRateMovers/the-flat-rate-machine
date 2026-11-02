@@ -1388,7 +1388,7 @@ async function main() {
       }
     }
     check('D-2 every Dataset node (dataset files + all 226 route documents) carries landing url/unique sameAs, an identifier, isAccessibleForFree, typed distributions and a self-referencing DataDownload',
-      badNodesD.length === 0 && shellCountD === 367 && routeDocsD.length === 226,
+      badNodesD.length === 0 && shellCountD === 368 && routeDocsD.length === 226, // 367 -> 368 re-expressed 2026-11-02 (Consolidated Visibility Batch): +1 Dataset instance = the new Local Graph Registry backlinks node in its landing embedding; build-routes.js D-2 pin moved in the same motion
       'files + ' + shellCountD + ' route-document instances across ' + routeDocsD.length + ' documents' + (badNodesD.length ? ', bad: ' + badNodesD.slice(0, 4).join('; ') : ''));
     // D-3: local sitemap architecture — sitemap.xml is an index whose
     // children are exactly the three section sitemaps plus the news
@@ -3508,6 +3508,288 @@ async function main() {
           r.status === 200 && r.ct.includes('xml') && r.buf.equals(localBuf),
           'status=' + r.status + ', content-type=' + r.ct + ', bytes=' + r.buf.length + '/' + localBuf.length);
       } catch (e) { check('FD-1 served feed.xml returns 200 with an XML/RSS content type and byte-equals the sealed local file', false, e.message); }
+    }
+  }
+
+
+  // --- 31. Consolidated Visibility Batch (2026-11-02): identity, flip,
+  // figures, hub, landing, enrichment, registry and backlink gates ---
+  {
+    const fsx = fs, pathx = path;
+    const PUB = PAGES_PUBLIC;
+    const readJ = (p) => JSON.parse(fsx.readFileSync(p, 'utf8'));
+    const walkO = (o, fn) => {
+      if (Array.isArray(o)) o.forEach((v) => walkO(v, fn));
+      else if (o && typeof o === 'object') { fn(o); Object.values(o).forEach((v) => walkO(v, fn)); }
+    };
+    const typeHasX = (n, t) => { const ty = n && n['@type']; return Array.isArray(ty) ? ty.includes(t) : ty === t; };
+
+    // CV-1: handle flip — zero old IG/Threads patterns in generator
+    // sources, served outputs and the API bundle; denylist untouched.
+    {
+      const RE_OLD_IG = new RegExp('instagram\\.com\\/' + 'theflat' + 'ratemovers\\/(?!llc)', 'g');
+      const RE_OLD_TH = new RegExp('threads\\.com\\/@' + 'theflat' + 'ratemovers(?!llc)', 'g');
+      const isOld = (txt) => (txt.match(RE_OLD_IG) || []).length + (txt.match(RE_OLD_TH) || []).length;
+      let srcHits = [];
+      const srcFiles = [];
+      for (const d of ['scripts', 'repo-dir']) {
+        for (const f of fsx.readdirSync(pathx.join(ROOT, d))) if (/\.(js|html|json)$/.test(f)) srcFiles.push(pathx.join(ROOT, d, f));
+      }
+      srcFiles.push(pathx.join(ROOT, 'data', 'entity-graph.json'), pathx.join(ROOT, 'data', 'best-json-entity-graph.json'), pathx.join(ROOT, 'data', 'locations.json'));
+      for (const f of srcFiles) { const n = isOld(fsx.readFileSync(f, 'utf8')); if (n) srcHits.push(pathx.basename(f) + ':' + n); }
+      let outHits = [];
+      const walkDir = (dir, rel) => {
+        for (const e of fsx.readdirSync(dir, { withFileTypes: true })) {
+          const r = rel ? rel + '/' + e.name : e.name;
+          if (e.isDirectory()) walkDir(pathx.join(dir, e.name), r);
+          else if (/\.(json|txt|html|xml)$/.test(e.name) && !/^ai-verification-report/.test(e.name) && e.name !== 'ai-master-index.jws') {
+            const n = isOld(fsx.readFileSync(pathx.join(dir, e.name), 'utf8'));
+            if (n) outHits.push(r + ':' + n);
+          }
+        }
+      };
+      walkDir(PUB, '');
+      let bundleHits = 0, bundleFiles = 0;
+      const bundleDir = pathx.join(FLAT, 'api-worker', 'data', 'bundle');
+      if (fsx.existsSync(bundleDir)) {
+        const walkB = (dir) => {
+          for (const e of fsx.readdirSync(dir, { withFileTypes: true })) {
+            if (e.isDirectory()) walkB(pathx.join(dir, e.name));
+            else { bundleFiles++; bundleHits += isOld(fsx.readFileSync(pathx.join(dir, e.name), 'utf8')); }
+          }
+        };
+        walkB(bundleDir);
+      }
+      const shellTxt = fsx.readFileSync(pathx.join(PUB, 'index.html'), 'utf8');
+      const deny = ['youtube.com/@theflatratemovers', 'x.com/ratemovers', 'github.com/TheFlatRateMovers', 'medium.com/@ratemovers']
+        .map((d) => d + '=' + (shellTxt.split(d).length - 1));
+      const denyOk = ['youtube.com/@theflatratemovers', 'x.com/ratemovers', 'github.com/TheFlatRateMovers', 'medium.com/@ratemovers']
+        .every((d) => shellTxt.includes(d));
+      check('CV-1 handle flip complete: zero old @theflatratemovers Instagram/Threads patterns in generator sources, served outputs and the API bundle; denylist handles untouched',
+        srcHits.length === 0 && outHits.length === 0 && bundleHits === 0 && denyOk,
+        'sources ' + (srcHits.length ? srcHits.slice(0, 3).join(';') : 'clean') + ', outputs ' + (outHits.length ? outHits.slice(0, 3).join(';') : 'clean') + ', bundle ' + bundleFiles + ' files/' + bundleHits + ' old, denylist in shell: ' + deny.join(', '));
+    }
+
+    // CV-2: identity propagation + the DC-5 DOI-identifier guard.
+    {
+      const Q = 'https://www.wikidata.org/wiki/Q141969215';
+      const DOI_NEW = 'https://doi.org/10.5281/zenodo.23879048';
+      const bad = [];
+      for (const gf of ['entity-graph.json', 'best-json-entity-graph.json']) {
+        const g = readJ(pathx.join(PUB, gf));
+        const byId = (id) => (g['@graph'] || []).find((n) => n['@id'] === id);
+        const org = byId('https://theflatratemovers.com/#organization');
+        if (!org || !(org.sameAs || []).includes(Q)) bad.push(gf + ' org lacks Q141969215');
+        const win = byId('https://theflatratemovers.com/#winchester');
+        const mar = byId('https://theflatratemovers.com/#martinsburg');
+        if (!win || !(win.sameAs || []).includes('https://www.openstreetmap.org/node/14340286372')) bad.push(gf + ' winchester OSM');
+        if (!mar || !(mar.sameAs || []).includes('https://www.openstreetmap.org/node/14340286373')) bad.push(gf + ' martinsburg OSM');
+        const book = byId('https://theflatratemovers.com/author/henry-pitts-jr/#book');
+        if (!book) bad.push(gf + ' book node missing');
+        else {
+          if (!(book.sameAs || []).includes('https://www.wikidata.org/wiki/Q141969268')) bad.push(gf + ' book QID');
+          const ids = JSON.stringify(book.identifier || '');
+          if (!ids.includes('B0GRBKR5DS') || !ids.includes('2940185300718')) bad.push(gf + ' book identifiers');
+        }
+        const cat = byId('https://theflatratemovers.com/datasets/#collection');
+        if (!cat) bad.push(gf + ' catalog node missing');
+        else {
+          if (!typeHasX(cat, 'DataCatalog')) bad.push(gf + ' catalog type');
+          if (cat.identifier !== DOI_NEW) bad.push(gf + ' catalog identifier');
+          if (!(cat.sameAs || []).includes('https://www.wikidata.org/wiki/Q141969285')) bad.push(gf + ' catalog QID');
+        }
+      }
+      // DOI-identifier guard across every public JSON file.
+      const doiHits = [];
+      for (const f of fsx.readdirSync(PUB).filter((x) => x.endsWith('.json'))) {
+        let doc; try { doc = readJ(pathx.join(PUB, f)); } catch (_) { continue; }
+        walkO(doc, (n) => {
+          const idf = n.identifier;
+          const vals = [];
+          if (typeof idf === 'string') vals.push(idf);
+          if (Array.isArray(idf)) for (const e of idf) { if (typeof e === 'string') vals.push(e); else if (e && e.value) vals.push(String(e.value)); }
+          if (idf && typeof idf === 'object' && !Array.isArray(idf) && idf.value) vals.push(String(idf.value));
+          for (const v of vals) {
+            const m = v.match(/10\.5281\/zenodo\.\d+/);
+            if (m) doiHits.push(m[0] + '|' + f + '|' + (n['@id'] || '?'));
+          }
+        });
+      }
+      const expectedDoi = new Set([
+        '10.5281/zenodo.23818766|ai-master-index.json|https://github.com/TheFlatRateMovers/theflatratemovers-ai#master-index',
+        '10.5281/zenodo.23818766|dataset-intent-coverage.json|https://theflatratemovers.com/datasets/intent-coverage/#dataset',
+        '10.5281/zenodo.23818766|datasets-intent-coverage.json|https://theflatratemovers.com/#dataset-intent-coverage-scope',
+        '10.5281/zenodo.23818766|datasets-intent-coverage.json|https://theflatratemovers.com/#dataset-intent-coverage-taxonomy',
+        '10.5281/zenodo.23818766|datasets-intent-coverage.json|https://theflatratemovers.com/#dataset-intent-coverage-resolution',
+        '10.5281/zenodo.23818766|datasets-intent-coverage.json|https://theflatratemovers.com/#dataset-intent-coverage-totals',
+        '10.5281/zenodo.23879048|entity-graph.json|https://theflatratemovers.com/datasets/#collection',
+        '10.5281/zenodo.23879048|best-json-entity-graph.json|https://theflatratemovers.com/datasets/#collection',
+      ]);
+      const extra = doiHits.filter((h) => !expectedDoi.has(h));
+      const missing = [...expectedDoi].filter((h) => !doiHits.includes(h));
+      check('CV-2 identity propagated (Q141969215 org, branch OSM nodes, Book + catalog nodes in both graphs) and DOI identifiers sit exactly on their eight lawful seats',
+        bad.length === 0 && extra.length === 0 && missing.length === 0,
+        (bad.concat(extra.map((e) => 'extra DOI: ' + e), missing.map((e) => 'missing DOI: ' + e))).slice(0, 4).join('; ') || doiHits.length + ' DOI identifier seats, all lawful');
+    }
+
+    // CV-3: llms.txt figures equal the sealed index + intent file.
+    {
+      const idx = readJ(pathx.join(PUB, 'ai-master-index.json'));
+      const dist = idx.distribution || idx.distributions || [];
+      const urls = dist.map((e) => e.contentUrl || e.url || '');
+      const rootJson = urls.filter((u) => u.startsWith('https://theflatratemovers.com/') && !u.slice('https://theflatratemovers.com/'.length).includes('/') && u.endsWith('.json')).map((u) => u.split('/').pop());
+      const excl = new Set(['ai-sitemap.json', 'ai-master-index.json', 'entity-graph.json', 'best-json-entity-graph.json', 'ai-license.json', 'ai-verification-report-2026-11-01.json', 'ai-verification-report-2026-11-01-e6b2.json']);
+      const perPage = rootJson.filter((n) => !n.startsWith('datasets-') && !n.startsWith('dataset-') && !excl.has(n)).length;
+      const dsCount = urls.filter((u) => /\/datasets-[^/]+\.json$/.test(u)).length;
+      const intent = readJ(pathx.join(PUB, 'datasets-intent-coverage.json'));
+      const totalsN = (intent['@graph'] || []).find((n) => (n['@id'] || '').endsWith('#dataset-intent-coverage-totals'));
+      const rows = totalsN.rowSources.estateGenerated, targeted = totalsN.pageCoverage.pagesTargeted;
+      const fmt = (n) => n.toLocaleString('en-US');
+      const llms = fsx.readFileSync(pathx.join(PUB, 'llms.txt'), 'utf8');
+      const bad = [];
+      const para = (llms.match(/lists (\d+) distributions: the (\d+) published dataset files[\s\S]{0,300}?all (\d+) per-page JSON files/) || []);
+      if (!para.length) bad.push('certificate paragraph shape not found');
+      else {
+        if (+para[1] !== dist.length) bad.push('total ' + para[1] + ' != ' + dist.length);
+        if (+para[2] !== dsCount) bad.push('dataset files ' + para[2] + ' != ' + dsCount);
+        if (+para[3] !== perPage) bad.push('per-page ' + para[3] + ' != ' + perPage);
+      }
+      if (!llms.includes('the ' + fmt(rows) + '-row search-intent rubric')) bad.push('line-59 rows figure');
+      if (!llms.includes(fmt(rows) + ' generated query rows')) bad.push('line-65 rows figure');
+      if (!llms.includes("every one of the site's " + targeted + ' pages is a rubric target')) bad.push('targeted pages figure');
+      check('CV-3 llms.txt figures equal the sealed index and the intent dataset totals, computed in-check',
+        bad.length === 0, bad.slice(0, 3).join('; ') || ('total ' + dist.length + ', datasets ' + dsCount + ', per-page ' + perPage + ', rows ' + rows + ', targeted ' + targeted));
+    }
+
+    // CV-4: hub counts — hero, hub JSON description, head description.
+    {
+      const nFiles = DATASET_FILES.length;
+      const nSvc = services.services.length;
+      const bad = [];
+      const hubDoc = fsx.readFileSync(pathx.join(PUB, 'datasets', 'index.html'), 'utf8');
+      if (!hubDoc.includes(nFiles + ' dataset files, published under CC BY 4.0, covering all ' + nSvc + ' services')) bad.push('hero');
+      const hub = readJ(pathx.join(PUB, 'datasets.json'));
+      const coll = (hub['@graph'] || [])[0];
+      if (!coll.description.includes(nFiles + ' dataset files')) bad.push('datasets.json description');
+      if (!typeHasX(coll, 'DataCatalog')) bad.push('hub @type lacks DataCatalog');
+      if ((coll.hasPart || []).length !== nFiles) bad.push('hasPart ' + (coll.hasPart || []).length + ' != ' + nFiles);
+      const headData = fsx.readFileSync(pathx.join(ROOT, '..', 'the-flat-rate-movers-pages', 'functions', 'head-data.js'), 'utf8');
+      if (!headData.includes(nFiles + ' CC BY 4.0 dataset files')) bad.push('head-data description');
+      check('CV-4 datasets hub reads ' + nFiles + ' files / ' + nSvc + ' services identically on hero, hub JSON (DataCatalog, hasPart complete) and head description',
+        bad.length === 0, bad.join('; ') || 'all three surfaces agree');
+    }
+
+    // CV-5: intent landing figures pinned to the dataset file totals.
+    {
+      const intent = readJ(pathx.join(PUB, 'datasets-intent-coverage.json'));
+      const totalsN = (intent['@graph'] || []).find((n) => (n['@id'] || '').endsWith('#dataset-intent-coverage-totals'));
+      const routeDoc = fsx.readFileSync(pathx.join(PUB, 'datasets', 'intent-coverage', 'index.html'), 'utf8');
+      const grab = (label) => { const m = routeDoc.match(new RegExp('<b>' + label + '</b></td><td>([\\d,]+)</td>')); return m ? +m[1].replace(/,/g, '') : null; };
+      const bad = [];
+      const want = {
+        'Rubric rows': totalsN.rowSources.estateGenerated,
+        'Services covered': (intent['@graph'] || []).filter((n) => (n.name || '').startsWith('Intent Coverage —')).length,
+        'Registry pages': totalsN.pageCoverage.pagesTotal,
+        'Pages targeted': totalsN.pageCoverage.pagesTargeted,
+        'Nodes in this file': (intent['@graph'] || []).length,
+      };
+      for (const [k, v] of Object.entries(want)) { const got = grab(k); if (got !== v) bad.push(k + ': landing ' + got + ' != file ' + v); }
+      const hero = routeDoc.match(/(\d[\d,]*) generated rows/);
+      if (!hero || +hero[1].replace(/,/g, '') !== totalsN.rowSources.estateGenerated) bad.push('hero rows figure');
+      check('CV-5 intent landing body figures equal the dataset file totals (rows, services, pages, targeted, nodes)',
+        bad.length === 0, bad.slice(0, 3).join('; ') || JSON.stringify(want));
+    }
+
+    // CV-6: enrichment — datePublished table, catalog pointer,
+    // variableMeasured on exactly six files, spatialCoverage shape,
+    // and no version anywhere (parent decision D3).
+    {
+      const DATES = { 'answer-evidence': '2026-10-31', 'archive-registry': '2026-11-01', 'commercial': '2026-10-29', 'crating': '2026-10-29', 'crawl-presence': '2026-10-31', 'data-center-relocation': '2026-10-30', 'ffe-logistics': '2026-10-30', 'final-mile': '2026-10-29', 'freight-rework': '2026-11-01', 'government': '2026-10-29', 'gun-safe': '2026-10-29', 'industrial-commercial': '2026-10-29', 'industrial-offices': '2026-10-29', 'intent-coverage': '2026-10-30', 'ispm15': '2026-10-29', 'it': '2026-10-29', 'junk-removal': '2026-10-30', 'local-graph-registry': '2026-10-31', 'local-regional': '2026-10-29', 'long-distance': '2026-10-29', 'medical-lab-relocation': '2026-10-30', 'military': '2026-10-29', 'moving-and-storage': '2026-10-29', 'ocean-container': '2026-10-29', 'office': '2026-10-29', 'packing': '2026-10-29', 'piano-antique': '2026-10-29', 'residential': '2026-10-29', 'route81': '2026-10-29', 'search-index': '2026-10-31', 'senior': '2026-10-29', 'sir-heavy': '2026-10-29', 'transloading': '2026-10-29', 'transloading-inland-port': '2026-10-30', 'transloading-winchester': '2026-10-29', 'warehouse': '2026-10-29', 'warehouse-racking-relocation': '2026-10-30', 'white-glove': '2026-11-02' };
+      const VM = new Set(['intent-coverage', 'search-index', 'answer-evidence', 'crawl-presence', 'local-graph-registry', 'archive-registry']);
+      const NO_SC = new Set(['archive-registry', 'crawl-presence', 'local-graph-registry', 'videos']);
+      const bad = [];
+      for (const f of DATASET_FILES) {
+        const slug = f.replace(/^datasets-/, '').replace(/\.json$/, '');
+        const doc = readJ(pathx.join(PUB, f));
+        const dsNodes = (doc['@graph'] || []).filter((n) => typeHasX(n, 'Dataset'));
+        if (slug === 'videos') { if (dsNodes.length) bad.push('videos gained Dataset nodes'); continue; }
+        if (!dsNodes.length) { bad.push(f + ': no Dataset nodes'); continue; }
+        for (const n of dsNodes) {
+          if (n.datePublished !== DATES[slug]) bad.push(f + ' datePublished ' + n.datePublished);
+          if (!n.includedInDataCatalog || n.includedInDataCatalog['@id'] !== 'https://theflatratemovers.com/datasets/#collection') bad.push(f + ' catalog pointer');
+          if ('version' in n) bad.push(f + ' carries version (D3 hold)');
+          const hasVM = Array.isArray(n.variableMeasured) && n.variableMeasured.length > 0;
+          if (VM.has(slug) && !hasVM) bad.push(f + ' variableMeasured missing');
+          if (!VM.has(slug) && 'variableMeasured' in n) bad.push(f + ' variableMeasured unexpected');
+          if (NO_SC.has(slug)) { if ('spatialCoverage' in n) bad.push(f + ' spatialCoverage unexpected'); }
+          else {
+            const sc = n.spatialCoverage || [];
+            if (sc.length !== 2 || !sc.every((p) => p && p['@type'] === 'Place' && p.geo && typeof p.geo.latitude === 'number')) bad.push(f + ' spatialCoverage shape');
+          }
+          if (bad.length > 6) break;
+        }
+      }
+      check('CV-6 enrichment complete on all 38 Dataset-bearing files (datePublished per the sourced table, catalog pointer, variableMeasured on exactly the six measurement files, full-Place spatialCoverage on 35, version nowhere)',
+        bad.length === 0, bad.slice(0, 4).join('; ') || '38 files enriched per table');
+    }
+
+    // CV-7 + CV-8: local-graph registry totals and the backlink tier.
+    {
+      const lg = readJ(pathx.join(PUB, 'datasets-local-graph-registry.json'));
+      const totNode = (lg['@graph'] || []).find((n) => (n['@id'] || '').endsWith('#dataset-local-graph-registry-totals'));
+      const T = totNode.totals;
+      const bad = [];
+      if (T.sources !== 49) bad.push('sources ' + T.sources);
+      if (T.coverageCells !== 98) bad.push('cells ' + T.coverageCells);
+      if (T.thirdPartyRecords !== 120) bad.push('records ' + T.thirdPartyRecords);
+      if (T.consolidatedOwnerSteps !== 6) bad.push('owner steps ' + T.consolidatedOwnerSteps);
+      if (T.dateModified !== '2026-11-02') bad.push('DATE_MOD ' + T.dateModified);
+      const covNode = (lg['@graph'] || []).find((n) => (n['@id'] || '').endsWith('#dataset-local-graph-registry-coverage'));
+      for (const row of covNode.coverageMatrix) for (const b of ['winchester', 'martinsburg']) if (!row[b] || !row[b].state) bad.push('blank cell ' + row.sourceId + '/' + b);
+      const recNode = (lg['@graph'] || []).find((n) => (n['@id'] || '').endsWith('#dataset-local-graph-registry-records'));
+      const NEWCH = ['wikidata-company-item', 'wikidata-book-item', 'wikidata-dataset-item', 'openstreetmap-w-node', 'openstreetmap-m-node', 'google-publisher-center-company-publication', 'instagram-company-profile', 'threads-company-profile'];
+      for (const id of NEWCH) {
+        const r = recNode.thirdPartyRecords.find((x) => x.recordId === id);
+        if (!r) bad.push('missing record ' + id);
+        else if (r.lastVerified.date !== '2026-11-02') bad.push(id + ' lastVerified ' + r.lastVerified.date);
+      }
+      check('CV-7 local-graph registry: 49 sources x 2 = 98 cells, 120 records, exactly 6 owner steps, DATE_MOD 2026-11-02, eight new-channel records verified 2026-11-02',
+        bad.length === 0, bad.slice(0, 4).join('; ') || 'registry totals exact');
+
+      const blNode = (lg['@graph'] || []).find((n) => (n['@id'] || '').endsWith('#dataset-local-graph-registry-backlinks'));
+      const bad8 = [];
+      if (!blNode) bad8.push('backlinks node missing');
+      const entries = [];
+      if (blNode) {
+        for (const r of blNode.backlinkRecords || []) entries.push(r);
+      }
+      for (const r of recNode.thirdPartyRecords) for (const b of r.backlinks || []) entries.push(b);
+      const uniq = new Set(entries.map((e) => e.referring_domain + '|' + e.referring_page + '|' + e.target_url));
+      const recorded = entries.filter((e) => e.class === 'recorded').length;
+      const review = entries.filter((e) => e.class === 'review').length;
+      if (entries.length !== 33) bad8.push('entries ' + entries.length + ' != 33');
+      if (uniq.size !== entries.length) bad8.push('dedupe collision');
+      if (recorded !== 19) bad8.push('recorded ' + recorded + ' != 19');
+      if (review !== 14) bad8.push('review ' + review + ' != 14');
+      for (const e of entries) if (!e.source || !e.verification_status) bad8.push('entry without source/status: ' + e.referring_domain);
+      const FAILS = [
+        'eagleswing.org|https://eagleswing.org/united-states/winchester/christian-owned-businesses/the-flat-rate-movers|https://theflatratemovers.com',
+        'bulletinvision.com|https://bulletinvision.com/the-benefits-of-hiring-professional-movers-for-your-winchester-va-move|https://theflatratemovers.com/gun-safe-movers',
+        'bulletinvision.com|https://bulletinvision.com/the-benefits-of-hiring-professional-movers-for-your-winchester-va-move|https://theflatratemovers.com',
+        'bulletinvision.com|https://bulletinvision.com/the-benefits-of-hiring-professional-movers-for-your-winchester-va-move|https://theflatratemovers.com/online-estimate',
+        'vetbizlive.com|https://vetbizlive.com/united-states/winchester/transportation-logistics/the-flat-rate-movers|https://theflatratemovers.com',
+        'texomaland.com|https://texomaland.com/listings?lid=59292|https://theflatratemovers.com',
+        'allthought.com|https://allthought.com/biz/va/winchester/the-flat-rate-movers|https://theflatratemovers.com',
+        'longdistancemovinginwinchesterva.blogspot.com|https://longdistancemovinginwinchesterva.blogspot.com|https://theflatratemovers.com',
+        'longdistancemovinginwinchesterva.blogspot.com|https://longdistancemovinginwinchesterva.blogspot.com|https://theflatratemovers.com/gun-safe-movers',
+        'movingboxes-app.com|https://movingboxes-app.com/en/partner/nvdi5e65xd/0,0,1,0.html|https://theflatratemovers.com',
+        'movingboxes-app.com|https://movingboxes-app.com/de/partner/nvdi5e65xd|https://theflatratemovers.com',
+        'movingboxes-app.com|https://movingboxes-app.com/en/partner/nvdi5e65xd|https://theflatratemovers.com',
+        'starcourts.com|https://starcourts.com/make-money-at-home-with-affiliate-marketing|https://theflatratemovers.com',
+      ];
+      for (const f of FAILS) if (uniq.has(f)) bad8.push('FAIL row published: ' + f.split('|')[0]);
+      check('CV-8 backlink tier published exactly as verified: 19 recorded + 14 fetch-verified review entries, dedupe-unique, every entry sourced, zero FAIL rows',
+        bad8.length === 0, bad8.slice(0, 4).join('; ') || entries.length + ' entries (' + recorded + ' recorded, ' + review + ' review)');
     }
   }
 
