@@ -1,0 +1,12 @@
+{
+ "submitted": 5,
+ "urls": [
+  "https://theflatratemovers.com/sitemap.xml",
+  "https://theflatratemovers.com/sitemaps/pages.xml",
+  "https://theflatratemovers.com/sitemaps/datasets.xml",
+  "https://theflatratemovers.com/sitemaps/blog.xml",
+  "https://theflatratemovers.com/news-sitemap.xml"
+ ],
+ "endpoint": "https://api.indexnow.org/indexnow",
+ "http": 200
+}

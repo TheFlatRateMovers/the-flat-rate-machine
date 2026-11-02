@@ -161,6 +161,12 @@ def main():
                 "build-local-graph.js", "build-archive-registry.js"):
         run(["node", f"scripts/{gen}"])
 
+    phase("2b. sitemap sections + index, and the Google News sitemap "
+          "(registry/ledger-driven; before routes/middleware and the "
+          "digest phase so the sealed estate carries the architecture)")
+    run(["node", "scripts/build-sitemap.js"])
+    run(["node", "scripts/build-news-sitemap.js"])
+
     phase("3. llms-full (reads every dataset file; count from index)")
     run(["node", "scripts/build-llms-full.js",
          "--shell", os.path.join(REPO, "index.html"),

@@ -83,7 +83,7 @@ async function main() {
   check('pages.json count matches entries', pages.count === pages.pages.length,
     'count=' + pages.count + ', entries=' + pages.pages.length);
 
-  // --- 2. Live sitemap set equality (fetched fresh, not from disk) ---
+  // --- 2. Live sitemap architecture (fetched fresh, not from disk) ---
   // Rewritten by Batch Dataset Discoverability, 2026-10-30 (record:
   // out/verify-fix-2026-10-30-dataset-discoverability.md): the
   // sitemap now also lists the published dataset files (Dataset
@@ -91,8 +91,23 @@ async function main() {
   // set is pages.json URLs + dataset-file URLs, both derived —
   // stricter than the old pages-only premise, which this approved
   // batch superseded. Check names say what they now assert.
+  // Rewritten again by Batch Sitemap Architecture, 2026-11-02:
+  // sitemap.xml is now a sitemap INDEX over three section sitemaps
+  // (pages / datasets / blog) plus the Google News sitemap (Spec A);
+  // the set-equality checks run against the UNION of the sections,
+  // and a new check pins the index structure itself. Section
+  // assignment rule (declared in scripts/build-sitemap.js): datasets
+  // = /datasets/ registry pages + dataset files; blog = the blog hub
+  // + published ledger posts; pages = every remaining registry page.
+  const SECTION_URLS_SM = [
+    'https://theflatratemovers.com/sitemaps/pages.xml',
+    'https://theflatratemovers.com/sitemaps/datasets.xml',
+    'https://theflatratemovers.com/sitemaps/blog.xml',
+  ];
+  const NEWS_SM_URL = 'https://theflatratemovers.com/news-sitemap.xml';
   if (LOCAL) {
-    skipLive('live sitemap fetched');
+    skipLive('live sitemap index fetched');
+    skipLive('live sitemap.xml is a sitemap index referencing exactly the three section sitemaps and the news sitemap');
     skipLive('every pages.json URL is in the live sitemap');
     skipLive('every live sitemap URL is a registry page or a published dataset file');
     skipLive('live sitemap URL count matches registry + dataset files');
@@ -100,11 +115,21 @@ async function main() {
   let liveUrls = null;
   if (!LOCAL) {
     try {
-      const xml = await fetchText(LIVE_SITEMAP);
-      liveUrls = new Set([...xml.matchAll(/<loc>(.*?)<\/loc>/g)].map((m) => m[1].trim()));
-      check('live sitemap fetched', liveUrls.size > 0, liveUrls.size + ' URLs');
+      const indexXml = await fetchText(LIVE_SITEMAP);
+      const children = [...indexXml.matchAll(/<loc>(.*?)<\/loc>/g)].map((m) => m[1].trim());
+      const expectedChildren = [...SECTION_URLS_SM, NEWS_SM_URL];
+      check('live sitemap index fetched', indexXml.includes('<sitemapindex'), children.length + ' children');
+      check('live sitemap.xml is a sitemap index referencing exactly the three section sitemaps and the news sitemap',
+        children.length === expectedChildren.length && expectedChildren.every((u) => children.includes(u)),
+        'children=' + children.join(', '));
+      liveUrls = new Set();
+      for (const u of SECTION_URLS_SM) {
+        const sx = await fetchText(u);
+        for (const m of sx.matchAll(/<loc>(.*?)<\/loc>/g)) liveUrls.add(m[1].trim());
+      }
     } catch (e) {
-      check('live sitemap fetched', false, e.message);
+      check('live sitemap index fetched', false, e.message);
+      liveUrls = null;
     }
   }
   if (liveUrls) {
@@ -518,7 +543,7 @@ async function main() {
     skipLive('P-2 ai-master-index.jws verifies against the published key over the canonical served index');
     skipLive('P-3 all site-served distribution digests match the live served bytes');
     skipLive('P-4 every served index distribution entry is complete (name, contentUrl, encodingFormat, license, dateModified, SHA-256 digest + byteSize)');
-    skipLive('P-5 certificate covers all 224 per-page JSONs + all 224 route documents + llms-full.txt + the site shell + the deployed code sets (500 distributions)');
+    skipLive('P-5 certificate covers all 224 per-page JSONs + all 224 route documents + llms-full.txt + the site shell + the deployed code sets (524 distributions)');
     skipLive('P-6 all repo-served distribution digests match the live served bytes');
   } else {
   try {
@@ -821,12 +846,12 @@ async function main() {
       const hasLlmsFull = distUrls.has('https://theflatratemovers.com/llms-full.txt');
       p5ok = !!servedIndex && pageFiles.length === 224 && missingPages.length === 0 && missingCode.length === 0 &&
         missingRoutes.length === 0 && hasLlmsFull &&
-        (servedIndex.distribution || []).length === 523;
+        (servedIndex.distribution || []).length === 524;
       p5detail = 'pageFiles=' + pageFiles.length + ', missingPages=' + (missingPages.join(',') || '0') +
         ', missingCode=' + (missingCode.join(',') || '0') + ', missingRoutes=' + (missingRoutes.slice(0, 3).join(',') || '0') +
         ', llmsFull=' + hasLlmsFull + ', distributions=' + (servedIndex ? (servedIndex.distribution || []).length : 0);
     } catch (e) { p5ok = false; p5detail = e.message; }
-    check('P-5 certificate covers all 224 per-page JSONs + all 224 route documents + llms-full.txt + the site shell + the deployed code sets (500 distributions)',
+    check('P-5 certificate covers all 224 per-page JSONs + all 224 route documents + llms-full.txt + the site shell + the deployed code sets (524 distributions)',
       p5ok, p5detail);
 
     // P-6: repo-served distribution digests re-computed over live bytes
@@ -906,8 +931,14 @@ async function main() {
       skipLive('S-4 live sitemap lastmod values are real per-URL dates (valid format, 2026-10-28..today ET, not one blanket date)');
     } else {
     try {
-      const xml = await fetchText(LIVE_SITEMAP);
-      const mods = [...xml.matchAll(/<lastmod>(.*?)<\/lastmod>/g)].map((m) => m[1].trim());
+      const indexXmlS4 = await fetchText(LIVE_SITEMAP);
+      const sectionUrlsS4 = [...indexXmlS4.matchAll(/<loc>(.*?)<\/loc>/g)].map((m) => m[1].trim())
+        .filter((u) => u.includes('/sitemaps/'));
+      let mods = [];
+      for (const u of sectionUrlsS4) {
+        const sx = await fetchText(u);
+        mods = mods.concat([...sx.matchAll(/<lastmod>(.*?)<\/lastmod>/g)].map((m) => m[1].trim()));
+      }
       const todayET = new Date().toLocaleDateString('en-CA', { timeZone: 'America/New_York' });
       const fmtOk = mods.every((d) => /^\d{4}-\d{2}-\d{2}$/.test(d) && !isNaN(Date.parse(d)));
       const rangeOk = mods.every((d) => d >= '2026-10-28' && d <= todayET);
@@ -920,7 +951,7 @@ async function main() {
     }
     // S-5: robots.txt carries the explicit AI-crawler groups.
     if (LOCAL) {
-      skipLive('S-5 live robots.txt states explicit Allow groups for the 16 AI crawlers + wildcard + sitemap + llms.txt reference');
+      skipLive('S-5 live robots.txt states explicit Allow groups for the 16 AI crawlers + wildcard + sitemap index + news sitemap + llms.txt reference');
     } else {
     try {
       const robots = await fetchText('https://theflatratemovers.com/robots.txt');
@@ -928,9 +959,10 @@ async function main() {
         'Google-Extended', 'PerplexityBot', 'Perplexity-User', 'CCBot', 'Applebot-Extended',
         'Meta-ExternalAgent', 'cohere-ai', 'YouBot', 'DuckAssistBot', 'MistralAI-User'];
       const missingAgents = agents.filter((a) => !robots.includes('User-agent: ' + a));
-      check('S-5 live robots.txt states explicit Allow groups for the 16 AI crawlers + wildcard + sitemap + llms.txt reference',
+      check('S-5 live robots.txt states explicit Allow groups for the 16 AI crawlers + wildcard + sitemap index + news sitemap + llms.txt reference',
         missingAgents.length === 0 && robots.includes('User-agent: *') && robots.includes('Allow: /') &&
-        robots.includes('Sitemap: https://theflatratemovers.com/sitemap.xml') && robots.includes('llms.txt'),
+        robots.includes('Sitemap: https://theflatratemovers.com/sitemap.xml') &&
+        robots.includes('Sitemap: https://theflatratemovers.com/news-sitemap.xml') && robots.includes('llms.txt'),
         missingAgents.length ? 'missing: ' + missingAgents.join(', ') : 'all 16 groups present');
     } catch (e) {
       check('S-5 live robots.txt AI-crawler groups', false, e.message);
@@ -1330,13 +1362,30 @@ async function main() {
     check('D-2 every Dataset node (dataset files + all 224 route documents) carries landing url/unique sameAs, an identifier, isAccessibleForFree, typed distributions and a self-referencing DataDownload',
       badNodesD.length === 0 && shellCountD === 367 && routeDocsD.length === 224,
       'files + ' + shellCountD + ' route-document instances across ' + routeDocsD.length + ' documents' + (badNodesD.length ? ', bad: ' + badNodesD.slice(0, 4).join('; ') : ''));
-    // D-3: local sitemap set == registry pages + dataset files.
-    const localXmlD = fs.readFileSync(path.join(PAGES_PUBLIC, 'sitemap.xml'), 'utf8');
-    const localUrlsD = new Set([...localXmlD.matchAll(/<loc>(.*?)<\/loc>/g)].map((m) => m[1].trim()));
+    // D-3: local sitemap architecture — sitemap.xml is an index whose
+    // children are exactly the three section sitemaps plus the news
+    // sitemap, and the sections' URL union equals registry pages +
+    // dataset files. (Rewritten by Batch Sitemap Architecture,
+    // 2026-11-02; the news sitemap itself is pinned by §26 NS checks,
+    // never by membership in this set.)
+    const localIndexD = fs.readFileSync(path.join(PAGES_PUBLIC, 'sitemap.xml'), 'utf8');
+    const indexChildrenD = [...localIndexD.matchAll(/<loc>(.*?)<\/loc>/g)].map((m) => m[1].trim());
+    const expectedChildrenD = [
+      SITE_D + '/sitemaps/pages.xml', SITE_D + '/sitemaps/datasets.xml',
+      SITE_D + '/sitemaps/blog.xml', SITE_D + '/news-sitemap.xml',
+    ];
+    const localUrlsD = new Set();
+    for (const child of indexChildrenD.filter((u) => u.includes('/sitemaps/'))) {
+      const relD = child.replace(SITE_D + '/', '');
+      const sxD = fs.readFileSync(path.join(PAGES_PUBLIC, relD), 'utf8');
+      for (const m of sxD.matchAll(/<loc>(.*?)<\/loc>/g)) localUrlsD.add(m[1].trim());
+    }
     const expectedD = new Set([...pageUrlsD, ...dsFilesD.map((f) => SITE_D + '/' + f)]);
     const d3missing = [...expectedD].filter((u) => !localUrlsD.has(u));
     const d3extra = [...localUrlsD].filter((u) => !expectedD.has(u));
-    check('D-3 local sitemap.xml URL set equals pages.json URLs plus the published dataset files',
+    check('D-3 local sitemap architecture: the index references exactly the three section sitemaps plus the news sitemap, and the section URL union equals pages.json URLs plus the published dataset files',
+      localIndexD.includes('<sitemapindex') &&
+      indexChildrenD.length === expectedChildrenD.length && expectedChildrenD.every((u) => indexChildrenD.includes(u)) &&
       d3missing.length === 0 && d3extra.length === 0 && localUrlsD.size === expectedD.size,
       'local=' + localUrlsD.size + ', expected=' + expectedD.size +
       (d3missing.length ? ', missing: ' + d3missing.slice(0, 3).join(', ') : '') +
@@ -2189,8 +2238,9 @@ async function main() {
   // capture set (CP-4); the recorded posture must equal the decided
   // state and the live robots.txt must still digest-match the
   // recorded served file (CP-2 — the drift gate); the signal log's
-  // genesis entry must carry the full 22-field shape and a signature
-  // that verifies against the published JWKS key (CP-3).
+  // entries must each carry the full 22-field shape, chain by digest
+  // and carry signatures that verify against the published JWKS key,
+  // with the latest entry digest-matching the served file (CP-3).
   try {
     const { execFileSync: execCP } = require('child_process');
     const cryptoCP = require('crypto');
@@ -2240,26 +2290,42 @@ async function main() {
       policyCP.contentSignalAiTrain === 'unset' && (policyCP.usageTokenAiTraining || {}).state === 'absent',
       'liveDigest=' + liveDigestCP.slice(0, 12) + ', agents=' + (policyCP.agents || []).length + '/' + liveGroupsCP +
       ', drift=' + ((policyCP.driftGate || {}).result || 'missing'));
-    // CP-3: the signal-observation log shape + signature.
+    // CP-3: the signal-observation log — every entry's shape, the
+    // hash chain, every signature, and the LATEST entry against the
+    // live file. (Rewritten stricter by Batch Sitemap Architecture,
+    // 2026-11-02: the log gained its second entry when robots.txt
+    // deliberately changed — the news-sitemap Sitemap line — so the
+    // genesis-only form, which pinned the genesis entry's body digest
+    // as the drift evidence, would have failed the deliberate change
+    // or, worse, been waived. The gate now follows the chain.)
     const FIELDS_CP = ['entry_id', 'schema_version', 'observed_at', 'capturing_agent', 'mechanism', 'signal_url', 'scope', 'scope_value', 'http_status', 'response_headers_digest', 'body_digest', 'body_byte_size', 'raw_artifact_uri', 'parsed_directives', 'spec_version', 'archive_snapshot_uri', 'change_ref', 'effective_from', 'effective_to', 'prev_entry_digest', 'entry_digest', 'signature', 'signing_key_id'];
-    let sigOkCP = false, sigDetailCP = '';
+    let chainOkCP = true, sigAllOkCP = true, sigDetailCP = '';
     try {
       const jwksCP = JSON.parse(fs.readFileSync(path.join(PAGES_PUBLIC, '.well-known', 'signing-keys.json'), 'utf8'));
       const keyCP = (jwksCP.keys || []).find((k) => k.kid === 'theflatratemovers-2026-10-29-1');
-      const e0 = sigsCP[0] || {};
-      const jwkCP = { kty: keyCP.kty, crv: keyCP.crv, x: keyCP.x };
-      const pubCP = cryptoCP.createPublicKey({ key: jwkCP, format: 'jwk' });
-      sigOkCP = cryptoCP.verify(null, Buffer.from(e0.entry_digest || '', 'hex'), pubCP,
-        Buffer.from(e0.signature || '', 'base64url'));
-    } catch (e) { sigDetailCP = String(e.message).slice(0, 120); }
-    const e0CP = sigsCP[0] || {};
-    const fieldsOkCP = FIELDS_CP.every((f) => Object.prototype.hasOwnProperty.call(e0CP, f)) &&
-      Object.prototype.hasOwnProperty.call(e0CP, 'timestamp_token') && e0CP.timestamp_token === null &&
-      e0CP.prev_entry_digest === null && e0CP.http_status === 200 &&
-      e0CP.body_digest === liveDigestCP && e0CP.signing_key_id === 'theflatratemovers-2026-10-29-1';
-    check('CP-3 the signal-observation log carries the full 22-field shape (plus the unpopulated optional timestamp_token), the genesis entry digest-chains from null, its body digest equals the live robots.txt digest, and its Ed25519 signature verifies against the published JWKS key',
-      sigsCP.length === totCP.signalObservations && sigsCP.length >= 1 && fieldsOkCP && sigOkCP,
-      'entries=' + sigsCP.length + ', fieldsOk=' + fieldsOkCP + ', signatureVerifies=' + sigOkCP + (sigDetailCP ? ', ' + sigDetailCP : ''));
+      const pubCP = cryptoCP.createPublicKey({ key: { kty: keyCP.kty, crv: keyCP.crv, x: keyCP.x }, format: 'jwk' });
+      const idsCP = new Set();
+      sigsCP.forEach((e, i) => {
+        if (!FIELDS_CP.every((f) => Object.prototype.hasOwnProperty.call(e, f)) ||
+            !Object.prototype.hasOwnProperty.call(e, 'timestamp_token') || e.timestamp_token !== null ||
+            e.http_status !== 200 || e.signing_key_id !== 'theflatratemovers-2026-10-29-1' ||
+            idsCP.has(e.entry_id)) chainOkCP = false;
+        idsCP.add(e.entry_id);
+        if (i === 0) { if (e.prev_entry_digest !== null) chainOkCP = false; }
+        else if (e.prev_entry_digest !== sigsCP[i - 1].entry_digest) chainOkCP = false;
+        let okE = false;
+        try {
+          okE = cryptoCP.verify(null, Buffer.from(e.entry_digest || '', 'hex'), pubCP,
+            Buffer.from(e.signature || '', 'base64url'));
+        } catch (err) { sigDetailCP = String(err.message).slice(0, 120); }
+        if (!okE) sigAllOkCP = false;
+      });
+    } catch (e) { chainOkCP = false; sigAllOkCP = false; sigDetailCP = String(e.message).slice(0, 120); }
+    const latestCP = sigsCP[sigsCP.length - 1] || {};
+    check('CP-3 the signal-observation log is a signed hash chain: every entry carries the full 22-field shape (plus the unpopulated optional timestamp_token), the genesis entry chains from null, each later entry chains to its predecessor, entry ids are unique, every Ed25519 signature verifies against the published JWKS key, and the latest entry\u2019s body digest equals the live robots.txt digest',
+      sigsCP.length === totCP.signalObservations && sigsCP.length >= 1 && chainOkCP && sigAllOkCP &&
+      latestCP.body_digest === liveDigestCP,
+      'entries=' + sigsCP.length + ', chainOk=' + chainOkCP + ', signaturesVerify=' + sigAllOkCP + (sigDetailCP ? ', ' + sigDetailCP : ''));
     // CP-4: honesty states — no zero-filled presence.
     const QS_CP = ['queried-clean', 'partial', 'unverifiable-index-error'];
     const ERAS_CP = ['current-estate', 'pre-cutover-wordpress', 'wix-era', 'earlier-predecessor'];
@@ -2466,8 +2532,15 @@ async function main() {
       shellBlocks.bad === 0 && shellBlocks.n >= 80 &&
       shellText.includes('<script type="application/ld+json" id="page-jsonld">{"@context":"https://schema.org","@graph":[]}</script>'),
       'blocks=' + shellBlocks.n + ', unparseable=' + shellBlocks.bad);
-    const smXml = fs.readFileSync(path.join(PAGES_PUBLIC, 'sitemap.xml'), 'utf8');
-    const locs = [...smXml.matchAll(/<loc>(.*?)<\/loc>/g)].map((m) => m[1].trim());
+    const smIndexPS = fs.readFileSync(path.join(PAGES_PUBLIC, 'sitemap.xml'), 'utf8');
+    const sectionFilesPS = [...smIndexPS.matchAll(/<loc>(.*?)<\/loc>/g)].map((m) => m[1].trim())
+      .filter((u) => u.includes('/sitemaps/'));
+    let locs = [];
+    for (const u of sectionFilesPS) {
+      const relPS = u.replace('https://theflatratemovers.com/', '');
+      const sxPS = fs.readFileSync(path.join(PAGES_PUBLIC, relPS), 'utf8');
+      locs = locs.concat([...sxPS.matchAll(/<loc>(.*?)<\/loc>/g)].map((m) => m[1].trim()));
+    }
     const pageLocs = locs.filter((u) => !/\.(json|jsonld|geojson|txt)$/.test(u));
     let routeBad = 0, routeBlocks = 0, routeDocs = 0;
     for (const u of pageLocs) {
@@ -2581,6 +2654,141 @@ async function main() {
     }
   } catch (e) {
     check('head-hub checks (HH-1..HH-4) evaluated', false, e.message);
+  }
+
+  // --- 26. News sitemap — Batch Sitemap Architecture (2026-11-02; checks NS-1..NS-5) ---
+  // Spec A of the News Formula dossier
+  // (theflatratemovers/retrieval-machine/google-news-requirements-2026-11-02.md):
+  // news-sitemap.xml is generated by scripts/build-news-sitemap.js in
+  // seal phase 2b from the blog ledger + page registry, copying each
+  // post's schema datePublished and headline verbatim. These checks pin
+  // that contract: the file is live as XML with the same entry set as
+  // the sealed local file (NS-1); the local file is a well-formed news
+  // urlset within the 1,000-URL cap (NS-2); every entry is a published
+  // ledger post with a route document whose date and title byte-match
+  // its BlogPosting schema (NS-3); the publication name and language
+  // are exact on every entry (NS-4); and the entry set is exactly the
+  // published ledger posts inside the 48-hour window at generation
+  // time — the local file's mtime, written by the generator in the
+  // seal and preserved by the tree rsync (NS-5).
+  try {
+    const parseCsvNS = (text) => {
+      const rows = []; let row = [], field = '', inQ = false;
+      for (let i = 0; i < text.length; i++) {
+        const c = text[i];
+        if (inQ) {
+          if (c === '"') { if (text[i + 1] === '"') { field += '"'; i++; } else inQ = false; }
+          else field += c;
+        } else if (c === '"') inQ = true;
+        else if (c === ',') { row.push(field); field = ''; }
+        else if (c === '\n') { row.push(field); field = ''; rows.push(row); row = []; }
+        else if (c !== '\r') field += c;
+      }
+      if (field.length || row.length) { row.push(field); rows.push(row); }
+      return rows;
+    };
+    const rowsNS = parseCsvNS(fs.readFileSync(path.join(FLAT, 'blog-project', 'ledger.csv'), 'utf8'));
+    const hNS = rowsNS[0];
+    const publishedNS = new Set();
+    for (const r of rowsNS.slice(1)) {
+      const slug = (r[hNS.indexOf('slug')] || '').trim();
+      if (slug && /published/i.test(r[hNS.indexOf('status')] || '')) publishedNS.add(slug);
+    }
+    const schemaNS = (slug) => {
+      const pj = JSON.parse(fs.readFileSync(path.join(PAGES_PUBLIC, slug + '.json'), 'utf8'));
+      const nodes = Array.isArray(pj['@graph']) ? pj['@graph'] : [pj];
+      return nodes.find((n) => String(n['@type']).includes('BlogPosting')) || {};
+    };
+    const nyOffsetNS = (utcMs) => {
+      const dtf = new Intl.DateTimeFormat('en-US', {
+        timeZone: 'America/New_York', hourCycle: 'h23',
+        year: 'numeric', month: '2-digit', day: '2-digit',
+        hour: '2-digit', minute: '2-digit', second: '2-digit',
+      });
+      const parts = {};
+      for (const p of dtf.formatToParts(new Date(utcMs))) parts[p.type] = p.value;
+      const asUtc = Date.UTC(+parts.year, +parts.month - 1, +parts.day, +parts.hour, +parts.minute, +parts.second);
+      return asUtc - Math.floor(utcMs / 1000) * 1000;
+    };
+    const toInstantNS = (s) => {
+      if (/^\d{4}-\d{2}-\d{2}$/.test(s)) {
+        const guess = Date.parse(s + 'T00:00:00Z');
+        return guess - nyOffsetNS(guess);
+      }
+      return Date.parse(s);
+    };
+    const xmlEscNS = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&apos;');
+    const parseNewsNS = (xml) => {
+      const entries = [];
+      for (const m of xml.matchAll(/<url>([\s\S]*?)<\/url>/g)) {
+        const b = m[1];
+        const g = (re) => { const mm = b.match(re); return mm ? mm[1].trim() : null; };
+        entries.push({
+          loc: g(/<loc>(.*?)<\/loc>/),
+          name: g(/<news:name>(.*?)<\/news:name>/),
+          lang: g(/<news:language>(.*?)<\/news:language>/),
+          date: g(/<news:publication_date>(.*?)<\/news:publication_date>/),
+          title: g(/<news:title>(.*?)<\/news:title>/),
+        });
+      }
+      return entries;
+    };
+    const newsPathNS = path.join(PAGES_PUBLIC, 'news-sitemap.xml');
+    const localNewsXmlNS = fs.readFileSync(newsPathNS, 'utf8');
+    const localEntriesNS = parseNewsNS(localNewsXmlNS);
+    const genMsNS = fs.statSync(newsPathNS).mtimeMs;
+    const expectedNS = new Set();
+    for (const slug of publishedNS) {
+      const bp = schemaNS(slug);
+      if (!bp.datePublished) continue;
+      const age = genMsNS - toInstantNS(bp.datePublished);
+      if (age <= 48 * 3600 * 1000 && age >= -5 * 60 * 1000) expectedNS.add(slug);
+    }
+    const problemsNS = [];
+    const seenSlugsNS = new Set();
+    for (const e of localEntriesNS) {
+      const pg = pages.pages.find((p) => p.url === e.loc);
+      if (!pg) { problemsNS.push(String(e.loc) + ' (not a registry URL)'); continue; }
+      seenSlugsNS.add(pg.slug);
+      if (!publishedNS.has(pg.slug)) problemsNS.push(pg.slug + ' (not a published ledger post)');
+      const bp = schemaNS(pg.slug);
+      if (e.date !== bp.datePublished) problemsNS.push(pg.slug + ' (date ' + e.date + ' != schema ' + bp.datePublished + ')');
+      if (e.title !== xmlEscNS(bp.headline || '')) problemsNS.push(pg.slug + ' (title != schema headline)');
+      if (!fs.existsSync(path.join(PAGES_PUBLIC, pg.slug, 'index.html'))) problemsNS.push(pg.slug + ' (no route document)');
+    }
+    check('NS-2 the local news-sitemap.xml is a well-formed news urlset (news namespace declared, every entry complete) within the 1,000-URL cap',
+      localNewsXmlNS.includes('<urlset') && localNewsXmlNS.includes('xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"') &&
+      localEntriesNS.every((e) => e.loc && e.date && e.title) && localEntriesNS.length <= 1000,
+      'entries=' + localEntriesNS.length);
+    check('NS-3 every news sitemap entry is a published ledger post with a route document, and its publication_date and title byte-match the post\u2019s BlogPosting schema',
+      problemsNS.length === 0, problemsNS.slice(0, 4).join('; ') || 'all entries match their schema');
+    check('NS-4 every news sitemap entry names the publication exactly "The Flat Rate Movers" with language en',
+      localEntriesNS.every((e) => e.name === 'The Flat Rate Movers' && e.lang === 'en'),
+      'entries=' + localEntriesNS.length);
+    check('NS-5 the news sitemap entry set is exactly the published ledger posts inside the 48-hour window at generation time',
+      seenSlugsNS.size === expectedNS.size && [...expectedNS].every((s) => seenSlugsNS.has(s)),
+      'entries=' + [...seenSlugsNS].join(', ') + '; expected=' + [...expectedNS].join(', '));
+    if (LOCAL) {
+      skipLive('NS-1 news-sitemap.xml is live (HTTP 200, XML content type) and its entry set equals the local sealed file');
+    } else {
+      const fetchFullNS = (url) => new Promise((resolve, reject) => {
+        https.get(url, (res) => {
+          const chunks = [];
+          res.on('data', (c) => { chunks.push(c); });
+          res.on('end', () => resolve({ status: res.statusCode, ct: res.headers['content-type'] || '', body: Buffer.concat(chunks).toString('utf8') }));
+        }).on('error', reject);
+      });
+      const liveNS = await fetchFullNS('https://theflatratemovers.com/news-sitemap.xml');
+      const liveEntriesNS = parseNewsNS(liveNS.body);
+      const sameSetNS = liveEntriesNS.length === localEntriesNS.length &&
+        liveEntriesNS.every((e) => localEntriesNS.some((l) => l.loc === e.loc && l.date === e.date && l.title === e.title));
+      check('NS-1 news-sitemap.xml is live (HTTP 200, XML content type) and its entry set equals the local sealed file',
+        liveNS.status === 200 && /xml/.test(liveNS.ct) && sameSetNS,
+        'status=' + liveNS.status + ', ct=' + liveNS.ct + ', liveEntries=' + liveEntriesNS.length);
+    }
+  } catch (e) {
+    check('news sitemap checks (NS-1..NS-5) evaluated', false, e.message);
   }
 
   // --- 9. Guardrail scan: no placeholders, no invented license identifiers ---
