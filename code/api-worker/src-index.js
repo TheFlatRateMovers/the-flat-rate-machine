@@ -36,6 +36,25 @@ for (const d of masterIndex.distribution || []) {
 const servicesById = new Map(services.map((s) => [s.id, s]));
 const inventoryByFile = new Map(datasetsInventory.map((d) => [d.file, d]));
 
+// ------------------------------------------------------------------ counts
+// Every figure this worker publishes — the landing page, the MCP tool
+// descriptions, the OpenAPI document — is computed here from the same
+// bundled data the endpoints serve, so a published number can never
+// drift from the data itself again.
+const indexDistributions = masterIndex.distribution || [];
+const COUNTS = {
+  services: services.length,
+  datasets: datasetsInventory.length,
+  intentRows: intentRows.length,
+  // Pages = the site's HTML documents carried in the signed index: the
+  // per-route documents plus the dataset landing pages, counted from
+  // the index rather than restated as prose.
+  pages: indexDistributions.filter(
+    (d) => d.encodingFormat === 'text/html'
+      && String(d.contentUrl || '').startsWith(BASE)).length,
+  distributions: indexDistributions.length,
+};
+
 const CORS = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
@@ -174,7 +193,7 @@ async function verifyFile(file) {
 const TOOLS = [
   {
     name: 'list_services',
-    description: 'List all 30 services in The Flat Rate Movers estate registry, with ids, names, page URLs, backing datasets and intent-row counts.',
+    description: `List all ${COUNTS.services} services in The Flat Rate Movers estate registry, with ids, names, page URLs, backing datasets and intent-row counts.`,
     inputSchema: { type: 'object', properties: {} },
   },
   {
@@ -188,7 +207,7 @@ const TOOLS = [
   },
   {
     name: 'list_datasets',
-    description: 'Inventory of the 39 published datasets: file name, file URL, landing page, identifier and SHA-256.',
+    description: `Inventory of the ${COUNTS.datasets} published datasets: file name, file URL, landing page, identifier and SHA-256.`,
     inputSchema: { type: 'object', properties: {} },
   },
   {
@@ -202,7 +221,7 @@ const TOOLS = [
   },
   {
     name: 'search_intent',
-    description: `Search the ${bundleManifest.intentRows}-row search-intent rubric (v2): the strings people use to find each service, each bound to its target page, datasets and certificates, and each carrying its generation source, era-tagged Search Console evidence and five-gate outcome state. Filter by service, area, intent_class or a text query q.`,
+    description: `Search the ${COUNTS.intentRows}-row search-intent rubric (v2): the strings people use to find each service, each bound to its target page, datasets and certificates, and each carrying its generation source, era-tagged Search Console evidence and five-gate outcome state. Filter by service, area, intent_class or a text query q.`,
     inputSchema: {
       type: 'object',
       properties: {
@@ -306,7 +325,8 @@ async function handleMcp(request) {
 }
 
 // ------------------------------------------------------------------ landing
-const LANDING = `<!DOCTYPE html>
+function landingHtml() {
+  return `<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -323,17 +343,23 @@ The datasets served here are also mirrored on Hugging Face
 and archived on Zenodo under concept DOI <a href="https://doi.org/${CONCEPT_DOI}">${CONCEPT_DOI}</a>.</p>
 <p>Read-only public API for <strong>The Flat Rate Machine</strong>, the verified data
 system of The Flat Rate Movers LLC — its machine-readable estate
-(Winchester, VA and Martinsburg, WV): 30 services, 39 datasets, the entity graph,
-the signed master index, and the ${bundleManifest.intentRows}-row search-intent rubric. Every file served
+(Winchester, VA and Martinsburg, WV): ${COUNTS.services} services, ${COUNTS.datasets} datasets, the entity graph,
+the signed master index, and the ${COUNTS.intentRows}-row search-intent rubric. Every file served
 here is byte-identical to the copy at
 <a href="https://theflatratemovers.com/">theflatratemovers.com</a> and is listed in
 the signed provenance index (Ed25519, key id <code>${KID}</code>).</p>
+<p><strong>Live counts</strong> — computed from the same bundled data the endpoints
+serve, at the moment this page is rendered: ${COUNTS.services} services ·
+${COUNTS.datasets} datasets · ${COUNTS.pages} pages · ${COUNTS.intentRows} intent rows ·
+${COUNTS.distributions} signed distributions in the master index. A machine-readable
+description of every endpoint is at <a href="/openapi.json"><code>GET /openapi.json</code></a>
+(OpenAPI 3).</p>
 <p><strong>The intent feed (v2).</strong> <code>GET /v1/intent</code> serves the estate's
 search-intent rubric as data: every row is a query string customers and AI assistants use
-to find one of the 30 services, resolved to the page that answers it, and usable directly
+to find one of the ${COUNTS.services} services, resolved to the page that answers it, and usable directly
 as a suggestion — query text, intent class, target page and outcome state ride on every
-row. Version 2 covers all 224 pages of the site and adds, per row, its generation source,
-era-tagged Google Search Console evidence where the pre-rebuild window observed the row's
+row. Version 2 covers all ${COUNTS.pages} pages of the site and adds, per row, its generation source,
+era-tagged Google Search Console evidence where an observation window recorded the row's
 page, and an outcome record across five gates — crawled, indexed, understood, corroborated,
 cited-and-maintained — that stays unmarked until evidence is recorded for it, so the feed
 proves coverage without claiming performance it has not measured. Cite the rubric as:
@@ -354,7 +380,25 @@ The Flat Rate Movers, <em>Search Intent Coverage Dataset</em>,
 <li><code>GET /v1/graph</code> — the best entity graph</li>
 <li><code>GET /v1/index</code> — the signed master index</li>
 <li><code>GET /v1/verify?file={filename}</code> — live SHA-256 vs the signed index</li>
+<li><code>GET /openapi.json</code> — this API as an OpenAPI 3 document</li>
 <li><code>POST /mcp</code> — MCP JSON-RPC endpoint (tools: list_services, get_service, list_datasets, get_dataset, search_intent, verify_file)</li>
+</ul>
+<h2>Access, caching and limits</h2>
+<ul>
+<li><strong>Authentication:</strong> none. Every endpoint is public and read-only; no
+API key, account or token is required or accepted.</li>
+<li><strong>Methods:</strong> GET on every data endpoint; POST only on <code>/mcp</code>
+(stateless JSON-RPC 2.0). CORS is open (<code>Access-Control-Allow-Origin: *</code>).</li>
+<li><strong>Caching:</strong> the worker sets no <code>Cache-Control</code> headers of
+its own. Each response is rendered per request from the bundled estate snapshot, and
+this page's counts are computed from that same snapshot — the snapshot is refreshed
+and the worker redeployed whenever the estate republishes, so the figures above
+always describe the data the endpoints are serving right now.</li>
+<li><strong>Rate limits:</strong> the worker applies none — no throttling, quotas or
+key-based limits are implemented.</li>
+<li><strong>Provenance:</strong> every dataset payload is byte-identical to the file
+at theflatratemovers.com and digest-listed in the signed master index;
+<code>GET /v1/verify?file=</code> re-hashes the live file and compares it for you.</li>
 </ul>
 <h2>Records</h2>
 <ul>
@@ -364,6 +408,221 @@ The Flat Rate Movers, <em>Search Intent Coverage Dataset</em>,
 </ul>
 </body>
 </html>`;
+}
+
+// ----------------------------------------------------------------- openapi
+const tableParam = (values) => ({
+  name: 'table', in: 'query', required: false,
+  description: 'Return one table of the dataset instead of the whole file.',
+  schema: { type: 'string', enum: values },
+});
+const datasetDocResponse = (summary) => ({
+  description: summary,
+  content: { 'application/json': { schema: { type: 'object' } } },
+});
+const OPENAPI = {
+  openapi: '3.0.3',
+  info: {
+    title: 'The Flat Rate Machine — The Flat Rate Movers\' Verified Data API',
+    version: API_VERSION,
+    description: `Read-only public API for the machine-readable estate of The Flat Rate Movers LLC (Winchester, VA and Martinsburg, WV): ${COUNTS.services} services, ${COUNTS.datasets} datasets, the entity graph, the signed master index (Ed25519, key id ${KID}) and the ${COUNTS.intentRows}-row search-intent rubric. No authentication; every endpoint is public. Dataset payloads are byte-identical to the files at https://theflatratemovers.com/. Counts in this document were computed from the same bundled data the endpoints serve.`,
+    license: { name: 'CC BY 4.0', url: 'https://creativecommons.org/licenses/by/4.0/' },
+    contact: { name: 'The Flat Rate Movers', url: 'https://theflatratemovers.com/' },
+  },
+  servers: [{ url: 'https://api.theflatratemovers.com' }],
+  paths: {
+    '/': {
+      get: {
+        summary: 'Landing page',
+        description: 'Human-readable overview of this API, with counts computed live from the served data.',
+        responses: { '200': { description: 'HTML landing page.', content: { 'text/html': { schema: { type: 'string' } } } } },
+      },
+    },
+    '/openapi.json': {
+      get: {
+        summary: 'This OpenAPI document',
+        responses: { '200': { description: 'The OpenAPI 3 description of this API.', content: { 'application/json': { schema: { type: 'object' } } } } },
+      },
+    },
+    '/v1/services': {
+      get: {
+        summary: 'List all services',
+        responses: { '200': { description: 'Service registry summaries.', content: { 'application/json': { schema: { type: 'object', properties: { count: { type: 'integer' }, services: { type: 'array', items: { $ref: '#/components/schemas/ServiceSummary' } } }, required: ['count', 'services'] } } } } },
+      },
+    },
+    '/v1/services/{service_id}': {
+      get: {
+        summary: 'Get one service',
+        parameters: [{ name: 'service_id', in: 'path', required: true, schema: { type: 'string' }, example: 'service-commercial' }],
+        responses: {
+          '200': { description: 'The service summary plus its full entity-graph node and dataset file records.', content: { 'application/json': { schema: { allOf: [{ $ref: '#/components/schemas/ServiceSummary' }, { type: 'object', properties: { node: { type: 'object' }, datasetFiles: { type: 'array', items: { type: 'object' } } } }] } } } },
+          '404': { $ref: '#/components/responses/Error' },
+        },
+      },
+    },
+    '/v1/datasets': {
+      get: {
+        summary: 'Dataset inventory',
+        responses: { '200': { description: 'Inventory of every published dataset file.', content: { 'application/json': { schema: { type: 'object', properties: { count: { type: 'integer' }, datasets: { type: 'array', items: { $ref: '#/components/schemas/DatasetRecord' } } }, required: ['count', 'datasets'] } } } } },
+      },
+    },
+    '/v1/datasets/{name}': {
+      get: {
+        summary: 'Get a dataset file',
+        description: 'The dataset\'s full JSON, byte-identical to the live file. Pass the file name (datasets-commercial.json) or its short name (commercial).',
+        parameters: [{ name: 'name', in: 'path', required: true, schema: { type: 'string' }, example: 'datasets-commercial.json' }],
+        responses: {
+          '200': datasetDocResponse('The dataset document (JSON-LD, schema.org Dataset graph).'),
+          '404': { $ref: '#/components/responses/Error' },
+        },
+      },
+    },
+    '/v1/intent': {
+      get: {
+        summary: 'Search the intent rubric',
+        description: 'Filtered, paginated rows of the search-intent rubric (v2).',
+        parameters: [
+          { name: 'service', in: 'query', required: false, schema: { type: 'string' }, description: 'Service id, e.g. service-commercial.' },
+          { name: 'area', in: 'query', required: false, schema: { type: 'string' }, description: 'Exact area value carried on the row.' },
+          { name: 'intent_class', in: 'query', required: false, schema: { type: 'string', enum: ['navigational-local', 'cost', 'how-process', 'best-choice', 'ai-question'] } },
+          { name: 'q', in: 'query', required: false, schema: { type: 'string' }, description: 'Case-insensitive substring match on the query text.' },
+          { name: 'limit', in: 'query', required: false, schema: { type: 'integer', default: 50, maximum: 200 } },
+          { name: 'offset', in: 'query', required: false, schema: { type: 'integer', default: 0, minimum: 0 } },
+        ],
+        responses: { '200': { description: 'One page of intent rows.', content: { 'application/json': { schema: { type: 'object', properties: { total: { type: 'integer' }, limit: { type: 'integer' }, offset: { type: 'integer' }, results: { type: 'array', items: { type: 'object' } } }, required: ['total', 'limit', 'offset', 'results'] } } } } },
+      },
+    },
+    '/v1/answer-evidence': {
+      get: {
+        summary: 'Answer-engine evidence dataset',
+        parameters: [tableParam(['questions', 'fragments', 'coverage', 'profiles', 'observations', 'reviews', 'gaps'])],
+        responses: { '200': datasetDocResponse('The full dataset file (no ?table) or the single requested table node.'), '404': { $ref: '#/components/responses/Error' } },
+      },
+    },
+    '/v1/local-graph': {
+      get: {
+        summary: 'Local graph registry dataset',
+        parameters: [tableParam(['branches', 'records', 'coverage', 'reviews', 'collisions', 'gaps', 'owner-steps'])],
+        responses: { '200': datasetDocResponse('The full dataset file (no ?table) or the single requested table node.'), '404': { $ref: '#/components/responses/Error' } },
+      },
+    },
+    '/v1/crawl-presence': {
+      get: {
+        summary: 'Crawl-presence registry dataset',
+        parameters: [tableParam(['collections', 'presence', 'summary', 'robots', 'signals', 'inspections', 'releases', 'gaps', 'mechanisms'])],
+        responses: { '200': datasetDocResponse('The full dataset file (no ?table) or the single requested table node.'), '404': { $ref: '#/components/responses/Error' } },
+      },
+    },
+    '/v1/archives': {
+      get: {
+        summary: 'Archive registry dataset',
+        parameters: [tableParam(['targets', 'captures', 'deposits', 'github', 'local-archive', 'verification', 'runs', 'gaps', 'channels', 'totals'])],
+        responses: { '200': datasetDocResponse('The full dataset file (no ?table) or the single requested table node.'), '404': { $ref: '#/components/responses/Error' } },
+      },
+    },
+    '/v1/graph': {
+      get: {
+        summary: 'The best entity graph',
+        responses: { '200': datasetDocResponse('best-json-entity-graph.json, byte-identical to the live file.') },
+      },
+    },
+    '/v1/index': {
+      get: {
+        summary: 'The signed master index',
+        responses: { '200': datasetDocResponse('ai-master-index.json: every signed distribution of the estate with its SHA-256 digest.') },
+      },
+    },
+    '/v1/verify': {
+      get: {
+        summary: 'Verify a file against the signed index',
+        description: 'Fetches the live file, hashes it, and compares the digest with the signed master index entry.',
+        parameters: [{ name: 'file', in: 'query', required: true, schema: { type: 'string' }, example: 'datasets-commercial.json' }],
+        responses: {
+          '200': { description: 'Verification result.', content: { 'application/json': { schema: { $ref: '#/components/schemas/VerifyResult' } } } },
+          '400': { $ref: '#/components/responses/Error' },
+        },
+      },
+    },
+    '/mcp': {
+      post: {
+        summary: 'MCP endpoint (JSON-RPC 2.0, stateless)',
+        description: `Model Context Protocol endpoint. Methods: initialize, ping, tools/list, tools/call. Tools: ${TOOLS.map((t) => t.name).join(', ')}.`,
+        requestBody: {
+          required: true,
+          content: {
+            'application/json': {
+              schema: {
+                type: 'object',
+                properties: {
+                  jsonrpc: { type: 'string', enum: ['2.0'] },
+                  id: { type: ['string', 'number', 'null'] },
+                  method: { type: 'string', enum: ['initialize', 'ping', 'tools/list', 'tools/call'] },
+                  params: { type: 'object' },
+                },
+                required: ['jsonrpc', 'method'],
+              },
+            },
+          },
+        },
+        responses: {
+          '200': { description: 'JSON-RPC result or error object.', content: { 'application/json': { schema: { type: 'object' } } } },
+          '202': { description: 'Notification accepted; no body.' },
+        },
+      },
+    },
+  },
+  components: {
+    schemas: {
+      ServiceSummary: {
+        type: 'object',
+        properties: {
+          id: { type: 'string' },
+          graphId: { type: 'string' },
+          name: { type: 'string' },
+          serviceType: { type: 'string' },
+          url: { type: 'string', format: 'uri' },
+          description: { type: 'string' },
+          datasets: { type: 'array', items: { type: 'string' } },
+          intentRowCount: { type: 'integer' },
+        },
+      },
+      DatasetRecord: {
+        type: 'object',
+        properties: {
+          file: { type: 'string' },
+          name: { type: 'string' },
+          fileUrl: { type: 'string', format: 'uri' },
+          landingPage: { type: 'string', format: 'uri' },
+          landingSource: { type: 'string' },
+          identifier: { type: 'string', nullable: true },
+          sha256: { type: 'string' },
+          byteSize: { type: 'integer' },
+          signedIndexMatch: { type: 'boolean', nullable: true },
+        },
+      },
+      VerifyResult: {
+        type: 'object',
+        properties: {
+          file: { type: 'string' },
+          url: { type: 'string', format: 'uri' },
+          liveSha256: { type: 'string' },
+          signedIndexDigest: { type: 'string', nullable: true },
+          match: { type: 'boolean', nullable: true },
+          kid: { type: 'string' },
+          source: { type: 'string', enum: ['live', 'bundle'] },
+          error: { type: 'string' },
+        },
+        required: ['file', 'url'],
+      },
+    },
+    responses: {
+      Error: {
+        description: 'Error object.',
+        content: { 'application/json': { schema: { type: 'object', properties: { error: { type: 'string' } }, required: ['error'] } } },
+      },
+    },
+  },
+};
 
 // -------------------------------------------------------------------- main
 export default {
@@ -385,7 +644,8 @@ export default {
       return errorJson('Method not allowed', 405);
     }
 
-    if (path === '/') return textResponse(LANDING, 'text/html; charset=utf-8');
+    if (path === '/') return textResponse(landingHtml(), 'text/html; charset=utf-8');
+    if (path === '/openapi.json') return jsonResponse(OPENAPI);
     if (path === '/v1/services') {
       return jsonResponse({ count: services.length, services: services.map(serviceSummary) });
     }

@@ -300,6 +300,17 @@ const GAPS = [
 const pagesReg = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'pages.json'), 'utf8'));
 const servicesReg = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'services.json'), 'utf8'));
 const geo = JSON.parse(fs.readFileSync(path.join(PUB, 'service-area.geojson'), 'utf8'));
+// Footprint membership: the geojson now carries a scalar `branch`
+// property per feature ('winchester' | 'martinsburg' | 'both'); earlier
+// exports carried a `branches` array. Normalise both shapes to a
+// membership list so the footprint counts follow the file as published.
+function featureBranches(f) {
+  const p = (f && f.properties) || {};
+  if (Array.isArray(p.branches)) return p.branches;
+  if (p.branch === 'both') return ['winchester', 'martinsburg'];
+  return p.branch ? [p.branch] : [];
+}
+const inFootprint = (f, b) => featureBranches(f).includes(b);
 const shell = fs.readFileSync(path.join(REPO_DIR, 'index.html'), 'utf8');
 const headDataSrc = fs.readFileSync(path.join(PAGES_DIR, 'functions', 'head-data.js'), 'utf8');
 
@@ -658,14 +669,14 @@ const graph = [
   },
   {
     ...baseNode(SITE + '/#dataset-search-index-scope', 'Dataset', 'Search Index Scope and Footprint',
-      'The scope the standing system measures: ' + pagesReg.pages.length + ' pages in the registry, ' + servicesReg.services.length + ' published services, and the ' + geo.features.length + '-feature service-area footprint (Winchester footprint ' + geo.features.filter((f) => (f.properties.branches || []).includes('winchester')).length + ' areas, Martinsburg footprint ' + geo.features.filter((f) => (f.properties.branches || []).includes('martinsburg')).length + ' areas, ' + geo.features.filter((f) => (f.properties.branches || []).length > 1).length + ' shared). The two branches are distinct in every table of this file: Winchester is The Flat Rate Movers (116 W Piccadilly St Suite 11, Winchester, VA 22601; hours Mon-Fri 8-6, Sat 8-4, Sun 9-4; Google rating 5.0 from 1 review) and Martinsburg is Flat Rate Movers Martinsburg WV (736 Williamsport Pike Suite 2, Martinsburg, WV 25404; hours Mon-Fri 9-6, Sat 9-4, Sun 9-4; Google rating 4.7 from 6 reviews). Branch facts are never blended.'),
+      'The scope the standing system measures: ' + pagesReg.pages.length + ' pages in the registry, ' + servicesReg.services.length + ' published services, and the ' + geo.features.length + '-feature service-area footprint (Winchester footprint ' + geo.features.filter((f) => inFootprint(f, 'winchester')).length + ' areas, Martinsburg footprint ' + geo.features.filter((f) => inFootprint(f, 'martinsburg')).length + ' areas, ' + geo.features.filter((f) => featureBranches(f).length > 1).length + ' shared). The two branches are distinct in every table of this file: Winchester is The Flat Rate Movers (116 W Piccadilly St Suite 11, Winchester, VA 22601; hours Mon-Fri 8-6, Sat 8-4, Sun 9-4; Google rating 5.0 from 1 review) and Martinsburg is Flat Rate Movers Martinsburg WV (736 Williamsport Pike Suite 2, Martinsburg, WV 25404; hours Mon-Fri 9-6, Sat 9-4, Sun 9-4; Google rating 4.7 from 6 reviews). Branch facts are never blended.'),
     coverage: {
       pagesInRegistry: pagesReg.pages.length,
       servicesPublished: servicesReg.services.length,
       geojsonFeatures: geo.features.length,
-      winchesterFootprint: geo.features.filter((f) => (f.properties.branches || []).includes('winchester')).length,
-      martinsburgFootprint: geo.features.filter((f) => (f.properties.branches || []).includes('martinsburg')).length,
-      sharedAreas: geo.features.filter((f) => (f.properties.branches || []).length > 1).length,
+      winchesterFootprint: geo.features.filter((f) => inFootprint(f, 'winchester')).length,
+      martinsburgFootprint: geo.features.filter((f) => inFootprint(f, 'martinsburg')).length,
+      sharedAreas: geo.features.filter((f) => featureBranches(f).length > 1).length,
     },
   },
   {
