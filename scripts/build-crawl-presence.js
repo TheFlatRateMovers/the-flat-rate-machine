@@ -100,6 +100,27 @@ const CREATOR = {
   ],
 };
 const DATE_MOD = '2026-11-02';
+/* FB-3 wire (2026-11-03): file-level dateModified fields take FILE_DM --
+ * the seal phase-0 stamps value for this file's own URL when the seal
+ * passes FB3_STAMPS, else the legacy derivation (DATE_MOD). DATE_MOD
+ * itself is unchanged: it drives evidence-date validation and
+ * generated-on prose, which are evidence, not file stamps. */
+const FILE_DM = (() => {
+  if (process.env.FB3_STAMPS) {
+    const m = JSON.parse(fs.readFileSync(process.env.FB3_STAMPS, 'utf8'));
+    const v = m.files && m.files['https://theflatratemovers.com/datasets-crawl-presence.json'];
+    if (!v) throw new Error('FB3_STAMPS lacks the crawl-presence file entry');
+    return v;
+  }
+  // Out-of-seal fallback: the ledger is the estate's truth for this
+  // file's last modification (verify --check runs without FB3_STAMPS).
+  try {
+    const ledger = JSON.parse(fs.readFileSync(
+      path.join(__dirname, '..', 'data', 'lastmod-ledger.json'), 'utf8'));
+    return (ledger.urls && ledger.urls['https://theflatratemovers.com/datasets-crawl-presence.json']) || DATE_MOD;
+  } catch (_) { return DATE_MOD; }
+})();
+
 const CUTOVER_COMPACT = '20261028000000'; // estate cutover 2026-10-28
 
 // === SEED (injected by the batch assembler — do not hand-edit) ===
@@ -503,7 +524,7 @@ function shaDistributions(nodes, selfUrl) {
 function baseNode(type, part, name, description, extra, kw) {
   const n = {
     '@type': type, '@id': FILE_URL + '#' + part, name,
-    description, inLanguage: 'en-US', dateModified: DATE_MOD,
+    description, inLanguage: 'en-US', dateModified: FILE_DM,
     isAccessibleForFree: true, license: LICENSE, creator: CREATOR, publisher: CREATOR,
     url: LANDING, sameAs: LANDING,
     identifier: LANDING,

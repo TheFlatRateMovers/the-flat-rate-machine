@@ -53,6 +53,19 @@ identity: the final signed index differs from the pre-index only in
 the updates.xml entry itself (the feed cannot cite a hash that
 contains its own digest — that fixpoint does not exist).
 
+FB-3 phase (Schema Timestamp Truth, 2026-11-03): phase 0 also
+snapshots the lastmod ledger (work/ledger-prior.json) and builds the
+stamps map (work/stamps.json) — per-page dateModified from the
+seal-start ledger, datePublished from the News Formula manifest
+(articles) or the prior index's route-document lineage. Phase 2 runs
+the dataset graph sync with --resync (a seal that changes dataset
+source nodes re-derives graph citizenship in the same pass) and
+mirrors the data/ graphs to the flat workspace copies; the wired
+dataset generators read their file-level stamp from the map
+(FB3_STAMPS). Phase 5 passes --stamps to build-routes.js, whose
+transform stamps the head-data page nodes at generation time; a
+stamps-less tree generation fails loud.
+
 Ledger phase (6b, Crawl Demand batch 2026-11-02): after the digest
 pass, the new index is diffed against the phase-0 prior snapshot and
 every sitemap-union URL whose own distribution changed (or is new) is
@@ -172,6 +185,80 @@ def main():
     print("    pulse snapshots: prior-index.json"
           " (+ prior-updates.xml if present)")
 
+    # FB-3 (Schema Timestamp Truth, 2026-11-03): snapshot the ledger
+    # BEFORE any phase mutates it and build the stamps map the route
+    # transform (phase 5) and the dataset generator wires consume.
+    # dm := the ledger value at seal start (the value the sitemap
+    # publishes for the URL in this pass); dp := the News Formula
+    # manifest date for articles (the manifest wins disagreements —
+    # they are printed below, never smoothed), else the route
+    # document's signed-index lineage date from the phase-0 prior
+    # snapshot, else RUBRIC_DATE for a page first sealed by this seal.
+    # A page with no dm source fails the seal loud.
+    ledger_path0 = os.path.join(ROOT, "data", "lastmod-ledger.json")
+    with open(ledger_path0, encoding="utf-8") as f:
+        ledger_doc = json.load(f)
+    shutil.copyfile(ledger_path0, os.path.join(WORK, "ledger-prior.json"))
+    ledger_urls = ledger_doc.get("urls", {})
+    with open(os.path.join(WORK, "prior-index.json"),
+              encoding="utf-8") as f:
+        prior_index = json.load(f)
+    lineage = {}
+    for e in prior_index.get("distribution", []):
+        if e.get("encodingFormat") == "text/html" and e.get("dateModified"):
+            lineage.setdefault(e.get("contentUrl", ""), e["dateModified"])
+    with open(os.path.join(ROOT, "data", "news-formula.json"),
+              encoding="utf-8") as f:
+        manifest = json.load(f)
+    article_dates = {}
+    for post in manifest.get("posts", []):
+        d = (post.get("instant") or post.get("ledgerDate") or "")[:10]
+        if d:
+            article_dates["https://theflatratemovers.com/" +
+                          post["slug"] + "/"] = d
+    with open(os.path.join(ROOT, "data", "pages.json"),
+              encoding="utf-8") as f:
+        registry_pages = json.load(f).get("pages", [])
+    stamps_pages = {}
+    disagreements = []
+    for p in registry_pages:
+        u = p.get("url", "")
+        dm = ledger_urls.get(u) or p.get("lastmod")
+        if not dm:
+            fail(f"FB-3 stamps: no ledger/registry dateModified for {u}")
+        if u in article_dates:
+            dp = article_dates[u]
+            if lineage.get(u) and lineage[u] != dp:
+                disagreements.append(
+                    f"{u}: lineage {lineage[u]} vs manifest {dp} "
+                    f"(manifest wins)")
+        elif u in lineage:
+            dp = lineage[u]
+        else:
+            dp = RUBRIC_DATE
+            disagreements.append(
+                f"{u}: no prior-index lineage; datePublished := seal "
+                f"date (page first sealed by this seal)")
+        stamps_pages[u] = {"dm": dm, "dp": dp}
+    stamps_files = {}
+    for stem in ("datasets-archive-registry.json",
+                 "datasets-local-graph-registry.json",
+                 "datasets-crawl-presence.json"):
+        fu = "https://theflatratemovers.com/" + stem
+        if fu not in ledger_urls:
+            fail(f"FB-3 stamps: no ledger entry for dataset file {fu}")
+        stamps_files[fu] = ledger_urls[fu]
+    with open(os.path.join(WORK, "stamps.json"), "w",
+              encoding="utf-8") as f:
+        json.dump({"sealDate": RUBRIC_DATE, "pages": stamps_pages,
+                   "files": stamps_files}, f, indent=1, sort_keys=True)
+        f.write("\n")
+    print(f"    FB-3 stamps: {len(stamps_pages)} pages, "
+          f"{len(stamps_files)} dataset files; "
+          f"{len(disagreements)} lineage note(s)")
+    for d in disagreements:
+        print(f"      stamps note: {d}")
+
     phase("1. intent rubric (cert digests are file-sourced, S2)")
     run(["node", "scripts/build-intent-rubric.js"],
         env_extra={"RUBRIC_DATE": RUBRIC_DATE})
@@ -194,9 +281,31 @@ def main():
     print("    intent dataset installed; landing description synced")
 
     phase("2. derived datasets (rubric.db / file readers, in order)")
+    stamps_env = {"FB3_STAMPS": os.path.join(WORK, "stamps.json")}
     for gen in ("build-search-index.js", "build-answer-evidence.js",
                 "build-local-graph.js", "build-archive-registry.js"):
-        run(["node", f"scripts/{gen}"])
+        run(["node", f"scripts/{gen}"],
+            env_extra=stamps_env if gen in (
+                "build-local-graph.js", "build-archive-registry.js")
+            else None)
+    # FB-3 standing consequence (the FB-2 lesson): the dataset graph
+    # sync runs INSIDE the seal with --resync — a seal that changes a
+    # dataset source node (FB-3's stamp wiring does) must re-derive
+    # the graph citizenship nodes in the same pass; DG-3 enforces it.
+    run(["node", "scripts/sync-dataset-graph-nodes.js", "--resync"],
+        env_extra={"FRM_SEAL_DATE": RUBRIC_DATE})
+    # Graph copies: the sync writes PUB + data/ (four targets); the
+    # flat workspace copies mirror data/ byte-for-byte (six files in
+    # all). A mismatch fails the seal loud.
+    flat_dir = os.path.join(os.path.dirname(ROOT), "theflatratemovers")
+    for g in ("entity-graph.json", "best-json-entity-graph.json"):
+        src_p = os.path.join(ROOT, "data", g)
+        dst_p = os.path.join(flat_dir, g)
+        shutil.copyfile(src_p, dst_p)
+        if sha(src_p) != sha(dst_p):
+            fail(f"FB-3 graph copy mismatch: {g}")
+    print("    dataset graph sync (--resync) done; flat graph copies "
+          "mirrored from data/")
 
     phase("2b. sitemap sections + index, the Google News sitemap and "
           "the article feed (registry/ledger-driven; before "
@@ -246,7 +355,8 @@ def main():
                     os.path.join(PUB, "index.html"))
     routes_dir = os.path.join(WORK, "routes")
     shutil.rmtree(routes_dir, ignore_errors=True)
-    run(["node", "scripts/build-routes.js", "--out-dir", routes_dir])
+    run(["node", "scripts/build-routes.js", "--out-dir", routes_dir,
+         "--stamps", os.path.join(WORK, "stamps.json")])
     subprocess.run(["rsync", "-a", routes_dir + "/", PUB + "/"],
                    check=True)
     stray = os.path.join(PUB, "routes-manifest.json")

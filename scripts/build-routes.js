@@ -134,6 +134,53 @@ const webmcpAsset = fs.readFileSync(path.join(assetsDir, 'webmcp.js'), 'utf8');
 const fail = (msg) => { throw new Error('build-routes: ' + msg); };
 
 /* ------------------------------------------------------------------ */
+/* FB-3 schema timestamp transform (Batch FB-3, 2026-11-03)            */
+/*                                                                     */
+/* Tree generation REQUIRES --stamps <file>: the seal's phase-0        */
+/* stamps map (out/seal-work/stamps.json). Each head-data entry's ld   */
+/* is rewritten in memory before injection: on every WebPage and       */
+/* Article node in the entry's @graph, dateModified := the page's      */
+/* ledger value at seal start (the same value the sitemap publishes    */
+/* for the URL) and datePublished := the News Formula manifest date    */
+/* (articles) or the route document's signed-index lineage date; the   */
+/* field is DELETED when the map carries null (no provable date —      */
+/* never a default). A ProfilePage node in head-data fails loud:       */
+/* since the FB-3 rider the canonical ProfilePage lives in the         */
+/* page's own data, and a template relapse must stop the seal rather   */
+/* than be silently stamped. --no-stamps exists ONLY for the batch's   */
+/* transform off/on diff proof; a tree generated with it must never    */
+/* be sealed or deployed.                                              */
+/* ------------------------------------------------------------------ */
+const stampsPath = arg('stamps');
+const noStamps = process.argv.includes('--no-stamps');
+let STAMPS = null;
+if (stampsPath) {
+  STAMPS = JSON.parse(fs.readFileSync(stampsPath, 'utf8')).pages;
+  if (!STAMPS) fail('stamps file lacks the pages map: ' + stampsPath);
+} else if (!noStamps) {
+  fail('--stamps <stamps.json> is required for tree generation (FB-3); ' +
+    '--no-stamps is a dev-only diff-proof path and must never be sealed');
+}
+function stampedEntry(entry) {
+  if (!entry || !STAMPS) return entry;
+  const st = STAMPS[entry.c];
+  if (!st) fail('no stamps entry for ' + entry.c);
+  const doc = JSON.parse(entry.ld);
+  for (const node of doc['@graph'] || []) {
+    const t = node && node['@type'];
+    if (t === 'ProfilePage') fail(entry.c + ': ProfilePage node in head-data — the canonical node lives in page data since FB-3');
+    if (t !== 'WebPage' && t !== 'Article') continue;
+    node.dateModified = st.dm;
+    if (st.dp) node.datePublished = st.dp; else delete node.datePublished;
+  }
+  const ld = JSON.stringify(doc);
+  if (ld.includes('"datePublished":"2026-10-27"') || ld.includes('"dateModified":"2026-10-28"')) {
+    fail(entry.c + ': template date constants survived the FB-3 transform');
+  }
+  return { ...entry, ld };
+}
+
+/* ------------------------------------------------------------------ */
 /* Segment the shell                                                   */
 /* ------------------------------------------------------------------ */
 const headEnd = shell.indexOf('</head>') + '</head>'.length;
@@ -314,7 +361,7 @@ let d2Instances = 0;
 
 for (const p of pages) {
   const key = p.url.replace('https://theflatratemovers.com', '').replace(/\/$/, '') || '/';
-  const entry = HEAD[key];
+  const entry = stampedEntry(HEAD[key]);
   if (!entry) fail('no head-data entry for ' + p.url);
   if (entry.c !== p.url) fail('head-data canonical mismatch for ' + p.slug + ': ' + entry.c + ' vs ' + p.url);
   let pageJsonText = null;

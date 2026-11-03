@@ -877,7 +877,7 @@ async function main() {
   }
   }
 
-  // --- 12. Structural — Batch 9 (2026-10-29; checks S-1..S-6) ---
+  // --- 12. Structural — Batch 9 (2026-10-29; checks S-1..S-7) ---
   // Added in the same motion as the structural batch shipped (record:
   // out/verify-fix-2026-10-29-batch9.md). Batch 9 gave every canonical URL
   // its own served head (Pages middleware + generated head-data), real
@@ -919,7 +919,27 @@ async function main() {
         const canon = (headPart.match(/<link rel="canonical" id="canonicalLink" href="([^"]*)"/) || [])[1];
         const ld = (headPart.match(/<script type="application\/ld\+json" id="page-jsonld">(.*?)<\/script>/s) || [])[1];
         let ldOk = false;
-        try { ldOk = !!ld && JSON.stringify(JSON.parse(ld)) === JSON.stringify(JSON.parse(e.ld)); } catch (_) {}
+        try {
+          // FB-3 re-expression (2026-11-03, GATE-SPEC s3): the served
+          // page-jsonld is the head-data ld AFTER the seal's stamp
+          // transform, so byte equality against raw head-data no longer
+          // holds by design. The identity assertion now covers
+          // everything except the three FB-3-owned date fields on
+          // page-class nodes (masked on both sides); the fields' actual
+          // values are asserted MORE strongly by S-7a/S-7b against the
+          // ledger and the signed-index lineage.
+          const maskS3 = (doc) => {
+            for (const n of (doc && doc['@graph']) || []) {
+              const t = n && n['@type'];
+              const ts = Array.isArray(t) ? t : [t];
+              if (ts.includes('WebPage') || ts.includes('Article') || ts.includes('ProfilePage')) {
+                delete n.datePublished; delete n.dateModified; delete n.dateCreated;
+              }
+            }
+            return doc;
+          };
+          ldOk = !!ld && JSON.stringify(maskS3(JSON.parse(ld))) === JSON.stringify(maskS3(JSON.parse(e.ld)));
+        } catch (_) {}
         if (title !== e.t || canon !== e.c || !ldOk || !headPart.includes('data-page-json="' + e.jf + '"')) s3bad.push(route);
       } catch (err) { s3bad.push(route + ' (' + err.message + ')'); }
     }
@@ -1042,8 +1062,182 @@ async function main() {
     } catch (e) {
       check('S-6 rubric gate rows present', false, e.message);
     }
+    // S-7: schema timestamp truth (Batch FB-3, 2026-11-03; DESIGN +
+    // GATE-SPEC: out/batch-fb3-schema-timestamps-prep-2026-11-03/).
+    // Page-node dates are no longer template constants: the seal's
+    // phase-0 stamps map (ledger at seal start + signed-index lineage
+    // + the News Formula manifest) drives build-routes' transform, and
+    // these checks recompute the truth from the same sources. The
+    // authored class (page-class nodes inside per-page JSON) was
+    // measured estate-wide at FB-3 execution under GATE-SPEC s7's
+    // extension clause — 208 authored nodes in 188 per-page JSONs,
+    // corrected to the ledger in the same batch (record:
+    // out/batch-fb3-schema-timestamps-2026-11-03/EXECUTION-RECORD.md).
+    const S7_PAGE_TYPES = ['WebPage', 'Article', 'ProfilePage'];
+    const s7Types = (n) => { const t = n && n['@type']; return Array.isArray(t) ? t : [t]; };
+    const s7IsPageClass = (n) => s7Types(n).some((t) => S7_PAGE_TYPES.includes(t));
+    const s7Blocks = (html) => {
+      const out = [];
+      for (const m of html.matchAll(/<script type="application\/ld\+json"([^>]*)>([\s\S]*?)<\/script>/g)) {
+        let d = null;
+        try { d = JSON.parse(m[2]); } catch (_) { continue; }
+        const nodes = d && Array.isArray(d['@graph']) ? d['@graph'] : (d && d['@type'] ? [d] : []);
+        out.push({ head: m[1].includes('id="page-jsonld"'), authored: m[1].includes('data-page-json'), nodes });
+      }
+      return out;
+    };
+    const s7TreeDoc = (url) => {
+      const rel = url.replace('https://theflatratemovers.com', '').replace(/^\//, '');
+      return fs.readFileSync(rel === '' ? path.join(PAGES_PUBLIC, 'index.html') : path.join(PAGES_PUBLIC, rel, 'index.html'), 'utf8');
+    };
+    const s7Ledger = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'lastmod-ledger.json'), 'utf8')).urls || {};
+    const s7Prior = JSON.parse(fs.readFileSync(path.join(ROOT, 'out', 'seal-work', 'prior-index.json'), 'utf8'));
+    const s7Lineage = {}, s7FileLineage = {};
+    for (const e of s7Prior.distribution || []) {
+      if (e.encodingFormat === 'text/html' && e.dateModified) s7Lineage[e.contentUrl] = e.dateModified;
+      if (/\.json$/.test(e.contentUrl || '') && e.dateModified) s7FileLineage[e.contentUrl] = e.dateModified;
+    }
+    const s7Manifest = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'news-formula.json'), 'utf8'));
+    const s7Articles = new Map();
+    for (const post of s7Manifest.posts || []) s7Articles.set('https://theflatratemovers.com/' + post.slug + '/', post.instant || post.ledgerDate);
+    const s7HeadByUrl = {};
+    for (const e of Object.values(HEADMAP)) s7HeadByUrl[e.c] = e;
+    const s7DatePart = (v) => typeof v === 'string' ? v.slice(0, 10) : null;
+    // S-7a: every governed page-class node's dateModified == ledger.
+    try {
+      const s7aBad = [];
+      const s7aDoc = (url, html, where) => {
+        let governed = 0;
+        for (const b of s7Blocks(html)) {
+          if (!b.head && !b.authored) continue;
+          for (const n of b.nodes) {
+            if (!s7IsPageClass(n)) continue;
+            governed++;
+            if (s7DatePart(n.dateModified) !== s7Ledger[url]) s7aBad.push(where + ' ' + url + ' ' + (n['@id'] || n['@type']) + ' dm=' + n.dateModified);
+          }
+        }
+        if (!governed) s7aBad.push(where + ' ' + url + ': no governed page-class node');
+      };
+      for (const p of pages.pages) {
+        try { s7aDoc(p.url, s7TreeDoc(p.url), 'tree'); } catch (e) { s7aBad.push('tree ' + p.url + ' (' + e.message + ')'); }
+      }
+      if (!LOCAL) {
+        const liveSet = new Set(routeSet.map((r) => 'https://theflatratemovers.com' + r));
+        for (const u of s7Articles.keys()) liveSet.add(u);
+        for (const p of pages.pages) if (p.url.includes('/author/')) liveSet.add(p.url);
+        for (const u of liveSet) {
+          try { s7aDoc(u, await fetchText(u), 'live'); } catch (e) { s7aBad.push('live ' + u + ' (' + e.message + ')'); }
+        }
+      }
+      check('S-7a every page-class node dateModified equals the seal-maintained ledger value for its page (tree: all route documents; live: S-3 set + articles + author pages)',
+        s7aBad.length === 0, s7aBad.length ? s7aBad.slice(0, 6).join(' | ') : 'page-class nodes ledger-true on ' + pages.pages.length + ' pages');
+    } catch (e) {
+      check('S-7a page-node dateModified equals ledger', false, e.message);
+    }
+    // S-7b: datePublished integrity + the template-constant tripwire.
+    try {
+      const s7bBad = [];
+      for (const p of pages.pages) {
+        let html = null;
+        try { html = s7TreeDoc(p.url); } catch (e) { s7bBad.push(p.url + ' (' + e.message + ')'); continue; }
+        const expected = s7Articles.has(p.url) ? String(s7Articles.get(p.url)).slice(0, 10) : s7Lineage[p.url];
+        const jfUrl = 'https://theflatratemovers.com/' + ((s7HeadByUrl[p.url] || {}).jf || '');
+        for (const b of s7Blocks(html)) {
+          if (!b.head && !b.authored) continue;
+          for (const n of b.nodes) {
+            if (!s7IsPageClass(n)) continue;
+            if (n.datePublished === '2026-10-27' || n.dateModified === '2026-10-28') s7bBad.push(p.url + ' ' + (n['@id'] || n['@type']) + ': template constant survives');
+            if (b.head) {
+              if (expected ? n.datePublished !== expected : n.datePublished !== undefined) {
+                s7bBad.push(p.url + ' ' + (n['@id'] || n['@type']) + ' dp=' + n.datePublished + ' expected ' + expected);
+              }
+            } else if (n.datePublished !== undefined && n.datePublished !== s7Lineage[p.url] && n.datePublished !== s7FileLineage[jfUrl]) {
+              s7bBad.push(p.url + ' ' + (n['@id'] || n['@type']) + ' authored dp=' + n.datePublished + ' matches neither page lineage ' + s7Lineage[p.url] + ' nor file lineage ' + s7FileLineage[jfUrl]);
+            }
+          }
+        }
+      }
+      const shellS7 = fs.readFileSync(path.join(ROOT, 'repo-dir', 'index.html'), 'utf8');
+      if (shellS7.includes('"datePublished":"2026-10-27"') || shellS7.includes('"dateModified":"2026-10-28"')) s7bBad.push('source shell still carries a template date constant');
+      if (headSrc.includes('"datePublished":"2026-10-27"') || headSrc.includes('"dateModified":"2026-10-28"')) s7bBad.push('head-data still carries a template date constant');
+      check('S-7b page-node datePublished equals manifest (articles) or signed-index lineage; authored values match a provable lineage; template constants absent from tree and source',
+        s7bBad.length === 0, s7bBad.length ? s7bBad.slice(0, 6).join(' | ') : 'datePublished lineage-true on ' + pages.pages.length + ' pages');
+    } catch (e) {
+      check('S-7b page-node datePublished integrity', false, e.message);
+    }
+    // S-7c: BlogPosting values byte-equal the News Formula manifest.
+    try {
+      const s7cBad = [];
+      for (const [u, expected] of s7Articles) {
+        let html = null;
+        try { html = s7TreeDoc(u); } catch (e) { s7cBad.push(u + ' (' + e.message + ')'); continue; }
+        let bp = null;
+        for (const b of s7Blocks(html)) for (const n of b.nodes) if (s7Types(n).includes('BlogPosting')) bp = n;
+        if (!bp) { s7cBad.push(u + ': no BlogPosting node'); continue; }
+        if (bp.datePublished !== expected || bp.dateModified !== expected) s7cBad.push(u + ': BlogPosting ' + bp.datePublished + ' / ' + bp.dateModified + ' != manifest ' + expected);
+      }
+      check('S-7c BlogPosting datePublished/dateModified byte-equal the News Formula manifest for every article',
+        s7cBad.length === 0, s7cBad.length ? s7cBad.slice(0, 6).join(' | ') : s7Articles.size + ' articles manifest-true');
+    } catch (e) {
+      check('S-7c BlogPosting manifest equality', false, e.message);
+    }
+    // S-7d: datetime format validity across every route document.
+    try {
+      const S7_DATE_ONLY = /^\d{4}-\d{2}-\d{2}$/;
+      const S7_FULL_ISO = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:\d{2}$/;
+      const s7ValidDateOnly = (v) => { if (!S7_DATE_ONLY.test(v)) return false; const d = new Date(v + 'T00:00:00Z'); return !isNaN(d) && d.toISOString().slice(0, 10) === v; };
+      const s7ValidFull = (v) => S7_FULL_ISO.test(v) && !isNaN(Date.parse(v));
+      const s7dBad = [];
+      const s7Walk = (o, url, types) => {
+        if (Array.isArray(o)) { for (const v of o) s7Walk(v, url, types); return; }
+        if (!o || typeof o !== 'object') return;
+        const myTypes = o['@type'] ? s7Types(o) : types;
+        for (const f of ['datePublished', 'dateModified', 'dateCreated']) {
+          if (!(f in o)) continue;
+          const v = o[f];
+          const strict = myTypes.includes('ProfilePage') && (f === 'dateCreated' || f === 'dateModified');
+          const ok = typeof v === 'string' && (strict ? s7ValidFull(v) : (s7ValidDateOnly(v) || s7ValidFull(v)));
+          if (!ok) s7dBad.push(url + ' ' + (o['@id'] || o['@type'] || '?') + ' ' + f + '=' + v);
+        }
+        for (const v of Object.values(o)) s7Walk(v, url, myTypes);
+      };
+      for (const p of pages.pages) {
+        let html = null;
+        try { html = s7TreeDoc(p.url); } catch (e) { s7dBad.push(p.url + ' (' + e.message + ')'); continue; }
+        for (const b of s7Blocks(html)) for (const n of b.nodes) s7Walk(n, p.url, []);
+      }
+      check('S-7d every date value in every route document is a real date-only or full-ISO-8601-with-offset form; ProfilePage dateCreated/dateModified carry the full form',
+        s7dBad.length === 0, s7dBad.length ? s7dBad.slice(0, 6).join(' | ') : 'all date values well-formed');
+    } catch (e) {
+      check('S-7d datetime format validity', false, e.message);
+    }
+    // S-7e: no duplicate-@id date divergence within a document.
+    try {
+      const s7eBad = [];
+      for (const p of pages.pages) {
+        let html = null;
+        try { html = s7TreeDoc(p.url); } catch (e) { s7eBad.push(p.url + ' (' + e.message + ')'); continue; }
+        const byId = new Map();
+        for (const b of s7Blocks(html)) for (const n of b.nodes) {
+          if (!n || !n['@id'] || Object.keys(n).length <= 1) continue;
+          if (!byId.has(n['@id'])) byId.set(n['@id'], []);
+          byId.get(n['@id']).push(n);
+        }
+        for (const [id, ns] of byId) {
+          if (ns.length < 2) continue;
+          for (const f of ['datePublished', 'dateModified', 'dateCreated']) {
+            const vals = new Set(ns.filter((n) => f in n).map((n) => n[f]));
+            if (vals.size > 1) s7eBad.push(p.url + ' ' + id + ' ' + f + ': ' + [...vals].join(' vs '));
+          }
+        }
+      }
+      check('S-7e no two nodes sharing an @id in a route document carry divergent date values (reference stubs exempt)',
+        s7eBad.length === 0, s7eBad.length ? s7eBad.slice(0, 6).join(' | ') : 'no duplicate-@id date divergence');
+    } catch (e) {
+      check('S-7e duplicate-@id date divergence', false, e.message);
+    }
   } catch (e) {
-    check('structural Batch 9 checks (S-1..S-6) evaluated', false, e.message);
+    check('structural Batch 9 checks (S-1..S-7) evaluated', false, e.message);
   }
 
   // --- 13. Intent-coverage rubric — Batch Intent Rubric (2026-10-30; checks I-1..I-5) ---

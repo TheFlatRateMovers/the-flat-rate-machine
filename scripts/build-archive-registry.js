@@ -9410,6 +9410,27 @@ const SEED = {
 // === END SEED ===
 
 const DATE_MOD = SEED ? SEED.buildDate : '2026-11-01';
+/* FB-3 wire (2026-11-03): file-level dateModified fields take FILE_DM --
+ * the seal phase-0 stamps value for this file's own URL when the seal
+ * passes FB3_STAMPS, else the legacy derivation (DATE_MOD). DATE_MOD
+ * itself is unchanged: it drives evidence-date validation and
+ * generated-on prose, which are evidence, not file stamps. */
+const FILE_DM = (() => {
+  if (process.env.FB3_STAMPS) {
+    const m = JSON.parse(fs.readFileSync(process.env.FB3_STAMPS, 'utf8'));
+    const v = m.files && m.files['https://theflatratemovers.com/datasets-archive-registry.json'];
+    if (!v) throw new Error('FB3_STAMPS lacks the archive-registry file entry');
+    return v;
+  }
+  // Out-of-seal fallback: the ledger is the estate's truth for this
+  // file's last modification (verify --check runs without FB3_STAMPS).
+  try {
+    const ledger = JSON.parse(fs.readFileSync(
+      path.join(__dirname, '..', 'data', 'lastmod-ledger.json'), 'utf8'));
+    return (ledger.urls && ledger.urls['https://theflatratemovers.com/datasets-archive-registry.json']) || DATE_MOD;
+  } catch (_) { return DATE_MOD; }
+})();
+
 
 function arg(name) {
   const i = process.argv.indexOf('--' + name);
@@ -9519,7 +9540,7 @@ function shaDistributions(nodes, selfUrl) {
 function baseNode(type, part, name, description, extra, kw) {
   const n = {
     '@type': type, '@id': FILE_URL + '#' + part, name,
-    description, inLanguage: 'en-US', dateModified: DATE_MOD,
+    description, inLanguage: 'en-US', dateModified: FILE_DM,
     isAccessibleForFree: true, license: LICENSE, creator: CREATOR, publisher: CREATOR,
     url: LANDING, sameAs: LANDING,
     identifier: LANDING,
