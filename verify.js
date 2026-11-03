@@ -4401,6 +4401,160 @@ async function main() {
     }
   } catch (e) { check('§34 dataset graph citizenship gates DG-1..DG-4 execute', false, String(e && e.message || e)); }
 
+  // ================================================================
+  // 35. CATEGORY PROMINENCE GATES (Batch FB-4, 2026-11-03).
+  // The 2026-11-03 full-URL audit's axis D found 14 URLs below the
+  // estate's 3-source bar under the audit method (raw-href
+  // extraction: absolute + root-relative links, plus hash-router
+  // links resolved via the dashed-slug map OR as literal paths —
+  // the audit's own published counts for /datasets/ports/ (3) and
+  // /docs/container-deconsolidation/ (3) prove the literal-path
+  // clause: both are reachable only through slash-form hash hrefs).
+  // The chain's links existed in the legacy short-key hash form,
+  // which raw-href consumers cannot resolve, and for all 14 targets
+  // the router key != dashed slug, so the dashed form itself routed
+  // HOME until FB-4. FB-4 installs ONE family-block component
+  // (parent / siblings / children chips, dashed hrefs) on the
+  // Winchester category chain, the Rigging & SIR hub + leaf and the
+  // Military & Government hub, adds the 14 router `redirects`
+  // aliases that make the dashed form routable, and appends named
+  // donor chips D1-D14. PD-1..PD-3 pin the result: PD-1 the family
+  // blocks on the FB-4 tree (the inheritance rule —
+  // family-component-spec section 5 of the batch prep — extends
+  // this tree as future batches touch more categories; extend the
+  // map in the same motion), PD-2 routability in the
+  // served router for EVERY registry page (pages-array membership
+  // plus a `redirects` alias wherever key != dashed slug; derived
+  // estate-wide, never a hard-coded list), PD-3 the audit-method
+  // source count >= 3 for every URL in the sitemap union,
+  // recomputed over the tree documents.
+  // ================================================================
+  try {
+    const SITE_PD = 'https://theflatratemovers.com';
+    const treeDocPD = (url) => {
+      const rel = url.replace(SITE_PD, '').replace(/^\//, '');
+      return fs.readFileSync(rel === '' ? path.join(PAGES_PUBLIC, 'index.html') : path.join(PAGES_PUBLIC, rel, 'index.html'), 'utf8');
+    };
+    const dashedPD = (url) => url.replace(SITE_PD + '/', '').replace(/\/$/, '').replace(/\//g, '-');
+
+    // PD-1: family blocks on the FB-4 category tree.
+    const PD_TREE = {
+      'https://theflatratemovers.com/category/winchester-va/': null,
+      'https://theflatratemovers.com/category/winchester-va/residential-logistics/': 'https://theflatratemovers.com/category/winchester-va/',
+      'https://theflatratemovers.com/category/winchester-va/top-rated-movers-winchester-va/': 'https://theflatratemovers.com/category/winchester-va/',
+      'https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/': 'https://theflatratemovers.com/category/winchester-va/residential-logistics/',
+      'https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/moving/': 'https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/',
+      'https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/paper-padding/': 'https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/',
+      'https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/moving/eastern-panhandle-moving/': 'https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/moving/',
+      'https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/moving/estate-relocation/': 'https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/moving/',
+      'https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/moving/long-distance/': 'https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/moving/',
+      'https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/moving/museum-logistics/': 'https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/moving/',
+      'https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/moving/museum-logistics/logistics-transportation/': 'https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/moving/museum-logistics/',
+      'https://theflatratemovers.com/category/rigging-sir-2026/': null,
+      'https://theflatratemovers.com/category/rigging-sir-2026/high-value-rigging/': 'https://theflatratemovers.com/category/rigging-sir-2026/',
+      'https://theflatratemovers.com/category/military-government-moving/': null,
+    };
+    {
+      const bad = [];
+      for (const [u, parent] of Object.entries(PD_TREE)) {
+        let doc = '';
+        try { doc = treeDocPD(u); } catch (e) { bad.push(u + ': no tree document'); continue; }
+        if (!doc.includes('<h2 class="sec-h">Related categories</h2>')) bad.push(u + ': no Related categories section');
+        else if (parent && !doc.includes('href="#/' + dashedPD(parent) + '"')) bad.push(u + ': no dashed parent chip to ' + parent);
+      }
+      check('PD-1 every page in the FB-4 category tree carries its family block (Related categories section; dashed parent chip when it has a parent)',
+        bad.length === 0, bad.slice(0, 4).join('; ') || (Object.keys(PD_TREE).length + ' family blocks present'));
+    }
+
+    // PD-2: a redirects alias for every page whose router key !=
+    // dashed slug, and every pageMeta key present in the served
+    // router's pages array. The array duty is the routability
+    // precondition: route() falls back to home for a key the array
+    // lacks (the /videos/ defect class). FB-4's execution found the
+    // operative array (scripts/route-assets/main.js, inlined into
+    // every route document) 20 keys short of the registry — keys
+    // added by earlier batches reached the shell's array but not
+    // this one — and repaired it in-batch; the root page is exempt
+    // from the alias duty (empty slug; it is the router default).
+    {
+      const shellPD = fs.readFileSync(path.join(PAGES_PUBLIC, 'index.html'), 'utf8');
+      const literalPD = (marker, open, close) => {
+        const at = shellPD.indexOf(marker);
+        if (at < 0) throw new Error(marker + ' not found in tree shell');
+        let i = shellPD.indexOf(open, at), depth = 0, inStr = null, esc = false, end = -1;
+        for (let j = i; j < shellPD.length; j++) {
+          const c = shellPD[j];
+          if (inStr) { if (esc) esc = false; else if (c === '\\') esc = true; else if (c === inStr) inStr = null; }
+          else if (c === '"' || c === "'") inStr = c;
+          else if (c === open) depth++;
+          else if (c === close) { depth--; if (depth === 0) { end = j; break; } }
+        }
+        if (end < 0) throw new Error(marker + ' literal did not balance');
+        return Function('return (' + shellPD.slice(i, end + 1) + ')')();
+      };
+      const metaPD = literalPD('var pageMeta=', '{', '}');
+      const redirectsPD = literalPD('var redirects=', '{', '}');
+      const pagesArrPD = literalPD('var pages=', '[', ']');
+      const keyByUrlPD = new Map();
+      for (const [k, v] of Object.entries(metaPD)) if (v && v.canonical) keyByUrlPD.set(v.canonical, k);
+      const inArrayPD = new Set(pagesArrPD);
+      const bad = [];
+      let derived = 0;
+      for (const p of pages.pages) {
+        const key = keyByUrlPD.get(p.url);
+        if (!key) { bad.push(p.url + ': no pageMeta key'); continue; }
+        if (!inArrayPD.has(key)) bad.push(p.url + ': key ' + key + ' missing from the router pages array');
+        if (p.url === SITE_PD + '/') continue;
+        const d = dashedPD(p.url);
+        if (key === d) continue;
+        derived++;
+        if (redirectsPD[d] !== key) bad.push(p.url + ': key ' + key + ' != dashed ' + d + ' but redirects[' + d + '] = ' + redirectsPD[d]);
+      }
+      check('PD-2 every registry page is routable in the served router (key present in the pages array; every key!=dashed page has a redirects alias mapping its dashed slug to its key)',
+        bad.length === 0, bad.slice(0, 4).join('; ') || (derived + ' key!=dashed pages all aliased; pages array covers all ' + keyByUrlPD.size + ' pageMeta keys'));
+    }
+
+    // PD-3: audit-method axis-D source count >= 3 estate-wide.
+    {
+      const unionPD = new Set();
+      for (const sec of ['pages', 'datasets', 'blog']) {
+        const xml = fs.readFileSync(path.join(PAGES_PUBLIC, 'sitemaps', sec + '.xml'), 'utf8');
+        for (const m of xml.matchAll(/<loc>([^<]+)<\/loc>/g)) unionPD.add(m[1]);
+      }
+      const pathsPD = [...unionPD].map((u) => u.replace(SITE_PD, ''));
+      const dashedMapPD = new Map();
+      for (const p of pathsPD) {
+        const stem = p.replace(/^\/|\/$/g, '');
+        if (stem) dashedMapPD.set(stem.replace(/\//g, '-'), p);
+      }
+      const countsPD = new Map(pathsPD.map((p) => [p, new Set()]));
+      for (const p of pathsPD) {
+        if (p.endsWith('.json')) continue;
+        let body = '';
+        try { body = treeDocPD(SITE_PD + p); } catch (e) { continue; }
+        const found = new Set();
+        for (const m of body.matchAll(/href="([^"]+)"/g)) {
+          const href = m[1];
+          if (href.startsWith(SITE_PD) || (href.startsWith('/') && !href.startsWith('//'))) {
+            let t = href.startsWith(SITE_PD) ? href.slice(SITE_PD.length) : href;
+            t = t.split('?')[0].split('#')[0];
+            const last = t.split('/').pop();
+            if (!t.endsWith('/') && !last.includes('.')) t += '/';
+            if (countsPD.has(t)) found.add(t);
+          } else if (href.startsWith('#/')) {
+            const frag = href.slice(2).split('?')[0].replace(/\/+$/, '');
+            if (dashedMapPD.has(frag)) found.add(dashedMapPD.get(frag));
+            else { const lit = '/' + frag + '/'; if (countsPD.has(lit)) found.add(lit); }
+          }
+        }
+        for (const t of found) if (t !== p) countsPD.get(t).add(p);
+      }
+      const bad = pathsPD.filter((p) => countsPD.get(p).size < 3);
+      check('PD-3 audit-method axis-D source count >= 3 for every URL in the sitemap union (recomputed over the tree documents)',
+        bad.length === 0, bad.length ? bad.slice(0, 6).map((p) => p + '=' + countsPD.get(p).size).join('; ') : (pathsPD.length + ' URLs all at >= 3 sources'));
+    }
+  } catch (e) { check('§35 category prominence gates PD-1..PD-3 execute', false, String(e && e.message || e)); }
+
   // --- 9. Guardrail scan: no placeholders, no invented license identifiers ---
   const registryText = JSON.stringify({ pages, services, locations, corridors });
   check('registry files contain no placeholder text',
