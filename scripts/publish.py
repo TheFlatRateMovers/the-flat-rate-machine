@@ -74,6 +74,9 @@ def main():
     ap.add_argument("--skip-verify", action="store_true")
     ap.add_argument("--skip-api", action="store_true")
     ap.add_argument("--skip-pulse", action="store_true")
+    ap.add_argument("--pulse-prior", default=None,
+                    help="index JSON to diff Pulse against (default: "
+                         "the seal's phase-0 snapshot)")
     ap.add_argument("--extra-map-ai", action="append", default=[],
                     help="push-mirrors extra map for the ai repo "
                          "(REL=ABS_SRC, repeatable)")
@@ -89,7 +92,7 @@ def main():
 
     def do_deploy():
         if args.skip_deploy:
-            results["deploy"] = (0, "", 0.0, "SKIPPED")
+            results["deploy"] = (0, "", 0.0, None)
             return
         rc, out, dt = run(
             ["npx", "wrangler", "pages", "deploy", "public",
@@ -187,21 +190,35 @@ def main():
             print(out[-3000:])
             fail("API worker deploy failed")
 
-    # 4. Pulse (seal mode; prior = the seal's phase-0 snapshot)
+    # 4. Pulse (seal mode; prior defaults to the seal's phase-0
+    # snapshot — a batch that sealed more than once passes the
+    # PRE-BATCH index via --pulse-prior, since the last seal's
+    # snapshot is its own predecessor, not the batch's baseline)
     if args.skip_pulse:
         print("--- 4. Pulse SKIPPED")
     else:
         print("--- 4. Pulse (seal mode)", flush=True)
-        prior = os.path.join(WORK, "prior-index.json")
+        prior = args.pulse_prior or os.path.join(WORK,
+                                                 "prior-index.json")
         if not os.path.exists(prior):
             fail(f"pulse prior snapshot missing: {prior}")
+        pulse_dir = os.path.join(ROOT, "out", "pulse")
+        os.makedirs(pulse_dir, exist_ok=True)
+        # IndexNow key: PUBLIC by design (served as <key>.txt from
+        # both hosts' roots); pulse.mjs also accepts INDEXNOW_KEY env.
+        pulse_env = dict(os.environ)
+        pulse_env.setdefault(
+            "INDEXNOW_KEY",
+            "bbf7b7d5281876c13897f6e1498f6cc56abb3487f12603698128f7b08bae3a6d")
         rc, out, dt = run(
-            ["node", "scripts/pulse.mjs", "seal",
+            ["node", "scripts/pulse.mjs", "--mode", "seal",
              "--index", os.path.join(PUB, "ai-master-index.json"),
              "--prior-index", prior,
              "--sitemap-dir", PUB,
-             "--rubric-db", REG["rubric_db"]],
-            label="pulse seal")
+             "--rubric-db", REG["rubric_db"],
+             "--state", os.path.join(pulse_dir, "state.json"),
+             "--receipts", os.path.join(pulse_dir, "receipts.ndjson")],
+            env=pulse_env, label="pulse seal")
         timings["pulse"] = dt
         print("\n".join(out.strip().splitlines()[-6:]))
         if rc != 0:
