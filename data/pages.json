@@ -1,6 +1,6 @@
 {
  "attestation": "Every URL below was fetched from the live sitemap on 2026-10-28; titles and service links come from pageMeta in the live site source. No URL was hand-typed.",
- "count": 236,
+ "count": 237,
  "dataset": "pages",
  "generated": "2026-10-29",
  "pages": [
@@ -2917,6 +2917,17 @@
    "lastmod": "2026-11-03",
    "status": "live",
    "source": "Quote Tool batch 2026-11-03 — dataset landing for datasets-quote-tool.json (form inventory + the eight-check coverage rubric with measured results + the 20-audience guide)"
+  },
+  {
+   "slug": "datasets/page-data-pool",
+   "url": "https://theflatratemovers.com/datasets/page-data-pool/",
+   "title": "Page Data Pool Datasets",
+   "type": "page",
+   "services": [],
+   "attested": "2026-11-03",
+   "lastmod": "2026-11-03",
+   "status": "live",
+   "source": "Page Data Pool batch 2026-11-03: the master pool database as a first-class dataset citizen — Layer 1 estate data (rubric, registries, matrices, standards, footprint, corpus) + Layer 2 researched domain layer; the generator source for every page's Page Data slice at the rollout."
   }
  ],
  "source": "https://theflatratemovers.com/sitemap.xml joined to pageMeta in ../the-flat-rate-movers-pages/public/index.html",

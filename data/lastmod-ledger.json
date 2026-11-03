@@ -2,7 +2,7 @@
  "description": "Seal-maintained lastmod ledger: for every sitemap URL, the date of the last seal generation in which its own signed distribution changed. Seeded from the 2026-11-02 crawl-demand audit (doc-level digest history across 73 signed generations); maintained by seal.py phase 6b (diff-stamp vs the phase-0 prior index). build-sitemap.js reads this file for every sitemap <lastmod>.",
  "lastSeal": {
   "date": "2026-11-03",
-  "indexSha256": "aec0ed39bfc856028e8c19f3e914276129683e5ba4dcda97a90a5b17338655a9"
+  "indexSha256": "b836e7b558aac4fe2fbe21577a056b036827cc6a62bd938d7f0b14495827e23b"
  },
  "seededFrom": "crawl-demand-audit-2026-11-02.csv",
  "urls": {
@@ -78,6 +78,7 @@
   "https://theflatratemovers.com/datasets-ocean-container.json": "2026-11-03",
   "https://theflatratemovers.com/datasets-office.json": "2026-11-03",
   "https://theflatratemovers.com/datasets-packing.json": "2026-11-03",
+  "https://theflatratemovers.com/datasets-page-data-pool.json": "2026-11-03",
   "https://theflatratemovers.com/datasets-piano-antique.json": "2026-11-03",
   "https://theflatratemovers.com/datasets-ports.json": "2026-11-03",
   "https://theflatratemovers.com/datasets-quote-tool.json": "2026-11-03",
@@ -121,6 +122,7 @@
   "https://theflatratemovers.com/datasets/ocean-container/": "2026-11-03",
   "https://theflatratemovers.com/datasets/office/": "2026-11-03",
   "https://theflatratemovers.com/datasets/packing/": "2026-11-03",
+  "https://theflatratemovers.com/datasets/page-data-pool/": "2026-11-03",
   "https://theflatratemovers.com/datasets/piano-antique/": "2026-11-03",
   "https://theflatratemovers.com/datasets/ports/": "2026-11-03",
   "https://theflatratemovers.com/datasets/quote-tool/": "2026-11-03",

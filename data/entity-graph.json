@@ -3939,7 +3939,7 @@
    "@id": "https://theflatratemovers.com/datasets/intent-coverage/#dataset",
    "@type": "Dataset",
    "name": "The Flat Rate Movers — Search Intent Coverage Operations Dataset",
-   "description": "The live intent-coverage rubric of The Flat Rate Movers: 3490 generated rows, each one a query string a customer or an AI assistant can use to find a company service, resolved to the exact page that answers it, that page’s per-page JSON, the dataset files behind the answer, and the service’s node in the entity graph. Rows are generated from the estate’s own registries — 30 services, 236 pages, two branch locations, three corridors and the 53-feature service-area footprint — plus the blog question bank’s 100 real question phrasings, and the rubric is regenerated whenever those registries change. Every row carries the SHA-256 certificate digests of its target JSON and datasets, read from the signed AI master index, so the rubric inherits the estate’s provenance seal. Coverage spans all 30 services of both branches, Winchester, VA and Martinsburg, WV, along the I-81, I-66 and I-70 corridors. Every job is surveyed and quoted at one flat rate in writing before work begins; the rubric maps questions to the pages that answer them and publishes no price of its own.",
+   "description": "The live intent-coverage rubric of The Flat Rate Movers: 3550 generated rows, each one a query string a customer or an AI assistant can use to find a company service, resolved to the exact page that answers it, that page’s per-page JSON, the dataset files behind the answer, and the service’s node in the entity graph. Rows are generated from the estate’s own registries — 30 services, 237 pages, two branch locations, three corridors and the 53-feature service-area footprint — plus the blog question bank’s 100 real question phrasings, and the rubric is regenerated whenever those registries change. Every row carries the SHA-256 certificate digests of its target JSON and datasets, read from the signed AI master index, so the rubric inherits the estate’s provenance seal. Coverage spans all 30 services of both branches, Winchester, VA and Martinsburg, WV, along the I-81, I-66 and I-70 corridors. Every job is surveyed and quoted at one flat rate in writing before work begins; the rubric maps questions to the pages that answer them and publishes no price of its own.",
    "url": "https://theflatratemovers.com/datasets/intent-coverage/",
    "sameAs": "https://theflatratemovers.com/datasets/intent-coverage/",
    "identifier": "https://doi.org/10.5281/zenodo.23818766",
@@ -8543,6 +8543,150 @@
      "@type": "PropertyValue",
      "propertyID": "inventorySource",
      "value": "Enumerated from the live form source (repo-dir/index.html, #quoteForm and #heroQuote) on 2026-11-03 with an HTML parser: every input/select/textarea element plus every pick-chip button, excluding submit and mode-toggle buttons."
+    }
+   ]
+  },
+  {
+   "@id": "https://theflatratemovers.com/datasets/page-data-pool/#dataset",
+   "@type": "Dataset",
+   "name": "Page Data Pool — the Master Database for Page Data",
+   "description": "The Page Data Pool is the single master database every page's Page Data dataset draws its slice from — built in two layers. Layer 1 is the estate's own live data: the full intent rubric (3,550 buyer questions with their phrasings, target pages, per-page JSONs and dataset seats), the 30-service registry with its scope-boundary register (16 drafted boundaries, each carrying the ruling it comes from) and its sourced qualifier register (21 qualifiers, each with its source pointer), all 43 dataset files' metadata, the ports matrix (6 ports × 8 offered services with branch bindings), the vault standards registry (UL 608 classes, AA-D-600D classes, FF-L-2740B, UL 768 lock groups), the SIR/KIM-GS authority data (the 1,500–3,500 lb band and the L/360 criterion), the 53-area footprint with branch bindings, the 16-post blog corpus, and the 20-entry audience guide. Layer 2 is a researched domain layer of 45 entries covering the situation space of logistics and every service — container equipment and packing standards (CTU Code, SOLAS VGM), port charges and credentials (FMC demurrage and detention rules, TWIC), export rules (ISPM 15, AES/EEI filing), household-goods consumer law (49 CFR Part 375: binding estimates, the 110% rule, valuation, storage-in-transit), safe and piano data (UL 687/1037/72 classes, IRC floor loads, manufacturer piano weights), and the standards behind the specialty services (ANSI/ESD S20.20, ANSI MH16.1, ASTM D4169/ISTA, NASMM, museum handling practice, EPA electronics rules, carrier delivery tiers, DP3 and FAR Part 47) — every entry carrying its primary or authoritative source, its retrieval date, the questions it answers and its constraints. Layer 2 supplies domain facts only: it never sources a company capability, price, count or credential. The pool also publishes the eleven draw rules (DR-1 to DR-11) by which the generator assembles each page's slice — services, own and family questions, resolved answers, scoped boundaries, traceable qualifiers, drawn domain entries, bound geography and ledger freshness. Buyer-intelligence data is excluded by standing rule, and the false 'industrial rigging up to twenty-five thousand pounds' figure is excluded and asserted absent at build.",
+   "url": "https://theflatratemovers.com/datasets/page-data-pool/",
+   "sameAs": "https://theflatratemovers.com/datasets/page-data-pool/",
+   "identifier": "https://theflatratemovers.com/datasets/page-data-pool/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@type": "Organization",
+    "@id": "https://theflatratemovers.com/#organization",
+    "name": "The Flat Rate Movers LLC",
+    "url": "https://theflatratemovers.com/"
+   },
+   "publisher": {
+    "@type": "Organization",
+    "@id": "https://theflatratemovers.com/#organization",
+    "name": "The Flat Rate Movers LLC",
+    "url": "https://theflatratemovers.com/"
+   },
+   "includedInDataCatalog": {
+    "@id": "https://theflatratemovers.com/datasets/#collection"
+   },
+   "datePublished": "2026-11-03",
+   "dateModified": "2026-11-03",
+   "spatialCoverage": [
+    {
+     "@type": "Place",
+     "@id": "https://theflatratemovers.com/#winchester",
+     "name": "The Flat Rate Movers — Winchester",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.18711576,
+      "longitude": -78.1668352
+     }
+    },
+    {
+     "@type": "Place",
+     "@id": "https://theflatratemovers.com/#martinsburg",
+     "name": "Flat Rate Movers Martinsburg WV",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.48319665,
+      "longitude": -77.94760443
+     }
+    }
+   ],
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/datasets/"
+    },
+    {
+     "@id": "https://theflatratemovers.com/quote-tool/"
+    },
+    {
+     "@id": "https://theflatratemovers.com/gun-safe-movers/"
+    }
+   ],
+   "keywords": [
+    "page data",
+    "master database",
+    "intent rubric",
+    "scope boundaries",
+    "qualifiers",
+    "domain research",
+    "draw rules",
+    "logistics",
+    "moving services"
+   ],
+   "additionalProperty": [
+    {
+     "@type": "PropertyValue",
+     "propertyID": "questions",
+     "value": 3550
+    },
+    {
+     "@type": "PropertyValue",
+     "propertyID": "services",
+     "value": 30
+    },
+    {
+     "@type": "PropertyValue",
+     "propertyID": "areas",
+     "value": 53
+    },
+    {
+     "@type": "PropertyValue",
+     "propertyID": "ports",
+     "value": 6
+    },
+    {
+     "@type": "PropertyValue",
+     "propertyID": "vaultStandards",
+     "value": 15
+    },
+    {
+     "@type": "PropertyValue",
+     "propertyID": "blogPosts",
+     "value": 16
+    },
+    {
+     "@type": "PropertyValue",
+     "propertyID": "datasetFiles",
+     "value": 43
+    },
+    {
+     "@type": "PropertyValue",
+     "propertyID": "audiences",
+     "value": 20
+    },
+    {
+     "@type": "PropertyValue",
+     "propertyID": "boundaries",
+     "value": 16
+    },
+    {
+     "@type": "PropertyValue",
+     "propertyID": "qualifiers",
+     "value": 21
+    },
+    {
+     "@type": "PropertyValue",
+     "propertyID": "domainEntries",
+     "value": 45
+    },
+    {
+     "@type": "PropertyValue",
+     "propertyID": "layer1",
+     "value": "Estate data: rubric.db intent_query, data/services.json, data/ports.json, data/service-area.geojson, data/news-formula.json, the vault standards registry (staged program file), datasets-sir-heavy.json, datasets-quote-tool.json audiences, data/locations.json, and every published datasets-*.json summary node."
+    },
+    {
+     "@type": "PropertyValue",
+     "propertyID": "layer2",
+     "value": "Researched domain entries, each with publisher, title, URL, retrieval date 2026-11-03 and a supports statement; primary/authoritative sources only (UNECE/IMO, FMC, TSA, USDA APHIS, FMCSA/eCFR, USTRANSCOM, ICC, ANSI, EPA, IPPC via NPPO, manufacturers and carriers)."
+    },
+    {
+     "@type": "PropertyValue",
+     "propertyID": "exclusions",
+     "value": "Buyer-intelligence data: absent (internal-only standing rule). The 'industrial rigging up to twenty-five thousand pounds' claim: absent — asserted at build; the figure is false and contradicts the SIR band. No USDOT/MC number is carried."
     }
    ]
   }
