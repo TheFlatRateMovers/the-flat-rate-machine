@@ -1,6 +1,6 @@
 {
  "attestation": "Every URL below was fetched from the live sitemap on 2026-10-28; titles and service links come from pageMeta in the live site source. No URL was hand-typed.",
- "count": 232,
+ "count": 233,
  "dataset": "pages",
  "generated": "2026-10-29",
  "pages": [
@@ -2869,6 +2869,19 @@
    "title": "The Flat Rate Movers publish their dataset estate with a citable DOI",
    "type": "page",
    "url": "https://theflatratemovers.com/flat-rate-movers-dataset-estate-citable-doi/"
+  },
+  {
+   "attested": "2026-11-03",
+   "lastmod": "2026-11-03",
+   "services": [
+    "service-gun-safe"
+   ],
+   "slug": "how-a-gun-safe-is-moved",
+   "source": "Blog Wave 1 Day 2 AM flagship (News Formula guide lane), Launch Protocol 2026-11-03 — how a 1,500–3,500 lb gun safe is moved: survey, emptied-first, L/360 floor check, stairs, SIR + KIM-GS, placement verified, one flat rate in writing; built from the live gun-safe hub, the Moorefield job story and the vault-door case study; byline Henry Pitts Jr., reviewer Henry Pitts",
+   "status": "live",
+   "title": "How a 1,500–3,500 lb gun safe is moved: stairs, floors, and the SIR protocol",
+   "type": "page",
+   "url": "https://theflatratemovers.com/how-a-gun-safe-is-moved/"
   }
  ],
  "source": "https://theflatratemovers.com/sitemap.xml joined to pageMeta in ../the-flat-rate-movers-pages/public/index.html",

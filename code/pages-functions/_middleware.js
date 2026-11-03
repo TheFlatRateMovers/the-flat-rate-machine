@@ -371,6 +371,8 @@ const STATIC_FILES = new Set([
   "/high-mass-logistics-long-distance-moving-winchester-va.json",
   "/high-mass-logistics-long-distance-moving-winchester-va/index.html",
   "/home.json",
+  "/how-a-gun-safe-is-moved.json",
+  "/how-a-gun-safe-is-moved/index.html",
   "/how-container-deconsolidation-cross-docking-transloading-supports-virginia-freight-networks.json",
   "/how-container-deconsolidation-cross-docking-transloading-supports-virginia-freight-networks/index.html",
   "/how-container-loading-unloading-services-improve-port-logistics.json",
