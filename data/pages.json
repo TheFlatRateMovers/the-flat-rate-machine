@@ -1,6 +1,6 @@
 {
  "attestation": "Every URL below was fetched from the live sitemap on 2026-10-28; titles and service links come from pageMeta in the live site source. No URL was hand-typed.",
- "count": 233,
+ "count": 234,
  "dataset": "pages",
  "generated": "2026-10-29",
  "pages": [
@@ -2882,6 +2882,19 @@
    "title": "How a 1,500–3,500 lb gun safe is moved: stairs, floors, and the SIR protocol",
    "type": "page",
    "url": "https://theflatratemovers.com/how-a-gun-safe-is-moved/"
+  },
+  {
+   "attested": "2026-11-03",
+   "lastmod": "2026-11-03",
+   "services": [
+    "service-piano-antique"
+   ],
+   "slug": "how-a-piano-is-moved",
+   "source": "Blog Wave 1 Day 2 PM flagship (News Formula guide lane), Launch Protocol 2026-11-03 — piano moving, uprights to grands: the piece-by-piece survey and assessment, an upright secured on a dolly or skid, a grand dismantled onto a padded skid board, the published weight taxonomy, stairs and floors, crating and long-distance planning, settling and tuning boundaries, antiques and museum pieces under the same discipline; built from the live piano, antique and white-glove hub and its dataset; byline Henry Pitts Jr., reviewer Henry Pitts",
+   "status": "live",
+   "title": "Piano moving, uprights to grands: how the move is planned and protected",
+   "type": "page",
+   "url": "https://theflatratemovers.com/how-a-piano-is-moved/"
   }
  ],
  "source": "https://theflatratemovers.com/sitemap.xml joined to pageMeta in ../the-flat-rate-movers-pages/public/index.html",

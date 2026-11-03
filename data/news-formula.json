@@ -166,6 +166,19 @@
     "width": 1600,
     "height": 1200
    }
+  },
+  {
+   "slug": "how-a-piano-is-moved",
+   "ledgerDate": "2026-11-03",
+   "lane": "guide",
+   "instant": "2026-11-03T12:51:46-05:00",
+   "image": {
+    "status": "owner-supplied-below-size-bar",
+    "url": "https://theflatratemovers.com/assets/grand-piano-bar-harbor-me-henry.webp",
+    "width": 455,
+    "height": 607,
+    "reason": "Owner-supplied photograph (the Bar Harbor grand piano, supplied by the owner 2026-11-03) wired into the page body and the schema at natural size on the owner's direct instruction; the supplied file is 455x607 px portrait, below the N-8 >=1200 px landscape bar — the shortfall is recorded here, not passed."
+   }
   }
  ]
 }

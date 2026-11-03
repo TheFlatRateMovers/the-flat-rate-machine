@@ -644,7 +644,7 @@ async function main() {
     skipLive('P-2 ai-master-index.jws verifies against the published key over the canonical served index');
     skipLive('P-3 all site-served distribution digests match the live served bytes');
     skipLive('P-4 every served index distribution entry is complete (name, contentUrl, encodingFormat, license, dateModified, SHA-256 digest + byteSize)');
-    skipLive('P-5 certificate covers all 233 per-page JSONs + all 233 route documents + llms-full.txt + the site shell + the deployed code sets (548 distributions)');
+    skipLive('P-5 certificate covers all 234 per-page JSONs + all 234 route documents + llms-full.txt + the site shell + the deployed code sets (550 distributions)');
     skipLive('P-6 all repo-served distribution digests match the live served bytes');
   } else {
   try {
@@ -944,14 +944,14 @@ async function main() {
       const missingCode = P2_CODE_URLS.filter((u) => !distUrls.has(u));
       const missingRoutes = pages.pages.map((p) => p.url).filter((u) => !distUrls.has(u));
       const hasLlmsFull = distUrls.has('https://theflatratemovers.com/llms-full.txt');
-      p5ok = !!servedIndex && pageFiles.length === 233 && missingPages.length === 0 && missingCode.length === 0 &&
+      p5ok = !!servedIndex && pageFiles.length === 234 && missingPages.length === 0 && missingCode.length === 0 &&
         missingRoutes.length === 0 && hasLlmsFull &&
-        (servedIndex.distribution || []).length === 548; // 232 -> 233 and 546 -> 548 re-expressed 2026-11-03 (Launch: Gun Safe flagship): +1 page (the gun-safe flagship post), +2 distributions (its route document + per-page JSON); 231 -> 232 and 544 -> 546 re-expressed 2026-11-03 (Launch: Spec C announcement): +1 page (the dataset-estate announcement story), +2 distributions (its route document + per-page JSON); 229 -> 231 and 539 -> 544 re-expressed 2026-11-03 (VC-1 Vault Case Study): +2 pages (the vault door case-study post + the vault-door-case-study dataset landing), +5 distributions (post route document + per-page JSON, dataset file, landing route document + per-page JSON); 226 -> 227 and 530 -> 534 re-expressed 2026-11-02 (Ports P1 Foundation): +1 page (the /datasets/ports/ landing), +4 distributions (dataset file, landing JSON, route document, build-ports.js); 534 -> 535 re-expressed 2026-11-02 (Pulse): +1 distribution (the estate update feed, updates.xml); 227 -> 228 and 535 -> 537 re-expressed 2026-11-02 (Ports P2): +1 page (the Virginia Inland Port 3PL spoke), +2 distributions (spoke per-page JSON, spoke route document); 228 -> 229 and 537 -> 539 re-expressed 2026-11-02 (Ports P2 article A1): +1 page (who unloads containers at the Virginia Inland Port), +2 distributions (article per-page JSON, article route document)
+        (servedIndex.distribution || []).length === 550; // 233 -> 234 and 548 -> 550 re-expressed 2026-11-03 (Launch: Piano flagship): +1 page (the piano flagship post), +2 distributions (its route document + per-page JSON); 232 -> 233 and 546 -> 548 re-expressed 2026-11-03 (Launch: Gun Safe flagship): +1 page (the gun-safe flagship post), +2 distributions (its route document + per-page JSON); 231 -> 232 and 544 -> 546 re-expressed 2026-11-03 (Launch: Spec C announcement): +1 page (the dataset-estate announcement story), +2 distributions (its route document + per-page JSON); 229 -> 231 and 539 -> 544 re-expressed 2026-11-03 (VC-1 Vault Case Study): +2 pages (the vault door case-study post + the vault-door-case-study dataset landing), +5 distributions (post route document + per-page JSON, dataset file, landing route document + per-page JSON); 226 -> 227 and 530 -> 534 re-expressed 2026-11-02 (Ports P1 Foundation): +1 page (the /datasets/ports/ landing), +4 distributions (dataset file, landing JSON, route document, build-ports.js); 534 -> 535 re-expressed 2026-11-02 (Pulse): +1 distribution (the estate update feed, updates.xml); 227 -> 228 and 535 -> 537 re-expressed 2026-11-02 (Ports P2): +1 page (the Virginia Inland Port 3PL spoke), +2 distributions (spoke per-page JSON, spoke route document); 228 -> 229 and 537 -> 539 re-expressed 2026-11-02 (Ports P2 article A1): +1 page (who unloads containers at the Virginia Inland Port), +2 distributions (article per-page JSON, article route document)
       p5detail = 'pageFiles=' + pageFiles.length + ', missingPages=' + (missingPages.join(',') || '0') +
         ', missingCode=' + (missingCode.join(',') || '0') + ', missingRoutes=' + (missingRoutes.slice(0, 3).join(',') || '0') +
         ', llmsFull=' + hasLlmsFull + ', distributions=' + (servedIndex ? (servedIndex.distribution || []).length : 0);
     } catch (e) { p5ok = false; p5detail = e.message; }
-    check('P-5 certificate covers all 233 per-page JSONs + all 233 route documents + llms-full.txt + the site shell + the deployed code sets (548 distributions)',
+    check('P-5 certificate covers all 234 per-page JSONs + all 234 route documents + llms-full.txt + the site shell + the deployed code sets (550 distributions)',
       p5ok, p5detail);
 
     // P-6: repo-served distribution digests re-computed over live bytes
@@ -1717,7 +1717,7 @@ async function main() {
       }
     }
     check('D-2 every Dataset node (dataset files + all 229 route documents) carries landing url/unique sameAs, an identifier, isAccessibleForFree, typed distributions and a self-referencing DataDownload',
-      badNodesD.length === 0 && shellCountD === 374 && routeDocsD.length === 233, // 232 -> 233 route documents re-expressed 2026-11-03 (Launch: Gun Safe flagship): +1 route document = the gun-safe flagship post (its graph carries no Dataset node, so the 374 instance count stands); // 231 -> 232 route documents re-expressed 2026-11-03 (Launch: Spec C announcement): +1 route document = the announcement post (its graph carries no Dataset node, so the 374 instance count stands); // 372 -> 374 and 229 -> 231 re-expressed 2026-11-03 (VC-1 Vault Case Study): +2 Dataset instances = the summary + case-record nodes of datasets-vault-door-case-study.json embedded in its landing route document; +2 route documents = the case-study post and the dataset landing; build-routes.js D-2 pin moved in the same motion // 368 -> 372 and 226 -> 227 re-expressed 2026-11-02 (Ports P1 Foundation): +4 Dataset instances = the ports master + coverage-matrix nodes of datasets-ports.json embedded in two route documents (the /datasets/ports/ landing and the /transloading/ hub); +1 route document = the ports landing; build-routes.js D-2 pin moved in the same motion; 227 -> 228 route documents re-expressed 2026-11-02 (Ports P2): +1 route document = the Virginia Inland Port 3PL spoke (its graph carries no Dataset node, so the 372 shell count stands); build-routes.js D-2 pin reviewed in the same motion (count unchanged); 228 -> 229 route documents re-expressed 2026-11-02 (Ports P2 article A1): +1 route document = the A1 article (its graph carries no Dataset node, so the 372 shell count stands)
+      badNodesD.length === 0 && shellCountD === 374 && routeDocsD.length === 234, // 233 -> 234 route documents re-expressed 2026-11-03 (Launch: Piano flagship): +1 route document = the piano flagship post (its graph carries no Dataset node, so the 374 instance count stands); // 232 -> 233 route documents re-expressed 2026-11-03 (Launch: Gun Safe flagship): +1 route document = the gun-safe flagship post (its graph carries no Dataset node, so the 374 instance count stands); // 231 -> 232 route documents re-expressed 2026-11-03 (Launch: Spec C announcement): +1 route document = the announcement post (its graph carries no Dataset node, so the 374 instance count stands); // 372 -> 374 and 229 -> 231 re-expressed 2026-11-03 (VC-1 Vault Case Study): +2 Dataset instances = the summary + case-record nodes of datasets-vault-door-case-study.json embedded in its landing route document; +2 route documents = the case-study post and the dataset landing; build-routes.js D-2 pin moved in the same motion // 368 -> 372 and 226 -> 227 re-expressed 2026-11-02 (Ports P1 Foundation): +4 Dataset instances = the ports master + coverage-matrix nodes of datasets-ports.json embedded in two route documents (the /datasets/ports/ landing and the /transloading/ hub); +1 route document = the ports landing; build-routes.js D-2 pin moved in the same motion; 227 -> 228 route documents re-expressed 2026-11-02 (Ports P2): +1 route document = the Virginia Inland Port 3PL spoke (its graph carries no Dataset node, so the 372 shell count stands); build-routes.js D-2 pin reviewed in the same motion (count unchanged); 228 -> 229 route documents re-expressed 2026-11-02 (Ports P2 article A1): +1 route document = the A1 article (its graph carries no Dataset node, so the 372 shell count stands)
       'files + ' + shellCountD + ' route-document instances across ' + routeDocsD.length + ' documents' + (badNodesD.length ? ', bad: ' + badNodesD.slice(0, 4).join('; ') : ''));
     // D-3: local sitemap architecture — sitemap.xml is an index whose
     // children are exactly the three section sitemaps plus the news
@@ -3184,6 +3184,12 @@ async function main() {
   // Spec B NewsArticle profile; guide = pure BlogPosting) and the N-8
   // image state (pass, or a recorded owner-photo-needed flag — filling
   // a flagged post with the logo, stock or another subject fails NF-5).
+  // Third state added 2026-11-03 (Piano flagship launch): owner-supplied-
+  // below-size-bar — the owner supplied a true photograph of the post's
+  // subject and directed its use at natural size; the file is below the
+  // N-8 geometry bar. NF-5 verifies such a post's image IS carried in
+  // page + schema + tree and that the shortfall reason is recorded; it
+  // never counts as a geometry pass.
   // ------------------------------------------------------------------
   {
     const NF_SITE = 'https://theflatratemovers.com';
@@ -3231,7 +3237,9 @@ async function main() {
     // NF-5 (local): the image rule — a passing post's first schema image
     // is landscape (16:9 / 4:3 / 1:1 within 0.02), >= 1200 px wide, the
     // file is in the tree, and the image is in the page body; a flagged
-    // post carries a recorded owner-photo-needed reason instead.
+    // post carries a recorded owner-photo-needed reason instead; an
+    // owner-supplied-below-size-bar post (2026-11-03) must carry its
+    // image in page + schema + tree with the shortfall reason recorded.
     try {
       const shellNF = fs.readFileSync(path.join(ROOT, 'repo-dir', 'index.html'), 'utf8');
       const bad = [];
@@ -3253,13 +3261,25 @@ async function main() {
           if (!div.includes('/' + rel)) bad.push(p.slug + ':not-in-page-body');
         } else if (p.image && p.image.status === 'owner-photo-needed') {
           if (!p.image.reason || p.image.reason.length < 40) bad.push(p.slug + ':flag-unrecorded');
+        } else if (p.image && p.image.status === 'owner-supplied-below-size-bar') {
+          const imgs = Array.isArray(bp.image) ? bp.image : (bp.image ? [bp.image] : []);
+          const im = imgs[0];
+          if (!im || im.url !== p.image.url) { bad.push(p.slug + ':schema-image!=manifest'); continue; }
+          if (im.width !== p.image.width || im.height !== p.image.height) bad.push(p.slug + ':geometry-unrecorded');
+          const rel = im.url.replace('https://theflatratemovers.com/', '');
+          if (!fs.existsSync(path.join(nfPub, rel))) bad.push(p.slug + ':file-missing');
+          const divAt = shellNF.indexOf('<div class="page" id="page-' + p.slug + '">');
+          const divEnd = shellNF.indexOf('<div class="page"', divAt + 10);
+          const div = divAt >= 0 ? shellNF.slice(divAt, divEnd > divAt ? divEnd : undefined) : '';
+          if (!div.includes('/' + rel)) bad.push(p.slug + ':not-in-page-body');
+          if (!p.image.reason || p.image.reason.length < 40) bad.push(p.slug + ':shortfall-unrecorded');
         } else {
           bad.push(p.slug + ':no-image-state');
         }
       }
-      check('NF-5 every post carries a true landscape article image (>=1200 px, page + schema) or a recorded owner-photo-needed flag',
-        nfPosts.length >= 1 && bad.length === 0, bad.join(', ') || (nfPosts.filter((p) => p.image.status === 'pass').length + ' pass / ' + nfPosts.filter((p) => p.image.status !== 'pass').length + ' flagged'));
-    } catch (e) { check('NF-5 every post carries a true landscape article image (>=1200 px, page + schema) or a recorded owner-photo-needed flag', false, e.message); }
+      check('NF-5 every post carries a true landscape article image (>=1200 px, page + schema), a recorded owner-photo-needed flag, or an owner-supplied below-size-bar image verified in page + schema with the shortfall recorded',
+        nfPosts.length >= 1 && bad.length === 0, bad.join(', ') || (nfPosts.filter((p) => p.image.status === 'pass').length + ' pass / ' + nfPosts.filter((p) => p.image.status === 'owner-photo-needed').length + ' owner-photo-needed / ' + nfPosts.filter((p) => p.image.status === 'owner-supplied-below-size-bar').length + ' below-size-bar'));
+    } catch (e) { check('NF-5 every post carries a true landscape article image (>=1200 px, page + schema), a recorded owner-photo-needed flag, or an owner-supplied below-size-bar image verified in page + schema with the shortfall recorded', false, e.message); }
 
     // NF-7 (local): lane discipline (Spec B as a switch) + the author
     // chain — every post's author node points at the author page.

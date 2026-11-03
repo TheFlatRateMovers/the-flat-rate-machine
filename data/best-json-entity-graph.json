@@ -4738,7 +4738,7 @@
    "@id": "https://theflatratemovers.com/datasets/intent-coverage/#dataset",
    "@type": "Dataset",
    "name": "The Flat Rate Movers — Search Intent Coverage Operations Dataset",
-   "description": "The live intent-coverage rubric of The Flat Rate Movers: 3398 generated rows, each one a query string a customer or an AI assistant can use to find a company service, resolved to the exact page that answers it, that page’s per-page JSON, the dataset files behind the answer, and the service’s node in the entity graph. Rows are generated from the estate’s own registries — 30 services, 233 pages, two branch locations, three corridors and the 53-feature service-area footprint — plus the blog question bank’s 100 real question phrasings, and the rubric is regenerated whenever those registries change. Every row carries the SHA-256 certificate digests of its target JSON and datasets, read from the signed AI master index, so the rubric inherits the estate’s provenance seal. Coverage spans all 30 services of both branches, Winchester, VA and Martinsburg, WV, along the I-81, I-66 and I-70 corridors. Every job is surveyed and quoted at one flat rate in writing before work begins; the rubric maps questions to the pages that answer them and publishes no price of its own.",
+   "description": "The live intent-coverage rubric of The Flat Rate Movers: 3400 generated rows, each one a query string a customer or an AI assistant can use to find a company service, resolved to the exact page that answers it, that page’s per-page JSON, the dataset files behind the answer, and the service’s node in the entity graph. Rows are generated from the estate’s own registries — 30 services, 234 pages, two branch locations, three corridors and the 53-feature service-area footprint — plus the blog question bank’s 100 real question phrasings, and the rubric is regenerated whenever those registries change. Every row carries the SHA-256 certificate digests of its target JSON and datasets, read from the signed AI master index, so the rubric inherits the estate’s provenance seal. Coverage spans all 30 services of both branches, Winchester, VA and Martinsburg, WV, along the I-81, I-66 and I-70 corridors. Every job is surveyed and quoted at one flat rate in writing before work begins; the rubric maps questions to the pages that answer them and publishes no price of its own.",
    "url": "https://theflatratemovers.com/datasets/intent-coverage/",
    "sameAs": "https://theflatratemovers.com/datasets/intent-coverage/",
    "identifier": "https://doi.org/10.5281/zenodo.23818766",
@@ -9123,6 +9123,72 @@
     "@id": "https://theflatratemovers.com/blog/#blog"
    },
    "mainEntityOfPage": "https://theflatratemovers.com/how-a-gun-safe-is-moved/",
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/how-a-piano-is-moved/#post",
+   "@type": "BlogPosting",
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-piano-antique"
+    }
+   ],
+   "author": {
+    "@type": "Person",
+    "name": "Henry Pitts Jr.",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://medium.com/@ratemovers",
+     "https://github.com/TheFlatRateMovers"
+    ],
+    "url": "https://theflatratemovers.com/author/henry-pitts-jr/"
+   },
+   "contentLocation": [
+    {
+     "@type": "Place",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.18711576,
+      "longitude": -78.1668352
+     },
+     "name": "The Flat Rate Movers — Winchester, VA"
+    },
+    {
+     "@type": "Place",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.48319665,
+      "longitude": -77.94760443
+     },
+     "name": "Flat Rate Movers Martinsburg WV"
+    }
+   ],
+   "dateModified": "2026-11-03T12:51:46-05:00",
+   "datePublished": "2026-11-03T12:51:46-05:00",
+   "description": "Piano moving end to end, uprights to grands: the survey and piece-by-piece assessment (weight, fragile points, finish, value at risk); an upright secured and moved on a dolly or skid; a grand dismantled — lid secured, legs and pedal lyre removed and wrapped separately — onto a padded skid board; the published weight taxonomy from a 200 lb spinet to a 1,300 lb concert grand; stairs, turns, and floors; protection matched to the piece, with custom crating and ISPM 15 export packing where the journey requires it; long-distance moves planned with the household; post-move settling and tuning on Piano Technicians Guild guidance; antiques and museum pieces under the same white-glove discipline; and one flat rate in writing — with the boundaries stated plainly: no tuning, restoration, repair, or appraisal, and no per-piece price list.",
+   "editor": {
+    "@type": "Person",
+    "jobTitle": "Owner, The Flat Rate Movers",
+    "name": "Henry Pitts"
+   },
+   "headline": "Piano moving, uprights to grands: how the move is planned and protected",
+   "image": {
+    "@type": "ImageObject",
+    "caption": "A grand piano moved to Bar Harbor, Maine — the company's owner behind the instrument in the room it traveled to (face blurred for privacy).",
+    "height": 607,
+    "url": "https://theflatratemovers.com/assets/grand-piano-bar-harbor-me-henry.webp",
+    "width": 455
+   },
+   "inLanguage": "en-US",
+   "isPartOf": {
+    "@id": "https://theflatratemovers.com/blog/#blog"
+   },
+   "mainEntityOfPage": "https://theflatratemovers.com/how-a-piano-is-moved/",
    "publisher": {
     "@id": "https://theflatratemovers.com/#organization"
    }

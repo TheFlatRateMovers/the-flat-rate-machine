@@ -2,7 +2,7 @@
  "description": "Seal-maintained lastmod ledger: for every sitemap URL, the date of the last seal generation in which its own signed distribution changed. Seeded from the 2026-11-02 crawl-demand audit (doc-level digest history across 73 signed generations); maintained by seal.py phase 6b (diff-stamp vs the phase-0 prior index). build-sitemap.js reads this file for every sitemap <lastmod>.",
  "lastSeal": {
   "date": "2026-11-03",
-  "indexSha256": "26509b079059804968b430164be28faf47af2b5b86ca93349a3f457c5e672663"
+  "indexSha256": "1ff7615dd2a64b008afd4d075cc22102e6378141d08de631c53d9f3a0d0625c8"
  },
  "seededFrom": "crawl-demand-audit-2026-11-02.csv",
  "urls": {
@@ -166,6 +166,7 @@
   "https://theflatratemovers.com/heavy/": "2026-11-03",
   "https://theflatratemovers.com/high-mass-logistics-long-distance-moving-winchester-va/": "2026-11-03",
   "https://theflatratemovers.com/how-a-gun-safe-is-moved/": "2026-11-03",
+  "https://theflatratemovers.com/how-a-piano-is-moved/": "2026-11-03",
   "https://theflatratemovers.com/how-container-deconsolidation-cross-docking-transloading-supports-virginia-freight-networks/": "2026-11-03",
   "https://theflatratemovers.com/how-container-loading-unloading-services-improve-port-logistics/": "2026-11-03",
   "https://theflatratemovers.com/how-international-export-packing-crating-protects-global-shipments/": "2026-11-03",
