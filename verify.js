@@ -1335,6 +1335,58 @@ async function main() {
     } catch (e) {
       check('S-7e duplicate-@id date divergence', false, e.message);
     }
+
+    // S-7f (Batch Q124, 2026-11-03; Henry's Q2=A ruling): every
+    // dataset FILE's internal date stamps equal the lastmod ledger.
+    // Q2 generalized the FB-3 wiring from four files to all 41: the
+    // seal computes stamps.files for every datasets-*.json (phase 0),
+    // generator-owned files consume FB3_STAMPS for their file-level
+    // stamps, and the remaining files are stamped textually by
+    // scripts/stamp-dataset-files.js (phase 0.5). This gate asserts
+    // the outcome estate-wide: for every dataset file, EVERY
+    // dateModified value anywhere in the document (recursive —
+    // summary nodes, sub-datasets, method and boundary nodes alike)
+    // equals the ledger date for the file's own URL, and every
+    // Dataset citizen node carries a dateModified. Pure reference
+    // stubs (keys subset of {@id, @type, name} — the estate's
+    // standing stub definition, cf. S-7e and the DG derivation) are
+    // references to a citizen node, not citizens, and are exempt
+    // from the presence clause; any dateModified a stub does carry
+    // is still value-checked. The ledger is read from
+    // data/lastmod-ledger.json, the same source S-7a uses; local
+    // tree only (P-3 proves served == tree).
+    try {
+      const SITE_S7F = 'https://theflatratemovers.com';
+      const ledgerS7F = (JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'lastmod-ledger.json'), 'utf8')).urls) || {};
+      const idxDocS7F = JSON.parse(fs.readFileSync(path.join(PAGES_PUBLIC, 'ai-master-index.json'), 'utf8'));
+      const idxFilesS7F = new Set();
+      for (const e of idxDocS7F.distribution || []) for (const d of (Array.isArray(e) ? e : [e])) if (d && d.contentUrl && /\/datasets-[^/]+\.json$/.test(d.contentUrl)) idxFilesS7F.add(d.contentUrl);
+      const diskFilesS7F = fs.readdirSync(PAGES_PUBLIC).filter((f) => /^datasets-.+\.json$/.test(f));
+      const badS7F = [];
+      let nFieldsS7F = 0, nDsNodesS7F = 0;
+      if (idxFilesS7F.size !== diskFilesS7F.length) badS7F.push('dataset file set: signed index ' + idxFilesS7F.size + ' vs disk ' + diskFilesS7F.length);
+      for (const f of diskFilesS7F) {
+        const fileUrl = SITE_S7F + '/' + f;
+        const want = ledgerS7F[fileUrl];
+        if (!want) { badS7F.push(f + ': no ledger entry'); continue; }
+        if (!idxFilesS7F.has(fileUrl)) badS7F.push(f + ': not a signed distribution');
+        const docS7F = JSON.parse(fs.readFileSync(path.join(PAGES_PUBLIC, f), 'utf8'));
+        const walkS7F = (o) => {
+          if (Array.isArray(o)) { o.forEach(walkS7F); return; }
+          if (!o || typeof o !== 'object') return;
+          if ('dateModified' in o) { nFieldsS7F++; if (o.dateModified !== want) badS7F.push(f + ': dateModified ' + o.dateModified + ' != ledger ' + want + ' (' + (o['@id'] || o['@type'] || '?') + ')'); }
+          const tS7F = o['@type'];
+          const isStubS7F = Object.keys(o).every((k) => k === '@id' || k === '@type' || k === 'name');
+          if ((tS7F === 'Dataset' || (Array.isArray(tS7F) && tS7F.includes('Dataset'))) && !isStubS7F) { nDsNodesS7F++; if (!('dateModified' in o)) badS7F.push(f + ': Dataset node without dateModified (' + (o['@id'] || '?') + ')'); }
+          Object.values(o).forEach(walkS7F);
+        };
+        walkS7F(docS7F);
+      }
+      check('S-7f every dataset file internal dateModified equals its lastmod-ledger date (Q124: Q2=A wiring, all 41 files, recursive)',
+        badS7F.length === 0, badS7F.length ? badS7F.slice(0, 6).join(' | ') : (diskFilesS7F.length + ' files, ' + nFieldsS7F + ' dateModified fields, ' + nDsNodesS7F + ' Dataset nodes — all == ledger'));
+    } catch (e) {
+      check('S-7f dataset file stamps == ledger', false, e.message);
+    }
   } catch (e) {
     check('structural Batch 9 checks (S-1..S-7) evaluated', false, e.message);
   }
@@ -2409,8 +2461,14 @@ async function main() {
   // @id (DC-4); and the Zenodo concept DOI in URL form on exactly
   // its holder nodes — the four intent collection nodes, the intent
   // landing node and the master-index root — and nowhere else in
-  // the corpus (DC-5). Corpus: the 39 dataset files, the 37
+  // the corpus (DC-5). Corpus: the 41 dataset files, the 41
   // per-page dataset JSONs, ai-sitemap.json, entity-graph.json and
+  // (Q124 re-expression, 2026-11-03: the earlier "39 files / 37
+  // per-page JSONs" counts were stale Batch-4a-era figures; the
+  // corpus is population-driven — DATASET_FILES from disk — and,
+  // since Q4=B landed in the same batch, datasets-videos.json is a
+  // full corpus citizen whose own file carries its Dataset node;
+  // no dataset file is exempt from DC-1..DC-5 by population.)
   // every route document's non-baked ld+json (the D-2 population).
   // The master index itself is DC-2's comparison source, not
   // population; its root is in scope for DC-5 only. DS-RESOLVE
@@ -4075,16 +4133,22 @@ async function main() {
     // CV-6: enrichment — datePublished table, catalog pointer,
     // variableMeasured on exactly six files, spatialCoverage shape,
     // and no version anywhere (parent decision D3).
+    // Q124 re-expression (2026-11-03, Henry's Q4=B ruling): videos
+    // is no longer exempt — datasets-videos.json carries its own
+    // Dataset node in-file (datePublished 2026-10-29, the file's
+    // signed-index lineage date and first git commit), so the
+    // exemption branch and its no-spatialCoverage carve-out are
+    // deleted and videos is held to the same enrichment bar as the
+    // other 40 files; the table now covers all 41 dataset files.
     {
-      const DATES = { 'answer-evidence': '2026-10-31', 'archive-registry': '2026-11-01', 'commercial': '2026-10-29', 'crating': '2026-10-29', 'crawl-presence': '2026-10-31', 'data-center-relocation': '2026-10-30', 'ffe-logistics': '2026-10-30', 'final-mile': '2026-10-29', 'freight-rework': '2026-11-01', 'government': '2026-10-29', 'gun-safe': '2026-10-29', 'industrial-commercial': '2026-10-29', 'industrial-offices': '2026-10-29', 'intent-coverage': '2026-10-30', 'ispm15': '2026-10-29', 'it': '2026-10-29', 'junk-removal': '2026-10-30', 'local-graph-registry': '2026-10-31', 'local-regional': '2026-10-29', 'long-distance': '2026-10-29', 'medical-lab-relocation': '2026-10-30', 'military': '2026-10-29', 'moving-and-storage': '2026-10-29', 'ocean-container': '2026-10-29', 'office': '2026-10-29', 'packing': '2026-10-29', 'piano-antique': '2026-10-29', 'ports': '2026-11-02', 'residential': '2026-10-29', 'route81': '2026-10-29', 'search-index': '2026-10-31', 'senior': '2026-10-29', 'sir-heavy': '2026-10-29', 'transloading': '2026-10-29', 'transloading-inland-port': '2026-10-30', 'transloading-winchester': '2026-10-29', 'vault-door-case-study': '2026-11-03', 'warehouse': '2026-10-29', 'warehouse-racking-relocation': '2026-10-30', 'white-glove': '2026-11-02' };
+      const DATES = { 'answer-evidence': '2026-10-31', 'archive-registry': '2026-11-01', 'commercial': '2026-10-29', 'crating': '2026-10-29', 'crawl-presence': '2026-10-31', 'data-center-relocation': '2026-10-30', 'ffe-logistics': '2026-10-30', 'final-mile': '2026-10-29', 'freight-rework': '2026-11-01', 'government': '2026-10-29', 'gun-safe': '2026-10-29', 'industrial-commercial': '2026-10-29', 'industrial-offices': '2026-10-29', 'intent-coverage': '2026-10-30', 'ispm15': '2026-10-29', 'it': '2026-10-29', 'junk-removal': '2026-10-30', 'local-graph-registry': '2026-10-31', 'local-regional': '2026-10-29', 'long-distance': '2026-10-29', 'medical-lab-relocation': '2026-10-30', 'military': '2026-10-29', 'moving-and-storage': '2026-10-29', 'ocean-container': '2026-10-29', 'office': '2026-10-29', 'packing': '2026-10-29', 'piano-antique': '2026-10-29', 'ports': '2026-11-02', 'residential': '2026-10-29', 'route81': '2026-10-29', 'search-index': '2026-10-31', 'senior': '2026-10-29', 'sir-heavy': '2026-10-29', 'transloading': '2026-10-29', 'transloading-inland-port': '2026-10-30', 'transloading-winchester': '2026-10-29', 'vault-door-case-study': '2026-11-03', 'videos': '2026-10-29', 'warehouse': '2026-10-29', 'warehouse-racking-relocation': '2026-10-30', 'white-glove': '2026-11-02' };
       const VM = new Set(['intent-coverage', 'search-index', 'answer-evidence', 'crawl-presence', 'local-graph-registry', 'archive-registry']);
-      const NO_SC = new Set(['archive-registry', 'crawl-presence', 'local-graph-registry', 'videos']);
+      const NO_SC = new Set(['archive-registry', 'crawl-presence', 'local-graph-registry']);
       const bad = [];
       for (const f of DATASET_FILES) {
         const slug = f.replace(/^datasets-/, '').replace(/\.json$/, '');
         const doc = readJ(pathx.join(PUB, f));
         const dsNodes = (doc['@graph'] || []).filter((n) => typeHasX(n, 'Dataset'));
-        if (slug === 'videos') { if (dsNodes.length) bad.push('videos gained Dataset nodes'); continue; }
         if (!dsNodes.length) { bad.push(f + ': no Dataset nodes'); continue; }
         for (const n of dsNodes) {
           if (n.datePublished !== DATES[slug]) bad.push(f + ' datePublished ' + n.datePublished);
@@ -4101,8 +4165,8 @@ async function main() {
           if (bad.length > 6) break;
         }
       }
-      check('CV-6 enrichment complete on all 40 Dataset-bearing files (datePublished per the sourced table, catalog pointer, variableMeasured on exactly the six measurement files, full-Place spatialCoverage on 37, version nowhere)',
-        bad.length === 0, bad.slice(0, 4).join('; ') || '40 files enriched per table');
+      check('CV-6 enrichment complete on all 41 dataset files (datePublished per the sourced table, catalog pointer, variableMeasured on exactly the six measurement files, full-Place spatialCoverage on 38, version nowhere; Q124: videos a full citizen, no exemptions)',
+        bad.length === 0, bad.slice(0, 4).join('; ') || '41 files enriched per table');
     }
 
     // CV-7 + CV-8: local-graph registry totals and the backlink tier.
@@ -4905,6 +4969,44 @@ async function main() {
  } else {
   skipLive('QC-3 sync tool --check (local tool)', 'runs in --local mode');
  }
+}
+
+/* ============ 38. Q124 dual-representation gate — dataset forms in the sitemaps (Batch Q124, 2026-11-03) ============ */
+{
+ // Henry's Q1=C ruling (2026-11-03): every dataset keeps BOTH
+ // representations — the dataset FILE entry and the LANDING entry.
+ // Both forms ride two surfaces: sitemaps/datasets.xml carries
+ // file-form and landing-form locs side by side, and
+ // ai-sitemap.json's pages[] carries the landings. QS-1/QS-2 lock
+ // the sets against the sealed population so neither form can
+ // silently drop from either surface. Tree-side (P-3 proves the
+ // served surfaces equal the tree).
+ try {
+   const SITE_QS = 'https://theflatratemovers.com';
+   const signedIdxQS = JSON.parse(fs.readFileSync(path.join(PAGES_PUBLIC, 'ai-master-index.json'), 'utf8'));
+   const fileSetQS = new Set();
+   for (const e of signedIdxQS.distribution || []) for (const d of (Array.isArray(e) ? e : [e])) if (d && d.contentUrl && /\/datasets-[^/]+\.json$/.test(d.contentUrl)) fileSetQS.add(d.contentUrl);
+   const landingOfQS = (u) => SITE_QS + '/datasets/' + u.split('/').pop().replace(/^datasets-/, '').replace(/\.json$/, '') + '/';
+   const landSetQS = new Set([...fileSetQS].map(landingOfQS));
+   const hubQS = SITE_QS + '/datasets/';
+   const dsXmlQS = fs.readFileSync(path.join(PAGES_PUBLIC, 'sitemaps', 'datasets.xml'), 'utf8');
+   const locsQS = [...dsXmlQS.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+   const xmlFilesQS = new Set(locsQS.filter((u) => /\/datasets-[^/]+\.json$/.test(u)));
+   const xmlLandQS = new Set(locsQS.filter((u) => u.startsWith(SITE_QS + '/datasets/')));
+   const aiSmQS = JSON.parse(fs.readFileSync(path.join(PAGES_PUBLIC, 'ai-sitemap.json'), 'utf8'));
+   const aiPagesQS = new Set((aiSmQS.pages || []).map((p) => p && p.url).filter(Boolean));
+   const eqQS = (a, b) => a.size === b.size && [...a].every((x) => b.has(x));
+   const badQS1 = [];
+   if (!eqQS(xmlFilesQS, fileSetQS)) badQS1.push('datasets.xml file-form ' + xmlFilesQS.size + ' vs signed-index dataset files ' + fileSetQS.size + '; missing: ' + [...fileSetQS].filter((u) => !xmlFilesQS.has(u)).slice(0, 3).join(', ') + '; extra: ' + [...xmlFilesQS].filter((u) => !fileSetQS.has(u)).slice(0, 3).join(', '));
+   check('QS-1 datasets.xml file-form entries exactly equal the sealed dataset-file set (Q124: Q1=C, both forms locked)',
+     badQS1.length === 0, badQS1.join('') || (fileSetQS.size + ' dataset files present in file form'));
+   const badQS2 = [];
+   if (!eqQS(xmlLandQS, new Set([...landSetQS, hubQS]))) badQS2.push('datasets.xml landing-form ' + xmlLandQS.size + ' vs expected ' + (landSetQS.size + 1) + ' (landings + hub); missing: ' + [...landSetQS].filter((u) => !xmlLandQS.has(u)).slice(0, 3).join(', '));
+   const aiMissingQS = [...landSetQS].filter((u) => !aiPagesQS.has(u));
+   if (aiMissingQS.length) badQS2.push('ai-sitemap.json pages[] missing landings: ' + aiMissingQS.slice(0, 3).join(', '));
+   check('QS-2 dataset landing entries complete on both surfaces: datasets.xml landing-form == the dataset landings + hub, and ai-sitemap.json pages[] carries every landing (Q124: Q1=C)',
+     badQS2.length === 0, badQS2.join('; ') || (landSetQS.size + ' landings on both surfaces'));
+ } catch (e) { check('§38 Q124 dual-representation gates QS-1/QS-2 execute', false, String(e && e.message || e).slice(0, 240)); }
 }
 
   // --- 9. Guardrail scan: no placeholders, no invented license identifiers ---

@@ -6237,14 +6237,32 @@
      "https://medium.com/@ratemovers"
     ]
    },
-   "dateModified": "2026-10-30",
+   "includedInDataCatalog": {
+    "@id": "https://theflatratemovers.com/datasets/#collection"
+   },
+   "datePublished": "2026-10-29",
+   "dateModified": "2026-11-03",
    "temporalCoverage": "2010/2026",
    "spatialCoverage": [
     {
-     "@id": "https://theflatratemovers.com/#winchester"
+     "@type": "Place",
+     "@id": "https://theflatratemovers.com/#winchester",
+     "name": "The Flat Rate Movers — Winchester",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.18711576,
+      "longitude": -78.1668352
+     }
     },
     {
-     "@id": "https://theflatratemovers.com/#martinsburg"
+     "@type": "Place",
+     "@id": "https://theflatratemovers.com/#martinsburg",
+     "name": "Flat Rate Movers Martinsburg WV",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.48319665,
+      "longitude": -77.94760443
+     }
     }
    ],
    "keywords": [
@@ -6252,10 +6270,7 @@
     "gun safe moving video",
     "final mile delivery video",
     "winchester va movers"
-   ],
-   "includedInDataCatalog": {
-    "@id": "https://theflatratemovers.com/datasets/#collection"
-   }
+   ]
   },
   {
    "@id": "https://theflatratemovers.com/datasets/warehouse-racking-relocation/#dataset",

@@ -94,10 +94,12 @@
 //   llms-full.txt (surface-copy presence), functions/head-data.js
 //   (per-page JSON filenames).
 //
-// DETERMINISM: the file's dateModified is the newest evidence date
-// among its inputs (the 2026-10-31 probing and snapshot date, or the
-// newest Answer Panel run date when panel rows are ingested), never
-// the wall clock, so --check is byte-stable across days.
+// DETERMINISM: never the wall clock, so --check is byte-stable
+// across days. Q124 (2026-11-03): file-level dateModified stamps
+// take FILE_DM — the lastmod-ledger date for this file's URL when
+// the seal passes FB3_STAMPS (else the ledger read directly, else
+// DATE_MOD) — while DATE_MOD (the newest evidence date among its
+// inputs) keeps its evidence roles: validation and evidence prose.
 'use strict';
 const fs = require('fs');
 const path = require('path');
@@ -933,6 +935,26 @@ const profiles = ENGINE_PROFILES.map((p) => ({ ...p }));
 
 // -------------------------------------------------------------- totals
 const DATE_MOD = [OBS_DATE, SNAP_DATE, PROFILE_DATE, ...(PANEL.present ? [PANEL.newestDate] : [])].sort().slice(-1)[0];
+
+/* Q124 wire (2026-11-03; the build-local-graph.js FB-3 pattern):
+ * file-level dateModified fields take FILE_DM — the seal phase-0
+ * stamps value for this file's own URL when the seal passes
+ * FB3_STAMPS, else the lastmod ledger read directly (verify --check
+ * runs without FB3_STAMPS), else DATE_MOD. DATE_MOD itself keeps
+ * its evidence roles (validation, evidence prose). */
+const FILE_DM = (() => {
+  if (process.env.FB3_STAMPS) {
+    const m = JSON.parse(fs.readFileSync(process.env.FB3_STAMPS, 'utf8'));
+    const v = m.files && m.files['https://theflatratemovers.com/datasets-answer-evidence.json'];
+    if (!v) throw new Error('FB3_STAMPS lacks the answer-evidence file entry');
+    return v;
+  }
+  try {
+    const ledger = JSON.parse(fs.readFileSync(
+      path.join(__dirname, '..', 'data', 'lastmod-ledger.json'), 'utf8'));
+    return (ledger.urls && ledger.urls['https://theflatratemovers.com/datasets-answer-evidence.json']) || DATE_MOD;
+  } catch (_) { return DATE_MOD; }
+})();
 const totals = {
   questions: questions.length,
   fragments: fragments.length,
@@ -993,7 +1015,7 @@ function baseNode(id, type, name, description) {
     keywords: ['answer engines', 'citation evidence', 'answer fragments', 'prompt panel', 'AI Overviews', 'retrieval machine'],
     about: [{ '@id': SITE + '/#organization' }],
     spatialCoverage: [{ '@id': SITE + '/#winchester' }, { '@id': SITE + '/#martinsburg' }],
-    temporalCoverage: '2010/2026', dateModified: DATE_MOD,
+    temporalCoverage: '2010/2026', dateModified: FILE_DM,
     creator: CREATOR, publisher: CREATOR, license: LICENSE,
     distribution: [
       { '@type': 'DataDownload', contentUrl: FILE_URL, encodingFormat: 'application/json' },
@@ -1088,8 +1110,8 @@ const graph = [
   {
     '@id': SITE + '/#dataset-answer-evidence-method', '@type': 'Article',
     name: 'How the Answer-Evidence Dataset Is Built',
-    description: 'Method. The generator (scripts/build-answer-evidence.js in the Flat Rate Machine) reads the paths registry for every location and builds all tables from the live estate in one run: questions are generated mechanically from the rubric database; fragments are extracted from the source shell’s page divs (heading-led passages h1–h3 with at least one character of body text) and from the per-page JSONs’ FAQPage schema (exact question/answer pairs); a passage quoting a 64-hex SHA-256 string is excluded as self-referential certificate text and the exclusion count is published; each fragment’s text hash is the SHA-256 of its full text, so any later drift between the published fragment and the live page is detectable; binding is exact — a rubric question binds to a fragment only when the fragment’s normalized heading equals the question’s normalized text on the question’s own target page, with FAQ-schema fragments preferred over passages; coverage is computed per service from those bindings and from substantive-fragment presence (body of at least 120 characters), never asserted. Observations are admitted only from evidence on file — the dossier’s dated search-surface probing and the panel input file transcribed from the dated Answer Panel run records — transcribed with method, era, surface and prompt verbatim, and the generator refuses any observation row whose method is not backed by an evidence file: prompt-panel rows are admissible only through the validated panel input file (run records must exist on disk and each run’s census must reconcile), and brave-serp and console rows cannot be emitted until a real run of those methods exists. Review snapshots are transcribed from the dossier’s per-platform records with their arithmetic; the generator enforces the schema bar on competitor-namespace records in code. The file’s dateModified is the newest evidence date among its inputs, never the wall clock, so regeneration is byte-stable and checkable. Update cadence: the dataset regenerates in every estate batch that changes pages, rubric rows, fragments or observations, and reseals in the same motion.',
-    dateModified: DATE_MOD, author: { '@id': SITE + '/#organization' },
+    description: 'Method. The generator (scripts/build-answer-evidence.js in the Flat Rate Machine) reads the paths registry for every location and builds all tables from the live estate in one run: questions are generated mechanically from the rubric database; fragments are extracted from the source shell’s page divs (heading-led passages h1–h3 with at least one character of body text) and from the per-page JSONs’ FAQPage schema (exact question/answer pairs); a passage quoting a 64-hex SHA-256 string is excluded as self-referential certificate text and the exclusion count is published; each fragment’s text hash is the SHA-256 of its full text, so any later drift between the published fragment and the live page is detectable; binding is exact — a rubric question binds to a fragment only when the fragment’s normalized heading equals the question’s normalized text on the question’s own target page, with FAQ-schema fragments preferred over passages; coverage is computed per service from those bindings and from substantive-fragment presence (body of at least 120 characters), never asserted. Observations are admitted only from evidence on file — the dossier’s dated search-surface probing and the panel input file transcribed from the dated Answer Panel run records — transcribed with method, era, surface and prompt verbatim, and the generator refuses any observation row whose method is not backed by an evidence file: prompt-panel rows are admissible only through the validated panel input file (run records must exist on disk and each run’s census must reconcile), and brave-serp and console rows cannot be emitted until a real run of those methods exists. Review snapshots are transcribed from the dossier’s per-platform records with their arithmetic; the generator enforces the schema bar on competitor-namespace records in code. The file’s dateModified is the estate lastmod-ledger date for this file’s URL, wired by the seal (Batch Q124, 2026-11-03) — outside a seal the generator falls back to the newest evidence date among its inputs — never the wall clock, so regeneration is byte-stable and checkable. Update cadence: the dataset regenerates in every estate batch that changes pages, rubric rows, fragments or observations, and reseals in the same motion.',
+    dateModified: FILE_DM, author: { '@id': SITE + '/#organization' },
     isPartOf: { '@id': SITE + '/#dataset-answer-evidence-operations' },
     sameAs: LANDING, url: LANDING, identifier: LANDING, isAccessibleForFree: true,
   },
@@ -1097,7 +1119,7 @@ const graph = [
     '@id': SITE + '/#dataset-answer-evidence-sources-article', '@type': 'Article',
     name: 'Answer-Evidence Dataset Sources',
     description: 'Sources, with their dates and eras kept distinct. (1) The estate’s own registries, rubric database, source shell and per-page JSONs — the question and fragment truth, current at generation. (2) Live probing of the public web-search surface on 2026-10-31 (Retrieval Machine Dossier 02 §2.2): six probes, single vantage, labeled [OBS] in the dossier — a search-surface proxy, explicitly not the ChatGPT, Claude or Perplexity interfaces and not an AI Overview; nothing from it is presented as an answer-engine citation. (3) Platform documentation for the four answer engines (Dossier 02 §1.2): OpenAI, Google and Anthropic documentation via secondary summaries read 2026-10-31; Perplexity’s developer documentation read directly (updated 2026-10-25). (4) Named third-party studies, era-labeled, with their conflicts kept as conflicts: the Profound ChatGPT conversation panel (Oct–Dec 2025, vendor measurement), the Complete SEO Claude–Brave overlap study (2026-09-01), Blyskal 2026, the Ahrefs AI Overview citation analyses (Jul 2025 and Mar 2026, mutually contested), and the Pew Research Center browsing panel (Mar 2025, observational and publicly disputed by Google — used in the dossier for order-of-magnitude reasoning only). (5) Review platform displays observed 2026-10-31 (Dossier 02 §§0, 2.4) with the owner’s market-knowledge statement recorded as a statement, typed as unverified, and relied on by no finding. No source is presented as fresher than it is.',
-    dateModified: DATE_MOD, author: { '@id': SITE + '/#organization' },
+    dateModified: FILE_DM, author: { '@id': SITE + '/#organization' },
     isPartOf: { '@id': SITE + '/#dataset-answer-evidence-operations' },
     sameAs: LANDING, url: LANDING, identifier: LANDING, isAccessibleForFree: true,
   },

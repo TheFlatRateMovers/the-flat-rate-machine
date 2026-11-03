@@ -60,9 +60,12 @@
 // digest equals the sealed distribution digest after every batch; a
 // verification check asserts that equality against the served index.
 //
-// DETERMINISM: the file's dateModified is the newest evidence date
-// among its inputs (console window end, verdict date, sampling date),
-// never the wall clock, so --check is byte-stable across days.
+// DETERMINISM: never the wall clock, so --check is byte-stable
+// across days. Q124 (2026-11-03): file-level dateModified stamps
+// take FILE_DM — the lastmod-ledger date for this file's URL when
+// the seal passes FB3_STAMPS (else the ledger read directly, else
+// DATE_MOD) — while DATE_MOD (the newest evidence date among its
+// inputs) keeps its evidence roles: validation and evidence prose.
 'use strict';
 const fs = require('fs');
 const path = require('path');
@@ -328,10 +331,30 @@ if (verdictsPath) {
 const verdictByUrl = new Map();
 if (verdicts) for (const v of verdicts.verdicts) verdictByUrl.set(v.url, v);
 
-// dates: dateModified = newest evidence date (deterministic).
+// dates: DATE_MOD = newest evidence date (deterministic) — evidence
+// semantics only since Q124; file-level stamps take FILE_DM below.
 const evidenceDates = ['2026-07-29', '2026-10-28', SAMPLE_DATE];
 if (verdicts) evidenceDates.push(verdicts.observed_at);
 const DATE_MOD = evidenceDates.sort().slice(-1)[0];
+
+/* Q124 wire (2026-11-03; the build-local-graph.js FB-3 pattern):
+ * file-level dateModified fields take FILE_DM — the seal phase-0
+ * stamps value for this file's own URL when the seal passes
+ * FB3_STAMPS, else the lastmod ledger read directly (verify --check
+ * runs without FB3_STAMPS), else DATE_MOD. */
+const FILE_DM = (() => {
+  if (process.env.FB3_STAMPS) {
+    const m = JSON.parse(fs.readFileSync(process.env.FB3_STAMPS, 'utf8'));
+    const v = m.files && m.files['https://theflatratemovers.com/datasets-search-index.json'];
+    if (!v) throw new Error('FB3_STAMPS lacks the search-index file entry');
+    return v;
+  }
+  try {
+    const ledger = JSON.parse(fs.readFileSync(
+      path.join(__dirname, '..', 'data', 'lastmod-ledger.json'), 'utf8'));
+    return (ledger.urls && ledger.urls['https://theflatratemovers.com/datasets-search-index.json']) || DATE_MOD;
+  } catch (_) { return DATE_MOD; }
+})();
 
 // ------------------------------------------------------- shell mining
 function divText(slug) {
@@ -635,7 +658,7 @@ function baseNode(id, type, name, description) {
     keywords: ['search index', 'query clusters', 'url supply', 'standing observations', 'search standing', 'retrieval machine'],
     about: [{ '@id': SITE + '/#organization' }],
     spatialCoverage: [{ '@id': SITE + '/#winchester' }, { '@id': SITE + '/#martinsburg' }],
-    temporalCoverage: '2010/2026', dateModified: DATE_MOD,
+    temporalCoverage: '2010/2026', dateModified: FILE_DM,
     creator: CREATOR, publisher: CREATOR, license: LICENSE,
     distribution: [
       { '@type': 'DataDownload', contentUrl: FILE_URL, encodingFormat: 'application/json' },
@@ -751,8 +774,8 @@ const graph = [
   {
     '@id': SITE + '/#dataset-search-index-method', '@type': 'Article',
     name: 'How the Search Index Dataset Is Built',
-    description: 'Method. The generator (scripts/build-search-index.js in the Flat Rate Machine) reads the paths registry for every location and builds all seven tables from the live estate in one run: clusters are grouped mechanically from the rubric database by (service, intent class, geo scope, target URL); URL supply is mined from the registries, the source shell, the served head data and the per-page JSON files; standing observations are admitted only from evidence on file — the research dossier’s dated live sampling and the Search Console verdicts — and the generator rejects any observation missing its method, era or source; the console window is joined from the rubric’s era-tagged evidence tables without aggregation or zero-filling; competitor, third-party and gap records are transcribed from the research dossiers with their check dates, under a schema bar the generator enforces in code. The url_supply digest is the SHA-256 of the page’s per-page JSON file in the public tree at generation time; a completed batch seals exactly those bytes, and the verification suite asserts the supply digests equal the served signed index after every batch. The file’s dateModified is the newest evidence date among its inputs, never the wall clock, so regeneration is byte-stable and checkable. Update cadence: the dataset regenerates in every estate batch that changes pages, rubric rows or standing evidence, and reseals in the same motion.',
-    dateModified: DATE_MOD, author: { '@id': SITE + '/#organization' },
+    description: 'Method. The generator (scripts/build-search-index.js in the Flat Rate Machine) reads the paths registry for every location and builds all seven tables from the live estate in one run: clusters are grouped mechanically from the rubric database by (service, intent class, geo scope, target URL); URL supply is mined from the registries, the source shell, the served head data and the per-page JSON files; standing observations are admitted only from evidence on file — the research dossier’s dated live sampling and the Search Console verdicts — and the generator rejects any observation missing its method, era or source; the console window is joined from the rubric’s era-tagged evidence tables without aggregation or zero-filling; competitor, third-party and gap records are transcribed from the research dossiers with their check dates, under a schema bar the generator enforces in code. The url_supply digest is the SHA-256 of the page’s per-page JSON file in the public tree at generation time; a completed batch seals exactly those bytes, and the verification suite asserts the supply digests equal the served signed index after every batch. The file’s dateModified is the estate lastmod-ledger date for this file’s URL, wired by the seal (Batch Q124, 2026-11-03) — outside a seal the generator falls back to the newest evidence date among its inputs — never the wall clock, so regeneration is byte-stable and checkable. Update cadence: the dataset regenerates in every estate batch that changes pages, rubric rows or standing evidence, and reseals in the same motion.',
+    dateModified: FILE_DM, author: { '@id': SITE + '/#organization' },
     isPartOf: { '@id': SITE + '/#dataset-search-index-operations' },
     sameAs: LANDING, url: LANDING, identifier: LANDING, isAccessibleForFree: true,
   },
@@ -760,7 +783,7 @@ const graph = [
     '@id': SITE + '/#dataset-search-index-sources-article', '@type': 'Article',
     name: 'Search Index Dataset Sources',
     description: 'Sources, with their dates and eras kept distinct. (1) The estate’s own registries and rubric database — the demand and supply truth, current at generation. (2) Live search sampling of 2026-10-31 (Retrieval Machine Dossier 01 §§2–3): sampled positions and pack orders, labeled [OBS] in the dossier, post-rebuild era, small-sample by design and never blended with console data. (3) Search Console URL-inspection verdicts of 2026-10-31: 11 URLs inspected in the standing indexing pass; the same verdicts were ingested into the rubric outcome-evidence log (161 evidence rows). (4) The Search Console performance export for 2026-07-29 to 2026-10-28: pre-rebuild era evidence, attached to rubric rows by exact normalized text match only where the target page existed in the export and still exists; its totals describe the old site, not this one. (5) Third-party record checks of 2026-10-30 (backlink program wave 1) and 2026-10-31 (Dossier 03 re-verification, with each crawl’s age stated there). No source is presented as fresher than it is.',
-    dateModified: DATE_MOD, author: { '@id': SITE + '/#organization' },
+    dateModified: FILE_DM, author: { '@id': SITE + '/#organization' },
     isPartOf: { '@id': SITE + '/#dataset-search-index-operations' },
     sameAs: LANDING, url: LANDING, identifier: LANDING, isAccessibleForFree: true,
   },

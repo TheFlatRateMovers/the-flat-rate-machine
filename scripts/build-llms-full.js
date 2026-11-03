@@ -282,11 +282,14 @@ for (const f of dsFiles) {
   let main = nodes[0];
   if (!main) {
     // FB-5 rider (Batch FB-2, 2026-11-03): a dataset file carrying no
-    // Dataset node of its own (the videos media file) enumerates from
-    // its landing's per-page summary node — selected by the same
-    // candidate-@id rule as the graph-citizenship sync — instead of
-    // being skipped silently. If neither source yields exactly one
-    // summary node, the build fails loud.
+    // Dataset node of its own enumerates from its landing's per-page
+    // summary node — selected by the same candidate-@id rule as the
+    // graph-citizenship sync — instead of being skipped silently. If
+    // neither source yields exactly one summary node, the build
+    // fails loud. Q124 note (2026-11-03): datasets-videos.json was
+    // that case until Henry's Q4=B ruling gave the file its own
+    // Dataset node in-file; the fallback now stands as a general
+    // guard for any future media-only file, not a videos exemption.
     const stem = f.replace(/^datasets-/, '').replace(/\.json$/, '');
     const landing = 'https://theflatratemovers.com/datasets/' + stem + '/';
     const candIds = new Set([landing + '#dataset', landing + '#dataset-' + stem, 'https://theflatratemovers.com/' + f + '#dataset']);
