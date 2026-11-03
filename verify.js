@@ -543,7 +543,7 @@ async function main() {
     skipLive('P-2 ai-master-index.jws verifies against the published key over the canonical served index');
     skipLive('P-3 all site-served distribution digests match the live served bytes');
     skipLive('P-4 every served index distribution entry is complete (name, contentUrl, encodingFormat, license, dateModified, SHA-256 digest + byteSize)');
-    skipLive('P-5 certificate covers all 229 per-page JSONs + all 229 route documents + llms-full.txt + the site shell + the deployed code sets (539 distributions)');
+    skipLive('P-5 certificate covers all 231 per-page JSONs + all 231 route documents + llms-full.txt + the site shell + the deployed code sets (544 distributions)');
     skipLive('P-6 all repo-served distribution digests match the live served bytes');
   } else {
   try {
@@ -845,14 +845,14 @@ async function main() {
       const missingCode = P2_CODE_URLS.filter((u) => !distUrls.has(u));
       const missingRoutes = pages.pages.map((p) => p.url).filter((u) => !distUrls.has(u));
       const hasLlmsFull = distUrls.has('https://theflatratemovers.com/llms-full.txt');
-      p5ok = !!servedIndex && pageFiles.length === 229 && missingPages.length === 0 && missingCode.length === 0 &&
+      p5ok = !!servedIndex && pageFiles.length === 231 && missingPages.length === 0 && missingCode.length === 0 &&
         missingRoutes.length === 0 && hasLlmsFull &&
-        (servedIndex.distribution || []).length === 539; // 226 -> 227 and 530 -> 534 re-expressed 2026-11-02 (Ports P1 Foundation): +1 page (the /datasets/ports/ landing), +4 distributions (dataset file, landing JSON, route document, build-ports.js); 534 -> 535 re-expressed 2026-11-02 (Pulse): +1 distribution (the estate update feed, updates.xml); 227 -> 228 and 535 -> 537 re-expressed 2026-11-02 (Ports P2): +1 page (the Virginia Inland Port 3PL spoke), +2 distributions (spoke per-page JSON, spoke route document); 228 -> 229 and 537 -> 539 re-expressed 2026-11-02 (Ports P2 article A1): +1 page (who unloads containers at the Virginia Inland Port), +2 distributions (article per-page JSON, article route document)
+        (servedIndex.distribution || []).length === 544; // 229 -> 231 and 539 -> 544 re-expressed 2026-11-03 (VC-1 Vault Case Study): +2 pages (the vault door case-study post + the vault-door-case-study dataset landing), +5 distributions (post route document + per-page JSON, dataset file, landing route document + per-page JSON); 226 -> 227 and 530 -> 534 re-expressed 2026-11-02 (Ports P1 Foundation): +1 page (the /datasets/ports/ landing), +4 distributions (dataset file, landing JSON, route document, build-ports.js); 534 -> 535 re-expressed 2026-11-02 (Pulse): +1 distribution (the estate update feed, updates.xml); 227 -> 228 and 535 -> 537 re-expressed 2026-11-02 (Ports P2): +1 page (the Virginia Inland Port 3PL spoke), +2 distributions (spoke per-page JSON, spoke route document); 228 -> 229 and 537 -> 539 re-expressed 2026-11-02 (Ports P2 article A1): +1 page (who unloads containers at the Virginia Inland Port), +2 distributions (article per-page JSON, article route document)
       p5detail = 'pageFiles=' + pageFiles.length + ', missingPages=' + (missingPages.join(',') || '0') +
         ', missingCode=' + (missingCode.join(',') || '0') + ', missingRoutes=' + (missingRoutes.slice(0, 3).join(',') || '0') +
         ', llmsFull=' + hasLlmsFull + ', distributions=' + (servedIndex ? (servedIndex.distribution || []).length : 0);
     } catch (e) { p5ok = false; p5detail = e.message; }
-    check('P-5 certificate covers all 229 per-page JSONs + all 229 route documents + llms-full.txt + the site shell + the deployed code sets (539 distributions)',
+    check('P-5 certificate covers all 231 per-page JSONs + all 231 route documents + llms-full.txt + the site shell + the deployed code sets (544 distributions)',
       p5ok, p5detail);
 
     // P-6: repo-served distribution digests re-computed over live bytes
