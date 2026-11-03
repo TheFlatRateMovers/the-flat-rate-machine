@@ -4589,6 +4589,219 @@ async function main() {
       badGS.length === 0, badGS.slice(0, 4).join('; ') || 'entity + best graphs in full node sync across PUB and data/');
   } catch (e) { check('§36 graph copy sync gate GS-1 executes', false, String(e && e.message || e)); }
 
+/* ============ 37. Q3 graph citizenship — variant pages + category hubs (Batch Q3, 2026-11-03) ============ */
+{
+ // Henry's order: every service-variant page and category hub holds a
+ // citizen node of its own in BOTH graphs, derived from the page's own
+ // sealed per-page JSON (or its served page-jsonld WebPage node) plus
+ // the estate's standard join — never authored. GENERATED population:
+ // 86 pages (64 service-variant + 22 category hubs) with each citizen's
+ // class + @id, generated 2026-11-03 from the closing re-audit classes
+ // (theflatratemovers/closing-reaudit-2026-11-03/results.json) and the
+ // sealed per-page sources by out/batch-q3-variant-citizenship-2026-11-03/
+ // staging/generate-population.py. Regenerate from the audit classes;
+ // do not hand-edit. The sync tool (scripts/sync-variant-graph-nodes.js)
+ // carries the same population in graph-citizenship-population.js and
+ // re-derives + cross-asserts it on every run.
+ const QC_POP = [
+   ['/calibration-safe-moving/', 'variant', 'webpage', 'https://theflatratemovers.com/calibration-safe-moving/'],
+   ['/case-study-3500lb-safe-moving-winchester-va/', 'variant', 'webpage', 'https://theflatratemovers.com/case-study-3500lb-safe-moving-winchester-va/'],
+   ['/category/freight-services/', 'hub', 'collection', 'https://theflatratemovers.com/category/freight-services/#collection'],
+   ['/category/logistics/', 'hub', 'collection', 'https://theflatratemovers.com/category/logistics/#collection'],
+   ['/category/long-distance-moving/', 'hub', 'collection', 'https://theflatratemovers.com/category/long-distance-moving/#collection'],
+   ['/category/maritime-shipping/', 'hub', 'collection', 'https://theflatratemovers.com/category/maritime-shipping/#collection'],
+   ['/category/military-government-moving/', 'hub', 'collection', 'https://theflatratemovers.com/category/military-government-moving/#collection'],
+   ['/category/office-commercial-moving/', 'hub', 'collection', 'https://theflatratemovers.com/category/office-commercial-moving/#collection'],
+   ['/category/port-logistics/', 'hub', 'collection', 'https://theflatratemovers.com/category/port-logistics/#collection'],
+   ['/category/rigging-sir-2026/', 'hub', 'collection', 'https://theflatratemovers.com/category/rigging-sir-2026/#collection'],
+   ['/category/rigging-sir-2026/high-value-rigging/', 'hub', 'collection', 'https://theflatratemovers.com/category/rigging-sir-2026/high-value-rigging/#collection'],
+   ['/category/shenandoah-valley-logistics/', 'hub', 'collection', 'https://theflatratemovers.com/category/shenandoah-valley-logistics/#collection'],
+   ['/category/vault-moving/', 'hub', 'collection', 'https://theflatratemovers.com/category/vault-moving/#collection'],
+   ['/category/winchester-va/', 'hub', 'collection', 'https://theflatratemovers.com/category/winchester-va/#collection'],
+   ['/category/winchester-va/residential-logistics/', 'hub', 'collection', 'https://theflatratemovers.com/category/winchester-va/residential-logistics/#collection'],
+   ['/category/winchester-va/residential-logistics/relocation-services/', 'hub', 'collection', 'https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/#collection'],
+   ['/category/winchester-va/residential-logistics/relocation-services/moving/', 'hub', 'collection', 'https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/moving/#collection'],
+   ['/category/winchester-va/residential-logistics/relocation-services/moving/eastern-panhandle-moving/', 'hub', 'collection', 'https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/moving/eastern-panhandle-moving/#collection'],
+   ['/category/winchester-va/residential-logistics/relocation-services/moving/estate-relocation/', 'hub', 'collection', 'https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/moving/estate-relocation/#collection'],
+   ['/category/winchester-va/residential-logistics/relocation-services/moving/long-distance/', 'hub', 'collection', 'https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/moving/long-distance/#collection'],
+   ['/category/winchester-va/residential-logistics/relocation-services/moving/museum-logistics/', 'hub', 'collection', 'https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/moving/museum-logistics/#collection'],
+   ['/category/winchester-va/residential-logistics/relocation-services/moving/museum-logistics/logistics-transportation/', 'hub', 'collection', 'https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/moving/museum-logistics/logistics-transportation/#collection'],
+   ['/category/winchester-va/residential-logistics/relocation-services/paper-padding/', 'hub', 'collection', 'https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/paper-padding/#collection'],
+   ['/category/winchester-va/top-rated-movers-winchester-va/', 'hub', 'collection', 'https://theflatratemovers.com/category/winchester-va/top-rated-movers-winchester-va/#collection'],
+   ['/commercial-freight-handling-solutions/', 'variant', 'webpage', 'https://theflatratemovers.com/commercial-freight-handling-solutions/'],
+   ['/commercial-freight-handling-white-glove-final-mile-services/', 'variant', 'webpage', 'https://theflatratemovers.com/commercial-freight-handling-white-glove-final-mile-services/'],
+   ['/commercial-movers-winchester-va/', 'variant', 'webpage', 'https://theflatratemovers.com/commercial-movers-winchester-va/'],
+   ['/commercial-office-moving-2/', 'variant', 'webpage-served', 'https://theflatratemovers.com/commercial-office-moving-2/#webpage'],
+   ['/container-deconsolidation-cross-docking-transloading-services-virginia/', 'variant', 'webpage', 'https://theflatratemovers.com/container-deconsolidation-cross-docking-transloading-services-virginia/'],
+   ['/container-deconsolidation-services-virginia-mid-atlantic/', 'variant', 'webpage', 'https://theflatratemovers.com/container-deconsolidation-services-virginia-mid-atlantic/'],
+   ['/container-loading-unloading-services-port-transload-virginia/', 'variant', 'webpage', 'https://theflatratemovers.com/container-loading-unloading-services-port-transload-virginia/'],
+   ['/crating-movers-martinsburg-wv/', 'variant', 'webpage', 'https://theflatratemovers.com/crating-movers-martinsburg-wv/'],
+   ['/emergency-port-container-recovery-twic-labor-virginia/', 'variant', 'webpage', 'https://theflatratemovers.com/emergency-port-container-recovery-twic-labor-virginia/'],
+   ['/final-mile-movers-martinsburg-wv/', 'variant', 'webpage', 'https://theflatratemovers.com/final-mile-movers-martinsburg-wv/'],
+   ['/government-movers-martinsburg-wv/', 'variant', 'webpage', 'https://theflatratemovers.com/government-movers-martinsburg-wv/'],
+   ['/government-movers-winchester-va/', 'variant', 'webpage', 'https://theflatratemovers.com/government-movers-winchester-va/'],
+   ['/gun-safe-movers-martinsburg-wv/', 'variant', 'webpage', 'https://theflatratemovers.com/gun-safe-movers-martinsburg-wv/'],
+   ['/gun-safe-movers-winchester-va/', 'variant', 'webpage', 'https://theflatratemovers.com/gun-safe-movers-winchester-va/'],
+   ['/how-to-pack-for-interstate-move/', 'variant', 'webpage', 'https://theflatratemovers.com/how-to-pack-for-interstate-move/'],
+   ['/industrial-commercial-movers-martinsburg-wv/', 'variant', 'webpage', 'https://theflatratemovers.com/industrial-commercial-movers-martinsburg-wv/'],
+   ['/industrial-commercial-movers-winchester-va/', 'variant', 'webpage', 'https://theflatratemovers.com/industrial-commercial-movers-winchester-va/'],
+   ['/industrial-offices-movers-martinsburg-wv/', 'variant', 'webpage', 'https://theflatratemovers.com/industrial-offices-movers-martinsburg-wv/'],
+   ['/industrial-offices-movers-winchester-va/', 'variant', 'webpage', 'https://theflatratemovers.com/industrial-offices-movers-winchester-va/'],
+   ['/industrial-rigging-high-mass-logistics-hub-winchester-va/', 'variant', 'webpage', 'https://theflatratemovers.com/industrial-rigging-high-mass-logistics-hub-winchester-va/'],
+   ['/international-export-packing-crating-winchester-va/', 'variant', 'service', 'https://theflatratemovers.com/international-export-packing-crating-winchester-va/#service'],
+   ['/interstate-66-corridor/', 'variant', 'webpage', 'https://theflatratemovers.com/interstate-66-corridor/'],
+   ['/interstate-70-corridor/', 'variant', 'webpage', 'https://theflatratemovers.com/interstate-70-corridor/'],
+   ['/interstate-moving-guide-winchester-va/', 'variant', 'webpage', 'https://theflatratemovers.com/interstate-moving-guide-winchester-va/'],
+   ['/interstate-moving-network/', 'variant', 'webpage', 'https://theflatratemovers.com/interstate-moving-network/'],
+   ['/interstate-moving-winchester-va/', 'variant', 'webpage-served', 'https://theflatratemovers.com/interstate-moving-winchester-va/#webpage'],
+   ['/ispm15-movers-martinsburg-wv/', 'variant', 'webpage', 'https://theflatratemovers.com/ispm15-movers-martinsburg-wv/'],
+   ['/local-regional-movers-martinsburg-wv/', 'variant', 'webpage', 'https://theflatratemovers.com/local-regional-movers-martinsburg-wv/'],
+   ['/local-regional-movers-winchester-va/', 'variant', 'webpage', 'https://theflatratemovers.com/local-regional-movers-winchester-va/'],
+   ['/long-distance-cross-country-moving/', 'variant', 'webpage', 'https://theflatratemovers.com/long-distance-cross-country-moving/'],
+   ['/long-distance-movers-martinsburg-wv/', 'variant', 'webpage', 'https://theflatratemovers.com/long-distance-movers-martinsburg-wv/'],
+   ['/long-distance-movers-winchester-va/', 'variant', 'webpage-served', 'https://theflatratemovers.com/long-distance-movers-winchester-va/#webpage'],
+   ['/military-government-moving/', 'variant', 'webpage', 'https://theflatratemovers.com/military-government-moving/'],
+   ['/military-movers-martinsburg-wv/', 'variant', 'webpage', 'https://theflatratemovers.com/military-movers-martinsburg-wv/'],
+   ['/military-movers-winchester-va/', 'variant', 'webpage', 'https://theflatratemovers.com/military-movers-winchester-va/'],
+   ['/office-moving-movers-martinsburg-wv/', 'variant', 'webpage', 'https://theflatratemovers.com/office-moving-movers-martinsburg-wv/'],
+   ['/office-moving-movers-winchester-va/', 'variant', 'webpage', 'https://theflatratemovers.com/office-moving-movers-winchester-va/'],
+   ['/packing-cost-winchester-va/', 'variant', 'webpage', 'https://theflatratemovers.com/packing-cost-winchester-va/'],
+   ['/packing-movers-martinsburg-wv/', 'variant', 'webpage', 'https://theflatratemovers.com/packing-movers-martinsburg-wv/'],
+   ['/packing-services-winchester-va/', 'variant', 'webpage', 'https://theflatratemovers.com/packing-services-winchester-va/'],
+   ['/packing-unpacking-services-2/', 'variant', 'webpage', 'https://theflatratemovers.com/packing-unpacking-services-2/'],
+   ['/piano-antique-movers-martinsburg-wv/', 'variant', 'webpage', 'https://theflatratemovers.com/piano-antique-movers-martinsburg-wv/'],
+   ['/port-of-virginia-container-loading-unloading-logistics-services/', 'variant', 'webpage', 'https://theflatratemovers.com/port-of-virginia-container-loading-unloading-logistics-services/'],
+   ['/professional-packing-services-moving-cost-estimator/', 'variant', 'webpage', 'https://theflatratemovers.com/professional-packing-services-moving-cost-estimator/'],
+   ['/relocation-engineering-framework/', 'variant', 'webpage', 'https://theflatratemovers.com/relocation-engineering-framework/'],
+   ['/relocation-engineering-standards-portal/', 'variant', 'webpage', 'https://theflatratemovers.com/relocation-engineering-standards-portal/'],
+   ['/safe-moving-protocol/', 'variant', 'webpage', 'https://theflatratemovers.com/safe-moving-protocol/'],
+   ['/sir-2026-protocol/', 'variant', 'webpage', 'https://theflatratemovers.com/sir-2026-protocol/'],
+   ['/sir-2026-structural-integrity-relocation-protocol/', 'variant', 'webpage', 'https://theflatratemovers.com/sir-2026-structural-integrity-relocation-protocol/'],
+   ['/sir-heavy-movers-martinsburg-wv/', 'variant', 'webpage', 'https://theflatratemovers.com/sir-heavy-movers-martinsburg-wv/'],
+   ['/specialized-workforce-labor/', 'variant', 'service', 'https://theflatratemovers.com/specialized-workforce-labor/#service'],
+   ['/technical-rigging-standards/', 'variant', 'webpage', 'https://theflatratemovers.com/technical-rigging-standards/'],
+   ['/top-rated-movers-mid-atlantic/', 'variant', 'webpage', 'https://theflatratemovers.com/top-rated-movers-mid-atlantic/'],
+   ['/transloading-movers-martinsburg-wv/', 'variant', 'webpage', 'https://theflatratemovers.com/transloading-movers-martinsburg-wv/'],
+   ['/virginia-inland-port-3pl-project-support/', 'variant', 'service', 'https://theflatratemovers.com/#service-virginia-inland-port-3pl-project-support'],
+   ['/virginia-inland-port-freight-transloading-operations/', 'variant', 'webpage', 'https://theflatratemovers.com/virginia-inland-port-freight-transloading-operations/'],
+   ['/virginia-inland-port-transloading/', 'variant', 'webpage-served', 'https://theflatratemovers.com/virginia-inland-port-transloading/#webpage'],
+   ['/virginia-to-california-movers/', 'variant', 'webpage', 'https://theflatratemovers.com/virginia-to-california-movers/'],
+   ['/virginia-to-florida-movers/', 'variant', 'webpage', 'https://theflatratemovers.com/virginia-to-florida-movers/'],
+   ['/virginia-to-nevada-movers/', 'variant', 'webpage', 'https://theflatratemovers.com/virginia-to-nevada-movers/'],
+   ['/virginia-to-new-york-movers/', 'variant', 'webpage', 'https://theflatratemovers.com/virginia-to-new-york-movers/'],
+   ['/virginia-to-texas-movers/', 'variant', 'webpage', 'https://theflatratemovers.com/virginia-to-texas-movers/']
+ ];
+ const qcSort = (o) => { if (Array.isArray(o)) return o.map(qcSort); if (o && typeof o === 'object') { const r = {}; for (const k of Object.keys(o).sort()) r[k] = qcSort(o[k]); return r; } return o; };
+ const qcEq = (a, b) => JSON.stringify(qcSort(a)) === JSON.stringify(qcSort(b));
+ const qcTypeIs = (n, t) => n && (n['@type'] === t || (Array.isArray(n['@type']) && n['@type'].includes(t)));
+ const QC_TYPE = { webpage: 'WebPage', 'webpage-served': 'WebPage', service: 'Service', collection: 'CollectionPage' };
+ // Graph loader in the estate's mode idiom (disk in --local, live
+ // fetch otherwise). The staged block referenced F and SITE without
+ // defining them; defined here at Q3 execution, 2026-11-03 (SITE is
+ // block-scoped, following the estate's per-section SITE_X pattern).
+ const SITE = 'https://theflatratemovers.com';
+ const F = async (f) => LOCAL
+   ? JSON.parse(fs.readFileSync(path.join(PAGES_PUBLIC, f), 'utf8'))
+   : JSON.parse(await fetchText(SITE + '/' + f));
+ const qEnt = await F('entity-graph.json'), qBest = await F('best-json-entity-graph.json');
+ const qEntG = (qEnt && qEnt['@graph']) || [], qBestG = (qBest && qBest['@graph']) || [];
+ // QC-1: exactly one citizen per in-scope page in EACH graph, of the expected class.
+ {
+  const bad = [];
+  for (const [p, kind, cls, id] of QC_POP) {
+   for (const [gname, g] of [['entity', qEntG], ['best', qBestG]]) {
+    const hits = g.filter((n) => n && n['@id'] === id);
+    if (hits.length !== 1) { bad.push(p + ' in ' + gname + ': ' + hits.length + ' citizens'); continue; }
+    if (!qcTypeIs(hits[0], QC_TYPE[cls])) bad.push(p + ' in ' + gname + ': citizen @type is not ' + QC_TYPE[cls]);
+   }
+  }
+  check('QC-1 every variant page + category hub has exactly one citizen of its class in each graph', bad.length === 0, bad.slice(0, 6).join('; ') || (QC_POP.length + ' pages x 2 graphs'));
+ }
+ // QC-2 (local; the derivation reads the sealed tree): every citizen
+ // deep-equals its derived source, joins included — the same algorithm
+ // as scripts/sync-variant-graph-nodes.js, re-derived independently.
+ if (LOCAL) {
+  const qPages = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/pages.json'), 'utf8')).pages;
+  const qBySlug = new Map(qPages.map((p) => [p.slug, p]));
+  const qReg = new Set(JSON.parse(fs.readFileSync(path.join(ROOT, 'data/services.json'), 'utf8')).services.map((s) => SITE + '/#' + s.id));
+  const qHeadSrc = fs.readFileSync(path.join(ROOT, 'repo-dir/head-data.js'), 'utf8');
+  const qHead = JSON.parse(qHeadSrc.slice(qHeadSrc.indexOf('{'), qHeadSrc.lastIndexOf('}') + 1));
+  const qHubPaths = QC_POP.filter((e) => e[1] === 'hub').map((e) => e[0]);
+  const qParentHub = (p) => { let b = null; for (const h of qHubPaths) if (h !== p && p.startsWith(h) && (!b || h.length > b.length)) b = h; return b; };
+  const qNodesOf = (doc) => (doc && Array.isArray(doc['@graph'])) ? doc['@graph'] : (Array.isArray(doc) ? doc : [doc]);
+  const qWpFiles = new Map();
+  for (const f of fs.readdirSync(PAGES_PUBLIC)) {
+   // Graph files excluded: they are the sync targets and carry the
+   // citizens themselves (same fix as the sync tool, Q3 execution).
+   if (!f.endsWith('.json') || f.startsWith('datasets-') || f === 'entity-graph.json' || f === 'best-json-entity-graph.json') continue;
+   let d; try { d = JSON.parse(fs.readFileSync(path.join(PAGES_PUBLIC, f), 'utf8')); } catch (e) { continue; }
+   for (const n of qNodesOf(d)) if (qcTypeIs(n, 'WebPage') && typeof n['@id'] === 'string') { if (!qWpFiles.has(n['@id'])) qWpFiles.set(n['@id'], []); qWpFiles.get(n['@id']).push(f); }
+  }
+  const qcDerive = (p, kind) => {
+   const url = SITE + p;
+   const slug = p.slice(1, -1), headKey = p.slice(0, -1);
+   const services = (qBySlug.get(slug) || {}).services || [];
+   const hits = qWpFiles.get(url) || [];
+   let jf = hits.length === 1 ? hits[0] : null;
+   if (!jf) { const der = slug.replace(/\//g, '-') + '.json'; jf = fs.existsSync(path.join(PAGES_PUBLIC, der)) ? der : (qHead[headKey] || {}).jf; }
+   const nodes = qNodesOf(JSON.parse(fs.readFileSync(path.join(PAGES_PUBLIC, jf), 'utf8')));
+   let node;
+   if (kind === 'hub') {
+    const cand = nodes.find((n) => qcTypeIs(n, 'CollectionPage'));
+    if (!cand) throw new Error(p + ': no CollectionPage in ' + jf);
+    node = JSON.parse(JSON.stringify(cand));
+    if (!('about' in node)) {
+     if (services.length) node.about = services.map((s) => ({ '@id': SITE + '/#' + s }));
+     else if (!qParentHub(p)) node.about = [{ '@id': SITE + '/#organization' }];
+    }
+    const par = qParentHub(p);
+    if (par && !('isPartOf' in node)) node.isPartOf = { '@id': SITE + par + '#collection' };
+   } else {
+    const lastSeg = slug.split('/').pop();
+    const scoped = nodes.find((n) => qcTypeIs(n, 'Service') && typeof n['@id'] === 'string' && n['@id'].indexOf(url) === 0);
+    const own = nodes.find((n) => qcTypeIs(n, 'Service') && n['@id'] === SITE + '/#service-' + lastSeg && !qReg.has(n['@id']));
+    if (scoped || own) {
+     node = JSON.parse(JSON.stringify(scoped || own));
+     const blob = JSON.stringify(node);
+     if (![...qReg].some((id) => blob.includes('"' + id + '"'))) node.isPartOf = { '@id': SITE + '/#' + services[0] };
+    } else {
+     let wp = nodes.find((n) => qcTypeIs(n, 'WebPage') && n['@id'] === url);
+     if (!wp) wp = qNodesOf(JSON.parse(qHead[headKey].ld)).find((n) => qcTypeIs(n, 'WebPage'));
+     node = JSON.parse(JSON.stringify(wp));
+     node.about = services.map((s) => ({ '@id': SITE + '/#' + s }));
+    }
+   }
+   return node;
+  };
+  const bad = [];
+  for (const [p, kind, cls, id] of QC_POP) {
+   let want;
+   try { want = qcDerive(p, kind); } catch (e) { bad.push(p + ': derive failed: ' + e.message); continue; }
+   if (want['@id'] !== id) { bad.push(p + ': derived @id ' + want['@id'] + ' != population ' + id); continue; }
+   for (const [gname, g] of [['entity', qEntG], ['best', qBestG]]) {
+    const cur = g.find((n) => n && n['@id'] === id);
+    if (!cur || !qcEq(cur, want)) bad.push(p + ' in ' + gname + ': citizen differs from its derived source');
+   }
+  }
+  check('QC-2 every Q3 citizen deep-equals its derived source (joins included)', bad.length === 0, bad.slice(0, 6).join('; ') || (QC_POP.length + ' pages x 2 graphs'));
+ } else {
+  skipLive('QC-2 citizen deep-equality vs derived sources (local derivation)', 'runs in --local mode');
+ }
+ // QC-3 (local): the sync tool's own --check passes on the sealed tree.
+ if (LOCAL) {
+  try {
+   const { execFileSync } = require('child_process');
+   const out = execFileSync('node', [path.join(ROOT, 'scripts', 'sync-variant-graph-nodes.js'), '--check'],
+    { env: Object.assign({}, process.env, { FRM_SEAL_DATE: new Date().toLocaleDateString('en-CA', { timeZone: 'America/New_York' }) }), encoding: 'utf8', timeout: 180000 });
+   check('QC-3 sync-variant-graph-nodes.js --check passes', /OK — variant graph sync checked/.test(out), out.trim().split('\n').pop());
+  } catch (e) {
+   check('QC-3 sync-variant-graph-nodes.js --check passes', false, String((e.stdout || '') + (e.stderr || '')).slice(0, 220));
+  }
+ } else {
+  skipLive('QC-3 sync tool --check (local tool)', 'runs in --local mode');
+ }
+}
+
   // --- 9. Guardrail scan: no placeholders, no invented license identifiers ---
   const registryText = JSON.stringify({ pages, services, locations, corridors });
   check('registry files contain no placeholder text',

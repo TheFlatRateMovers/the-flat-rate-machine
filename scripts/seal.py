@@ -314,6 +314,14 @@ def main():
     # the graph citizenship nodes in the same pass; DG-3 enforces it.
     run(["node", "scripts/sync-dataset-graph-nodes.js", "--resync"],
         env_extra={"FRM_SEAL_DATE": RUBRIC_DATE})
+    # Q3 standing consequence (Batch Q3, 2026-11-03): the variant /
+    # hub graph citizenship sync runs INSIDE the seal with --resync,
+    # appended AFTER the dataset sync so every phase-2 builder above
+    # sees the pre-Q3 graphs in Q3's own seal (deterministic; the
+    # citizens land last, then phases 4/6 digest them). QC-1..QC-3
+    # (verify.js §37) enforce the citizenship permanently.
+    run(["node", "scripts/sync-variant-graph-nodes.js", "--resync"],
+        env_extra={"FRM_SEAL_DATE": RUBRIC_DATE})
     # Graph copies: the sync writes PUB + data/ (four targets); the
     # flat workspace copies mirror data/ byte-for-byte (six files in
     # all). A mismatch fails the seal loud.
