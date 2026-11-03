@@ -1,0 +1,227 @@
+{
+ "kind": "indexing",
+ "source": "gsc-indexing-pass",
+ "observed_at": "2026-11-03",
+ "verdicts": [
+  {
+   "url": "https://theflatratemovers.com/virginia-inland-port-3pl-project-support/",
+   "coverage": "URL is on Google, but has issues / Page is indexed",
+   "detail": "Already indexed at inspection ~09:45 ET 2026-11-03; no indexing request made. Launch Protocol TIME-TO-INDEX: live 2026-11-02 ~17:00 ET, indexed confirmed at inspection = ~16.75 hours. (GSC indexing pass 2026-11-03)",
+   "crawled": true,
+   "indexed": true
+  },
+  {
+   "url": "https://theflatratemovers.com/who-unloads-containers-at-the-virginia-inland-port/",
+   "coverage": "URL is on Google, but has issues / Page is indexed",
+   "detail": "Already indexed at inspection ~09:46 ET 2026-11-03; no indexing request made. Launch Protocol TIME-TO-INDEX: live 2026-11-02 ~17:50 ET, indexed confirmed at inspection = ~15.9 hours. (GSC indexing pass 2026-11-03)",
+   "crawled": true,
+   "indexed": true
+  },
+  {
+   "url": "https://theflatratemovers.com/1475-lb-vault-door-freight-recovery-manassas-va/",
+   "coverage": "URL is on Google / Page is indexed",
+   "detail": "New-pages sweep (news-sitemap 2026-11-03T04:54:17-05:00); already indexed at inspection; no indexing request made. (GSC indexing pass 2026-11-03)",
+   "crawled": true,
+   "indexed": true
+  },
+  {
+   "url": "https://theflatratemovers.com/datasets/vault-door-case-study/",
+   "coverage": "URL is on Google / Page is indexed",
+   "detail": "New-pages sweep (same 2026-11-03 vault-door launch); already indexed at inspection; no indexing request made. (GSC indexing pass 2026-11-03)",
+   "crawled": true,
+   "indexed": true
+  },
+  {
+   "url": "https://theflatratemovers.com/datasets/answer-evidence/",
+   "coverage": "Page is not indexed: Discovered - currently not indexed",
+   "detail": "Indexing request ATTEMPTED and FAILED with a Google error (not quota): 'Oops! Something went wrong - We had a problem submitting your indexing request. Please try again later.' Third consecutive pass with this failure on this URL (2026-11-01, 2026-11-02, 2026-11-03). Request remains undone; carried to 2026-11-04 pass. Verdict changed since 2026-11-02 (was 'URL is unknown to Google', now 'Discovered - currently not indexed'). (GSC indexing pass 2026-11-03)"
+  },
+  {
+   "url": "https://theflatratemovers.com/datasets/crawl-presence/",
+   "coverage": "Page is not indexed: URL is unknown to Google",
+   "detail": "Indexing request ATTEMPTED and FAILED with a Google error (not quota): 'Oops! Something went wrong - We had a problem submitting your indexing request. Please try again later.' Third consecutive pass with this failure on this URL (2026-11-01, 2026-11-02, 2026-11-03). Request remains undone; carried to 2026-11-04 pass. Verdict changed since 2026-11-02 (was 'Discovered - currently not indexed', now 'URL is unknown to Google'). (GSC indexing pass 2026-11-03)"
+  },
+  {
+   "url": "https://theflatratemovers.com/industrial-offices-movers-winchester-va/",
+   "coverage": "Page is not indexed: Discovered - currently not indexed",
+   "detail": "Indexing requested, success: 'Indexing requested - URL was added to a priority crawl queue. Submitting a page multiple times will not change its queue position or priority.' (GSC indexing pass 2026-11-03)"
+  },
+  {
+   "url": "https://theflatratemovers.com/final-mile-movers-martinsburg-wv/",
+   "coverage": "Page is not indexed: Discovered - currently not indexed",
+   "detail": "Indexing requested, success: 'Indexing requested - URL was added to a priority crawl queue. Submitting a page multiple times will not change its queue position or priority.' (GSC indexing pass 2026-11-03)"
+  },
+  {
+   "url": "https://theflatratemovers.com/interstate-66-corridor/",
+   "coverage": "Page is not indexed: Discovered - currently not indexed",
+   "detail": "Indexing requested, success: 'Indexing requested - URL was added to a priority crawl queue. Submitting a page multiple times will not change its queue position or priority.' Verdict changed since 2026-11-02 (was 'URL is unknown to Google', now 'Discovered - currently not indexed'). (GSC indexing pass 2026-11-03)"
+  },
+  {
+   "url": "https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/moving/museum-logistics/",
+   "coverage": "Page is not indexed: URL is unknown to Google",
+   "detail": "Indexing requested, success: 'Indexing requested - URL was added to a priority crawl queue. Submitting a page multiple times will not change its queue position or priority.' (GSC indexing pass 2026-11-03)"
+  },
+  {
+   "url": "https://theflatratemovers.com/sir-2026-structural-integrity-relocation-protocol/",
+   "coverage": "Crawled - currently not indexed",
+   "detail": "Inspect-only group (Queue B); no indexing request made by rule. (GSC indexing pass 2026-11-03)",
+   "crawled": true,
+   "indexed": false
+  },
+  {
+   "url": "https://theflatratemovers.com/sir-heavy-movers-martinsburg-wv/",
+   "coverage": "Page is not indexed: Discovered - currently not indexed",
+   "detail": "Inspect-only group (Queue B); no indexing request made by rule. (GSC indexing pass 2026-11-03)"
+  },
+  {
+   "url": "https://theflatratemovers.com/sitemap/",
+   "coverage": "Page is not indexed: Alternate page with proper canonical tag",
+   "detail": "Inspect-only group (Queue B); no indexing request made by rule. (GSC indexing pass 2026-11-03)"
+  },
+  {
+   "url": "https://theflatratemovers.com/technical-rigging-high-security-gun-safe-vault-relocation/",
+   "coverage": "URL is on Google / Page is indexed",
+   "detail": "Inspect-only group (Queue B); no indexing request made by rule. (GSC indexing pass 2026-11-03)",
+   "crawled": true,
+   "indexed": true
+  },
+  {
+   "url": "https://theflatratemovers.com/technical-rigging-standards/",
+   "coverage": "Crawled - currently not indexed",
+   "detail": "Inspect-only group (Queue B); no indexing request made by rule. (GSC indexing pass 2026-11-03)",
+   "crawled": true,
+   "indexed": false
+  },
+  {
+   "url": "https://theflatratemovers.com/the-data-science-of-displacement-how-predictive-analytics-is-redefining-the-mid-atlantic-relocation-path/",
+   "coverage": "URL is on Google / Page is indexed",
+   "detail": "Inspect-only group (Queue B); no indexing request made by rule. (GSC indexing pass 2026-11-03)",
+   "crawled": true,
+   "indexed": true
+  },
+  {
+   "url": "https://theflatratemovers.com/the-flat-rate-logistics-data-hub/",
+   "coverage": "URL is on Google / Page is indexed",
+   "detail": "Inspect-only group (Queue B); no indexing request made by rule. (GSC indexing pass 2026-11-03)",
+   "crawled": true,
+   "indexed": true
+  },
+  {
+   "url": "https://theflatratemovers.com/the-invisible-risk-of-high-mass-relocation/",
+   "coverage": "Crawled - currently not indexed",
+   "detail": "Inspect-only group (Queue B); no indexing request made by rule. (GSC indexing pass 2026-11-03)",
+   "crawled": true,
+   "indexed": false
+  },
+  {
+   "url": "https://theflatratemovers.com/the-strategic-roadmap-for-long-distance-residential-relocation/",
+   "coverage": "URL is on Google / Page is indexed",
+   "detail": "Inspect-only group (Queue B); no indexing request made by rule. (GSC indexing pass 2026-11-03)",
+   "crawled": true,
+   "indexed": true
+  },
+  {
+   "url": "https://theflatratemovers.com/top-10-moving-tips-for-a-stress-free-move-in-2026/",
+   "coverage": "Crawled - currently not indexed",
+   "detail": "Inspect-only group (Queue B); no indexing request made by rule. (GSC indexing pass 2026-11-03)",
+   "crawled": true,
+   "indexed": false
+  },
+  {
+   "url": "https://theflatratemovers.com/top-rated-movers-mid-atlantic/",
+   "coverage": "URL is on Google / Page is indexed",
+   "detail": "Inspect-only group (Queue B); no indexing request made by rule. (GSC indexing pass 2026-11-03)",
+   "crawled": true,
+   "indexed": true
+  },
+  {
+   "url": "https://theflatratemovers.com/virginia-inland-port-freight-transloading-operations/",
+   "coverage": "URL is on Google / Page is indexed",
+   "detail": "Inspect-only group (Queue B); no indexing request made by rule. (GSC indexing pass 2026-11-03)",
+   "crawled": true,
+   "indexed": true
+  },
+  {
+   "url": "https://theflatratemovers.com/virginia-to-california-movers/",
+   "coverage": "URL is on Google / Page is indexed",
+   "detail": "Inspect-only group (Queue B); no indexing request made by rule. (GSC indexing pass 2026-11-03)",
+   "crawled": true,
+   "indexed": true
+  },
+  {
+   "url": "https://theflatratemovers.com/virginia-to-florida-movers/",
+   "coverage": "URL is on Google / Page is indexed",
+   "detail": "Inspect-only group (Queue B); no indexing request made by rule. (GSC indexing pass 2026-11-03)",
+   "crawled": true,
+   "indexed": true
+  },
+  {
+   "url": "https://theflatratemovers.com/virginia-to-nevada-movers/",
+   "coverage": "URL is on Google / Page is indexed",
+   "detail": "Inspect-only group (Queue B); no indexing request made by rule. (GSC indexing pass 2026-11-03)",
+   "crawled": true,
+   "indexed": true
+  },
+  {
+   "url": "https://theflatratemovers.com/virginia-to-new-york-movers/",
+   "coverage": "URL is on Google / Page is indexed",
+   "detail": "Inspect-only group (Queue B); no indexing request made by rule. (GSC indexing pass 2026-11-03)",
+   "crawled": true,
+   "indexed": true
+  },
+  {
+   "url": "https://theflatratemovers.com/virginia-to-texas-movers/",
+   "coverage": "URL is on Google / Page is indexed",
+   "detail": "Inspect-only group (Queue B); no indexing request made by rule. (GSC indexing pass 2026-11-03)",
+   "crawled": true,
+   "indexed": true
+  },
+  {
+   "url": "https://theflatratemovers.com/white-glove-delivery-winchester-va/",
+   "coverage": "Page is not indexed: Discovered - currently not indexed",
+   "detail": "Inspect-only group (Queue B); no indexing request made by rule. (GSC indexing pass 2026-11-03)"
+  },
+  {
+   "url": "https://theflatratemovers.com/senior-moving/",
+   "coverage": "URL is on Google / Page is indexed",
+   "detail": "Inspect-only group (Queue B); no indexing request made by rule. (GSC indexing pass 2026-11-03)",
+   "crawled": true,
+   "indexed": true
+  },
+  {
+   "url": "https://theflatratemovers.com/warehouse-relocation/",
+   "coverage": "URL is on Google / Page is indexed",
+   "detail": "Inspect-only group (Queue B); no indexing request made by rule. (GSC indexing pass 2026-11-03)",
+   "crawled": true,
+   "indexed": true
+  },
+  {
+   "url": "https://theflatratemovers.com/",
+   "coverage": "URL is on Google, but has issues / Page is indexed",
+   "detail": "Census C inspect-only; no indexing request made by rule. Not-indexed census verdicts feed the next pass's request queue. (GSC indexing pass 2026-11-03)",
+   "crawled": true,
+   "indexed": true
+  },
+  {
+   "url": "https://theflatratemovers.com/1600-lb-gun-safe-moving-winchester-va-to-las-vegas-nv/",
+   "coverage": "Crawled - currently not indexed",
+   "detail": "Census C inspect-only; no indexing request made by rule. Not-indexed census verdicts feed the next pass's request queue. (GSC indexing pass 2026-11-03)",
+   "crawled": true,
+   "indexed": false
+  },
+  {
+   "url": "https://theflatratemovers.com/ai-license/",
+   "coverage": "Crawled - currently not indexed",
+   "detail": "Census C inspect-only; no indexing request made by rule. Not-indexed census verdicts feed the next pass's request queue. (GSC indexing pass 2026-11-03)",
+   "crawled": true,
+   "indexed": false
+  },
+  {
+   "url": "https://theflatratemovers.com/all-pages/",
+   "coverage": "URL is on Google / Page is indexed",
+   "detail": "Census C inspect-only; no indexing request made by rule. Not-indexed census verdicts feed the next pass's request queue. (GSC indexing pass 2026-11-03)",
+   "crawled": true,
+   "indexed": true
+  }
+ ]
+}
