@@ -241,9 +241,16 @@ def main():
                 f"date (page first sealed by this seal)")
         stamps_pages[u] = {"dm": dm, "dp": dp}
     stamps_files = {}
+    # FB-3 wired the first three files; the re-audit fix batch
+    # (2026-11-03) extends the wiring to datasets-ports.json — the
+    # one file whose unwired in-file stamp measured stale against
+    # the ledger (re-audit root cause RC-T2). Its generator
+    # (build-ports.js) consumes the entry in phase 0.5, before the
+    # rubric (see the ordering note there).
     for stem in ("datasets-archive-registry.json",
                  "datasets-local-graph-registry.json",
-                 "datasets-crawl-presence.json"):
+                 "datasets-crawl-presence.json",
+                 "datasets-ports.json"):
         fu = "https://theflatratemovers.com/" + stem
         if fu not in ledger_urls:
             fail(f"FB-3 stamps: no ledger entry for dataset file {fu}")
@@ -258,6 +265,19 @@ def main():
           f"{len(disagreements)} lineage note(s)")
     for d in disagreements:
         print(f"      stamps note: {d}")
+
+    # Re-audit fix batch (2026-11-03): build-ports.js runs HERE, not
+    # in phase 2. The ports dataset file backs intent-rubric rows and
+    # phase 1 computes cert digests from the files themselves (S2);
+    # regenerating the file in phase 2 — after the rubric was built —
+    # leaves the sealed rubric digesting the pre-regeneration file,
+    # and the phase-8 intent --check fails (observed on this batch's
+    # first seal attempt, before this ordering fix). Any generator
+    # that can change a rubric-backing dataset file must precede
+    # phase 1; the stamps map it consumes is complete at this point.
+    phase("0.5. ports dataset (stamps-wired; precedes the rubric)")
+    run(["node", "scripts/build-ports.js"],
+        env_extra={"FB3_STAMPS": os.path.join(WORK, "stamps.json")})
 
     phase("1. intent rubric (cert digests are file-sourced, S2)")
     run(["node", "scripts/build-intent-rubric.js"],

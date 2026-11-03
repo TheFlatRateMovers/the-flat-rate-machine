@@ -623,7 +623,7 @@
      "@id": "https://theflatratemovers.com/#martinsburg"
     }
    ],
-   "description": "Industrial & Commercial Services — Trained, Supervised Moving and Warehouse Teams for industrial and commercial project support: warehouse and distribution, commercial relocation and logistics including white-glove/blanket-wrap, FF&E installation and project support, and flexible workforce deployment, priced per job with no required contract duration. Standard Job Pricing: Unload $8.00/CWT, Load $10.00/CWT, APU $12.00/CWT, Residential/Driver Meet $400-$425 per man. The service's workforce layer, Specialized Workforce Labor, carries workforce deployment coverage in all 48 contiguous states, quoted per job — a nationwide workforce scope distinct from the branches' 52-area moving footprint."
+   "description": "Industrial & Commercial Services — Trained, Supervised Moving and Warehouse Teams for industrial and commercial project support: warehouse and distribution, commercial relocation and logistics including white-glove/blanket-wrap, FF&E installation and project support, and flexible workforce deployment, priced per job with no required contract duration. Standard Job Pricing: Unload $8.00/CWT, Load $10.00/CWT, APU $12.00/CWT, Residential/Driver Meet $400-$425 per man. The service's workforce layer, Specialized Workforce Labor, carries workforce deployment coverage in all 48 contiguous states, quoted per job — a nationwide workforce scope distinct from the branches' 53-area moving footprint."
   },
   {
    "@id": "https://theflatratemovers.com/#service-industrial-offices",
@@ -1158,7 +1158,7 @@
     "url": "https://theflatratemovers.com/"
    },
    "datePublished": "2026-11-02",
-   "dateModified": "2026-11-02",
+   "dateModified": "2026-11-03",
    "includedInDataCatalog": {
     "@id": "https://theflatratemovers.com/datasets/#collection"
    },

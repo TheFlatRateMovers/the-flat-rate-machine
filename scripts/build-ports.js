@@ -34,6 +34,42 @@ const SITE = 'https://theflatratemovers.com';
 const LANDING = SITE + '/datasets/ports/';
 const FILE_URL = SITE + '/datasets-ports.json';
 const TODAY = '2026-11-02';
+/* FB-3 wire, extended to this file by the re-audit fix batch
+ * (2026-11-03): the Dataset nodes' dateModified fields take FILE_DM —
+ * the seal phase-0 stamps value for this file's own URL when the seal
+ * passes FB3_STAMPS, else the ledger derivation. TODAY itself is
+ * unchanged: it is this file's datePublished (P1 creation, 2026-11-02)
+ * — lineage, never a stamp. The landing WebPage node's dateModified
+ * takes PAGE_DM, the seal's page stamp for the landing URL
+ * (stamps.pages), with the same ledger fallback shape. Before this
+ * wire, the file's in-file stamp froze at creation and measured stale
+ * against the ledger (re-audit root cause RC-T2). */
+const FILE_DM = (() => {
+  if (process.env.FB3_STAMPS) {
+    const m = JSON.parse(fs.readFileSync(process.env.FB3_STAMPS, 'utf8'));
+    const v = m.files && m.files[FILE_URL];
+    if (!v) throw new Error('FB3_STAMPS lacks the ports file entry');
+    return v;
+  }
+  try {
+    const ledger = JSON.parse(fs.readFileSync(
+      path.join(__dirname, '..', 'data', 'lastmod-ledger.json'), 'utf8'));
+    return (ledger.urls && ledger.urls[FILE_URL]) || TODAY;
+  } catch (_) { return TODAY; }
+})();
+const PAGE_DM = (() => {
+  if (process.env.FB3_STAMPS) {
+    const m = JSON.parse(fs.readFileSync(process.env.FB3_STAMPS, 'utf8'));
+    const v = m.pages && m.pages[LANDING] && m.pages[LANDING].dm;
+    if (!v) throw new Error('FB3_STAMPS lacks the ports landing page entry');
+    return v;
+  }
+  try {
+    const ledger = JSON.parse(fs.readFileSync(
+      path.join(__dirname, '..', 'data', 'lastmod-ledger.json'), 'utf8'));
+    return (ledger.urls && ledger.urls[LANDING]) || TODAY;
+  } catch (_) { return TODAY; }
+})();
 const LICENSE = 'https://creativecommons.org/licenses/by/4.0/';
 const ORG_ID = SITE + '/#organization';
 
@@ -186,7 +222,7 @@ function datasetShell(idSuffix, name, description) {
     'creator': JSON.parse(JSON.stringify(ORG_REF)),
     'publisher': JSON.parse(JSON.stringify(ORG_REF)),
     'datePublished': TODAY,
-    'dateModified': TODAY,
+    'dateModified': FILE_DM,
     'includedInDataCatalog': { '@id': SITE + '/datasets/#collection' },
     'spatialCoverage': JSON.parse(JSON.stringify(SPATIAL)),
   };
@@ -233,7 +269,7 @@ const landingDataset = {
   'creator': JSON.parse(JSON.stringify(orgNode)),
   'publisher': JSON.parse(JSON.stringify(orgNode)),
   'datePublished': TODAY,
-  'dateModified': TODAY,
+  'dateModified': FILE_DM,
   'spatialCoverage': [{ '@id': SITE + '/#winchester' }, { '@id': SITE + '/#martinsburg' }],
   'keywords': master.keywords,
   'distribution': [{ '@type': 'DataDownload', 'name': 'datasets-ports.json', 'contentUrl': FILE_URL, 'encodingFormat': 'application/json' }],
@@ -253,7 +289,7 @@ const landingDoc = {
       'name': 'Ports & Intermodal Logistics Datasets',
       'breadcrumb': { '@id': LANDING + '#breadcrumb' },
       'image': { '@type': 'ImageObject', 'url': SITE + '/assets/img-01-9c77693ba66b.png', 'caption': 'The Flat Rate Movers logo — company brand image, not a job photo.' },
-      'dateModified': TODAY,
+      'dateModified': PAGE_DM,
     },
     {
       '@id': LANDING + '#breadcrumb',
