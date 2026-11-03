@@ -3028,6 +3028,784 @@
     "https://d-r-s.com/Philadelphia.aspx"
    ],
    "lastVerified": "2026-11-02"
+  },
+  {
+   "@id": "https://theflatratemovers.com/blog/#blog",
+   "@type": "Blog",
+   "description": "The Flat Rate Movers blog — question-led guides on packing, ISPM 15 export packing, custom crating, pianos and antiques, final-mile delivery, office, government and military moves, and the I-81, I-66 and I-70 corridors, plus the company's published articles and guides for Winchester VA and Martinsburg WV.",
+   "inLanguage": "en-US",
+   "name": "The Flat Rate Movers Blog",
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization"
+   },
+   "url": "https://theflatratemovers.com/blog/"
+  },
+  {
+   "@id": "https://theflatratemovers.com/do-movers-pack-for-you/#post",
+   "@type": "BlogPosting",
+   "about": {
+    "@id": "https://theflatratemovers.com/#service-packing"
+   },
+   "author": {
+    "@type": "Person",
+    "name": "Henry Pitts Jr.",
+    "url": "https://theflatratemovers.com/author/henry-pitts-jr/",
+    "sameAs": [
+     "https://theflatratemovers.com/",
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://medium.com/@ratemovers",
+     "https://github.com/TheFlatRateMovers"
+    ]
+   },
+   "contentLocation": [
+    {
+     "@type": "Place",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.18711576,
+      "longitude": -78.1668352
+     },
+     "name": "The Flat Rate Movers — Winchester, VA"
+    },
+    {
+     "@type": "Place",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.48319665,
+      "longitude": -77.94760443
+     },
+     "name": "Flat Rate Movers Martinsburg WV"
+    }
+   ],
+   "dateModified": "2026-10-30T09:00:00-04:00",
+   "datePublished": "2026-10-30T09:00:00-04:00",
+   "description": "Yes — movers can pack for you, at three levels: full, partial and fragile-only. What each level includes, what movers will not pack, why who packs the box matters for liability, and how packing is priced inside one flat rate in Winchester VA and Martinsburg WV.",
+   "editor": {
+    "@type": "Person",
+    "jobTitle": "Owner, The Flat Rate Movers",
+    "name": "Henry Pitts"
+   },
+   "headline": "Do movers pack for you? Full, partial and fragile-only packing, explained",
+   "inLanguage": "en-US",
+   "isPartOf": {
+    "@id": "https://theflatratemovers.com/blog/#blog"
+   },
+   "mainEntityOfPage": "https://theflatratemovers.com/do-movers-pack-for-you/",
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/reading-an-ispm-15-mark/#post",
+   "@type": "BlogPosting",
+   "about": {
+    "@id": "https://theflatratemovers.com/#service-ispm15"
+   },
+   "author": {
+    "@type": "Person",
+    "name": "Henry Pitts Jr.",
+    "url": "https://theflatratemovers.com/author/henry-pitts-jr/",
+    "sameAs": [
+     "https://theflatratemovers.com/",
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://medium.com/@ratemovers",
+     "https://github.com/TheFlatRateMovers"
+    ]
+   },
+   "dateModified": "2026-10-30T09:00:00-04:00",
+   "datePublished": "2026-10-30T09:00:00-04:00",
+   "description": "The four parts of the ISPM 15 mark on export crates and pallets — the IPPC wheat symbol, the ISO country code, the NPPO producer number, and the treatment code (HT, DH, MB, SF) — plus what is exempt, why KD and DB are not treatment codes, and what happens when a mark fails at the border.",
+   "editor": {
+    "@type": "Person",
+    "jobTitle": "Owner, The Flat Rate Movers",
+    "name": "Henry Pitts"
+   },
+   "headline": "Reading an ISPM 15 mark: what HT, the country code and the producer number mean",
+   "inLanguage": "en-US",
+   "isPartOf": {
+    "@id": "https://theflatratemovers.com/blog/#blog"
+   },
+   "mainEntityOfPage": "https://theflatratemovers.com/reading-an-ispm-15-mark/",
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/moving-a-piano/#post",
+   "@type": "BlogPosting",
+   "about": {
+    "@id": "https://theflatratemovers.com/#service-piano-antique"
+   },
+   "author": {
+    "@type": "Person",
+    "name": "Henry Pitts Jr.",
+    "url": "https://theflatratemovers.com/author/henry-pitts-jr/",
+    "sameAs": [
+     "https://theflatratemovers.com/",
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://medium.com/@ratemovers",
+     "https://github.com/TheFlatRateMovers"
+    ]
+   },
+   "contentLocation": [
+    {
+     "@type": "Place",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.18711576,
+      "longitude": -78.1668352
+     },
+     "name": "The Flat Rate Movers — Winchester, VA"
+    },
+    {
+     "@type": "Place",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.48319665,
+      "longitude": -77.94760443
+     },
+     "name": "Flat Rate Movers Martinsburg WV"
+    }
+   ],
+   "dateModified": "2026-10-30",
+   "datePublished": "2026-10-30",
+   "description": "What makes a piano move expensive or risky: upright vs grand construction, weight by type, stairs and turns, floors, and distance — with published third-party cost ranges, the tuning question answered, and how the move is surveyed and quoted at one flat rate in Winchester VA and Martinsburg WV.",
+   "editor": {
+    "@type": "Person",
+    "jobTitle": "Owner, The Flat Rate Movers",
+    "name": "Henry Pitts"
+   },
+   "headline": "Moving a piano: what drives cost and risk (upright vs grand, stairs, floors)",
+   "inLanguage": "en-US",
+   "isPartOf": {
+    "@id": "https://theflatratemovers.com/blog/#blog"
+   },
+   "mainEntityOfPage": "https://theflatratemovers.com/moving-a-piano/",
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/curbside-vs-inside-vs-white-glove-delivery/#post",
+   "@type": "BlogPosting",
+   "about": {
+    "@id": "https://theflatratemovers.com/#service-final-mile"
+   },
+   "author": {
+    "@type": "Person",
+    "name": "Henry Pitts Jr.",
+    "url": "https://theflatratemovers.com/author/henry-pitts-jr/",
+    "sameAs": [
+     "https://theflatratemovers.com/",
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://medium.com/@ratemovers",
+     "https://github.com/TheFlatRateMovers"
+    ]
+   },
+   "contentLocation": [
+    {
+     "@type": "Place",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.18711576,
+      "longitude": -78.1668352
+     },
+     "name": "The Flat Rate Movers — Winchester, VA"
+    },
+    {
+     "@type": "Place",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.48319665,
+      "longitude": -77.94760443
+     },
+     "name": "Flat Rate Movers Martinsburg WV"
+    }
+   ],
+   "dateModified": "2026-10-30",
+   "datePublished": "2026-10-30",
+   "description": "The delivery-level ladder explained — curbside, threshold, room of choice, packaging removal, white glove — why the same name covers different work from different providers, the seven things to confirm in writing before you book, and the delivered-in standard published in Winchester VA and Martinsburg WV.",
+   "editor": {
+    "@type": "Person",
+    "jobTitle": "Owner, The Flat Rate Movers",
+    "name": "Henry Pitts"
+   },
+   "headline": "Curbside vs inside vs white-glove delivery: what to confirm before you book",
+   "inLanguage": "en-US",
+   "isPartOf": {
+    "@id": "https://theflatratemovers.com/blog/#blog"
+   },
+   "mainEntityOfPage": "https://theflatratemovers.com/curbside-vs-inside-vs-white-glove-delivery/",
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/when-an-item-needs-a-custom-crate/#post",
+   "@type": "BlogPosting",
+   "about": {
+    "@id": "https://theflatratemovers.com/#service-crating"
+   },
+   "author": {
+    "@type": "Person",
+    "name": "Henry Pitts Jr.",
+    "url": "https://theflatratemovers.com/author/henry-pitts-jr/",
+    "sameAs": [
+     "https://theflatratemovers.com/",
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://medium.com/@ratemovers",
+     "https://github.com/TheFlatRateMovers"
+    ]
+   },
+   "contentLocation": [
+    {
+     "@type": "Place",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.18711576,
+      "longitude": -78.1668352
+     },
+     "name": "The Flat Rate Movers — Winchester, VA"
+    },
+    {
+     "@type": "Place",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.48319665,
+      "longitude": -77.94760443
+     },
+     "name": "Flat Rate Movers Martinsburg WV"
+    }
+   ],
+   "dateModified": "2026-10-31T04:35:00-04:00",
+   "datePublished": "2026-10-31T04:35:00-04:00",
+   "description": "The crate-or-padding decision made plain: five triggers that settle it (fragile structure, hand-offs, shape, border, storage), a piece-by-piece decision table, what padding cannot do, third-party cost ranges labeled as context, the ISPM 15 rules that govern an export crate's wood, and how crating is surveyed and quoted at one flat rate from Winchester VA and Martinsburg WV to the Port of Virginia.",
+   "editor": {
+    "@type": "Person",
+    "jobTitle": "Owner, The Flat Rate Movers",
+    "name": "Henry Pitts"
+   },
+   "headline": "When an item needs a custom crate and when padding is enough",
+   "image": [
+    {
+     "@type": "ImageObject",
+     "caption": "Custom-built wooden export crate by The Flat Rate Movers — foam-lined ramp door lowered, latches open, item secured inside.",
+     "height": 978,
+     "url": "https://theflatratemovers.com/assets/img-20-custom-crate-foam-lined-ramp-door-4x3.webp",
+     "width": 1304
+    }
+   ],
+   "inLanguage": "en-US",
+   "isPartOf": {
+    "@id": "https://theflatratemovers.com/blog/#blog"
+   },
+   "mainEntityOfPage": "https://theflatratemovers.com/when-an-item-needs-a-custom-crate/",
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/i-81-shenandoah-valley-move-timing/#post",
+   "@type": "BlogPosting",
+   "about": {
+    "@id": "https://theflatratemovers.com/#service-route81"
+   },
+   "author": {
+    "@type": "Person",
+    "name": "Henry Pitts Jr.",
+    "url": "https://theflatratemovers.com/author/henry-pitts-jr/",
+    "sameAs": [
+     "https://theflatratemovers.com/",
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://medium.com/@ratemovers",
+     "https://github.com/TheFlatRateMovers"
+    ]
+   },
+   "contentLocation": [
+    {
+     "@type": "Place",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.18711576,
+      "longitude": -78.1668352
+     },
+     "name": "The Flat Rate Movers — Winchester, VA"
+    },
+    {
+     "@type": "Place",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.48319665,
+      "longitude": -77.94760443
+     },
+     "name": "Flat Rate Movers Martinsburg WV"
+    }
+   ],
+   "dateModified": "2026-10-31T04:35:00-04:00",
+   "datePublished": "2026-10-31T04:35:00-04:00",
+   "description": "What I-81's 325 Virginia miles mean for scheduling a move: the corridor's truck volume and terrain in VDOT's own figures, where the worst delay segments actually concentrate (the northern, Staunton District stretch), the 65-project improvement program running to 2035, a pre-move timing checklist built on VDOT's project list and 511, and why a written flat rate means an incident changes the arrival conversation, not the invoice.",
+   "editor": {
+    "@type": "Person",
+    "jobTitle": "Owner, The Flat Rate Movers",
+    "name": "Henry Pitts"
+   },
+   "headline": "I-81 through the Shenandoah Valley: what it means for move timing",
+   "image": [
+    {
+     "@type": "ImageObject",
+     "caption": "Interstate 81 at Exit 315 (Route 7), Winchester, Frederick County, VA — the exit for Winchester and Berryville. Photo: Famartin, CC BY-SA 4.0, Wikimedia Commons.",
+     "height": 1200,
+     "url": "https://theflatratemovers.com/assets/img-02-0b80bbb82653.jpg",
+     "width": 1600
+    }
+   ],
+   "inLanguage": "en-US",
+   "isPartOf": {
+    "@id": "https://theflatratemovers.com/blog/#blog"
+   },
+   "mainEntityOfPage": "https://theflatratemovers.com/i-81-shenandoah-valley-move-timing/",
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/transloading-vs-cross-docking-vs-deconsolidation/#post",
+   "@type": "BlogPosting",
+   "about": {
+    "@id": "https://theflatratemovers.com/#service-transloading"
+   },
+   "author": {
+    "@type": "Person",
+    "name": "Henry Pitts Jr.",
+    "url": "https://theflatratemovers.com/author/henry-pitts-jr/",
+    "sameAs": [
+     "https://theflatratemovers.com/",
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://medium.com/@ratemovers",
+     "https://github.com/TheFlatRateMovers"
+    ]
+   },
+   "contentLocation": [
+    {
+     "@type": "Place",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.18711576,
+      "longitude": -78.1668352
+     },
+     "name": "The Flat Rate Movers — Winchester, VA"
+    },
+    {
+     "@type": "Place",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.48319665,
+      "longitude": -77.94760443
+     },
+     "name": "Flat Rate Movers Martinsburg WV"
+    }
+   ],
+   "dateModified": "2026-10-31T07:30:00-04:00",
+   "datePublished": "2026-10-31T07:30:00-04:00",
+   "description": "The three dock operations separated by what actually changes: transloading changes the vehicle, cross-docking changes only the door (no storage), deconsolidation changes the shipment itself. With the consolidation arithmetic (three maritime containers into two 53-foot domestic trailers), the Federal Maritime Commission's demurrage and detention definitions, the Virginia Inland Port chain at Front Royal, and how the work is priced — per job, one flat rate in writing, no per-container schedule.",
+   "editor": {
+    "@type": "Person",
+    "jobTitle": "Owner, The Flat Rate Movers",
+    "name": "Henry Pitts"
+   },
+   "headline": "Transloading vs cross-docking vs deconsolidation in plain terms",
+   "image": [
+    {
+     "@type": "ImageObject",
+     "caption": "A red shipping container being positioned inside The Flat Rate Movers warehouse during a transload — forklift and track loader work, crew guiding it into the taped set-down zone.",
+     "height": 1200,
+     "url": "https://theflatratemovers.com/assets/img-13-d15077b65507.jpg",
+     "width": 1600
+    }
+   ],
+   "inLanguage": "en-US",
+   "isPartOf": {
+    "@id": "https://theflatratemovers.com/blog/#blog"
+   },
+   "mainEntityOfPage": "https://theflatratemovers.com/transloading-vs-cross-docking-vs-deconsolidation/",
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/moving-an-office-inside-a-plant-or-warehouse/#post",
+   "@type": "BlogPosting",
+   "about": {
+    "@id": "https://theflatratemovers.com/#service-industrial-offices"
+   },
+   "author": {
+    "@type": "Person",
+    "name": "Henry Pitts Jr.",
+    "url": "https://theflatratemovers.com/author/henry-pitts-jr/",
+    "sameAs": [
+     "https://theflatratemovers.com/",
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://medium.com/@ratemovers",
+     "https://github.com/TheFlatRateMovers"
+    ]
+   },
+   "contentLocation": [
+    {
+     "@type": "Place",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.18711576,
+      "longitude": -78.1668352
+     },
+     "name": "The Flat Rate Movers — Winchester, VA"
+    },
+    {
+     "@type": "Place",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.48319665,
+      "longitude": -77.94760443
+     },
+     "name": "Flat Rate Movers Martinsburg WV"
+    }
+   ],
+   "dateModified": "2026-10-31T07:30:00-04:00",
+   "datePublished": "2026-10-31T07:30:00-04:00",
+   "description": "Why an office inside a plant or warehouse moves differently from a commercial office: the setting — dock access, move hours, security sign-in, production adjacency — changes the plan. Covers the pre-move access check (including OSHA's materials-handling rule, 29 CFR 1910.176, on marked, clear aisles at docks and doorways), phased moves and staging, the published seven-step sequence, the certificate-of-insurance question answered honestly, and named industrial parks around Winchester and Martinsburg.",
+   "editor": {
+    "@type": "Person",
+    "jobTitle": "Owner, The Flat Rate Movers",
+    "name": "Henry Pitts"
+   },
+   "headline": "Moving an office inside a plant or warehouse: access, staging, sequence",
+   "inLanguage": "en-US",
+   "isPartOf": {
+    "@id": "https://theflatratemovers.com/blog/#blog"
+   },
+   "mainEntityOfPage": "https://theflatratemovers.com/moving-an-office-inside-a-plant-or-warehouse/",
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/1650-lb-gun-safe-delivered-and-installed-moorefield-wv/#post",
+   "@type": [
+    "BlogPosting",
+    "NewsArticle"
+   ],
+   "about": {
+    "@id": "https://theflatratemovers.com/#service-gun-safe"
+   },
+   "author": {
+    "@type": "Person",
+    "name": "Henry Pitts Jr.",
+    "url": "https://theflatratemovers.com/author/henry-pitts-jr/",
+    "sameAs": [
+     "https://theflatratemovers.com/",
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://medium.com/@ratemovers",
+     "https://github.com/TheFlatRateMovers"
+    ]
+   },
+   "contentLocation": [
+    {
+     "@type": "Place",
+     "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "US",
+      "addressLocality": "Moorefield",
+      "addressRegion": "WV"
+     },
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.06215,
+      "longitude": -78.96862
+     },
+     "name": "Moorefield, Hardy County, WV"
+    }
+   ],
+   "dateModified": "2026-10-31T08:23:00-04:00",
+   "datePublished": "2026-10-31T08:23:00-04:00",
+   "description": "A job story with the crew's own photographs: a 1,650 lb Winchester Big Daddy XLT2 gun safe delivered and installed in a Moorefield, WV basement on October 29, 2026 — staged on its shipping skid, crossed over gravel on a six-wheel all-terrain dolly, blanket-wrapped through the basement-level double doors, placed, unwrapped, and the crate and packaging removed. Told inside the company's published gun-safe practice: SIR and the KIM-GS Protocol for the 1,500 to 3,500 lb band, safes emptied first, equipment matched to the project, re-anchoring on request, one flat rate in writing.",
+   "editor": {
+    "@type": "Person",
+    "jobTitle": "Owner, The Flat Rate Movers",
+    "name": "Henry Pitts"
+   },
+   "headline": "A 1,650 lb gun safe, delivered and installed in a Moorefield basement",
+   "image": [
+    {
+     "@type": "ImageObject",
+     "caption": "The same placement from wider out — safe installed, packaging gone, the room back to being a basement.",
+     "height": 1200,
+     "url": "https://theflatratemovers.com/assets/moorefield-wv-gun-safe-installed-basement-wide-angle.webp",
+     "width": 1600
+    },
+    {
+     "@type": "ImageObject",
+     "caption": "Staging in Moorefield, Hardy County, WV: the Big Daddy XLT2 on its shipping skid — shrink-wrapped, corner protection still on the door side — the all-terrain dolly alongside and the opened crate behind.",
+     "height": 1600,
+     "url": "https://theflatratemovers.com/assets/moorefield-wv-gun-safe-staging-gravel-all-terrain-dolly.webp",
+     "width": 1200
+    },
+    {
+     "@type": "ImageObject",
+     "caption": "The doorway step: wrapped in a moving blanket, the safe comes through the open double doors at basement level, boards down at the threshold, the gravel approach behind it.",
+     "height": 1600,
+     "url": "https://theflatratemovers.com/assets/moorefield-wv-gun-safe-doorway-entry-all-terrain-dolly.webp",
+     "width": 1200
+    },
+    {
+     "@type": "ImageObject",
+     "caption": "The basement path: blanket-wrapped and shrink-wrapped, the safe rides the dolly along the unfinished basement's concrete corridor.",
+     "height": 1600,
+     "url": "https://theflatratemovers.com/assets/moorefield-wv-gun-safe-basement-path-blanket-wrap.webp",
+     "width": 1200
+    },
+    {
+     "@type": "ImageObject",
+     "caption": "Placed: the Big Daddy XLT2 in position in the Moorefield basement, wrap off, the manufacturer's label still on the door.",
+     "height": 1600,
+     "url": "https://theflatratemovers.com/assets/moorefield-wv-gun-safe-installed-basement.webp",
+     "width": 1200
+    }
+   ],
+   "inLanguage": "en-US",
+   "isPartOf": {
+    "@id": "https://theflatratemovers.com/blog/#blog"
+   },
+   "mainEntityOfPage": "https://theflatratemovers.com/1650-lb-gun-safe-delivered-and-installed-moorefield-wv/",
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization"
+   },
+   "isAccessibleForFree": true,
+   "articleSection": "Job stories"
+  },
+  {
+   "@id": "https://theflatratemovers.com/transloading-at-the-virginia-inland-port/#post",
+   "@type": "BlogPosting",
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-transloading"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-freight-rework-transloading"
+    }
+   ],
+   "author": {
+    "@type": "Person",
+    "name": "Henry Pitts Jr.",
+    "url": "https://theflatratemovers.com/author/henry-pitts-jr/",
+    "sameAs": [
+     "https://theflatratemovers.com/",
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://medium.com/@ratemovers",
+     "https://github.com/TheFlatRateMovers"
+    ]
+   },
+   "contentLocation": [
+    {
+     "@type": "Place",
+     "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "US",
+      "addressLocality": "Front Royal",
+      "addressRegion": "VA",
+      "streetAddress": "7685 Winchester Road"
+     },
+     "name": "Virginia Inland Port — Front Royal, VA"
+    },
+    {
+     "@type": "Place",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.18711576,
+      "longitude": -78.1668352
+     },
+     "name": "The Flat Rate Movers — Winchester, VA"
+    },
+    {
+     "@type": "Place",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.48319665,
+      "longitude": -77.94760443
+     },
+     "name": "Flat Rate Movers Martinsburg WV"
+    }
+   ],
+   "dateModified": "2026-11-02T04:08:00-05:00",
+   "datePublished": "2026-11-02T04:08:00-05:00",
+   "description": "The end-to-end service article on transloading at the Virginia Inland Port: the five triggers that make freight need a mode change at Front Royal, the Port of Virginia terminal and the I-81, I-66 and I-70 corridors around it, the six-step turn from scope to settlement, freight rework for shifted and refused loads secured to 49 CFR 393, the dock risks and their controls, and pricing as one flat rate in writing per job — with the boundaries stated plainly: not the port, no customs brokerage, no bonded or FTZ operation, no reefer or hazmat programs.",
+   "editor": {
+    "@type": "Person",
+    "jobTitle": "Owner, The Flat Rate Movers",
+    "name": "Henry Pitts"
+   },
+   "headline": "Transloading at the Virginia Inland Port: how freight changes mode",
+   "inLanguage": "en-US",
+   "isPartOf": {
+    "@id": "https://theflatratemovers.com/blog/#blog"
+   },
+   "mainEntityOfPage": "https://theflatratemovers.com/transloading-at-the-virginia-inland-port/",
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/long-distance-moving-for-high-value-items/#post",
+   "@type": "BlogPosting",
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-long-distance"
+    }
+   ],
+   "author": {
+    "@type": "Person",
+    "name": "Henry Pitts Jr.",
+    "sameAs": [
+     "https://theflatratemovers.com/",
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://medium.com/@ratemovers",
+     "https://github.com/TheFlatRateMovers"
+    ],
+    "url": "https://theflatratemovers.com/author/henry-pitts-jr/"
+   },
+   "contentLocation": [
+    {
+     "@type": "Place",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.18711576,
+      "longitude": -78.1668352
+     },
+     "name": "The Flat Rate Movers — Winchester, VA"
+    },
+    {
+     "@type": "Place",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.48319665,
+      "longitude": -77.94760443
+     },
+     "name": "Flat Rate Movers Martinsburg WV"
+    }
+   ],
+   "dateModified": "2026-11-02T08:56:05-05:00",
+   "datePublished": "2026-11-02T08:56:05-05:00",
+   "description": "Long-distance moving for high-value items, end to end: the distance bands and the federal frame that crosses state lines with you, the eight published steps from survey to walkthrough, the estimate types and the 110 percent rule under 49 CFR Part 375, Full Value Protection versus Released Value and the $100-per-pound declaration, SIR and the KIM-GS Protocol for pieces of 1,500 to 3,500 lbs at both ends, seasons and delivery windows, and one flat rate in writing from Winchester, VA and Martinsburg, WV.",
+   "editor": {
+    "@type": "Person",
+    "jobTitle": "Owner, The Flat Rate Movers",
+    "name": "Henry Pitts"
+   },
+   "headline": "Long-distance moving for high-value items: planning, protection, and timing",
+   "image": {
+    "@type": "ImageObject",
+    "height": 960,
+    "url": "https://theflatratemovers.com/assets/img-07-b39ba374a49a.jpg",
+    "width": 1280
+   },
+   "inLanguage": "en-US",
+   "isPartOf": {
+    "@id": "https://theflatratemovers.com/blog/#blog"
+   },
+   "mainEntityOfPage": "https://theflatratemovers.com/long-distance-moving-for-high-value-items/",
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/who-unloads-containers-at-the-virginia-inland-port/#post",
+   "@type": "BlogPosting",
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-transloading"
+    }
+   ],
+   "author": {
+    "@type": "Person",
+    "name": "Henry Pitts Jr.",
+    "url": "https://theflatratemovers.com/author/henry-pitts-jr/",
+    "sameAs": [
+     "https://theflatratemovers.com/",
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://medium.com/@ratemovers",
+     "https://github.com/TheFlatRateMovers"
+    ]
+   },
+   "contentLocation": [
+    {
+     "@type": "Place",
+     "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "US",
+      "addressLocality": "Front Royal",
+      "addressRegion": "VA",
+      "streetAddress": "7685 Winchester Road"
+     },
+     "name": "Virginia Inland Port — Front Royal, VA"
+    },
+    {
+     "@type": "Place",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.18711576,
+      "longitude": -78.1668352
+     },
+     "name": "The Flat Rate Movers — Winchester, VA"
+    },
+    {
+     "@type": "Place",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.48319665,
+      "longitude": -77.94760443
+     },
+     "name": "Flat Rate Movers Martinsburg WV"
+    }
+   ],
+   "dateModified": "2026-11-02T17:16:59-05:00",
+   "datePublished": "2026-11-02T17:16:59-05:00",
+   "description": "Who unloads, counts, restacks and reloads containers moving through the Virginia Inland Port? The terminal moves the box; a crew moves the freight inside it. The support layer behind the Front Royal rail ramps — devanning, counting, sorting, restacking, rework — from the Winchester branch, 23 miles away.",
+   "editor": {
+    "@type": "Person",
+    "jobTitle": "Owner, The Flat Rate Movers",
+    "name": "Henry Pitts"
+   },
+   "headline": "Transloading at the Virginia Inland Port: the support layer behind the rail ramps",
+   "inLanguage": "en-US",
+   "isPartOf": {
+    "@id": "https://theflatratemovers.com/blog/#blog"
+   },
+   "mainEntityOfPage": "https://theflatratemovers.com/who-unloads-containers-at-the-virginia-inland-port/",
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization"
+   }
   }
  ],
  "_humanSummary": "This is the best JSON for The Flat Rate Movers: one @graph, stable @ids, Organization chained to two Places, each Place carrying its full footprint (Winchester 32 areas, Martinsburg 35, shared 14) with the Google Business Profile subset (Winchester 17, Martinsburg 14) also carried as named City nodes, each Service chained to the Organization and to its branch Place or Places, per-branch Google ratings (Winchester 5.0 with 1 review, Martinsburg 4.7 with 6 reviews, never blended), founding June 2010, geo, hours, sameAs, and no license, price, testimonial, or move count. Humans read the names, addresses, and service lists; machines follow the @ids. 2026-10-28: 24 new branch and corridor pages added, each with Service JSON-LD, logo image, and backlinks.",
@@ -3037,5 +3815,5 @@
   "howToUse": "Paste this whole script as application/ld+json in the <head> of every rebuilt page, changing only the WebPage name/url, Breadcrumb, and the main Service for that page. Keep Organization, Places, and Catalog identical on every page.",
   "rubric": "See rubric-database-query-model.md: every node must chain by @id, every fact must carry a named source and date, no unverified field may appear."
  },
- "dateModified": "2026-11-02"
+ "dateModified": "2026-11-03"
 }

@@ -8,6 +8,9 @@
  *   --public-dir  the deploy tree (dataset files, geojson, JWKS)
  *   --services    data/services.json (the 28-service registry)
  *   --pages       data/pages.json (registry; primary-page mapping)
+ *   --news-formula data/news-formula.json (the published-post manifest;
+ *                    the Articles section enumerates EVERY manifest post
+ *                    — Batch Blog Graph Join, 2026-11-03)
  *   --assets-dir  scripts/route-assets/ (WebMCP tool registrations)
  *   --distributions  the signed-index distribution total AFTER this
  *                    batch (passed by the batch build; asserted
@@ -32,6 +35,7 @@ const shellPath = arg('shell', path.join(PAGES_PROJECT, 'public/index.html'));
 const publicDir = arg('public-dir', path.join(PAGES_PROJECT, 'public'));
 const servicesPath = arg('services', path.join(HOME_DIR, 'workspace/the-flat-rate-machine/data/services.json'));
 const pagesPath = arg('pages', path.join(HOME_DIR, 'workspace/the-flat-rate-machine/data/pages.json'));
+const newsFormulaPath = arg('news-formula', path.join(HOME_DIR, 'workspace/the-flat-rate-machine/data/news-formula.json'));
 const assetsDir = arg('assets-dir', path.join(HOME_DIR, 'workspace/the-flat-rate-machine/scripts/route-assets'));
 const distributions = parseInt(arg('distributions', '0'), 10);
 const outPath = arg('out');
@@ -154,7 +158,7 @@ const metaKeyByUrl = new Map(Object.entries(pageMeta).filter(([, v]) => v && v.c
 const out = [];
 out.push('# The Flat Rate Movers — Full Text (llms-full.txt)');
 out.push('');
-out.push('> The complete published text of The Flat Rate Movers LLC in one file: company identity, both branches with their own hours and ratings, all ' + services.length + ' services with their full page content, the ' + '53-area footprint, the flat-rate guarantee, the published FAQs, the datasets and the search-intent rubric, the certificate and how to verify it, the API, MCP and WebMCP surfaces, the book, and how to cite this estate. Live API: https://api.theflatratemovers.com (MCP server: https://api.theflatratemovers.com/mcp). Generated mechanically from the same published sources as the website itself — every statement here is traceable to already-published estate content.');
+out.push('> The complete published text of The Flat Rate Movers LLC in one file: company identity, both branches with their own hours and ratings, all ' + services.length + ' services with their full page content, the ' + '53-area footprint, the flat-rate guarantee, the published FAQs, every published article and guide on the blog, the datasets and the search-intent rubric, the certificate and how to verify it, the API, MCP and WebMCP surfaces, the book, and how to cite this estate. Live API: https://api.theflatratemovers.com (MCP server: https://api.theflatratemovers.com/mcp). Generated mechanically from the same published sources as the website itself — every statement here is traceable to already-published estate content.');
 out.push('');
 out.push('Canonical short index: https://theflatratemovers.com/llms.txt · Website: https://theflatratemovers.com/');
 out.push('');
@@ -238,6 +242,33 @@ out.push('');
 const faqDiv = extractDiv('faq');
 if (!faqDiv) fail('faq div not found');
 out.push(htmlToText(faqDiv));
+out.push('');
+
+out.push('## Articles and guides — the blog');
+out.push('');
+/* Every published post, enumerated from the News Formula manifest
+ * (data/news-formula.json) — the same ledger verify.js §27 enforces.
+ * Each entry is read from the post's own published per-page JSON, so
+ * headline, dates and description are the post's own served values.
+ * The enumeration is total: a manifest post whose per-page JSON or
+ * BlogPosting node is missing fails the build, never a silent skip. */
+const nfManifest = JSON.parse(fs.readFileSync(newsFormulaPath, 'utf8'));
+const nfPosts = Array.isArray(nfManifest.posts) ? nfManifest.posts : [];
+if (!nfPosts.length) fail('news-formula manifest carries no posts');
+const articleLines = [];
+for (const p of nfPosts) {
+  const pFile = path.join(publicDir, p.slug + '.json');
+  if (!fs.existsSync(pFile)) fail('manifest post has no per-page JSON in the public tree: ' + p.slug);
+  const pDoc = JSON.parse(fs.readFileSync(pFile, 'utf8'));
+  const bp = (pDoc['@graph'] || []).find((n) => n && String(n['@type']).includes('BlogPosting'));
+  if (!bp) fail('manifest post per-page JSON carries no BlogPosting node: ' + p.slug);
+  if (!bp.headline || !bp.datePublished || !bp.description) fail('manifest post BlogPosting node lacks headline/datePublished/description: ' + p.slug);
+  articleLines.push('- **' + bp.headline + '** — https://theflatratemovers.com/' + p.slug + '/ (published ' + bp.datePublished + ', by ' + ((bp.author && bp.author.name) || 'Henry Pitts Jr.') + ') — ' + String(bp.description).replace(/\s+/g, ' ').trim());
+}
+if (articleLines.length !== nfPosts.length) fail('article enumeration incomplete: ' + articleLines.length + ' of ' + nfPosts.length + ' manifest posts');
+out.push('The blog (https://theflatratemovers.com/blog/) publishes question-led guides and company job stories. All ' + nfPosts.length + ' published articles:');
+out.push('');
+for (const l of articleLines) out.push(l);
 out.push('');
 
 out.push('## Datasets and the search-intent rubric');
@@ -328,9 +359,10 @@ for (const bad of ['{{', '25,000 lbs', 'lifecycle logistics', 'undefined', '[obj
   if (text.includes(bad)) fail('forbidden string in output: ' + bad);
 }
 if (!text.includes('B0GRBKR5DS') || !text.includes('2940185300718')) fail('book identifiers missing');
+for (const p of nfPosts) if (!text.includes('https://theflatratemovers.com/' + p.slug + '/')) fail('published post missing from output: ' + p.slug);
 
 fs.writeFileSync(outPath, text);
 console.log('build-llms-full: wrote ' + outPath + ' (' + Buffer.byteLength(text) + ' bytes)');
-console.log('  sections: Company; Locations and hours; The flat-rate guarantee; Services (' + services.length + '); Service areas (' + geo.features.length + ' features); FAQ; Datasets (' + dsFiles.length + ') + intent rubric (' + rollupNode.outcomeRollup.rows + ' rows); Certificate (kid ' + jwk.kid + ', fingerprint ' + fpMatch[1] + '); API/MCP + WebMCP tools (' + tools.length + '); The book; How to cite');
+console.log('  sections: Company; Locations and hours; The flat-rate guarantee; Services (' + services.length + '); Service areas (' + geo.features.length + ' features); FAQ; Articles and guides (' + nfPosts.length + ' posts); Datasets (' + dsFiles.length + ') + intent rubric (' + rollupNode.outcomeRollup.rows + ' rows); Certificate (kid ' + jwk.kid + ', fingerprint ' + fpMatch[1] + '); API/MCP + WebMCP tools (' + tools.length + '); The book; How to cite');
 console.log('  service primary-page mapping:');
 for (const m of mapping) console.log('    ' + m);

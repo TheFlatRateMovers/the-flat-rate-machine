@@ -3981,6 +3981,79 @@ async function main() {
     }
   } catch (e) { check('§32 ports gates PB-1..PB-3 execute', false, String(e && e.message || e)); }
 
+
+  // ================================================================
+  // 33. BLOG GRAPH JOIN GATES (Batch Blog Graph Join, 2026-11-03;
+  // Henry's direct order). The blog was never joined into the graph
+  // builder's inputs: every post carried its BlogPosting node in its
+  // own page and the signed index, but neither published graph held
+  // a Blog node or any article node (0/12, parent-verified live
+  // 2026-11-03) and llms-full.txt named only 7 of 12 posts. BG-1..
+  // BG-3 pin the join permanently: every manifest post's BlogPosting
+  // @id — the exact @id its own per-page JSON serves — present in
+  // BOTH published graphs with headline + dates mirrored, the Blog
+  // node present in both, the machine-repo data/ mirrors carrying
+  // the same join, and llms-full.txt naming every post. A future
+  // post that misses any surface fails the seal.
+  // ================================================================
+  try {
+    const SITE_BG = 'https://theflatratemovers.com';
+    const readBG = (p) => JSON.parse(fs.readFileSync(p, 'utf8'));
+    const mfBG = readBG(path.join(ROOT, 'data', 'news-formula.json'));
+    const postsBG = Array.isArray(mfBG.posts) ? mfBG.posts : [];
+    const postingOf = (slug) => {
+      const d = readBG(path.join(PAGES_PUBLIC, slug + '.json'));
+      return (d['@graph'] || []).find((n) => n && String(n['@type']).includes('BlogPosting')) || null;
+    };
+    const blogIdBG = SITE_BG + '/blog/#blog';
+    const graphJoinState = (doc) => {
+      const g = (doc && doc['@graph']) || [];
+      const byId = new Map(g.filter((n) => n && n['@id']).map((n) => [n['@id'], n]));
+      const postingCount = g.filter((n) => n && String(n['@type']).includes('BlogPosting')).length;
+      const bad = [];
+      if (!byId.has(blogIdBG)) bad.push('Blog node missing');
+      for (const p of postsBG) {
+        const src = postingOf(p.slug);
+        if (!src) { bad.push(p.slug + ': no per-page BlogPosting'); continue; }
+        const gn = byId.get(src['@id']);
+        if (!gn) { bad.push(p.slug + ': missing'); continue; }
+        if (gn.headline !== src.headline) bad.push(p.slug + ': headline differs');
+        if (gn.datePublished !== src.datePublished || gn.dateModified !== src.dateModified) bad.push(p.slug + ': dates differ');
+        if (!gn.isPartOf || gn.isPartOf['@id'] !== blogIdBG) bad.push(p.slug + ': isPartOf not the Blog node');
+      }
+      if (postingCount !== postsBG.length) bad.push('BlogPosting node count ' + postingCount + ' != manifest ' + postsBG.length);
+      return bad;
+    };
+
+    // BG-1: the two published graphs (site root) carry the join.
+    {
+      const bad = [];
+      for (const [label, f] of [['entity-graph.json', path.join(PAGES_PUBLIC, 'entity-graph.json')], ['best-json-entity-graph.json', path.join(PAGES_PUBLIC, 'best-json-entity-graph.json')]]) {
+        for (const b of graphJoinState(readBG(f))) bad.push(label + ': ' + b);
+      }
+      check('BG-1 both published graphs carry the Blog node and every manifest post\u2019s BlogPosting node (exact @id, headline + dates mirrored, isPartOf chained)',
+        postsBG.length >= 1 && bad.length === 0, bad.slice(0, 4).join('; ') || (postsBG.length + ' posts joined in both graphs'));
+    }
+
+    // BG-2: the machine-repo data/ graph mirrors carry the same join.
+    {
+      const bad = [];
+      for (const [label, f] of [['data/entity-graph.json', path.join(ROOT, 'data', 'entity-graph.json')], ['data/best-json-entity-graph.json', path.join(ROOT, 'data', 'best-json-entity-graph.json')]]) {
+        for (const b of graphJoinState(readBG(f))) bad.push(label + ': ' + b);
+      }
+      check('BG-2 the machine-repo data/ graph mirrors carry the same blog join (Blog node + every BlogPosting node)',
+        postsBG.length >= 1 && bad.length === 0, bad.slice(0, 4).join('; ') || (postsBG.length + ' posts joined in both mirrors'));
+    }
+
+    // BG-3: llms-full.txt names every published post.
+    {
+      const fullBG = fs.readFileSync(path.join(PAGES_PUBLIC, 'llms-full.txt'), 'utf8');
+      const missing = postsBG.filter((p) => !fullBG.includes(SITE_BG + '/' + p.slug + '/')).map((p) => p.slug);
+      check('BG-3 llms-full.txt names every published post (full enumeration from the News Formula manifest)',
+        postsBG.length >= 1 && missing.length === 0, missing.join(', ') || (postsBG.length + '/' + postsBG.length + ' posts named'));
+    }
+  } catch (e) { check('§33 blog graph join gates BG-1..BG-3 execute', false, String(e && e.message || e)); }
+
   // --- 9. Guardrail scan: no placeholders, no invented license identifiers ---
   const registryText = JSON.stringify({ pages, services, locations, corridors });
   check('registry files contain no placeholder text',
