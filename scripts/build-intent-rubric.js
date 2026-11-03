@@ -256,7 +256,7 @@ const DATASETS = {
   'service-long-distance': ['datasets-long-distance.json'],
   'service-packing': ['datasets-packing.json'],
   'service-sir-heavy': ['datasets-sir-heavy.json'],
-  'service-gun-safe': ['datasets-gun-safe.json'],
+  'service-gun-safe': ['datasets-gun-safe.json', 'datasets-vault-door-case-study.json'],
   'service-piano-antique': ['datasets-piano-antique.json'],
   'service-ispm15': ['datasets-ispm15.json'],
   'service-crating': ['datasets-crating.json'],
@@ -511,6 +511,22 @@ const EXTRA_PATTERNS = {
     // verbatim row carries panel membership; the question-form row
     // carries the exact binding.
     ['I need to move a 2,000 lb gun safe in northern Virginia. Who should I call, and why?', 'ai-question', null, 'gun-safe-movers'],
+    // VC-1 vault-door case-study family (2026-11-03): the Manassas
+    // freight-recovery job story + its dataset landing, Winchester scope.
+    ['vault door delivery northern Virginia', 'navigational-local', 'scope-winchester', '1475-lb-vault-door-freight-recovery-manassas-va'],
+    ['vault door delivery Manassas VA', 'navigational-local', 'scope-winchester', '1475-lb-vault-door-freight-recovery-manassas-va'],
+    ['vault door movers Manassas Virginia', 'navigational-local', 'scope-winchester', '1475-lb-vault-door-freight-recovery-manassas-va'],
+    ['vault door freight recovery', 'navigational-local', 'scope-winchester', '1475-lb-vault-door-freight-recovery-manassas-va'],
+    ['freight terminal will-call pickup vault door', 'navigational-local', 'scope-winchester', '1475-lb-vault-door-freight-recovery-manassas-va'],
+    ['who can pick up a vault door from a freight terminal', 'ai-question', 'scope-winchester', '1475-lb-vault-door-freight-recovery-manassas-va'],
+    ['vault door final mile delivery Virginia', 'navigational-local', 'scope-winchester', '1475-lb-vault-door-freight-recovery-manassas-va'],
+    ['white-glove vault door delivery', 'navigational-local', 'scope-winchester', '1475-lb-vault-door-freight-recovery-manassas-va'],
+    ['white glove vault door placement Virginia', 'navigational-local', 'scope-winchester', '1475-lb-vault-door-freight-recovery-manassas-va'],
+    ['project-managed vault door delivery', 'navigational-local', 'scope-winchester', '1475-lb-vault-door-freight-recovery-manassas-va'],
+    ['heavy vault door movers northern Virginia', 'navigational-local', 'scope-winchester', '1475-lb-vault-door-freight-recovery-manassas-va'],
+    ['how does a vault door ship by freight', 'ai-question', null, '1475-lb-vault-door-freight-recovery-manassas-va'],
+    ['vault door freight recovery case study', 'navigational-local', 'scope-winchester', 'datasets/vault-door-case-study'],
+    ['vault door shipping weight freight class', 'ai-question', null, 'datasets/vault-door-case-study'],
   ],
   'service-sir-heavy': [
     ['What is the SIR protocol, and which company uses it?', 'ai-question', null, 'heavy'],

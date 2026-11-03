@@ -2,11 +2,12 @@
  "description": "Seal-maintained lastmod ledger: for every sitemap URL, the date of the last seal generation in which its own signed distribution changed. Seeded from the 2026-11-02 crawl-demand audit (doc-level digest history across 73 signed generations); maintained by seal.py phase 6b (diff-stamp vs the phase-0 prior index). build-sitemap.js reads this file for every sitemap <lastmod>.",
  "lastSeal": {
   "date": "2026-11-03",
-  "indexSha256": "3f33fb6f9138919072de6c432fcc005df84d04c465cf1d45953edddfcf12d4cb"
+  "indexSha256": "e0bfb697e21b787043b3e53fcc26d6956ebcd7156f554e32f49bedf35b11f53d"
  },
  "seededFrom": "crawl-demand-audit-2026-11-02.csv",
  "urls": {
   "https://theflatratemovers.com/": "2026-11-03",
+  "https://theflatratemovers.com/1475-lb-vault-door-freight-recovery-manassas-va/": "2026-11-03",
   "https://theflatratemovers.com/1600-lb-gun-safe-moving-winchester-va-to-las-vegas-nv/": "2026-11-03",
   "https://theflatratemovers.com/1650-lb-gun-safe-delivered-and-installed-moorefield-wv/": "2026-11-03",
   "https://theflatratemovers.com/ai-license/": "2026-11-03",
@@ -87,6 +88,7 @@
   "https://theflatratemovers.com/datasets-transloading-inland-port.json": "2026-11-03",
   "https://theflatratemovers.com/datasets-transloading-winchester.json": "2026-11-03",
   "https://theflatratemovers.com/datasets-transloading.json": "2026-11-03",
+  "https://theflatratemovers.com/datasets-vault-door-case-study.json": "2026-11-03",
   "https://theflatratemovers.com/datasets-videos.json": "2026-10-29",
   "https://theflatratemovers.com/datasets-warehouse-racking-relocation.json": "2026-11-03",
   "https://theflatratemovers.com/datasets-warehouse.json": "2026-11-03",
@@ -128,6 +130,7 @@
   "https://theflatratemovers.com/datasets/transloading-inland-port/": "2026-11-03",
   "https://theflatratemovers.com/datasets/transloading-winchester/": "2026-11-03",
   "https://theflatratemovers.com/datasets/transloading/": "2026-11-03",
+  "https://theflatratemovers.com/datasets/vault-door-case-study/": "2026-11-03",
   "https://theflatratemovers.com/datasets/videos/": "2026-11-03",
   "https://theflatratemovers.com/datasets/warehouse-racking-relocation/": "2026-11-03",
   "https://theflatratemovers.com/datasets/warehouse/": "2026-11-03",

@@ -3926,7 +3926,7 @@
    "@id": "https://theflatratemovers.com/datasets/intent-coverage/#dataset",
    "@type": "Dataset",
    "name": "The Flat Rate Movers — Search Intent Coverage Operations Dataset",
-   "description": "The live intent-coverage rubric of The Flat Rate Movers: 3375 generated rows, each one a query string a customer or an AI assistant can use to find a company service, resolved to the exact page that answers it, that page’s per-page JSON, the dataset files behind the answer, and the service’s node in the entity graph. Rows are generated from the estate’s own registries — 30 services, 229 pages, two branch locations, three corridors and the 53-feature service-area footprint — plus the blog question bank’s 100 real question phrasings, and the rubric is regenerated whenever those registries change. Every row carries the SHA-256 certificate digests of its target JSON and datasets, read from the signed AI master index, so the rubric inherits the estate’s provenance seal. Coverage spans all 30 services of both branches, Winchester, VA and Martinsburg, WV, along the I-81, I-66 and I-70 corridors. Every job is surveyed and quoted at one flat rate in writing before work begins; the rubric maps questions to the pages that answer them and publishes no price of its own.",
+   "description": "The live intent-coverage rubric of The Flat Rate Movers: 3393 generated rows, each one a query string a customer or an AI assistant can use to find a company service, resolved to the exact page that answers it, that page’s per-page JSON, the dataset files behind the answer, and the service’s node in the entity graph. Rows are generated from the estate’s own registries — 30 services, 231 pages, two branch locations, three corridors and the 53-feature service-area footprint — plus the blog question bank’s 100 real question phrasings, and the rubric is regenerated whenever those registries change. Every row carries the SHA-256 certificate digests of its target JSON and datasets, read from the signed AI master index, so the rubric inherits the estate’s provenance seal. Coverage spans all 30 services of both branches, Winchester, VA and Martinsburg, WV, along the I-81, I-66 and I-70 corridors. Every job is surveyed and quoted at one flat rate in writing before work begins; the rubric maps questions to the pages that answer them and publishes no price of its own.",
    "url": "https://theflatratemovers.com/datasets/intent-coverage/",
    "sameAs": "https://theflatratemovers.com/datasets/intent-coverage/",
    "identifier": "https://doi.org/10.5281/zenodo.23818766",
@@ -5637,6 +5637,158 @@
    "includedInDataCatalog": {
     "@id": "https://theflatratemovers.com/datasets/#collection"
    }
+  },
+  {
+   "@id": "https://theflatratemovers.com/1475-lb-vault-door-freight-recovery-manassas-va/#post",
+   "@type": [
+    "BlogPosting",
+    "NewsArticle"
+   ],
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/datasets/vault-door-case-study/#dataset"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-gun-safe"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-freight-rework-transloading"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-final-mile"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-white-glove"
+    }
+   ],
+   "author": {
+    "@type": "Person",
+    "name": "Henry Pitts Jr.",
+    "url": "https://theflatratemovers.com/author/henry-pitts-jr/",
+    "sameAs": [
+     "https://theflatratemovers.com/",
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://medium.com/@ratemovers",
+     "https://github.com/TheFlatRateMovers"
+    ]
+   },
+   "contentLocation": [
+    {
+     "@id": "https://theflatratemovers.com/#place-manassas-va",
+     "@type": "Place",
+     "name": "Manassas, Prince William County, VA",
+     "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "US",
+      "addressLocality": "Manassas",
+      "addressRegion": "VA"
+     },
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 38.75125,
+      "longitude": -77.47086
+     }
+    }
+   ],
+   "dateModified": "2026-11-03T04:54:17-05:00",
+   "datePublished": "2026-11-03T04:54:17-05:00",
+   "description": "A case study with the job's full freight data: in September 2026 a reconditioned vault door — 1,475 lb on one pallet, freight class 60, NMFC 172360-11 — arrived by LTL freight at a carrier terminal in Manassas, VA, held will-call. The Flat Rate Movers' Winchester branch crew recovered it at the dock inside the 7:30 AM to 2:00 PM window, ran the final mile, and placed it white-glove. Notification, freight record, transit, will-call, recovery, final mile and placement, step by step — the whole service stack on one real job.",
+   "editor": {
+    "@type": "Person",
+    "jobTitle": "Owner, The Flat Rate Movers",
+    "name": "Henry Pitts"
+   },
+   "headline": "A 1,475 lb vault door, recovered from a freight terminal and delivered in Manassas",
+   "inLanguage": "en-US",
+   "isPartOf": {
+    "@id": "https://theflatratemovers.com/blog/#blog"
+   },
+   "mainEntityOfPage": "https://theflatratemovers.com/1475-lb-vault-door-freight-recovery-manassas-va/",
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization"
+   },
+   "isAccessibleForFree": true,
+   "articleSection": "Job stories"
+  },
+  {
+   "@id": "https://theflatratemovers.com/datasets/vault-door-case-study/#dataset",
+   "@type": "Dataset",
+   "name": "Vault Door Freight Recovery Case Study — Manassas, VA (September 2026)",
+   "description": "The structured case record of one real vault door job, published as data: in September 2026 a reconditioned vault door — 1,475 lbs on one pallet at 41 × 41 × 42 inches, cube 40.86 cubic feet, density 36.1 PCF, freight class 60, NMFC 172360-11, prepaid — was shipped by LTL freight to a carrier terminal in Manassas, VA and held will-call. The Flat Rate Movers' Winchester branch crew recovered it at the loading dock inside the 7:30 AM – 2:00 PM pickup window, ran the final-mile leg to the client, and placed the door under the white-glove standard. The dataset carries the complete end-to-end process as seven structured steps, each mapped to the registered service that performed it, the full transcribed freight record, and the evidence block: the document types and dates behind every figure, with the density cross-check (1,475 lbs ÷ 40.86 cu ft = 36.1 PCF) verified against the bill of lading. Names of individuals, the seller and the client are withheld under the company's privacy rule; geography is published at city level.",
+   "url": "https://theflatratemovers.com/datasets/vault-door-case-study/",
+   "sameAs": "https://theflatratemovers.com/datasets/vault-door-case-study/",
+   "identifier": "https://theflatratemovers.com/datasets/vault-door-case-study/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@type": "Organization",
+    "@id": "https://theflatratemovers.com/#organization",
+    "name": "The Flat Rate Movers LLC",
+    "url": "https://theflatratemovers.com/"
+   },
+   "publisher": {
+    "@type": "Organization",
+    "@id": "https://theflatratemovers.com/#organization",
+    "name": "The Flat Rate Movers LLC",
+    "url": "https://theflatratemovers.com/"
+   },
+   "includedInDataCatalog": {
+    "@id": "https://theflatratemovers.com/datasets/#collection"
+   },
+   "datePublished": "2026-11-03",
+   "dateModified": "2026-11-03",
+   "temporalCoverage": "2026-09",
+   "spatialCoverage": [
+    {
+     "@type": "Place",
+     "@id": "https://theflatratemovers.com/#winchester",
+     "name": "The Flat Rate Movers — Winchester",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.18711576,
+      "longitude": -78.1668352
+     }
+    },
+    {
+     "@type": "Place",
+     "@id": "https://theflatratemovers.com/#martinsburg",
+     "name": "Flat Rate Movers Martinsburg WV",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.48319665,
+      "longitude": -77.94760443
+     }
+    }
+   ],
+   "contentLocation": {
+    "@id": "https://theflatratemovers.com/#place-manassas-va"
+   },
+   "keywords": [
+    "vault door delivery",
+    "vault door freight recovery",
+    "will-call pickup",
+    "final-mile delivery",
+    "white-glove delivery",
+    "Manassas VA",
+    "freight class 60",
+    "NMFC 172360-11"
+   ],
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-gun-safe"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-freight-rework-transloading"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-final-mile"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-white-glove"
+    }
+   ]
   }
  ],
  "@id": "https://theflatratemovers.com/entity-graph.json",

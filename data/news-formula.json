@@ -134,6 +134,16 @@
     "status": "owner-photo-needed",
     "reason": "No estate photo depicts the Virginia Inland Port (Front Royal); the maritime port photo on file (img-16) is a barge port, not the inland terminal, and warehouse photos depict the company’s own warehouse. Owner photo needed: the Virginia Inland Port terminal."
    }
+  },
+  {
+   "slug": "1475-lb-vault-door-freight-recovery-manassas-va",
+   "ledgerDate": "2026-11-03",
+   "lane": "story",
+   "instant": "2026-11-03T04:54:17-05:00",
+   "image": {
+    "status": "owner-photo-needed",
+    "reason": "The only images of this job are the job documents themselves, which carry names that are never published; no publishable photograph of the job exists. Owner photo needed: a vault door delivery or terminal recovery in progress."
+   }
   }
  ]
 }
