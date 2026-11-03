@@ -4555,6 +4555,40 @@ async function main() {
     }
   } catch (e) { check('§35 category prominence gates PD-1..PD-3 execute', false, String(e && e.message || e)); }
 
+  // ================================================================
+  // 36. GRAPH COPY SYNC GATE (Reconciliation batch, 2026-11-03).
+  // FB-3 flagged — and FB-4 re-flagged — a PUB<->data/ drift in five
+  // Service nodes (#service-industrial-commercial, #service-route81,
+  // #service-final-mile, #service-piano-antique, #service-white-glove)
+  // that no gate caught: DG-1..DG-4 pin Dataset citizenship only and
+  // P-6 pins the GitHub mirrors, so the two local graph lineages
+  // could diverge silently. GS-1 closes the class: for BOTH graphs,
+  // the PUB copy and the machine data/ copy must carry the same @id
+  // set and deep-equal node content for every @id. The flat
+  // workspace copies mirror data/ byte-for-byte inside seal phase 2,
+  // so they inherit this gate's coverage by construction.
+  try {
+    const sortKeysGS = (v) => Array.isArray(v) ? v.map(sortKeysGS)
+      : (v && typeof v === 'object'
+        ? Object.fromEntries(Object.keys(v).sort().map((k) => [k, sortKeysGS(v[k])]))
+        : v);
+    const nodesGS = (doc) => (doc && Array.isArray(doc['@graph'])) ? doc['@graph'] : (Array.isArray(doc) ? doc : [doc]);
+    const readGS = (f) => JSON.parse(fs.readFileSync(f, 'utf8'));
+    const badGS = [];
+    for (const g of ['entity-graph.json', 'best-json-entity-graph.json']) {
+      const pubMap = new Map(nodesGS(readGS(path.join(PAGES_PUBLIC, g))).map((n) => [n && n['@id'], n]));
+      const datMap = new Map(nodesGS(readGS(path.join(ROOT, 'data', g))).map((n) => [n && n['@id'], n]));
+      for (const id of pubMap.keys()) if (!datMap.has(id)) badGS.push(g + ': ' + id + ' missing from the data/ copy');
+      for (const id of datMap.keys()) if (!pubMap.has(id)) badGS.push(g + ': ' + id + ' missing from the PUB copy');
+      for (const [id, n] of pubMap) {
+        if (datMap.has(id) && JSON.stringify(sortKeysGS(n)) !== JSON.stringify(sortKeysGS(datMap.get(id))))
+          badGS.push(g + ': ' + id + ' content differs PUB vs data/');
+      }
+    }
+    check('GS-1 PUB and data/ graph copies are node-identical for every @id in both graphs (same @id set, deep-equal node content)',
+      badGS.length === 0, badGS.slice(0, 4).join('; ') || 'entity + best graphs in full node sync across PUB and data/');
+  } catch (e) { check('§36 graph copy sync gate GS-1 executes', false, String(e && e.message || e)); }
+
   // --- 9. Guardrail scan: no placeholders, no invented license identifiers ---
   const registryText = JSON.stringify({ pages, services, locations, corridors });
   check('registry files contain no placeholder text',
