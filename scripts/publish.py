@@ -19,7 +19,9 @@ A failure at any step exits nonzero and stops the sequence — a batch
 that stops between sign and deploy is FAILED, never "sealed". The
 deploy uses the standing Cloudflare surrogate route (dynamic_
 credentials, child env only, never printed); the push uses
-scripts/push-mirrors.py (persistent clones, one commit per repo).
+scripts/push-mirrors.py (persistent clones, one commit per repo;
+git push over the SSH deploy-key route since 2026-11-03, the
+connector one-shot only as a reported fallback when git fails).
 Timings print per step. Steps can be skipped individually for repair
 runs (--skip-deploy/--skip-push/--skip-verify/--skip-api/--skip-pulse);
 a skipped step is printed as SKIPPED, never silently.

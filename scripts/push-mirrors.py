@@ -10,15 +10,22 @@ Repos:
   machine TheFlatRateMovers/the-flat-rate-machine clone ~/workspace/git-mirrors/machine
 
 Transports, in order:
-  (a) `git push` when GH_PUSH_TOKEN is set in the environment. The token is
-      supplied to git only through a temporary GIT_ASKPASS script that echoes
-      the env var; it never appears in argv, files, or logs.
-  (b) Connector one-shot: ONE `/opt/hatch/bin/github push-files` call per repo
-      carrying the whole delta (NUL-delimited paths file with trailing NUL,
-      --source-dir = a staging dir mirroring repo-relative paths).
-      NOTE: push-files has no deletion semantics; if the delta contains a
-      deletion and transport (a) is unavailable, the push for that repo is
-      aborted and reported rather than silently dropping the deletion.
+  (a) `git push` through the persistent clone — the primary route since
+      the hero-fix batch (2026-11-03, S3 deferral D1 activated). Default:
+      the clone's SSH deploy-key route (origin gh-ai:/gh-machine: via
+      ~/.ssh/config, per-repo keys fr-push-ai/fr-push-machine, "Mira
+      publish push", read/write; core.sshCommand pins the config file).
+      If GH_PUSH_TOKEN is set in the environment, git pushes over HTTPS
+      instead, the token supplied only through a temporary GIT_ASKPASS
+      script that echoes the env var; it never appears in argv, files,
+      or logs.
+  (b) Connector one-shot — FALLBACK ONLY, used and reported when (a)
+      fails: ONE `/opt/hatch/bin/github push-files` call per repo
+      carrying the whole delta (NUL-delimited paths file with trailing
+      NUL, --source-dir = a staging dir mirroring repo-relative paths).
+      NOTE: push-files has no deletion semantics; if the delta contains
+      a deletion and (a) has failed, the push for that repo is reported
+      as failed rather than silently dropping the deletion.
 
 Safety gates:
   * GIST GUARD (ai only): data/entity-graph.json in the ai repo is a
@@ -329,16 +336,46 @@ def askpass_env():
     return env, path
 
 
-def push_git(clone):
-    env, ask = askpass_env()
-    try:
-        r = git(clone, "push", "origin", "main", env=env)
-    finally:
-        os.unlink(ask)
+def push_git(clone, env=None):
+    """git push through the clone. env=None rides the clone's own
+    transport config (SSH deploy key: origin + core.sshCommand); an env
+    from askpass_env() rides HTTPS with GH_PUSH_TOKEN."""
+    r = git(clone, "push", "origin", "main", env=env)
     print("  push (git, transport a):", "OK" if r.returncode == 0 else "FAILED")
     if r.returncode != 0:
         print((r.stderr or "")[-2000:], file=sys.stderr)
     return r.returncode == 0
+
+
+def push_with_fallback(spec, clone, changed, message, has_deletions):
+    """Primary: git push through the clone (SSH deploy key, or the
+    GH_PUSH_TOKEN askpass route when the env var is set). Fallback —
+    only when git fails, and reported in the returned label: the
+    connector one-shot (which cannot express deletions). Returns
+    (ok, transport_label)."""
+    if os.environ.get("GH_PUSH_TOKEN"):
+        env, ask = askpass_env()
+        try:
+            ok = push_git(clone, env)
+        finally:
+            os.unlink(ask)
+        via = "a (git push, GH_PUSH_TOKEN askpass)"
+    else:
+        ok = push_git(clone)
+        via = "a (git push, SSH deploy key)"
+    if ok:
+        return True, via
+    print("  git push FAILED — falling back to the connector one-shot "
+          "(transport b)", file=sys.stderr)
+    if has_deletions:
+        print("  fallback UNAVAILABLE: the delta contains deletions, "
+              "which connector push-files cannot express; the commit "
+              "stays local and the push is reported failed.",
+              file=sys.stderr)
+        return False, via + " -> b fallback blocked (deletions)"
+    if push_connector(spec, changed, message) and reconcile_clone(clone):
+        return True, via + " -> b FALLBACK (connector one-shot)"
+    return False, via + " -> b FALLBACK FAILED"
 
 
 def push_connector(spec, changed, message):
@@ -396,7 +433,8 @@ def process_repo(name, spec, args, extra_maps):
     if is_ai:
         gist_assert(clone, "pre-sync")
     token = os.environ.get("GH_PUSH_TOKEN")
-    transport = "a (git push, GH_PUSH_TOKEN)" if token else "b (connector push-files one-shot)"
+    transport = ("a (git push, GH_PUSH_TOKEN askpass)" if token
+                 else "a (git push, SSH deploy key)")
     if not args.no_fetch:
         env = None
         ask = None
@@ -433,26 +471,21 @@ def process_repo(name, spec, args, extra_maps):
             if not line.strip():
                 continue
             kind, rel = line.split("\t", 1)
-            if kind.startswith("D"):
-                print("ABORT: pending commit contains deletions, "
-                      "which transport (b) cannot express",
-                      file=sys.stderr)
-                sys.exit(2)
             p = clone / rel
-            changed_p.append((rel, str(p), p.stat().st_size,
-                              "add" if kind.startswith("A")
-                              else "modify"))
+            if kind.startswith("D"):
+                changed_p.append((rel, None, 0, "delete"))
+            else:
+                changed_p.append((rel, str(p), p.stat().st_size,
+                                  "add" if kind.startswith("A")
+                                  else "modify"))
         key_grep(changed_p)
         if is_ai and any(c[0] == GIST_PATH for c in changed_p):
             print("ABORT: gist path in pending commit", file=sys.stderr)
             sys.exit(2)
-        if token:
-            ok = push_git(clone)
-        else:
-            ok = push_connector(spec, changed_p, args.message)
-            if ok:
-                ok = reconcile_clone(clone)
-        print(f"  transport used: {transport}")
+        ok, via = push_with_fallback(
+            spec, clone, changed_p, args.message,
+            any(c[3] == "delete" for c in changed_p))
+        print(f"  transport used: {via}")
         return 0 if ok else 1
     if n_pending and args.dry_run:
         print(f"  note: {n_pending} pending unpushed commit(s) in clone")
@@ -499,20 +532,11 @@ def process_repo(name, spec, args, extra_maps):
         return 1
     print(f"  commit: {head_sha(clone)} (one commit, {len(changed)} files)")
     deletions = [c for c in changed if c[3] == "delete"]
-    if token:
-        ok = push_git(clone)
-    elif deletions:
-        print("  push SKIPPED: delta contains deletions, which connector "
-              "push-files cannot express; use transport (a). Deletions are "
-              "committed locally and reported here.", file=sys.stderr)
-        ok = False
-    else:
-        ok = push_connector(spec, changed, args.message)
-        if ok:
-            ok = reconcile_clone(clone)
-    if is_ai and ok and token:
+    ok, via = push_with_fallback(spec, clone, changed, args.message,
+                                 bool(deletions))
+    if is_ai and ok:
         gist_assert(clone, "post-push")
-    print(f"  transport used: {transport}")
+    print(f"  transport used: {via}")
     return 0 if ok else 1
 
 
