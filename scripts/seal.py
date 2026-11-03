@@ -88,6 +88,28 @@ called with their standing flags, unchanged. All locations come from
 paths.json (the paths registry); no per-batch paths appear here.
 RUBRIC_DATE: the environment value if set, else today's date in
 America/New_York (the value content batches have always used).
+
+S3 paragraph (Speed Batch S3, 2026-11-03 — the pipeline transport
+standard, correction 3): the digest pass is now a triple-hash
+one-read pass. digest-index.py computes SHA-256 + the git blob
+SHA-1 + the Cloudflare Pages BLAKE3 in ONE read per file; the
+SHA-256 still lands in the signed index exactly as before, while
+the git and Pages hashes ride in the digest audit and in the
+frozen digest map (below), ready for the git-push and Pages
+transports to consume without re-reading or re-hashing anything.
+The phase-5.5 and phase-6 digest invocations share a hash cache
+(out/seal-work/hash-cache.json): a file whose size and mtimeNs
+match its cache entry reuses all three hashes without a read, so
+the second digest pass of a seal is nearly free; the phase-8
+PROOF invocation instead passes --fresh — it ignores the cache,
+never writes it, and stays a full recompute over the sealed tree,
+so the proof's byte-for-byte reproduction is not weakened.
+Immediately after phase 6, the seal writes the frozen digest map
+(out/seal-work/frozen-digest-map.json) from the phase-6 audit —
+{contentUrl: {sha256, gitBlobSha1, pagesBlake3, byteSize,
+resolved}} for every entry — the frozen per-file hash record the
+rest of this invocation (and the close-out transports) read from,
+instead of hashing any file a second time.
 """
 import hashlib
 import json
@@ -399,7 +421,8 @@ def main():
     run([VENV_PY, os.path.join(REPO, "digest-index.py"),
          "--index", index_path, "--public-dir", PUB,
          "--repo-dir", REPO, "--out", pre,
-         "--audit", os.path.join(WORK, "pre-digest-audit.json")])
+         "--audit", os.path.join(WORK, "pre-digest-audit.json"),
+         "--hash-cache", os.path.join(WORK, "hash-cache.json")])
     with open(os.path.join(WORK, "pre-digest-audit.json"),
               encoding="utf-8") as f:
         pre_totals = json.load(f)["totals"]
@@ -424,13 +447,39 @@ def main():
     out = run([VENV_PY, os.path.join(REPO, "digest-index.py"),
                "--index", index_path, "--public-dir", PUB,
                "--repo-dir", REPO, "--out", digested,
-               "--audit", os.path.join(WORK, "digest-audit.json")])
+               "--audit", os.path.join(WORK, "digest-audit.json"),
+               "--hash-cache", os.path.join(WORK, "hash-cache.json")])
     with open(os.path.join(WORK, "digest-audit.json"),
               encoding="utf-8") as f:
         totals = json.load(f)["totals"]
     if totals.get("gaps") != 0 or totals.get("distributions") != count:
         fail(f"digest audit: {totals}")
     print(f"    digest totals: {totals}")
+
+    # S3 frozen digest map: the phase-6 audit's triple hashes,
+    # frozen for the rest of this invocation — derived consumers
+    # read hashes from here, never by re-reading a distribution.
+    with open(os.path.join(WORK, "digest-audit.json"),
+              encoding="utf-8") as f:
+        digest_audit = json.load(f)
+    frozen = {}
+    for e in digest_audit.get("entries", []):
+        d = e.get("digest") or {}
+        if not d.get("value"):
+            continue
+        frozen[e.get("contentUrl", "")] = {
+            "sha256": d.get("value"),
+            "gitBlobSha1": e.get("gitBlobSha1"),
+            "pagesBlake3": e.get("pagesBlake3"),
+            "byteSize": d.get("byteSize"),
+            "resolved": e.get("resolved"),
+        }
+    with open(os.path.join(WORK, "frozen-digest-map.json"), "w",
+              encoding="utf-8") as f:
+        json.dump(frozen, f, indent=1, sort_keys=True)
+        f.write("\n")
+    print(f"    frozen digest map: {len(frozen)} entries "
+          f"-> frozen-digest-map.json")
 
     phase("6b. lastmod ledger (diff-stamp vs prior index + registry mirror)")
     ledger_path = os.path.join(ROOT, "data", "lastmod-ledger.json")
@@ -518,7 +567,8 @@ def main():
     run([VENV_PY, os.path.join(REPO, "digest-index.py"),
          "--index", index_path, "--public-dir", PUB,
          "--repo-dir", REPO, "--out", proof,
-         "--audit", os.path.join(WORK, "proof-audit.json")])
+         "--audit", os.path.join(WORK, "proof-audit.json"),
+         "--fresh"])
     if sha(proof) != new_seal:
         fail("proof digest-index output != installed index "
              f"({sha(proof)} != {new_seal}) — a file moved after the "
@@ -542,6 +592,23 @@ def main():
     print(f"  pre-seal index:  {old_seal}")
     print(f"  final seal:      {new_seal}")
     print(f"  distributions:   {count}, gaps 0")
+    # S3 closing timing split, from the TIMINGS phase stamps:
+    # hashing = the phases carrying a digest-index pass (5.5
+    # pre-index, 6 digest, 8 proof recompute); sign = phase 7;
+    # everything else (including 6b) is generation.
+    split = {"generation": 0.0, "hashing": 0.0, "sign": 0.0}
+    ends = [t for _, t in TIMINGS[1:]] + [time.time()]
+    for (pname, pstart), pend in zip(TIMINGS, ends):
+        if pname.startswith("7."):
+            bucket = "sign"
+        elif pname.startswith(("5.5.", "6.", "8.")):
+            bucket = "hashing"
+        else:
+            bucket = "generation"
+        split[bucket] += pend - pstart
+    print(f"  timing split:    generation {split['generation']:.1f}s | "
+          f"hashing {split['hashing']:.1f}s | "
+          f"sign {split['sign']:.1f}s")
     return 0
 
 

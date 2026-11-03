@@ -237,7 +237,11 @@ function main() {
     `    <link>${blogPage.url}</link>`,
     `    <description>${xmlEscape(channelDesc)}</description>`,
     '    <language>en-us</language>',
-    `    <lastBuildDate>${new Date(now).toUTCString()}</lastBuildDate>`,
+    /* S3 determinism (2026-11-03): lastBuildDate is the channel's last
+       CONTENT change (the newest item's instant; items are sorted
+       newest-first above), never the wall-clock build time — a build
+       that changes no item must serialize byte-identically. */
+    `    <lastBuildDate>${new Date(items.length ? items[0].instant : now).toUTCString()}</lastBuildDate>`,
     `    <atom:link href="${FEED_URL}" rel="self" type="application/rss+xml"/>`,
     `    <atom:link rel="hub" href="${HUB_URL}"/>`,
   ];

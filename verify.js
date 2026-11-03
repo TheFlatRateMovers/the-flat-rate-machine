@@ -46,15 +46,116 @@ function skipLive(name) {
 function load(rel) {
   return JSON.parse(fs.readFileSync(path.join(ROOT, rel), 'utf8'));
 }
-function fetchText(url) {
+// ------------------------------------------------------------------
+// Speed S3 verifier transport (2026-11-03; spec:
+// out/speed-batch-s3-spec-2026-11-03.md, correction 4). TRANSPORT
+// ONLY — no check, assertion, name or order changes. One pooled
+// transport (keep-alive agent, maxSockets 6 — measured on this
+// egress; width 20 degrades responses, do NOT widen) shared by EVERY
+// network call site through fetchText / fetchRaw below. Prefetch-once
+// + dedupe: in-flight requests for the same URL share one network
+// fetch, and completed HTTP-200 text bodies fetched via fetchText are
+// cached for the run. fetchRaw dedupes in-flight only and never
+// caches completed responses (conservative). Retry: socket-level
+// errors only (ECONNRESET / ETIMEDOUT / socket hang up) retry once
+// after 250 ms; HTTP statuses are never retried.
+// Two transport-only flags:
+//   --verdicts-out <path>  at the end (full and --local modes), write
+//     JSON [{name, ok}] from results[] to <path>. No output change.
+//   --base-url <origin>    any fetch to https://theflatratemovers.com
+//     is sent to <origin> instead (path/query unchanged). Assertions
+//     are untouched: documents carry production canonicals regardless
+//     of fetch origin. Default off.
+// ------------------------------------------------------------------
+// The pooled agent MUST inherit the default transport's proxy
+// configuration: on Node >= 24 with NODE_USE_ENV_PROXY set,
+// https.globalAgent carries options.proxyEnv and routes via the
+// environment's egress proxy. A bare new https.Agent() drops it and
+// goes direct, which a proxied egress answers with a non-TLS
+// response (EPROTO "wrong version number" on every fetch — measured
+// during the S3 proof run, 2026-11-03). Carry proxyEnv across
+// verbatim when present; where the default agent has none, this is
+// exactly the plain pooled agent the spec calls for.
+https.globalAgent = new https.Agent({ keepAlive: true, maxSockets: 6, maxFreeSockets: 6,
+  ...(https.globalAgent && https.globalAgent.options && https.globalAgent.options.proxyEnv
+    ? { proxyEnv: https.globalAgent.options.proxyEnv } : {}) });
+const PROD_ORIGIN = 'https://theflatratemovers.com';
+function argValue(flag) {
+  const i = process.argv.indexOf(flag);
+  return i >= 0 && i + 1 < process.argv.length ? process.argv[i + 1] : null;
+}
+const VERDICTS_OUT = argValue('--verdicts-out');
+const BASE_URL_ARG = argValue('--base-url');
+const BASE_ORIGIN = BASE_URL_ARG ? BASE_URL_ARG.replace(/\/+$/, '') : null;
+function swapOrigin(url) {
+  if (!BASE_ORIGIN || typeof url !== 'string') return url;
+  if (url === PROD_ORIGIN) return BASE_ORIGIN;
+  if (url.startsWith(PROD_ORIGIN + '/') || url.startsWith(PROD_ORIGIN + '?') || url.startsWith(PROD_ORIGIN + '#')) {
+    return BASE_ORIGIN + url.slice(PROD_ORIGIN.length);
+  }
+  return url;
+}
+function isSocketError(e) {
+  if (!e) return false;
+  return e.code === 'ECONNRESET' || e.code === 'ETIMEDOUT' || e.code === 'ECONNABORTED' ||
+    /socket hang up/i.test(e.message || '');
+}
+function rawGetOnce(url) {
   return new Promise((resolve, reject) => {
     https.get(url, (res) => {
-      if (res.statusCode !== 200) { reject(new Error('HTTP ' + res.statusCode)); return; }
-      let body = '';
-      res.on('data', (c) => { body += c; });
-      res.on('end', () => resolve(body));
+      const chunks = [];
+      res.on('data', (c) => { chunks.push(c); });
+      res.on('end', () => resolve({ status: res.statusCode, headers: res.headers, body: Buffer.concat(chunks) }));
+      res.on('error', reject);
     }).on('error', reject);
   });
+}
+async function rawGetWithRetry(url) {
+  try {
+    return await rawGetOnce(url);
+  } catch (e) {
+    if (!isSocketError(e)) throw e;
+    await new Promise((r) => setTimeout(r, 250));
+    return rawGetOnce(url);
+  }
+}
+const rawInFlight = new Map();
+function fetchRaw(url) {
+  const pending = rawInFlight.get(url);
+  if (pending) return pending;
+  const p = rawGetWithRetry(swapOrigin(url));
+  rawInFlight.set(url, p);
+  const clear = () => { if (rawInFlight.get(url) === p) rawInFlight.delete(url); };
+  p.then(clear, clear);
+  return p;
+}
+const textCache = new Map();
+const textInFlight = new Map();
+function fetchText(url) {
+  if (textCache.has(url)) return Promise.resolve(textCache.get(url));
+  const pending = textInFlight.get(url);
+  if (pending) return pending;
+  const p = (async () => {
+    const r = await fetchRaw(url);
+    if (r.status !== 200) throw new Error('HTTP ' + r.status);
+    const body = r.body.toString('utf8');
+    textCache.set(url, body);
+    return body;
+  })();
+  textInFlight.set(url, p);
+  const clear = () => { if (textInFlight.get(url) === p) textInFlight.delete(url); };
+  p.then(clear, clear);
+  return p;
+}
+function writeVerdictsOut() {
+  if (!VERDICTS_OUT) return;
+  try {
+    const dir = path.dirname(path.resolve(VERDICTS_OUT));
+    fs.mkdirSync(dir, { recursive: true });
+    fs.writeFileSync(VERDICTS_OUT, JSON.stringify(results.map((r) => ({ name: r.name, ok: r.ok })), null, 2) + '\n');
+  } catch (e) {
+    console.error('verdicts-out write failed: ' + e.message);
+  }
 }
 function countIdKeys(obj) {
   let n = 0;
@@ -478,21 +579,21 @@ async function main() {
     skipLive('Martinsburg transloading .json URL returns application/json (real per-page JSON)');
   } else {
   try {
-    const fetchContentType = (url) => new Promise((resolve, reject) => {
-      https.get(url, (res) => {
-        const ct = res.headers['content-type'] || '';
-        res.resume();
-        res.on('end', () => resolve(ct));
-      }).on('error', reject);
-    });
-    const fetchBody = (url) => new Promise((resolve, reject) => {
-      https.get(url, (res) => {
-        const ct = res.headers['content-type'] || '';
-        let body = '';
-        res.on('data', (c) => { body += c; });
-        res.on('end', () => resolve({ ct, body }));
-      }).on('error', reject);
-    });
+    // S3 transport: routed through the shared fetchRaw (dedupe-only,
+    // no completed-response cache). Same resolved values as the old
+    // inline https.get helpers: fetchContentType resolves the
+    // content-type string (any status), fetchBody resolves {ct, body}
+    // with the body as utf8 text (any status). One semantic note:
+    // fetchRaw reads the full body where fetchContentType previously
+    // discarded it via res.resume() — the resolved value is identical.
+    const fetchContentType = async (url) => {
+      const r = await fetchRaw(url);
+      return r.headers['content-type'] || '';
+    };
+    const fetchBody = async (url) => {
+      const r = await fetchRaw(url);
+      return { ct: r.headers['content-type'] || '', body: r.body.toString('utf8') };
+    };
     const oldSlug = 'container-loading-unloading-services-port-transload-virginia';
     const oldRes = await fetchBody('https://theflatratemovers.com/' + oldSlug + '.json');
     let oldGraph = [];
@@ -548,13 +649,11 @@ async function main() {
   } else {
   try {
     const crypto = require('crypto');
-    const fetchFull = (url) => new Promise((resolve, reject) => {
-      https.get(url, (res) => {
-        const chunks = [];
-        res.on('data', (c) => { chunks.push(c); });
-        res.on('end', () => resolve({ status: res.statusCode, ct: res.headers['content-type'] || '', buf: Buffer.concat(chunks) }));
-      }).on('error', reject);
-    });
+    // S3 transport: shared fetchRaw adapter — same {status, ct, buf} shape.
+    const fetchFull = async (url) => {
+      const r = await fetchRaw(url);
+      return { status: r.status, ct: r.headers['content-type'] || '', buf: r.body };
+    };
     const b64uDec = (s) => Buffer.from(s.replace(/-/g, '+').replace(/_/g, '/') + '='.repeat((4 - (s.length % 4)) % 4), 'base64');
     // RFC 8785 (JCS) canonicalization, sufficient for this index (keys are
     // ASCII, numbers are integers — String(int) is the JCS serialization);
@@ -1256,13 +1355,11 @@ async function main() {
     const { execFileSync } = require('child_process');
     const dbPathI = path.resolve(ROOT, '..', 'theflatratemovers', 'rubric.db');
     const qI = (sql) => execFileSync('sqlite3', ['-json', dbPathI, sql], { maxBuffer: 64 * 1024 * 1024 }).toString(); // maxBuffer raised 2026-11-02 (Ports P2): the 3,373-row intent table outgrew the 1 MB default (spawnSync ENOBUFS); matches the section-13 v2 block
-    const fetchFullI = (url) => new Promise((resolve, reject) => {
-      https.get(url, (res) => {
-        const chunks = [];
-        res.on('data', (c) => { chunks.push(c); });
-        res.on('end', () => resolve({ status: res.statusCode, ct: res.headers['content-type'] || '', buf: Buffer.concat(chunks) }));
-      }).on('error', reject);
-    });
+    // S3 transport: shared fetchRaw adapter — same {status, ct, buf} shape.
+    const fetchFullI = async (url) => {
+      const r = await fetchRaw(url);
+      return { status: r.status, ct: r.headers['content-type'] || '', buf: r.body };
+    };
     // I-1: generator re-run byte-identical to the DB (canonical rows digest).
     let i1ok = false, i1detail = '';
     try {
@@ -1703,13 +1800,11 @@ async function main() {
   try {
     const vm = require('vm');
     const crypto = require('crypto');
-    const fetchFullW = (url) => new Promise((resolve, reject) => {
-      https.get(url, (res) => {
-        const chunks = [];
-        res.on('data', (c) => { chunks.push(c); });
-        res.on('end', () => resolve({ status: res.statusCode, buf: Buffer.concat(chunks) }));
-      }).on('error', reject);
-    });
+    // S3 transport: shared fetchRaw adapter — same {status, buf} shape.
+    const fetchFullW = async (url) => {
+      const r = await fetchRaw(url);
+      return { status: r.status, buf: r.body };
+    };
     const WEBMCP_TOOLS = ['search_services', 'get_service', 'list_service_areas', 'find_dataset', 'search_intent', 'verify_certificate', 'get_quote_guidance'];
     const rootRes = await fetchFullW('https://theflatratemovers.com/');
     const servedHtml = rootRes.buf.toString('utf8');
@@ -1924,13 +2019,11 @@ async function main() {
   } else {
   try {
     const crypto = require('crypto');
-    const fetchFullL = (url) => new Promise((resolve, reject) => {
-      https.get(url, (res) => {
-        const chunks = [];
-        res.on('data', (c) => { chunks.push(c); });
-        res.on('end', () => resolve({ status: res.statusCode, headers: res.headers, buf: Buffer.concat(chunks) }));
-      }).on('error', reject);
-    });
+    // S3 transport: shared fetchRaw adapter — same {status, headers, buf} shape.
+    const fetchFullL = async (url) => {
+      const r = await fetchRaw(url);
+      return { status: r.status, headers: r.headers, buf: r.body };
+    };
     const fullRes = await fetchFullL('https://theflatratemovers.com/llms-full.txt');
     const fullText = fullRes.buf.toString('utf8');
     check('L-1 llms-full.txt is served live as a text file',
@@ -3062,13 +3155,11 @@ async function main() {
     if (LOCAL) {
       skipLive('NS-1 news-sitemap.xml is live (HTTP 200, XML content type) and its entry set equals the local sealed file');
     } else {
-      const fetchFullNS = (url) => new Promise((resolve, reject) => {
-        https.get(url, (res) => {
-          const chunks = [];
-          res.on('data', (c) => { chunks.push(c); });
-          res.on('end', () => resolve({ status: res.statusCode, ct: res.headers['content-type'] || '', body: Buffer.concat(chunks).toString('utf8') }));
-        }).on('error', reject);
-      });
+      // S3 transport: shared fetchRaw adapter — same {status, ct, body} shape.
+      const fetchFullNS = async (url) => {
+        const r = await fetchRaw(url);
+        return { status: r.status, ct: r.headers['content-type'] || '', body: r.body.toString('utf8') };
+      };
       const liveNS = await fetchFullNS('https://theflatratemovers.com/news-sitemap.xml');
       const liveEntriesNS = parseNewsNS(liveNS.body);
       const sameSetNS = liveEntriesNS.length === localEntriesNS.length &&
@@ -3335,13 +3426,11 @@ async function main() {
   // ------------------------------------------------------------------
   {
     const SITE_SX = 'https://theflatratemovers.com';
-    const fetchFullSX = (url) => new Promise((resolve, reject) => {
-      https.get(url, (res) => {
-        const chunks = [];
-        res.on('data', (c) => { chunks.push(c); });
-        res.on('end', () => resolve({ status: res.statusCode, ct: res.headers['content-type'] || '', buf: Buffer.concat(chunks) }));
-      }).on('error', reject);
-    });
+    // S3 transport: shared fetchRaw adapter — same {status, ct, buf} shape.
+    const fetchFullSX = async (url) => {
+      const r = await fetchRaw(url);
+      return { status: r.status, ct: r.headers['content-type'] || '', buf: r.body };
+    };
     const unescSX = (s) => String(s || '').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
       .replace(/&quot;/g, '"').replace(/&apos;/g, "'").replace(/&amp;/g, '&');
     const cleanSX = (s) => String(s || '').replace(/<[^>]+>/g, ' ')
@@ -3756,13 +3845,9 @@ async function main() {
       skipLive('FD-1 served feed.xml returns 200 with an XML/RSS content type and byte-equals the sealed local file');
     } else {
       try {
-        const r = await new Promise((resolve, reject) => {
-          https.get(SITE_FD + '/feed.xml', (res) => {
-            const chunks = [];
-            res.on('data', (c) => { chunks.push(c); });
-            res.on('end', () => resolve({ status: res.statusCode, ct: res.headers['content-type'] || '', buf: Buffer.concat(chunks) }));
-          }).on('error', reject);
-        });
+        // S3 transport: shared fetchRaw — same {status, ct, buf} values.
+        const rRawFD = await fetchRaw(SITE_FD + '/feed.xml');
+        const r = { status: rRawFD.status, ct: rRawFD.headers['content-type'] || '', buf: rRawFD.body };
         const localBuf = fs.readFileSync(path.join(PAGES_PUBLIC, 'feed.xml'));
         check('FD-1 served feed.xml returns 200 with an XML/RSS content type and byte-equals the sealed local file',
           r.status === 200 && r.ct.includes('xml') && r.buf.equals(localBuf),
@@ -4813,6 +4898,7 @@ async function main() {
   if (LOCAL) {
     console.log('\n' + results.filter((r) => r.ok).length + '/' + results.length + ' local checks passed; ' +
       skippedLive.length + ' live-only checks skipped by name above (full suite: ' + (results.length + skippedLive.length) + ' checks).');
+    writeVerdictsOut();
     if (failed.length) {
       console.log('FAILED CHECKS:');
       for (const f of failed) console.log('  - ' + f.name);
@@ -4823,6 +4909,7 @@ async function main() {
     return;
   }
   console.log('\n' + results.filter((r) => r.ok).length + '/' + results.length + ' checks passed.');
+  writeVerdictsOut();
   if (failed.length) {
     console.log('FAILED CHECKS:');
     for (const f of failed) console.log('  - ' + f.name);
