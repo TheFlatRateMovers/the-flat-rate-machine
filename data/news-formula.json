@@ -144,6 +144,16 @@
     "status": "owner-photo-needed",
     "reason": "The only images of this job are the job documents themselves, which carry names that are never published; no publishable photograph of the job exists. Owner photo needed: a vault door delivery or terminal recovery in progress."
    }
+  },
+  {
+   "slug": "flat-rate-movers-dataset-estate-citable-doi",
+   "ledgerDate": "2026-11-03",
+   "lane": "story",
+   "instant": "2026-11-03T09:57:16-05:00",
+   "image": {
+    "status": "owner-photo-needed",
+    "reason": "The announcement's subjects are digital records — a Zenodo DOI deposit, three Wikidata items, OpenStreetMap listings, dataset mirrors and a publication record; no true photograph depicts them, and the image slot is not filled with a logo or stock (standing pattern: W1-01, A1, VC-1)."
+   }
   }
  ]
 }

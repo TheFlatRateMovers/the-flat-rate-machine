@@ -561,6 +561,19 @@ const PANEL_LATE_ROWS = [
   ['service-residential', 'What machine-readable data, datasets, or APIs does The Flat Rate Movers publish for AI systems?', 'datasets'],
 ];
 
+// Launch batch late rows (2026-11-03): the Spec C announcement story
+// (flat-rate-movers-dataset-estate-citable-doi) is an estate-level
+// news surface owned by no single service; it joins the rubric
+// through this late lane with the questions its own FAQ answers,
+// seated under service-residential — the recorded tie-break for
+// estate-level data questions (see PANEL_LATE_ROWS). Emitted with
+// the panel rows, after R14, through the same R10 gates.
+const NEWS_LATE_ROWS = [
+  ['service-residential', 'Does The Flat Rate Movers publish its datasets with a DOI?', 'flat-rate-movers-dataset-estate-citable-doi'],
+  ['service-residential', 'How can I verify that The Flat Rate Movers published data is really theirs?', 'flat-rate-movers-dataset-estate-citable-doi'],
+  ['service-residential', 'Is The Flat Rate Movers listed on Wikidata and OpenStreetMap?', 'flat-rate-movers-dataset-estate-citable-doi'],
+];
+
 // Question bank category -> service (category 9 splits per question).
 const QB_MAP = {
   1: 'service-piano-antique',
@@ -1196,6 +1209,9 @@ function generate() {
   // targets are roll-up pages; emitting them inside the service loop
   // would have displaced 90 roll-up rows (see PANEL_LATE_ROWS).
   for (const [svcId, text, slug] of PANEL_LATE_ROWS) {
+    emit(svcId, 'ai-question', text, null, slug, 'R15-extra-pattern');
+  }
+  for (const [svcId, text, slug] of NEWS_LATE_ROWS) {
     emit(svcId, 'ai-question', text, null, slug, 'R15-extra-pattern');
   }
 

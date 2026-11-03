@@ -345,6 +345,8 @@ const STATIC_FILES = new Set([
   "/find-us/index.html",
   "/flat-rate-guarantee.json",
   "/flat-rate-guarantee/index.html",
+  "/flat-rate-movers-dataset-estate-citable-doi.json",
+  "/flat-rate-movers-dataset-estate-citable-doi/index.html",
   "/flat-rate-moving-quote-winchester.json",
   "/flat-rate-moving-quote-winchester/index.html",
   "/freight-rework-transloading.json",

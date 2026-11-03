@@ -4738,7 +4738,7 @@
    "@id": "https://theflatratemovers.com/datasets/intent-coverage/#dataset",
    "@type": "Dataset",
    "name": "The Flat Rate Movers — Search Intent Coverage Operations Dataset",
-   "description": "The live intent-coverage rubric of The Flat Rate Movers: 3393 generated rows, each one a query string a customer or an AI assistant can use to find a company service, resolved to the exact page that answers it, that page’s per-page JSON, the dataset files behind the answer, and the service’s node in the entity graph. Rows are generated from the estate’s own registries — 30 services, 231 pages, two branch locations, three corridors and the 53-feature service-area footprint — plus the blog question bank’s 100 real question phrasings, and the rubric is regenerated whenever those registries change. Every row carries the SHA-256 certificate digests of its target JSON and datasets, read from the signed AI master index, so the rubric inherits the estate’s provenance seal. Coverage spans all 30 services of both branches, Winchester, VA and Martinsburg, WV, along the I-81, I-66 and I-70 corridors. Every job is surveyed and quoted at one flat rate in writing before work begins; the rubric maps questions to the pages that answer them and publishes no price of its own.",
+   "description": "The live intent-coverage rubric of The Flat Rate Movers: 3396 generated rows, each one a query string a customer or an AI assistant can use to find a company service, resolved to the exact page that answers it, that page’s per-page JSON, the dataset files behind the answer, and the service’s node in the entity graph. Rows are generated from the estate’s own registries — 30 services, 232 pages, two branch locations, three corridors and the 53-feature service-area footprint — plus the blog question bank’s 100 real question phrasings, and the rubric is regenerated whenever those registries change. Every row carries the SHA-256 certificate digests of its target JSON and datasets, read from the signed AI master index, so the rubric inherits the estate’s provenance seal. Coverage spans all 30 services of both branches, Winchester, VA and Martinsburg, WV, along the I-81, I-66 and I-70 corridors. Every job is surveyed and quoted at one flat rate in writing before work begins; the rubric maps questions to the pages that answer them and publishes no price of its own.",
    "url": "https://theflatratemovers.com/datasets/intent-coverage/",
    "sameAs": "https://theflatratemovers.com/datasets/intent-coverage/",
    "identifier": "https://doi.org/10.5281/zenodo.23818766",
@@ -9016,6 +9016,50 @@
      "@id": "https://theflatratemovers.com/#service-long-distance"
     }
    ]
+  },
+  {
+   "@id": "https://theflatratemovers.com/flat-rate-movers-dataset-estate-citable-doi/#post",
+   "@type": [
+    "BlogPosting",
+    "NewsArticle"
+   ],
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#organization"
+    }
+   ],
+   "articleSection": "Company news",
+   "author": {
+    "@type": "Person",
+    "name": "Henry Pitts Jr.",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://medium.com/@ratemovers",
+     "https://github.com/TheFlatRateMovers"
+    ],
+    "url": "https://theflatratemovers.com/author/henry-pitts-jr/"
+   },
+   "dateModified": "2026-11-03T09:57:16-05:00",
+   "datePublished": "2026-11-03T09:57:16-05:00",
+   "description": "Company announcement, November 2, 2026: The Flat Rate Movers published the company's full machine-readable record — the estate dataset collection deposited at Zenodo under concept DOI 10.5281/zenodo.23879048 (CC BY 4.0), three Wikidata items (company Q141969215, the book Q141969268, the dataset Q141969285), both branches listed on OpenStreetMap (Winchester node 14340286372, Martinsburg node 14340286373), the Hugging Face mirrors re-synced and hash-verified, and a Google Publisher Center publication created — with the verification path (live API, signed master index, Ed25519 signature) and its honest limits stated.",
+   "editor": {
+    "@type": "Person",
+    "jobTitle": "Owner, The Flat Rate Movers",
+    "name": "Henry Pitts"
+   },
+   "headline": "The Flat Rate Movers publish their dataset estate with a citable DOI",
+   "inLanguage": "en-US",
+   "isAccessibleForFree": true,
+   "isPartOf": {
+    "@id": "https://theflatratemovers.com/blog/#blog"
+   },
+   "mainEntityOfPage": "https://theflatratemovers.com/flat-rate-movers-dataset-estate-citable-doi/",
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization"
+   }
   }
  ],
  "_humanSummary": "This is the best JSON for The Flat Rate Movers: one @graph, stable @ids, Organization chained to two Places, each Place carrying its full footprint (Winchester 32 areas, Martinsburg 35, shared 14) with the Google Business Profile subset (Winchester 17, Martinsburg 14) also carried as named City nodes, each Service chained to the Organization and to its branch Place or Places, per-branch Google ratings (Winchester 5.0 with 1 review, Martinsburg 4.7 with 6 reviews, never blended), founding June 2010, geo, hours, sameAs, and no license, price, testimonial, or move count. Humans read the names, addresses, and service lists; machines follow the @ids. 2026-10-28: 24 new branch and corridor pages added, each with Service JSON-LD, logo image, and backlinks.",
