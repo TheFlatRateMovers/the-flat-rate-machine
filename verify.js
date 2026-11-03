@@ -3690,10 +3690,17 @@ async function main() {
         '10.5281/zenodo.23818766|datasets-intent-coverage.json|https://theflatratemovers.com/#dataset-intent-coverage-totals',
         '10.5281/zenodo.23879048|entity-graph.json|https://theflatratemovers.com/datasets/#collection',
         '10.5281/zenodo.23879048|best-json-entity-graph.json|https://theflatratemovers.com/datasets/#collection',
+        // Batch FB-2 (2026-11-03): the intent-coverage Dataset node is
+        // now a graph citizen in both published graphs, and its DOI
+        // identifier travels with the node (the DC-5 holder rule: every
+        // instance of a holder @id carries the DOI URL). The two graph
+        // seats are therefore lawful and enumerated here — 8 -> 10.
+        '10.5281/zenodo.23818766|entity-graph.json|https://theflatratemovers.com/datasets/intent-coverage/#dataset',
+        '10.5281/zenodo.23818766|best-json-entity-graph.json|https://theflatratemovers.com/datasets/intent-coverage/#dataset',
       ]);
       const extra = doiHits.filter((h) => !expectedDoi.has(h));
       const missing = [...expectedDoi].filter((h) => !doiHits.includes(h));
-      check('CV-2 identity propagated (Q141969215 org, branch OSM nodes, Book + catalog nodes in both graphs) and DOI identifiers sit exactly on their eight lawful seats',
+      check('CV-2 identity propagated (Q141969215 org, branch OSM nodes, Book + catalog nodes in both graphs) and DOI identifiers sit exactly on their ten lawful seats',
         bad.length === 0 && extra.length === 0 && missing.length === 0,
         (bad.concat(extra.map((e) => 'extra DOI: ' + e), missing.map((e) => 'missing DOI: ' + e))).slice(0, 4).join('; ') || doiHits.length + ' DOI identifier seats, all lawful');
     }
@@ -4053,6 +4060,152 @@ async function main() {
         postsBG.length >= 1 && missing.length === 0, missing.join(', ') || (postsBG.length + '/' + postsBG.length + ' posts named'));
     }
   } catch (e) { check('§33 blog graph join gates BG-1..BG-3 execute', false, String(e && e.message || e)); }
+
+
+  // ================================================================
+  // 34. DATASET GRAPH CITIZENSHIP GATES (Batch FB-2, 2026-11-03).
+  // The full-URL audit found exactly ONE Dataset node (ports) in
+  // each published graph: the other dataset files were sealed,
+  // API-served and pinged but not graph citizens. FB-2 derives ONE
+  // citizenship node per dataset file — the landing's per-page
+  // summary node (or the file's own node when it shares the summary
+  // @id; ports), copied verbatim with `distribution` dropped and
+  // `includedInDataCatalog` set to the estate catalog, the Ports P1
+  // transform — and syncs it into both published graphs and both
+  // machine-repo data/ mirrors (scripts/sync-dataset-graph-nodes.js).
+  // DG-1..DG-4 pin the citizenship permanently: the expected set is
+  // re-derived here from the signed index + sealed sources with the
+  // SAME algorithm as the sync tool, never a hard-coded list, so a
+  // future dataset file that misses any graph copy — or a source
+  // edit that leaves a citizen stale — fails the seal.
+  // ================================================================
+  try {
+    const SITE_DG = 'https://theflatratemovers.com';
+    const readDG = (p) => JSON.parse(fs.readFileSync(p, 'utf8'));
+    const sortKeysDG = (o) => {
+      if (Array.isArray(o)) return o.map(sortKeysDG);
+      if (o && typeof o === 'object') {
+        const r = {};
+        for (const k of Object.keys(o).sort()) r[k] = sortKeysDG(o[k]);
+        return r;
+      }
+      return o;
+    };
+    const deepEqualDG = (a, b) => JSON.stringify(sortKeysDG(a)) === JSON.stringify(sortKeysDG(b));
+    const nodesOfDG = (doc) => {
+      if (doc && Array.isArray(doc['@graph'])) return doc['@graph'];
+      return Array.isArray(doc) ? doc : [doc];
+    };
+    const CATALOG_DG = { '@id': SITE_DG + '/datasets/#collection' };
+
+    // File set: the signed index's dataset-file distributions; the
+    // PUB disk set must equal it (offenders named in setBadDG).
+    const idxDG = readDG(path.join(PAGES_PUBLIC, 'ai-master-index.json'));
+    const fileSetDG = [...new Set((idxDG.distribution || [])
+      .map((d) => d && d.contentUrl)
+      .filter((u) => typeof u === 'string' && /^https:\/\/theflatratemovers\.com\/datasets-[^/]+\.json$/.test(u))
+      .map((u) => u.split('/').pop()))].sort();
+    const diskSetDG = fs.readdirSync(PAGES_PUBLIC).filter((f) => /^datasets-.+\.json$/.test(f)).sort();
+    const setBadDG = [];
+    for (const f of diskSetDG) if (!fileSetDG.includes(f)) setBadDG.push(f + ' on disk but not in the signed index');
+    for (const f of fileSetDG) if (!diskSetDG.includes(f)) setBadDG.push(f + ' in the signed index but missing from PUB');
+
+    // Derivation — the sync tool's rule (pattern-spec §4). A failure
+    // throws with the stem named and fails the wrapper check.
+    const deriveDG = (f) => {
+      const stem = f.replace(/^datasets-/, '').replace(/\.json$/, '');
+      const landing = SITE_DG + '/datasets/' + stem + '/';
+      const candIds = new Set([landing + '#dataset', landing + '#dataset-' + stem, SITE_DG + '/' + f + '#dataset']);
+      const ppDoc = readDG(path.join(PAGES_PUBLIC, 'dataset-' + stem + '.json'));
+      const ppHits = nodesOfDG(ppDoc).filter((n) => n && n['@type'] === 'Dataset' && candIds.has(n['@id']));
+      if (ppHits.length !== 1) throw new Error(stem + ': expected exactly 1 summary Dataset node in per-page JSON, got ' + ppHits.length);
+      let src = ppHits[0];
+      const fDoc = readDG(path.join(PAGES_PUBLIC, f));
+      const fHits = nodesOfDG(fDoc).filter((n) => n && n['@type'] === 'Dataset' && n['@id'] === src['@id']);
+      if (fHits.length === 1) src = fHits[0];
+      if (fHits.length > 1) throw new Error(stem + ': multiple file nodes share the summary @id');
+      const node = JSON.parse(JSON.stringify(src));
+      delete node.distribution;
+      if (node.includedInDataCatalog && !deepEqualDG(node.includedInDataCatalog, CATALOG_DG)) {
+        throw new Error(stem + ': pre-existing includedInDataCatalog differs from the catalog ref');
+      }
+      node.includedInDataCatalog = { ...CATALOG_DG };
+      if (typeof node.description !== 'string' || node.description.length < 50 || node.description.length > 5000) {
+        throw new Error(stem + ': description outside the 50-5000 bound (DC-1 preview)');
+      }
+      if (node.url !== landing) throw new Error(stem + ': summary url is not the landing: ' + node.url);
+      if (!node.identifier) throw new Error(stem + ': summary node lacks identifier');
+      if (node.isAccessibleForFree !== true) throw new Error(stem + ': isAccessibleForFree is not true');
+      for (const k of ['datePublished', 'dateModified']) {
+        if (node[k] !== undefined && !/^\d{4}-\d{2}-\d{2}/.test(node[k])) throw new Error(stem + ': ' + k + ' not ISO (DC-3 preview)');
+      }
+      if (node.datePublished && node.dateModified && node.dateModified < node.datePublished) {
+        throw new Error(stem + ': dateModified < datePublished (DC-3 preview)');
+      }
+      return node;
+    };
+    const citizensDG = fileSetDG.map((f) => deriveDG(f));
+    const citizenIdsDG = new Set(citizensDG.map((n) => n['@id']));
+    const derivedByIdDG = new Map(citizensDG.map((n) => [n['@id'], n]));
+    const datasetNodesDG = (doc) => nodesOfDG(doc).filter((n) => n && n['@type'] === 'Dataset');
+    const copiesDG = [
+      ['PUB entity-graph.json', path.join(PAGES_PUBLIC, 'entity-graph.json'), 'pub'],
+      ['PUB best-json-entity-graph.json', path.join(PAGES_PUBLIC, 'best-json-entity-graph.json'), 'pub'],
+      ['data/entity-graph.json', path.join(ROOT, 'data', 'entity-graph.json'), 'mirror'],
+      ['data/best-json-entity-graph.json', path.join(ROOT, 'data', 'best-json-entity-graph.json'), 'mirror'],
+    ].map(([label, f, kind]) => ({ label, kind, nodes: datasetNodesDG(readDG(f)) }));
+    const citizenshipBad = (kind) => {
+      const bad = [];
+      for (const c of copiesDG.filter((x) => x.kind === kind)) {
+        for (const n of citizensDG) {
+          const hits = c.nodes.filter((x) => x['@id'] === n['@id']).length;
+          if (hits !== 1) bad.push(c.label + ': ' + n['@id'] + ' x' + hits);
+        }
+      }
+      return bad;
+    };
+
+    // DG-1: citizenship in the two published graphs (+ index/disk set agreement).
+    {
+      const bad = [...setBadDG, ...citizenshipBad('pub')];
+      check('DG-1 every dataset file in the signed index has exactly one Dataset citizenship node in both published graphs',
+        fileSetDG.length >= 1 && bad.length === 0,
+        bad.slice(0, 4).join('; ') || (citizensDG.length + ' citizens in both published graphs'));
+    }
+
+    // DG-2: citizenship in the machine-repo data/ mirrors.
+    {
+      const bad = citizenshipBad('mirror');
+      check('DG-2 the machine-repo data/ graph mirrors carry the same dataset citizenship (exactly one node per dataset @id)',
+        fileSetDG.length >= 1 && bad.length === 0,
+        bad.slice(0, 4).join('; ') || (citizensDG.length + ' citizens in both mirrors'));
+    }
+
+    // DG-3: content sync — every citizenship node deep-equals its derivation.
+    {
+      const bad = [];
+      for (const c of copiesDG) {
+        for (const n of citizensDG) {
+          const hits = c.nodes.filter((x) => x['@id'] === n['@id']);
+          if (hits.length === 1 && !deepEqualDG(hits[0], derivedByIdDG.get(n['@id']))) bad.push(c.label + ': ' + n['@id'] + ' differs from its derived source');
+        }
+      }
+      check('DG-3 every citizenship node deep-equals its derived source node (verbatim copy, distribution dropped, catalog join set) in all four graph copies',
+        bad.length === 0, bad.slice(0, 4).join('; ') || (citizensDG.length + ' citizens in sync across 4 copies'));
+    }
+
+    // DG-4: no extras — Dataset @id set per copy equals the derived set.
+    {
+      const bad = [];
+      for (const c of copiesDG) {
+        const ids = new Set(c.nodes.map((n) => n['@id']));
+        for (const id of ids) if (!citizenIdsDG.has(id)) bad.push(c.label + ': extra Dataset node ' + id);
+        if (ids.size !== citizenIdsDG.size) bad.push(c.label + ': Dataset @id set size ' + ids.size + ' != derived ' + citizenIdsDG.size);
+      }
+      check('DG-4 no extra Dataset nodes in any graph copy (the Dataset @id set equals the derived citizenship set exactly)',
+        bad.length === 0, bad.slice(0, 4).join('; ') || 'citizenship set exact in all four copies');
+    }
+  } catch (e) { check('§34 dataset graph citizenship gates DG-1..DG-4 execute', false, String(e && e.message || e)); }
 
   // --- 9. Guardrail scan: no placeholders, no invented license identifiers ---
   const registryText = JSON.stringify({ pages, services, locations, corridors });

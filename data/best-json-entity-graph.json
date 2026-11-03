@@ -3806,6 +3806,2584 @@
    "publisher": {
     "@id": "https://theflatratemovers.com/#organization"
    }
+  },
+  {
+   "@type": "Dataset",
+   "@id": "https://theflatratemovers.com/datasets-answer-evidence.json#dataset",
+   "name": "Answer-Engine Evidence Dataset",
+   "description": "The answer-engine evidence dataset of The Flat Rate Movers, built by the Retrieval Machine: every buyer-intent rubric question with its Answer Panel state and its fragment binding; the answer fragments extracted from the live estate — FAQ answers and heading-led passages — each with its owning page, heading-path locator, full text, SHA-256 text hash for drift detection and sealed evidence links; the documented pipelines of the four answer engines with contested and unknown fields recorded as such; the citation observations on file, every one carrying method, era and prompt verbatim — all search-surface probes, with standing on the actual answer-engine interfaces stated as unmeasured; review evidence as per-platform distribution and arithmetic only; and the named gaps with their designed solutions — sealed in the signed AI master index.",
+   "url": "https://theflatratemovers.com/datasets/answer-evidence/",
+   "identifier": "https://theflatratemovers.com/datasets/answer-evidence/",
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "dateModified": "2026-10-31",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "keywords": [
+    "answer engines",
+    "citation evidence",
+    "answer fragments",
+    "prompt panel",
+    "AI Overviews",
+    "retrieval machine"
+   ],
+   "isAccessibleForFree": true,
+   "includedInDataCatalog": {
+    "@id": "https://theflatratemovers.com/datasets/#collection"
+   }
+  },
+  {
+   "@type": "Dataset",
+   "@id": "https://theflatratemovers.com/datasets-archive-registry.json#dataset",
+   "name": "Archive Registry Dataset",
+   "description": "The standing archive registry for The Flat Rate Movers: 260 tracked preservation targets with computed capture states (104 current-era — the per-route estate archived by the 2026-11-01 re-snapshot wave; 3 old-era; 5 recorded captures no longer served, all re-captured in the wave; 1 preservation-by-DOI; 152 never-captured); 141 Internet Archive captures verified against the CDX index on 2026-11-01, each with timestamp, CDX digest, record length, byte-era and fixity state; both Zenodo deposits (v1.1.0 + v1.2.0, 293 files) verified per file against the checksums Zenodo serves and both signed indexes; both GitHub repositories at their recorded HEADs; the local BagIt 1.0 archive of all 486 sealed distributions (125,430,624 payload bytes, fixity-validated); the signed verification reports of 2026-11-01 (E6-B1: 16 exceptions, each classified with both digests; E6-B2: the re-snapshot wave execution); snapshot runs with failure records kept permanently; and gaps A1–A6 each with its designed solution — sealed in the signed provenance index.",
+   "url": "https://theflatratemovers.com/datasets/archive-registry/",
+   "sameAs": "https://theflatratemovers.com/datasets-archive-registry.json",
+   "identifier": [
+    {
+     "@type": "PropertyValue",
+     "propertyID": "canonical-url",
+     "name": "Canonical dataset file",
+     "value": "https://theflatratemovers.com/datasets-archive-registry.json"
+    },
+    {
+     "@type": "PropertyValue",
+     "propertyID": "canonical-api",
+     "name": "Canonical API table route",
+     "value": "https://api.theflatratemovers.com/v1/archives"
+    },
+    {
+     "@type": "PropertyValue",
+     "propertyID": "X-Provenance-SHA256",
+     "name": "Provenance SHA-256",
+     "value": "256befc2b331b966f1fda2d18a96d254658225ac6af6d90c10176b5d4deadf23"
+    },
+    {
+     "@type": "PropertyValue",
+     "propertyID": "provenance-index",
+     "name": "Provenance index",
+     "value": "https://theflatratemovers.com/ai-master-index.json"
+    }
+   ],
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "isAccessibleForFree": true,
+   "inLanguage": "en-US",
+   "dateModified": "2026-11-01",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "keywords": [
+    "archive registry",
+    "wayback machine",
+    "zenodo",
+    "bagit",
+    "fixity",
+    "preservation",
+    "retrieval machine"
+   ],
+   "variableMeasured": [
+    "Tracked preservation targets by capture state",
+    "Internet Archive captures by byte-era and fixity status",
+    "Zenodo deposit files by release-seal and current-seal state",
+    "Local BagIt archive fixity (Payload-Oxum, validation)",
+    "Verification exceptions by classification",
+    "Archives-element gaps A1–A6 with designed solutions"
+   ],
+   "includedInDataCatalog": {
+    "@id": "https://theflatratemovers.com/datasets/#collection"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/datasets/commercial/#dataset",
+   "@type": "Dataset",
+   "name": "Commercial Move Operations",
+   "description": "Commercial move operations for business relocations, planned around the operation. The published hero framing is verbatim: Business moves, planned around your operation. Commercial relocations are quoted flat and agreed in writing before move day, planned around the hours, the site, and the equipment, with the warehouse and transload operation behind the job. The operation chain runs survey, quote, phased plan, pack and label, sequenced move, install and place, verify, and close-out, with a plan core of what moves first, what moves last, and what works on day one. Survey runs through the quote form Short (Quick Quote) default and Detailed Project toggle with inputs preserved, and a film-only video walkthrough where a walkthrough fits: film only, never lift, move, open, or climb anything heavy or locked, with a human-made estimate. The freight chain is container loading and unloading, transloading, and final-mile delivery; high-mass or sensitive devices to 3,500 lbs ride the SIR and KIM-GS method conditionally, with floor deflection analysis to L/360. Shops, professional offices, and commercial spaces are the published audience; industrial offices, government offices, and military households are cross-references to their own categories, never duplicated here. Commercial relocations are planned as a single coordinated operation: survey, phased plan, pack and label, sequenced move, install and place, verify, and close-out, with the plan core of what moves first, what moves last, and what works on day one. Scope, phasing, and price are agreed in writing before move day.",
+   "url": "https://theflatratemovers.com/datasets/commercial/",
+   "sameAs": "https://theflatratemovers.com/datasets/commercial/",
+   "identifier": "https://theflatratemovers.com/datasets/commercial/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "dateModified": "2026-10-30",
+   "temporalCoverage": "2010/2026",
+   "spatialCoverage": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "keywords": [
+    "commercial moving",
+    "commercial movers winchester va",
+    "corporate movers winchester va",
+    "business moving companies near me",
+    "office moving winchester va"
+   ],
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-commercial"
+    }
+   ],
+   "includedInDataCatalog": {
+    "@id": "https://theflatratemovers.com/datasets/#collection"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/datasets/crating/#dataset",
+   "@type": "Dataset",
+   "name": "The Flat Rate Movers — Custom Crating Operations Dataset",
+   "description": "Custom crating operations from The Flat Rate Movers — the full published scope of the crating service across its pages. Company scope (published): custom-built crates and high-value item protection for domestic and export moves — each crate measured, built and fitted to the piece it protects, not a stock box. Inside the crate, the item is blocked, braced and cushioned so it cannot shift in transit. Crating covers the pieces that need more than padding: antiques, artwork, machinery parts and high-value equipment. The crate is the second of the three protection layers the export pages publish — first the item is wrapped, then the crate is built around it, then the whole shipment moves in one unbroken chain — and where a crated shipment crosses a border, the crate is built to ISPM 15 (International Standards for Phytosanitary Measures No. 15). Heavy and high-mass pieces in the 1,500 to 3,500 lb band are planned under SIR Structural Integrity Relocation and the KIM-GS Protocol with L/360 floor-deflection analysis, inside the same written flat-rate job. The service is dispatched from two home bases — Winchester, VA and Martinsburg, WV. Every crating job is quoted at one flat rate, agreed in writing before move day.",
+   "url": "https://theflatratemovers.com/datasets/crating/",
+   "sameAs": "https://theflatratemovers.com/datasets/crating/",
+   "identifier": "https://theflatratemovers.com/datasets/crating/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "dateModified": "2026-10-30",
+   "temporalCoverage": "2010/2026",
+   "spatialCoverage": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "keywords": [
+    "custom crating virginia",
+    "custom wood crates",
+    "crating services martinsburg wv",
+    "crate builders winchester va",
+    "high value item crating"
+   ],
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-crating"
+    }
+   ],
+   "includedInDataCatalog": {
+    "@id": "https://theflatratemovers.com/datasets/#collection"
+   }
+  },
+  {
+   "@type": "Dataset",
+   "@id": "https://theflatratemovers.com/datasets-crawl-presence.json#dataset",
+   "name": "Crawl Presence Registry Dataset",
+   "description": "The standing crawl-presence registry for The Flat Rate Movers: 129 Common Crawl collections each with its recorded query state and method; 16197 capture rows classified by URL class and content era (0 current-estate, 14775 pre-cutover WordPress, 448 Wix-era, 974 earlier predecessor); the robots posture recorded as the owner’s decision of 2026-10-31 (Option 1, open training) with the served-vs-source drift gate; the signed signal-observation log; filter-inspection and corpus-release-check tables standing empty or not-checked by design; gap records P1–P6 each with its designed solution; and the pinned mechanism facts — sealed in the signed provenance index.",
+   "url": "https://theflatratemovers.com/datasets/crawl-presence/",
+   "sameAs": "https://theflatratemovers.com/datasets-crawl-presence.json",
+   "identifier": [
+    {
+     "@type": "PropertyValue",
+     "propertyID": "canonical-url",
+     "name": "Canonical dataset file",
+     "value": "https://theflatratemovers.com/datasets-crawl-presence.json"
+    },
+    {
+     "@type": "PropertyValue",
+     "propertyID": "canonical-api",
+     "name": "Canonical API table route",
+     "value": "https://api.theflatratemovers.com/v1/crawl-presence"
+    },
+    {
+     "@type": "PropertyValue",
+     "propertyID": "X-Provenance-SHA256",
+     "name": "Provenance SHA-256",
+     "value": "042dfa089e24c53b4636ccfd722f65ea1a0173421b59aa9d03a8f2ca72fef6b0"
+    },
+    {
+     "@type": "PropertyValue",
+     "propertyID": "provenance-index",
+     "name": "Provenance index",
+     "value": "https://theflatratemovers.com/ai-master-index.json"
+    }
+   ],
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "isAccessibleForFree": true,
+   "inLanguage": "en-US",
+   "dateModified": "2026-10-31",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "keywords": [
+    "crawl presence",
+    "common crawl",
+    "training corpora",
+    "robots policy",
+    "signal observation",
+    "content era",
+    "retrieval machine"
+   ],
+   "variableMeasured": [
+    "Common Crawl collections queried, by query state",
+    "Domain captures by URL class and content era",
+    "Robots posture (recorded owner decision) and drift-gate state",
+    "Signed signal observations",
+    "Corpora-element gaps P1–P6 with designed solutions"
+   ],
+   "includedInDataCatalog": {
+    "@id": "https://theflatratemovers.com/datasets/#collection"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/datasets/data-center-relocation/#dataset",
+   "@type": "Dataset",
+   "name": "Data Center Physical Relocation Operations",
+   "description": "Data center physical relocation operations: the physical layer of a data center move — servers, populated and de-racked racks and cabinets, storage and network equipment moved between server rooms, colocation facilities and data centers in Northern Virginia and the I-81 corridor — run as a planned, labelled, documented sequence. The published sequence runs: survey and floor-load analysis — the plan, not the truck, is agreed first in the Detailed Project form, the flat rate is quoted in writing before move day, and populated racks and cabinets in the 1,500–3,500 lb band are surveyed under SIR Structural Integrity Relocation and the KIM-GS Protocol with an L/360 floor-deflection check at origin and destination; inventory and chain-of-custody manifest — every item is inventoried and labelled before anything is unplugged, and the manifest records each asset's tag, its serial number as provided by the client, its rack and U position, and photograph points; disconnect and de-install — working to the sequence fixed at survey with the client's IT team, the crew shuts down and unplugs device by device and performs the physical de-rack work, and elements requiring certified specialists are handled by the certified contractors the company engages; pack and seal — equipment travels padded, wrapped and strapped, with anti-static-aware packing for servers and sensitive electronics (anti-static bubble wrap and ESD shielding bags for loose components, foam-lined server shipping crates for racked units, cable labels and tags on every run), custom crating for the pieces that need it, and tamper-evident seals whose numbers are logged on the manifest; the packing materials a job consumes are purchased for each project and scoped inside the flat rate; chain-of-custody transport, strapped and padded in the planned order, with seal numbers verified at departure and arrival; placement at the destination in the labelled order, rack and U position per the manifest, reconnected and re-cabled to the manifest and powered up to the scope agreed at survey, verified with the client's team before the crew leaves; and haul-out — equipment not going to the destination, and retired equipment at refresh or exit, packed, sealed and manifested the same way and transported to the destination the client designates, including the certified ITAD partner engaged for the job. Not published and not claimed for this service: workload migration, application discovery or dependency mapping, recommissioning, backup verification or rollback — the client's IT team or integrator owns the logical move; and data sanitization or destruction to any standard, which belongs to the certified ITAD partner engaged for the job alone. The company claims no IT certifications of its own; elements of a job that require certified specialists are handled by the certified contractors the company engages.",
+   "url": "https://theflatratemovers.com/datasets/data-center-relocation/",
+   "sameAs": "https://theflatratemovers.com/datasets/data-center-relocation/",
+   "identifier": "https://theflatratemovers.com/datasets/data-center-relocation/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "dateModified": "2026-10-30",
+   "temporalCoverage": "2010/2026",
+   "spatialCoverage": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "keywords": [
+    "data center movers Ashburn VA",
+    "server rack relocation Northern Virginia",
+    "data center relocation",
+    "physical data center move",
+    "de-rack and re-rack services",
+    "data center decommissioning haul-out"
+   ],
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-data-center-relocation"
+    }
+   ],
+   "includedInDataCatalog": {
+    "@id": "https://theflatratemovers.com/datasets/#collection"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/datasets/ffe-logistics/#dataset",
+   "@type": "Dataset",
+   "name": "The Flat Rate Movers — FF&E Logistics Operations Dataset",
+   "description": "FF&E logistics operations from The Flat Rate Movers — the physical chain that takes furniture, fixtures, and equipment from staggered vendor shipments to an opening-ready room. Company scope (published by this category): purchase-order receiving; dock inventory and condition documentation; warehousing in leased space; sequenced delivery by model room, floor, room, department, classroom, office, or project phase; installation support — unpacking, furniture assembly, placement, leveling, and set-in-place support for items that do not require a licensed trade or manufacturer commissioning; packaging and debris removal within the project scope; punch support; and opening-day readiness checks. Materials and supplies for the physical work — furniture pads, shrink and stretch wrap, corner and edge protectors, mattress and furniture bags, cartons, labels, and inventory tags — are purchased per project for the reviewed scope. The category recombines capabilities the company already publishes: FF&E Installation & Project Support and receiving and warehousing coordination inside Industrial & Commercial Services; freight counted and inventoried as it crosses the dock; leased-space storage with a 30-day minimum and customer access; final-mile placement and verification; and supervised B2B project-support teams. FF&E means furniture, fixtures, and equipment. OS&E — operating supplies and equipment — is a separate operating stream and is not automatically included. The company does not procure, design, purchase, or specify FF&E, and licensed-trade or technical installation remains with the responsible trade, manufacturer, facility team, or installer of record. Every job is reviewed in full and quoted per job at one flat rate in writing — Guaranteed Flat Rate or Your Move is Free!",
+   "url": "https://theflatratemovers.com/datasets/ffe-logistics/",
+   "sameAs": "https://theflatratemovers.com/datasets/ffe-logistics/",
+   "identifier": "https://theflatratemovers.com/datasets/ffe-logistics/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "dateModified": "2026-10-30",
+   "temporalCoverage": "2010/2026",
+   "spatialCoverage": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "keywords": [
+    "FF&E logistics Virginia",
+    "FF&E receiving warehousing installation",
+    "hotel FF&E logistics Shenandoah Valley",
+    "FF&E installation support",
+    "sequenced FF&E delivery"
+   ],
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-ffe-logistics"
+    }
+   ],
+   "includedInDataCatalog": {
+    "@id": "https://theflatratemovers.com/datasets/#collection"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/datasets/final-mile/#dataset",
+   "@type": "Dataset",
+   "name": "The Flat Rate Movers — Final-Mile Delivery Operations Dataset",
+   "description": "Final-mile delivery operations from The Flat Rate Movers — the last leg of the freight chain, run by the same operation that handles the freight. Company scope (published): final-mile delivery with in-home or in-business placement and verification — freight is delivered to the room or site where it belongs, placed, and confirmed on site, never left at the curb. The chain behind the delivery is the company's own: containers and trucks are unloaded on the company's warehouse floor, freight is counted and inventoried as it crosses the dock, staged, deconsolidated or cross-docked, and reworked where needed — repalletised, rewrapped, braced — then delivered in by the crew that handled it; the combined freight page states the standard plainly: no hand-off to an unknown last carrier. Valuable and fragile freight travels padded in blankets and sealed in stretch wrap — the white-glove wrap standard — with custom crating and ISPM 15 export packing on the same floor for freight that needs it. Deliveries run to homes, offices, industrial sites and retail. Heavy deliveries in the 1,500 to 3,500 lb band are surveyed and floor-checked to L/360 under SIR Structural Integrity Relocation and the KIM-GS Protocol, like any SIR move. Every job is quoted per job at one flat rate agreed in writing before dispatch — the guarantee: Guaranteed Flat Rate or Your Move is Free!",
+   "url": "https://theflatratemovers.com/datasets/final-mile/",
+   "sameAs": "https://theflatratemovers.com/datasets/final-mile/",
+   "identifier": "https://theflatratemovers.com/datasets/final-mile/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "dateModified": "2026-10-30",
+   "temporalCoverage": "2010/2026",
+   "spatialCoverage": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "keywords": [
+    "final mile delivery",
+    "last mile delivery virginia",
+    "white glove final mile",
+    "in-home delivery placement",
+    "freight final mile west virginia"
+   ],
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-final-mile"
+    }
+   ],
+   "includedInDataCatalog": {
+    "@id": "https://theflatratemovers.com/datasets/#collection"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/datasets/freight-rework/#dataset",
+   "@type": "Dataset",
+   "name": "Freight Rework & Transloading Operations",
+   "description": "Freight rework and transloading operations from The Flat Rate Movers: the corrective freight-handling service for loads that cannot move as they sit, plus planned mode-change and dock-to-dock freight work on the I-81 corridor, dispatched from Winchester, VA and Martinsburg, WV. Company scope (published): freight reworks — loads refused or rejected at a receiver's dock are rebuilt so they can deliver; load-shift correction — freight that shifted in transit is stabilized, unloaded under control, restacked and re-secured; damaged-freight separation — crushed, torn or water-damaged cases are pulled and documented while the good freight is rebuilt to deliver; overweight and axle correction — freight is repositioned, redistributed between axles, partially offloaded and reloaded, or split so the truck can legally roll; collapsed and failed pallets are repalletized onto sound pallets; floor-loaded freight is palletized to the receiver's specification. Callers are freight professionals — drivers and owner-operators, carriers and their dispatchers and operations managers, freight brokers, 3PLs, warehouses and receivers. The work is performed where the job requires: the company's leased space, the receiver's dock, or a yard. Emergency and after-hours response is available at premium rates; every job is scoped and quoted at one flat rate before work begins, and no rate, range or fee schedule is published for this service. Planned work under the same category: cross-docking — inbound freight transferred directly to outbound vehicles, sorted and consolidated dock to dock, typically turned in under 24 hours with little to no storage; transloading — freight transferred between transportation modes, ocean container or railcar to domestic truck, with floor-loaded contents repalletized, sorted or held in short staging before the switch; rail-to-truck transfer work at rail-served locations when contracted. Heavy equipment manipulation — repositioning machinery and heavy crated freight inside trailers, containers and dock space — runs under the same handling discipline as the company's SIR Structural Integrity Relocation work for high-mass assets of 1,500 to 3,500 lbs, in the freight setting. Equipment varies by project; trucks are leased. The category absorbs the company's published transloading services as its children — container deconsolidation, cross-docking and transloading, Winchester transloading, and Virginia Inland Port transloading — without duplicating them. Guaranteed Flat Rate or Your Move is Free!",
+   "url": "https://theflatratemovers.com/datasets/freight-rework/",
+   "sameAs": "https://theflatratemovers.com/datasets/freight-rework/",
+   "identifier": "https://theflatratemovers.com/datasets/freight-rework/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "dateModified": "2026-10-30",
+   "temporalCoverage": "2010/2026",
+   "spatialCoverage": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "keywords": [
+    "junk removal",
+    "junk hauling",
+    "junk removal winchester va",
+    "junk removal martinsburg wv",
+    "movers near me"
+   ],
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-junk-removal"
+    }
+   ],
+   "includedInDataCatalog": {
+    "@id": "https://theflatratemovers.com/datasets/#collection"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/datasets/government/#dataset",
+   "@type": "Dataset",
+   "name": "The Flat Rate Movers — Government Moving Operations Dataset",
+   "description": "Government moving operations from The Flat Rate Movers — the full published scope of the government service across its pages. Company scope (published): moving services for government offices and public-sector relocations; the company's government work includes moves performed for federal agencies, among them the FBI and the DEA; office areas, records, files and equipment moved on a planned, sequenced schedule so the office is working again on day one; workstations, files and office equipment handled as planned runs, not loose loads; moves planned around the office's operating hours and deadlines, with industrial-office and warehouse staging support from the company's own transload operation behind the job. Every government job is quoted at one flat rate, agreed in writing before move day — a written quote in the format approvals and budgets use, produced from the Detailed Project form (project type, dates, rooms or facility size, and access at both ends). The service is dispatched from two home bases — Winchester, VA and Martinsburg, WV — across the Shenandoah Valley and the Eastern Panhandle. Heavy and sensitive pieces in the 1,500 to 3,500 lb band — safes, medical devices, cryogenic equipment and antiques — move under SIR Structural Integrity Relocation and the KIM-GS Protocol with L/360 floor-deflection analysis, as part of the same flat-rate job. Published boundary: the service's pages claim no contracts, no clearances and no discounts.",
+   "url": "https://theflatratemovers.com/datasets/government/",
+   "sameAs": "https://theflatratemovers.com/datasets/government/",
+   "identifier": "https://theflatratemovers.com/datasets/government/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "dateModified": "2026-10-30",
+   "temporalCoverage": "2010/2026",
+   "spatialCoverage": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "keywords": [
+    "government movers virginia",
+    "government office relocation",
+    "public sector moving services",
+    "government movers winchester va",
+    "government movers martinsburg wv"
+   ],
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-government"
+    }
+   ],
+   "includedInDataCatalog": {
+    "@id": "https://theflatratemovers.com/datasets/#collection"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/datasets/gun-safe/#dataset",
+   "@type": "Dataset",
+   "name": "Gun Safe Move Operations",
+   "description": "Gun safe and high-mass safe moving under SIR Structural Integrity Relocation and the KIM-GS Protocol, for safes of 1,500 to 3,500 lbs. The published operation chain runs quote intake (make, model, or approximate weight; pickup and delivery addresses; access at both ends) to route and clearance survey, floor deflection analysis to L/360 with a load-spreading plan, floor protection, controlled move, secured upright transport, and verified placement exactly where the owner wants it, quoted at one flat rate in writing before move day. The protocol page states the same five steps in order: survey and floor check, protect and move, place and verify. Quote intake runs through the Short (Quick Quote) default and Detailed Project toggle, inputs preserved, and a film-only video walkthrough where a walkthrough fits: film only, never lift, move, open, or climb anything heavy or locked, with a human-made estimate. Published service practice: safes under 1,500 lbs handled the same careful way; the safe is emptied first, always; stairs go up and down; equipment matched to the project; re-anchoring at the destination available on request; vault work covers any size; standard safe classes; no locksmith services. Published long-distance safe runs include Winchester to Las Vegas; long-distance research covers high-value items and demographics as audience depth. Full per-topic detail is in the ten service-detail nodes appended to this file.",
+   "url": "https://theflatratemovers.com/datasets/gun-safe/",
+   "sameAs": "https://theflatratemovers.com/datasets/gun-safe/",
+   "identifier": "https://theflatratemovers.com/datasets/gun-safe/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "dateModified": "2026-10-30",
+   "temporalCoverage": "2010/2026",
+   "spatialCoverage": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "keywords": [
+    "gun safe movers",
+    "gun safe movers winchester va",
+    "gun safe moving",
+    "safe movers",
+    "heavy safe moving"
+   ],
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-gun-safe"
+    }
+   ],
+   "includedInDataCatalog": {
+    "@id": "https://theflatratemovers.com/datasets/#collection"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/datasets/industrial-commercial/#dataset",
+   "@type": "Dataset",
+   "name": "The Flat Rate Movers — Industrial & Commercial Project Support Operations Dataset",
+   "description": "Industrial & commercial project support operations from The Flat Rate Movers: trained, supervised moving and warehouse teams supporting contractors, project managers and operations buyers — a B2B project-support service, not a listing of individual labor. Four service lines (published): Warehouse & Distribution; Commercial Relocation & Logistics, including white-glove and blanket-wrap handling; FF&E Installation & Project Support; and Flexible Workforce Deployment. Support types (published): military and regular household-goods loading and unloading; APU and driver crew support; warehouse load-outs and inbound unloads, including trailer loading and offloading and warehouse organization; vault and container handling with inventory, sorting, labeling and pallet work; residential driver-meet jobs; rush, overflow and short-notice support; and ocean container, PODS, transloading, restacking and packing support through the company's warehouse and transload operation. Published workflow: send the job details; confirm team, scope and rate; the team is dispatched; invoice per job. Teams are self-managed and supervised, trained in-house, with team size matched to each job; pricing is per job with no required contract duration.",
+   "url": "https://theflatratemovers.com/datasets/industrial-commercial/",
+   "sameAs": "https://theflatratemovers.com/datasets/industrial-commercial/",
+   "identifier": "https://theflatratemovers.com/datasets/industrial-commercial/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "dateModified": "2026-10-30",
+   "temporalCoverage": "2010/2026",
+   "spatialCoverage": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "keywords": [
+    "industrial project support teams",
+    "warehouse crew support virginia",
+    "hhg loading unloading crews",
+    "commercial relocation support",
+    "supervised moving teams"
+   ],
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-industrial-commercial"
+    }
+   ],
+   "includedInDataCatalog": {
+    "@id": "https://theflatratemovers.com/datasets/#collection"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/datasets/industrial-offices/#dataset",
+   "@type": "Dataset",
+   "name": "The Flat Rate Movers — Industrial Offices Move Operations Dataset",
+   "description": "Industrial offices move operations from The Flat Rate Movers: office moves for industrial and facility sites — the office areas within plants, warehouses and industrial facilities — run on a planned, sequenced schedule so the site is working again on day one. The published process chain is: survey; phased plan; pack and label; sequenced move; install and place; verify; close-out. Scope moved: office furniture and equipment, files and fixtures, with the packing, protection and placement that goes with them. The move is planned around production and site access, not around an hourly meter, and is quoted at one flat rate agreed in writing before move day. Where an office-area item is high-mass (1,500 to 3,500 lbs), it moves under SIR Structural Integrity Relocation and the KIM-GS Protocol with L/360 floor-deflection analysis before anything is lifted. Where the same job also needs warehouse or project-support teams, it connects to Industrial & Commercial Services, priced per job with no required contract duration.",
+   "url": "https://theflatratemovers.com/datasets/industrial-offices/",
+   "sameAs": "https://theflatratemovers.com/datasets/industrial-offices/",
+   "identifier": "https://theflatratemovers.com/datasets/industrial-offices/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "dateModified": "2026-10-30",
+   "temporalCoverage": "2010/2026",
+   "spatialCoverage": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "keywords": [
+    "industrial office movers",
+    "plant office relocation",
+    "facility office moving",
+    "warehouse office movers virginia",
+    "industrial offices moving"
+   ],
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-industrial-offices"
+    }
+   ],
+   "includedInDataCatalog": {
+    "@id": "https://theflatratemovers.com/datasets/#collection"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/datasets/intent-coverage/#dataset",
+   "@type": "Dataset",
+   "name": "The Flat Rate Movers — Search Intent Coverage Operations Dataset",
+   "description": "The live intent-coverage rubric of The Flat Rate Movers: 3375 generated rows, each one a query string a customer or an AI assistant can use to find a company service, resolved to the exact page that answers it, that page’s per-page JSON, the dataset files behind the answer, and the service’s node in the entity graph. Rows are generated from the estate’s own registries — 30 services, 229 pages, two branch locations, three corridors and the 53-feature service-area footprint — plus the blog question bank’s 100 real question phrasings, and the rubric is regenerated whenever those registries change. Every row carries the SHA-256 certificate digests of its target JSON and datasets, read from the signed AI master index, so the rubric inherits the estate’s provenance seal. Coverage spans all 30 services of both branches, Winchester, VA and Martinsburg, WV, along the I-81, I-66 and I-70 corridors. Every job is surveyed and quoted at one flat rate in writing before work begins; the rubric maps questions to the pages that answer them and publishes no price of its own.",
+   "url": "https://theflatratemovers.com/datasets/intent-coverage/",
+   "sameAs": "https://theflatratemovers.com/datasets/intent-coverage/",
+   "identifier": "https://doi.org/10.5281/zenodo.23818766",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "dateModified": "2026-11-03",
+   "temporalCoverage": "2010/2026",
+   "spatialCoverage": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "keywords": [
+    "search intent coverage",
+    "query rubric",
+    "movers near me",
+    "gun safe movers winchester va",
+    "transloading winchester va",
+    "questions customers ask movers"
+   ],
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-catalog"
+    }
+   ],
+   "includedInDataCatalog": {
+    "@id": "https://theflatratemovers.com/datasets/#collection"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/datasets/ispm15/#dataset",
+   "@type": "Dataset",
+   "name": "The Flat Rate Movers — ISPM 15 Export Packing Operations Dataset",
+   "description": "ISPM 15 export packing operations from The Flat Rate Movers — the full published scope of the export packing service across its pages. Company scope (published): export packing to ISPM 15 (International Standards for Phytosanitary Measures No. 15) for international shipping, with crates built and marked to the ISPM 15 standard; the whole export chain kept under one roof — pack, crate, load, transload and final mile — so custody never blurs at a hand-off. What is packed for export, as published: antiques, art, pianos and instruments, medical and sensitive equipment, and household or commercial items of high value, packed item by item with white-glove wrapping for fragile pieces. The service is dispatched from two home bases — Winchester, VA and Martinsburg, WV — through the Virginia Inland Port and Port of Virginia freight network over the I-81, I-66 and I-70 corridors. Heavy and high-mass pieces in the 1,500 to 3,500 lb band move under SIR Structural Integrity Relocation and the KIM-GS Protocol with L/360 floor-deflection analysis, as part of the same flat-rate job. Every export job is quoted at one flat rate, agreed in writing before move day. Published boundary: the service is published as packing and crating performed to the standard; no certification, license, accreditation, program enrollment or stamp authorization is claimed for the company anywhere in this dataset — the compliance boundary is recorded in full in the compliance node of this file.",
+   "url": "https://theflatratemovers.com/datasets/ispm15/",
+   "sameAs": "https://theflatratemovers.com/datasets/ispm15/",
+   "identifier": "https://theflatratemovers.com/datasets/ispm15/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "dateModified": "2026-10-30",
+   "temporalCoverage": "2010/2026",
+   "spatialCoverage": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "keywords": [
+    "ispm 15 export packing",
+    "export crating virginia",
+    "ispm 15 movers winchester va",
+    "international export packing",
+    "ispm 15 crates martinsburg wv"
+   ],
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-ispm15"
+    }
+   ],
+   "includedInDataCatalog": {
+    "@id": "https://theflatratemovers.com/datasets/#collection"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/datasets/it/#dataset",
+   "@type": "Dataset",
+   "name": "IT Relocation Operations",
+   "description": "IT relocation operations: servers, racks, workstations, network equipment and peripherals moved as a planned, labelled sequence, as part of commercial and office relocations. The published sequence runs: survey and quote — the plan, not the truck, is agreed first in the Detailed Project form, and the flat rate is quoted in writing before move day; inventory and labelling — every item is inventoried and labelled before anything is unplugged, so pieces arrive in the order the team needs them; protection — sensitive equipment travels padded, wrapped and strapped, with custom crating for the pieces that need it; the heavy-rack survey — racks and cabinets in the 1,500–3,500 lb band are surveyed under SIR Structural Integrity Relocation and the KIM-GS Protocol with an L/360 floor check, like any high-mass asset; the sequenced move itself, transported strapped and padded in the planned order; placement at the destination in the labelled order; and verification — equipment placed and verified at the destination. Industry practice around that chain, labeled domain only: serial numbers, rack positions and cable photographs recorded at inventory; waves run least-critical first; network and server equipment brought online first at the destination; desk tests for power, network, dock, monitors, phone and printer; documentation updated at close-out. Not published and not claimed for IT relocation: who performs shutdown, unplugging and reconnection — the published page states equipment is inventoried and labelled before anything is unplugged and does not assign the unplug itself to either side; backup, rollback or close-out scope; any named system, platform or vendor; any certification or clearance; any named data-center facility; any IT-specific price, service-level commitment or downtime commitment; branch-specific IT dispatch; handling for racks below 1,500 lbs beyond the published sequence.",
+   "url": "https://theflatratemovers.com/datasets/it/",
+   "sameAs": "https://theflatratemovers.com/datasets/it/",
+   "identifier": "https://theflatratemovers.com/datasets/it/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "dateModified": "2026-10-30",
+   "temporalCoverage": "2010/2026",
+   "spatialCoverage": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "keywords": [
+    "IT equipment moving",
+    "IT relocation winchester va",
+    "data center logistics virginia",
+    "server rack movers",
+    "office IT relocation",
+    "IT equipment moving setup Winchester VA"
+   ],
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-it-relocation"
+    }
+   ],
+   "includedInDataCatalog": {
+    "@id": "https://theflatratemovers.com/datasets/#collection"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/datasets/junk-removal/#dataset",
+   "@type": "Dataset",
+   "name": "Junk Removal Operations",
+   "description": "Junk removal operations: the removal of unwanted non-hazardous items from homes, estates, rentals, and businesses, run as one coordinated plan — survey, flat-rate quote, scheduling, removal, sorting, routing, and lawful disposal, with a final walkthrough of the cleared space. The survey: items are inventoried where they sit — room, floor, and access noted — in person, or through the free film-only video walkthrough survey room, where the customer films and a person makes the estimate; nothing is auto-priced. The quote: the full scope of each job is reviewed — the items, the distance, the manpower, and the equipment — and priced at one flat rate in writing before work begins, never by the hour. The removal: crews lift, carry, and load from where items sit — basements, attics, garages, upper floors, and yards — protecting floors, walls, and doorways on the path out, and taking standard furniture apart when a piece has to come apart to leave safely. The sorting: after pickup, every load is sorted before anything is thrown out — usable goods are routed toward donation, recyclable materials toward recycling, regulated-stream items toward the facilities that handle them, and only the remainder toward disposal. The routing: donation channels take usable furniture and household goods; recyclers take scrap metal, cardboard, and electronics; appliances that contain refrigerant are routed so the refrigerant is recovered by certified technicians before the appliance is processed, as federal rules require; construction and demolition debris goes to facilities that accept it; what is left goes to a transfer station or landfill. The boundary: hazardous and regulated waste is never loaded — no wet paint or solvents, no fuels or motor oil, no chemicals or pesticides, no pressurized tanks, no asbestos-containing material, no medical or biohazard waste. Heavy pieces are not forced through this service: a gun safe or another high-mass asset of 1,500 to 3,500 lbs moves under SIR Structural Integrity Relocation with L/360 floor-deflection analysis, and pianos move under the piano, antique and white-glove service. The quote path: Get My Flat Rate Quote — the Short (Quick Quote) form by default or the Detailed Project form, switching in place with From, To and What's moving preserved — or the free survey room; a person makes every estimate. Founded June 2010; dispatch runs the I-81, I-66 and I-70 corridor network from both branches.",
+   "url": "https://theflatratemovers.com/datasets/junk-removal/",
+   "sameAs": "https://theflatratemovers.com/datasets/junk-removal/",
+   "identifier": "https://theflatratemovers.com/datasets/junk-removal/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "dateModified": "2026-10-30",
+   "temporalCoverage": "2010/2026",
+   "spatialCoverage": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "keywords": [
+    "junk removal",
+    "junk hauling",
+    "junk removal winchester va",
+    "junk removal martinsburg wv",
+    "movers near me"
+   ],
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-junk-removal"
+    }
+   ],
+   "includedInDataCatalog": {
+    "@id": "https://theflatratemovers.com/datasets/#collection"
+   }
+  },
+  {
+   "@type": "Dataset",
+   "@id": "https://theflatratemovers.com/datasets-local-graph-registry.json#dataset",
+   "name": "Local Graph Registry Dataset",
+   "description": "The standing registry of the local-business graph for The Flat Rate Movers' two branches: 112 third-party record rows across 44 sources with observed values, correct values, statuses, verification dates, methods and crawl ages; the 88-cell source-by-branch coverage matrix; per-platform review-distribution snapshots; the DO-NOT-TOUCH name-collision class; gaps L1–L11 each with its designed solution; and the consolidated owner-step list generated from the rows it blocks — sealed in the signed provenance index.",
+   "url": "https://theflatratemovers.com/datasets/local-graph-registry/",
+   "sameAs": "https://theflatratemovers.com/datasets-local-graph-registry.json",
+   "identifier": [
+    {
+     "@type": "PropertyValue",
+     "propertyID": "canonical-url",
+     "name": "Canonical dataset file",
+     "value": "https://theflatratemovers.com/datasets-local-graph-registry.json"
+    },
+    {
+     "@type": "PropertyValue",
+     "propertyID": "canonical-api",
+     "name": "Canonical API table route",
+     "value": "https://api.theflatratemovers.com/v1/local-graph"
+    },
+    {
+     "@type": "PropertyValue",
+     "propertyID": "X-Provenance-SHA256",
+     "name": "Provenance SHA-256",
+     "value": "ceb46f750a10af8c6ca484af046ebbecbd9a2aba7205c3c9b44be4e27691d7d5"
+    },
+    {
+     "@type": "PropertyValue",
+     "propertyID": "provenance-index",
+     "name": "Provenance index",
+     "value": "https://theflatratemovers.com/ai-master-index.json"
+    }
+   ],
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "isAccessibleForFree": true,
+   "inLanguage": "en-US",
+   "dateModified": "2026-10-31",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "keywords": [
+    "local business graph",
+    "third-party records",
+    "citations registry",
+    "branch entities",
+    "corrections worklist",
+    "review distribution",
+    "name collisions",
+    "retrieval machine"
+   ],
+   "hasPart": [
+    {
+     "@type": "Dataset",
+     "@id": "https://theflatratemovers.com/datasets-local-graph-registry.json#dataset-local-graph-registry-scope"
+    },
+    {
+     "@type": "Dataset",
+     "@id": "https://theflatratemovers.com/datasets-local-graph-registry.json#dataset-local-graph-registry-branches"
+    },
+    {
+     "@type": "Dataset",
+     "@id": "https://theflatratemovers.com/datasets-local-graph-registry.json#dataset-local-graph-registry-records"
+    },
+    {
+     "@type": "Dataset",
+     "@id": "https://theflatratemovers.com/datasets-local-graph-registry.json#dataset-local-graph-registry-coverage"
+    },
+    {
+     "@type": "Dataset",
+     "@id": "https://theflatratemovers.com/datasets-local-graph-registry.json#dataset-local-graph-registry-reviews"
+    },
+    {
+     "@type": "Dataset",
+     "@id": "https://theflatratemovers.com/datasets-local-graph-registry.json#dataset-local-graph-registry-collisions"
+    },
+    {
+     "@type": "Dataset",
+     "@id": "https://theflatratemovers.com/datasets-local-graph-registry.json#dataset-local-graph-registry-gaps"
+    },
+    {
+     "@type": "Dataset",
+     "@id": "https://theflatratemovers.com/datasets-local-graph-registry.json#dataset-local-graph-registry-owner-steps"
+    },
+    {
+     "@type": "Dataset",
+     "@id": "https://theflatratemovers.com/datasets-local-graph-registry.json#dataset-local-graph-registry-totals"
+    }
+   ],
+   "measurementTechnique": "Generated from the estate branch registries and the Retrieval Machine Dossier 03 audit with the backlink program records; statuses follow a controlled vocabulary and corrected-live is earned only on direct-fetch proof.",
+   "includedInDataCatalog": {
+    "@id": "https://theflatratemovers.com/datasets/#collection"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/datasets/local-regional/#dataset",
+   "@type": "Dataset",
+   "name": "Local & Regional Move Operations",
+   "description": "Local and regional move operations from survey to walkthrough. The operation chain runs survey, quote, pack, load, transport, unload, place, reassemble, unpack, and a final walkthrough. Survey runs through the quote form — Short (Quick Quote) default and Detailed Project, switching in place with the From, To and What's moving inputs preserved — or through the free film-only video walkthrough survey room, where the customer films and a person makes the estimate; nothing is auto-priced. The published scope is homes and businesses across the Shenandoah Valley and the Eastern Panhandle: packing and unpacking, loading and unloading, priced by the job, not by the hour, at one flat rate agreed in writing before move day. Load order runs heavy pieces low and first, room-staged boxes next, fragile items secured on top, everything strapped; placement is room by room by label, with reassembly of standard furniture. Transport follows the I-81, I-66 and I-70 corridors as the route fits. Both bases dispatch across the region — Winchester serves the Valley side, Martinsburg the Eastern Panhandle side, with overlap at Moorefield — and the quote form settles which crew and route fit the move. Where a move includes a high-mass piece of 1,500 to 3,500 lbs, that item moves under SIR Structural Integrity Relocation with the KIM-GS Protocol and L/360 floor-deflection analysis, as part of the same flat-rate move. Home depth cross-references the residential category, business depth the office category, and moves beyond the region the long-distance category — cross-references are links, never duplicated claims.",
+   "url": "https://theflatratemovers.com/datasets/local-regional/",
+   "sameAs": "https://theflatratemovers.com/datasets/local-regional/",
+   "identifier": "https://theflatratemovers.com/datasets/local-regional/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "dateModified": "2026-10-30",
+   "temporalCoverage": "2010/2026",
+   "spatialCoverage": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "keywords": [
+    "movers near me",
+    "movers winchester va",
+    "winchester movers",
+    "winchester local moving company",
+    "local moving",
+    "moving companies winchester va",
+    "movers martinsburg wv"
+   ],
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-local-regional"
+    }
+   ],
+   "includedInDataCatalog": {
+    "@id": "https://theflatratemovers.com/datasets/#collection"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/datasets/long-distance/#dataset",
+   "@type": "Dataset",
+   "name": "Long-Distance Move Operations",
+   "description": "Long-distance move operations from survey to walkthrough, in eight steps. Survey and quote: a room-by-room survey in person or through the free film-only video walkthrough survey room, where the customer films and a person makes the estimate — nothing is auto-priced — and one flat price agreed in writing before the truck rolls. Inventory: itemized, room by room (published process education: items worth more than $100 per pound are declared in writing under the federal high-value rule — a domain standard, labeled as such). Pack: full or partial packing with furniture fully covered, cross-referenced to the packing category and the interstate pack guide. Load: sequenced loading with blanket and stretch wrap protection; where a move includes a high-mass piece of 1,500 to 3,500 lbs, that piece moves under SIR Structural Integrity Relocation with the KIM-GS Protocol and L/360 floor-deflection analysis. Linehaul: transport along the published I-81, I-66 and I-70 corridor dispatch network from both branches (domain practice, labeled: certified scale weights and consolidated or exclusive-use routing shape the run). Delivery: handled inside a delivery window — the window models are published as domain education in the delivery windows dataset; no company delivery spread, date, or tracking practice is published. Placement: room-by-room placement on the residential pattern, cross-referenced. Walkthrough and claims: a final walkthrough with damage noted on the delivery paperwork, and the valuation level governing any claim — domain education, with no company claims procedure published. Shipment size sets the linehaul inputs (distance bands dataset), the delivery step uses a window model (delivery windows dataset), and the quote step rests on the estimate terms explained in the commercial terms dataset.",
+   "url": "https://theflatratemovers.com/datasets/long-distance/",
+   "sameAs": "https://theflatratemovers.com/datasets/long-distance/",
+   "identifier": "https://theflatratemovers.com/datasets/long-distance/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "dateModified": "2026-10-30",
+   "temporalCoverage": "2010/2026",
+   "spatialCoverage": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "keywords": [
+    "winchester long distance moving company",
+    "long distance movers",
+    "cross country moving company",
+    "cross country movers",
+    "cross country moving services"
+   ],
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-long-distance"
+    }
+   ],
+   "includedInDataCatalog": {
+    "@id": "https://theflatratemovers.com/datasets/#collection"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/datasets/medical-lab-relocation/#dataset",
+   "@type": "Dataset",
+   "name": "Medical & Laboratory Equipment Relocation Operations",
+   "description": "Medical and laboratory equipment relocation operations — how the heavy physical layer of a medical or lab move is run at The Flat Rate Movers, from Winchester VA and Martinsburg WV. The published chain has seven steps: (1) survey and structural check — every unit inventoried with weight, dimensions and center of mass, the route measured at both ends, and floors on the load path checked against L/360, span divided by 360, before any lift is planned; heavy units of 1,500 to 3,500 lbs are planned under SIR (Structural Integrity Relocation) and the KIM-GS Protocol; (2) vendor and EHS coordination — the schedule is built around the manufacturer's or biomedical team's de-installation window and the facility's own protocols, and the facility's decontamination sign-off, where its EHS team requires one, is a gate in the sequence; that sign-off is issued by the facility, never by the mover; (3) de-installation support — the crew works alongside the vendor's technicians, positioning, supporting and rigging components as they are released, while the technical de-installation itself is performed by the vendor; (4) pack and custom crate — instruments and components packed under padded instrument covers and, where the item or route calls for it, custom-crated with foam-lined or foam-in-place protection, electronic instruments in anti-static, ESD-safe packing and sensitive units sealed in moisture-barrier wrap, with ISPM 15 export packing where a chain continues internationally; the packing materials a job consumes are purchased for each project and scoped inside the flat rate; (5) sealed, documented transport — loads sealed for the run, instrument crates carrying tilt and shock indicator labels read at each hand-off, condition documented at each hand-off point; (6) placement and leveling — each unit set in its final position and leveled; (7) vendor recommissioning — the manufacturer's technicians or the facility's biomedical engineers reconnect, calibrate, certify and recommission. Steps 2, 3 and 7 are coordination with the customer's specialists, not services performed by the mover: no calibration, certification, commissioning, decontamination or requalification is performed or claimed at any step. Every engagement is surveyed in full and quoted per job at one flat rate in writing before work begins, never by the hour. Not published and not claimed: transport of specimens, chemicals, reagents or hazardous or biohazardous material; transport of cryogenic contents of any kind; temperature-controlled or powered cold-chain transport; any equipment list — equipment varies by project; any handling rule for heavy units outside the published SIR band of 1,500 to 3,500 lbs.",
+   "url": "https://theflatratemovers.com/datasets/medical-lab-relocation/",
+   "sameAs": "https://theflatratemovers.com/datasets/medical-lab-relocation/",
+   "identifier": "https://theflatratemovers.com/datasets/medical-lab-relocation/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "dateModified": "2026-10-30",
+   "temporalCoverage": "2010/2026",
+   "spatialCoverage": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "keywords": [
+    "medical equipment movers",
+    "laboratory relocation",
+    "lab movers Virginia",
+    "SIR",
+    "KIM-GS",
+    "floor deflection L/360",
+    "MRI moving",
+    "ultra-low freezer moving"
+   ],
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-medical-lab-relocation"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-sir-heavy"
+    }
+   ],
+   "includedInDataCatalog": {
+    "@id": "https://theflatratemovers.com/datasets/#collection"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/datasets/military/#dataset",
+   "@type": "Dataset",
+   "name": "The Flat Rate Movers — Military Moving Operations Dataset",
+   "description": "Military moving operations from The Flat Rate Movers — the full published scope of the military service across its pages. Company scope (published): moves for U.S. service members and military families relocating to or from the Winchester and Martinsburg area — whole-home moves, packing and unpacking, and the heavy pieces (safes, pianos, equipment) planned under SIR Structural Integrity Relocation and the KIM-GS Protocol instead of left to chance. Local, regional and long-distance, on I-81, I-66 and I-70; full, partial or fragile-only packing; dates planned around the household's reporting timeline. The service's HHG article also addresses government employees and government contractors planning a household goods move from the area, and the company's wider government work includes moves performed for federal agencies, including the FBI and the DEA. Every military household job is quoted at one flat rate in writing before move day, from two home bases — Winchester, VA and Martinsburg, WV — serving the Shenandoah Valley and the Eastern Panhandle. Published boundary: this is a direct-hire service for military households. The company's pages claim no transportation-service-provider status, no Defense Personal Property System participation, no government contract and no clearance for this service, and the system material in these datasets is labeled domain education only.",
+   "url": "https://theflatratemovers.com/datasets/military/",
+   "sameAs": "https://theflatratemovers.com/datasets/military/",
+   "identifier": "https://theflatratemovers.com/datasets/military/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "dateModified": "2026-10-30",
+   "temporalCoverage": "2010/2026",
+   "spatialCoverage": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "keywords": [
+    "military movers virginia",
+    "military movers winchester va",
+    "military movers martinsburg wv",
+    "pcs movers shenandoah valley",
+    "military household goods moving"
+   ],
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-military"
+    }
+   ],
+   "includedInDataCatalog": {
+    "@id": "https://theflatratemovers.com/datasets/#collection"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/datasets/moving-and-storage/#dataset",
+   "@type": "Dataset",
+   "name": "Combined Move-and-Store Operations",
+   "description": "Combined move-and-store operations: a move with a storage interval between move-out and move-in, run as one coordinated plan — survey, quote, pack, load, intake, hold, redelivery, placement, reassembly, unpacking, and a final walkthrough. The move side is the published residential pattern: whole-home and apartment moves of every size; loading, transport and unloading; furniture protection and careful placement; disassembly and reassembly of standard furniture, planned up front; full, partial, or fragile-only packing plus unpacking at the other end; white-glove care for antiques and high-value pieces; custom crates when a piece needs more than padding. Where a move includes a high-mass asset of 1,500 to 3,500 lbs, that piece moves under SIR Structural Integrity Relocation with L/360 floor-deflection analysis, as part of the same flat-rate move. The hold side, on the company's confirmed terms: items are held in leased storage between move-out and move-in, for any type of items — including containers, household goods, and machines such as robotic arms — with a 30-day minimum stay; customers can access their stored items while stored; lease terms vary; then goods are redelivered and placed room by room when the destination is ready. The quote path: one flat price in writing before move day for the job, through Get My Flat Rate Quote — the Short (Quick Quote) form by default or the Detailed Project form, switching in place with From, To and What's moving preserved — or the free film-only video walkthrough survey room, where the customer films and a person makes the estimate; nothing is auto-priced. Domain facts, labeled as such: a mover-held gap move typically involves two handlings against four for a self-storage gap; the condition recorded at intake is mirrored at release; redelivery is triggered by destination readiness, not by the calendar alone.",
+   "url": "https://theflatratemovers.com/datasets/moving-and-storage/",
+   "sameAs": "https://theflatratemovers.com/datasets/moving-and-storage/",
+   "identifier": "https://theflatratemovers.com/datasets/moving-and-storage/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "dateModified": "2026-10-30",
+   "temporalCoverage": "2010/2026",
+   "spatialCoverage": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "keywords": [
+    "moving and storage",
+    "flat rate moving and storage",
+    "movers near me",
+    "moving companies winchester va",
+    "movers winchester va",
+    "movers martinsburg wv"
+   ],
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-moving-and-storage"
+    }
+   ],
+   "includedInDataCatalog": {
+    "@id": "https://theflatratemovers.com/datasets/#collection"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/datasets/ocean-container/#dataset",
+   "@type": "Dataset",
+   "name": "The Flat Rate Movers — Container Loading and Unloading Operations Dataset",
+   "description": "Container loading and unloading operations from The Flat Rate Movers: loading (stuffing) and unloading (devanning/destuffing) of ocean containers for port transload in Virginia, through the Virginia Inland Port and Port of Virginia chain, with warehouse and transload staging, final-mile delivery, and supervised teams. Operations cover floor-loaded and palletized cargo. Verified process steps: pre-arrival plan, port release, drayage-in, unload, count, inspect, photograph, report. Same-day unload is stated as a service pattern, not a guarantee. Photo record covers doors, seal, condition, and load; exceptions (damage, shortage, overage) are reported the same day, in writing. Domain facts (general industry knowledge): a 40ft container holds about 20 pallet positions and a 20ft about 10; floor-loaded containers need disciplined pace and safe sequencing; damage caught at devanning is caught before inland travel.",
+   "url": "https://theflatratemovers.com/datasets/ocean-container/",
+   "sameAs": "https://theflatratemovers.com/datasets/ocean-container/",
+   "identifier": "https://theflatratemovers.com/datasets/ocean-container/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "dateModified": "2026-10-30",
+   "temporalCoverage": "2010/2026",
+   "spatialCoverage": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "keywords": [
+    "container loading unloading virginia",
+    "container unloading services",
+    "ocean container unloading",
+    "devanning virginia",
+    "container devanning services"
+   ],
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-transloading"
+    }
+   ],
+   "includedInDataCatalog": {
+    "@id": "https://theflatratemovers.com/datasets/#collection"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/datasets/office/#dataset",
+   "@type": "Dataset",
+   "name": "Office Move Operations",
+   "description": "Office move operations for complete office relocations, quoted flat and agreed in writing. The published scope is verbatim: Complete office relocations, quoted flat and agreed in writing: desks and workstations, files and records runs, and office equipment, moved in a planned order so your team can sit down and work at the new address. The operation chain runs survey, quote, plan order, label, pack, stage, sequenced move, place, systems check, and walkthrough. The plan spine is what moves first, what moves last, and what the team needs working on day one. Survey runs through the Detailed Project form, which captures rooms and facility size, and the quote toggle — Short (Quick Quote) default and Detailed Project, switching in place with inputs preserved. Packing is full or partial. When the dates do not line up neatly, freight and equipment stage at the warehouse and transload operation between truck, container, and warehouse on the same job, then place at the new site in the order the team needs it. One agreed price before move day, no hourly meter running over a weekend move. Systems checks cross-reference the IT relocation category, staging cross-references the industrial and commercial services category, and packing options cross-reference the packing category — cross-references are links, never duplicated claims.",
+   "url": "https://theflatratemovers.com/datasets/office/",
+   "sameAs": "https://theflatratemovers.com/datasets/office/",
+   "identifier": "https://theflatratemovers.com/datasets/office/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "dateModified": "2026-10-30",
+   "temporalCoverage": "2010/2026",
+   "spatialCoverage": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "keywords": [
+    "office moving winchester va",
+    "office movers winchester va",
+    "commercial moving",
+    "office relocation virginia",
+    "business moving companies near me",
+    "virginia flat rate office moving company"
+   ],
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-office-moving"
+    }
+   ],
+   "includedInDataCatalog": {
+    "@id": "https://theflatratemovers.com/datasets/#collection"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/datasets/packing/#dataset",
+   "@type": "Dataset",
+   "name": "Packing Service Levels",
+   "description": "Packing service levels from The Flat Rate Movers, quoted inside the one flat rate in writing before move day. Full packing: the whole home, every room, packed by the crew. Partial packing: the rooms or item classes the customer chooses. Fragile-only packing: just the fragile pieces. Unpacking and placement: boxes unpacked and items placed at destination so rooms come back together in order. The published audiences are residential, commercial, senior, and estate clients, served from Winchester, VA and Martinsburg, WV. Not published and not claimed: a standalone unpacking-only service; a pack-only service without a move; and a pack-for-storage scope. Those are industry patterns, not company offers, and they stay unpublished until the company publishes them.",
+   "url": "https://theflatratemovers.com/datasets/packing/",
+   "sameAs": "https://theflatratemovers.com/datasets/packing/",
+   "identifier": "https://theflatratemovers.com/datasets/packing/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "dateModified": "2026-10-29",
+   "temporalCoverage": "2010/2026",
+   "spatialCoverage": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "keywords": [
+    "packing services winchester va",
+    "packing and unpacking services",
+    "packing services for moving",
+    "full packing service",
+    "partial packing service",
+    "unpacking services"
+   ],
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-packing"
+    }
+   ],
+   "includedInDataCatalog": {
+    "@id": "https://theflatratemovers.com/datasets/#collection"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/datasets/piano-antique/#dataset",
+   "@type": "Dataset",
+   "name": "The Flat Rate Movers — Piano, Antique and White-Glove Operations Dataset",
+   "description": "Piano, antique and white-glove operations from The Flat Rate Movers. Company scope (published): white-glove handling of pianos, antiques and high-value items — surveyed, protected, and moved with custom crating when the piece requires it, at one flat rate agreed in writing. The work runs piece by piece, never bulk: each piece is assessed on its own — weight, fragile points, finish and value at risk — then wrapped, padded or crated to match; furniture and pieces travel fully covered in padded blankets and sealed with clear stretch wrap, and pieces that need more get a custom crate built around them. The audiences are published: collectors, estates and high-value households; museums, collectors, galleries and estates moving pieces that cannot be replaced; and — on the Martinsburg branch page — high-value, sensitive-asset owners, including medical and museum clients. Scheduling is discreet by design: high-value work is scheduled quietly, handled without spectacle, and no client is named, ever. Heavy pieces join the same plan: pianos, safes and other high-mass pieces of 1,500 to 3,500 lbs are planned under SIR Structural Integrity Relocation and the KIM-GS Protocol inside the same job — route surveyed, floor checked to L/360, placement verified. Export pieces are packed and crated to ISPM 15 when the journey crosses a border.",
+   "url": "https://theflatratemovers.com/datasets/piano-antique/",
+   "sameAs": "https://theflatratemovers.com/datasets/piano-antique/",
+   "identifier": "https://theflatratemovers.com/datasets/piano-antique/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "dateModified": "2026-10-30",
+   "temporalCoverage": "2010/2026",
+   "spatialCoverage": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "keywords": [
+    "piano movers virginia",
+    "antique moving white glove",
+    "high-value item moving",
+    "museum logistics movers",
+    "estate piece relocation"
+   ],
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-piano-antique"
+    }
+   ],
+   "includedInDataCatalog": {
+    "@id": "https://theflatratemovers.com/datasets/#collection"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/datasets/residential/#dataset",
+   "@type": "Dataset",
+   "name": "The Flat Rate Movers — Household Move Operations Dataset",
+   "description": "Household move operations from The Flat Rate Movers: survey and written quote (Short Quick Quote by default, Detailed Project toggle preserving From, To, and What's moving; film-only video-walkthrough survey room with a human-made estimate), room-by-room packing (full, partial, or fragile-only, plus unpacking; client-packed loads moved and placed), inventory, protection, sequenced loading (heavy items low and first, boxes staged by room, fragile secured on top, everything strapped), transport on the planned route, room-by-room unloading and placement with reassembly of standard furniture planned up front, and a closing walkthrough. Company facts: one price agreed in writing before move day; no hourly meter. Domain facts (general industry practice): room-by-room labeling, inventory listing checked against the walkthrough, heavy-low loading order.",
+   "url": "https://theflatratemovers.com/datasets/residential/",
+   "sameAs": "https://theflatratemovers.com/datasets/residential/",
+   "identifier": "https://theflatratemovers.com/datasets/residential/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "dateModified": "2026-10-30",
+   "temporalCoverage": "2010/2026",
+   "spatialCoverage": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "keywords": [
+    "moving companies winchester va",
+    "movers winchester va",
+    "winchester movers",
+    "movers near me",
+    "residential moving",
+    "house moving",
+    "local moving"
+   ],
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-residential"
+    }
+   ],
+   "includedInDataCatalog": {
+    "@id": "https://theflatratemovers.com/datasets/#collection"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/datasets/route81/#dataset",
+   "@type": "Dataset",
+   "name": "The Flat Rate Movers — Route 81 Corridor Operations Dataset",
+   "description": "Route 81 corridor operations from The Flat Rate Movers — moving and logistics dispatch along Interstate 81, I-66 and I-70, run from two dispatch branches that sit on the corridor itself: Winchester, VA, where I-81 meets I-66, and Martinsburg, WV, on I-81 with the I-70 connection. Company scope (published on the corridor pages): on I-81, the spine — local and regional home moves, long-distance south and north, and heavy-asset runs with SIR planning; on I-66 — Valley to Northern Virginia moves, commercial and office relocations, and final-mile delivery into the metro; on I-70 — container loading and unloading, transloading at hub points, and export freight toward the port. Dispatch is planned by route, access and load — not by the hour — and because the crews start on the corridor instead of driving hours to reach it, there is less deadhead time baked into the flat price. Heavy-asset runs on the corridor are surveyed and floor-checked to L/360 under SIR Structural Integrity Relocation and the KIM-GS Protocol, like any SIR move. Every corridor job is quoted at one flat rate agreed in writing before move day — the guarantee: Guaranteed Flat Rate or Your Move is Free!",
+   "url": "https://theflatratemovers.com/datasets/route81/",
+   "sameAs": "https://theflatratemovers.com/datasets/route81/",
+   "identifier": "https://theflatratemovers.com/datasets/route81/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "dateModified": "2026-10-30",
+   "temporalCoverage": "2010/2026",
+   "spatialCoverage": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "keywords": [
+    "route 81 corridor moving",
+    "interstate 81 movers",
+    "corridor dispatch virginia",
+    "i-81 moving company",
+    "shenandoah valley corridor moves"
+   ],
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-route81"
+    }
+   ],
+   "includedInDataCatalog": {
+    "@id": "https://theflatratemovers.com/datasets/#collection"
+   }
+  },
+  {
+   "@type": "Dataset",
+   "@id": "https://theflatratemovers.com/datasets-search-index.json#dataset",
+   "name": "Search Index Supply & Standing Dataset",
+   "description": "The standing search-index dataset of The Flat Rate Movers, built by the Retrieval Machine: query clusters grouping the buyer-intent rubric of the estate by service, intent class, geo scope and target page; a generated supply row for every one of the 206 pages with schema types, word count, internal inlinks, the per-page JSON digest and indexation state; standing observations recorded only from evidence on file, each carrying method, era and source; the era-tagged pre-rebuild Search Console window; competitor supply observed in the same sampling under a schema bar; the third-party records registry; and the named gaps with their designed solutions — sealed in the signed AI master index.",
+   "url": "https://theflatratemovers.com/datasets/search-index/",
+   "identifier": "https://theflatratemovers.com/datasets/search-index/",
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "dateModified": "2026-10-31",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "keywords": [
+    "search index",
+    "query clusters",
+    "url supply",
+    "standing observations",
+    "retrieval machine",
+    "search standing"
+   ],
+   "isAccessibleForFree": true,
+   "includedInDataCatalog": {
+    "@id": "https://theflatratemovers.com/datasets/#collection"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/datasets/senior/#dataset",
+   "@type": "Dataset",
+   "name": "Senior Move Operations",
+   "description": "Senior move operations: a senior move run end to end as one accountable job. The published sequence: a quote request (Short Quick Quote by default, or the Detailed Project form, switchable in place with the From, To and What's moving entries preserved); an optional free film-only video-walkthrough survey, using the survey room's Senior prompt set — main living areas, bedroom and personal rooms, keepsakes and fragile items, one prompt per screen; a human-made estimate (never auto-priced); one flat price agreed in writing before move day, with no hourly clock, ever; packing support, including fragile items and keepsakes; the move itself; and close-out. The survey media stays private — never published, never emailed, never shared with third-party AI — and auto-deletes 24 hours after upload. No price, discount, deposit, or special offer is stated for senior moves: the page's FAQ says so directly. Where a senior move actually involves a high-mass asset of 1,500 to 3,500 lbs, that item moves under SIR Structural Integrity Relocation with floor deflection analysis to L/360, as part of the same flat-rate move — a conditional that applies only where such an asset is actually involved, never to senior moves as a class. The published record does not state whether every part of a senior move is performed by one provider's own supervised teams; that question is recorded as open in the research file and no claim is made either way. No crew-size or truck claim is published for senior moves.",
+   "url": "https://theflatratemovers.com/datasets/senior/",
+   "sameAs": "https://theflatratemovers.com/datasets/senior/",
+   "identifier": "https://theflatratemovers.com/datasets/senior/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "dateModified": "2026-10-30",
+   "temporalCoverage": "2010/2026",
+   "spatialCoverage": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "keywords": [
+    "senior moving",
+    "senior movers near me",
+    "senior relocation winchester va",
+    "senior relocation martinsburg wv",
+    "senior downsizing moving"
+   ],
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-senior-moving"
+    }
+   ],
+   "includedInDataCatalog": {
+    "@id": "https://theflatratemovers.com/datasets/#collection"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/datasets/sir-heavy/#dataset",
+   "@type": "Dataset",
+   "name": "SIR Method Operations",
+   "description": "SIR method operations — how a high-mass move is run at The Flat Rate Movers, under SIR (Structural Integrity Relocation) executed through the KIM-GS Protocol, for assets of 1,500 to 3,500 lbs, quoted at one flat rate agreed in writing before move day. The published chain has six steps: (1) the asset — weight, dimensions, centre of mass, and value at risk are established first; (2) the structure — route and clearance survey at both ends, stairs and landings measured, and floor deflection assessed against L/360, span divided by 360, before any lift is planned; (3) the load path — load spreading and protection runs are planned where the substrate needs support, and floors, walls, and frames are protected end to end; (4) the crew and rigging are matched to the plan — dollies, straps, and equipment chosen for this asset and this route; (5) the move — controlled, strapped, and supervised along the planned path; (6) placement — the asset is set in its final position, levelled, and verified with the client, at the flat rate agreed in writing. The structural protocol compresses the same chain into three phases — assess the asset, assess the structure, move under KIM-GS — and calibration-sensitive and fragile high-mass items are flagged at the assess stage, not discovered on the day. The six published steps are the complete published method surface; the protocol's internal calculations, models, and formulas are not published here or anywhere in the company's data. Not published and not claimed: any handling rule below 1,500 lbs or above 3,500 lbs under this method, any equipment beyond the published wording, and any crew-size rule.",
+   "url": "https://theflatratemovers.com/datasets/sir-heavy/",
+   "sameAs": "https://theflatratemovers.com/datasets/sir-heavy/",
+   "identifier": "https://theflatratemovers.com/datasets/sir-heavy/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "dateModified": "2026-10-30",
+   "temporalCoverage": "2010/2026",
+   "spatialCoverage": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "keywords": [
+    "SIR",
+    "KIM-GS",
+    "heavy asset moving",
+    "high-mass relocation",
+    "floor deflection L/360",
+    "gun safe movers"
+   ],
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-sir-heavy"
+    }
+   ],
+   "includedInDataCatalog": {
+    "@id": "https://theflatratemovers.com/datasets/#collection"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/datasets/transloading-inland-port/#dataset",
+   "@type": "Dataset",
+   "name": "The Flat Rate Movers — Virginia Inland Port Transloading Operations Dataset",
+   "description": "The Virginia Inland Port layer of the company's loading, transloading and container services — the layer the generic transloading datasets, the Winchester branch datasets and the ocean container datasets each point to and do not build out. Company scope (published): container freight moving through the Virginia Inland Port at Front Royal, in Warren County, and the I-66 / I-81 junction is received on the company's warehouse floor in the Winchester corridor, devanned — floor-loaded freight unloaded piece by piece, palletized freight pulled by forklift — counted and checked at the container door, deconsolidated into outbound loads sorted by destination, order or SKU, cross-docked straight through where the onward plan allows, staged by destination where freight waits for a timed release, and reworked where a load needs it — repalletizing, rewrapping, bracing, relabeling, and tarping or re-tarping of open-deck loads so the onward leg leaves weather-tight. Outbound freight is built into domestic trailers and onward truck loads or handed to final-mile delivery with placement across the Shenandoah Valley, the Eastern Panhandle and the I-81, I-66 and I-70 corridors. Export freight runs the floor in reverse — packed, crated to ISPM 15 where the shipment needs it under the separate export packing and crating categories, braced and loaded for the port leg. Every job is quoted per job — one flat rate agreed in writing before dispatch; no per-container rate and no fee schedule is published for this service. The company is a private handling operation near the port: it is not the Virginia Inland Port, not a customs broker, and it operates no bonded warehouse, no foreign-trade zone activity and no cold storage. Heavy assets of 1,500 to 3,500 lbs in the freight move under SIR Structural Integrity Relocation and the KIM-GS Protocol, with L/360 floor-deflection analysis, as part of the same flat-rate job.",
+   "url": "https://theflatratemovers.com/datasets/transloading-inland-port/",
+   "sameAs": "https://theflatratemovers.com/datasets/transloading-inland-port/",
+   "identifier": "https://theflatratemovers.com/datasets/transloading-inland-port/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "dateModified": "2026-10-30",
+   "temporalCoverage": "2010/2026",
+   "spatialCoverage": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "keywords": [
+    "virginia inland port transloading",
+    "container deconsolidation front royal va",
+    "cross-docking i-81 virginia",
+    "transloading near virginia inland port",
+    "container unloading winchester corridor"
+   ],
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-transloading"
+    }
+   ],
+   "includedInDataCatalog": {
+    "@id": "https://theflatratemovers.com/datasets/#collection"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/datasets/transloading-winchester/#dataset",
+   "@type": "Dataset",
+   "name": "Winchester Transload Operations",
+   "description": "Winchester transload operations: the Winchester-branch execution of a single transload job, from appointment to empty return. The appointment is booked before the container leaves the terminal. At the branch the container is devanned and destuffed; the freight is counted, inspected, and photographed, with exceptions reported in writing the same day; reworked as the job requires — palletized, wrapped, labeled, sorted by destination, purchase order, or SKU; restacked into 53ft domestic trailers (a 40ft container fills about 20 pallet positions, a 20ft about 10); dispatched inland the same day or the next morning; the empty container returned immediately after devanning, before per-diem accrues; and the final mile run by appointment. Domain reference, labeled as such: devanning happens at a warehouse or container freight station; floor-loaded and palletized are the two handling modes; cross-dock dwell is measured in hours, storage between legs in days. Every container transloading job is quoted per job and agreed in writing before dispatch — the only pricing basis published for this service. Not published and not claimed: any named port terminal or ramp; any drayage performer or chassis source; any list of handled container types.",
+   "url": "https://theflatratemovers.com/datasets/transloading-winchester/",
+   "sameAs": "https://theflatratemovers.com/datasets/transloading-winchester/",
+   "identifier": "https://theflatratemovers.com/datasets/transloading-winchester/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "dateModified": "2026-10-30",
+   "temporalCoverage": "2010/2026",
+   "spatialCoverage": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "keywords": [
+    "transloading winchester va",
+    "transloading services virginia",
+    "transloading virginia port container",
+    "container unloading winchester va",
+    "virginia inland port transloading",
+    "port of virginia container services"
+   ],
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-transloading-winchester-va"
+    }
+   ],
+   "includedInDataCatalog": {
+    "@id": "https://theflatratemovers.com/datasets/#collection"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/datasets/transloading/#dataset",
+   "@type": "Dataset",
+   "name": "The Flat Rate Movers — Loading, Transloading and Container Services Operations Dataset",
+   "description": "Loading, transloading and container operations from The Flat Rate Movers — the generic service layer across all seventeen of the service's pages, extending the ocean container datasets and the Winchester branch datasets without duplicating them. Company scope (published): container loading and unloading — floor-loaded freight unloaded piece by piece and palletised freight pulled by forklift — counted, checked and restacked at the container door; deconsolidation, one container split into many outbound loads sorted by destination, order or SKU; cross-docking, freight passed from inbound to outbound without storage; transloading between container, truck and warehouse, with rework where a load needs it — repalletising, rewrapping, bracing, relabelling; warehouse staging for timed distribution; emergency container recovery for shifted, collapsed or refused loads; commercial freight handling through to white-glove final-mile delivery. The work runs on the company's own warehouse and transload operation, dispatched from Winchester, VA and Martinsburg, WV along the I-81, I-66 and I-70 corridors, behind the Port of Virginia and Virginia Inland Port chains. Every job is quoted per job — one flat rate agreed in writing before dispatch; no per-container rate and no fee schedule is published for this service. Heavy assets of 1,500 to 3,500 lbs move under SIR Structural Integrity Relocation and the KIM-GS Protocol, with L/360 floor-deflection analysis, as part of the same flat-rate job. Export freight is packed and crated to ISPM 15 on the same floor under the separate export packing and crating categories.",
+   "url": "https://theflatratemovers.com/datasets/transloading/",
+   "sameAs": "https://theflatratemovers.com/datasets/transloading/",
+   "identifier": "https://theflatratemovers.com/datasets/transloading/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "dateModified": "2026-10-30",
+   "temporalCoverage": "2010/2026",
+   "spatialCoverage": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "keywords": [
+    "transloading services virginia",
+    "container loading and unloading",
+    "deconsolidation cross-docking transloading",
+    "port transload virginia",
+    "commercial freight handling"
+   ],
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-transloading"
+    }
+   ],
+   "includedInDataCatalog": {
+    "@id": "https://theflatratemovers.com/datasets/#collection"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/datasets/videos/#dataset",
+   "@type": "Dataset",
+   "name": "The Flat Rate Movers — Moving Videos Dataset",
+   "description": "The published video dataset of The Flat Rate Movers: the six VideoObject records behind the estate’s Videos page — DMV Moving Made Easy: Top-Rated Movers in Winchester & Beyond! (#WinchesterVA #MoversVA #DMVMovers); Moving a Heavy Gun Safe? We Can Help! Flat Rate Movers (VA); The Flat Rate Movers of Winchester: Safe and Reliable Gun Safe Moving in Northern Virginia; Final Mile Delivery & White Glove Safe Installation | 1,800 lb Locker System (Full Process); Medical Tank Relocation: Experts for Your Sensitive Equipment; Gun Safe Movers Moving a 900 lb Gun Safe BROWNING PROSTEEL 1878 SERIES — published as structured data under CC BY 4.0 so search and AI systems read the same titles and descriptions the Videos page serves.",
+   "url": "https://theflatratemovers.com/datasets/videos/",
+   "sameAs": "https://theflatratemovers.com/datasets/videos/",
+   "identifier": "https://theflatratemovers.com/datasets/videos/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "dateModified": "2026-10-30",
+   "temporalCoverage": "2010/2026",
+   "spatialCoverage": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "keywords": [
+    "moving videos",
+    "gun safe moving video",
+    "final mile delivery video",
+    "winchester va movers"
+   ],
+   "includedInDataCatalog": {
+    "@id": "https://theflatratemovers.com/datasets/#collection"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/datasets/warehouse-racking-relocation/#dataset",
+   "@type": "Dataset",
+   "name": "The Flat Rate Movers — Warehouse Racking Relocation and Disassembly/Reassembly Operations Dataset",
+   "description": "Warehouse racking relocation and disassembly/reassembly operations from The Flat Rate Movers — the one job this category sells whole: a warehouse's pallet racking surveyed and documented where it stands, its inventory sequenced off the steel, the racking torn down and labeled bay by bay, inventory and steel transported together, staged in storage where the timeline needs it, and the racking reinstalled at the destination level, plumb and anchored to the floor by the company's crews, to the manufacturer's specification and the project's engineered drawings. Company scope (published): pallet rack teardown and reinstallation; racking reconfiguration in place; racking decommissioning at lease end; the inventory move that belongs with the steel — product pulled, palletized, wrapped, counted and put back on the racking in sequence; interim storage staging of racking and inventory in the company's leased storage space; industrial equipment disassembly and reassembly — production and line equipment broken into transportable sections and set back up at destination; and office-systems disassembly and reassembly — cubicle and systems-furniture teardown, transport and reassembly for office moves and reconfigurations. Single heavy pieces inside the same buildings, 1,500 to 3,500 lbs, move under SIR Structural Integrity Relocation and the KIM-GS Protocol with an L/360 floor-deflection check, as part of the same flat-rate job. The work is dispatched from Winchester, VA and Martinsburg, WV along the I-81, I-66 and I-70 corridors, and is quoted per job — one flat rate agreed in writing before work begins; no per-bay or per-position rate is published for this service. The install and handling supplies a project uses are named because they are bought for the project: wedge anchors and anchor bolts, beam safety clips and pins, leveling shims, wire decking and pallet supports, row spacers, column protectors and end-of-aisle guards, load plaques, bay-and-level labels, and the stretch wrap and pallet banding the inventory move uses — purchased per project, in the quantities and specifications the project's drawings and the rack system require. Where a project requires engineering, seismic calculation or permits, the company consults and arranges them through the certified contractors it engages, and those contractors hold the engineering and permit authority for their elements of the work: installation follows the manufacturer's specification and ANSI MH16.1 / RMI guidance against the project's engineered drawings and permits.",
+   "url": "https://theflatratemovers.com/datasets/warehouse-racking-relocation/",
+   "sameAs": "https://theflatratemovers.com/datasets/warehouse-racking-relocation/",
+   "identifier": "https://theflatratemovers.com/datasets/warehouse-racking-relocation/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "dateModified": "2026-10-30",
+   "temporalCoverage": "2010/2026",
+   "spatialCoverage": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "keywords": [
+    "warehouse racking relocation virginia",
+    "pallet rack teardown and reinstall",
+    "racking disassembly reassembly service",
+    "warehouse rack relocation company",
+    "cubicle disassembly reassembly northern virginia"
+   ],
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-warehouse-racking-relocation"
+    }
+   ],
+   "includedInDataCatalog": {
+    "@id": "https://theflatratemovers.com/datasets/#collection"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/datasets/warehouse/#dataset",
+   "@type": "Dataset",
+   "name": "Warehouse Relocation Operations",
+   "description": "Warehouse relocation operations: warehouse and distribution moves, warehouse load-outs, inbound unloads, transload staging, and restacking, run by trained, supervised, self-managed moving and warehouse teams that support contractors and project managers — a project-support service, not day-hire labor and not a labor listing. The work is planned around the site itself: access, floor space, staging, and equipment handling. Pricing basis, as published: quoted per job and agreed before dispatch, with no required contract duration, adjustable for scope, equipment, travel, and after-hours work agreed before dispatch. Standard Job Pricing, verbatim: Unload $8.00/CWT; Load $10.00/CWT; APU $12.00/CWT; Residential/Driver Meet $400–$425 per man. Deployment needs served, as published on the industrial page: planned, overflow, peak, weekend, vacation, and emergency. Markets served: warehousing, manufacturing, transportation and logistics, retail distribution, 3PL, healthcare, commercial furniture dealers, corporate offices, general contractors, educational facilities, and hospitality and hotel renovations. Conditional: where a warehouse job actually involves a high-mass asset of 1,500 to 3,500 lbs, that asset moves under SIR Structural Integrity Relocation with floor deflection analysis to L/360, as part of the same flat-rate job — only where such an asset is actually involved. Not published and not claimed for warehouse relocation: any deployed-equipment list; drayage or chassis scope; bonded or free-trade-zone scope; refrigerated or cold-chain scope; customs scope; racking teardown or reinstall within this warehouse-relocation scope (published as its own service, Warehouse Racking Relocation); a phasing offering; WMS or inventory-system integration; permits or engineering scope; debris or close-out scope.",
+   "url": "https://theflatratemovers.com/datasets/warehouse/",
+   "sameAs": "https://theflatratemovers.com/datasets/warehouse/",
+   "identifier": "https://theflatratemovers.com/datasets/warehouse/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "dateModified": "2026-10-30",
+   "temporalCoverage": "2010/2026",
+   "spatialCoverage": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "keywords": [
+    "warehouse relocation",
+    "warehouse relocation services virginia",
+    "warehouse load-outs",
+    "inbound unloads",
+    "warehouse moving company virginia",
+    "industrial warehouse relocation"
+   ],
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-warehouse-relocation"
+    }
+   ],
+   "includedInDataCatalog": {
+    "@id": "https://theflatratemovers.com/datasets/#collection"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/datasets/white-glove/#dataset",
+   "@type": "Dataset",
+   "name": "The Flat Rate Movers — White-Glove Delivery Operations Dataset",
+   "description": "White-glove delivery operations from The Flat Rate Movers — the top level of final-mile delivery, and the handling standard for high-value, fragile and heavy pieces, dispatched from Winchester, VA and Martinsburg, WV. Company scope (published): white-glove delivery means the item crosses the threshold — brought in on a planned route, set in its final position, packaging removed, and condition verified with the recipient before the crew leaves, never left at a curb. The work runs piece by piece, never bulk: each piece is assessed on its own — weight, fragile points, finish and value at risk — then protected to match: furniture and pieces travel fully covered in padded blankets and sealed with clear stretch wrap, and pieces that need more get a custom crate built around them. Antiques, art, pianos and instruments are the everyday work of this service. Behind the delivery sits the company's own final-mile chain — freight is received and counted on the warehouse floor, staged, deconsolidated or cross-docked, and reworked where needed, then delivered in by the crew that handled it, with no hand-off to an unknown last carrier. A high-value delivery of 1,500 to 3,500 lbs — a safe, a piano, medical equipment — is surveyed and floor-checked to L/360 under SIR Structural Integrity Relocation and the KIM-GS Protocol before it is scheduled. Every job is reviewed in full and quoted at one flat rate agreed in writing before dispatch; no rate schedule is published for this service. Guaranteed Flat Rate or Your Move is Free!",
+   "url": "https://theflatratemovers.com/datasets/white-glove/",
+   "sameAs": "https://theflatratemovers.com/datasets/white-glove/",
+   "identifier": "https://theflatratemovers.com/datasets/white-glove/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "dateModified": "2026-11-02",
+   "temporalCoverage": "2010/2026",
+   "spatialCoverage": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "keywords": [
+    "white glove delivery",
+    "white glove delivery virginia",
+    "white glove delivery west virginia",
+    "high-value inside delivery",
+    "white glove final mile"
+   ],
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-white-glove"
+    }
+   ],
+   "includedInDataCatalog": {
+    "@id": "https://theflatratemovers.com/datasets/#collection"
+   }
   }
  ],
  "_humanSummary": "This is the best JSON for The Flat Rate Movers: one @graph, stable @ids, Organization chained to two Places, each Place carrying its full footprint (Winchester 32 areas, Martinsburg 35, shared 14) with the Google Business Profile subset (Winchester 17, Martinsburg 14) also carried as named City nodes, each Service chained to the Organization and to its branch Place or Places, per-branch Google ratings (Winchester 5.0 with 1 review, Martinsburg 4.7 with 6 reviews, never blended), founding June 2010, geo, hours, sameAs, and no license, price, testimonial, or move count. Humans read the names, addresses, and service lists; machines follow the @ids. 2026-10-28: 24 new branch and corridor pages added, each with Service JSON-LD, logo image, and backlinks.",

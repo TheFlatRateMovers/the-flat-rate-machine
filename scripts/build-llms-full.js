@@ -279,8 +279,24 @@ out.push('');
 for (const f of dsFiles) {
   const d = JSON.parse(fs.readFileSync(path.join(publicDir, f), 'utf8'));
   const nodes = (d['@graph'] || [d]).filter((n) => n && n['@type'] === 'Dataset');
-  const main = nodes[0];
-  if (!main) continue;
+  let main = nodes[0];
+  if (!main) {
+    // FB-5 rider (Batch FB-2, 2026-11-03): a dataset file carrying no
+    // Dataset node of its own (the videos media file) enumerates from
+    // its landing's per-page summary node — selected by the same
+    // candidate-@id rule as the graph-citizenship sync — instead of
+    // being skipped silently. If neither source yields exactly one
+    // summary node, the build fails loud.
+    const stem = f.replace(/^datasets-/, '').replace(/\.json$/, '');
+    const landing = 'https://theflatratemovers.com/datasets/' + stem + '/';
+    const candIds = new Set([landing + '#dataset', landing + '#dataset-' + stem, 'https://theflatratemovers.com/' + f + '#dataset']);
+    const ppPath = path.join(publicDir, 'dataset-' + stem + '.json');
+    if (!fs.existsSync(ppPath)) fail('dataset file carries no Dataset node and has no landing per-page JSON to fall back to: ' + f);
+    const ppDoc = JSON.parse(fs.readFileSync(ppPath, 'utf8'));
+    const ppNodes = (ppDoc['@graph'] || [ppDoc]).filter((n) => n && n['@type'] === 'Dataset' && candIds.has(n['@id']));
+    if (ppNodes.length !== 1) fail('dataset file carries no Dataset node and its landing per-page JSON yields ' + ppNodes.length + ' summary candidates (expected exactly 1): ' + f);
+    main = ppNodes[0];
+  }
   out.push('- **' + (main.name || f) + '** — ' + String(main.description || '').replace(/\s+/g, ' ').trim() + ' Download: https://theflatratemovers.com/' + f + ' · Landing: https://theflatratemovers.com/datasets/' + f.replace(/^datasets-/, '').replace(/\.json$/, '') + '/');
 }
 const intent = JSON.parse(fs.readFileSync(path.join(publicDir, 'datasets-intent-coverage.json'), 'utf8'));
