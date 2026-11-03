@@ -1,6 +1,6 @@
 {
  "attestation": "Every URL below was fetched from the live sitemap on 2026-10-28; titles and service links come from pageMeta in the live site source. No URL was hand-typed.",
- "count": 234,
+ "count": 236,
  "dataset": "pages",
  "generated": "2026-10-29",
  "pages": [
@@ -2895,6 +2895,28 @@
    "title": "Piano moving, uprights to grands: how the move is planned and protected",
    "type": "page",
    "url": "https://theflatratemovers.com/how-a-piano-is-moved/"
+  },
+  {
+   "slug": "quote-tool",
+   "url": "https://theflatratemovers.com/quote-tool/",
+   "title": "The Quote Tool — how the flat rate quote form works",
+   "type": "page",
+   "services": [],
+   "attested": "2026-11-03",
+   "lastmod": "2026-11-03",
+   "status": "live",
+   "source": "Quote Tool batch 2026-11-03 — the guide to the flat rate quote tool: Short/Detailed modes, the five required fields, all 20 project types with preparation guidance, the video walkthrough (Survey Room) route, and how a request becomes one flat rate in writing; form inventory measured from the live form source (44 field controls, 33 pick chips, 77 visitor-value controls); the form itself unchanged"
+  },
+  {
+   "slug": "datasets/quote-tool",
+   "url": "https://theflatratemovers.com/datasets/quote-tool/",
+   "title": "Quote Tool Coverage Datasets",
+   "type": "page",
+   "services": [],
+   "attested": "2026-11-03",
+   "lastmod": "2026-11-03",
+   "status": "live",
+   "source": "Quote Tool batch 2026-11-03 — dataset landing for datasets-quote-tool.json (form inventory + the eight-check coverage rubric with measured results + the 20-audience guide)"
   }
  ],
  "source": "https://theflatratemovers.com/sitemap.xml joined to pageMeta in ../the-flat-rate-movers-pages/public/index.html",

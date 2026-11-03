@@ -626,8 +626,8 @@ const ROLLUP_SETS = {
 };
 const ROLLUP_ALL = new Set([
   'home', 'services', 'all-pages', 'sitemap', 'blog', 'datasets',
-  'datasets/intent-coverage', 'datasets/search-index', 'datasets/answer-evidence', 'datasets/local-graph-registry', 'datasets/crawl-presence', 'datasets/archive-registry', 'faq', 'moving-questions-answers',
-  'quote', 'online-estimate', 'flat-rate-moving-quote-winchester',
+  'datasets/intent-coverage', 'datasets/search-index', 'datasets/answer-evidence', 'datasets/local-graph-registry', 'datasets/crawl-presence', 'datasets/archive-registry', 'datasets/quote-tool', 'faq', 'moving-questions-answers',
+  'quote', 'quote-tool', 'online-estimate', 'flat-rate-moving-quote-winchester', // +'quote-tool' +'datasets/quote-tool' 2026-11-03 (Quote Tool batch): the estate-level guide + its dataset landing carry the full 30-service roll-up, like 'quote' and 'faq'
   'flat-rate-guarantee', 'areas-served', 'service-areas-moving-company',
   'find-us', 'moving-cost-guide-winchester-va', 'developer', 'entities',
   'entity-authority-layer', 'knowledge-entities', 'knowledge-equipment',

@@ -4738,7 +4738,7 @@
    "@id": "https://theflatratemovers.com/datasets/intent-coverage/#dataset",
    "@type": "Dataset",
    "name": "The Flat Rate Movers — Search Intent Coverage Operations Dataset",
-   "description": "The live intent-coverage rubric of The Flat Rate Movers: 3400 generated rows, each one a query string a customer or an AI assistant can use to find a company service, resolved to the exact page that answers it, that page’s per-page JSON, the dataset files behind the answer, and the service’s node in the entity graph. Rows are generated from the estate’s own registries — 30 services, 234 pages, two branch locations, three corridors and the 53-feature service-area footprint — plus the blog question bank’s 100 real question phrasings, and the rubric is regenerated whenever those registries change. Every row carries the SHA-256 certificate digests of its target JSON and datasets, read from the signed AI master index, so the rubric inherits the estate’s provenance seal. Coverage spans all 30 services of both branches, Winchester, VA and Martinsburg, WV, along the I-81, I-66 and I-70 corridors. Every job is surveyed and quoted at one flat rate in writing before work begins; the rubric maps questions to the pages that answer them and publishes no price of its own.",
+   "description": "The live intent-coverage rubric of The Flat Rate Movers: 3490 generated rows, each one a query string a customer or an AI assistant can use to find a company service, resolved to the exact page that answers it, that page’s per-page JSON, the dataset files behind the answer, and the service’s node in the entity graph. Rows are generated from the estate’s own registries — 30 services, 236 pages, two branch locations, three corridors and the 53-feature service-area footprint — plus the blog question bank’s 100 real question phrasings, and the rubric is regenerated whenever those registries change. Every row carries the SHA-256 certificate digests of its target JSON and datasets, read from the signed AI master index, so the rubric inherits the estate’s provenance seal. Coverage spans all 30 services of both branches, Winchester, VA and Martinsburg, WV, along the I-81, I-66 and I-70 corridors. Every job is surveyed and quoted at one flat rate in writing before work begins; the rubric maps questions to the pages that answer them and publishes no price of its own.",
    "url": "https://theflatratemovers.com/datasets/intent-coverage/",
    "sameAs": "https://theflatratemovers.com/datasets/intent-coverage/",
    "identifier": "https://doi.org/10.5281/zenodo.23818766",
@@ -9207,6 +9207,143 @@
    "publisher": {
     "@id": "https://theflatratemovers.com/#organization"
    }
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://theflatratemovers.com/quote-tool/",
+   "url": "https://theflatratemovers.com/quote-tool/",
+   "name": "The Quote Tool — how the flat rate quote form works",
+   "description": "How The Flat Rate Movers' quote tool works: the Short and Detailed modes, the five required fields, the 20 project types with what to prepare for each, the video walkthrough that shows us your move, and how a request becomes one flat rate in writing.",
+   "breadcrumb": {
+    "@id": "https://theflatratemovers.com/quote-tool/#breadcrumb"
+   },
+   "image": {
+    "@type": "ImageObject",
+    "url": "https://theflatratemovers.com/assets/img-01-9c77693ba66b.png",
+    "caption": "The Flat Rate Movers logo — company brand image, not a job photo."
+   },
+   "datePublished": "2026-11-03",
+   "dateModified": "2026-11-03",
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#organization"
+    }
+   ],
+   "mainEntity": {
+    "@id": "https://theflatratemovers.com/quote-tool/#howto"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/datasets/quote-tool/#dataset",
+   "@type": "Dataset",
+   "name": "Quote Tool Coverage — Form Inventory and Audience Guide",
+   "description": "The published coverage dataset for The Flat Rate Movers' flat rate quote tool: the complete, source-measured inventory of the live quote form and the audience guide that explains it. The form carries 44 named field controls and 33 pick chips — 77 visitor-value controls — across two modes: Short (the default: moving from, moving to, what is moving, heavy-item chips, and contact) and Detailed (adding the 20 project types, five conditional sections that open only for a selected type, the services chips, project notes and the video walkthrough). The dataset records both modes field by field, the five required fields (moving from, moving to, name, phone, email), the 20 project types with a five-dimension audience entry for each (who it is for, the jobs it covers, what to prepare, which form fields apply, and one thing to watch), the universal preparation checklist, and the eight-check coverage rubric the page is held to, with each check's measured result. The photo and video route is the walkthrough: a private phone link whose clips delete automatically after 24 hours. No prices are carried in this dataset; the industrial workforce rate schedule is published only on the industrial service surfaces and is deliberately absent here.",
+   "url": "https://theflatratemovers.com/datasets/quote-tool/",
+   "sameAs": "https://theflatratemovers.com/datasets/quote-tool/",
+   "identifier": "https://theflatratemovers.com/datasets/quote-tool/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@type": "Organization",
+    "@id": "https://theflatratemovers.com/#organization",
+    "name": "The Flat Rate Movers LLC",
+    "url": "https://theflatratemovers.com/"
+   },
+   "publisher": {
+    "@type": "Organization",
+    "@id": "https://theflatratemovers.com/#organization",
+    "name": "The Flat Rate Movers LLC",
+    "url": "https://theflatratemovers.com/"
+   },
+   "includedInDataCatalog": {
+    "@id": "https://theflatratemovers.com/datasets/#collection"
+   },
+   "datePublished": "2026-11-03",
+   "dateModified": "2026-11-03",
+   "spatialCoverage": [
+    {
+     "@type": "Place",
+     "@id": "https://theflatratemovers.com/#winchester",
+     "name": "The Flat Rate Movers — Winchester",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.18711576,
+      "longitude": -78.1668352
+     }
+    },
+    {
+     "@type": "Place",
+     "@id": "https://theflatratemovers.com/#martinsburg",
+     "name": "Flat Rate Movers Martinsburg WV",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.48319665,
+      "longitude": -77.94760443
+     }
+    }
+   ],
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/quote-tool/"
+    },
+    {
+     "@id": "https://theflatratemovers.com/quote/"
+    }
+   ],
+   "keywords": [
+    "flat rate quote",
+    "quote form",
+    "moving quote",
+    "Short quote",
+    "Detailed quote",
+    "project types",
+    "video walkthrough",
+    "Survey Room",
+    "form inventory",
+    "audience guide"
+   ],
+   "additionalProperty": [
+    {
+     "@type": "PropertyValue",
+     "propertyID": "quoteFormFieldControls",
+     "value": 44
+    },
+    {
+     "@type": "PropertyValue",
+     "propertyID": "quoteFormPickChips",
+     "value": 33
+    },
+    {
+     "@type": "PropertyValue",
+     "propertyID": "quoteFormVisitorValueControls",
+     "value": 77
+    },
+    {
+     "@type": "PropertyValue",
+     "propertyID": "heroFormVisitorValueControls",
+     "value": 10
+    },
+    {
+     "@type": "PropertyValue",
+     "propertyID": "projectTypes",
+     "value": 20
+    },
+    {
+     "@type": "PropertyValue",
+     "propertyID": "conditionalSections",
+     "value": 5
+    },
+    {
+     "@type": "PropertyValue",
+     "propertyID": "requiredFields",
+     "value": 5
+    },
+    {
+     "@type": "PropertyValue",
+     "propertyID": "inventorySource",
+     "value": "Enumerated from the live form source (repo-dir/index.html, #quoteForm and #heroQuote) on 2026-11-03 with an HTML parser: every input/select/textarea element plus every pick-chip button, excluding submit and mode-toggle buttons."
+    }
+   ]
   }
  ],
  "_humanSummary": "This is the best JSON for The Flat Rate Movers: one @graph, stable @ids, Organization chained to two Places, each Place carrying its full footprint (Winchester 32 areas, Martinsburg 35, shared 14) with the Google Business Profile subset (Winchester 17, Martinsburg 14) also carried as named City nodes, each Service chained to the Organization and to its branch Place or Places, per-branch Google ratings (Winchester 5.0 with 1 review, Martinsburg 4.7 with 6 reviews, never blended), founding June 2010, geo, hours, sameAs, and no license, price, testimonial, or move count. Humans read the names, addresses, and service lists; machines follow the @ids. 2026-10-28: 24 new branch and corridor pages added, each with Service JSON-LD, logo image, and backlinks.",

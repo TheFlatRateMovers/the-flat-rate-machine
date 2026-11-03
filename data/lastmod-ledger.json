@@ -2,7 +2,7 @@
  "description": "Seal-maintained lastmod ledger: for every sitemap URL, the date of the last seal generation in which its own signed distribution changed. Seeded from the 2026-11-02 crawl-demand audit (doc-level digest history across 73 signed generations); maintained by seal.py phase 6b (diff-stamp vs the phase-0 prior index). build-sitemap.js reads this file for every sitemap <lastmod>.",
  "lastSeal": {
   "date": "2026-11-03",
-  "indexSha256": "89db30040960c0e35c44416477bd6b59f4873ddd04335c218f5b86d310ea4ed1"
+  "indexSha256": "aec0ed39bfc856028e8c19f3e914276129683e5ba4dcda97a90a5b17338655a9"
  },
  "seededFrom": "crawl-demand-audit-2026-11-02.csv",
  "urls": {
@@ -80,6 +80,7 @@
   "https://theflatratemovers.com/datasets-packing.json": "2026-11-03",
   "https://theflatratemovers.com/datasets-piano-antique.json": "2026-11-03",
   "https://theflatratemovers.com/datasets-ports.json": "2026-11-03",
+  "https://theflatratemovers.com/datasets-quote-tool.json": "2026-11-03",
   "https://theflatratemovers.com/datasets-residential.json": "2026-11-03",
   "https://theflatratemovers.com/datasets-route81.json": "2026-11-03",
   "https://theflatratemovers.com/datasets-search-index.json": "2026-11-03",
@@ -122,6 +123,7 @@
   "https://theflatratemovers.com/datasets/packing/": "2026-11-03",
   "https://theflatratemovers.com/datasets/piano-antique/": "2026-11-03",
   "https://theflatratemovers.com/datasets/ports/": "2026-11-03",
+  "https://theflatratemovers.com/datasets/quote-tool/": "2026-11-03",
   "https://theflatratemovers.com/datasets/residential/": "2026-11-03",
   "https://theflatratemovers.com/datasets/route81/": "2026-11-03",
   "https://theflatratemovers.com/datasets/search-index/": "2026-11-03",
@@ -236,6 +238,7 @@
   "https://theflatratemovers.com/port-of-virginia-container-loading-unloading-logistics-services/": "2026-11-03",
   "https://theflatratemovers.com/privacy-policy/": "2026-11-03",
   "https://theflatratemovers.com/professional-packing-services-moving-cost-estimator/": "2026-11-03",
+  "https://theflatratemovers.com/quote-tool/": "2026-11-03",
   "https://theflatratemovers.com/quote/": "2026-11-03",
   "https://theflatratemovers.com/reading-an-ispm-15-mark/": "2026-11-03",
   "https://theflatratemovers.com/recursive-indexing-layer/": "2026-11-03",
