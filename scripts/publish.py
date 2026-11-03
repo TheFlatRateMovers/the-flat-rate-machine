@@ -7,6 +7,13 @@ Spec (out/speed-batch-s3-spec-2026-11-03.md, FREEZE -> DEPLOY): once
 seal.py has frozen + signed the estate, ONE invocation carries the
 batch the rest of the way, in this order:
 
+  0. Preflight (Reconciliation batch, 2026-11-03): the twin-identity
+     gate (scripts/check-twins.js) + a live probe of both GitHub push
+     routes (git ls-remote through each clone). The Page Data Pool
+     close discovered a stale twin and a dead push route only AFTER
+     deploying; preflight stops the close BEFORE anything ships,
+     with a plain-words reason. --preflight-only runs just this
+     step; --skip-preflight skips it (printed, never silent).
   1. Pages deploy + GitHub pushes IN PARALLEL (neither waits on the
      other; both are attempted even if one fails).
   2. Full live verify — deployment-unique URL first (verify.js
@@ -68,9 +75,64 @@ def fail(msg):
     sys.exit(1)
 
 
+CLONES = {"ai": os.path.expanduser("~/workspace/git-mirrors/ai"),
+          "machine": os.path.expanduser("~/workspace/git-mirrors/machine")}
+
+
+def preflight(probe_push=True):
+    """Step 0 (Reconciliation batch, 2026-11-03): prove, BEFORE any
+    deploy, that (a) every duplicated file in the estate agrees with
+    its twin and (b) both GitHub push routes answer. Either failure
+    stops the close here — nothing deployed, nothing pushed — with
+    the reason in plain words."""
+    print("--- 0. preflight (twin identity + GitHub push route)",
+          flush=True)
+    rc, out, _ = run(["node", os.path.join(ROOT, "scripts",
+                                           "check-twins.js")],
+                     label="check-twins")
+    print("\n".join(out.strip().splitlines()[-2:]))
+    if rc != 0:
+        print(out[-3000:])
+        fail("preflight: duplicated files in the estate disagree "
+             "(twin check failed — the divergent pair is named "
+             "above). Nothing was deployed or pushed. Fix the pair "
+             "at its canonical source, re-seal, and publish again.")
+    if probe_push:
+        for repo, clone in CLONES.items():
+            if not os.path.isdir(clone):
+                fail(f"preflight: the {repo} mirror clone is missing "
+                     f"at {clone}. Nothing was deployed or pushed.")
+            try:
+                p = subprocess.run(
+                    ["git", "-C", clone, "ls-remote", "origin", "HEAD"],
+                    stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                    text=True, timeout=90)
+                ok = p.returncode == 0 and \
+                    re.search(r"^[0-9a-f]{40}\s+HEAD", p.stdout or "")
+            except subprocess.TimeoutExpired:
+                p, ok = None, False
+            if not ok:
+                tail = ((p.stdout if p else "") or "").strip() \
+                    .splitlines()
+                fail(f"preflight: the GitHub push route for the "
+                     f"{repo} repo does not answer "
+                     f"({tail[-1] if tail else 'no response'}). "
+                     f"Nothing was deployed or pushed. The usual "
+                     f"cause is the SSH host-key file or the egress "
+                     f"proxy — see AGENTS.md (GitHub SSH push "
+                     f"transport) — then publish again.")
+            print(f"    push route {repo}: answers "
+                  f"({(p.stdout or '').split()[0][:8]} HEAD)")
+    print("    preflight OK", flush=True)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--message", required=True)
+    ap.add_argument("--skip-preflight", action="store_true")
+    ap.add_argument("--preflight-only", action="store_true",
+                    help="run preflight (step 0) and exit; no deploy, "
+                         "push, verify, API or Pulse step runs")
     ap.add_argument("--skip-deploy", action="store_true")
     ap.add_argument("--skip-push", action="store_true")
     ap.add_argument("--skip-verify", action="store_true")
@@ -88,6 +150,16 @@ def main():
     args = ap.parse_args()
     t0 = time.time()
     timings = {}
+
+    # 0. preflight (Reconciliation batch, 2026-11-03)
+    if args.preflight_only:
+        preflight(probe_push=not args.skip_push)
+        print("\nPREFLIGHT ONLY — OK; no deploy performed.")
+        return 0
+    if args.skip_preflight:
+        print("--- 0. preflight SKIPPED")
+    else:
+        preflight(probe_push=not args.skip_push)
 
     # 1. deploy + push in parallel
     results = {}

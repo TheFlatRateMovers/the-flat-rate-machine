@@ -19,6 +19,10 @@ Transports, in order:
       instead, the token supplied only through a temporary GIT_ASKPASS
       script that echoes the env var; it never appears in argv, files,
       or logs.
+      The git push itself is wrapped in a bounded retry (5 attempts,
+      backoff 2/5/10/20 s — Reconciliation batch, 2026-11-03) so a
+      transient connection drop during key exchange heals inside the
+      close instead of failing it; (b) remains the last resort.
   (b) Connector one-shot — FALLBACK ONLY, used and reported when (a)
       fails: ONE `/opt/hatch/bin/github push-files` call per repo
       carrying the whole delta (NUL-delimited paths file with trailing
@@ -67,7 +71,7 @@ Usage:
 Exit codes: 0 ok / NO-OP; 1 push or IO failure; 2 safety abort
 (gist guard, key grep, clone divergence).
 """
-import argparse, fnmatch, json, os, pathlib, shutil, subprocess, sys, tempfile
+import argparse, fnmatch, json, os, pathlib, shutil, subprocess, sys, tempfile, time
 
 HOME = pathlib.Path.home()
 PUB = HOME / "workspace/the-flat-rate-movers-pages/public"
@@ -347,6 +351,30 @@ def push_git(clone, env=None):
     return r.returncode == 0
 
 
+def push_git_retry(clone, env=None, attempts=5):
+    """Bounded retry with backoff around push_git (Reconciliation
+    batch, 2026-11-03). The Page Data Pool close died on a transient
+    connection drop during SSH key exchange and needed ~40 manual
+    attempts across two publish runs; the close must heal itself.
+    Pushing the same commit is idempotent (a retry after an ambiguous
+    failure returns 'Everything up-to-date'), so retrying is safe.
+    Backoff between attempts: 2/5/10/20 s. After the final attempt the
+    caller (push_with_fallback) still owns the connector fallback."""
+    delays = [2, 5, 10, 20]
+    for i in range(1, attempts + 1):
+        if push_git(clone, env):
+            if i > 1:
+                print(f"  push recovered on attempt {i} of {attempts}")
+            return True
+        if i < attempts:
+            d = delays[i - 1]
+            print(f"  push attempt {i} of {attempts} failed — "
+                  f"retrying in {d}s")
+            time.sleep(d)
+    print(f"  push failed after {attempts} attempts", file=sys.stderr)
+    return False
+
+
 def push_with_fallback(spec, clone, changed, message, has_deletions):
     """Primary: git push through the clone (SSH deploy key, or the
     GH_PUSH_TOKEN askpass route when the env var is set). Fallback —
@@ -356,12 +384,12 @@ def push_with_fallback(spec, clone, changed, message, has_deletions):
     if os.environ.get("GH_PUSH_TOKEN"):
         env, ask = askpass_env()
         try:
-            ok = push_git(clone, env)
+            ok = push_git_retry(clone, env)
         finally:
             os.unlink(ask)
         via = "a (git push, GH_PUSH_TOKEN askpass)"
     else:
-        ok = push_git(clone)
+        ok = push_git_retry(clone)
         via = "a (git push, SSH deploy key)"
     if ok:
         return True, via

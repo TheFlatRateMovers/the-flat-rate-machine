@@ -5009,6 +5009,36 @@ async function main() {
  } catch (e) { check('§38 Q124 dual-representation gates QS-1/QS-2 execute', false, String(e && e.message || e).slice(0, 240)); }
 }
 
+/* ============ 39. Twin-identity gate — duplicated seats byte-identical (Reconciliation batch, 2026-11-03) ============ */
+{
+ // Root cause (Page Data Pool close, 2026-11-03): a router splice
+ // landed in scripts/route-assets/main.js but not in its twin
+ // repo-dir/main.js — the copy digest-index.py resolves for that
+ // signed distribution (repo-dir/<basename> for every
+ // raw.githubusercontent contentUrl). The seal certified the stale
+ // twin; only the live P-6 caught it, after deploy. TW-1..TW-6 move
+ // the catch to disk: scripts/check-twins.js byte-compares every
+ // duplicated seat in the estate (pair list DERIVED by directory
+ // intersection + a completeness scan over the working trees, never
+ // a hand-list) and publish.py runs the same script as preflight
+ // step 0, before any deploy. Disk evidence: runs in BOTH modes.
+ try {
+   const { execFileSync } = require('child_process');
+   const outTW = execFileSync('node', [path.join(ROOT, 'scripts', 'check-twins.js'), '--json'],
+     { encoding: 'utf8', timeout: 120000, maxBuffer: 16 * 1024 * 1024 });
+   const tw = JSON.parse(outTW.slice(outTW.indexOf('{')));
+   for (const c of tw.checks) check(c.name, c.ok, c.detail);
+ } catch (e) {
+   let parsed = null;
+   try { const s = String(e.stdout || ''); parsed = JSON.parse(s.slice(s.indexOf('{'))); } catch (_) { }
+   if (parsed && parsed.checks) {
+     for (const c of parsed.checks) check(c.name, c.ok, c.detail);
+   } else {
+     check('§39 twin-identity gates TW-1..TW-6 execute', false, String(e && e.message || e).slice(0, 240));
+   }
+ }
+}
+
   // --- 9. Guardrail scan: no placeholders, no invented license identifiers ---
   const registryText = JSON.stringify({ pages, services, locations, corridors });
   check('registry files contain no placeholder text',
