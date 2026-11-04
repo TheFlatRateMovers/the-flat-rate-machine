@@ -1,8 +1,8 @@
 {
  "@type": "PortsDatabase",
  "program": "Ports & Intermodal Takeover Program",
- "version": "2026-11-02",
- "lastVerified": "2026-11-02",
+ "version": "2026-11-03",
+ "lastVerified": "2026-11-03",
  "sourceDossier": "~/workspace/theflatratemovers/ports-program/DOSSIER.md (facts with sources inline; section 1 port facts, section 1.7 binding table, section 4 coverage matrix)",
  "bindingMap": {
   "port-virginia-inland-port": {
@@ -212,7 +212,7 @@
     "https://theflatratemovers.com/who-unloads-containers-at-the-virginia-inland-port/"
    ],
    "datasetFile": "datasets-ports.json",
-   "lastVerified": "2026-11-02"
+   "lastVerified": "2026-11-03"
   },
   {
    "id": "port-of-virginia-norfolk",
@@ -866,7 +866,7 @@
    ],
    "estatePages": [],
    "datasetFile": "datasets-ports.json",
-   "lastVerified": "2026-11-02"
+   "lastVerified": "2026-11-03"
   },
   {
    "id": "port-of-wilmington-de",
@@ -1015,7 +1015,7 @@
    ],
    "estatePages": [],
    "datasetFile": "datasets-ports.json",
-   "lastVerified": "2026-11-02"
+   "lastVerified": "2026-11-03"
   },
   {
    "id": "port-philaport",
@@ -1209,7 +1209,7 @@
    ],
    "estatePages": [],
    "datasetFile": "datasets-ports.json",
-   "lastVerified": "2026-11-02"
+   "lastVerified": "2026-11-03"
   }
  ],
  "serviceCoverage": [
@@ -2041,5 +2041,11 @@
    "hubSection": true,
    "treatmentNote": "the perishable and breakbulk spoke carries PM and 3P for this port"
   }
+ ],
+ "programPages": [
+  "https://theflatratemovers.com/port-logistics/",
+  "https://theflatratemovers.com/logistics-project-management/",
+  "https://theflatratemovers.com/3pl-support-services/",
+  "https://theflatratemovers.com/cross-docking-services/"
  ]
 }

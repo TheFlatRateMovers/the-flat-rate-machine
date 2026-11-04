@@ -3939,7 +3939,7 @@
    "@id": "https://theflatratemovers.com/datasets/intent-coverage/#dataset",
    "@type": "Dataset",
    "name": "The Flat Rate Movers — Search Intent Coverage Operations Dataset",
-   "description": "The live intent-coverage rubric of The Flat Rate Movers: 3569 generated rows, each one a query string a customer or an AI assistant can use to find a company service, resolved to the exact page that answers it, that page’s per-page JSON, the dataset files behind the answer, and the service’s node in the entity graph. Rows are generated from the estate’s own registries — 30 services, 239 pages, two branch locations, three corridors and the 53-feature service-area footprint — plus the blog question bank’s 100 real question phrasings, and the rubric is regenerated whenever those registries change. Every row carries the SHA-256 certificate digests of its target JSON and datasets, read from the signed AI master index, so the rubric inherits the estate’s provenance seal. Coverage spans all 30 services of both branches, Winchester, VA and Martinsburg, WV, along the I-81, I-66 and I-70 corridors. Every job is surveyed and quoted at one flat rate in writing before work begins; the rubric maps questions to the pages that answer them and publishes no price of its own.",
+   "description": "The live intent-coverage rubric of The Flat Rate Movers: 3784 generated rows, each one a query string a customer or an AI assistant can use to find a company service, resolved to the exact page that answers it, that page’s per-page JSON, the dataset files behind the answer, and the service’s node in the entity graph. Rows are generated from the estate’s own registries — 32 services, 243 pages, two branch locations, three corridors and the 53-feature service-area footprint — plus the blog question bank’s 100 real question phrasings, and the rubric is regenerated whenever those registries change. Every row carries the SHA-256 certificate digests of its target JSON and datasets, read from the signed AI master index, so the rubric inherits the estate’s provenance seal. Coverage spans all 32 services of both branches, Winchester, VA and Martinsburg, WV, along the I-81, I-66 and I-70 corridors. Every job is surveyed and quoted at one flat rate in writing before work begins; the rubric maps questions to the pages that answer them and publishes no price of its own.",
    "url": "https://theflatratemovers.com/datasets/intent-coverage/",
    "sameAs": "https://theflatratemovers.com/datasets/intent-coverage/",
    "identifier": "https://doi.org/10.5281/zenodo.23818766",
@@ -8550,7 +8550,7 @@
    "@id": "https://theflatratemovers.com/datasets/page-data-pool/#dataset",
    "@type": "Dataset",
    "name": "Page Data Pool — the Master Database for Page Data",
-   "description": "The Page Data Pool is the single master database every page's Page Data dataset draws its slice from — built in two layers. Layer 1 is the estate's own live data: the full intent rubric (3,550 buyer questions with their phrasings, target pages, per-page JSONs and dataset seats), the 30-service registry with its scope-boundary register (16 drafted boundaries, each carrying the ruling it comes from) and its sourced qualifier register (21 qualifiers, each with its source pointer), all 43 dataset files' metadata, the ports matrix (6 ports × 8 offered services with branch bindings), the vault standards registry (UL 608 classes, AA-D-600D classes, FF-L-2740B, UL 768 lock groups), the SIR/KIM-GS authority data (the 1,500–3,500 lb band and the L/360 criterion), the 53-area footprint with branch bindings, the 16-post blog corpus, and the 20-entry audience guide. Layer 2 is a researched domain layer of 45 entries covering the situation space of logistics and every service — container equipment and packing standards (CTU Code, SOLAS VGM), port charges and credentials (FMC demurrage and detention rules, TWIC), export rules (ISPM 15, AES/EEI filing), household-goods consumer law (49 CFR Part 375: binding estimates, the 110% rule, valuation, storage-in-transit), safe and piano data (UL 687/1037/72 classes, IRC floor loads, manufacturer piano weights), and the standards behind the specialty services (ANSI/ESD S20.20, ANSI MH16.1, ASTM D4169/ISTA, NASMM, museum handling practice, EPA electronics rules, carrier delivery tiers, DP3 and FAR Part 47) — every entry carrying its primary or authoritative source, its retrieval date, the questions it answers and its constraints. Layer 2 supplies domain facts only: it never sources a company capability, price, count or credential. The pool also publishes the eleven draw rules (DR-1 to DR-11) by which the generator assembles each page's slice — services, own and family questions, resolved answers, scoped boundaries, traceable qualifiers, drawn domain entries, bound geography and ledger freshness. Buyer-intelligence data is excluded by standing rule, and the false 'industrial rigging up to twenty-five thousand pounds' figure is excluded and asserted absent at build.",
+   "description": "The Page Data Pool is the single master database every page's Page Data dataset draws its slice from — built in two layers. Layer 1 is the estate's own live data: the full intent rubric (3,784 buyer questions with their phrasings, target pages, per-page JSONs and dataset seats), the 32-service registry with its scope-boundary register (18 drafted boundaries, each carrying the ruling it comes from) and its sourced qualifier register (21 qualifiers, each with its source pointer), all 44 dataset files' metadata, the ports matrix (6 ports × 8 offered services with branch bindings), the vault standards registry (UL 608 classes, AA-D-600D classes, FF-L-2740B, UL 768 lock groups), the SIR/KIM-GS authority data (the 1,500–3,500 lb band and the L/360 criterion), the 53-area footprint with branch bindings, the 16-post blog corpus, and the 20-entry audience guide. Layer 2 is a researched domain layer of 45 entries covering the situation space of logistics and every service — container equipment and packing standards (CTU Code, SOLAS VGM), port charges and credentials (FMC demurrage and detention rules, TWIC), export rules (ISPM 15, AES/EEI filing), household-goods consumer law (49 CFR Part 375: binding estimates, the 110% rule, valuation, storage-in-transit), safe and piano data (UL 687/1037/72 classes, IRC floor loads, manufacturer piano weights), and the standards behind the specialty services (ANSI/ESD S20.20, ANSI MH16.1, ASTM D4169/ISTA, NASMM, museum handling practice, EPA electronics rules, carrier delivery tiers, DP3 and FAR Part 47) — every entry carrying its primary or authoritative source, its retrieval date, the questions it answers and its constraints. Layer 2 supplies domain facts only: it never sources a company capability, price, count or credential. The pool also publishes the eleven draw rules (DR-1 to DR-11) by which the generator assembles each page's slice — services, own and family questions, resolved answers, scoped boundaries, traceable qualifiers, drawn domain entries, bound geography and ledger freshness. Buyer-intelligence data is excluded by standing rule, and the false 'industrial rigging up to twenty-five thousand pounds' figure is excluded and asserted absent at build.",
    "url": "https://theflatratemovers.com/datasets/page-data-pool/",
    "sameAs": "https://theflatratemovers.com/datasets/page-data-pool/",
    "identifier": "https://theflatratemovers.com/datasets/page-data-pool/",
@@ -8621,12 +8621,12 @@
     {
      "@type": "PropertyValue",
      "propertyID": "questions",
-     "value": 3550
+     "value": 3784
     },
     {
      "@type": "PropertyValue",
      "propertyID": "services",
-     "value": 30
+     "value": 32
     },
     {
      "@type": "PropertyValue",
@@ -8651,17 +8651,17 @@
     {
      "@type": "PropertyValue",
      "propertyID": "datasetFiles",
-     "value": 43
+     "value": 44
     },
     {
      "@type": "PropertyValue",
      "propertyID": "audiences",
-     "value": 20
+     "value": 21
     },
     {
      "@type": "PropertyValue",
      "propertyID": "boundaries",
-     "value": 16
+     "value": 18
     },
     {
      "@type": "PropertyValue",
@@ -8803,7 +8803,212 @@
    "mainEntity": {
     "@id": "https://theflatratemovers.com/#service-port-of-virginia-logistics"
    }
-  }
+  },
+ {
+   "@id": "https://theflatratemovers.com/#service-port-logistics",
+   "@type": "Service",
+   "areaServed": [
+     {
+       "@id": "https://theflatratemovers.com/#winchester"
+     },
+     {
+       "@id": "https://theflatratemovers.com/#martinsburg"
+     }
+   ],
+   "description": "The Flat Rate Movers' port and intermodal logistics program: eight attached services — transloading, ocean container packing and unpacking (stuffing, destuffing, devanning), loading and unloading / container labor, cross-docking, freight rework, specialized workforce crews, logistics project management and 3PL support services — at six ports, each bound to exactly one branch by measured road distance: Virginia Inland Port, Port of Virginia (Norfolk) and Richmond Marine Terminal to Winchester, VA; Port of Baltimore, Port of Wilmington (DE) and PhilaPort to Martinsburg, WV (PhilaPort on drive time only — road miles are tied and no mileage advantage is claimed). Work happens at port-adjacent warehouses, receivers' docks, yards and leased space; on-terminal only by arrangement. The company runs no port drayage, holds no tenancy at any terminal and claims no port-authority relationship. Every engagement is surveyed and scoped in full, quoted at one flat rate — the standard offer and guarantee; hourly pricing is available when a client asks for it.",
+   "isRelatedTo": [
+     {
+       "@id": "https://theflatratemovers.com/#service-transloading"
+     },
+     {
+       "@id": "https://theflatratemovers.com/#service-logistics-project-management"
+     },
+     {
+       "@id": "https://theflatratemovers.com/#service-3pl-support"
+     },
+     {
+       "@id": "https://theflatratemovers.com/datasets/ports/#dataset-ports"
+     }
+   ],
+   "name": "Port & Intermodal Logistics Services",
+   "provider": {
+     "@id": "https://theflatratemovers.com/#organization"
+   },
+   "serviceType": "Port and intermodal logistics support program: transloading; ocean container packing and unpacking; container labor; cross-docking; freight rework; specialized workforce; logistics project management; 3PL support services — at six ports, each bound to one branch",
+   "url": "https://theflatratemovers.com/port-logistics/"
+ },
+ {
+   "@type": "WebPage",
+   "@id": "https://theflatratemovers.com/port-logistics/#webpage",
+   "url": "https://theflatratemovers.com/port-logistics/",
+   "name": "The Flat Rate Movers — Port & Intermodal Logistics Services",
+   "isPartOf": {
+     "@id": "https://theflatratemovers.com/#website"
+   },
+   "about": [
+     {
+       "@id": "https://theflatratemovers.com/#service-port-logistics"
+     }
+   ],
+   "inLanguage": "en-US",
+   "description": "Port & Intermodal Logistics — the front door to The Flat Rate Movers’ six-port program: the binding map (Virginia Inland Port, Norfolk and Richmond from Winchester; Baltimore, Wilmington and PhilaPort from Martinsburg — Philadelphia on drive time, miles tied), the eight attached services, and the route to every port hub and dataset. No drayage; one flat rate per job.",
+   "mainEntity": {
+     "@id": "https://theflatratemovers.com/#service-port-logistics"
+   }
+ },
+ {
+   "@id": "https://theflatratemovers.com/#service-logistics-project-management",
+   "@type": "Service",
+   "areaServed": [
+     {
+       "@id": "https://theflatratemovers.com/#winchester"
+     },
+     {
+       "@id": "https://theflatratemovers.com/#martinsburg"
+     }
+   ],
+   "description": "Logistics project management scoped to port, warehouse and industrial project work: survey, full scope, crew and sequence plan, supervised execution and closeout for container programs, warehouse load-outs and resets, surge programs, freight-rework campaigns and port-adjacent staging projects around the six ports the company serves — Virginia Inland Port, Port of Virginia and Richmond Marine Terminal from the Winchester branch; Port of Baltimore, Port of Wilmington and PhilaPort from the Martinsburg branch. Work happens at port-adjacent warehouses, receivers' docks, yards and leased space; on-terminal only by arrangement. Support and execution, never drayage: freight moves on the customer's or carrier's trucks. Surveyed and scoped in full, quoted at one flat rate — the company's standard offer and guarantee; hourly pricing is available when a client asks for it.",
+   "isRelatedTo": [
+     {
+       "@id": "https://theflatratemovers.com/#service-transloading"
+     },
+     {
+       "@id": "https://theflatratemovers.com/#service-freight-rework-transloading"
+     },
+     {
+       "@id": "https://theflatratemovers.com/#service-industrial-commercial"
+     },
+     {
+       "@id": "https://theflatratemovers.com/datasets/ports/#dataset-ports-coverage"
+     }
+   ],
+   "name": "Logistics Project Management",
+   "provider": {
+     "@id": "https://theflatratemovers.com/#organization"
+   },
+   "serviceType": "Logistics project management for port, warehouse and industrial projects: survey, scope, crew and sequence planning, supervised execution, closeout",
+   "url": "https://theflatratemovers.com/logistics-project-management/"
+ },
+ {
+   "@type": "WebPage",
+   "@id": "https://theflatratemovers.com/logistics-project-management/#webpage",
+   "url": "https://theflatratemovers.com/logistics-project-management/",
+   "name": "The Flat Rate Movers — Logistics Project Management",
+   "isPartOf": {
+     "@id": "https://theflatratemovers.com/#website"
+   },
+   "about": [
+     {
+       "@id": "https://theflatratemovers.com/#service-logistics-project-management"
+     }
+   ],
+   "inLanguage": "en-US",
+   "description": "Logistics Project Management — one accountable plan for port and warehouse project work: survey, full scope, crew & sequence plan, supervised execution and closeout for container programs, warehouse resets, surge programs and rework campaigns at the six ports The Flat Rate Movers serves, run from the bound branch (Winchester for the Virginia ports, Martinsburg for Baltimore, Wilmington and PhilaPort). One flat rate per project; no drayage; crews hold TWIC cards.",
+   "mainEntity": {
+     "@id": "https://theflatratemovers.com/#service-logistics-project-management"
+   }
+ },
+ {
+   "@id": "https://theflatratemovers.com/#service-3pl-support",
+   "@type": "Service",
+   "areaServed": [
+     {
+       "@id": "https://theflatratemovers.com/#winchester"
+     },
+     {
+       "@id": "https://theflatratemovers.com/#martinsburg"
+     }
+   ],
+   "description": "3PL support services: supervised crews that support operations run by 3PLs, distribution centers and carriers — receiving support, sort and segregation, container stuffing and destuffing, freight rework, surge and peak labor, and project support (stand-ups, resets, re-slots, load-outs) — at the six ports the company serves and the warehouse corridors of the Shenandoah Valley and Eastern Panhandle. SUPPORT, NOT OPERATOR: the company is not a 3PL warehouse operator under this service; it holds no warehouse network, leases no warehouse space for clients, takes no custody of client freight as an operator, and runs no client's inventory on its own systems. The operator keeps the space, the systems, the custody and the client relationship; this service supplies the crew layer. Surveyed and scoped in full, quoted at one flat rate — the company's standard offer and guarantee; hourly pricing is available when a client asks for it.",
+   "isRelatedTo": [
+     {
+       "@id": "https://theflatratemovers.com/#service-industrial-commercial"
+     },
+     {
+       "@id": "https://theflatratemovers.com/#service-transloading"
+     },
+     {
+       "@id": "https://theflatratemovers.com/#service-freight-rework-transloading"
+     },
+     {
+       "@id": "https://theflatratemovers.com/datasets/ports/#dataset-ports-coverage"
+     }
+   ],
+   "name": "3PL Support Services",
+   "provider": {
+     "@id": "https://theflatratemovers.com/#organization"
+   },
+   "serviceType": "Support services for third-party logistics operations: receiving support, sort and segregation, container crews, rework, surge labor, project support — support, not operation",
+   "url": "https://theflatratemovers.com/3pl-support-services/"
+ },
+ {
+   "@type": "WebPage",
+   "@id": "https://theflatratemovers.com/3pl-support-services/#webpage",
+   "url": "https://theflatratemovers.com/3pl-support-services/",
+   "name": "The Flat Rate Movers — 3PL Support Services",
+   "isPartOf": {
+     "@id": "https://theflatratemovers.com/#website"
+   },
+   "about": [
+     {
+       "@id": "https://theflatratemovers.com/#service-3pl-support"
+     }
+   ],
+   "inLanguage": "en-US",
+   "description": "3PL Support Services — supervised crews that support 3PL, distribution-center and carrier operations: receiving, sort & segregation, container crews, rework, surge labor and project support at the six ports The Flat Rate Movers serves. Support, not operator: no warehouse network, no space leased for clients, no freight custody. One flat rate per engagement; run from Winchester and Martinsburg by port binding.",
+   "mainEntity": {
+     "@id": "https://theflatratemovers.com/#service-3pl-support"
+   }
+ },
+ {
+   "@id": "https://theflatratemovers.com/#service-cross-docking-services",
+   "@type": "Service",
+   "areaServed": [
+     {
+       "@id": "https://theflatratemovers.com/#winchester"
+     },
+     {
+       "@id": "https://theflatratemovers.com/#martinsburg"
+     }
+   ],
+   "description": "Cross-docking services: the crew layer for freight that crosses a dock without entering storage — door planning, receiving with count and condition check at the door, sort and consolidation by destination, order, store or route, load-out inside the appointment or schedule window, and closeout counts tying the two doors together. Executed at port-adjacent warehouses, receivers' docks, yards and leased space around the six ports the company serves (hub coverage at the Virginia Inland Port, Port of Virginia, Richmond Marine Terminal, Port of Baltimore and PhilaPort; dataset-level coverage at the Port of Wilmington) and across the Shenandoah Valley and Eastern Panhandle. The company operates no cross-dock facility and sells none: the buildings belong to the operations it supports. This hub rides the Transloading service registration and joins the estate's two deconsolidation pages as spokes. Surveyed and scoped in full, quoted at one flat rate — the company's standard offer and guarantee; hourly pricing is available when a client asks for it.",
+   "isRelatedTo": [
+     {
+       "@id": "https://theflatratemovers.com/#service-transloading"
+     },
+     {
+       "@id": "https://theflatratemovers.com/#service-freight-rework-transloading"
+     },
+     {
+       "@id": "https://theflatratemovers.com/datasets/ports/#dataset-ports-coverage"
+     }
+   ],
+   "name": "Cross-Docking Services",
+   "provider": {
+     "@id": "https://theflatratemovers.com/#organization"
+   },
+   "serviceType": "Cross-docking execution: door planning, receiving and door counts, sort and consolidation by destination, load-out inside the window, closeout counts — riding the Transloading service registration",
+   "url": "https://theflatratemovers.com/cross-docking-services/"
+ },
+ {
+   "@type": "WebPage",
+   "@id": "https://theflatratemovers.com/cross-docking-services/#webpage",
+   "url": "https://theflatratemovers.com/cross-docking-services/",
+   "name": "The Flat Rate Movers — Cross-Docking Services",
+   "isPartOf": {
+     "@id": "https://theflatratemovers.com/#website"
+   },
+   "about": [
+     {
+       "@id": "https://theflatratemovers.com/#service-cross-docking-services"
+     }
+   ],
+   "inLanguage": "en-US",
+   "description": "Cross-Docking Services — freight across the dock, not into storage: door plans, door counts, sort & consolidation by destination and load-out inside the window, executed by supervised crews at docks and warehouses around the six ports The Flat Rate Movers serves. No facility sold — the crew layer only. One flat rate per engagement; Winchester and Martinsburg by port binding.",
+   "mainEntity": {
+     "@id": "https://theflatratemovers.com/#service-cross-docking-services"
+   }
+ }
  ],
  "@id": "https://theflatratemovers.com/entity-graph.json",
  "@type": "Dataset",

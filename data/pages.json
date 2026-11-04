@@ -1,6 +1,6 @@
 {
  "attestation": "Every URL below was fetched from the live sitemap on 2026-10-28; titles and service links come from pageMeta in the live site source. No URL was hand-typed.",
- "count": 239,
+ "count": 243,
  "dataset": "pages",
  "generated": "2026-10-29",
  "pages": [
@@ -2954,6 +2954,67 @@
    "title": "Port of Virginia Logistics Dataset",
    "type": "page",
    "url": "https://theflatratemovers.com/datasets/port-of-virginia/"
+  },
+  {
+   "attested": "2026-11-03",
+   "lastmod": "2026-11-03",
+   "services": [
+    "service-transloading",
+    "service-freight-rework-transloading",
+    "service-industrial-commercial",
+    "service-logistics-project-management",
+    "service-3pl-support"
+   ],
+   "slug": "port-logistics",
+   "source": "Ports & Intermodal Takeover Program batch P4 2026-11-03 — program hub: the six-port binding map and eight-service matrix (dossier §1.7, §4); Baltimore/Wilmington/PhilaPort sections link to the ports dataset landing until their hubs land in P5/P6",
+   "status": "live",
+   "title": "Port & Intermodal Logistics Services",
+   "type": "service",
+   "url": "https://theflatratemovers.com/port-logistics/"
+  },
+  {
+   "attested": "2026-11-03",
+   "lastmod": "2026-11-03",
+   "services": [
+    "service-logistics-project-management",
+    "service-transloading",
+    "service-freight-rework-transloading"
+   ],
+   "slug": "logistics-project-management",
+   "source": "Ports & Intermodal Takeover Program batch P4 2026-11-03 — service #31 hub (dossier §2.3): logistics project management scoped to port, warehouse and industrial project execution",
+   "status": "live",
+   "title": "Logistics Project Management",
+   "type": "service",
+   "url": "https://theflatratemovers.com/logistics-project-management/"
+  },
+  {
+   "attested": "2026-11-03",
+   "lastmod": "2026-11-03",
+   "services": [
+    "service-3pl-support",
+    "service-industrial-commercial",
+    "service-transloading"
+   ],
+   "slug": "3pl-support-services",
+   "source": "Ports & Intermodal Takeover Program batch P4 2026-11-03 — service #32 hub (dossier §2.3): 3PL support services — support, not operator",
+   "status": "live",
+   "title": "3PL Support Services",
+   "type": "service",
+   "url": "https://theflatratemovers.com/3pl-support-services/"
+  },
+  {
+   "attested": "2026-11-03",
+   "lastmod": "2026-11-03",
+   "services": [
+    "service-transloading",
+    "service-freight-rework-transloading"
+   ],
+   "slug": "cross-docking-services",
+   "source": "Ports & Intermodal Takeover Program batch P4 2026-11-03 — cross-docking hub riding the Transloading registration (dossier §2.3); no own dataset file — rides the master ports dataset XD column",
+   "status": "live",
+   "title": "Cross-Docking Services",
+   "type": "service",
+   "url": "https://theflatratemovers.com/cross-docking-services/"
   }
  ],
  "source": "https://theflatratemovers.com/sitemap.xml joined to pageMeta in ../the-flat-rate-movers-pages/public/index.html",

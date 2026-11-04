@@ -2,7 +2,7 @@
  "description": "Seal-maintained lastmod ledger: for every sitemap URL, the date of the last seal generation in which its own signed distribution changed. Seeded from the 2026-11-02 crawl-demand audit (doc-level digest history across 73 signed generations); maintained by seal.py phase 6b (diff-stamp vs the phase-0 prior index). build-sitemap.js reads this file for every sitemap <lastmod>.",
  "lastSeal": {
   "date": "2026-11-03",
-  "indexSha256": "e177a1c29b0e22687c1313c9482757f251291afb2c2a7f29940d36cef383f63f"
+  "indexSha256": "32ae64a281728e79f2574fff2bffe3bb2266168ca5df71500afde10dd2726dab"
  },
  "seededFrom": "crawl-demand-audit-2026-11-02.csv",
  "urls": {
@@ -10,6 +10,7 @@
   "https://theflatratemovers.com/1475-lb-vault-door-freight-recovery-manassas-va/": "2026-11-03",
   "https://theflatratemovers.com/1600-lb-gun-safe-moving-winchester-va-to-las-vegas-nv/": "2026-11-03",
   "https://theflatratemovers.com/1650-lb-gun-safe-delivered-and-installed-moorefield-wv/": "2026-11-03",
+  "https://theflatratemovers.com/3pl-support-services/": "2026-11-03",
   "https://theflatratemovers.com/ai-license/": "2026-11-03",
   "https://theflatratemovers.com/all-pages/": "2026-11-03",
   "https://theflatratemovers.com/areas-served/": "2026-11-03",
@@ -49,6 +50,7 @@
   "https://theflatratemovers.com/container-deconsolidation-services-virginia-mid-atlantic/": "2026-11-03",
   "https://theflatratemovers.com/container-loading-unloading-services-port-transload-virginia/": "2026-11-03",
   "https://theflatratemovers.com/crating-movers-martinsburg-wv/": "2026-11-03",
+  "https://theflatratemovers.com/cross-docking-services/": "2026-11-03",
   "https://theflatratemovers.com/curbside-vs-inside-vs-white-glove-delivery/": "2026-11-03",
   "https://theflatratemovers.com/custom-crating/": "2026-11-03",
   "https://theflatratemovers.com/data-center-relocation/": "2026-11-03",
@@ -204,6 +206,7 @@
   "https://theflatratemovers.com/local-regional-movers-winchester-va/": "2026-11-03",
   "https://theflatratemovers.com/local-regional-moving/": "2026-11-03",
   "https://theflatratemovers.com/logistics-data-engineering-center/": "2026-11-03",
+  "https://theflatratemovers.com/logistics-project-management/": "2026-11-03",
   "https://theflatratemovers.com/long-distance-cross-country-moving/": "2026-11-03",
   "https://theflatratemovers.com/long-distance-gun-safe-moving-winchester-va-to-las-vegas-nv/": "2026-11-03",
   "https://theflatratemovers.com/long-distance-movers-martinsburg-wv/": "2026-11-03",
@@ -239,6 +242,7 @@
   "https://theflatratemovers.com/packing/": "2026-11-03",
   "https://theflatratemovers.com/piano-antique-movers-martinsburg-wv/": "2026-11-03",
   "https://theflatratemovers.com/piano-antique-white-glove-moving/": "2026-11-03",
+  "https://theflatratemovers.com/port-logistics/": "2026-11-03",
   "https://theflatratemovers.com/port-of-virginia-container-loading-unloading-logistics-services/": "2026-11-03",
   "https://theflatratemovers.com/port-of-virginia-logistics/": "2026-11-03",
   "https://theflatratemovers.com/privacy-policy/": "2026-11-03",

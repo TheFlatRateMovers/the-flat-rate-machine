@@ -197,7 +197,9 @@ const AUDIENCE_SERVICES = {
   'cryogenic': ['service-medical-lab-relocation'],
   'heavy-assets-sir': ['service-sir-heavy'],
   'ispm-15-export': ['service-ispm15', 'service-crating'],
-  'freight-rework-transloading': ['service-transloading', 'service-freight-rework-transloading', 'service-transloading-winchester-va', 'service-final-mile'],
+  'freight-rework-transloading': ['service-transloading', 'service-freight-rework-transloading', 'service-transloading-winchester-va', 'service-final-mile', 'service-logistics-project-management', 'service-3pl-support'],
+  // Ports P4 (2026-11-03): the pool's 3PL/DC operations audience serves the two new services.
+  '3pl-operations': ['service-3pl-support', 'service-logistics-project-management'],
 };
 // Service clusters for the DR-3 family tier (same-service families).
 const SERVICE_CLUSTERS = [
@@ -205,7 +207,7 @@ const SERVICE_CLUSTERS = [
   ['service-sir-heavy', 'service-gun-safe'],
   ['service-commercial', 'service-office-moving', 'service-industrial-offices', 'service-industrial-commercial'],
   ['service-government', 'service-military'],
-  ['service-transloading', 'service-freight-rework-transloading', 'service-transloading-winchester-va', 'service-final-mile', 'service-route81'],
+  ['service-transloading', 'service-freight-rework-transloading', 'service-transloading-winchester-va', 'service-final-mile', 'service-route81', 'service-logistics-project-management', 'service-3pl-support'],
   ['service-piano-antique', 'service-white-glove', 'service-ispm15', 'service-crating', 'service-junk-removal',
     'service-warehouse-relocation', 'service-warehouse-racking-relocation', 'service-ffe-logistics',
     'service-data-center-relocation', 'service-it-relocation', 'service-medical-lab-relocation'],

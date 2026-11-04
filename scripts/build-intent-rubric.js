@@ -211,6 +211,8 @@ const HUB = {
   'service-ffe-logistics': 'ffe-logistics',
   'service-data-center-relocation': 'data-center-relocation',
   'service-medical-lab-relocation': 'medical-lab-equipment-relocation',
+  'service-logistics-project-management': 'logistics-project-management',
+  'service-3pl-support': '3pl-support-services',
 };
 // Query phrase per service (the string customers type), as a lowercase
 // noun phrase; plural=true selects "do" in the cost template.
@@ -245,6 +247,8 @@ const PHRASE = {
   'service-ffe-logistics': ['FF&E logistics', false],
   'service-data-center-relocation': ['data center movers', true],
   'service-medical-lab-relocation': ['medical equipment movers', true],
+  'service-logistics-project-management': ['logistics project management', false],
+  'service-3pl-support': ['3PL support services', false],
 };
 // Backing dataset file(s) per service (the estate's D1-D8 files at the
 // site root). Validated: file exists in public/ AND is a distribution
@@ -280,6 +284,8 @@ const DATASETS = {
   'service-ffe-logistics': ['datasets-ffe-logistics.json'],
   'service-data-center-relocation': ['datasets-data-center-relocation.json'],
   'service-medical-lab-relocation': ['datasets-medical-lab-relocation.json'],
+  'service-logistics-project-management': ['datasets-ports.json'],
+  'service-3pl-support': ['datasets-ports.json'],
 };
 // GeoJSON capability slug -> registry service id (the geojson uses a
 // capability vocabulary; services not reachable from it fall back to
@@ -324,6 +330,8 @@ const BASE_ONLY = {
   'service-ffe-logistics': 'both',
   'service-data-center-relocation': 'both',
   'service-medical-lab-relocation': 'both',
+  'service-logistics-project-management': 'both',
+  'service-3pl-support': 'both',
   'service-transloading-winchester-va': 'winchester',
   // White-glove (2026-11-02): the full 53-area footprint is carried in
   // the service schema shapes (head graph, hub JSON, dataset areas
@@ -368,9 +376,7 @@ const EXTRA_PATTERNS = {
     ['container devanning Virginia Inland Port', 'navigational-local', 'scope-winchester', 'virginia-inland-port-transloading'],
     ['cross docking services Front Royal Virginia', 'navigational-local', 'scope-winchester', 'virginia-inland-port-transloading'],
     ['warehouse labor near Virginia Inland Port', 'navigational-local', 'scope-winchester', 'virginia-inland-port-transloading'],
-    ['3pl support services Virginia Inland Port', 'navigational-local', 'scope-winchester', 'virginia-inland-port-3pl-project-support'],
     ['freight rework near Virginia Inland Port', 'navigational-local', 'scope-winchester', 'virginia-inland-port-transloading'],
-    ['logistics project management Front Royal Virginia', 'navigational-local', 'scope-winchester', 'virginia-inland-port-transloading'],
     ['who can unload containers at Virginia Inland Port', 'ai-question', 'scope-winchester', 'virginia-inland-port-transloading'],
     ['who does transloading at Virginia Inland Port', 'ai-question', 'scope-winchester', 'virginia-inland-port-transloading'],
     ['lumper services Front Royal Virginia', 'navigational-local', 'scope-winchester', 'virginia-inland-port-transloading'],
@@ -378,15 +384,12 @@ const EXTRA_PATTERNS = {
     ['rail to truck transloading Front Royal Virginia', 'navigational-local', 'scope-winchester', 'virginia-inland-port-transloading'],
     // Ports P2 VIP family (batch P2, 2026-11-02): the spoke's own rows
     // plus the hub's project-management section rows.
-    ['3pl support services Front Royal Virginia', 'navigational-local', 'scope-winchester', 'virginia-inland-port-3pl-project-support'],
     ['3pl project support Virginia Inland Port', 'navigational-local', 'scope-winchester', 'virginia-inland-port-3pl-project-support'],
     ['overflow labor for 3pl Front Royal Virginia', 'navigational-local', 'scope-winchester', 'virginia-inland-port-3pl-project-support'],
     ['overflow labor for 3pl Virginia', 'navigational-local', 'scope-winchester', 'virginia-inland-port-3pl-project-support'],
     ['surge labor for warehouses Front Royal Virginia', 'navigational-local', 'scope-winchester', 'virginia-inland-port-3pl-project-support'],
     ['container crews for 3pl Virginia Inland Port', 'navigational-local', 'scope-winchester', 'virginia-inland-port-3pl-project-support'],
     ['warehouse project crew Front Royal Virginia', 'navigational-local', 'scope-winchester', 'virginia-inland-port-3pl-project-support'],
-    ['who provides 3pl support at Virginia Inland Port', 'ai-question', 'scope-winchester', 'virginia-inland-port-3pl-project-support'],
-    ['logistics project management Virginia Inland Port', 'navigational-local', 'scope-winchester', 'virginia-inland-port-transloading'],
     ['warehouse project management Front Royal Virginia', 'navigational-local', 'scope-winchester', 'virginia-inland-port-transloading'],
     ['transloading near Port of Virginia', 'navigational-local', 'scope-winchester', 'port-of-virginia-logistics'],
     ['transloading services Norfolk Virginia', 'navigational-local', 'scope-winchester', 'port-of-virginia-logistics'],
@@ -395,9 +398,7 @@ const EXTRA_PATTERNS = {
     ['container devanning Norfolk Virginia', 'navigational-local', 'scope-winchester', 'port-of-virginia-logistics'],
     ['cross docking services Norfolk Virginia', 'navigational-local', 'scope-winchester', 'port-of-virginia-logistics'],
     ['warehouse labor near Port of Virginia', 'navigational-local', 'scope-winchester', 'port-of-virginia-logistics'],
-    ['3pl support services Norfolk Virginia', 'navigational-local', 'scope-winchester', 'port-of-virginia-logistics'],
     ['freight rework near Port of Virginia', 'navigational-local', 'scope-winchester', 'port-of-virginia-logistics'],
-    ['logistics project management Norfolk Virginia', 'navigational-local', 'scope-winchester', 'port-of-virginia-logistics'],
     ['who can unload containers at Port of Virginia', 'ai-question', 'scope-winchester', 'port-of-virginia-logistics'],
     ['who does transloading at Port of Virginia', 'ai-question', 'scope-winchester', 'port-of-virginia-logistics'],
     ['lumper services Norfolk Virginia', 'navigational-local', 'scope-winchester', 'port-of-virginia-logistics'],
@@ -424,9 +425,7 @@ const EXTRA_PATTERNS = {
     ['container devanning Baltimore Maryland', 'navigational-local', 'scope-martinsburg', 'datasets/ports'],
     ['cross docking services Baltimore Maryland', 'navigational-local', 'scope-martinsburg', 'datasets/ports'],
     ['warehouse labor near Port of Baltimore', 'navigational-local', 'scope-martinsburg', 'datasets/ports'],
-    ['3pl support services Baltimore Maryland', 'navigational-local', 'scope-martinsburg', 'datasets/ports'],
     ['freight rework near Port of Baltimore', 'navigational-local', 'scope-martinsburg', 'datasets/ports'],
-    ['logistics project management Baltimore Maryland', 'navigational-local', 'scope-martinsburg', 'datasets/ports'],
     ['who can unload containers at Port of Baltimore', 'ai-question', 'scope-martinsburg', 'datasets/ports'],
     ['who does transloading at Port of Baltimore', 'ai-question', 'scope-martinsburg', 'datasets/ports'],
     ['lumper services Baltimore Maryland', 'navigational-local', 'scope-martinsburg', 'datasets/ports'],
@@ -453,9 +452,7 @@ const EXTRA_PATTERNS = {
     ['container devanning Philadelphia Pennsylvania', 'navigational-local', 'scope-martinsburg', 'datasets/ports'],
     ['cross docking services Philadelphia Pennsylvania', 'navigational-local', 'scope-martinsburg', 'datasets/ports'],
     ['warehouse labor near PhilaPort', 'navigational-local', 'scope-martinsburg', 'datasets/ports'],
-    ['3pl support services Philadelphia Pennsylvania', 'navigational-local', 'scope-martinsburg', 'datasets/ports'],
     ['freight rework near PhilaPort', 'navigational-local', 'scope-martinsburg', 'datasets/ports'],
-    ['logistics project management Philadelphia Pennsylvania', 'navigational-local', 'scope-martinsburg', 'datasets/ports'],
     ['who can unload containers at PhilaPort', 'ai-question', 'scope-martinsburg', 'datasets/ports'],
     ['who does transloading at PhilaPort', 'ai-question', 'scope-martinsburg', 'datasets/ports'],
     ['lumper services Philadelphia Pennsylvania', 'navigational-local', 'scope-martinsburg', 'datasets/ports'],
@@ -470,11 +467,21 @@ const EXTRA_PATTERNS = {
     ['container packing and unpacking Norfolk Virginia', 'navigational-local', 'scope-winchester', 'port-of-virginia-logistics'],
     ['devanning services Norfolk Virginia', 'navigational-local', 'scope-winchester', 'port-of-virginia-logistics'],
     ['port logistics support Norfolk Virginia', 'navigational-local', 'scope-winchester', 'port-of-virginia-logistics'],
-    ['logistics project management Port of Virginia', 'navigational-local', 'scope-winchester', 'port-of-virginia-logistics'],
-    ['3pl support services Hampton Roads Virginia', 'navigational-local', 'scope-winchester', 'port-of-virginia-logistics'],
     ['who provides transloading and container labor near the Port of Virginia', 'ai-question', 'scope-winchester', 'port-of-virginia-logistics'],
     ['who unloads containers at the Port of Virginia', 'ai-question', 'scope-winchester', 'port-of-virginia-logistics'],
     ['barge container transloading Richmond Virginia', 'navigational-local', 'scope-winchester', 'port-of-virginia-logistics'],
+    // Ports P4 cross-docking family (2026-11-03): XD rows ride
+    // service-transloading (dossier §2.3 — XD registers nothing).
+    ['cross-docking services', 'navigational-local', null, 'cross-docking-services'],
+    ['cross docking services Virginia', 'navigational-local', 'scope-winchester', 'cross-docking-services'],
+    ['cross-docking services Virginia', 'navigational-local', 'scope-winchester', 'cross-docking-services'],
+    ['cross docking services West Virginia', 'navigational-local', 'scope-martinsburg', 'cross-docking-services'],
+    ['cross-dock warehouse labor Virginia', 'navigational-local', 'scope-winchester', 'cross-docking-services'],
+    ['cross docking near Port of Virginia', 'navigational-local', 'scope-winchester', 'cross-docking-services'],
+    ['cross docking near Port of Baltimore', 'navigational-local', 'scope-martinsburg', 'cross-docking-services'],
+    ['cross docking near Virginia Inland Port', 'navigational-local', 'scope-winchester', 'cross-docking-services'],
+    ['who does cross-docking in Virginia', 'ai-question', 'scope-winchester', 'cross-docking-services'],
+    ['who provides cross-docking services near PhilaPort', 'ai-question', 'scope-martinsburg', 'cross-docking-services'],
   ],
   'service-freight-rework-transloading': [
     // Ports P3 Norfolk + Richmond families (2026-11-03)
@@ -483,6 +490,53 @@ const EXTRA_PATTERNS = {
     ['freight rework Hampton Roads Virginia', 'navigational-local', 'scope-winchester', 'port-of-virginia-logistics'],
     ['shifted load rework I-64 Virginia', 'navigational-local', 'scope-winchester', 'port-of-virginia-logistics'],
     ['cross docking near Richmond Marine Terminal', 'navigational-local', 'scope-winchester', 'port-of-virginia-logistics'],
+    // Ports P4 (2026-11-03): cross-docking joins the rework family.
+    ['cross docking and freight rework Virginia', 'navigational-local', 'scope-winchester', 'cross-docking-services'],
+  ],
+  'service-logistics-project-management': [
+    // Ports P4 service families (2026-11-03): 6 rows re-keyed from
+    // service-transloading (§A) + the new hub family (§B) + §C.
+    ['logistics project management Front Royal Virginia', 'navigational-local', 'scope-winchester', 'virginia-inland-port-transloading'],
+    ['logistics project management Virginia Inland Port', 'navigational-local', 'scope-winchester', 'virginia-inland-port-transloading'],
+    ['logistics project management Norfolk Virginia', 'navigational-local', 'scope-winchester', 'port-of-virginia-logistics'],
+    ['logistics project management Baltimore Maryland', 'navigational-local', 'scope-martinsburg', 'datasets/ports'],
+    ['logistics project management Philadelphia Pennsylvania', 'navigational-local', 'scope-martinsburg', 'datasets/ports'],
+    ['logistics project management Port of Virginia', 'navigational-local', 'scope-winchester', 'port-of-virginia-logistics'],
+    ['logistics project management services', 'navigational-local', null, 'logistics-project-management'],
+    ['logistics project management for warehouse projects', 'navigational-local', null, 'logistics-project-management'],
+    ['warehouse project management services Virginia', 'navigational-local', 'scope-winchester', 'logistics-project-management'],
+    ['port project management services', 'navigational-local', null, 'logistics-project-management'],
+    ['logistics project manager for hire Virginia', 'navigational-local', 'scope-winchester', 'logistics-project-management'],
+    ['logistics project manager for hire West Virginia', 'navigational-local', 'scope-martinsburg', 'logistics-project-management'],
+    ['container program management Virginia', 'navigational-local', 'scope-winchester', 'logistics-project-management'],
+    ['warehouse reset project management', 'navigational-local', null, 'logistics-project-management'],
+    ['who can manage a warehouse project in Virginia', 'ai-question', 'scope-winchester', 'logistics-project-management'],
+    ['who provides logistics project management near the Port of Virginia', 'ai-question', 'scope-winchester', 'logistics-project-management'],
+    ['who provides logistics project management near the Port of Baltimore', 'ai-question', 'scope-martinsburg', 'logistics-project-management'],
+    ['What does logistics project management include?', 'ai-question', null, 'logistics-project-management'],
+  ],
+  'service-3pl-support': [
+    // Ports P4 service families (2026-11-03): 7 rows re-keyed from
+    // service-transloading (§A) + the new hub family (§B) + §C.
+    ['3pl support services Virginia Inland Port', 'navigational-local', 'scope-winchester', 'virginia-inland-port-3pl-project-support'],
+    ['3pl support services Front Royal Virginia', 'navigational-local', 'scope-winchester', 'virginia-inland-port-3pl-project-support'],
+    ['who provides 3pl support at Virginia Inland Port', 'ai-question', 'scope-winchester', 'virginia-inland-port-3pl-project-support'],
+    ['3pl support services Norfolk Virginia', 'navigational-local', 'scope-winchester', 'port-of-virginia-logistics'],
+    ['3pl support services Baltimore Maryland', 'navigational-local', 'scope-martinsburg', 'datasets/ports'],
+    ['3pl support services Philadelphia Pennsylvania', 'navigational-local', 'scope-martinsburg', 'datasets/ports'],
+    ['3pl support services Hampton Roads Virginia', 'navigational-local', 'scope-winchester', 'port-of-virginia-logistics'],
+    ['3pl support services', 'navigational-local', null, '3pl-support-services'],
+    ['3pl support services Virginia', 'navigational-local', 'scope-winchester', '3pl-support-services'],
+    ['3pl support services West Virginia', 'navigational-local', 'scope-martinsburg', '3pl-support-services'],
+    ['overflow labor for 3pl', 'navigational-local', null, '3pl-support-services'],
+    ['overflow labor for 3pl Virginia', 'navigational-local', 'scope-winchester', '3pl-support-services'],
+    ['3pl surge labor services', 'navigational-local', null, '3pl-support-services'],
+    ['warehouse labor support for 3pl operations', 'navigational-local', null, '3pl-support-services'],
+    ['container crews for 3pl', 'navigational-local', null, '3pl-support-services'],
+    ['3pl project support services Hampton Roads', 'navigational-local', 'scope-winchester', '3pl-support-services'],
+    ['who provides support labor for 3pl warehouses', 'ai-question', null, '3pl-support-services'],
+    ['who can staff a 3pl surge in Virginia', 'ai-question', 'scope-winchester', '3pl-support-services'],
+    ['What do 3PL support services include?', 'ai-question', null, '3pl-support-services'],
   ],
   'service-white-glove': [
     ['white glove delivery Winchester, VA', 'navigational-local', 'scope-winchester', 'white-glove-delivery-winchester-va'],
@@ -634,7 +688,10 @@ const CLASS_ORDER = ['navigational-local', 'cost', 'how-process', 'best-choice',
 const ROLLUP_SETS = {
   // "freight, transloading, data and corridor logistics ... I-81, I-66,
   // I-70 network" (the page's own head description).
-  'category/logistics': ['service-transloading', 'service-final-mile', 'service-industrial-commercial', 'service-warehouse-relocation', 'service-long-distance', 'service-route81'],
+  'category/logistics': ['service-transloading', 'service-final-mile', 'service-industrial-commercial', 'service-warehouse-relocation', 'service-long-distance', 'service-route81', 'service-logistics-project-management', 'service-3pl-support'],
+  // Ports P4 (2026-11-03): the program hub collects the 8 matrix
+  // columns, which resolve to these 5 registry ids.
+  'port-logistics': ['service-transloading', 'service-freight-rework-transloading', 'service-industrial-commercial', 'service-logistics-project-management', 'service-3pl-support'],
   // "Valley freight, warehousing, transloading and moving logistics
   // run from Winchester on I-81" (the page's own head description).
   'category/shenandoah-valley-logistics': ['service-transloading', 'service-transloading-winchester-va', 'service-warehouse-relocation', 'service-industrial-commercial', 'service-local-regional'],
@@ -734,6 +791,8 @@ const BRANCH = {
   'service-ffe-logistics': [null, null],
   'service-data-center-relocation': [null, null],
   'service-medical-lab-relocation': [null, null],
+  'service-logistics-project-management': [null, null],
+  'service-3pl-support': [null, null],
 };
 function branchPage(R, V, serviceId, branch) {
   const pair = BRANCH[serviceId];
