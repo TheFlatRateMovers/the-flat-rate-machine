@@ -2,7 +2,7 @@
  "description": "Seal-maintained lastmod ledger: for every sitemap URL, the date of the last seal generation in which its own signed distribution changed. Seeded from the 2026-11-02 crawl-demand audit (doc-level digest history across 73 signed generations); maintained by seal.py phase 6b (diff-stamp vs the phase-0 prior index). build-sitemap.js reads this file for every sitemap <lastmod>.",
  "lastSeal": {
   "date": "2026-11-04",
-  "indexSha256": "137ec184bc7ec8db5ef19dcec747ef21f2fe7d6a02f089613402efa7ef51282d"
+  "indexSha256": "703bee0a5df7273f2b98e9d8dbc926232d9297355f081b24203aa85499623c1d"
  },
  "seededFrom": "crawl-demand-audit-2026-11-02.csv",
  "urls": {
@@ -95,6 +95,8 @@
   "https://theflatratemovers.com/datasets-transloading-winchester.json": "2026-11-04",
   "https://theflatratemovers.com/datasets-transloading.json": "2026-11-04",
   "https://theflatratemovers.com/datasets-vault-door-case-study.json": "2026-11-04",
+  "https://theflatratemovers.com/datasets-vault-doors.json": "2026-11-04",
+  "https://theflatratemovers.com/datasets-vault-security.json": "2026-11-04",
   "https://theflatratemovers.com/datasets-videos.json": "2026-11-04",
   "https://theflatratemovers.com/datasets-warehouse-racking-relocation.json": "2026-11-04",
   "https://theflatratemovers.com/datasets-warehouse.json": "2026-11-04",
@@ -141,6 +143,8 @@
   "https://theflatratemovers.com/datasets/transloading-winchester/": "2026-11-04",
   "https://theflatratemovers.com/datasets/transloading/": "2026-11-04",
   "https://theflatratemovers.com/datasets/vault-door-case-study/": "2026-11-04",
+  "https://theflatratemovers.com/datasets/vault-doors/": "2026-11-04",
+  "https://theflatratemovers.com/datasets/vault-security/": "2026-11-04",
   "https://theflatratemovers.com/datasets/videos/": "2026-11-04",
   "https://theflatratemovers.com/datasets/warehouse-racking-relocation/": "2026-11-04",
   "https://theflatratemovers.com/datasets/warehouse/": "2026-11-04",
@@ -281,6 +285,8 @@
   "https://theflatratemovers.com/transloading-vs-cross-docking-vs-deconsolidation/": "2026-11-04",
   "https://theflatratemovers.com/transloading-winchester-va/": "2026-11-04",
   "https://theflatratemovers.com/transloading/": "2026-11-04",
+  "https://theflatratemovers.com/vault-door-classes-ul-608-gsa-class-5-v-explained/": "2026-11-04",
+  "https://theflatratemovers.com/vault-doors/": "2026-11-04",
   "https://theflatratemovers.com/videos/": "2026-11-04",
   "https://theflatratemovers.com/virginia-inland-port-3pl-project-support/": "2026-11-04",
   "https://theflatratemovers.com/virginia-inland-port-freight-transloading-operations/": "2026-11-04",

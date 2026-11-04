@@ -4929,7 +4929,7 @@
    "@id": "https://theflatratemovers.com/datasets/intent-coverage/#dataset",
    "@type": "Dataset",
    "name": "The Flat Rate Movers — Search Intent Coverage Operations Dataset",
-   "description": "The live intent-coverage rubric of The Flat Rate Movers: 3852 generated rows, each one a query string a customer or an AI assistant can use to find a company service, resolved to the exact page that answers it, that page’s per-page JSON, the dataset files behind the answer, and the service’s node in the entity graph. Rows are generated from the estate’s own registries — 32 services, 246 pages, two branch locations, three corridors and the 53-feature service-area footprint — plus the blog question bank’s 100 real question phrasings, and the rubric is regenerated whenever those registries change. Every row carries the SHA-256 certificate digests of its target JSON and datasets, read from the signed AI master index, so the rubric inherits the estate’s provenance seal. Coverage spans all 32 services of both branches, Winchester, VA and Martinsburg, WV, along the I-81, I-66 and I-70 corridors. Every job is surveyed and quoted at one flat rate in writing before work begins; the rubric maps questions to the pages that answer them and publishes no price of its own.",
+   "description": "The live intent-coverage rubric of The Flat Rate Movers: 4007 generated rows, each one a query string a customer or an AI assistant can use to find a company service, resolved to the exact page that answers it, that page’s per-page JSON, the dataset files behind the answer, and the service’s node in the entity graph. Rows are generated from the estate’s own registries — 33 services, 250 pages, two branch locations, three corridors and the 53-feature service-area footprint — plus the blog question bank’s 100 real question phrasings, and the rubric is regenerated whenever those registries change. Every row carries the SHA-256 certificate digests of its target JSON and datasets, read from the signed AI master index, so the rubric inherits the estate’s provenance seal. Coverage spans all 33 services of both branches, Winchester, VA and Martinsburg, WV, along the I-81, I-66 and I-70 corridors. Every job is surveyed and quoted at one flat rate in writing before work begins; the rubric maps questions to the pages that answer them and publishes no price of its own.",
    "url": "https://theflatratemovers.com/datasets/intent-coverage/",
    "sameAs": "https://theflatratemovers.com/datasets/intent-coverage/",
    "identifier": "https://doi.org/10.5281/zenodo.23818766",
@@ -10178,6 +10178,39 @@
    }
   },
   {
+   "@id": "https://theflatratemovers.com/#service-vault-door",
+   "@type": "Service",
+   "areaServed": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "description": "Vault doors and high-security enclosures delivered, relocated, and installed at any size, quoted at one flat rate agreed in writing before the job — specified from the door's own standards (UL 608 classes M/1/2/3, GSA Class 5-V / 5-A / 5-B under AA-D-600D, UL 768 lock groups, FF-L-2740B) and its verified weight, planned door by door: rough-opening and swing survey, clear-opening path proof, threshold and step transitions engineered, floor deflection analysis to L/360 inside the SIR 1,500 to 3,500 lb band, setting and leveling to the manufacturer's own installation requirements, with contents emptied first and the combination left in the owner's hands throughout. The standards figures the work is planned against are published as the vault security standards registry dataset, and the door models as the verified vault door models dataset. No locksmith or combination services. Dispatched from both branches — Winchester, VA and Martinsburg, WV.",
+   "isRelatedTo": [
+    {
+     "@id": "https://theflatratemovers.com/#service-gun-safe"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-sir-heavy"
+    },
+    {
+     "@id": "https://theflatratemovers.com/datasets/vault-security/#dataset-vault-security-standards"
+    },
+    {
+     "@id": "https://theflatratemovers.com/datasets/vault-doors/#dataset-vault-doors"
+    }
+   ],
+   "name": "Vault Door Relocation & Installation",
+   "provider": {
+    "@id": "https://theflatratemovers.com/#organization"
+   },
+   "serviceType": "Vault Door Relocation and Installation",
+   "url": "https://theflatratemovers.com/vault-doors/"
+  },
+  {
    "@id": "https://theflatratemovers.com/moving-antiques-and-museum-pieces/#post",
    "@type": "BlogPosting",
    "about": [
@@ -10300,6 +10333,211 @@
    "mainEntityOfPage": "https://theflatratemovers.com/white-glove-delivery-step-by-step/",
    "publisher": {
     "@id": "https://theflatratemovers.com/#organization"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/vault-door-classes-ul-608-gsa-class-5-v-explained/#post",
+   "@type": "BlogPosting",
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-vault-door"
+    }
+   ],
+   "author": {
+    "@type": "Person",
+    "name": "Henry Pitts Jr.",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://medium.com/@ratemovers",
+     "https://github.com/TheFlatRateMovers"
+    ],
+    "url": "https://theflatratemovers.com/author/henry-pitts-jr/"
+   },
+   "contentLocation": [
+    {
+     "@type": "Place",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.18711576,
+      "longitude": -78.1668352
+     },
+     "name": "The Flat Rate Movers — Winchester, VA"
+    },
+    {
+     "@type": "Place",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.48319665,
+      "longitude": -77.94760443
+     },
+     "name": "Flat Rate Movers Martinsburg WV"
+    }
+   ],
+   "dateModified": "2026-11-04T12:06:49-05:00",
+   "datePublished": "2026-11-04T12:06:49-05:00",
+   "description": "Vault door classes decoded from the standards' own text: UL 608's four classes and the section 1.3 explosives exclusion, GSA Class 5-V / 5-A / 5-B under AA-D-600D with the man-hours / man-minutes distinction, UL 768 lock groups with Group 2's missing hour figure, and FF-L-2740B — including the three errors the internet's charts get wrong, each corrected from the source.",
+   "editor": {
+    "@type": "Person",
+    "jobTitle": "Owner, The Flat Rate Movers",
+    "name": "Henry Pitts"
+   },
+   "headline": "Vault door classes, decoded: what UL 608, GSA Class 5-V, and the lock ratings actually promise",
+   "inLanguage": "en-US",
+   "isPartOf": {
+    "@id": "https://theflatratemovers.com/blog/#blog"
+   },
+   "mainEntityOfPage": "https://theflatratemovers.com/vault-door-classes-ul-608-gsa-class-5-v-explained/",
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/datasets/vault-doors/#dataset",
+   "@type": "Dataset",
+   "name": "Vault Door Models Dataset",
+   "description": "Verified manufacturer data for vault door models — the doors a relocation or installation is planned from. The population carries 8 models from 3 manufacturers (Liberty Safe, Fort Knox, Overly Door Company), with manufacturer-stated weights from 1,225 to 1,610 lbs; 2 of the weighed models fall inside the SIR band of 1,500 to 3,500 lbs. Every row states only what the manufacturer's own documents state: where a manufacturer does not publish a clear opening, a thickness, or a model price, the field is absent from the row and the reason is recorded on the row. The dataset grows by verified rows only; its count is the count the verification protocol has passed, stated as it stands.",
+   "url": "https://theflatratemovers.com/datasets/vault-doors/",
+   "sameAs": "https://theflatratemovers.com/datasets-vault-doors.json",
+   "identifier": "https://theflatratemovers.com/datasets/gun-safe/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "dateModified": "2026-11-04",
+   "temporalCoverage": "2010/2026",
+   "spatialCoverage": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "keywords": [
+    "vault door weight",
+    "how much does a vault door weigh",
+    "Liberty Beast vault door",
+    "Fort Knox vault door",
+    "Overly Class 5-V",
+    "Class 5-B vault door"
+   ],
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-vault-door"
+    },
+    {
+     "@id": "https://theflatratemovers.com/datasets/vault-doors/#dataset-vault-doors"
+    }
+   ],
+   "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/datasets/vault-security/#dataset",
+   "@type": "Dataset",
+   "name": "Vault Security Standards Registry Dataset",
+   "description": "The verified standards registry for vault doors and high-security enclosures. UL 608 classes M, 1, 2, and 3 carry net working times of 15, 30, 60, and 120 minutes against one identical attack basis — common mechanical tools, electric tools, cutting torches, or any combination — and UL 608 section 1.3 excludes attack with the burning bar (thermal lance) or explosives from every class. GSA Class 5-V under AA-D-600D requires resistance to 20 man-hours of surreptitious entry, 30 man-minutes of covert entry, and 10 man-minutes of forced entry, with no ballistic requirement; Class 5-A drops the surreptitious requirement; Class 5-B adds ballistic resistance tested to SD-STD-01.01 Rev. G level 2, and the specification names no test round. Door lock requirements are recorded as their own fields, never blended into the door figures: Class 5-V and 5-B doors carry a lock meeting FF-L-2740 (Style H or K), while Class 5-A's lock is a UL 768 Group 1 lock. The registry also carries three corrective notes where widely published charts contradict the standards' own text. Every row carries the primary source it was verified against on 2026-11-02.",
+   "url": "https://theflatratemovers.com/datasets/vault-security/",
+   "sameAs": "https://theflatratemovers.com/datasets-vault-security.json",
+   "identifier": "https://theflatratemovers.com/datasets/gun-safe/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "dateModified": "2026-11-04",
+   "temporalCoverage": "2010/2026",
+   "spatialCoverage": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "keywords": [
+    "UL 608 Class M",
+    "UL 608 Class 1",
+    "UL 608 Class 2",
+    "UL 608 Class 3",
+    "GSA Class 5-V",
+    "GSA Class 5-A",
+    "GSA Class 5-B",
+    "AA-D-600D",
+    "QPL-AA-D-600-12",
+    "vault door classes"
+   ],
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-vault-door"
+    },
+    {
+     "@id": "https://theflatratemovers.com/datasets/vault-security/#dataset-vault-security-standards"
+    }
+   ],
+   "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
    }
   }
  ],

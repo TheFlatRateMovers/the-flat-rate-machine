@@ -10,5 +10,7 @@
  "tools_dir": "/home/hatch/workspace/the-flat-rate-machine/repo-dir",
  "venv_py": "/home/hatch/workspace/the-flat-rate-machine/out/batch-naming/.venv/bin/python",
  "panel_observations_file": "/home/hatch/workspace/the-flat-rate-machine/data/panel-observations.json",
- "catalog_observations_file": "/home/hatch/workspace/the-flat-rate-machine/data/catalog-observations.json"
+ "catalog_observations_file": "/home/hatch/workspace/the-flat-rate-machine/data/catalog-observations.json",
+ "vault_security_standards_file": "/home/hatch/workspace/the-flat-rate-machine/data/vault-security-standards.json",
+ "vault_doors_research_file": "/home/hatch/workspace/the-flat-rate-machine/data/vault-doors-research.json"
 }

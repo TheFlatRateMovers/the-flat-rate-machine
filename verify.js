@@ -650,7 +650,7 @@ async function main() {
     skipLive('P-2 ai-master-index.jws verifies against the published key over the canonical served index');
     skipLive('P-3 all site-served distribution digests match the live served bytes');
     skipLive('P-4 every served index distribution entry is complete (name, contentUrl, encodingFormat, license, dateModified, SHA-256 digest + byteSize)');
-    skipLive('P-5 certificate covers all 248 per-page JSONs + all 246 route documents + llms-full.txt + the site shell + the deployed code sets (1073 distributions)');
+    skipLive('P-5 certificate covers all 252 per-page JSONs + all 250 route documents + llms-full.txt + the site shell + the deployed code sets (1093 distributions)');
     skipLive('P-6 all repo-served distribution digests match the live served bytes');
   } else {
   try {
@@ -951,14 +951,14 @@ async function main() {
       const missingCode = P2_CODE_URLS.filter((u) => !distUrls.has(u));
       const missingRoutes = pages.pages.map((p) => p.url).filter((u) => !distUrls.has(u));
       const hasLlmsFull = distUrls.has('https://theflatratemovers.com/llms-full.txt');
-      p5ok = !!servedIndex && pageFiles.length === 248 && missingPages.length === 0 && missingCode.length === 0 &&
+      p5ok = !!servedIndex && pageFiles.length === 252 && missingPages.length === 0 && missingCode.length === 0 &&
         missingRoutes.length === 0 && hasLlmsFull &&
-        (servedIndex.distribution || []).length === 1073; // 248 page files and 1073 distributions re-expressed 2026-11-04 (Blog Day 3 flagships): +2 page files (the antiques and white-glove flagships' per-page JSONs), +8 distributions (2 posts x route document + per-page JSON + data.json + data.txt), route documents 244 -> 246. Prior chain: 246 page files and 1065 distributions re-expressed 2026-11-03 (Catalog Registry): +1 page file (the catalog-registry dataset landing's per-page JSON), +6 distributions (the registry dataset file, the landing's route document + per-page JSON + data.json + data.txt, and the generator script build-catalog-registry.js), route documents 243 -> 244. Prior chain: 245 page files and 1059 distributions re-expressed 2026-11-03 (Ports P4): +4 page files (the four hubs’ per-page JSONs — logistics-project-management.json, 3pl-support-services.json, cross-docking-services.json and port-logistics-hub.json, the program hub’s seat renamed off the pre-existing category page’s /port-logistics.json), +16 distributions (4 pages × route document + per-page JSON + data.json + data.txt), route documents 239 -> 243. Prior chain: 241 page files and 1043 distributions re-expressed 2026-11-03 (Ports P3): +2 page files (the hub per-page JSON and the dataset landing JSON — the singular dataset- file counts in this census; the plural datasets- file is excluded by the prefix rule), +9 distributions (hub route document + per-page JSON + data.json + data.txt, landing route document + per-page JSON + data.json + data.txt, and the dataset file), route documents 237 -> 239. Prior chain: 239 page files and 1034 distributions re-expressed 2026-11-03 (Page Data wave): pages unchanged at 237 route documents; the root JSON census moves 237 -> 239 (the homepage's Page Data file data.json + page-data-scores.json join it) and the certificate total moves 558 -> 1034 (+474 per-page data files, +1 score file, +1 generator script); the P2 code set gains scripts/build-page-data.js in the same motion. Prior chain: 236 -> 237 and 555 -> 558 re-expressed 2026-11-03 (Page Data Pool): +1 page (the page-data-pool dataset landing), +3 distributions (dataset file, landing route document + per-page JSON); 234 -> 236 and 550 -> 555 re-expressed 2026-11-03 (Quote Tool): +2 pages (the quote tool guide + the quote-tool dataset landing), +5 distributions (page route document + per-page JSON, dataset file, landing route document + per-page JSON); // 233 -> 234 and 548 -> 550 re-expressed 2026-11-03 (Launch: Piano flagship): +1 page (the piano flagship post), +2 distributions (its route document + per-page JSON); 232 -> 233 and 546 -> 548 re-expressed 2026-11-03 (Launch: Gun Safe flagship): +1 page (the gun-safe flagship post), +2 distributions (its route document + per-page JSON); 231 -> 232 and 544 -> 546 re-expressed 2026-11-03 (Launch: Spec C announcement): +1 page (the dataset-estate announcement story), +2 distributions (its route document + per-page JSON); 229 -> 231 and 539 -> 544 re-expressed 2026-11-03 (VC-1 Vault Case Study): +2 pages (the vault door case-study post + the vault-door-case-study dataset landing), +5 distributions (post route document + per-page JSON, dataset file, landing route document + per-page JSON); 226 -> 227 and 530 -> 534 re-expressed 2026-11-02 (Ports P1 Foundation): +1 page (the /datasets/ports/ landing), +4 distributions (dataset file, landing JSON, route document, build-ports.js); 534 -> 535 re-expressed 2026-11-02 (Pulse): +1 distribution (the estate update feed, updates.xml); 227 -> 228 and 535 -> 537 re-expressed 2026-11-02 (Ports P2): +1 page (the Virginia Inland Port 3PL spoke), +2 distributions (spoke per-page JSON, spoke route document); 228 -> 229 and 537 -> 539 re-expressed 2026-11-02 (Ports P2 article A1): +1 page (who unloads containers at the Virginia Inland Port), +2 distributions (article per-page JSON, article route document)
+        (servedIndex.distribution || []).length === 1093; // 252 page files and 1093 distributions re-expressed 2026-11-04 (Vault Wave 1): +4 page files (the vault hub, flagship article, and two dataset landings' per-page JSONs), +20 distributions (4 pages x route document + per-page JSON + data.json + data.txt = 16, the two dataset files, and the two generator scripts build-vault-security.js + build-vault-doors.js), route documents 246 -> 250. Prior chain: 248 page files and 1073 distributions re-expressed 2026-11-04 (Blog Day 3 flagships): +2 page files (the antiques and white-glove flagships' per-page JSONs), +8 distributions (2 posts x route document + per-page JSON + data.json + data.txt), route documents 244 -> 246. Prior chain: 246 page files and 1065 distributions re-expressed 2026-11-03 (Catalog Registry): +1 page file (the catalog-registry dataset landing's per-page JSON), +6 distributions (the registry dataset file, the landing's route document + per-page JSON + data.json + data.txt, and the generator script build-catalog-registry.js), route documents 243 -> 244. Prior chain: 245 page files and 1059 distributions re-expressed 2026-11-03 (Ports P4): +4 page files (the four hubs’ per-page JSONs — logistics-project-management.json, 3pl-support-services.json, cross-docking-services.json and port-logistics-hub.json, the program hub’s seat renamed off the pre-existing category page’s /port-logistics.json), +16 distributions (4 pages × route document + per-page JSON + data.json + data.txt), route documents 239 -> 243. Prior chain: 241 page files and 1043 distributions re-expressed 2026-11-03 (Ports P3): +2 page files (the hub per-page JSON and the dataset landing JSON — the singular dataset- file counts in this census; the plural datasets- file is excluded by the prefix rule), +9 distributions (hub route document + per-page JSON + data.json + data.txt, landing route document + per-page JSON + data.json + data.txt, and the dataset file), route documents 237 -> 239. Prior chain: 239 page files and 1034 distributions re-expressed 2026-11-03 (Page Data wave): pages unchanged at 237 route documents; the root JSON census moves 237 -> 239 (the homepage's Page Data file data.json + page-data-scores.json join it) and the certificate total moves 558 -> 1034 (+474 per-page data files, +1 score file, +1 generator script); the P2 code set gains scripts/build-page-data.js in the same motion. Prior chain: 236 -> 237 and 555 -> 558 re-expressed 2026-11-03 (Page Data Pool): +1 page (the page-data-pool dataset landing), +3 distributions (dataset file, landing route document + per-page JSON); 234 -> 236 and 550 -> 555 re-expressed 2026-11-03 (Quote Tool): +2 pages (the quote tool guide + the quote-tool dataset landing), +5 distributions (page route document + per-page JSON, dataset file, landing route document + per-page JSON); // 233 -> 234 and 548 -> 550 re-expressed 2026-11-03 (Launch: Piano flagship): +1 page (the piano flagship post), +2 distributions (its route document + per-page JSON); 232 -> 233 and 546 -> 548 re-expressed 2026-11-03 (Launch: Gun Safe flagship): +1 page (the gun-safe flagship post), +2 distributions (its route document + per-page JSON); 231 -> 232 and 544 -> 546 re-expressed 2026-11-03 (Launch: Spec C announcement): +1 page (the dataset-estate announcement story), +2 distributions (its route document + per-page JSON); 229 -> 231 and 539 -> 544 re-expressed 2026-11-03 (VC-1 Vault Case Study): +2 pages (the vault door case-study post + the vault-door-case-study dataset landing), +5 distributions (post route document + per-page JSON, dataset file, landing route document + per-page JSON); 226 -> 227 and 530 -> 534 re-expressed 2026-11-02 (Ports P1 Foundation): +1 page (the /datasets/ports/ landing), +4 distributions (dataset file, landing JSON, route document, build-ports.js); 534 -> 535 re-expressed 2026-11-02 (Pulse): +1 distribution (the estate update feed, updates.xml); 227 -> 228 and 535 -> 537 re-expressed 2026-11-02 (Ports P2): +1 page (the Virginia Inland Port 3PL spoke), +2 distributions (spoke per-page JSON, spoke route document); 228 -> 229 and 537 -> 539 re-expressed 2026-11-02 (Ports P2 article A1): +1 page (who unloads containers at the Virginia Inland Port), +2 distributions (article per-page JSON, article route document)
       p5detail = 'pageFiles=' + pageFiles.length + ', missingPages=' + (missingPages.join(',') || '0') +
         ', missingCode=' + (missingCode.join(',') || '0') + ', missingRoutes=' + (missingRoutes.slice(0, 3).join(',') || '0') +
         ', llmsFull=' + hasLlmsFull + ', distributions=' + (servedIndex ? (servedIndex.distribution || []).length : 0);
     } catch (e) { p5ok = false; p5detail = e.message; }
-    check('P-5 certificate covers all 248 per-page JSONs + all 246 route documents + llms-full.txt + the site shell + the deployed code sets (1073 distributions)',
+    check('P-5 certificate covers all 252 per-page JSONs + all 250 route documents + llms-full.txt + the site shell + the deployed code sets (1093 distributions)',
       p5ok, p5detail);
 
     // P-6: repo-served distribution digests re-computed over live bytes
@@ -1780,8 +1780,8 @@ async function main() {
         for (const n of ns) if (n && n['@type'] === 'Dataset') { shellCountD++; checkNodeD(n, rel); }
       }
     }
-    check('D-2 every Dataset node (dataset files + all 246 route documents) carries landing url/unique sameAs, an identifier, isAccessibleForFree, typed distributions and a self-referencing DataDownload',
-      badNodesD.length === 0 && shellCountD === 390 && routeDocsD.length === 246, // 390 Dataset instances (unchanged) and 244 -> 246 route documents re-expressed 2026-11-04 (Blog Day 3 flagships): +2 route documents = the two flagship posts (their graphs carry no Dataset node, so the 390 instance count stands); build-routes.js D-2 pin reviewed in the same motion (count unchanged) // 383 -> 390 Dataset instances and 243 -> 244 route documents re-expressed 2026-11-03 (Catalog Registry): +7 instances = the 7 Dataset-typed nodes of datasets-catalog-registry.json embedded in the new landing route document; +1 route document = the catalog registry landing; build-routes.js D-2 pin moved in the same motion // 381 -> 383 Dataset instances re-expressed 2026-11-03 (Ports P4): +2 = the two new services’ intent-coverage nodes in the re-synced intent landing embed; build-routes.js D-2 pin moved in the same motion // 239 -> 243 route documents re-expressed 2026-11-03 (Ports P4): +4 route documents = the four service hubs (/port-logistics/, /logistics-project-management/, /3pl-support-services/, /cross-docking-services/); their embedded ports-master graphs ride the page-jsonld seat the walker skips, so the 381 Dataset-instance count stands; build-routes.js D-2 pin reviewed in the same motion (count unchanged) // 377 -> 381 and 237 -> 239 re-expressed 2026-11-03 (Ports P3): +4 Dataset instances = the summary + coverage nodes of datasets-port-of-virginia.json embedded in two route documents (the /port-of-virginia-logistics/ hub and the /datasets/port-of-virginia/ landing); +2 route documents = the hub and the dataset landing; build-routes.js D-2 pin moved in the same motion // 376 -> 377 and 236 -> 237 re-expressed 2026-11-03 (Page Data Pool): +1 Dataset instance = the summary node of datasets-page-data-pool.json embedded in its landing route document (the pool file's other Dataset-typed records are nested inside ItemLists and do not count); +1 route document = the pool landing; build-routes.js D-2 pin moved in the same motion // 374 -> 376 and 234 -> 236 re-expressed 2026-11-03 (Quote Tool): +2 Dataset instances = the summary + coverage-rubric nodes of datasets-quote-tool.json embedded in its landing route document; +2 route documents = the quote tool guide and the dataset landing; build-routes.js D-2 pin moved in the same motion // 233 -> 234 route documents re-expressed 2026-11-03 (Launch: Piano flagship): +1 route document = the piano flagship post (its graph carries no Dataset node, so the 374 instance count stands); // 232 -> 233 route documents re-expressed 2026-11-03 (Launch: Gun Safe flagship): +1 route document = the gun-safe flagship post (its graph carries no Dataset node, so the 374 instance count stands); // 231 -> 232 route documents re-expressed 2026-11-03 (Launch: Spec C announcement): +1 route document = the announcement post (its graph carries no Dataset node, so the 374 instance count stands); // 372 -> 374 and 229 -> 231 re-expressed 2026-11-03 (VC-1 Vault Case Study): +2 Dataset instances = the summary + case-record nodes of datasets-vault-door-case-study.json embedded in its landing route document; +2 route documents = the case-study post and the dataset landing; build-routes.js D-2 pin moved in the same motion // 368 -> 372 and 226 -> 227 re-expressed 2026-11-02 (Ports P1 Foundation): +4 Dataset instances = the ports master + coverage-matrix nodes of datasets-ports.json embedded in two route documents (the /datasets/ports/ landing and the /transloading/ hub); +1 route document = the ports landing; build-routes.js D-2 pin moved in the same motion; 227 -> 228 route documents re-expressed 2026-11-02 (Ports P2): +1 route document = the Virginia Inland Port 3PL spoke (its graph carries no Dataset node, so the 372 shell count stands); build-routes.js D-2 pin reviewed in the same motion (count unchanged); 228 -> 229 route documents re-expressed 2026-11-02 (Ports P2 article A1): +1 route document = the A1 article (its graph carries no Dataset node, so the 372 shell count stands)
+    check('D-2 every Dataset node (dataset files + all 250 route documents) carries landing url/unique sameAs, an identifier, isAccessibleForFree, typed distributions and a self-referencing DataDownload',
+      badNodesD.length === 0 && shellCountD === 394 && routeDocsD.length === 250, // 394 Dataset instances and 250 route documents re-expressed 2026-11-04 (Vault Wave 1): +4 Dataset instances = the vault-security landing embed's 2 file Dataset nodes (registry + locking), the vault-doors landing embed's 1 file Dataset node (door models), and the new #intent-coverage-vault-door coverage node in the re-synced intent landing embed — the two landings' authored per-page Dataset nodes ride the data-page-json seat this walker skips, and the batch's first derivation (396) counted them in error; corrected to the measured 394 at the phase-5 gate; +4 route documents = the vault hub, the flagship article, and the two dataset landings; build-routes.js D-2 pin moved in the same motion. Prior chain: 390 Dataset instances (unchanged) and 244 -> 246 route documents re-expressed 2026-11-04 (Blog Day 3 flagships): +2 route documents = the two flagship posts (their graphs carry no Dataset node, so the 390 instance count stands); build-routes.js D-2 pin reviewed in the same motion (count unchanged) // 383 -> 390 Dataset instances and 243 -> 244 route documents re-expressed 2026-11-03 (Catalog Registry): +7 instances = the 7 Dataset-typed nodes of datasets-catalog-registry.json embedded in the new landing route document; +1 route document = the catalog registry landing; build-routes.js D-2 pin moved in the same motion // 381 -> 383 Dataset instances re-expressed 2026-11-03 (Ports P4): +2 = the two new services’ intent-coverage nodes in the re-synced intent landing embed; build-routes.js D-2 pin moved in the same motion // 239 -> 243 route documents re-expressed 2026-11-03 (Ports P4): +4 route documents = the four service hubs (/port-logistics/, /logistics-project-management/, /3pl-support-services/, /cross-docking-services/); their embedded ports-master graphs ride the page-jsonld seat the walker skips, so the 381 Dataset-instance count stands; build-routes.js D-2 pin reviewed in the same motion (count unchanged) // 377 -> 381 and 237 -> 239 re-expressed 2026-11-03 (Ports P3): +4 Dataset instances = the summary + coverage nodes of datasets-port-of-virginia.json embedded in two route documents (the /port-of-virginia-logistics/ hub and the /datasets/port-of-virginia/ landing); +2 route documents = the hub and the dataset landing; build-routes.js D-2 pin moved in the same motion // 376 -> 377 and 236 -> 237 re-expressed 2026-11-03 (Page Data Pool): +1 Dataset instance = the summary node of datasets-page-data-pool.json embedded in its landing route document (the pool file's other Dataset-typed records are nested inside ItemLists and do not count); +1 route document = the pool landing; build-routes.js D-2 pin moved in the same motion // 374 -> 376 and 234 -> 236 re-expressed 2026-11-03 (Quote Tool): +2 Dataset instances = the summary + coverage-rubric nodes of datasets-quote-tool.json embedded in its landing route document; +2 route documents = the quote tool guide and the dataset landing; build-routes.js D-2 pin moved in the same motion // 233 -> 234 route documents re-expressed 2026-11-03 (Launch: Piano flagship): +1 route document = the piano flagship post (its graph carries no Dataset node, so the 374 instance count stands); // 232 -> 233 route documents re-expressed 2026-11-03 (Launch: Gun Safe flagship): +1 route document = the gun-safe flagship post (its graph carries no Dataset node, so the 374 instance count stands); // 231 -> 232 route documents re-expressed 2026-11-03 (Launch: Spec C announcement): +1 route document = the announcement post (its graph carries no Dataset node, so the 374 instance count stands); // 372 -> 374 and 229 -> 231 re-expressed 2026-11-03 (VC-1 Vault Case Study): +2 Dataset instances = the summary + case-record nodes of datasets-vault-door-case-study.json embedded in its landing route document; +2 route documents = the case-study post and the dataset landing; build-routes.js D-2 pin moved in the same motion // 368 -> 372 and 226 -> 227 re-expressed 2026-11-02 (Ports P1 Foundation): +4 Dataset instances = the ports master + coverage-matrix nodes of datasets-ports.json embedded in two route documents (the /datasets/ports/ landing and the /transloading/ hub); +1 route document = the ports landing; build-routes.js D-2 pin moved in the same motion; 227 -> 228 route documents re-expressed 2026-11-02 (Ports P2): +1 route document = the Virginia Inland Port 3PL spoke (its graph carries no Dataset node, so the 372 shell count stands); build-routes.js D-2 pin reviewed in the same motion (count unchanged); 228 -> 229 route documents re-expressed 2026-11-02 (Ports P2 article A1): +1 route document = the A1 article (its graph carries no Dataset node, so the 372 shell count stands)
       'files + ' + shellCountD + ' route-document instances across ' + routeDocsD.length + ' documents' + (badNodesD.length ? ', bad: ' + badNodesD.slice(0, 4).join('; ') : ''));
     // D-3: local sitemap architecture — sitemap.xml is an index whose
     // children are exactly the three section sitemaps plus the news
@@ -4158,7 +4158,7 @@ async function main() {
     // 'catalog-registry': '2026-11-03' added — the table now covers
     // all 45 dataset files.
     {
-      const DATES = { 'answer-evidence': '2026-10-31', 'archive-registry': '2026-11-01', 'commercial': '2026-10-29', 'crating': '2026-10-29', 'crawl-presence': '2026-10-31', 'data-center-relocation': '2026-10-30', 'ffe-logistics': '2026-10-30', 'final-mile': '2026-10-29', 'freight-rework': '2026-11-01', 'government': '2026-10-29', 'gun-safe': '2026-10-29', 'industrial-commercial': '2026-10-29', 'industrial-offices': '2026-10-29', 'intent-coverage': '2026-10-30', 'ispm15': '2026-10-29', 'it': '2026-10-29', 'junk-removal': '2026-10-30', 'local-graph-registry': '2026-10-31', 'local-regional': '2026-10-29', 'long-distance': '2026-10-29', 'medical-lab-relocation': '2026-10-30', 'military': '2026-10-29', 'moving-and-storage': '2026-10-29', 'ocean-container': '2026-10-29', 'office': '2026-10-29', 'packing': '2026-10-29', 'piano-antique': '2026-10-29', 'ports': '2026-11-02', 'port-of-virginia': '2026-11-03', 'residential': '2026-10-29', 'route81': '2026-10-29', 'search-index': '2026-10-31', 'senior': '2026-10-29', 'sir-heavy': '2026-10-29', 'transloading': '2026-10-29', 'transloading-inland-port': '2026-10-30', 'transloading-winchester': '2026-10-29', 'vault-door-case-study': '2026-11-03', 'videos': '2026-10-29', 'warehouse': '2026-10-29', 'warehouse-racking-relocation': '2026-10-30', 'white-glove': '2026-11-02', 'quote-tool': '2026-11-03', 'page-data-pool': '2026-11-03', 'catalog-registry': '2026-11-03' };
+      const DATES = { 'answer-evidence': '2026-10-31', 'archive-registry': '2026-11-01', 'commercial': '2026-10-29', 'crating': '2026-10-29', 'crawl-presence': '2026-10-31', 'data-center-relocation': '2026-10-30', 'ffe-logistics': '2026-10-30', 'final-mile': '2026-10-29', 'freight-rework': '2026-11-01', 'government': '2026-10-29', 'gun-safe': '2026-10-29', 'industrial-commercial': '2026-10-29', 'industrial-offices': '2026-10-29', 'intent-coverage': '2026-10-30', 'ispm15': '2026-10-29', 'it': '2026-10-29', 'junk-removal': '2026-10-30', 'local-graph-registry': '2026-10-31', 'local-regional': '2026-10-29', 'long-distance': '2026-10-29', 'medical-lab-relocation': '2026-10-30', 'military': '2026-10-29', 'moving-and-storage': '2026-10-29', 'ocean-container': '2026-10-29', 'office': '2026-10-29', 'packing': '2026-10-29', 'piano-antique': '2026-10-29', 'ports': '2026-11-02', 'port-of-virginia': '2026-11-03', 'residential': '2026-10-29', 'route81': '2026-10-29', 'search-index': '2026-10-31', 'senior': '2026-10-29', 'sir-heavy': '2026-10-29', 'transloading': '2026-10-29', 'transloading-inland-port': '2026-10-30', 'transloading-winchester': '2026-10-29', 'vault-door-case-study': '2026-11-03', 'videos': '2026-10-29', 'warehouse': '2026-10-29', 'warehouse-racking-relocation': '2026-10-30', 'white-glove': '2026-11-02', 'quote-tool': '2026-11-03', 'page-data-pool': '2026-11-03', 'catalog-registry': '2026-11-03', 'vault-security': '2026-11-04', 'vault-doors': '2026-11-04' }; // Vault Wave 1 (2026-11-04): the two vault dataset files' first publication — the table now covers all 47 dataset files
       const VM = new Set(['intent-coverage', 'search-index', 'answer-evidence', 'crawl-presence', 'local-graph-registry', 'archive-registry']);
       const NO_SC = new Set(['archive-registry', 'crawl-presence', 'local-graph-registry', 'catalog-registry']); // +'catalog-registry' 2026-11-03 (Catalog Registry batch): the fourth standing registry file joins the registry-class no-spatialCoverage set
       const bad = [];
@@ -4182,7 +4182,7 @@ async function main() {
           if (bad.length > 6) break;
         }
       }
-      check('CV-6 enrichment complete on all 45 dataset files (datePublished per the sourced table, catalog pointer, variableMeasured on exactly the six measurement files, full-Place spatialCoverage except the four registry files, version nowhere; Q124: videos a full citizen, no exemptions)',
+      check('CV-6 enrichment complete on all 47 dataset files (datePublished per the sourced table, catalog pointer, variableMeasured on exactly the six measurement files, full-Place spatialCoverage except the four registry files, version nowhere; Q124: videos a full citizen, no exemptions)',
         bad.length === 0, bad.slice(0, 4).join('; ') || '45 files enriched per table');
     }
 
@@ -5507,6 +5507,140 @@ async function main() {
       check('CI-6 derived-copy sync reports zero date drift (sync-derived-copies --check)', ok, detail);
     }
   } catch (e) { check('§42 Copy Integrity gates CI-1..CI-7 execute', false, String(e && e.message || e).slice(0, 240)); }
+}
+
+/* ==== 43. Vault Security VS-1..VS-5 (Vault Wave 1 batch, 2026-11-04).
+ * The vault category's standing gates, from the program dossier's
+ * verification spec: VS-1 recomputes the standards registry from the
+ * research store; VS-2 re-runs the door-model admission protocol over
+ * the published file; VS-3 scans the category surfaces for claims the
+ * company does not hold; VS-4 reconciles the intent-rubric family
+ * against the registry and the API record; VS-5 pins the hub's schema
+ * inventory. The quote-segment pin inside the spec's VS-5 is the
+ * estate's standing W-2 check (already gated); it is not duplicated
+ * here. All five run on local evidence, in --local mode too. ==== */
+{
+  try {
+    const readJV = (p) => JSON.parse(fs.readFileSync(p, 'utf8'));
+    const canonV = (v) => Array.isArray(v) ? '[' + v.map(canonV).join(',') + ']'
+      : (v && typeof v === 'object') ? '{' + Object.keys(v).sort().map((k) => JSON.stringify(k) + ':' + canonV(v[k])).join(',') + '}'
+      : JSON.stringify(v);
+    const stdStore = readJV(path.join(ROOT, 'data', 'vault-security-standards.json'));
+    const doorStore = readJV(path.join(ROOT, 'data', 'vault-doors-research.json'));
+    const secFile = readJV(path.join(PAGES_PUBLIC, 'datasets-vault-security.json'));
+    const doorFile = readJV(path.join(PAGES_PUBLIC, 'datasets-vault-doors.json'));
+    const nodeById = (doc, suf) => doc['@graph'].find((n) => (n['@id'] || '').endsWith(suf));
+
+    /* VS-1 — standards recompute from the store. */
+    {
+      const reg = nodeById(secFile, '#dataset-vault-security-standards');
+      const lock = nodeById(secFile, '#dataset-vault-security-locking');
+      const sameReg = canonV(reg.standardsRegistry) === canonV(stdStore.standardsRegistry);
+      const sameLock = canonV(lock.lockingSystems) === canonV(stdStore.lockingSystems);
+      const sameNotes = canonV(reg.correctiveNotes) === canonV(stdStore.correctiveNotes);
+      const ul = Object.fromEntries(reg.standardsRegistry.filter((r) => r.system === 'UL 608').map((r) => [r.class, r.netWorkingTimeMinutes]));
+      const ulOk = ul['Class M'] === 15 && ul['Class 1'] === 30 && ul['Class 2'] === 60 && ul['Class 3'] === 120; // registry class values carry the 'Class ' prefix (check corrected 2026-11-04)
+      const vRow = reg.standardsRegistry.find((r) => r.class === 'Class 5-V');
+      const aRow = reg.standardsRegistry.find((r) => r.class === 'Class 5-A');
+      const figOk = vRow.ballistic === 'none specified' // store field is 'ballistic' (check corrected 2026-11-04 to the store's actual field name)
+        && /FF-L-2740/.test(vRow.lockRequirement || '') && /Group 1/.test(aRow.lockRequirement || '');
+      const g2 = lock.lockingSystems.find((r) => /UL 768/.test(r.system || '') && r.rating === 'Group 2'); // locking rows key the group as 'rating' (corrected 2026-11-04)
+      const g2Ok = !!g2 && g2.manipulationHours === null;
+      let ballisticField = false;
+      const scanKeys = (o) => { if (Array.isArray(o)) o.forEach(scanKeys); else if (o && typeof o === 'object') for (const [k, v] of Object.entries(o)) { if (/ballistic_?rating/i.test(k)) ballisticField = true; scanKeys(v); } };
+      scanKeys(secFile);
+      check('VS-1 standards registry recompute: published payloads equal the research store; UL 608 minutes 15/30/60/120; 5-V ballistic none specified; lock requirements split; Group 2 hours null; no ballisticRating field',
+        sameReg && sameLock && sameNotes && ulOk && figOk && g2Ok && !ballisticField,
+        'registry equal: ' + sameReg + '; locking equal: ' + sameLock + '; notes equal: ' + sameNotes + '; UL minutes: ' + JSON.stringify(ul) + '; 5-V/5-A figures: ' + figOk + '; Group 2 null: ' + g2Ok + '; ballisticRating field present: ' + ballisticField);
+    }
+
+    /* VS-2 — door-model admission re-run over the published file. */
+    {
+      const dnode = nodeById(doorFile, '#dataset-vault-doors');
+      const admitted = new Map(doorStore.admitted.map((r) => [r.manufacturer.name + '|' + r.model, r]));
+      const errs = [];
+      for (const row of dnode.doorModels) {
+        const key = row.manufacturer.name + '|' + row.model;
+        if (!admitted.has(key)) { errs.push(key + ': not in the store admitted list'); continue; }
+        const v = row.verification || {};
+        for (const f of ['specSheetUrl', 'listingEvidence', 'verifiedDate', 'verifier']) if (!v[f]) errs.push(key + ': verification.' + f + ' missing');
+        if (row.priceUSD != null && !(row.priceSource && row.priceObservedDate)) errs.push(key + ': price without source/date');
+        const band = row.overallWeightLbs >= 1500 && row.overallWeightLbs <= 3500;
+        if (!row.weightBand || row.weightBand.sirBand !== band) errs.push(key + ': sirBand mismatch');
+      }
+      check('VS-2 door admission: every published row is in the store admitted list with a complete verification block, the price rule holds, and sirBand recomputes from weight',
+        errs.length === 0 && dnode.doorModels.length === doorStore.admitted.length,
+        dnode.doorModels.length + ' published rows vs ' + doorStore.admitted.length + ' admitted; errors: ' + errs.slice(0, 4).join(' ;; '));
+    }
+
+    /* VS-3 — no-claim scan over the category surfaces. */
+    {
+      const surfaces = ['vault-doors.json', 'dataset-vault-security.json', 'dataset-vault-doors.json', 'datasets-vault-security.json', 'datasets-vault-doors.json']
+        .map((f) => fs.readFileSync(path.join(PAGES_PUBLIC, f), 'utf8')).join('\n');
+      const bad = [];
+      if (/(we are|company is|the company is|movers are)\s+(UL|GSA|QPL)[^.\n]{0,40}(listed|approved|certified)/i.test(surfaces)) bad.push('company-certification phrasing');
+      const lockHits = [...surfaces.matchAll(/locksmith/gi)].filter((m) => !/(no locksmith|locksmith and manufacturer work)/i.test(surfaces.slice(Math.max(0, m.index - 80), m.index + 80))); // boundary markers (corrected 2026-11-04): the category's two attested forms negate or attribute the work to locksmiths/manufacturers
+      if (lockHits.length) bad.push('locksmith offered (' + lockHits.length + ')');
+      const vTxt = JSON.stringify(vRow2(secFile));
+      function vRow2(doc) { const reg = nodeById(doc, '#dataset-vault-security-standards'); return reg.standardsRegistry.find((r) => r.class === 'Class 5-V'); }
+      if (/\b(9\s?mm|\.45|5\.56|7\.62|calibre|caliber)\b/i.test(vTxt)) bad.push('ballistic round token on the 5-V row');
+      if (/Group 2[^"]{0,80}\b\d+\s*(man-)?hours/i.test(JSON.stringify(nodeById(secFile, '#dataset-vault-security-locking')))) bad.push('assertive Group 2 hour figure in the locking payload');
+      check('VS-3 no-claim scan: no company UL/GSA/QPL certification phrasing, locksmith never offered, no ballistic round on the 5-V row, no assertive Group 2 hour figure',
+        bad.length === 0, bad.join(' ;; ') || 'clean');
+    }
+
+    /* VS-4 — rubric reconciliation for the vault family. */
+    {
+      const intent = readJV(path.join(PAGES_PUBLIC, 'datasets-intent-coverage.json'));
+      const fam = intent['@graph'].find((n) => (n['@id'] || '').endsWith('#intent-coverage-vault-door'));
+      let rows = [];
+      try { // rows live in rubric.db intent_query — the coverage file carries nodes and totals only (extraction corrected 2026-11-04)
+        const { execSync } = require('child_process');
+        const dbPath = path.resolve(ROOT, '..', 'theflatratemovers', 'rubric.db');
+        const vsSql = "SELECT target_url, dataset_ids FROM intent_query WHERE service_id = 'service-vault-door';";
+        const out = execSync('sqlite3 -json "' + dbPath + '" "' + vsSql + '"').toString();
+        rows = JSON.parse(out).map((r) => ({ targetPage: r.target_url, datasetIds: JSON.parse(r.dataset_ids || '[]') }));
+      } catch (_) { rows = []; }
+      const pagesReg = readJV(path.join(ROOT, 'data', 'pages.json'));
+      const slugs = new Set((pagesReg.pages || pagesReg).map((p) => p.slug));
+      const allowedDs = new Set(['datasets-vault-security.json', 'datasets-vault-doors.json', 'datasets-gun-safe.json']);
+      let badTargets = 0, badDs = 0;
+      for (const r of rows) {
+        const t = r.targetPage || r.target || r.page || '';
+        const slug = String(t).replace(/^https:\/\/theflatratemovers\.com\//, '').replace(/\/$/, '');
+        if (slug && !slugs.has(slug) && !slugs.has('datasets/' + slug)) badTargets++;
+        const ds = r.datasetIds || r.datasets || r.datasetFiles || [];
+        for (const d of ds) if (!allowedDs.has(d)) badDs++;
+      }
+      let apiCount = null;
+      try {
+        const apiSvc = readJV(path.join(ROOT, '..', 'theflatratemovers', 'api-worker', 'data', 'services.json'));
+        const rec = (Array.isArray(apiSvc) ? apiSvc : apiSvc.services || []).find((x) => x.id === 'service-vault-door');
+        if (rec) apiCount = rec.intentRowCount;
+      } catch (_) { /* API staging absent pre-staging: count equality judged when the record exists */ }
+      check('VS-4 rubric reconciliation: the vault family exists, every target is a registry page, dataset references stay inside the three-file set, and the API record count equals the family count',
+        !!fam && rows.length > 0 && badTargets === 0 && badDs === 0 && (apiCount === null || apiCount === rows.length),
+        'family rows: ' + rows.length + '; bad targets: ' + badTargets + '; bad dataset refs: ' + badDs + '; API intentRowCount: ' + apiCount);
+    }
+
+    /* VS-5 — hub schema inventory (active from this seal: the hub ships here). */
+    {
+      const hub = readJV(path.join(PAGES_PUBLIC, 'vault-doors.json'));
+      const g = hub['@graph'];
+      const types = g.map((n) => n['@type']);
+      const svc = g.find((n) => n['@type'] === 'Service');
+      const places = g.filter((n) => n['@type'] === 'Place');
+      const faq = g.find((n) => n['@type'] === 'FAQPage');
+      const refs = JSON.stringify([svc && svc.subjectOf, svc && svc.mentions]);
+      const inv = types.includes('WebPage') && !!svc && types.includes('Organization') && types.includes('BreadcrumbList')
+        && places.length === 2 && new Set(places.map((p) => p['@id'])).size === 2
+        && !!faq && faq.mainEntity.length === 10
+        && refs.includes('#dataset-vault-security-standards') && refs.includes('#dataset-vault-doors');
+      const banned = types.includes('Product') || types.includes('Offer') || !!(svc && ('aggregateRating' in svc || 'offers' in svc)); // scoped 2026-11-04: branch Place nodes carry their own Google ratings estate-wide; the ban is on Product/Offer nodes and any rating/offer on the vault Service
+      check('VS-5 hub schema inventory: WebPage + Service + Organization + two distinct branch Places + BreadcrumbList + 10-question FAQPage; the Service references both vault datasets; no Product/Offer node and no rating or offer on the Service',
+        inv && !banned, 'types: ' + types.join(',') + '; banned type present: ' + banned);
+    }
+  } catch (e) { check('§43 Vault Security gates VS-1..VS-5 execute', false, String(e && e.message || e).slice(0, 240)); }
 }
 
   // --- 9. Guardrail scan: no placeholders, no invented license identifiers ---

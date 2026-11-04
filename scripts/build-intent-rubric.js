@@ -214,6 +214,7 @@ const HUB = {
   'service-medical-lab-relocation': 'medical-lab-equipment-relocation',
   'service-logistics-project-management': 'logistics-project-management',
   'service-3pl-support': '3pl-support-services',
+  'service-vault-door': 'vault-doors', // Vault V1 (Wave 1) 2026-11-04 — service #33
 };
 // Query phrase per service (the string customers type), as a lowercase
 // noun phrase; plural=true selects "do" in the cost template.
@@ -250,6 +251,7 @@ const PHRASE = {
   'service-medical-lab-relocation': ['medical equipment movers', true],
   'service-logistics-project-management': ['logistics project management', false],
   'service-3pl-support': ['3PL support services', false],
+  'service-vault-door': ['vault door movers', true], // Vault V1 2026-11-04
 };
 // Backing dataset file(s) per service (the estate's D1-D8 files at the
 // site root). Validated: file exists in public/ AND is a distribution
@@ -287,6 +289,7 @@ const DATASETS = {
   'service-medical-lab-relocation': ['datasets-medical-lab-relocation.json'],
   'service-logistics-project-management': ['datasets-ports.json'],
   'service-3pl-support': ['datasets-ports.json'],
+  'service-vault-door': ['datasets-vault-security.json', 'datasets-vault-doors.json', 'datasets-gun-safe.json'], // Vault V1 2026-11-04
 };
 // GeoJSON capability slug -> registry service id (the geojson uses a
 // capability vocabulary; services not reachable from it fall back to
@@ -341,7 +344,11 @@ const BASE_ONLY = {
   // both branch features + scoped rows + page rows. No GeoJSON
   // capability token was added: service-area.geojson's SHA-256 is
   // embedded in per-page JSONs and dataset distributions estate-wide.
-  'service-white-glove': 'both'
+  'service-white-glove': 'both',
+  // Vault door (2026-11-04): both branches dispatch, no branch binding
+  // (registration spec section 2); the BASE_ONLY 'both' pattern applies
+  // exactly as for gun-safe and white-glove. No GeoJSON capability token.
+  'service-vault-door': 'both'
 };
 // EXTRA_PATTERNS (Head-Hub Programme / F4, 2026-11-02): explicit bound
 // rows for money phrasings the template families do not generate — the
@@ -515,6 +522,77 @@ const EXTRA_PATTERNS = {
     ['who provides logistics project management near the Port of Virginia', 'ai-question', 'scope-winchester', 'logistics-project-management'],
     ['who provides logistics project management near the Port of Baltimore', 'ai-question', 'scope-martinsburg', 'logistics-project-management'],
     ['What does logistics project management include?', 'ai-question', null, 'logistics-project-management'],
+  ],
+  // Vault V1 seed + hub family (2026-11-04, registration spec §6): seed rows
+  // target the two dataset landings; hub rows target /vault-doors/. Model
+  // questions regenerate from the admitted door rows (8 at V1).
+  'service-vault-door': [
+    ['vault door standards', 'navigational-local', null, 'datasets/vault-security'],
+    ['UL 608 classes', 'navigational-local', null, 'datasets/vault-security'],
+    ['GSA Class 5-V', 'navigational-local', null, 'datasets/vault-security'],
+    ['vault door classes explained', 'navigational-local', null, 'datasets/vault-security'],
+    ['AA-D-600D classes', 'navigational-local', null, 'datasets/vault-security'],
+    ['vault door security standards', 'navigational-local', null, 'datasets/vault-security'],
+    ['vault door models', 'navigational-local', null, 'datasets/vault-doors'],
+    ['vault door weights', 'navigational-local', null, 'datasets/vault-doors'],
+    ['vault door specifications', 'navigational-local', null, 'datasets/vault-doors'],
+    ['vault door model weights', 'navigational-local', null, 'datasets/vault-doors'],
+    ['how much do vault doors weigh', 'ai-question', null, 'datasets/vault-doors'],
+    ['What are the UL 608 vault door classes and how long does each resist attack?', 'ai-question', null, 'datasets/vault-security'],
+    ['Is a GSA Class 5-V vault door bulletproof?', 'ai-question', null, 'datasets/vault-security'],
+    ['What does Class 5-V resist — and for how long?', 'ai-question', null, 'datasets/vault-security'],
+    ['What is the difference between Class 5-V, 5-A, and 5-B?', 'ai-question', null, 'datasets/vault-security'],
+    ['What lock does a Class 5-V vault door use?', 'ai-question', null, 'datasets/vault-security'],
+    ['What is FF-L-2740B?', 'ai-question', null, 'datasets/vault-security'],
+    ['What is a UL 768 Group 1 lock?', 'ai-question', null, 'datasets/vault-security'],
+    ['How long does a Group 1R lock resist radiological attack?', 'ai-question', null, 'datasets/vault-security'],
+    ['How many hours is a UL 768 Group 2 lock rated for?', 'ai-question', null, 'datasets/vault-security'],
+    ['Does UL 608 protect against explosives?', 'ai-question', null, 'datasets/vault-security'],
+    ['What is a time lock — UL 768 or UL 887?', 'ai-question', null, 'datasets/vault-security'],
+    ['Can anyone buy an FF-L-2740B lock?', 'ai-question', null, 'datasets/vault-security'],
+    ["What does 'built to UL 608' mean without the UL Mark?", 'ai-question', null, 'datasets/vault-security'],
+    ['What is the difference between UL 608 and UL 687?', 'ai-question', null, 'datasets/vault-security'],
+    ['Which GSA vault door class is ballistic rated?', 'ai-question', null, 'datasets/vault-security'],
+    ['What does net working time mean in UL 608?', 'ai-question', null, 'datasets/vault-security'],
+    ['What lock does a Class 5-A vault door use?', 'ai-question', null, 'datasets/vault-security'],
+    ['What is QPL-AA-D-600-12?', 'ai-question', null, 'datasets/vault-security'],
+    ['How long does a UL 608 Class 2 vault door resist attack?', 'ai-question', null, 'datasets/vault-security'],
+    ['What is a UL 608 Class M vault door?', 'ai-question', null, 'datasets/vault-security'],
+    ['How much does the Liberty Beast vault door weigh?', 'ai-question', null, 'datasets/vault-doors'],
+    ['What does the Liberty Beast vault door cost?', 'ai-question', null, 'datasets/vault-doors'],
+    ['How much does a Liberty Beast inswing vault door weigh?', 'ai-question', null, 'datasets/vault-doors'],
+    ['Liberty Beast inswing vault door specifications', 'ai-question', null, 'datasets/vault-doors'],
+    ['How much does a Fort Knox 8240 vault door weigh?', 'ai-question', null, 'datasets/vault-doors'],
+    ['Fort Knox 8240 out-swing vault door specifications', 'ai-question', null, 'datasets/vault-doors'],
+    ['How much does a Fort Knox 8248 vault door weigh?', 'ai-question', null, 'datasets/vault-doors'],
+    ['Is the Fort Knox 8248 vault door in the SIR weight band?', 'ai-question', null, 'datasets/vault-doors'],
+    ['How much does a Fort Knox 8240 in-swing vault door weigh?', 'ai-question', null, 'datasets/vault-doors'],
+    ['Fort Knox 8240 in-swing vault door specifications', 'ai-question', null, 'datasets/vault-doors'],
+    ['How much does a Fort Knox 8248 in-swing vault door weigh?', 'ai-question', null, 'datasets/vault-doors'],
+    ['Fort Knox 8248 in-swing vault door specifications', 'ai-question', null, 'datasets/vault-doors'],
+    ['How much does a GSA Class 5-V vault door weigh?', 'ai-question', null, 'datasets/vault-doors'],
+    ['What is the clear opening of an Overly Class 5-V vault door?', 'ai-question', null, 'datasets/vault-doors'],
+    ['How much does a Class 5-B vault door weigh?', 'ai-question', null, 'datasets/vault-doors'],
+    ['What lock does an Overly Class 5-B vault door use?', 'ai-question', null, 'datasets/vault-doors'],
+    ['Which vault doors fall in the 1,500 to 3,500 lb range?', 'ai-question', null, 'datasets/vault-doors'],
+    ['vault door movers', 'navigational-local', null, 'vault-doors'],
+    ['vault door moving', 'navigational-local', null, 'vault-doors'],
+    ['vault door installation', 'navigational-local', null, 'vault-doors'],
+    ['vault door relocation', 'navigational-local', null, 'vault-doors'],
+    ['vault door delivery', 'navigational-local', null, 'vault-doors'],
+    ['vault door movers near me', 'navigational-local', null, 'vault-doors'],
+    ['move a vault door', 'navigational-local', null, 'vault-doors'],
+    ['install a vault door', 'navigational-local', null, 'vault-doors'],
+    ['What is a Class 5-V vault door?', 'ai-question', null, 'vault-doors'],
+    ['Are vault doors bulletproof?', 'ai-question', null, 'vault-doors'],
+    ['Can a vault door be moved?', 'ai-question', null, 'vault-doors'],
+    ['Do movers install vault doors?', 'ai-question', null, 'vault-doors'],
+    ['How is a vault door installed?', 'ai-question', null, 'vault-doors'],
+    ['What should I tell a mover before a vault door quote?', 'ai-question', null, 'vault-doors'],
+    ['Does a vault door need a floor check before installation?', 'ai-question', null, 'vault-doors'],
+    ['Can an antique vault door be relocated?', 'ai-question', null, 'vault-doors'],
+    ['Who moves vault doors in Virginia?', 'ai-question', null, 'vault-doors'],
+    ['Who installs vault doors in West Virginia?', 'ai-question', null, 'vault-doors'],
   ],
   'service-3pl-support': [
     // Ports P4 service families (2026-11-03): 7 rows re-keyed from
@@ -792,6 +870,10 @@ const BRANCH = {
   'service-ffe-logistics': [null, null],
   'service-data-center-relocation': [null, null],
   'service-medical-lab-relocation': [null, null],
+  // Vault door (2026-11-04): hub-only at V1; the branch spokes
+  // (/vault-door-movers-winchester-va/, /vault-door-movers-martinsburg-wv/)
+  // are V3 pages — the pair fills in when they land.
+  'service-vault-door': [null, null],
   'service-logistics-project-management': [null, null],
   'service-3pl-support': [null, null],
 };

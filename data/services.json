@@ -1,6 +1,6 @@
 {
  "attestation": "Service names and descriptions are copied from the live head graph; pageCount is counted from pageMeta, not estimated.",
- "count": 32,
+ "count": 33,
  "dataset": "services",
  "generated": "2026-10-29",
  "services": [
@@ -259,6 +259,14 @@
    "name": "3PL Support Services",
    "pageCount": 2,
    "source": "Ports & Intermodal Takeover Program, dossier §2.3 (owner directive 2026-11-02); registered batch P4"
+  },
+  {
+   "attested": "2026-11-04",
+   "description": "Vault doors and high-security enclosures delivered, relocated, and installed at any size, quoted at one flat rate agreed in writing before the job — specified from the door's own standards (UL 608, GSA Class 5 under AA-D-600D) and its verified weight, with SIR structural analysis in band and contents emptied first.",
+   "id": "service-vault-door",
+   "name": "Vault Door Relocation & Installation",
+   "pageCount": 2,
+   "source": "Vault Security & High-Security Enclosures takeover, dossier §3.4 (owner directive 2026-11-02); registered batch V1 (Wave 1, 2026-11-04)"
   }
  ],
  "source": "head JSON-LD graph in ../the-flat-rate-movers-pages/public/index.html, page counts from pageMeta svc references"

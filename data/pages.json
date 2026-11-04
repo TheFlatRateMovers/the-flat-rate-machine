@@ -1,6 +1,6 @@
 {
  "attestation": "Every URL below was fetched from the live sitemap on 2026-10-28; titles and service links come from pageMeta in the live site source. No URL was hand-typed.",
- "count": 246,
+ "count": 250,
  "dataset": "pages",
  "generated": "2026-10-29",
  "pages": [
@@ -3052,6 +3052,54 @@
    "title": "White-glove delivery, step by step: what is included beyond the threshold",
    "type": "page",
    "url": "https://theflatratemovers.com/white-glove-delivery-step-by-step/"
+  },
+  {
+   "attested": "2026-11-04",
+   "lastmod": "2026-11-04",
+   "services": [
+    "service-vault-door"
+   ],
+   "slug": "vault-doors",
+   "source": "Vault Security takeover Wave 1 batch V1 2026-11-04 — service #33 hub (dossier §4.1)",
+   "status": "live",
+   "title": "Vault Door Relocation & Installation",
+   "type": "service",
+   "url": "https://theflatratemovers.com/vault-doors/"
+  },
+  {
+   "attested": "2026-11-04",
+   "lastmod": "2026-11-04",
+   "services": [],
+   "slug": "datasets/vault-security",
+   "source": "Vault Security takeover Wave 1 batch V1 2026-11-04 — standards registry dataset landing (dossier §3.1)",
+   "status": "live",
+   "title": "Vault Security Standards Registry Dataset",
+   "type": "page",
+   "url": "https://theflatratemovers.com/datasets/vault-security/"
+  },
+  {
+   "attested": "2026-11-04",
+   "lastmod": "2026-11-04",
+   "services": [],
+   "slug": "datasets/vault-doors",
+   "source": "Vault Security takeover Wave 1 batch V1 2026-11-04 — door-model dataset landing (dossier §3.2)",
+   "status": "live",
+   "title": "Vault Door Models Dataset",
+   "type": "page",
+   "url": "https://theflatratemovers.com/datasets/vault-doors/"
+  },
+  {
+   "attested": "2026-11-04",
+   "lastmod": "2026-11-04",
+   "services": [
+    "service-vault-door"
+   ],
+   "slug": "vault-door-classes-ul-608-gsa-class-5-v-explained",
+   "source": "Vault Security takeover Wave 1 flagship article 2026-11-04 (dossier §5; News Formula guide lane)",
+   "status": "live",
+   "title": "Vault Door Classes, Decoded: UL 608, GSA Class 5-V and the Lock Ratings",
+   "type": "page",
+   "url": "https://theflatratemovers.com/vault-door-classes-ul-608-gsa-class-5-v-explained/"
   }
  ],
  "source": "https://theflatratemovers.com/sitemap.xml joined to pageMeta in ../the-flat-rate-movers-pages/public/index.html",
