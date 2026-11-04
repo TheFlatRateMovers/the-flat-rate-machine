@@ -1,6 +1,6 @@
 {
  "attestation": "Every URL below was fetched from the live sitemap on 2026-10-28; titles and service links come from pageMeta in the live site source. No URL was hand-typed.",
- "count": 237,
+ "count": 239,
  "dataset": "pages",
  "generated": "2026-10-29",
  "pages": [
@@ -2928,6 +2928,32 @@
    "lastmod": "2026-11-03",
    "status": "live",
    "source": "Page Data Pool batch 2026-11-03: the master pool database as a first-class dataset citizen — Layer 1 estate data (rubric, registries, matrices, standards, footprint, corpus) + Layer 2 researched domain layer; the generator source for every page's Page Data slice at the rollout."
+  },
+  {
+   "attested": "2026-11-03",
+   "lastmod": "2026-11-03",
+   "services": [
+    "service-transloading",
+    "service-freight-rework-transloading",
+    "service-industrial-commercial"
+   ],
+   "slug": "port-of-virginia-logistics",
+   "source": "Ports & Intermodal Takeover Program batch P3 2026-11-03 — Port of Virginia (Norfolk Harbor) hub; Norfolk + Richmond Marine Terminal bind Winchester (dossier §1.7 measured road distance)",
+   "status": "live",
+   "title": "Port of Virginia Logistics",
+   "type": "service",
+   "url": "https://theflatratemovers.com/port-of-virginia-logistics/"
+  },
+  {
+   "attested": "2026-11-03",
+   "lastmod": "2026-11-03",
+   "services": [],
+   "slug": "datasets/port-of-virginia",
+   "source": "Ports & Intermodal Takeover Program batch P3 2026-11-03 — dataset landing for datasets-port-of-virginia.json (per-port dataset: Norfolk Harbor terminals + Richmond Marine Terminal covered facility, 16-cell coverage matrix, Winchester binding)",
+   "status": "live",
+   "title": "Port of Virginia Logistics Dataset",
+   "type": "page",
+   "url": "https://theflatratemovers.com/datasets/port-of-virginia/"
   }
  ],
  "source": "https://theflatratemovers.com/sitemap.xml joined to pageMeta in ../the-flat-rate-movers-pages/public/index.html",

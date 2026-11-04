@@ -441,10 +441,12 @@
     "https://www.ajot.com/news/virginia-completes-fy-2024-with-growth-in-cargo-volumes-and-progress-on-infrastructure-projects"
    ],
    "estatePages": [
-    "https://theflatratemovers.com/virginia-inland-port-transloading/"
+    "https://theflatratemovers.com/port-of-virginia-logistics/",
+    "https://theflatratemovers.com/port-of-virginia-container-loading-unloading-logistics-services/",
+    "https://theflatratemovers.com/how-port-of-virginia-logistics-supports-east-coast-freight-movement/"
    ],
-   "datasetFile": "datasets-ports.json",
-   "lastVerified": "2026-11-02"
+   "datasetFile": "datasets-port-of-virginia.json",
+   "lastVerified": "2026-11-03"
   },
   {
    "id": "port-richmond-marine-terminal",
@@ -562,9 +564,11 @@
     "https://www.portofvirginia.com/wp-content/uploads/2025/10/POV_2025_RMT_GrowthReport_v14.pdf",
     "https://www.freightwaves.com/news/city-of-richmond-leases-port-to-state-for-40-years"
    ],
-   "estatePages": [],
-   "datasetFile": "datasets-ports.json",
-   "lastVerified": "2026-11-02"
+   "estatePages": [
+    "https://theflatratemovers.com/port-of-virginia-logistics/"
+   ],
+   "datasetFile": "datasets-port-of-virginia.json",
+   "lastVerified": "2026-11-03"
   },
   {
    "id": "port-of-baltimore",
@@ -1506,7 +1510,7 @@
    "boundBranch": "winchester",
    "treatment": "H",
    "hubSection": true,
-   "treatmentNote": "hub section on the Port of Virginia (Norfolk) hub"
+   "treatmentNote": "hub section live (batch P3)"
   },
   {
    "port": "port-richmond-marine-terminal",
@@ -1556,7 +1560,7 @@
    "boundBranch": "winchester",
    "treatment": "H",
    "hubSection": true,
-   "treatmentNote": "hub section on the Port of Virginia (Norfolk) hub"
+   "treatmentNote": "hub section live (batch P3)"
   },
   {
    "port": "port-richmond-marine-terminal",

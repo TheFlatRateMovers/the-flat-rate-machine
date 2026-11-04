@@ -3939,7 +3939,7 @@
    "@id": "https://theflatratemovers.com/datasets/intent-coverage/#dataset",
    "@type": "Dataset",
    "name": "The Flat Rate Movers — Search Intent Coverage Operations Dataset",
-   "description": "The live intent-coverage rubric of The Flat Rate Movers: 3550 generated rows, each one a query string a customer or an AI assistant can use to find a company service, resolved to the exact page that answers it, that page’s per-page JSON, the dataset files behind the answer, and the service’s node in the entity graph. Rows are generated from the estate’s own registries — 30 services, 237 pages, two branch locations, three corridors and the 53-feature service-area footprint — plus the blog question bank’s 100 real question phrasings, and the rubric is regenerated whenever those registries change. Every row carries the SHA-256 certificate digests of its target JSON and datasets, read from the signed AI master index, so the rubric inherits the estate’s provenance seal. Coverage spans all 30 services of both branches, Winchester, VA and Martinsburg, WV, along the I-81, I-66 and I-70 corridors. Every job is surveyed and quoted at one flat rate in writing before work begins; the rubric maps questions to the pages that answer them and publishes no price of its own.",
+   "description": "The live intent-coverage rubric of The Flat Rate Movers: 3569 generated rows, each one a query string a customer or an AI assistant can use to find a company service, resolved to the exact page that answers it, that page’s per-page JSON, the dataset files behind the answer, and the service’s node in the entity graph. Rows are generated from the estate’s own registries — 30 services, 239 pages, two branch locations, three corridors and the 53-feature service-area footprint — plus the blog question bank’s 100 real question phrasings, and the rubric is regenerated whenever those registries change. Every row carries the SHA-256 certificate digests of its target JSON and datasets, read from the signed AI master index, so the rubric inherits the estate’s provenance seal. Coverage spans all 30 services of both branches, Winchester, VA and Martinsburg, WV, along the I-81, I-66 and I-70 corridors. Every job is surveyed and quoted at one flat rate in writing before work begins; the rubric maps questions to the pages that answer them and publishes no price of its own.",
    "url": "https://theflatratemovers.com/datasets/intent-coverage/",
    "sameAs": "https://theflatratemovers.com/datasets/intent-coverage/",
    "identifier": "https://doi.org/10.5281/zenodo.23818766",
@@ -8689,6 +8689,120 @@
      "value": "Buyer-intelligence data: absent (internal-only standing rule). The 'industrial rigging up to twenty-five thousand pounds' claim: absent — asserted at build; the figure is false and contradicts the SIR band. No USDOT/MC number is carried."
     }
    ]
+  },
+  {
+   "@type": "Dataset",
+   "@id": "https://theflatratemovers.com/datasets/port-of-virginia/#dataset-port-of-virginia",
+   "name": "Port of Virginia Logistics Dataset",
+   "description": "The per-port dataset for the Port of Virginia in the Ports & Intermodal program of The Flat Rate Movers: the four Norfolk Harbor terminals — Norfolk International Terminals (NIT) and Virginia International Gateway (VIG), the port’s container terminals; Newport News Marine Terminal (NNMT), its primary RoRo and breakbulk terminal; and Portsmouth Marine Terminal (PMT), recorded as what it is, a deep-water heavy-lift and offshore-wind hub, not a container terminal — plus Richmond Marine Terminal (RMT) as a covered facility, the James River barge terminal the City of Richmond owns and the Virginia Port Authority leases to 2056. Virginia International Gateway is recorded as leased, not port-authority-owned. Each entity carries authority and operator of record, terminal facts with their sources, cargo specialties, rail service with on-dock and interchange qualifiers, highway corridors, foreign-trade-zone facts, labeled volume figures with period and source (the Port of Virginia system moved 3,499,639 TEUs in FY2024 and 3,239,638 TEUs in calendar 2025; no standalone volume is published for Richmond Marine Terminal because none is published by the port), current status items, and the branch binding that assigns both ports to the Winchester, VA branch by verified road distance (Norfolk about 222 miles, Richmond about 135 miles). The companion coverage node maps all 16 coverage cells for the two ports. The company’s crews hold TWIC cards and its contractors hold valid TWIC cards. The offer set does not include drayage: freight moves on the customer’s or carrier’s trucks, and the company’s crews do the hands-on work at port-adjacent warehouses, receivers’ docks, yards, leased space, and on-terminal only by arrangement through the terminal’s own processes. Every fact carries its source.",
+   "url": "https://theflatratemovers.com/datasets/port-of-virginia/",
+   "sameAs": "https://theflatratemovers.com/datasets/port-of-virginia/",
+   "identifier": "https://theflatratemovers.com/datasets/port-of-virginia/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@type": "Organization",
+    "@id": "https://theflatratemovers.com/#organization",
+    "name": "The Flat Rate Movers LLC",
+    "url": "https://theflatratemovers.com/"
+   },
+   "publisher": {
+    "@type": "Organization",
+    "@id": "https://theflatratemovers.com/#organization",
+    "name": "The Flat Rate Movers LLC",
+    "url": "https://theflatratemovers.com/"
+   },
+   "datePublished": "2026-11-03",
+   "dateModified": "2026-11-03",
+   "includedInDataCatalog": {
+    "@id": "https://theflatratemovers.com/datasets/#collection"
+   },
+   "spatialCoverage": [
+    {
+     "@type": "Place",
+     "@id": "https://theflatratemovers.com/#winchester",
+     "name": "The Flat Rate Movers — Winchester",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.18711576,
+      "longitude": -78.1668352
+     }
+    },
+    {
+     "@type": "Place",
+     "@id": "https://theflatratemovers.com/#martinsburg",
+     "name": "Flat Rate Movers Martinsburg WV",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.48319665,
+      "longitude": -77.94760443
+     }
+    }
+   ],
+   "keywords": "Port of Virginia, Norfolk, Norfolk International Terminals, NIT, Virginia International Gateway, VIG, Portsmouth Marine Terminal, Newport News Marine Terminal, Richmond Marine Terminal, Richmond Express, barge, transloading, container labor, devanning, cross-docking, freight rework, 3PL support, logistics project management, branch binding, TWIC card",
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-transloading"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-freight-rework-transloading"
+    }
+   ],
+   "isPartOf": {
+    "@id": "https://theflatratemovers.com/datasets/ports/#dataset-ports"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/#service-port-of-virginia-logistics",
+   "@type": "Service",
+   "areaServed": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "description": "Port and intermodal logistics support for freight moving through the Port of Virginia, run from the Winchester branch: transloading, ocean container packing and unpacking (stuffing, destuffing, devanning), loading and unloading / container labor, cross-docking, freight rework, specialized workforce labor, logistics project management and 3PL support at Norfolk International Terminals and Virginia International Gateway (containers), Newport News Marine Terminal (RoRo and breakbulk) and Portsmouth Marine Terminal (heavy-lift and offshore-wind project cargo — not a container terminal), plus Richmond Marine Terminal as a covered facility (transloading and cross-docking hub coverage). Work happens at port-adjacent warehouses, receivers’ docks, yards and leased space; on-terminal only by arrangement through the terminal’s own processes. Support, not operation: the company is the crew layer, holds no port tenancy, claims no port-authority relationship, and does not run port drayage. Surveyed and scoped in full, quoted at one flat rate — the standard offer and its guarantee; hourly pricing is available when a client asks for it.",
+   "isRelatedTo": [
+    {
+     "@id": "https://theflatratemovers.com/#service-transloading"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-freight-rework-transloading"
+    },
+    {
+     "@id": "https://theflatratemovers.com/datasets/ports/#port-of-virginia-norfolk"
+    },
+    {
+     "@id": "https://theflatratemovers.com/datasets/ports/#port-richmond-marine-terminal"
+    }
+   ],
+   "name": "Port of Virginia Logistics",
+   "provider": {
+    "@id": "https://theflatratemovers.com/#organization"
+   },
+   "serviceType": "Port logistics support: transloading; ocean container packing and unpacking; container labor; cross-docking; freight rework; specialized workforce; logistics project management; 3PL support services",
+   "url": "https://theflatratemovers.com/port-of-virginia-logistics/"
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://theflatratemovers.com/port-of-virginia-logistics/#webpage",
+   "url": "https://theflatratemovers.com/port-of-virginia-logistics/",
+   "name": "The Flat Rate Movers — Port of Virginia Logistics",
+   "isPartOf": {
+    "@id": "https://theflatratemovers.com/#website"
+   },
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-port-of-virginia-logistics"
+    }
+   ],
+   "inLanguage": "en-US",
+   "description": "Port of Virginia Logistics — transloading, ocean container packing and unpacking, container labor, cross-docking, freight rework, logistics project management and 3PL support for freight moving through Norfolk International Terminals and Virginia International Gateway (the port\\u2019s container terminals), Newport News Marine Terminal (RoRo and breakbulk) and the heavy-lift berths at Portsmouth Marine Terminal, plus Richmond Marine Terminal on the James River barge service — run from the Winchester branch, about 222 miles from the harbor. Crews at port-adjacent warehouses, receivers\\u2019 docks, yards and leased space; on-terminal only by arrangement; no drayage; one flat rate per job.",
+   "mainEntity": {
+    "@id": "https://theflatratemovers.com/#service-port-of-virginia-logistics"
+   }
   }
  ],
  "@id": "https://theflatratemovers.com/entity-graph.json",

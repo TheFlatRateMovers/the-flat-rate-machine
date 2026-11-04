@@ -89,7 +89,7 @@
    "description": "Container loading and unloading, and transloading between truck, container and warehouse — counted, sorted and restacked for the inland leg, with cross-docking and warehouse staging.",
    "id": "service-transloading",
    "name": "Loading, Transloading and Container Services",
-   "pageCount": 23,
+   "pageCount": 24,
    "source": "head JSON-LD graph in live site source (index.html)"
   },
   {
@@ -153,7 +153,7 @@
    "description": "Industrial & Commercial Services — Trained, Supervised Moving and Warehouse Teams for industrial and commercial project support: warehouse and distribution, commercial relocation and logistics including white-glove/blanket-wrap, FF&E installation and project support, and flexible workforce deployment, priced per job with no required contract duration. Standard Job Pricing: Unload $8.00/CWT, Load $10.00/CWT, APU $12.00/CWT, Residential/Driver Meet $400-$425 per man.",
    "id": "service-industrial-commercial",
    "name": "Industrial & Commercial Services",
-   "pageCount": 4,
+   "pageCount": 5,
    "source": "head JSON-LD graph in live site source (index.html)"
   },
   {
@@ -241,7 +241,7 @@
    "description": "Freight rework and transloading from Winchester, VA and Martinsburg, WV — shifted loads, loads refused at a receiver's dock, damaged or collapsed pallets, and overweight or axle-illegal loads, unloaded under control, documented as found, rebuilt to the receiver's specification and re-secured to the federal cargo securement standard, plus planned cross-docking and container and rail-to-truck transloading — for drivers, carriers, brokers, 3PLs, warehouses and receivers, quoted at one flat rate before work begins, with emergency and after-hours response available at premium rates. The work is performed where the job requires: leased space, the receiver's dock, or a yard. No rate schedule is published for this service. Quoted flat in writing through the same flat-rate quote path, from Winchester VA and Martinsburg WV.",
    "id": "service-freight-rework-transloading",
    "name": "Freight Rework & Transloading",
-   "pageCount": 1,
+   "pageCount": 2,
    "source": "Henry confirmation 2026-11-01 (new category Freight Rework & Transloading: full package treatment) + category research dossier 2026-11-01"
   }
  ],
