@@ -52,7 +52,8 @@
    "hoursDisplay": "Mon-Fri 8-6, Sat 8-4, Sun 9-4",
    "googleRating": {
     "ratingValue": 5,
-    "reviewCount": 1
+    "reviewCount": 2,
+    "breakdown": "2 at 5 stars"
    },
    "serviceArea": [
     "Bristow",

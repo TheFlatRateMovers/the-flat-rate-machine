@@ -120,13 +120,52 @@
    "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": 5.0,
-    "reviewCount": 1,
+    "reviewCount": 2,
     "bestRating": 5,
     "worstRating": 1,
     "itemReviewed": {
      "@id": "https://theflatratemovers.com/#winchester"
     }
    },
+   "review": [
+    {
+     "@id": "https://theflatratemovers.com/#review-winchester-dan-lender",
+     "@type": "Review",
+     "author": {
+      "@type": "Person",
+      "name": "Dan Lender"
+     },
+     "datePublished": "2026-11-04",
+     "itemReviewed": {
+      "@id": "https://theflatratemovers.com/#winchester"
+     },
+     "reviewBody": "They moved a large item, for me (1300 lbs) and did a great job. The guys (Bennie and team) were very polite, knowledgeable and arrived when they said they would. Henri was the first person that I spoke with on the phone to schedule the move and he has very nice and accommodating. Highly recommend Flat Rate Movers!",
+     "reviewRating": {
+      "@type": "Rating",
+      "bestRating": 5,
+      "ratingValue": 5,
+      "worstRating": 1
+     }
+    },
+    {
+     "@id": "https://theflatratemovers.com/#review-winchester-christine-robert-zager",
+     "@type": "Review",
+     "author": {
+      "@type": "Person",
+      "name": "Christine & Robert Zager"
+     },
+     "itemReviewed": {
+      "@id": "https://theflatratemovers.com/#winchester"
+     },
+     "reviewBody": "The Flat Rate Movers delivered a very heavy item for us. The crew was professional and courteous. They placed it exactly where I wanted it.",
+     "reviewRating": {
+      "@type": "Rating",
+      "bestRating": 5,
+      "ratingValue": 5,
+      "worstRating": 1
+     }
+    }
+   ],
    "sameAs": [
     "https://www.openstreetmap.org/node/14340286372"
    ]
@@ -225,6 +264,116 @@
      "@id": "https://theflatratemovers.com/#martinsburg"
     }
    },
+   "review": [
+    {
+     "@id": "https://theflatratemovers.com/#review-martinsburg-paige-blair",
+     "@type": "Review",
+     "author": {
+      "@type": "Person",
+      "name": "Paige Blair"
+     },
+     "itemReviewed": {
+      "@id": "https://theflatratemovers.com/#martinsburg"
+     },
+     "reviewBody": "The owner was very patient with me and was able to change the dates on my contract. The gentleman coming to my home called ahead of time, let me know they were running late and showed up exactly when they said they would. They did a wonderful job nothing was broken scratch dented etc. I requested the same two guys that moved everything out to come back on Friday and put everything back! Friendly staff goes a long way please support small business!",
+     "reviewRating": {
+      "@type": "Rating",
+      "bestRating": 5,
+      "ratingValue": 4,
+      "worstRating": 1
+     }
+    },
+    {
+     "@id": "https://theflatratemovers.com/#review-martinsburg-pamela-wilson",
+     "@type": "Review",
+     "author": {
+      "@type": "Person",
+      "name": "Pamela Wilson"
+     },
+     "itemReviewed": {
+      "@id": "https://theflatratemovers.com/#martinsburg"
+     },
+     "reviewBody": "They were absolutely awesome! Moved a 280 lb. medical bed out to my garage and a grandfather clock to upstairs bedroom. Highly recommend",
+     "reviewRating": {
+      "@type": "Rating",
+      "bestRating": 5,
+      "ratingValue": 5,
+      "worstRating": 1
+     }
+    },
+    {
+     "@id": "https://theflatratemovers.com/#review-martinsburg-eric-erickson",
+     "@type": "Review",
+     "author": {
+      "@type": "Person",
+      "name": "Eric Erickson"
+     },
+     "itemReviewed": {
+      "@id": "https://theflatratemovers.com/#martinsburg"
+     },
+     "reviewBody": "Henry's team moved my heavy safe and whole house, Showed up on time and took care my stressful move.",
+     "reviewRating": {
+      "@type": "Rating",
+      "bestRating": 5,
+      "ratingValue": 5,
+      "worstRating": 1
+     }
+    },
+    {
+     "@id": "https://theflatratemovers.com/#review-martinsburg-linda-collins",
+     "@type": "Review",
+     "author": {
+      "@type": "Person",
+      "name": "Linda Collins"
+     },
+     "itemReviewed": {
+      "@id": "https://theflatratemovers.com/#martinsburg"
+     },
+     "reviewBody": "The guys were great",
+     "reviewRating": {
+      "@type": "Rating",
+      "bestRating": 5,
+      "ratingValue": 5,
+      "worstRating": 1
+     }
+    },
+    {
+     "@id": "https://theflatratemovers.com/#review-martinsburg-mark-whittle",
+     "@type": "Review",
+     "author": {
+      "@type": "Person",
+      "name": "Mark Whittle"
+     },
+     "itemReviewed": {
+      "@id": "https://theflatratemovers.com/#martinsburg"
+     },
+     "reviewBody": "Our experience with Flat Rate movers was very positive. Henry was professional and helpful in our interactions, and the moving crew was diligent and professional in packing, loading, and moving. We would recommend this business highly.",
+     "reviewRating": {
+      "@type": "Rating",
+      "bestRating": 5,
+      "ratingValue": 4,
+      "worstRating": 1
+     }
+    },
+    {
+     "@id": "https://theflatratemovers.com/#review-martinsburg-amy-fansler",
+     "@type": "Review",
+     "author": {
+      "@type": "Person",
+      "name": "Amy Fansler"
+     },
+     "itemReviewed": {
+      "@id": "https://theflatratemovers.com/#martinsburg"
+     },
+     "reviewBody": "From beginning to end, Henry made this stressful time a smooth transaction. Rich and E were kind, courteous and professional. Highly recommend Flat Rate Movers!",
+     "reviewRating": {
+      "@type": "Rating",
+      "bestRating": 5,
+      "ratingValue": 5,
+      "worstRating": 1
+     }
+    }
+   ],
    "sameAs": [
     "https://www.openstreetmap.org/node/14340286373"
    ]

@@ -320,8 +320,13 @@ async function main() {
     check('Branch names differ', win.name !== mar.name);
     check('Branch addresses differ', win.street !== mar.street && win.zip !== mar.zip,
       win.zip + ' vs ' + mar.zip);
-    check('Winchester Google rating is 5.0 / 1 review',
-      win.googleRating && win.googleRating.ratingValue === 5.0 && win.googleRating.reviewCount === 1,
+    // REWRITTEN 2026-11-04 (Review nodes batch): the premise "1 review" was
+    // the profile as enumerated 2026-10-28. A second 5-star review was
+    // posted 2026-11-04 and the full GBP enumeration that day verified
+    // 5.0 over 2 reviews, both 5 stars — so the check now asserts the
+    // stronger state: exact value, exact count AND the breakdown.
+    check('Winchester Google rating is 5.0 / 2 reviews, both 5 stars (GBP enumeration 2026-11-04)',
+      win.googleRating && win.googleRating.ratingValue === 5.0 && win.googleRating.reviewCount === 2 && win.googleRating.breakdown === '2 at 5 stars',
       JSON.stringify(win.googleRating));
     check('Martinsburg Google rating is 4.7 / 6 reviews',
       mar.googleRating && mar.googleRating.ratingValue === 4.7 && mar.googleRating.reviewCount === 6,
