@@ -5921,11 +5921,11 @@
    "@type": "Dataset",
    "@id": "https://theflatratemovers.com/datasets-search-index.json#dataset",
    "name": "Search Index Supply & Standing Dataset",
-   "description": "The standing search-index dataset of The Flat Rate Movers, built by the Retrieval Machine: query clusters grouping the buyer-intent rubric of the estate by service, intent class, geo scope and target page; a generated supply row for every one of the 206 pages with schema types, word count, internal inlinks, the per-page JSON digest and indexation state; standing observations recorded only from evidence on file, each carrying method, era and source; the era-tagged pre-rebuild Search Console window; competitor supply observed in the same sampling under a schema bar; the third-party records registry; and the named gaps with their designed solutions — sealed in the signed AI master index.",
+   "description": "The standing search-index dataset of The Flat Rate Movers, built by the Retrieval Machine: query clusters grouping the buyer-intent rubric of the estate by service, intent class, geo scope and target page; a generated supply row for every one of the 244 pages with schema types, word count, internal inlinks, the per-page JSON digest and indexation state; standing observations recorded only from evidence on file, each carrying method, era and source; the era-tagged pre-rebuild Search Console window; competitor supply observed in the same sampling under a schema bar; the third-party records registry; and the named gaps with their designed solutions — sealed in the signed AI master index.",
    "url": "https://theflatratemovers.com/datasets/search-index/",
    "identifier": "https://theflatratemovers.com/datasets/search-index/",
    "license": "https://creativecommons.org/licenses/by/4.0/",
-   "dateModified": "2026-10-31",
+   "dateModified": "2026-11-04",
    "creator": {
     "@id": "https://theflatratemovers.com/#organization",
     "@type": "Organization",
