@@ -236,7 +236,7 @@
           'How a flat rate quote works at The Flat Rate Movers:',
           '',
           '1. The person opens ' + SITE + '/quote/ and chooses Short (Quick Quote, the default) or Detailed Project on the toggle attached to the "Get My Flat Rate Quote" button. Switching keeps the From, To and What\'s moving answers.',
-          '2. Every job is reviewed in full — scope, distance, manpower and equipment — and priced at one flat rate in writing before move day. There is no hourly rate, ever. The company promise is "Guaranteed Flat Rate or Your Move is Free!"',
+          '2. Every job is reviewed in full — scope, distance, manpower and equipment — and priced at one flat rate in writing before move day. Flat rate is the standard offer and the guarantee; hourly pricing is available when a client asks for it. The company promise is "Guaranteed Flat Rate or Your Move is Free!"',
           '3. Required to submit: moving from, moving to, contact name, phone and email. Move dates are optional and are captured when given. A free film-only video walkthrough (the Survey Room) can support the estimate; clips auto-delete after 24 hours and the estimate is made by a person, never auto-priced.',
           '4. The quote goes directly to the company (ratemovers@gmail.com) with no third-party form service. A person reviews every request and replies.',
           '',
@@ -286,7 +286,7 @@
          Batch record: out/batch-webmcp-schema-fix-live. */
       var annotate = function () {
         form.setAttribute('toolname', 'request_flat_rate_quote');
-        form.setAttribute('tooldescription', 'The Flat Rate Movers quote form. Filling this in prepares a flat rate quote request for the person to review — it cannot submit: there is no auto-submit, and the person presses "Get My Flat Rate Quote" themselves. Required: moving from, moving to, contact name, phone, email. The price is one flat rate in writing, never hourly.');
+        form.setAttribute('tooldescription', 'The Flat Rate Movers quote form. Filling this in prepares a flat rate quote request for the person to review — it cannot submit: there is no auto-submit, and the person presses "Get My Flat Rate Quote" themselves. Required: moving from, moving to, contact name, phone, email. The price is one flat rate in writing (hourly pricing is available when a client asks for it).');
         var fields = form.querySelectorAll('input[id], select[id], textarea[id]');
         for (var i = 0; i < fields.length; i++) {
           var el = fields[i];
