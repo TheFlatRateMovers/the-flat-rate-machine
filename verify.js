@@ -4474,7 +4474,7 @@ async function main() {
       if (doc && Array.isArray(doc['@graph'])) return doc['@graph'];
       return Array.isArray(doc) ? doc : [doc];
     };
-    const CATALOG_DG = { '@id': SITE_DG + '/datasets/#collection' };
+    const CATALOG_DG = { '@type': 'DataCatalog', '@id': SITE_DG + '/datasets/#collection', 'name': 'The Flat Rate Movers — AI Authority Estate Datasets', 'url': SITE_DG + '/datasets/' };
 
     // File set: the signed index's dataset-file distributions; the
     // PUB disk set must equal it (offenders named in setBadDG).
