@@ -551,6 +551,17 @@ for (const o of observations) {
   if (!o.method || !o.era || !o.sourceRef) throw new Error('observation missing method/era/source: ' + o.observationId);
 }
 
+const ERA_CUTOVER = '2026-10-29';
+function eraForWindow(start, end) {
+  if (end < ERA_CUTOVER) return 'pre-rebuild';
+  if (start >= ERA_CUTOVER) return 'post-rebuild';
+  return 'transition';
+}
+function windowsPhrase(rows) {
+  const seen = new Map();
+  for (const r of rows) seen.set(r.windowStart + '/' + r.windowEnd, eraForWindow(r.windowStart, r.windowEnd));
+  return [...seen.entries()].sort().map(([w, e]) => w.replace('/', ' to ') + ' (' + e + ' era)').join(' and ');
+}
 // ------------------------------------------------------- engine window
 const gscById = new Map(gscQueries.map((q) => [q.id, q]));
 const enrichedByObs = new Map();
@@ -572,11 +583,11 @@ for (const [obsId, rows] of [...enrichedByObs.entries()].sort((a, b) => a[0] - b
   windowRows.push({
     query: q.query_text_normalized,
     clicks: q.clicks, impressions: q.impressions, ctr: q.ctr, avgPosition: q.avg_position,
-    windowStart: q.window_start, windowEnd: q.window_end, era: 'pre-rebuild',
+    windowStart: q.window_start, windowEnd: q.window_end, era: eraForWindow(q.window_start, q.window_end),
     linkedPageUrl: q.resolved_target_url,
     rubricRowsEnriched: rows.length,
     clusterRefs: [...clusterRefs].sort(),
-    sourceRef: 'Google Search Console performance export, window ' + q.window_start + ' to ' + q.window_end + ' (pre-rebuild era), imported into the rubric database as era-tagged evidence',
+    sourceRef: 'Google Search Console performance export, window ' + q.window_start + ' to ' + q.window_end + ' (' + eraForWindow(q.window_start, q.window_end) + ' era), imported into the rubric database as era-tagged evidence',
   });
 }
 
@@ -705,7 +716,7 @@ const graph = [
   },
   {
     ...baseNode(SITE + '/#dataset-search-index-taxonomy', 'Dataset', 'Search Index Taxonomy',
-      'The vocabularies every table in this file uses. Intent classes: the rubric’s five generated classes (ai-question, best-choice, cost, how-process, navigational-local) plus sampled-money-query for the observation-defined clusters. Geo scopes: pattern-family (area-null rows: near-me and national pattern forms), the branch scopes (scope-winchester, scope-martinsburg, scope-shenandoah-valley), town scopes (place-*), corridor scopes (i-81, i-66, i-70), and the sampled state and port scopes. Observation methods: serp-sample, places-sample, gsc-inspection, gsc-export, bing-wmt and prompt-panel (the last two have no observations yet and are named so future rows keep their own method rather than borrowing one). Eras: pre-rebuild (the console window that predates the rebuilt site) and post-rebuild. Indexation states: indexed, not-indexed, unobserved. Third-party record statuses: open, correction sent, corrected-live, parked-owner-step.'),
+      'The vocabularies every table in this file uses. Intent classes: the rubric’s five generated classes (ai-question, best-choice, cost, how-process, navigational-local) plus sampled-money-query for the observation-defined clusters. Geo scopes: pattern-family (area-null rows: near-me and national pattern forms), the branch scopes (scope-winchester, scope-martinsburg, scope-shenandoah-valley), town scopes (place-*), corridor scopes (i-81, i-66, i-70), and the sampled state and port scopes. Observation methods: serp-sample, places-sample, gsc-inspection, gsc-export, bing-wmt and prompt-panel (the last two have no observations yet and are named so future rows keep their own method rather than borrowing one). Eras: pre-rebuild (console windows predating the rebuilt site), transition (the console window spanning the rebuild) and post-rebuild. Indexation states: indexed, not-indexed, unobserved. Third-party record statuses: open, correction sent, corrected-live, parked-owner-step.'),
     vocabularies: {
       intentClasses: ['ai-question', 'best-choice', 'cost', 'how-process', 'navigational-local', 'sampled-money-query'],
       observationMethods: ['serp-sample', 'places-sample', 'gsc-inspection', 'gsc-export', 'bing-wmt', 'prompt-panel'],
@@ -732,7 +743,7 @@ const graph = [
   },
   {
     ...baseNode(SITE + '/#dataset-search-index-windows', 'Dataset', 'Engine Windows (Era-Tagged Console Overlay)',
-      'The evidence side, second table: the Search Console performance export for ' + (meta.evidence_window || '2026-07-29/2026-10-28').replace('/', ' to ') + ' — the era before this site was rebuilt, kept and labeled as exactly that. ' + (meta.evidence_queries_imported || '1000') + ' observed queries were imported; ' + windowRows.length + ' matched live rubric rows and are attached here as evidence to ' + gscAttached.length + ' rows. Of the ' + (meta.evidence_pages_imported || '103') + ' exported pages, ' + (meta.evidence_pages_still_live || '73') + ' still exist at the same URL and ' + (meta.evidence_pages_stale || '30') + ' do not. Metrics attach only to the queries that were actually observed, only inside their window, and never as current performance. Pages launched after the window are awaiting observation — unmeasured, never zero-filled.'),
+      'The evidence side, second table: the Search Console performance exports for ' + windowsPhrase(windowRows) + ' — era-tagged windows, kept and labeled as exactly that. ' + (meta.evidence_queries_imported || '1000') + ' observed queries were imported; ' + windowRows.length + ' matched live rubric rows and are attached here as evidence to ' + gscAttached.length + ' rows. Of the ' + (meta.evidence_pages_imported || '103') + ' exported pages, ' + (meta.evidence_pages_still_live || '73') + ' still exist at the same URL and ' + (meta.evidence_pages_stale || '30') + ' do not. Metrics attach only to the queries that were actually observed, only inside their window, and never as current performance. Pages launched after the window are awaiting observation — unmeasured, never zero-filled.'),
     engineWindows: windowRows,
     importMeta: {
       queriesImported: Number(meta.evidence_queries_imported || 1000),

@@ -5288,7 +5288,8 @@ async function main() {
  } catch (e) { check('§41 Catalog Registry gates CR-1..CR-5 execute', false, String(e && e.message || e).slice(0, 240)); }
 }
 
-/* ==== 42. Copy Integrity CI-1..CI-6 (Copy-Integrity batch, 2026-11-04).
+/* ==== 42. Copy Integrity CI-1..CI-7 (Copy-Integrity batch, 2026-11-04;
+ * CI-7 added by the Micro-reconciliation batch, 2026-11-04).
  * The catalog-pointer reconciliation exposed the estate's copy-drift
  * class: authored copies of derived values (the shared catalog
  * object, dates, digests) drifting from their sources and surfacing
@@ -5449,6 +5450,45 @@ async function main() {
         wired + '/18 producer seats; seal wiring: ' + (sealWired ? 'present' : 'MISSING') + '; registry classes: ' + regC.classes.length);
     }
 
+    /* CI-7 — landing printed SHA-256s: the route builder injects each
+     * landing's printed digest from the final dataset file
+     * (injectPrintedHashes); every printed hash found in the generated
+     * route documents must equal its file's SHA-256. The authored shell
+     * values are never trusted — this gate reads the generated documents
+     * in the public tree, which is what ships. */
+    {
+      const brWired = ['scripts', 'repo-dir'].map((s) => {
+        try { return fs.readFileSync(path.join(ROOT, s, 'build-routes.js'), 'utf8').includes('injectPrintedHashes'); } catch (_) { return false; }
+      });
+      let prints = 0; const mismatches = [];
+      const printRe = /SHA-256 of (datasets-[a-z0-9\-]+\.json): <b>([0-9a-f]{64})<\/b>/g;
+      const htmlFiles = [];
+      (function scan(dir) {
+        for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+          const p = path.join(dir, e.name);
+          if (e.isDirectory()) { if (e.name !== 'route-assets' && e.name !== 'assets') scan(p); }
+          else if (e.name.endsWith('.html')) htmlFiles.push(p);
+        }
+      })(PUBC);
+      const cryptoCI7 = require('crypto');
+      const hashCache = new Map();
+      for (const f of htmlFiles) {
+        const text = fs.readFileSync(f, 'utf8');
+        let m; printRe.lastIndex = 0;
+        while ((m = printRe.exec(text))) {
+          prints++;
+          if (!hashCache.has(m[1])) {
+            const fp = path.join(PUBC, m[1]);
+            hashCache.set(m[1], fs.existsSync(fp) ? cryptoCI7.createHash('sha256').update(fs.readFileSync(fp)).digest('hex') : null);
+          }
+          if (hashCache.get(m[1]) !== m[2]) mismatches.push(m[1] + ' in ' + path.relative(PUBC, f));
+        }
+      }
+      check('CI-7 landing printed SHA-256s are injected at route generation and every printed hash equals its dataset file',
+        brWired.every(Boolean) && prints >= 37 && mismatches.length === 0,
+        'injection wired: ' + brWired.filter(Boolean).length + '/2 seats; prints scanned: ' + prints + '; mismatches: ' + mismatches.length + (mismatches.length ? ' (' + mismatches.slice(0, 3).join('; ') + ')' : ''));
+    }
+
     /* CI-6 — the derived-copy sync, run as a gate. */
     {
       let ok = false, detail = '';
@@ -5461,7 +5501,7 @@ async function main() {
       } catch (e) { detail = String(e && e.message || e).slice(0, 200); }
       check('CI-6 derived-copy sync reports zero date drift (sync-derived-copies --check)', ok, detail);
     }
-  } catch (e) { check('§42 Copy Integrity gates CI-1..CI-6 execute', false, String(e && e.message || e).slice(0, 240)); }
+  } catch (e) { check('§42 Copy Integrity gates CI-1..CI-7 execute', false, String(e && e.message || e).slice(0, 240)); }
 }
 
   // --- 9. Guardrail scan: no placeholders, no invented license identifiers ---

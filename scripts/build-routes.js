@@ -379,6 +379,24 @@ let footerTemplate;
  * missing fails the build loud; external contentUrls are not estate
  * files and pass through untouched. */
 let embedHashesInjected = 0;
+/* Printed-hash injection (Micro-reconciliation batch, 2026-11-04):
+ * dataset landing divs print their file's SHA-256 in the certificate
+ * block ("SHA-256 of datasets-<stem>.json: <b>hex</b>"). The printed
+ * value is a copy of a derived value and was authored into the shell;
+ * 36 of 37 prints were stale when measured. The digest is now computed
+ * here, at generation time, from the FINAL file in the public tree and
+ * injected — the authored value is never trusted. A referenced file
+ * that is missing fails the build loud. Gate: verify.js CI-7. */
+let printedHashesInjected = 0;
+function injectPrintedHashes(html, pageUrl) {
+  return html.replace(/(SHA-256 of (datasets-[a-z0-9\-]+\.json): <b>)([0-9a-f]{64})(<\/b>)/g, (whole, pre, fname, stale, post) => {
+    const file = path.join(publicDir, fname);
+    if (!fs.existsSync(file)) fail(pageUrl + ': printed hash references missing estate file ' + fname);
+    const truth = crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
+    if (truth !== stale) printedHashesInjected++;
+    return pre + truth + post;
+  });
+}
 function injectEmbedHashes(html, pageUrl) {
   return html.replace(/<script type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g, (whole, body) => {
     if (!body.includes('DataDownload')) return whole;
@@ -457,7 +475,7 @@ for (const p of pages) {
   const routeSlug = metaKeyByUrl.get(p.url);
   const div = divs.find((d) => d.slug === routeSlug);
   if (!div) fail('div missing for pageMeta key ' + routeSlug);
-  const divShow = injectEmbedHashes(div.text.replace('<div class="page" id=', '<div class="page show" id='), p.url);
+  const divShow = injectPrintedHashes(injectEmbedHashes(div.text.replace('<div class="page" id=', '<div class="page show" id='), p.url), p.url);
   const banner = banners.get(routeSlug);
   const doc = headFull + prefix + (banner ? banner + '\n' : '') + divShow + '\n</main>\n' + footerTemplate;
 
@@ -512,6 +530,7 @@ console.log('  raw bytes: min ' + sizes[0] + ', median ' + sizes[Math.floor(size
 console.log('  quote segment md5: ' + segMd5 + ' (canonical)');
 console.log('  D-2 Dataset-node instances: ' + d2Instances + ' (== pre-A shell total)');
 console.log('  embed DataDownload hashes injected from final files: ' + embedHashesInjected);
+console.log('  landing printed hashes injected from final files: ' + printedHashesInjected);
 console.log('  stray </main> in source accounted for: ' + strayMainClose);
 for (const u of ['/', '/gun-safe-movers/', '/transloading-vs-cross-docking-vs-deconsolidation/', '/1650-lb-gun-safe-delivered-and-installed-moorefield-wv/']) {
   const m = manifest.find((x) => x.url === 'https://theflatratemovers.com' + u);
