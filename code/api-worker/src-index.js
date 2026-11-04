@@ -16,6 +16,7 @@ import {
   coreText,
   services,
   datasetsInventory,
+  pageDataInventory,
   intentRows,
   bundleManifest,
 } from '../data/bundle-index.js';
@@ -35,6 +36,7 @@ for (const d of masterIndex.distribution || []) {
 }
 const servicesById = new Map(services.map((s) => [s.id, s]));
 const inventoryByFile = new Map(datasetsInventory.map((d) => [d.file, d]));
+const pageDataBySlug = new Map((pageDataInventory || []).map((d) => [d.slug, d]));
 
 // ------------------------------------------------------------------ counts
 // Every figure this worker publishes — the landing page, the MCP tool
@@ -379,6 +381,8 @@ The Flat Rate Movers, <em>Search Intent Coverage Dataset</em>,
 <li><code>GET /v1/archives</code> — the archive registry dataset, byte-identical (add <code>?table=targets|captures|deposits|github|local-archive|verification|runs|gaps|channels|totals</code> for one table)</li>
 <li><code>GET /v1/graph</code> — the best entity graph</li>
 <li><code>GET /v1/index</code> — the signed master index</li>
+<li><code>GET /v1/page-data</code> — every page's Page Data record: the page URL, its data.json + data.txt URLs, their signed SHA-256 digests and its rubric score</li>
+<li><code>GET /v1/page-data/{slug}</code> — one page's Page Data record (slug is the page path, e.g. <code>gun-safe-movers</code> or <code>datasets/gun-safe</code>; the homepage is <code>home</code>)</li>
 <li><code>GET /v1/verify?file={filename}</code> — live SHA-256 vs the signed index</li>
 <li><code>GET /openapi.json</code> — this API as an OpenAPI 3 document</li>
 <li><code>POST /mcp</code> — MCP JSON-RPC endpoint (tools: list_services, get_service, list_datasets, get_dataset, search_intent, verify_file)</li>
@@ -530,6 +534,23 @@ const OPENAPI = {
       get: {
         summary: 'The signed master index',
         responses: { '200': datasetDocResponse('ai-master-index.json: every signed distribution of the estate with its SHA-256 digest.') },
+      },
+    },
+    '/v1/page-data': {
+      get: {
+        summary: 'Page Data inventory — every page\'s data files',
+        description: 'Every page of the site carries data.json + data.txt beside it (Page Data, drawn from the Page Data Pool). This index lists each page with the two files\' URLs, their signed SHA-256 digests and the page\'s rubric score.',
+        responses: { '200': { description: 'Page Data inventory.', content: { 'application/json': { schema: { type: 'object' } } } } },
+      },
+    },
+    '/v1/page-data/{slug}': {
+      get: {
+        summary: 'One page\'s Page Data record',
+        parameters: [{ name: 'slug', in: 'path', required: true, schema: { type: 'string' }, example: 'gun-safe-movers' }],
+        responses: {
+          '200': { description: 'The page\'s Page Data record.', content: { 'application/json': { schema: { type: 'object' } } } },
+          '404': { $ref: '#/components/responses/Error' },
+        },
       },
     },
     '/v1/verify': {
@@ -746,6 +767,15 @@ export default {
       const node = (doc['@graph'] || []).find((n) => String(n['@id']).endsWith(suffix));
       if (!node) return errorJson(`table not found: ${table}`, 404);
       return jsonResponse(node);
+    }
+    if (path === '/v1/page-data') {
+      return jsonResponse({ count: pageDataInventory.length, pages: pageDataInventory });
+    }
+    if (path.startsWith('/v1/page-data/')) {
+      const slug = decodeURIComponent(path.slice('/v1/page-data/'.length));
+      const rec = pageDataBySlug.get(slug);
+      if (!rec) return errorJson(`unknown page slug: ${slug}`, 404);
+      return jsonResponse(rec);
     }
     if (path === '/v1/graph') {
       return textResponse(coreText['best-json-entity-graph.json'], 'application/json; charset=utf-8');

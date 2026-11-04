@@ -308,6 +308,8 @@ if (!rollupNode) fail('intent outcomeRollup node not found');
 out.push('');
 out.push('The search-intent rubric (datasets-intent-coverage.json) maps ' + rollupNode.outcomeRollup.rows.toLocaleString('en-US') + ' buyer-intent queries to the page, per-page JSON, dataset and graph node that answer each one, covering all ' + pages.length + ' pages of the estate.');
 out.push('');
+out.push('Page Data: every one of the ' + pages.length + ' pages also carries two data files beside it — data.json (machine) and data.txt (plain text) — drawn mechanically from the Page Data Pool (datasets-page-data-pool.json) under draw rules DR-1..DR-11: the page\'s scope offered and not offered, sourced qualifiers, audiences, geography, and its buyer questions with alternate phrasings, answers and section evidence. Each page\'s head block names the two files and carries their SHA-256 digests; both files are signed distributions. The API serves the inventory at https://api.theflatratemovers.com/v1/page-data and one page\'s record at /v1/page-data/{slug}. Rubric scores for every page: https://theflatratemovers.com/page-data-scores.json (all pages at 100/100; a page under 100 fails its seal).');
+out.push('');
 out.push('Every file above — and every page of the site — is a sealed distribution in the signed AI master index: ' + distributions + ' distributions in total after the 2026-10-31 per-route batch.');
 out.push('');
 

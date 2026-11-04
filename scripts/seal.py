@@ -422,13 +422,28 @@ def main():
         print(f"    refresh replacements: {total} "
               f"across {len(targets)} targets")
 
+    # Page Data wave (2026-11-03): the per-page data files are drawn
+    # from the pool AFTER digest-refresh (phase 4 can rewrite root
+    # digests inside the per-page JSONs the generator reads) and
+    # BEFORE routes (phase 5): build-routes computes the files'
+    # SHA-256 digests into the head blocks from the generator's
+    # manifest, so the files must exist — final — before route
+    # generation. The generator fails loud on any page under 100
+    # (gate PG-4), which fails the seal.
+    phase("4.5. page data (pool draw -> per-page data.json/data.txt "
+          "+ scores + head-block manifest)")
+    run(["node", "scripts/build-page-data.js",
+         "--manifest", os.path.join(WORK, "page-data-manifest.json")],
+        env_extra={"FB3_STAMPS": os.path.join(WORK, "stamps.json")})
+
     phase("5. routes (shell -> public/index.html, route docs, middleware)")
     shutil.copyfile(os.path.join(REPO, "index.html"),
                     os.path.join(PUB, "index.html"))
     routes_dir = os.path.join(WORK, "routes")
     shutil.rmtree(routes_dir, ignore_errors=True)
     run(["node", "scripts/build-routes.js", "--out-dir", routes_dir,
-         "--stamps", os.path.join(WORK, "stamps.json")])
+         "--stamps", os.path.join(WORK, "stamps.json"),
+         "--page-data", os.path.join(WORK, "page-data-manifest.json")])
     subprocess.run(["rsync", "-a", routes_dir + "/", PUB + "/"],
                    check=True)
     stray = os.path.join(PUB, "routes-manifest.json")

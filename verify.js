@@ -1761,7 +1761,7 @@ async function main() {
     for (const rel of routeDocsD) {
       const htmlD = fs.readFileSync(path.join(PAGES_PUBLIC, rel), 'utf8');
       for (const m of htmlD.matchAll(/<script type="application\/ld\+json"([^>]*)>([\s\S]*?)<\/script>/g)) {
-        if (m[1].includes('id="page-jsonld"') || m[1].includes('data-page-json=')) continue;
+        if (m[1].includes('id="page-jsonld"') || m[1].includes('data-page-json=') || m[1].includes('data-page-data')) continue;
         let doc = null;
         try { doc = JSON.parse(m[2]); } catch (_) { doc = null; }
         const ns = doc ? (doc['@graph'] || [doc]) : [];
@@ -2517,7 +2517,7 @@ async function main() {
     const scriptDocsC = (html) => {
       const out = [];
       for (const m of html.matchAll(/<script type="application\/ld\+json"([^>]*)>([\s\S]*?)<\/script>/g)) {
-        if (m[1].includes('id="page-jsonld"') || m[1].includes('data-page-json=')) continue;
+        if (m[1].includes('id="page-jsonld"') || m[1].includes('data-page-json=') || m[1].includes('data-page-data')) continue;
         try { out.push(JSON.parse(m[2])); } catch (_) { /* not a JSON-LD doc */ }
       }
       return out;
@@ -4179,7 +4179,11 @@ async function main() {
       if (T.coverageCells !== 98) bad.push('cells ' + T.coverageCells);
       if (T.thirdPartyRecords !== 120) bad.push('records ' + T.thirdPartyRecords);
       if (T.consolidatedOwnerSteps !== 6) bad.push('owner steps ' + T.consolidatedOwnerSteps);
-      if (T.dateModified !== '2026-11-02') bad.push('DATE_MOD ' + T.dateModified);
+      // Re-expressed 2026-11-03 (Page Data wave): the totals node's dateModified is an FB-3
+      // ledger stamp (S-7f enforces file == ledger estate-wide); the 2026-11-02 literal held
+      // only while the file was unchanged since that date. The stamp now follows the ledger.
+      const lgLedger = (readJ(pathx.join(ROOT, 'data/lastmod-ledger.json')).urls || {})['https://theflatratemovers.com/datasets-local-graph-registry.json'];
+      if (T.dateModified !== lgLedger) bad.push('DATE_MOD ' + T.dateModified + ' != ledger ' + lgLedger);
       const covNode = (lg['@graph'] || []).find((n) => (n['@id'] || '').endsWith('#dataset-local-graph-registry-coverage'));
       for (const row of covNode.coverageMatrix) for (const b of ['winchester', 'martinsburg']) if (!row[b] || !row[b].state) bad.push('blank cell ' + row.sourceId + '/' + b);
       const recNode = (lg['@graph'] || []).find((n) => (n['@id'] || '').endsWith('#dataset-local-graph-registry-records'));
@@ -4189,7 +4193,7 @@ async function main() {
         if (!r) bad.push('missing record ' + id);
         else if (r.lastVerified.date !== '2026-11-02') bad.push(id + ' lastVerified ' + r.lastVerified.date);
       }
-      check('CV-7 local-graph registry: 49 sources x 2 = 98 cells, 120 records, exactly 6 owner steps, DATE_MOD 2026-11-02, eight new-channel records verified 2026-11-02',
+      check('CV-7 local-graph registry: 49 sources x 2 = 98 cells, 120 records, exactly 6 owner steps, DATE_MOD == lastmod ledger (re-expressed 2026-11-03), eight new-channel records verified 2026-11-02',
         bad.length === 0, bad.slice(0, 4).join('; ') || 'registry totals exact');
 
       const blNode = (lg['@graph'] || []).find((n) => (n['@id'] || '').endsWith('#dataset-local-graph-registry-backlinks'));
@@ -5037,6 +5041,150 @@ async function main() {
      check('§39 twin-identity gates TW-1..TW-6 execute', false, String(e && e.message || e).slice(0, 240));
    }
  }
+}
+
+/* ============ 40. Page Data — per-page data files, head blocks, rubric scores, notOffered sets (Page Data wave, 2026-11-03) ============ */
+{
+ // Every registry page carries data.json + data.txt BESIDE the page
+ // (both signed distributions) and a head block in its route document
+ // (two alternate links + a WebPage seat + a Dataset seat carrying
+ // the two files' SHA-256 digests). The files are drawn mechanically
+ // from the Page Data Pool by scripts/build-page-data.js inside the
+ // seal (phase 4.5); the head block is injected by build-routes.js
+ // from the generator's manifest. PG-1: head block present + correct
+ // on every page. PG-2: data.json/data.txt present, parse, digests
+ // == signed index AND == head-block digests. PG-3: the rubric score
+ // file is present, is itself a signed distribution, and scores
+ // every shipped page at exactly 100 (gate PG-4's enforcement twin:
+ // the generator already fails the seal on a sub-100 page). PG-4:
+ // each page's notOffered set equals the approved consolidated §7
+ // draw re-derived here from the pool's boundary register over the
+ // page's DECLARED services (registry ∪ head-data ld ∪ per-page JSON
+ // Service/about/mainEntity @ids) — the same inputs the generator
+ // uses, recomputed independently.
+ try {
+   const SITE_PG = 'https://theflatratemovers.com';
+   const cryptoPG = require('crypto');
+   const shaPG = (buf) => cryptoPG.createHash('sha256').update(buf).digest('hex');
+   const idxPG = JSON.parse(fs.readFileSync(path.join(PAGES_PUBLIC, 'ai-master-index.json'), 'utf8'));
+   const distPG = new Map();
+   for (const e of idxPG.distribution || []) if (e && e.contentUrl) distPG.set(e.contentUrl, e);
+   const poolPG = JSON.parse(fs.readFileSync(path.join(PAGES_PUBLIC, 'datasets-page-data-pool.json'), 'utf8'));
+   const poolSvcPG = new Set(); const boundsPG = [];
+   for (const n of poolPG['@graph'] || []) {
+     const suf = String(n['@id'] || '').split('#').pop();
+     if (suf === 'services') for (const s of n.itemListElement || []) poolSvcPG.add(s.serviceId);
+     if (suf === 'boundaries') for (const b of n.itemListElement || []) boundsPG.push(b);
+   }
+   const headSrcPG = fs.readFileSync(path.join(PAGES_PUBLIC, '..', 'functions', 'head-data.js'), 'utf8');
+   const HEADPG = JSON.parse(headSrcPG.replace(/^\/\/[^\n]*\n/gm, '').replace('export const HEAD = ', '').replace(/;\s*$/, ''));
+   const declaredPG = (page) => {
+     const out = new Set();
+     for (const s of page.services || []) if (poolSvcPG.has(s)) out.add(s);
+     const key = (page.url.replace(SITE_PG, '') || '/').replace(/\/$/, '') || '/';
+     const entry = HEADPG[key] || HEADPG[page.url.replace(SITE_PG, '')];
+     const graphs = [];
+     if (entry && entry.ld) { try { graphs.push(JSON.parse(entry.ld)); } catch (_) { } }
+     if (entry && entry.jf) {
+       const jf = path.join(PAGES_PUBLIC, entry.jf);
+       if (fs.existsSync(jf)) { try { graphs.push(JSON.parse(fs.readFileSync(jf, 'utf8'))); } catch (_) { } }
+     }
+     for (const g of graphs) for (const n of [g, ...(g['@graph'] || [])]) {
+       if (!n || typeof n !== 'object') continue;
+       const ids = [];
+       if (n['@type'] === 'Service' && n['@id']) ids.push(n['@id']);
+       const about = Array.isArray(n.about) ? n.about : (n.about ? [n.about] : []);
+       for (const a of about) if (a && a['@id']) ids.push(a['@id']);
+       if (n.mainEntity && n.mainEntity['@id']) ids.push(n.mainEntity['@id']);
+       for (const id of ids) { const sid = String(id).split('#').pop(); if (poolSvcPG.has(sid)) out.add(sid); }
+     }
+     return out;
+   };
+   const regPagesPG = (pages && pages.pages) || pages;
+   const badPG1 = []; const badPG2 = []; const badPG4 = [];
+   const liveJobsPG = [];
+   for (const page of regPagesPG) {
+     const url = page.url;
+     const rel = url.replace(SITE_PG + '/', '').replace(/\/$/, '');
+     const dir = rel ? path.join(PAGES_PUBLIC, rel) : PAGES_PUBLIC;
+     const jsonUrl = url + 'data.json'; const txtUrl = url + 'data.txt';
+     let jsonBuf = null; let txtBuf = null; let doc = null;
+     try { jsonBuf = fs.readFileSync(path.join(dir, 'data.json')); } catch (_) { }
+     try { txtBuf = fs.readFileSync(path.join(dir, 'data.txt')); } catch (_) { }
+     try { doc = JSON.parse(jsonBuf.toString('utf8')); } catch (_) { }
+     const docPath = rel ? path.join(dir, 'index.html') : path.join(PAGES_PUBLIC, 'index.html');
+     let html = '';
+     try { html = fs.readFileSync(docPath, 'utf8'); } catch (_) { }
+     // PG-1 (disk): head block structure + digest correctness.
+     const jSha = jsonBuf ? shaPG(jsonBuf) : ''; const tSha = txtBuf ? shaPG(txtBuf) : '';
+     const dsM = html.match(/<script type="application\/ld\+json" data-page-data="dataset">([\s\S]*?)<\/script>/);
+     const wpM = html.match(/<script type="application\/ld\+json" data-page-data="webpage">([\s\S]*?)<\/script>/);
+     let dsNode = null; let wpNode = null;
+     try { dsNode = dsM ? JSON.parse(dsM[1]) : null; } catch (_) { }
+     try { wpNode = wpM ? JSON.parse(wpM[1]) : null; } catch (_) { }
+     const dist = (dsNode && dsNode.distribution) || [];
+     if (!html.includes('rel="alternate" type="application/json"') || !html.includes('href="' + jsonUrl + '"')) badPG1.push(url + ': json alternate link');
+     if (!html.includes('rel="alternate" type="text/plain"') || !html.includes('href="' + txtUrl + '"')) badPG1.push(url + ': txt alternate link');
+     if (!wpNode || wpNode['@id'] !== url || wpNode['@type'] !== 'WebPage') badPG1.push(url + ': WebPage seat');
+     if (!dsNode || dsNode['@id'] !== url + '#page-data-dataset') badPG1.push(url + ': Dataset seat');
+     else {
+       const d0 = dist.find((d) => d.contentUrl === jsonUrl); const d1 = dist.find((d) => d.contentUrl === txtUrl);
+       if (!d0 || d0.contentEncodingFormat !== 'sha256:' + jSha) badPG1.push(url + ': head json digest != file');
+       if (!d1 || d1.contentEncodingFormat !== 'sha256:' + tSha) badPG1.push(url + ': head txt digest != file');
+     }
+     // PG-2 (disk): files present, parse, digests == signed index; txt sections.
+     if (!jsonBuf || !doc) badPG2.push(url + ': data.json missing/unparseable');
+     if (!txtBuf) badPG2.push(url + ': data.txt missing');
+     if (jsonBuf) { const e = distPG.get(jsonUrl); if (!e || !e.digest || e.digest.value !== jSha) badPG2.push(url + ': index digest != data.json'); }
+     if (txtBuf) { const e = distPG.get(txtUrl); if (!e || !e.digest || e.digest.value !== tSha) badPG2.push(url + ': index digest != data.txt'); }
+     if (txtBuf && !(txtBuf.toString('utf8').includes('NOT OFFERED') && txtBuf.toString('utf8').includes('QUESTIONS'))) badPG2.push(url + ': data.txt sections');
+     // PG-4: notOffered set == the §7 draw over declared services.
+     if (doc) {
+       const decl = declaredPG(page);
+       const pathPart = url.replace(SITE_PG, '');
+       const want = new Set();
+       for (const b of boundsPG) {
+         if (b.scope === 'estate') want.add(b.name);
+         else if (Array.isArray(b.scope) && b.scope.some((s) => decl.has(s))) want.add(b.name);
+         else if (b.scope === 'page:' + pathPart) want.add(b.name);
+       }
+       const got = new Set(((doc.scope || {}).notOffered) || []);
+       if (want.size !== got.size || [...want].some((x) => !got.has(x))) {
+         badPG4.push(url + ': want ' + want.size + ' got ' + got.size +
+           '; missing: ' + [...want].filter((x) => !got.has(x)).slice(0, 2).join(' | ') +
+           '; extra: ' + [...got].filter((x) => !want.has(x)).slice(0, 2).join(' | '));
+       }
+     }
+     if (!LOCAL) liveJobsPG.push((async () => {
+       const liveJson = await fetchText(jsonUrl);
+       const liveTxt = await fetchText(txtUrl);
+       if (shaPG(Buffer.from(liveJson, 'utf8')) !== jSha) badPG2.push(url + ': served data.json != sealed');
+       if (shaPG(Buffer.from(liveTxt, 'utf8')) !== tSha) badPG2.push(url + ': served data.txt != sealed');
+       const liveHtml = await fetchText(url);
+       if (!liveHtml.includes('data-page-data="dataset"')) badPG1.push(url + ': served head block missing');
+     })());
+   }
+   if (!LOCAL) await Promise.all(liveJobsPG);
+   check('PG-1 Page Data head block present + correct on every page (alternate links, WebPage seat, Dataset seat digests == the files)',
+     badPG1.length === 0, badPG1.slice(0, 4).join('; ') || (regPagesPG.length + ' pages carry the block'));
+   check('PG-2 per-page data.json/data.txt present, parse, digests == signed index (and == served bytes when live)',
+     badPG2.length === 0, badPG2.slice(0, 4).join('; ') || (regPagesPG.length * 2 + ' files sealed'));
+   // PG-3: score file present, signed, every page at exactly 100.
+   const badPG3 = [];
+   let scoresPG = null;
+   try { scoresPG = JSON.parse(fs.readFileSync(path.join(PAGES_PUBLIC, 'page-data-scores.json'), 'utf8')); } catch (_) { }
+   if (!scoresPG) badPG3.push('page-data-scores.json missing/unparseable');
+   else {
+     if (!distPG.has(SITE_PG + '/page-data-scores.json')) badPG3.push('scores file is not a signed distribution');
+     const byUrl = new Map((scoresPG.pages || []).map((p) => [p.url, p.score]));
+     for (const page of regPagesPG) if (byUrl.get(page.url) !== 100) badPG3.push(page.url + ': score ' + byUrl.get(page.url));
+     if (!scoresPG.summary || scoresPG.summary.perfect !== regPagesPG.length) badPG3.push('summary.perfect != registry pages');
+   }
+   check('PG-3 Page Data rubric score file present + signed, every shipped page at exactly 100/100 (PG-4 seal gate)',
+     badPG3.length === 0, badPG3.slice(0, 4).join('; ') || (regPagesPG.length + ' pages at 100'));
+   check('PG-4 notOffered sets match the approved §7 exactly (pool boundary register re-drawn over declared services)',
+     badPG4.length === 0, badPG4.slice(0, 3).join('; ') || (regPagesPG.length + ' pages match the §7 draw'));
+ } catch (e) { check('§40 Page Data gates PG-1..PG-4 execute', false, String(e && e.message || e).slice(0, 240)); }
 }
 
   // --- 9. Guardrail scan: no placeholders, no invented license identifiers ---

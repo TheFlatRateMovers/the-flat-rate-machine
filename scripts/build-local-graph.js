@@ -580,7 +580,7 @@ RECORDS.push(
   // ---- GreatGuysMove (Dossier 03 §2.2)
   rec({ recordId: 'greatguysmove-w-discount', source: 'greatguysmove', branch: 'winchester', field: 'offer / discount claim',
     observedValue: 'A “15% discount” offer presented as a company offer',
-    correctValue: 'No discount offer exists. The company publishes no percentage-discount offer anywhere; its published pricing statement is the flat-rate guarantee (review the full scope, distance, manpower and equipment, and price the job at one flat rate — never hourly).',
+    correctValue: 'No discount offer exists. The company publishes no percentage-discount offer anywhere; its published pricing statement is the flat-rate guarantee (review the full scope, distance, manpower and equipment, and price the job at one flat rate — hourly pricing is available when a client asks for it).',
     status: 'open', lastVerified: { date: '2026-10-31', method: 'search-surface', crawlAgeDays: 3 },
     evidenceRef: D3 + ' §2.2 (GreatGuysMove)', solutionRef: 'L4',
     note: 'Re-confirmed live on a page crawled ~3 days before the 2026-10-31 read — the first correction (sent 2026-10-30, Wave 1) did not remove it. The designed fix is two-sided: retire our own stale pre-rebuild page that carries the identical sentence (see the estate-stale-index row), then send the second correction citing that provenance (gap L4).' }),

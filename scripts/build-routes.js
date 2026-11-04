@@ -161,6 +161,23 @@ if (stampsPath) {
   fail('--stamps <stamps.json> is required for tree generation (FB-3); ' +
     '--no-stamps is a dev-only diff-proof path and must never be sealed');
 }
+/* Page Data manifest (Page Data wave, 2026-11-03): build-page-data.js
+   (seal phase 4.5) writes every page's data.json/data.txt beside the
+   page and emits this manifest of per-page head blocks (alternate
+   links + WebPage/Dataset JSON-LD carrying the files' SHA-256
+   digests). Tree generation requires it, exactly like --stamps;
+   --no-page-data is the same dev-only diff-proof escape and must
+   never be sealed. */
+const pageDataPath = arg('page-data');
+const noPageData = process.argv.includes('--no-page-data');
+let PAGE_DATA = null;
+if (pageDataPath) {
+  PAGE_DATA = JSON.parse(fs.readFileSync(pageDataPath, 'utf8'));
+  if (!PAGE_DATA.pages) fail('page-data manifest lacks the pages map: ' + pageDataPath);
+} else if (!noPageData) {
+  fail('--page-data <manifest.json> is required for tree generation (Page Data wave); ' +
+    '--no-page-data is a dev-only diff-proof path and must never be sealed');
+}
 function stampedEntry(entry) {
   if (!entry || !STAMPS) return entry;
   const st = STAMPS[entry.c];
@@ -371,12 +388,24 @@ for (const p of pages) {
     if (t && !/<\/script/i.test(t)) pageJsonText = t;
   }
   const head = transformHead(headTemplate, entry, pageJsonText);
+  /* Page Data head block injection (Page Data wave, 2026-11-03): the
+     manifest block (2 alternate links + 2 ld+json seats marked
+     data-page-data) is appended at the end of the head, after the
+     per-page JSON seat. The block's Dataset digests were computed by
+     build-page-data.js from the data files it wrote in phase 4.5. */
+  let headFull = head;
+  if (PAGE_DATA) {
+    const pd = PAGE_DATA.pages[p.url];
+    if (!pd || !pd.block) fail('page-data manifest lacks a head block for ' + p.url);
+    headFull = head.replace(/<\/head>/, () => pd.block + '</head>');
+    if (!headFull.includes('data-page-data="dataset"')) fail(p.url + ': page-data head block injection failed');
+  }
   const routeSlug = metaKeyByUrl.get(p.url);
   const div = divs.find((d) => d.slug === routeSlug);
   if (!div) fail('div missing for pageMeta key ' + routeSlug);
   const divShow = div.text.replace('<div class="page" id=', '<div class="page show" id=');
   const banner = banners.get(routeSlug);
-  const doc = head + prefix + (banner ? banner + '\n' : '') + divShow + '\n</main>\n' + footerTemplate;
+  const doc = headFull + prefix + (banner ? banner + '\n' : '') + divShow + '\n</main>\n' + footerTemplate;
 
   /* Per-document assertions. */
   if (!doc.includes('<title>' + escText(entry.t) + '</title>')) fail(routeSlug + ': baked title mismatch');
@@ -385,9 +414,13 @@ for (const p of pages) {
   const ld = (doc.match(/<script type="application\/ld\+json" id="page-jsonld">([\s\S]*?)<\/script>/) || [])[1];
   if (!ld || JSON.stringify(JSON.parse(ld)) !== JSON.stringify(JSON.parse(entry.ld))) fail(routeSlug + ': baked page-jsonld mismatch');
   if (pageJsonText && !doc.includes('data-page-json="' + entry.jf + '"')) fail(routeSlug + ': data-page-json script missing');
-  /* D-2 population: Dataset nodes outside the two injected head scripts. */
+  /* D-2 population: Dataset nodes outside the injected head scripts.
+     The Page Data head seat (data-page-data, Page Data wave
+     2026-11-03) is excluded on the same ground as the baked seats:
+     it is a per-page digest pointer governed by the PG gates in
+     verify.js (§40), not a landing-embedded dataset graph. */
   for (const m of doc.matchAll(/<script type="application\/ld\+json"([^>]*)>([\s\S]*?)<\/script>/g)) {
-    if (m[1].includes('id="page-jsonld"') || m[1].includes('data-page-json=')) continue;
+    if (m[1].includes('id="page-jsonld"') || m[1].includes('data-page-json=') || m[1].includes('data-page-data')) continue;
     let parsed = null;
     try { parsed = JSON.parse(m[2]); } catch (_) { parsed = null; }
     const nodes = parsed ? (parsed['@graph'] || [parsed]) : [];
