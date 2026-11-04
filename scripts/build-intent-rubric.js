@@ -88,6 +88,7 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 const { SITE, fail, load } = require('./lib');
+const { CATALOG } = require('./lib-constants.js');
 
 const ROOT = path.resolve(__dirname, '..');
 const FLAT = path.resolve(ROOT, '..', 'theflatratemovers');
@@ -1717,7 +1718,7 @@ function enrichDatasetNodes(nodes, datePublished, variableMeasured, strengthenSC
     const types = Array.isArray(n['@type']) ? n['@type'] : [n['@type']];
     if (!types.includes('Dataset')) continue;
     n.datePublished = datePublished;
-    n.includedInDataCatalog = { '@type': 'DataCatalog', '@id': 'https://theflatratemovers.com/datasets/#collection', 'name': 'The Flat Rate Movers — AI Authority Estate Datasets', 'url': 'https://theflatratemovers.com/datasets/' };
+    n.includedInDataCatalog = { ...CATALOG };
     if (variableMeasured) n.variableMeasured = variableMeasured;
     if (strengthenSC && Array.isArray(n.spatialCoverage)) {
       n.spatialCoverage = n.spatialCoverage.map((p) => (p && ENRICH_PLACES[p['@id']] && Object.keys(p).length === 1) ? ENRICH_PLACES[p['@id']] : p);

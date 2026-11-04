@@ -27,6 +27,7 @@
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
+const { CATALOG } = require('./lib-constants.js');
 
 const ROOT = path.resolve(__dirname, '..');
 const PUB = process.env.PAGES_PUBLIC || path.join(ROOT, '..', 'the-flat-rate-movers-pages', 'public');
@@ -223,7 +224,7 @@ function datasetShell(idSuffix, name, description) {
     'publisher': JSON.parse(JSON.stringify(ORG_REF)),
     'datePublished': TODAY,
     'dateModified': FILE_DM,
-    'includedInDataCatalog': { '@type': 'DataCatalog', '@id': SITE + '/datasets/#collection', 'name': 'The Flat Rate Movers — AI Authority Estate Datasets', 'url': SITE + '/datasets/' },
+    'includedInDataCatalog': { ...CATALOG },
     'spatialCoverage': JSON.parse(JSON.stringify(SPATIAL)),
   };
 }

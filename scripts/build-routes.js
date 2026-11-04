@@ -367,6 +367,60 @@ let footerTemplate;
   if (!footerTemplate.includes('id="toast"')) fail('footer template lacks the toast element (chrome)');
 }
 
+/* Embed-hash injection (Copy-Integrity batch, 2026-11-04): dataset
+ * landing divs embed verbatim dataset-file copies whose DataDownload
+ * objects carry sha256 digests of estate files. Those digests used to
+ * be authored into the shell and hand-patched whenever a referenced
+ * file changed (the reconciliation re-patched the intent landing
+ * embed repeatedly by hand). They are now computed here, at
+ * generation time, from the FINAL files in the public tree and
+ * injected — the authored value is never trusted. Every other byte of
+ * the embed is preserved. An estate-origin contentUrl whose file is
+ * missing fails the build loud; external contentUrls are not estate
+ * files and pass through untouched. */
+let embedHashesInjected = 0;
+function injectEmbedHashes(html, pageUrl) {
+  return html.replace(/<script type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g, (whole, body) => {
+    if (!body.includes('DataDownload')) return whole;
+    let parsed = null;
+    try { parsed = JSON.parse(body); } catch (_) { return whole; }
+    const downloads = [];
+    (function walk(o) {
+      if (Array.isArray(o)) { for (const v of o) walk(v); return; }
+      if (o && typeof o === 'object') {
+        const ty = o['@type'];
+        if ((Array.isArray(ty) ? ty.includes('DataDownload') : ty === 'DataDownload')
+          && typeof o.contentUrl === 'string' && typeof o.sha256 === 'string') downloads.push(o);
+        for (const v of Object.values(o)) walk(v);
+      }
+    })(parsed);
+    if (!downloads.length) return whole;
+    const replacements = new Map(); // stale sha -> true sha, per block
+    for (const d of downloads) {
+      if (!d.contentUrl.startsWith('https://theflatratemovers.com/')) continue;
+      const rel = decodeURIComponent(new URL(d.contentUrl).pathname).replace(/^\//, '');
+      const file = path.join(publicDir, rel);
+      if (!fs.existsSync(file)) fail(pageUrl + ': embed DataDownload references missing estate file ' + d.contentUrl);
+      const truth = crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
+      if (truth !== d.sha256) {
+        if (replacements.has(d.sha256) && replacements.get(d.sha256) !== truth) {
+          fail(pageUrl + ': one stale embed hash maps to two different files — refusing to guess');
+        }
+        replacements.set(d.sha256, truth);
+      }
+    }
+    if (!replacements.size) return whole;
+    let out = body;
+    for (const [stale, truth] of replacements) {
+      const needle = '"sha256": ' + JSON.stringify(stale);
+      if (!out.includes(needle)) fail(pageUrl + ': embed hash needle not found for ' + stale.slice(0, 12) + ' (serialization form differs — extend the injector)');
+      out = out.split(needle).join('"sha256": ' + JSON.stringify(truth));
+      embedHashesInjected++;
+    }
+    return whole.replace(body, () => out);
+  });
+}
+
 /* ------------------------------------------------------------------ */
 /* Generate                                                            */
 /* ------------------------------------------------------------------ */
@@ -403,7 +457,7 @@ for (const p of pages) {
   const routeSlug = metaKeyByUrl.get(p.url);
   const div = divs.find((d) => d.slug === routeSlug);
   if (!div) fail('div missing for pageMeta key ' + routeSlug);
-  const divShow = div.text.replace('<div class="page" id=', '<div class="page show" id=');
+  const divShow = injectEmbedHashes(div.text.replace('<div class="page" id=', '<div class="page show" id='), p.url);
   const banner = banners.get(routeSlug);
   const doc = headFull + prefix + (banner ? banner + '\n' : '') + divShow + '\n</main>\n' + footerTemplate;
 
@@ -457,6 +511,7 @@ console.log('build-routes: ' + manifest.length + ' route documents generated');
 console.log('  raw bytes: min ' + sizes[0] + ', median ' + sizes[Math.floor(sizes.length / 2)] + ', max ' + sizes[sizes.length - 1]);
 console.log('  quote segment md5: ' + segMd5 + ' (canonical)');
 console.log('  D-2 Dataset-node instances: ' + d2Instances + ' (== pre-A shell total)');
+console.log('  embed DataDownload hashes injected from final files: ' + embedHashesInjected);
 console.log('  stray </main> in source accounted for: ' + strayMainClose);
 for (const u of ['/', '/gun-safe-movers/', '/transloading-vs-cross-docking-vs-deconsolidation/', '/1650-lb-gun-safe-delivered-and-installed-moorefield-wv/']) {
   const m = manifest.find((x) => x.url === 'https://theflatratemovers.com' + u);

@@ -40,6 +40,7 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 const { execFileSync } = require('child_process');
+const { CATALOG } = require('./lib-constants.js');
 
 const ROOT = path.resolve(__dirname, '..');
 const HOME = process.env.HOME || '/home/hatch';
@@ -447,7 +448,7 @@ function node(type, suffix, name, description, extra, payloadKey) {
   };
   if (type === 'Dataset') {
     n.datePublished = '2026-11-03';
-    n.includedInDataCatalog = { '@type': 'DataCatalog', '@id': SITE + '/datasets/#collection', 'name': 'The Flat Rate Movers — AI Authority Estate Datasets', 'url': SITE + '/datasets/' };
+    n.includedInDataCatalog = { ...CATALOG };
     // No variableMeasured: verify.js CV-6 reserves that property to
     // the six measurement datasets; the catalog registry is held to
     // the same bar as the other registry files (execution deviation

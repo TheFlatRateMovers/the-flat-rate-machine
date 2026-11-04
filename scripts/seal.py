@@ -176,6 +176,114 @@ def fail(msg):
     sys.exit(3)
 
 
+def install_intent():
+    """Install the generated intent dataset into the public tree and
+    pin-sync the landing seat's description (the I-10 pair)."""
+    shutil.copyfile(
+        os.path.join(ROOT, "out", "batch-intent-rubric", "work",
+                     "datasets-intent-coverage.json"),
+        os.path.join(PUB, "datasets-intent-coverage.json"))
+    with open(os.path.join(PUB, "datasets-intent-coverage.json"),
+              encoding="utf-8") as f:
+        ds = json.load(f)
+    land_p = os.path.join(PUB, "dataset-intent-coverage.json")
+    with open(land_p, encoding="utf-8") as f:
+        pp = json.load(f)
+    pp["@graph"][0]["description"] = ds["@graph"][0]["description"]
+    with open(land_p, "w", encoding="utf-8") as f:
+        json.dump(pp, f, indent=1, ensure_ascii=False)
+        f.write("\n")
+
+
+def settle_intent(tag):
+    """Fixpoint settle for the intent rubric (Copy-Integrity batch,
+    2026-11-04): generate, install, then assert the generator's own
+    --check — a full regeneration from the same inputs, compared by
+    rows digest — passes. If it fails, the inputs moved under the
+    generation: generate once more and re-assert; a second failure
+    fails the seal. The one-generation lag is thus healed and proven
+    at the settle point instead of surfacing at the phase-8 proof
+    round (which still runs the same --check as the final arbiter).
+    The rows digest is the invariant because rubric.db's bytes are
+    not stable across identical rewrites (SQLite change counters) —
+    measured in this batch's break tests; the generated dataset file
+    is byte-stable and is covered by the digest pass."""
+    chk_env = {**os.environ, "RUBRIC_DATE": RUBRIC_DATE}
+    for attempt in (1, 2):
+        run(["node", "scripts/build-intent-rubric.js"],
+            env_extra={"RUBRIC_DATE": RUBRIC_DATE})
+        install_intent()
+        chk = subprocess.run(
+            ["node", "scripts/build-intent-rubric.js", "--check"],
+            cwd=ROOT, env=chk_env, capture_output=True, text=True)
+        if chk.returncode == 0:
+            line = (chk.stdout or "").strip().split("\n")[-1]
+            print(f"    intent settled ({tag}, attempt {attempt}): "
+                  f"{line[:130]}")
+            m = re.search(r"digest ([0-9a-f]{64})", line)
+            return m.group(1) if m else None
+        print(f"    intent settle ({tag}, attempt {attempt}): "
+              f"--check still one generation behind — regenerating")
+    fail(f"intent fixpoint ({tag}): --check failed after two "
+         f"generations — inputs are still moving inside the seal")
+
+
+def settle_consumers(tag):
+    """Settle the intent rubric AND its in-seal consumers
+    (Copy-Integrity batch, 2026-11-04). Two couplings make a bare
+    intent settle insufficient: the graph citizenship derives from
+    the installed intent file, and the search-index / answer-evidence
+    datasets embed the rubric rows digest in their prose — any
+    settle that moves the rows digest after those datasets were
+    generated leaves them one generation behind (their SI-2/AE-2
+    regeneration gates fail). This loop re-derives every consumer
+    after each settle and exits only when a full round is stable:
+    the intent --check passes AFTER the consumers re-ran, and the
+    consumer files are byte-identical across a second regeneration
+    from the settled rubric. Bounded at 3 rounds; a non-converging
+    round fails the seal loud."""
+    stamps_env = {"FB3_STAMPS": os.path.join(WORK, "stamps.json")}
+    flat_dir = os.path.join(os.path.dirname(ROOT), "theflatratemovers")
+    consumer_files = [
+        os.path.join(PUB, "datasets-search-index.json"),
+        os.path.join(PUB, "datasets-answer-evidence.json"),
+        os.path.join(PUB, "datasets-intent-coverage.json"),
+    ]
+    chk_env = {**os.environ, "RUBRIC_DATE": RUBRIC_DATE}
+    for rnd in (1, 2, 3):
+        settle_intent(f"{tag} round {rnd}")
+        run(["node", "scripts/sync-dataset-graph-nodes.js",
+             "--resync"], env_extra={"FRM_SEAL_DATE": RUBRIC_DATE})
+        run(["node", "scripts/sync-variant-graph-nodes.js",
+             "--resync"], env_extra={"FRM_SEAL_DATE": RUBRIC_DATE})
+        for g in ("entity-graph.json", "best-json-entity-graph.json"):
+            src_p = os.path.join(ROOT, "data", g)
+            dst_p = os.path.join(flat_dir, g)
+            shutil.copyfile(src_p, dst_p)
+            if sha(src_p) != sha(dst_p):
+                fail(f"FB-3 graph copy mismatch ({tag}): {g}")
+        for gen in ("build-search-index.js", "build-answer-evidence.js"):
+            run(["node", f"scripts/{gen}"], env_extra=stamps_env)
+        run(["node", "scripts/build-catalog-registry.js"],
+            env_extra={"CATALOG_DATE": RUBRIC_DATE})
+        h1 = {p: sha(p) for p in consumer_files}
+        for gen in ("build-search-index.js", "build-answer-evidence.js"):
+            run(["node", f"scripts/{gen}"], env_extra=stamps_env)
+        h2 = {p: sha(p) for p in consumer_files}
+        chk = subprocess.run(
+            ["node", "scripts/build-intent-rubric.js", "--check"],
+            cwd=ROOT, env=chk_env, capture_output=True, text=True)
+        if h1 == h2 and chk.returncode == 0:
+            print(f"    consumers settled ({tag}, round {rnd}): "
+                  f"intent --check clean after consumer regeneration; "
+                  f"consumer files byte-stable")
+            return
+        print(f"    consumer settle ({tag}, round {rnd}): still "
+              f"moving (files stable: {h1 == h2}, intent --check: "
+              f"{chk.returncode}) — another round")
+    fail(f"consumer settle ({tag}): not converged after 3 rounds")
+
+
 def main():
     t0 = time.time()
     os.makedirs(WORK, exist_ok=True)
@@ -317,26 +425,9 @@ def main():
     run(["node", "scripts/stamp-dataset-files.js"],
         env_extra={"FB3_STAMPS": os.path.join(WORK, "stamps.json")})
 
-    phase("1. intent rubric (cert digests are file-sourced, S2)")
-    run(["node", "scripts/build-intent-rubric.js"],
-        env_extra={"RUBRIC_DATE": RUBRIC_DATE})
-    shutil.copyfile(
-        os.path.join(ROOT, "out", "batch-intent-rubric", "work",
-                     "datasets-intent-coverage.json"),
-        os.path.join(PUB, "datasets-intent-coverage.json"))
-    # Landing sync: the per-page JSON's description is pinned to the
-    # dataset file's (verify.js I-10) — same transform as the rounds ran.
-    with open(os.path.join(PUB, "datasets-intent-coverage.json"),
-              encoding="utf-8") as f:
-        ds = json.load(f)
-    land_p = os.path.join(PUB, "dataset-intent-coverage.json")
-    with open(land_p, encoding="utf-8") as f:
-        pp = json.load(f)
-    pp["@graph"][0]["description"] = ds["@graph"][0]["description"]
-    with open(land_p, "w", encoding="utf-8") as f:
-        json.dump(pp, f, indent=1, ensure_ascii=False)
-        f.write("\n")
-    print("    intent dataset installed; landing description synced")
+    phase("1. intent rubric (cert digests are file-sourced, S2; "
+          "fixpoint settle, Copy-Integrity 2026-11-04)")
+    settle_intent("phase 1")
 
     phase("2. derived datasets (rubric.db / file readers, in order)")
     stamps_env = {"FB3_STAMPS": os.path.join(WORK, "stamps.json")}
@@ -378,6 +469,40 @@ def main():
             fail(f"FB-3 graph copy mismatch: {g}")
     print("    dataset graph sync (--resync) done; flat graph copies "
           "mirrored from data/")
+
+    # Copy-Integrity batch (2026-11-04): derived copies settle INSIDE
+    # the seal, in dependency order. (1) The catalog registry
+    # regenerates whenever a dataset file's bytes moved since the
+    # pre-seal index — its embedded digests are copies of the dataset
+    # files (the reconciliation regenerated it by hand, repeatedly).
+    # (2) The intent fixpoint re-settles against the final phase-2
+    # files (the derived datasets feed its rows). (3) The graph
+    # citizenship re-derives from the settled intent file. (4) Every
+    # date copy — per-page JSONs, dataset seats, shell landing
+    # embeds — aligns via sync-derived-copies.js. After this phase,
+    # no hand-run regeneration or alignment step exists.
+    phase("2c. copy integrity (registry regen, intent re-settle, "
+          "graph re-derive, derived-copy sync)")
+    prior_dists = {}
+    for e in prior_index.get("distribution", []):
+        if e.get("contentUrl"):
+            prior_dists[e["contentUrl"]] = e.get("sha256")
+    ds_changed = []
+    for stem in sorted(os.listdir(PUB)):
+        if stem.startswith("datasets-") and stem.endswith(".json"):
+            u = "https://theflatratemovers.com/" + stem
+            if prior_dists.get(u) != sha(os.path.join(PUB, stem)):
+                ds_changed.append(stem)
+    if ds_changed:
+        print(f"    dataset files changed vs pre-seal index: "
+              f"{len(ds_changed)} — the consumer settle regenerates "
+              f"the catalog registry")
+    else:
+        print("    no dataset file changed vs pre-seal index; "
+              "catalog registry regeneration is a byte-stable no-op "
+              "inside the consumer settle")
+    settle_consumers("phase 2c")
+    run(["node", "scripts/sync-derived-copies.js"])
 
     phase("2b. sitemap sections + index, the Google News sitemap and "
           "the article feed (registry/ledger-driven; before "
@@ -421,6 +546,34 @@ def main():
                     f.write(s)
         print(f"    refresh replacements: {total} "
               f"across {len(targets)} targets")
+
+    # Copy-Integrity contingency (2026-11-04): phase 4 propagates
+    # root digests into the public root JSONs — files the intent
+    # rubric digests. If it rewrote any of them, the phase-2c settle
+    # is stale. Detect with the generator's own --check; on failure,
+    # re-settle ONCE (intent fixpoint, graph re-derive, catalog
+    # registry regen) and require the check to pass. When phase 4
+    # moved nothing — the common case — this is a single no-op check.
+    phase("4c. copy-integrity contingency (intent still settled "
+          "after digest-refresh?)")
+    chk_env = {**os.environ, "RUBRIC_DATE": RUBRIC_DATE}
+    chk = subprocess.run(
+        ["node", "scripts/build-intent-rubric.js", "--check"],
+        cwd=ROOT, env=chk_env, capture_output=True, text=True)
+    if chk.returncode == 0:
+        print("    intent --check clean after digest-refresh; "
+              "no re-settle needed")
+    else:
+        print("    digest-refresh moved rubric inputs; running the "
+              "consumer settle")
+        settle_consumers("phase 4c")
+        chk2 = subprocess.run(
+            ["node", "scripts/build-intent-rubric.js", "--check"],
+            cwd=ROOT, env=chk_env, capture_output=True, text=True)
+        if chk2.returncode != 0:
+            fail("intent --check still failing after the 4c "
+                 "consumer settle: " + (chk2.stdout or "")[-300:])
+        print("    consumer settle complete; intent --check clean")
 
     # Page Data wave (2026-11-03): the per-page data files are drawn
     # from the pool AFTER digest-refresh (phase 4 can rewrite root

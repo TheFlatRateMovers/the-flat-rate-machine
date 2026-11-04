@@ -13,6 +13,7 @@
 const fs = require('fs');
 const path = require('path');
 const https = require('https');
+const ESTATE = require('./lib-constants.js');
 
 const ROOT = __dirname;
 const FLAT = path.resolve(ROOT, '..', 'theflatratemovers');
@@ -4163,7 +4164,7 @@ async function main() {
         if (!dsNodes.length) { bad.push(f + ': no Dataset nodes'); continue; }
         for (const n of dsNodes) {
           if (n.datePublished !== DATES[slug]) bad.push(f + ' datePublished ' + n.datePublished);
-          if (!n.includedInDataCatalog || n.includedInDataCatalog['@id'] !== 'https://theflatratemovers.com/datasets/#collection') bad.push(f + ' catalog pointer');
+          if (!n.includedInDataCatalog || n.includedInDataCatalog['@id'] !== ESTATE.CATALOG['@id']) bad.push(f + ' catalog pointer');
           if ('version' in n) bad.push(f + ' carries version (D3 hold)');
           const hasVM = Array.isArray(n.variableMeasured) && n.variableMeasured.length > 0;
           if (VM.has(slug) && !hasVM) bad.push(f + ' variableMeasured missing');
@@ -4474,7 +4475,7 @@ async function main() {
       if (doc && Array.isArray(doc['@graph'])) return doc['@graph'];
       return Array.isArray(doc) ? doc : [doc];
     };
-    const CATALOG_DG = { '@type': 'DataCatalog', '@id': SITE_DG + '/datasets/#collection', 'name': 'The Flat Rate Movers — AI Authority Estate Datasets', 'url': SITE_DG + '/datasets/' };
+    const CATALOG_DG = ESTATE.CATALOG;
 
     // File set: the signed index's dataset-file distributions; the
     // PUB disk set must equal it (offenders named in setBadDG).
@@ -5285,6 +5286,182 @@ async function main() {
        liveOkCR, liveOkCR ? nodesCR.length + ' nodes served' : 'served file mismatch');
    }
  } catch (e) { check('§41 Catalog Registry gates CR-1..CR-5 execute', false, String(e && e.message || e).slice(0, 240)); }
+}
+
+/* ==== 42. Copy Integrity CI-1..CI-6 (Copy-Integrity batch, 2026-11-04).
+ * The catalog-pointer reconciliation exposed the estate's copy-drift
+ * class: authored copies of derived values (the shared catalog
+ * object, dates, digests) drifting from their sources and surfacing
+ * only at live verify. These gates make the class structurally
+ * visible. CI-1 pins the shared constants module (lib-constants.js)
+ * to the copies registry (data/copies-registry.json). CI-2 asserts
+ * every catalog-object copy in the parsed seats equals the canonical
+ * value — a bare value (the GSC Datasets defect form) fails
+ * distinctly. CI-3 is the TW-6 pattern applied to values: it scans
+ * the estate trees for the catalog fingerprint and fails on any seat
+ * the registry does not name. CI-4 proves the route builder's
+ * embed-hash injection is wired and that the shipped intent
+ * landing's downloads hash-match their files. CI-5 asserts the seal
+ * wiring (module-fed producers, in-seal registry regeneration, the
+ * derived-copy sync, the intent fixpoint settle). CI-6 runs the
+ * derived-copy sync in --check mode as the standing date gate. All
+ * six run on local evidence, in --local mode too. ==== */
+{
+  try {
+    const PUBC = PAGES_PUBLIC;
+    const REPOC = path.join(ROOT, 'repo-dir');
+    const readJC = (p) => JSON.parse(fs.readFileSync(p, 'utf8'));
+    const regC = readJC(path.join(ROOT, 'data', 'copies-registry.json'));
+    const canonC = (v) => Array.isArray(v) ? '[' + v.map(canonC).join(',') + ']'
+      : (v && typeof v === 'object') ? '{' + Object.keys(v).sort().map((k) => JSON.stringify(k) + ':' + canonC(v[k])).join(',') + '}'
+      : JSON.stringify(v);
+    const CANON = canonC(regC.canonical.catalog);
+
+    /* CI-1 — module seats identical; module values == registry canonical. */
+    {
+      const seats = [path.join(ROOT, 'lib-constants.js'), path.join(ROOT, 'scripts', 'lib-constants.js'), path.join(REPOC, 'lib-constants.js')];
+      const bufs = seats.map((s) => fs.readFileSync(s));
+      const identical = bufs[0].equals(bufs[1]) && bufs[0].equals(bufs[2]);
+      const valuesOk = canonC(ESTATE.CATALOG) === CANON && ESTATE.SITE === regC.canonical.site
+        && ESTATE.CATALOG_ID === regC.canonical.catalogId && ESTATE.DATASET_DOI === regC.canonical.datasetDoi;
+      check('CI-1 constants module seats byte-identical; module values equal the copies registry canonical',
+        identical && valuesOk, 'seats identical: ' + identical + '; values match registry: ' + valuesOk);
+    }
+
+    /* CI-2 — every parsed catalog-object copy equals the canonical value. */
+    {
+      let n = 0; const bad = []; const bare = [];
+      const walkVals = (o, where) => {
+        if (Array.isArray(o)) { for (const v of o) walkVals(v, where); return; }
+        if (o && typeof o === 'object') {
+          for (const [k, v] of Object.entries(o)) {
+            if (k === 'includedInDataCatalog') {
+              n++;
+              if (!v || typeof v !== 'object' || Array.isArray(v)) bare.push(where);
+              else if (canonC(v) !== CANON) bad.push(where);
+            } else walkVals(v, where);
+          }
+        }
+      };
+      const ldBlocks = (html) => [...html.matchAll(/<script type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].map((m) => m[1]);
+      for (const f of fs.readdirSync(PUBC).filter((x) => x.endsWith('.json'))) {
+        try { walkVals(readJC(path.join(PUBC, f)), 'pub:' + f); } catch (_) { /* unparseable files are other gates' subjects */ }
+      }
+      for (const f of ['entity-graph.json', 'best-json-entity-graph.json']) {
+        try { walkVals(readJC(path.join(ROOT, 'data', f)), 'data:' + f); } catch (_) { }
+        try { walkVals(readJC(path.join(FLAT, f)), 'flat:' + f); } catch (_) { }
+      }
+      for (const body of ldBlocks(fs.readFileSync(path.join(REPOC, 'index.html'), 'utf8'))) {
+        if (!body.includes('includedInDataCatalog')) continue;
+        try { walkVals(JSON.parse(body), 'repo-dir:index.html'); } catch (_) { }
+      }
+      const walkDocs = (dir) => {
+        for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+          const p = path.join(dir, e.name);
+          if (e.isDirectory()) walkDocs(p);
+          else if (e.name === 'index.html') {
+            const t = fs.readFileSync(p, 'utf8');
+            if (!t.includes('includedInDataCatalog')) continue;
+            for (const body of ldBlocks(t)) {
+              if (!body.includes('includedInDataCatalog')) continue;
+              try { walkVals(JSON.parse(body), 'pub:' + path.relative(PUBC, p)); } catch (_) { }
+            }
+          }
+        }
+      };
+      walkDocs(PUBC);
+      check('CI-2 every catalog-object copy in the parsed seats equals the canonical value',
+        bad.length === 0 && bare.length === 0 && n > 900,
+        n + ' copies walked; bare: ' + bare.length + (bare.length ? ' (' + bare.slice(0, 2).join('; ') + ')' : '') + '; unequal: ' + bad.length + (bad.length ? ' (' + bad.slice(0, 2).join('; ') + ')' : ''));
+    }
+
+    /* CI-3 — completeness: every fingerprint seat is registered. */
+    {
+      const seatIds = new Set(); const pats = [];
+      for (const c of regC.classes) {
+        for (const s of (c.seats || [])) seatIds.add(s);
+        for (const s of (c.seatsAlso || [])) seatIds.add(s);
+        for (const p of (c.patterns || [])) pats.push(new RegExp('^' + p.replace(/[.+^${}()|[\]\\]/g, '\\$&').replace(/\*/g, '.*') + '$'));
+      }
+      const covered = (id) => seatIds.has(id) || pats.some((r) => r.test(id));
+      const hits = [];
+      const exts = new Set(['.js', '.json', '.py', '.mjs', '.txt', '.xml', '.html']);
+      const dirFiles = (dir) => { try { return fs.readdirSync(dir, { withFileTypes: true }).filter((e) => e.isFile()).map((e) => e.name); } catch (_) { return []; } };
+      const scan = (abs, id) => { try { if (fs.readFileSync(abs, 'utf8').includes(regC.fingerprint)) hits.push(id); } catch (_) { } };
+      for (const f of dirFiles(ROOT)) if (exts.has(path.extname(f))) scan(path.join(ROOT, f), 'machine:' + f);
+      for (const f of dirFiles(path.join(ROOT, 'scripts'))) if (exts.has(path.extname(f))) scan(path.join(ROOT, 'scripts', f), 'scripts:' + f);
+      for (const f of dirFiles(path.join(ROOT, 'scripts', 'route-assets'))) scan(path.join(ROOT, 'scripts', 'route-assets', f), 'scripts:route-assets/' + f);
+      for (const f of dirFiles(REPOC)) if (exts.has(path.extname(f))) scan(path.join(REPOC, f), 'repo-dir:' + f);
+      for (const f of dirFiles(path.join(ROOT, 'data'))) if (f.endsWith('.json')) scan(path.join(ROOT, 'data', f), 'data:' + f);
+      for (const f of dirFiles(PUBC)) if (exts.has(path.extname(f))) scan(path.join(PUBC, f), 'pub:' + f);
+      for (const f of dirFiles(FLAT)) if (f.endsWith('.json')) scan(path.join(FLAT, f), 'flat:' + f);
+      const unreg = hits.filter((h) => !covered(h));
+      check('CI-3 completeness: every seat carrying the catalog fingerprint is registered in the copies registry',
+        unreg.length === 0, hits.length + ' seats found; unregistered: ' + (unreg.length ? unreg.slice(0, 4).join('; ') : '0'));
+    }
+
+    /* CI-4 — embed-hash injection wired + product proof on the intent landing. */
+    {
+      const brText = fs.readFileSync(path.join(REPOC, 'build-routes.js'), 'utf8');
+      let ok = brText.includes('function injectEmbedHashes') && brText.includes('references missing estate file');
+      let dlCount = 0; const badD = [];
+      const docP = path.join(PUBC, 'datasets', 'intent-coverage', 'index.html');
+      if (!fs.existsSync(docP)) ok = false;
+      else {
+        const html = fs.readFileSync(docP, 'utf8');
+        for (const body of [...html.matchAll(/<script type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].map((m) => m[1])) {
+          if (!body.includes('DataDownload')) continue;
+          let parsed; try { parsed = JSON.parse(body); } catch (_) { continue; }
+          const dls = [];
+          (function walk(o) {
+            if (Array.isArray(o)) { for (const v of o) walk(v); return; }
+            if (o && typeof o === 'object') {
+              const ty = o['@type'];
+              if ((Array.isArray(ty) ? ty.includes('DataDownload') : ty === 'DataDownload') && typeof o.contentUrl === 'string' && typeof o.sha256 === 'string') dls.push(o);
+              for (const v of Object.values(o)) walk(v);
+            }
+          })(parsed);
+          for (const d of dls) {
+            if (!d.contentUrl.startsWith('https://theflatratemovers.com/')) continue;
+            dlCount++;
+            const rel = decodeURIComponent(new URL(d.contentUrl).pathname).replace(/^\//, '');
+            const fp = path.join(PUBC, rel);
+            if (!fs.existsSync(fp) || require('crypto').createHash('sha256').update(fs.readFileSync(fp)).digest('hex') !== d.sha256) badD.push(d.contentUrl);
+          }
+        }
+      }
+      check('CI-4 embed-hash injection is wired in build-routes and the intent landing downloads hash-match their files',
+        ok && dlCount > 0 && badD.length === 0,
+        dlCount + ' estate downloads in the intent landing; mismatched: ' + (badD.length ? badD.slice(0, 2).join('; ') : '0'));
+    }
+
+    /* CI-5 — producers module-fed; seal wiring present. */
+    {
+      const producers = ['build-search-index.js', 'build-answer-evidence.js', 'build-archive-registry.js', 'build-crawl-presence.js', 'build-intent-rubric.js', 'build-local-graph.js', 'build-catalog-registry.js', 'build-ports.js', 'sync-dataset-graph-nodes.js'];
+      let wired = 0;
+      for (const b of producers) for (const seat of ['scripts', 'repo-dir']) {
+        try { if (fs.readFileSync(path.join(ROOT, seat, b), 'utf8').includes("require('./lib-constants.js')")) wired++; } catch (_) { }
+      }
+      const sealText = fs.readFileSync(path.join(ROOT, 'scripts', 'seal.py'), 'utf8');
+      const sealWired = ['sync-derived-copies', 'build-catalog-registry', 'settle_intent', 'install_intent'].every((s) => sealText.includes(s));
+      check('CI-5 producers read the constants module (18/18 seats) and seal.py wires regeneration, sync, and the fixpoint settle',
+        wired === 18 && sealWired && regC.classes.length >= 12,
+        wired + '/18 producer seats; seal wiring: ' + (sealWired ? 'present' : 'MISSING') + '; registry classes: ' + regC.classes.length);
+    }
+
+    /* CI-6 — the derived-copy sync, run as a gate. */
+    {
+      let ok = false, detail = '';
+      try {
+        const { execFileSync } = require('child_process');
+        const out = execFileSync('node', [path.join(ROOT, 'scripts', 'sync-derived-copies.js'), '--check'], { cwd: ROOT, maxBuffer: 64 * 1024 * 1024 }).toString().trim();
+        const s = JSON.parse(out.split('\n').pop());
+        ok = s.driftTotal === 0;
+        detail = s.perPageFiles + ' per-page files keyed; per-page fixes pending: ' + s.perPageDatesFixed + '; dataset-seat: ' + s.datasetSeatDatesFixed + '; shell embeds: ' + s.shellEmbedDatesFixed;
+      } catch (e) { detail = String(e && e.message || e).slice(0, 200); }
+      check('CI-6 derived-copy sync reports zero date drift (sync-derived-copies --check)', ok, detail);
+    }
+  } catch (e) { check('§42 Copy Integrity gates CI-1..CI-6 execute', false, String(e && e.message || e).slice(0, 240)); }
 }
 
   // --- 9. Guardrail scan: no placeholders, no invented license identifiers ---
