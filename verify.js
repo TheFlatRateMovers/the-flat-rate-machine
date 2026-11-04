@@ -1774,8 +1774,8 @@ async function main() {
         for (const n of ns) if (n && n['@type'] === 'Dataset') { shellCountD++; checkNodeD(n, rel); }
       }
     }
-    check('D-2 every Dataset node (dataset files + all 243 route documents) carries landing url/unique sameAs, an identifier, isAccessibleForFree, typed distributions and a self-referencing DataDownload',
-      badNodesD.length === 0 && shellCountD === 383 && routeDocsD.length === 243, // 381 -> 383 Dataset instances re-expressed 2026-11-03 (Ports P4): +2 = the two new services’ intent-coverage nodes in the re-synced intent landing embed; build-routes.js D-2 pin moved in the same motion // 239 -> 243 route documents re-expressed 2026-11-03 (Ports P4): +4 route documents = the four service hubs (/port-logistics/, /logistics-project-management/, /3pl-support-services/, /cross-docking-services/); their embedded ports-master graphs ride the page-jsonld seat the walker skips, so the 381 Dataset-instance count stands; build-routes.js D-2 pin reviewed in the same motion (count unchanged) // 377 -> 381 and 237 -> 239 re-expressed 2026-11-03 (Ports P3): +4 Dataset instances = the summary + coverage nodes of datasets-port-of-virginia.json embedded in two route documents (the /port-of-virginia-logistics/ hub and the /datasets/port-of-virginia/ landing); +2 route documents = the hub and the dataset landing; build-routes.js D-2 pin moved in the same motion // 376 -> 377 and 236 -> 237 re-expressed 2026-11-03 (Page Data Pool): +1 Dataset instance = the summary node of datasets-page-data-pool.json embedded in its landing route document (the pool file's other Dataset-typed records are nested inside ItemLists and do not count); +1 route document = the pool landing; build-routes.js D-2 pin moved in the same motion // 374 -> 376 and 234 -> 236 re-expressed 2026-11-03 (Quote Tool): +2 Dataset instances = the summary + coverage-rubric nodes of datasets-quote-tool.json embedded in its landing route document; +2 route documents = the quote tool guide and the dataset landing; build-routes.js D-2 pin moved in the same motion // 233 -> 234 route documents re-expressed 2026-11-03 (Launch: Piano flagship): +1 route document = the piano flagship post (its graph carries no Dataset node, so the 374 instance count stands); // 232 -> 233 route documents re-expressed 2026-11-03 (Launch: Gun Safe flagship): +1 route document = the gun-safe flagship post (its graph carries no Dataset node, so the 374 instance count stands); // 231 -> 232 route documents re-expressed 2026-11-03 (Launch: Spec C announcement): +1 route document = the announcement post (its graph carries no Dataset node, so the 374 instance count stands); // 372 -> 374 and 229 -> 231 re-expressed 2026-11-03 (VC-1 Vault Case Study): +2 Dataset instances = the summary + case-record nodes of datasets-vault-door-case-study.json embedded in its landing route document; +2 route documents = the case-study post and the dataset landing; build-routes.js D-2 pin moved in the same motion // 368 -> 372 and 226 -> 227 re-expressed 2026-11-02 (Ports P1 Foundation): +4 Dataset instances = the ports master + coverage-matrix nodes of datasets-ports.json embedded in two route documents (the /datasets/ports/ landing and the /transloading/ hub); +1 route document = the ports landing; build-routes.js D-2 pin moved in the same motion; 227 -> 228 route documents re-expressed 2026-11-02 (Ports P2): +1 route document = the Virginia Inland Port 3PL spoke (its graph carries no Dataset node, so the 372 shell count stands); build-routes.js D-2 pin reviewed in the same motion (count unchanged); 228 -> 229 route documents re-expressed 2026-11-02 (Ports P2 article A1): +1 route document = the A1 article (its graph carries no Dataset node, so the 372 shell count stands)
+    check('D-2 every Dataset node (dataset files + all 244 route documents) carries landing url/unique sameAs, an identifier, isAccessibleForFree, typed distributions and a self-referencing DataDownload',
+      badNodesD.length === 0 && shellCountD === 390 && routeDocsD.length === 244, // 383 -> 390 Dataset instances and 243 -> 244 route documents re-expressed 2026-11-03 (Catalog Registry): +7 instances = the 7 Dataset-typed nodes of datasets-catalog-registry.json embedded in the new landing route document; +1 route document = the catalog registry landing; build-routes.js D-2 pin moved in the same motion // 381 -> 383 Dataset instances re-expressed 2026-11-03 (Ports P4): +2 = the two new services’ intent-coverage nodes in the re-synced intent landing embed; build-routes.js D-2 pin moved in the same motion // 239 -> 243 route documents re-expressed 2026-11-03 (Ports P4): +4 route documents = the four service hubs (/port-logistics/, /logistics-project-management/, /3pl-support-services/, /cross-docking-services/); their embedded ports-master graphs ride the page-jsonld seat the walker skips, so the 381 Dataset-instance count stands; build-routes.js D-2 pin reviewed in the same motion (count unchanged) // 377 -> 381 and 237 -> 239 re-expressed 2026-11-03 (Ports P3): +4 Dataset instances = the summary + coverage nodes of datasets-port-of-virginia.json embedded in two route documents (the /port-of-virginia-logistics/ hub and the /datasets/port-of-virginia/ landing); +2 route documents = the hub and the dataset landing; build-routes.js D-2 pin moved in the same motion // 376 -> 377 and 236 -> 237 re-expressed 2026-11-03 (Page Data Pool): +1 Dataset instance = the summary node of datasets-page-data-pool.json embedded in its landing route document (the pool file's other Dataset-typed records are nested inside ItemLists and do not count); +1 route document = the pool landing; build-routes.js D-2 pin moved in the same motion // 374 -> 376 and 234 -> 236 re-expressed 2026-11-03 (Quote Tool): +2 Dataset instances = the summary + coverage-rubric nodes of datasets-quote-tool.json embedded in its landing route document; +2 route documents = the quote tool guide and the dataset landing; build-routes.js D-2 pin moved in the same motion // 233 -> 234 route documents re-expressed 2026-11-03 (Launch: Piano flagship): +1 route document = the piano flagship post (its graph carries no Dataset node, so the 374 instance count stands); // 232 -> 233 route documents re-expressed 2026-11-03 (Launch: Gun Safe flagship): +1 route document = the gun-safe flagship post (its graph carries no Dataset node, so the 374 instance count stands); // 231 -> 232 route documents re-expressed 2026-11-03 (Launch: Spec C announcement): +1 route document = the announcement post (its graph carries no Dataset node, so the 374 instance count stands); // 372 -> 374 and 229 -> 231 re-expressed 2026-11-03 (VC-1 Vault Case Study): +2 Dataset instances = the summary + case-record nodes of datasets-vault-door-case-study.json embedded in its landing route document; +2 route documents = the case-study post and the dataset landing; build-routes.js D-2 pin moved in the same motion // 368 -> 372 and 226 -> 227 re-expressed 2026-11-02 (Ports P1 Foundation): +4 Dataset instances = the ports master + coverage-matrix nodes of datasets-ports.json embedded in two route documents (the /datasets/ports/ landing and the /transloading/ hub); +1 route document = the ports landing; build-routes.js D-2 pin moved in the same motion; 227 -> 228 route documents re-expressed 2026-11-02 (Ports P2): +1 route document = the Virginia Inland Port 3PL spoke (its graph carries no Dataset node, so the 372 shell count stands); build-routes.js D-2 pin reviewed in the same motion (count unchanged); 228 -> 229 route documents re-expressed 2026-11-02 (Ports P2 article A1): +1 route document = the A1 article (its graph carries no Dataset node, so the 372 shell count stands)
       'files + ' + shellCountD + ' route-document instances across ' + routeDocsD.length + ' documents' + (badNodesD.length ? ', bad: ' + badNodesD.slice(0, 4).join('; ') : ''));
     // D-3: local sitemap architecture — sitemap.xml is an index whose
     // children are exactly the three section sitemaps plus the news
@@ -4147,12 +4147,14 @@ async function main() {
     // deleted and videos is held to the same enrichment bar as the
     // other 40 files; the table now covers all 41 dataset files.
     // Ports P3 (2026-11-03): 'port-of-virginia': '2026-11-03' added —
-    // the per-port dataset's first publication; the table now covers
-    // all 44 dataset files.
+    // the per-port dataset's first publication; the table then covered
+    // all 44 dataset files. Catalog Registry (2026-11-03):
+    // 'catalog-registry': '2026-11-03' added — the table now covers
+    // all 45 dataset files.
     {
-      const DATES = { 'answer-evidence': '2026-10-31', 'archive-registry': '2026-11-01', 'commercial': '2026-10-29', 'crating': '2026-10-29', 'crawl-presence': '2026-10-31', 'data-center-relocation': '2026-10-30', 'ffe-logistics': '2026-10-30', 'final-mile': '2026-10-29', 'freight-rework': '2026-11-01', 'government': '2026-10-29', 'gun-safe': '2026-10-29', 'industrial-commercial': '2026-10-29', 'industrial-offices': '2026-10-29', 'intent-coverage': '2026-10-30', 'ispm15': '2026-10-29', 'it': '2026-10-29', 'junk-removal': '2026-10-30', 'local-graph-registry': '2026-10-31', 'local-regional': '2026-10-29', 'long-distance': '2026-10-29', 'medical-lab-relocation': '2026-10-30', 'military': '2026-10-29', 'moving-and-storage': '2026-10-29', 'ocean-container': '2026-10-29', 'office': '2026-10-29', 'packing': '2026-10-29', 'piano-antique': '2026-10-29', 'ports': '2026-11-02', 'port-of-virginia': '2026-11-03', 'residential': '2026-10-29', 'route81': '2026-10-29', 'search-index': '2026-10-31', 'senior': '2026-10-29', 'sir-heavy': '2026-10-29', 'transloading': '2026-10-29', 'transloading-inland-port': '2026-10-30', 'transloading-winchester': '2026-10-29', 'vault-door-case-study': '2026-11-03', 'videos': '2026-10-29', 'warehouse': '2026-10-29', 'warehouse-racking-relocation': '2026-10-30', 'white-glove': '2026-11-02', 'quote-tool': '2026-11-03', 'page-data-pool': '2026-11-03' };
+      const DATES = { 'answer-evidence': '2026-10-31', 'archive-registry': '2026-11-01', 'commercial': '2026-10-29', 'crating': '2026-10-29', 'crawl-presence': '2026-10-31', 'data-center-relocation': '2026-10-30', 'ffe-logistics': '2026-10-30', 'final-mile': '2026-10-29', 'freight-rework': '2026-11-01', 'government': '2026-10-29', 'gun-safe': '2026-10-29', 'industrial-commercial': '2026-10-29', 'industrial-offices': '2026-10-29', 'intent-coverage': '2026-10-30', 'ispm15': '2026-10-29', 'it': '2026-10-29', 'junk-removal': '2026-10-30', 'local-graph-registry': '2026-10-31', 'local-regional': '2026-10-29', 'long-distance': '2026-10-29', 'medical-lab-relocation': '2026-10-30', 'military': '2026-10-29', 'moving-and-storage': '2026-10-29', 'ocean-container': '2026-10-29', 'office': '2026-10-29', 'packing': '2026-10-29', 'piano-antique': '2026-10-29', 'ports': '2026-11-02', 'port-of-virginia': '2026-11-03', 'residential': '2026-10-29', 'route81': '2026-10-29', 'search-index': '2026-10-31', 'senior': '2026-10-29', 'sir-heavy': '2026-10-29', 'transloading': '2026-10-29', 'transloading-inland-port': '2026-10-30', 'transloading-winchester': '2026-10-29', 'vault-door-case-study': '2026-11-03', 'videos': '2026-10-29', 'warehouse': '2026-10-29', 'warehouse-racking-relocation': '2026-10-30', 'white-glove': '2026-11-02', 'quote-tool': '2026-11-03', 'page-data-pool': '2026-11-03', 'catalog-registry': '2026-11-03' };
       const VM = new Set(['intent-coverage', 'search-index', 'answer-evidence', 'crawl-presence', 'local-graph-registry', 'archive-registry']);
-      const NO_SC = new Set(['archive-registry', 'crawl-presence', 'local-graph-registry']);
+      const NO_SC = new Set(['archive-registry', 'crawl-presence', 'local-graph-registry', 'catalog-registry']); // +'catalog-registry' 2026-11-03 (Catalog Registry batch): the fourth standing registry file joins the registry-class no-spatialCoverage set
       const bad = [];
       for (const f of DATASET_FILES) {
         const slug = f.replace(/^datasets-/, '').replace(/\.json$/, '');
@@ -4174,8 +4176,8 @@ async function main() {
           if (bad.length > 6) break;
         }
       }
-      check('CV-6 enrichment complete on all 44 dataset files (datePublished per the sourced table, catalog pointer, variableMeasured on exactly the six measurement files, full-Place spatialCoverage on 40, version nowhere; Q124: videos a full citizen, no exemptions)',
-        bad.length === 0, bad.slice(0, 4).join('; ') || '44 files enriched per table');
+      check('CV-6 enrichment complete on all 45 dataset files (datePublished per the sourced table, catalog pointer, variableMeasured on exactly the six measurement files, full-Place spatialCoverage except the four registry files, version nowhere; Q124: videos a full citizen, no exemptions)',
+        bad.length === 0, bad.slice(0, 4).join('; ') || '45 files enriched per table');
     }
 
     // CV-7 + CV-8: local-graph registry totals and the backlink tier.
@@ -5194,6 +5196,95 @@ async function main() {
    check('PG-4 notOffered sets match the approved §7 exactly (pool boundary register re-drawn over declared services)',
      badPG4.length === 0, badPG4.slice(0, 3).join('; ') || (regPagesPG.length + ' pages match the §7 draw'));
  } catch (e) { check('§40 Page Data gates PG-1..PG-4 execute', false, String(e && e.message || e).slice(0, 240)); }
+}
+
+/* ============ 41. Catalog Registry — join completeness, evidence, digest backing, DOI discipline, diagnostic order (Catalog Registry batch, 2026-11-03) ============ */
+{
+ // datasets-catalog-registry.json is the joined view of the estate's
+ // dataset catalog (Dossier 04 §5): every dataset file in the signed
+ // index x the seven applicable seats, with presence states backed by
+ // dated observations and version-sync states computed from digest
+ // comparisons at generation. CR-1: join completeness in both
+ // directions. CR-2: every present-verified dataset-search row
+ // carries a dated observation with a method. CR-3: every 'current'
+ // sync state is backed by a generating-run digest-comparison
+ // observation. CR-4: no Dataset/DataCatalog node in the registry
+ // file carries a DOI in its identifier. CR-5: diagnostic order —
+ // a T(n) row exists only if all earlier-stage rows exist.
+ try {
+   const SITE_CR = 'https://theflatratemovers.com';
+   const regCR = JSON.parse(fs.readFileSync(path.join(PAGES_PUBLIC, 'datasets-catalog-registry.json'), 'utf8'));
+   const nodesCR = regCR['@graph'] || [];
+   const nodeCR = (suf) => nodesCR.find((n) => String(n['@id'] || '').endsWith('#dataset-catalog-registry-' + suf));
+   const joinCR = (nodeCR('datasets') || {}).catalogDatasets || [];
+   const obsCR = (nodeCR('observations') || {}).catalogObservations || [];
+   const diagCR = (nodeCR('diagnostics') || {}).diagnosticRecords || [];
+   const idxCR = JSON.parse(fs.readFileSync(path.join(PAGES_PUBLIC, 'ai-master-index.json'), 'utf8'));
+   const distCR = new Map();
+   for (const e of idxCR.distribution || []) if (e && e.contentUrl) distCR.set(e.contentUrl, e);
+   const SEATS_CR = ['website', 'api', 'github-ai', 'huggingface-estate', 'huggingface-intent', 'zenodo', 'dataset-search'];
+   // CR-1: completeness both directions.
+   const badCR1 = [];
+   const filesCR = new Set();
+   for (const url of distCR.keys()) { const b = url.split('/').pop(); if (/^datasets-.+\.json$/.test(b) && url === SITE_CR + '/' + b) filesCR.add(b); }
+   filesCR.add('datasets-catalog-registry.json');
+   const seenCR = new Set();
+   for (const r of joinCR) {
+     const k = r.dataset_id + '|' + r.catalog_id;
+     if (seenCR.has(k)) badCR1.push('duplicate row ' + k);
+     seenCR.add(k);
+     if (!filesCR.has(r.dataset_id)) badCR1.push('orphan row dataset ' + r.dataset_id);
+     if (!SEATS_CR.includes(r.catalog_id)) badCR1.push('row with non-seat catalog ' + r.catalog_id);
+     if (!distCR.has(SITE_CR + '/' + r.dataset_id)) badCR1.push('row dataset not a signed distribution: ' + r.dataset_id);
+   }
+   for (const f of filesCR) for (const s of SEATS_CR) if (!seenCR.has(f + '|' + s)) badCR1.push('missing row ' + f + ' / ' + s);
+   check('CR-1 catalog join complete both directions (every signed-index dataset file x 7 seats, no orphans, no duplicates)',
+     badCR1.length === 0, badCR1.slice(0, 4).join('; ') || (joinCR.length + ' rows over ' + filesCR.size + ' dataset files'));
+   // CR-2: dataset-search presence evidence.
+   const badCR2 = [];
+   for (const r of joinCR) {
+     if (r.catalog_id !== 'dataset-search' || r.presence_state !== 'present-verified') continue;
+     const evd = r.presenceEvidence || {};
+     if (!evd.method || !evd.observedAt) badCR2.push(r.dataset_id + ': present-verified without dated method evidence');
+     else if (!obsCR.some((o) => o.catalog_id === 'dataset-search' && o.date === evd.observedAt)) badCR2.push(r.dataset_id + ': no matching observation row for ' + evd.observedAt);
+   }
+   check('CR-2 every present-verified dataset-search row carries a dated observation with a method',
+     badCR2.length === 0, badCR2.slice(0, 4).join('; ') || 'dataset-search presence claims all evidence-backed (none unverified)');
+   // CR-3: current sync backed by generating-run observations.
+   const totalsNodeCR = nodeCR('totals');
+   const genDateCR = totalsNodeCR && totalsNodeCR.totals ? totalsNodeCR.totals.generatedAt : null;
+   const badCR3 = [];
+   if (!genDateCR) badCR3.push('totals node carries no generatedAt');
+   const seatsCurrentCR = [...new Set(joinCR.filter((r) => r.version_sync_state === 'current').map((r) => r.catalog_id))];
+   for (const seat of seatsCurrentCR) {
+     if (!obsCR.some((o) => o.catalog_id === seat && o.kind === 'sync-check' && o.date === genDateCR)) badCR3.push(seat + ': current states without a generating-run sync-check observation');
+   }
+   check('CR-3 every current sync state is backed by a digest-comparison observation from the generating run',
+     badCR3.length === 0, badCR3.slice(0, 4).join('; ') || ('sync-check observations stand for ' + seatsCurrentCR.join(', ')));
+   // CR-4: no new DOI holder seat in the registry file.
+   const badCR4 = [];
+   const walkCR = (o) => {
+     if (!o || typeof o !== 'object') return;
+     if ((o['@type'] === 'Dataset' || o['@type'] === 'DataCatalog') && o.identifier && JSON.stringify(o.identifier).includes('10.5281')) badCR4.push(String(o['@id'] || o.name || '?'));
+     for (const v of Object.values(o)) { if (Array.isArray(v)) v.forEach(walkCR); else walkCR(v); }
+   };
+   walkCR(regCR);
+   check('CR-4 the registry file introduces no new DOI holder seat (no Dataset/DataCatalog identifier carries a DOI)',
+     badCR4.length === 0, badCR4.slice(0, 4).join('; ') || 'no DOI in any Dataset/DataCatalog identifier in the registry file');
+   // CR-5: diagnostic order.
+   const stagesCR = diagCR.map((d) => String(d.stage || '')).filter((s) => /^T\d+$/.test(s)).map((s) => Number(s.slice(1))).sort((a, b) => a - b);
+   const badCR5 = [];
+   for (let i = 0; i < stagesCR.length; i++) if (stagesCR[i] !== i + 1) badCR5.push('stage sequence ' + stagesCR.join(','));
+   check('CR-5 diagnostic order (a T(n) row exists only if all earlier-stage rows exist)',
+     badCR5.length === 0, badCR5.slice(0, 2).join('; ') || ('stages present: ' + stagesCR.map((n) => 'T' + n).join(', ')));
+   if (!LOCAL) {
+     const liveCR = await fetchText(SITE_CR + '/datasets-catalog-registry.json');
+     let liveOkCR = false;
+     try { const lj = JSON.parse(liveCR); liveOkCR = (lj['@graph'] || []).length === nodesCR.length; } catch (_) { }
+     check('CR-live served catalog registry file parses with the sealed node inventory',
+       liveOkCR, liveOkCR ? nodesCR.length + ' nodes served' : 'served file mismatch');
+   }
+ } catch (e) { check('§41 Catalog Registry gates CR-1..CR-5 execute', false, String(e && e.message || e).slice(0, 240)); }
 }
 
   // --- 9. Guardrail scan: no placeholders, no invented license identifiers ---

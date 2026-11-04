@@ -379,6 +379,7 @@ The Flat Rate Movers, <em>Search Intent Coverage Dataset</em>,
 <li><code>GET /v1/local-graph</code> — the local graph registry dataset, byte-identical (add <code>?table=branches|records|coverage|reviews|collisions|gaps|owner-steps</code> for one table)</li>
 <li><code>GET /v1/crawl-presence</code> — the crawl-presence registry dataset, byte-identical (add <code>?table=collections|presence|summary|robots|signals|inspections|releases|gaps|mechanisms</code> for one table)</li>
 <li><code>GET /v1/archives</code> — the archive registry dataset, byte-identical (add <code>?table=targets|captures|deposits|github|local-archive|verification|runs|gaps|channels|totals</code> for one table)</li>
+<li><code>GET /v1/catalog</code> — the catalog registry dataset, byte-identical (add <code>?table=catalogs|datasets|observations|diagnostics|gaps|totals</code> for one table)</li>
 <li><code>GET /v1/graph</code> — the best entity graph</li>
 <li><code>GET /v1/index</code> — the signed master index</li>
 <li><code>GET /v1/page-data</code> — every page's Page Data record: the page URL, its data.json + data.txt URLs, their signed SHA-256 digests and its rubric score</li>
@@ -524,6 +525,13 @@ const OPENAPI = {
         responses: { '200': datasetDocResponse('The full dataset file (no ?table) or the single requested table node.'), '404': { $ref: '#/components/responses/Error' } },
       },
     },
+    '/v1/catalog': {
+      get: {
+        summary: 'Catalog registry dataset',
+        parameters: [tableParam(['catalogs', 'datasets', 'observations', 'diagnostics', 'gaps', 'totals'])],
+        responses: { '200': datasetDocResponse('The full dataset file (no ?table) or the single requested table node.'), '404': { $ref: '#/components/responses/Error' } },
+      },
+    },
     '/v1/graph': {
       get: {
         summary: 'The best entity graph',
@@ -666,6 +674,10 @@ export default {
     }
 
     if (path === '/') return textResponse(landingHtml(), 'text/html; charset=utf-8');
+    // IndexNow key file for this host — served by the canonical API
+    // worker since the catalog-registry batch (2026-11-03) absorbed
+    // the interim standalone key worker's exact-path route.
+    if (path === '/bbf7b7d5281876c13897f6e1498f6cc56abb3487f12603698128f7b08bae3a6d.txt') return textResponse('bbf7b7d5281876c13897f6e1498f6cc56abb3487f12603698128f7b08bae3a6d', 'text/plain; charset=utf-8');
     if (path === '/openapi.json') return jsonResponse(OPENAPI);
     if (path === '/v1/services') {
       return jsonResponse({ count: services.length, services: services.map(serviceSummary) });
@@ -764,6 +776,24 @@ export default {
       const suffix = tables[table];
       if (!suffix) return errorJson(`unknown table: ${table}`, 404);
       const doc = JSON.parse(datasetText['datasets-archive-registry.json']);
+      const node = (doc['@graph'] || []).find((n) => String(n['@id']).endsWith(suffix));
+      if (!node) return errorJson(`table not found: ${table}`, 404);
+      return jsonResponse(node);
+    }
+    if (path === '/v1/catalog') {
+      const table = url.searchParams.get('table');
+      if (!table) return textResponse(datasetText['datasets-catalog-registry.json'], 'application/json; charset=utf-8');
+      const tables = {
+        catalogs: '#dataset-catalog-registry-catalogs',
+        datasets: '#dataset-catalog-registry-datasets',
+        observations: '#dataset-catalog-registry-observations',
+        diagnostics: '#dataset-catalog-registry-diagnostics',
+        gaps: '#dataset-catalog-registry-gaps',
+        totals: '#dataset-catalog-registry-totals',
+      };
+      const suffix = tables[table];
+      if (!suffix) return errorJson(`unknown table: ${table}`, 404);
+      const doc = JSON.parse(datasetText['datasets-catalog-registry.json']);
       const node = (doc['@graph'] || []).find((n) => String(n['@id']).endsWith(suffix));
       if (!node) return errorJson(`table not found: ${table}`, 404);
       return jsonResponse(node);

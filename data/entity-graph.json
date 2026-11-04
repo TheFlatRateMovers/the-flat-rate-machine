@@ -3939,7 +3939,7 @@
    "@id": "https://theflatratemovers.com/datasets/intent-coverage/#dataset",
    "@type": "Dataset",
    "name": "The Flat Rate Movers — Search Intent Coverage Operations Dataset",
-   "description": "The live intent-coverage rubric of The Flat Rate Movers: 3784 generated rows, each one a query string a customer or an AI assistant can use to find a company service, resolved to the exact page that answers it, that page’s per-page JSON, the dataset files behind the answer, and the service’s node in the entity graph. Rows are generated from the estate’s own registries — 32 services, 243 pages, two branch locations, three corridors and the 53-feature service-area footprint — plus the blog question bank’s 100 real question phrasings, and the rubric is regenerated whenever those registries change. Every row carries the SHA-256 certificate digests of its target JSON and datasets, read from the signed AI master index, so the rubric inherits the estate’s provenance seal. Coverage spans all 32 services of both branches, Winchester, VA and Martinsburg, WV, along the I-81, I-66 and I-70 corridors. Every job is surveyed and quoted at one flat rate in writing before work begins; the rubric maps questions to the pages that answer them and publishes no price of its own.",
+   "description": "The live intent-coverage rubric of The Flat Rate Movers: 3848 generated rows, each one a query string a customer or an AI assistant can use to find a company service, resolved to the exact page that answers it, that page’s per-page JSON, the dataset files behind the answer, and the service’s node in the entity graph. Rows are generated from the estate’s own registries — 32 services, 244 pages, two branch locations, three corridors and the 53-feature service-area footprint — plus the blog question bank’s 100 real question phrasings, and the rubric is regenerated whenever those registries change. Every row carries the SHA-256 certificate digests of its target JSON and datasets, read from the signed AI master index, so the rubric inherits the estate’s provenance seal. Coverage spans all 32 services of both branches, Winchester, VA and Martinsburg, WV, along the I-81, I-66 and I-70 corridors. Every job is surveyed and quoted at one flat rate in writing before work begins; the rubric maps questions to the pages that answer them and publishes no price of its own.",
    "url": "https://theflatratemovers.com/datasets/intent-coverage/",
    "sameAs": "https://theflatratemovers.com/datasets/intent-coverage/",
    "identifier": "https://doi.org/10.5281/zenodo.23818766",
@@ -8550,7 +8550,7 @@
    "@id": "https://theflatratemovers.com/datasets/page-data-pool/#dataset",
    "@type": "Dataset",
    "name": "Page Data Pool — the Master Database for Page Data",
-   "description": "The Page Data Pool is the single master database every page's Page Data dataset draws its slice from — built in two layers. Layer 1 is the estate's own live data: the full intent rubric (3,784 buyer questions with their phrasings, target pages, per-page JSONs and dataset seats), the 32-service registry with its scope-boundary register (18 drafted boundaries, each carrying the ruling it comes from) and its sourced qualifier register (21 qualifiers, each with its source pointer), all 44 dataset files' metadata, the ports matrix (6 ports × 8 offered services with branch bindings), the vault standards registry (UL 608 classes, AA-D-600D classes, FF-L-2740B, UL 768 lock groups), the SIR/KIM-GS authority data (the 1,500–3,500 lb band and the L/360 criterion), the 53-area footprint with branch bindings, the 16-post blog corpus, and the 20-entry audience guide. Layer 2 is a researched domain layer of 45 entries covering the situation space of logistics and every service — container equipment and packing standards (CTU Code, SOLAS VGM), port charges and credentials (FMC demurrage and detention rules, TWIC), export rules (ISPM 15, AES/EEI filing), household-goods consumer law (49 CFR Part 375: binding estimates, the 110% rule, valuation, storage-in-transit), safe and piano data (UL 687/1037/72 classes, IRC floor loads, manufacturer piano weights), and the standards behind the specialty services (ANSI/ESD S20.20, ANSI MH16.1, ASTM D4169/ISTA, NASMM, museum handling practice, EPA electronics rules, carrier delivery tiers, DP3 and FAR Part 47) — every entry carrying its primary or authoritative source, its retrieval date, the questions it answers and its constraints. Layer 2 supplies domain facts only: it never sources a company capability, price, count or credential. The pool also publishes the eleven draw rules (DR-1 to DR-11) by which the generator assembles each page's slice — services, own and family questions, resolved answers, scoped boundaries, traceable qualifiers, drawn domain entries, bound geography and ledger freshness. Buyer-intelligence data is excluded by standing rule, and the false 'industrial rigging up to twenty-five thousand pounds' figure is excluded and asserted absent at build.",
+   "description": "The Page Data Pool is the single master database every page's Page Data dataset draws its slice from — built in two layers. Layer 1 is the estate's own live data: the full intent rubric (3,848 buyer questions with their phrasings, target pages, per-page JSONs and dataset seats), the 32-service registry with its scope-boundary register (18 drafted boundaries, each carrying the ruling it comes from) and its sourced qualifier register (21 qualifiers, each with its source pointer), all 45 dataset files' metadata, the ports matrix (6 ports × 8 offered services with branch bindings), the vault standards registry (UL 608 classes, AA-D-600D classes, FF-L-2740B, UL 768 lock groups), the SIR/KIM-GS authority data (the 1,500–3,500 lb band and the L/360 criterion), the 53-area footprint with branch bindings, the 16-post blog corpus, and the 20-entry audience guide. Layer 2 is a researched domain layer of 45 entries covering the situation space of logistics and every service — container equipment and packing standards (CTU Code, SOLAS VGM), port charges and credentials (FMC demurrage and detention rules, TWIC), export rules (ISPM 15, AES/EEI filing), household-goods consumer law (49 CFR Part 375: binding estimates, the 110% rule, valuation, storage-in-transit), safe and piano data (UL 687/1037/72 classes, IRC floor loads, manufacturer piano weights), and the standards behind the specialty services (ANSI/ESD S20.20, ANSI MH16.1, ASTM D4169/ISTA, NASMM, museum handling practice, EPA electronics rules, carrier delivery tiers, DP3 and FAR Part 47) — every entry carrying its primary or authoritative source, its retrieval date, the questions it answers and its constraints. Layer 2 supplies domain facts only: it never sources a company capability, price, count or credential. The pool also publishes the eleven draw rules (DR-1 to DR-11) by which the generator assembles each page's slice — services, own and family questions, resolved answers, scoped boundaries, traceable qualifiers, drawn domain entries, bound geography and ledger freshness. Buyer-intelligence data is excluded by standing rule, and the false 'industrial rigging up to twenty-five thousand pounds' figure is excluded and asserted absent at build.",
    "url": "https://theflatratemovers.com/datasets/page-data-pool/",
    "sameAs": "https://theflatratemovers.com/datasets/page-data-pool/",
    "identifier": "https://theflatratemovers.com/datasets/page-data-pool/",
@@ -8621,7 +8621,7 @@
     {
      "@type": "PropertyValue",
      "propertyID": "questions",
-     "value": 3784
+     "value": 3848
     },
     {
      "@type": "PropertyValue",
@@ -8651,7 +8651,7 @@
     {
      "@type": "PropertyValue",
      "propertyID": "datasetFiles",
-     "value": 44
+     "value": 45
     },
     {
      "@type": "PropertyValue",
@@ -9008,7 +9008,92 @@
    "mainEntity": {
      "@id": "https://theflatratemovers.com/#service-cross-docking-services"
    }
- }
+ },
+  {
+   "@type": "Dataset",
+   "@id": "https://theflatratemovers.com/datasets/catalog-registry/#dataset",
+   "name": "Catalog Registry Dataset",
+   "description": "The standing catalog registry for The Flat Rate Movers: one computed join of every dataset file the company publishes (45 files) across the seven catalog seats that carry it — the company website, the estate API, the GitHub AI repository, two Hugging Face dataset repositories, the Zenodo DOI deposit, and Google Dataset Search — 315 join rows with presence states backed by dated observations and version-sync states computed from digest comparisons, never asserted; two further channels (Kaggle, data.gov) recorded not pursued by design with their re-entry conditions; the ordered Dataset Search diagnostic (T2 eliminated, firm, on a 2026-11-03 re-validation from primary sources); gaps C1–C6 and CR-G1/CR-G2 each with its designed solution — sealed in the signed provenance index.",
+   "url": "https://theflatratemovers.com/datasets/catalog-registry/",
+   "sameAs": "https://theflatratemovers.com/datasets-catalog-registry.json",
+   "identifier": [
+    {
+     "@type": "PropertyValue",
+     "propertyID": "canonical-url",
+     "name": "Canonical dataset file",
+     "value": "https://theflatratemovers.com/datasets-catalog-registry.json"
+    },
+    {
+     "@type": "PropertyValue",
+     "propertyID": "canonical-api",
+     "name": "Canonical API table route",
+     "value": "https://api.theflatratemovers.com/v1/catalog"
+    },
+    {
+     "@type": "PropertyValue",
+     "propertyID": "X-Provenance-SHA256",
+     "name": "Provenance SHA-256",
+     "value": "08e2a554f92e25bd54056186eb09279eebda62b3579f7dcb8999ebc50f616828"
+    },
+    {
+     "@type": "PropertyValue",
+     "propertyID": "provenance-index",
+     "name": "Provenance index",
+     "value": "https://theflatratemovers.com/ai-master-index.json"
+    }
+   ],
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "isAccessibleForFree": true,
+   "inLanguage": "en-US",
+   "dateModified": "2026-11-03",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "keywords": [
+    "dataset catalog",
+    "catalog registry",
+    "dataset search",
+    "zenodo",
+    "hugging face",
+    "version sync",
+    "retrieval machine"
+   ],
+   "variableMeasured": [
+    "Dataset files joined per catalog seat, with presence states",
+    "Version-sync states computed from SHA-256 / git blob SHA-1 comparisons",
+    "Metadata completeness per dataset file (DC-1..DC-5 vocabulary)",
+    "Channel observations with method and date",
+    "Catalog-element gaps C1–C6, CR-G1, CR-G2 with designed solutions"
+   ],
+   "includedInDataCatalog": {
+    "@id": "https://theflatratemovers.com/datasets/#collection"
+   }
+  }
  ],
  "@id": "https://theflatratemovers.com/entity-graph.json",
  "@type": "Dataset",

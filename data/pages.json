@@ -1,6 +1,6 @@
 {
  "attestation": "Every URL below was fetched from the live sitemap on 2026-10-28; titles and service links come from pageMeta in the live site source. No URL was hand-typed.",
- "count": 243,
+ "count": 244,
  "dataset": "pages",
  "generated": "2026-10-29",
  "pages": [
@@ -2431,6 +2431,17 @@
    "title": "Crawl Presence Registry Dataset",
    "type": "page",
    "url": "https://theflatratemovers.com/datasets/crawl-presence/"
+  },
+  {
+   "attested": "2026-11-03",
+   "lastmod": "2026-11-03",
+   "services": [],
+   "slug": "datasets/catalog-registry",
+   "source": "Catalog registry batch 2026-11-03 (Dossier 04 §5 catalog registry design; generator scripts/build-catalog-registry.js)",
+   "status": "live",
+   "title": "Catalog Registry Dataset",
+   "type": "page",
+   "url": "https://theflatratemovers.com/datasets/catalog-registry/"
   },
   {
    "attested": "2026-11-01",
