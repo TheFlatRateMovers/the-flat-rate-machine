@@ -7,13 +7,17 @@ Spec (out/speed-batch-s3-spec-2026-11-03.md, FREEZE -> DEPLOY): once
 seal.py has frozen + signed the estate, ONE invocation carries the
 batch the rest of the way, in this order:
 
-  0. Preflight (Reconciliation batch, 2026-11-03): the twin-identity
-     gate (scripts/check-twins.js) + a live probe of both GitHub push
-     routes (git ls-remote through each clone). The Page Data Pool
-     close discovered a stale twin and a dead push route only AFTER
-     deploying; preflight stops the close BEFORE anything ships,
-     with a plain-words reason. --preflight-only runs just this
-     step; --skip-preflight skips it (printed, never silent).
+  0. Preflight (Reconciliation batch, 2026-11-03; local verify added
+     in the Day-3 drift fix, 2026-11-04): the twin-identity gate
+     (scripts/check-twins.js) + the full local verification
+     (verify.js --local) + a live probe of both GitHub push routes
+     (git ls-remote through each clone). The Page Data Pool close
+     discovered a stale twin and a dead push route only AFTER
+     deploying, and the Day-3 close deployed a figure-drifted tree
+     that only the post-deploy verify caught; preflight stops the
+     close BEFORE anything ships, with a plain-words reason.
+     --preflight-only runs just this step; --skip-preflight skips
+     it (printed, never silent).
   1. Pages deploy + GitHub pushes IN PARALLEL (neither waits on the
      other; both are attempted even if one fails).
   2. Full live verify — deployment-unique URL first (verify.js
@@ -80,13 +84,14 @@ CLONES = {"ai": os.path.expanduser("~/workspace/git-mirrors/ai"),
 
 
 def preflight(probe_push=True):
-    """Step 0 (Reconciliation batch, 2026-11-03): prove, BEFORE any
-    deploy, that (a) every duplicated file in the estate agrees with
-    its twin and (b) both GitHub push routes answer. Either failure
-    stops the close here — nothing deployed, nothing pushed — with
-    the reason in plain words."""
-    print("--- 0. preflight (twin identity + GitHub push route)",
-          flush=True)
+    """Step 0 (Reconciliation batch, 2026-11-03; local verify added
+    2026-11-04): prove, BEFORE any deploy, that (a) every duplicated
+    file in the estate agrees with its twin, (b) the sealed local
+    estate passes the full local verification, and (c) both GitHub
+    push routes answer. Any failure stops the close here — nothing
+    deployed, nothing pushed — with the reason in plain words."""
+    print("--- 0. preflight (twin identity + local verify + "
+          "GitHub push route)", flush=True)
     rc, out, _ = run(["node", os.path.join(ROOT, "scripts",
                                            "check-twins.js")],
                      label="check-twins")
@@ -97,6 +102,26 @@ def preflight(probe_push=True):
              "(twin check failed — the divergent pair is named "
              "above). Nothing was deployed or pushed. Fix the pair "
              "at its canonical source, re-seal, and publish again.")
+    # Day-3 drift fix (2026-11-04): the full local verification runs
+    # HERE, before anything ships. The figure-drift class (llms.txt
+    # and landing figures a generation behind the sealed data,
+    # per-page data digests off the signed index) previously passed
+    # the seal and only failed at the post-deploy live verify —
+    # after the drifted tree was already deployed. Every check that
+    # can run against the local sealed tree now gates the close at
+    # this step; the post-deploy live verify remains the closing
+    # gate for the live-only evidence.
+    rc, out, _ = run(["node", os.path.join(ROOT, "verify.js"),
+                      "--local"], label="verify --local")
+    print("\n".join(out.strip().splitlines()[-2:]))
+    if rc != 0:
+        print(out[-4000:])
+        fail("preflight: the sealed local estate fails "
+             "verification (the failing checks are named above). "
+             "Nothing was deployed or pushed. Fix the data at its "
+             "source — figures re-derive from the sealed files, "
+             "never by waiving a check — re-seal, and publish "
+             "again.")
     if probe_push:
         for repo, clone in CLONES.items():
             if not os.path.isdir(clone):

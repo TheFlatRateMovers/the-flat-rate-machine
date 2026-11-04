@@ -240,8 +240,12 @@ def settle_consumers(tag):
     after each settle and exits only when a full round is stable:
     the intent --check passes AFTER the consumers re-ran, and the
     consumer files are byte-identical across a second regeneration
-    from the settled rubric. Bounded at 3 rounds; a non-converging
-    round fails the seal loud."""
+    from the settled rubric. Bounded at 10 rounds (raised from 3 in
+    the Day-3 drift fix, 2026-11-04: each round advances the coupled
+    generation by one step, so a seal starting more than one
+    generation behind could not converge inside the old cap and the
+    drift surfaced downstream instead); a non-converging round
+    fails the seal loud."""
     stamps_env = {"FB3_STAMPS": os.path.join(WORK, "stamps.json")}
     flat_dir = os.path.join(os.path.dirname(ROOT), "theflatratemovers")
     consumer_files = [
@@ -250,7 +254,7 @@ def settle_consumers(tag):
         os.path.join(PUB, "datasets-intent-coverage.json"),
     ]
     chk_env = {**os.environ, "RUBRIC_DATE": RUBRIC_DATE}
-    for rnd in (1, 2, 3):
+    for rnd in range(1, 11):
         settle_intent(f"{tag} round {rnd}")
         run(["node", "scripts/sync-dataset-graph-nodes.js",
              "--resync"], env_extra={"FRM_SEAL_DATE": RUBRIC_DATE})
@@ -281,7 +285,7 @@ def settle_consumers(tag):
         print(f"    consumer settle ({tag}, round {rnd}): still "
               f"moving (files stable: {h1 == h2}, intent --check: "
               f"{chk.returncode}) — another round")
-    fail(f"consumer settle ({tag}): not converged after 3 rounds")
+    fail(f"consumer settle ({tag}): not converged after 10 rounds")
 
 
 def main():
@@ -588,6 +592,129 @@ def main():
     run(["node", "scripts/build-page-data.js",
          "--manifest", os.path.join(WORK, "page-data-manifest.json")],
         env_extra={"FB3_STAMPS": os.path.join(WORK, "stamps.json")})
+
+    # Day-3 drift fix (2026-11-04): index membership for a page's
+    # two PAGE-DATA distributions (data.json, data.txt) is
+    # registered HERE, by the seal, for every registry page —
+    # previously each batch's apply script hand-appended them, and
+    # the Day-3 apply appended only the route + per-page JSON for
+    # its two new posts, so their page-data files were generated,
+    # sealed on disk, and yet absent from the signed index (PG-2
+    # failed at verify, after deploy). digest-index.py only
+    # re-digests existing membership; it never adds. Registration is
+    # mechanical (names derive from the registry title), so the seal
+    # owns it: any missing entry is appended with the standing
+    # shape; the phase-6 digest pass fills its digest. Scope is the
+    # page-data pair only: their URLs follow the uniform rule for
+    # all 246 pages, while route documents are registered by the
+    # batch applies and per-page JSONs include the nested-taxonomy
+    # filename scheme (author-*.json, category-*.json) that does
+    # not map from the page URL — both classes stay backstopped by
+    # the publish preflight's local verify (P-5 / PG-1).
+    with open(index_path, encoding="utf-8") as f:
+        working_index = json.load(f)
+    have_urls = {e.get("contentUrl")
+                 for e in working_index.get("distribution", [])}
+    registered = 0
+    for p in registry_pages:
+        u = p.get("url", "")
+        if not u.startswith("https://theflatratemovers.com/"):
+            continue
+        title = p.get("title") or u
+        dm = ledger_urls.get(u) or RUBRIC_DATE
+        want = [
+            (u + "data.json", "application/json",
+             f"{title} — page data (JSON)"),
+            (u + "data.txt", "text/plain",
+             f"{title} — page data (text)"),
+        ]
+        for cu, fmt, nm in want:
+            if cu not in have_urls:
+                working_index["distribution"].append({
+                    "@type": "DataDownload", "contentUrl": cu,
+                    "encodingFormat": fmt, "name": nm,
+                    "license":
+                        "https://creativecommons.org/licenses/by/4.0/",
+                    "dateModified": dm})
+                have_urls.add(cu)
+                registered += 1
+    if registered:
+        with open(index_path, "w", encoding="utf-8") as f:
+            json.dump(working_index, f, indent=1, ensure_ascii=False)
+            f.write("\n")
+        count = len(working_index["distribution"])
+    print(f"    page distributions registered: {registered} new "
+          f"(membership {count})")
+
+    # Day-3 drift fix (2026-11-04), companion: llms.txt's certificate
+    # figures state this seal's own totals (distribution count,
+    # dataset-file count, per-page JSON count, rubric rows, targeted
+    # pages) — numbers that only become final once registration
+    # above has run, so hand-maintained copies drifted one
+    # generation behind on every count-changing batch (CV-3 caught
+    # them only at verify). The seal now rewrites those figure
+    # seats from the final membership + the settled intent file, in
+    # both llms.txt seats, before the digest pass. The computation
+    # mirrors verify.js CV-3 exactly.
+    import re as _re
+    _dist = working_index.get("distribution", [])
+    _urls = [e.get("contentUrl") or "" for e in _dist]
+    _root = "https://theflatratemovers.com/"
+    _excl = {"ai-sitemap.json", "ai-master-index.json",
+             "entity-graph.json", "best-json-entity-graph.json",
+             "ai-license.json",
+             "ai-verification-report-2026-11-01.json",
+             "ai-verification-report-2026-11-01-e6b2.json"}
+    _root_json = [u[len(_root):] for u in _urls
+                  if u.startswith(_root) and "/" not in u[len(_root):]
+                  and u.endswith(".json")]
+    _per_page = len([n for n in _root_json
+                     if not n.startswith("datasets-")
+                     and not n.startswith("dataset-")
+                     and n not in _excl])
+    _ds_count = len([u for u in _urls
+                     if _re.search(r"/datasets-[^/]+\.json$", u)])
+    with open(os.path.join(PUB, "datasets-intent-coverage.json"),
+              encoding="utf-8") as f:
+        _intent = json.load(f)
+    _totals = next(n for n in _intent.get("@graph", [])
+                   if str(n.get("@id", "")).endswith(
+                       "#dataset-intent-coverage-totals"))
+    _rows = _totals["rowSources"]["estateGenerated"]
+    _targeted = _totals["pageCoverage"]["pagesTargeted"]
+    _pages_total = _totals["pageCoverage"]["pagesTotal"]
+    _fmt = lambda n: f"{n:,}"
+    for _seat in [os.path.join(PUB, "llms.txt"),
+                  os.path.join(ROOT, "out", "phase-a", "llms.txt")]:
+        if not os.path.isfile(_seat):
+            continue
+        with open(_seat, encoding="utf-8") as f:
+            _t = f.read()
+        _t, _n1 = _re.subn(
+            r"lists \d+ distributions: the \d+ published dataset "
+            r"files([\s\S]{0,300}?all )\d+( per-page JSON files)",
+            f"lists {len(_dist)} distributions: the {_ds_count} "
+            f"published dataset files\\g<1>{_per_page}\\g<2>", _t)
+        _t = _t.replace(
+            _re.search(r"the [\d,]+-row search-intent rubric",
+                       _t).group(0),
+            f"the {_fmt(_rows)}-row search-intent rubric")
+        _t = _t.replace(
+            _re.search(r"[\d,]+ generated query rows", _t).group(0),
+            f"{_fmt(_rows)} generated query rows")
+        _t = _t.replace(
+            _re.search(r"every one of the site's \d+ pages is a "
+                       r"rubric target", _t).group(0),
+            f"every one of the site's {_targeted} pages is a "
+            f"rubric target")
+        _t = _re.sub(r"every one of the \d+ pages",
+                     f"every one of the {_pages_total} pages", _t)
+        with open(_seat, "w", encoding="utf-8") as f:
+            f.write(_t)
+        print(f"    llms.txt figures synced ({os.path.basename(_seat)}"
+              f"): {len(_dist)} distributions, {_ds_count} dataset "
+              f"files, {_per_page} per-page, {_rows} rows, "
+              f"{_targeted} targeted")
 
     phase("5. routes (shell -> public/index.html, route docs, middleware)")
     shutil.copyfile(os.path.join(REPO, "index.html"),
