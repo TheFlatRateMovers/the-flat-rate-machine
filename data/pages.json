@@ -1,6 +1,6 @@
 {
  "attestation": "Every URL below was fetched from the live sitemap on 2026-10-28; titles and service links come from pageMeta in the live site source. No URL was hand-typed.",
- "count": 244,
+ "count": 246,
  "dataset": "pages",
  "generated": "2026-10-29",
  "pages": [
@@ -3026,6 +3026,32 @@
    "title": "Cross-Docking Services",
    "type": "service",
    "url": "https://theflatratemovers.com/cross-docking-services/"
+  },
+  {
+   "attested": "2026-11-04",
+   "lastmod": "2026-11-04",
+   "services": [
+    "service-piano-antique"
+   ],
+   "slug": "moving-antiques-and-museum-pieces",
+   "source": "Blog Wave 1 Day 3 AM flagship (News Formula guide lane), Launch Protocol 2026-11-04 — moving antiques and museum pieces: the piece-by-piece survey and assessment (weight, fragile points, finish, condition, value at risk), packing in layers, custom crating built around the piece and ISPM 15 export packing, heavy antiques in the 1,500-3,500 lb band under SIR and the KIM-GS Protocol with L/360 floor-deflection analysis, the five-step job, risks and controls on National Park Service, Canadian Conservation Institute and Smithsonian guidance; built from the live piano, antique and white-glove hub and its dataset; byline Henry Pitts Jr., reviewer Henry Pitts",
+   "status": "live",
+   "title": "Moving antiques and museum pieces: packing, crating, and careful transport",
+   "type": "page",
+   "url": "https://theflatratemovers.com/moving-antiques-and-museum-pieces/"
+  },
+  {
+   "attested": "2026-11-04",
+   "lastmod": "2026-11-04",
+   "services": [
+    "service-white-glove"
+   ],
+   "slug": "white-glove-delivery-step-by-step",
+   "source": "Blog Wave 1 Day 3 PM flagship (News Formula guide lane), Launch Protocol 2026-11-04 — white-glove delivery step by step: the published chain from naming and assessing the pieces, protection matched to each piece (padded blankets and clear stretch wrap, or a custom crate), freight received, counted and staged, the route protected on arrival, carry-in to the room of choice and final placement, unpacking, removal of the delivered item's own packaging, and placement and condition verified with the recipient; heavy deliveries of 1,500 to 3,500 lbs surveyed and floor-checked to L/360 under SIR and the KIM-GS Protocol; the boundaries stated plainly (assembly and installation are not part of the published scope; haul-away is not part of the service); built from the live white-glove delivery hub and its dataset; byline Henry Pitts Jr., reviewer Henry Pitts",
+   "status": "live",
+   "title": "White-glove delivery, step by step: what is included beyond the threshold",
+   "type": "page",
+   "url": "https://theflatratemovers.com/white-glove-delivery-step-by-step/"
   }
  ],
  "source": "https://theflatratemovers.com/sitemap.xml joined to pageMeta in ../the-flat-rate-movers-pages/public/index.html",

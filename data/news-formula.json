@@ -179,6 +179,28 @@
     "height": 607,
     "reason": "Owner-supplied photograph (the Bar Harbor grand piano, supplied by the owner 2026-11-03) wired into the page body and the schema at natural size on the owner's direct instruction; the supplied file is 455x607 px portrait, below the N-8 >=1200 px landscape bar — the shortfall is recorded here, not passed."
    }
+  },
+  {
+   "slug": "moving-antiques-and-museum-pieces",
+   "ledgerDate": "2026-11-04",
+   "lane": "guide",
+   "instant": "2026-11-04T08:24:09-05:00",
+   "image": {
+    "status": "pass",
+    "url": "https://theflatratemovers.com/assets/img-20-custom-crate-foam-lined-ramp-door.webp",
+    "width": 1320,
+    "height": 979
+   }
+  },
+  {
+   "slug": "white-glove-delivery-step-by-step",
+   "ledgerDate": "2026-11-04",
+   "lane": "guide",
+   "instant": "2026-11-04T08:24:35-05:00",
+   "image": {
+    "status": "owner-photo-needed",
+    "reason": "No estate or photo-catalog photograph depicts a white-glove delivery: the catalog crew photograph is a gun-safe job, and the robotic-arm photograph is an industrial subject at 851x1010 portrait. Owner photo needed: a white-glove delivery being placed and unpacked in a room."
+   }
   }
  ]
 }

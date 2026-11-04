@@ -2,7 +2,7 @@
  "description": "Seal-maintained lastmod ledger: for every sitemap URL, the date of the last seal generation in which its own signed distribution changed. Seeded from the 2026-11-02 crawl-demand audit (doc-level digest history across 73 signed generations); maintained by seal.py phase 6b (diff-stamp vs the phase-0 prior index). build-sitemap.js reads this file for every sitemap <lastmod>.",
  "lastSeal": {
   "date": "2026-11-04",
-  "indexSha256": "9ae184ff7214c9bb9bd4d0b86393cd98b1ffb76a337db6a23e89af1db7488747"
+  "indexSha256": "757cfcf7ba851054d6e1db2729a04215e7debda619b59715c92382a7a9d2ac4b"
  },
  "seededFrom": "crawl-demand-audit-2026-11-02.csv",
  "urls": {
@@ -228,6 +228,7 @@
   "https://theflatratemovers.com/moving-a-piano/": "2026-11-04",
   "https://theflatratemovers.com/moving-an-office-inside-a-plant-or-warehouse/": "2026-11-04",
   "https://theflatratemovers.com/moving-and-storage/": "2026-11-04",
+  "https://theflatratemovers.com/moving-antiques-and-museum-pieces/": "2026-11-04",
   "https://theflatratemovers.com/moving-company-martinsburg-wv/": "2026-11-04",
   "https://theflatratemovers.com/moving-company-winchester-va/": "2026-11-04",
   "https://theflatratemovers.com/moving-cost-guide-winchester-va/": "2026-11-04",
@@ -292,6 +293,7 @@
   "https://theflatratemovers.com/warehouse-racking-relocation/": "2026-11-04",
   "https://theflatratemovers.com/warehouse-relocation/": "2026-11-04",
   "https://theflatratemovers.com/when-an-item-needs-a-custom-crate/": "2026-11-04",
+  "https://theflatratemovers.com/white-glove-delivery-step-by-step/": "2026-11-04",
   "https://theflatratemovers.com/white-glove-delivery-winchester-va/": "2026-11-04",
   "https://theflatratemovers.com/white-glove-delivery/": "2026-11-04",
   "https://theflatratemovers.com/who-unloads-containers-at-the-virginia-inland-port/": "2026-11-04"

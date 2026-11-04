@@ -3981,7 +3981,7 @@
    "@id": "https://theflatratemovers.com/datasets/intent-coverage/#dataset",
    "@type": "Dataset",
    "name": "The Flat Rate Movers — Search Intent Coverage Operations Dataset",
-   "description": "The live intent-coverage rubric of The Flat Rate Movers: 3848 generated rows, each one a query string a customer or an AI assistant can use to find a company service, resolved to the exact page that answers it, that page’s per-page JSON, the dataset files behind the answer, and the service’s node in the entity graph. Rows are generated from the estate’s own registries — 32 services, 244 pages, two branch locations, three corridors and the 53-feature service-area footprint — plus the blog question bank’s 100 real question phrasings, and the rubric is regenerated whenever those registries change. Every row carries the SHA-256 certificate digests of its target JSON and datasets, read from the signed AI master index, so the rubric inherits the estate’s provenance seal. Coverage spans all 32 services of both branches, Winchester, VA and Martinsburg, WV, along the I-81, I-66 and I-70 corridors. Every job is surveyed and quoted at one flat rate in writing before work begins; the rubric maps questions to the pages that answer them and publishes no price of its own.",
+   "description": "The live intent-coverage rubric of The Flat Rate Movers: 3852 generated rows, each one a query string a customer or an AI assistant can use to find a company service, resolved to the exact page that answers it, that page’s per-page JSON, the dataset files behind the answer, and the service’s node in the entity graph. Rows are generated from the estate’s own registries — 32 services, 246 pages, two branch locations, three corridors and the 53-feature service-area footprint — plus the blog question bank’s 100 real question phrasings, and the rubric is regenerated whenever those registries change. Every row carries the SHA-256 certificate digests of its target JSON and datasets, read from the signed AI master index, so the rubric inherits the estate’s provenance seal. Coverage spans all 32 services of both branches, Winchester, VA and Martinsburg, WV, along the I-81, I-66 and I-70 corridors. Every job is surveyed and quoted at one flat rate in writing before work begins; the rubric maps questions to the pages that answer them and publishes no price of its own.",
    "url": "https://theflatratemovers.com/datasets/intent-coverage/",
    "sameAs": "https://theflatratemovers.com/datasets/intent-coverage/",
    "identifier": "https://doi.org/10.5281/zenodo.23818766",
@@ -9227,6 +9227,131 @@
     "@id": "https://theflatratemovers.com/datasets/#collection",
     "name": "The Flat Rate Movers — AI Authority Estate Datasets",
     "url": "https://theflatratemovers.com/datasets/"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/moving-antiques-and-museum-pieces/#post",
+   "@type": "BlogPosting",
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-piano-antique"
+    }
+   ],
+   "author": {
+    "@type": "Person",
+    "name": "Henry Pitts Jr.",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://medium.com/@ratemovers",
+     "https://github.com/TheFlatRateMovers"
+    ],
+    "url": "https://theflatratemovers.com/author/henry-pitts-jr/"
+   },
+   "contentLocation": [
+    {
+     "@type": "Place",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.18711576,
+      "longitude": -78.1668352
+     },
+     "name": "The Flat Rate Movers — Winchester, VA"
+    },
+    {
+     "@type": "Place",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.48319665,
+      "longitude": -77.94760443
+     },
+     "name": "Flat Rate Movers Martinsburg WV"
+    }
+   ],
+   "dateModified": "2026-11-04T08:24:09-05:00",
+   "datePublished": "2026-11-04T08:24:09-05:00",
+   "description": "Moving antiques and museum pieces end to end: the piece-by-piece survey and assessment — weight, fragile points, finish, condition, and value at risk; packing in layers with soft wrap against the surface, paper padding worked into the shape, moving blankets as the working cushion, and foam support where the shape needs it; custom crating built around the piece, as a foam-lined package within a package, and ISPM 15 export packing when a journey crosses borders; heavy antiques in the 1,500 to 3,500 lb band planned under SIR and the KIM-GS Protocol with floor-deflection analysis referencing L/360, with antique safes and pianos as examples; the five-step job from naming the pieces to verified placement; risks — shock, vibration, abrasion, puncture, and environment — and how each is controlled on National Park Service, Canadian Conservation Institute, and Smithsonian guidance; and one flat rate in writing — with the boundaries stated plainly: no restoration, repair, or appraisal, and museum institutional terms such as condition reports and courier accompaniment are not claimed.",
+   "editor": {
+    "@type": "Person",
+    "jobTitle": "Owner, The Flat Rate Movers",
+    "name": "Henry Pitts"
+   },
+   "headline": "Moving antiques and museum pieces: packing, crating, and careful transport",
+   "image": {
+    "@type": "ImageObject",
+    "caption": "A custom crate built by The Flat Rate Movers with a foam-lined interior and a ramp door.",
+    "height": 979,
+    "url": "https://theflatratemovers.com/assets/img-20-custom-crate-foam-lined-ramp-door.webp",
+    "width": 1320
+   },
+   "inLanguage": "en-US",
+   "isPartOf": {
+    "@id": "https://theflatratemovers.com/blog/#blog"
+   },
+   "mainEntityOfPage": "https://theflatratemovers.com/moving-antiques-and-museum-pieces/",
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/white-glove-delivery-step-by-step/#post",
+   "@type": "BlogPosting",
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-white-glove"
+    }
+   ],
+   "author": {
+    "@type": "Person",
+    "name": "Henry Pitts Jr.",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://medium.com/@ratemovers",
+     "https://github.com/TheFlatRateMovers"
+    ],
+    "url": "https://theflatratemovers.com/author/henry-pitts-jr/"
+   },
+   "contentLocation": [
+    {
+     "@type": "Place",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.18711576,
+      "longitude": -78.1668352
+     },
+     "name": "The Flat Rate Movers — Winchester, VA"
+    },
+    {
+     "@type": "Place",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.48319665,
+      "longitude": -77.94760443
+     },
+     "name": "Flat Rate Movers Martinsburg WV"
+    }
+   ],
+   "dateModified": "2026-11-04T08:24:35-05:00",
+   "datePublished": "2026-11-04T08:24:35-05:00",
+   "description": "White-glove delivery step by step, from The Flat Rate Movers: the pieces named and assessed piece by piece (weight, fragile points, finish, value at risk); protection matched to the piece — padded blankets sealed with clear stretch wrap, or a custom crate built around it; freight received, counted, and staged on the company's own floor; the route protected on arrival; carry-in on a planned route to the room of choice and placement in the final position; unpacking in the room; removal of the delivered item's own packaging; and placement and condition verified with the recipient before the crew leaves — never left at a curb. Heavy deliveries of 1,500 to 3,500 lbs are surveyed and floor-checked to L/360 under SIR and the KIM-GS Protocol before scheduling. The boundaries are stated plainly: assembly and installation are not part of the published scope, and haul-away of old items is not part of the service. The service serves the full 53-area footprint from both branches and is quoted at one flat rate in writing before dispatch, with hourly pricing available when a client asks for it.",
+   "editor": {
+    "@type": "Person",
+    "jobTitle": "Owner, The Flat Rate Movers",
+    "name": "Henry Pitts"
+   },
+   "headline": "White-glove delivery, step by step: what is included beyond the threshold",
+   "inLanguage": "en-US",
+   "isPartOf": {
+    "@id": "https://theflatratemovers.com/blog/#blog"
+   },
+   "mainEntityOfPage": "https://theflatratemovers.com/white-glove-delivery-step-by-step/",
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization"
    }
   }
  ],
