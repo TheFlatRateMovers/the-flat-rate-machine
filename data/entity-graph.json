@@ -1170,9 +1170,12 @@
     "url": "https://theflatratemovers.com/"
    },
    "datePublished": "2026-11-02",
-   "dateModified": "2026-11-03",
+   "dateModified": "2026-11-04",
    "includedInDataCatalog": {
-    "@id": "https://theflatratemovers.com/datasets/#collection"
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
    },
    "spatialCoverage": [
     {
@@ -3120,7 +3123,10 @@
    ],
    "isAccessibleForFree": true,
    "includedInDataCatalog": {
-    "@id": "https://theflatratemovers.com/datasets/#collection"
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
    }
   },
   {
@@ -3206,7 +3212,10 @@
     "Archives-element gaps A1–A6 with designed solutions"
    ],
    "includedInDataCatalog": {
-    "@id": "https://theflatratemovers.com/datasets/#collection"
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
    }
   },
   {
@@ -3270,7 +3279,10 @@
     }
    ],
    "includedInDataCatalog": {
-    "@id": "https://theflatratemovers.com/datasets/#collection"
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
    }
   },
   {
@@ -3334,7 +3346,10 @@
     }
    ],
    "includedInDataCatalog": {
-    "@id": "https://theflatratemovers.com/datasets/#collection"
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
    }
   },
   {
@@ -3419,7 +3434,10 @@
     "Corpora-element gaps P1–P6 with designed solutions"
    ],
    "includedInDataCatalog": {
-    "@id": "https://theflatratemovers.com/datasets/#collection"
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
    }
   },
   {
@@ -3484,7 +3502,10 @@
     }
    ],
    "includedInDataCatalog": {
-    "@id": "https://theflatratemovers.com/datasets/#collection"
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
    }
   },
   {
@@ -3548,7 +3569,10 @@
     }
    ],
    "includedInDataCatalog": {
-    "@id": "https://theflatratemovers.com/datasets/#collection"
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
    }
   },
   {
@@ -3612,7 +3636,10 @@
     }
    ],
    "includedInDataCatalog": {
-    "@id": "https://theflatratemovers.com/datasets/#collection"
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
    }
   },
   {
@@ -3676,7 +3703,10 @@
     }
    ],
    "includedInDataCatalog": {
-    "@id": "https://theflatratemovers.com/datasets/#collection"
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
    }
   },
   {
@@ -3740,7 +3770,10 @@
     }
    ],
    "includedInDataCatalog": {
-    "@id": "https://theflatratemovers.com/datasets/#collection"
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
    }
   },
   {
@@ -3804,7 +3837,10 @@
     }
    ],
    "includedInDataCatalog": {
-    "@id": "https://theflatratemovers.com/datasets/#collection"
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
    }
   },
   {
@@ -3868,7 +3904,10 @@
     }
    ],
    "includedInDataCatalog": {
-    "@id": "https://theflatratemovers.com/datasets/#collection"
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
    }
   },
   {
@@ -3932,7 +3971,10 @@
     }
    ],
    "includedInDataCatalog": {
-    "@id": "https://theflatratemovers.com/datasets/#collection"
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
    }
   },
   {
@@ -3997,7 +4039,10 @@
     }
    ],
    "includedInDataCatalog": {
-    "@id": "https://theflatratemovers.com/datasets/#collection"
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
    }
   },
   {
@@ -4061,7 +4106,10 @@
     }
    ],
    "includedInDataCatalog": {
-    "@id": "https://theflatratemovers.com/datasets/#collection"
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
    }
   },
   {
@@ -4126,7 +4174,10 @@
     }
    ],
    "includedInDataCatalog": {
-    "@id": "https://theflatratemovers.com/datasets/#collection"
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
    }
   },
   {
@@ -4190,7 +4241,10 @@
     }
    ],
    "includedInDataCatalog": {
-    "@id": "https://theflatratemovers.com/datasets/#collection"
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
    }
   },
   {
@@ -4308,7 +4362,10 @@
    ],
    "measurementTechnique": "Generated from the estate branch registries and the Retrieval Machine Dossier 03 audit with the backlink program records; statuses follow a controlled vocabulary and corrected-live is earned only on direct-fetch proof.",
    "includedInDataCatalog": {
-    "@id": "https://theflatratemovers.com/datasets/#collection"
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
    }
   },
   {
@@ -4374,7 +4431,10 @@
     }
    ],
    "includedInDataCatalog": {
-    "@id": "https://theflatratemovers.com/datasets/#collection"
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
    }
   },
   {
@@ -4438,7 +4498,10 @@
     }
    ],
    "includedInDataCatalog": {
-    "@id": "https://theflatratemovers.com/datasets/#collection"
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
    }
   },
   {
@@ -4508,7 +4571,10 @@
     }
    ],
    "includedInDataCatalog": {
-    "@id": "https://theflatratemovers.com/datasets/#collection"
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
    }
   },
   {
@@ -4572,7 +4638,10 @@
     }
    ],
    "includedInDataCatalog": {
-    "@id": "https://theflatratemovers.com/datasets/#collection"
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
    }
   },
   {
@@ -4637,7 +4706,10 @@
     }
    ],
    "includedInDataCatalog": {
-    "@id": "https://theflatratemovers.com/datasets/#collection"
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
    }
   },
   {
@@ -4701,7 +4773,10 @@
     }
    ],
    "includedInDataCatalog": {
-    "@id": "https://theflatratemovers.com/datasets/#collection"
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
    }
   },
   {
@@ -4766,7 +4841,10 @@
     }
    ],
    "includedInDataCatalog": {
-    "@id": "https://theflatratemovers.com/datasets/#collection"
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
    }
   },
   {
@@ -4831,7 +4909,10 @@
     }
    ],
    "includedInDataCatalog": {
-    "@id": "https://theflatratemovers.com/datasets/#collection"
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
    }
   },
   {
@@ -4895,7 +4976,10 @@
     }
    ],
    "includedInDataCatalog": {
-    "@id": "https://theflatratemovers.com/datasets/#collection"
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
    }
   },
   {
@@ -4961,7 +5045,10 @@
     }
    ],
    "includedInDataCatalog": {
-    "@id": "https://theflatratemovers.com/datasets/#collection"
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
    }
   },
   {
@@ -5025,7 +5112,10 @@
     }
    ],
    "includedInDataCatalog": {
-    "@id": "https://theflatratemovers.com/datasets/#collection"
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
    }
   },
   {
@@ -5075,7 +5165,10 @@
    ],
    "isAccessibleForFree": true,
    "includedInDataCatalog": {
-    "@id": "https://theflatratemovers.com/datasets/#collection"
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
    }
   },
   {
@@ -5139,7 +5232,10 @@
     }
    ],
    "includedInDataCatalog": {
-    "@id": "https://theflatratemovers.com/datasets/#collection"
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
    }
   },
   {
@@ -5204,7 +5300,10 @@
     }
    ],
    "includedInDataCatalog": {
-    "@id": "https://theflatratemovers.com/datasets/#collection"
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
    }
   },
   {
@@ -5268,7 +5367,10 @@
     }
    ],
    "includedInDataCatalog": {
-    "@id": "https://theflatratemovers.com/datasets/#collection"
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
    }
   },
   {
@@ -5333,7 +5435,10 @@
     }
    ],
    "includedInDataCatalog": {
-    "@id": "https://theflatratemovers.com/datasets/#collection"
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
    }
   },
   {
@@ -5397,7 +5502,10 @@
     }
    ],
    "includedInDataCatalog": {
-    "@id": "https://theflatratemovers.com/datasets/#collection"
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
    }
   },
   {
@@ -5439,10 +5547,13 @@
     ]
    },
    "includedInDataCatalog": {
-    "@id": "https://theflatratemovers.com/datasets/#collection"
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
    },
    "datePublished": "2026-10-29",
-   "dateModified": "2026-11-03",
+   "dateModified": "2026-11-04",
    "temporalCoverage": "2010/2026",
    "spatialCoverage": [
     {
@@ -5534,7 +5645,10 @@
     }
    ],
    "includedInDataCatalog": {
-    "@id": "https://theflatratemovers.com/datasets/#collection"
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
    }
   },
   {
@@ -5599,7 +5713,10 @@
     }
    ],
    "includedInDataCatalog": {
-    "@id": "https://theflatratemovers.com/datasets/#collection"
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
    }
   },
   {
@@ -5663,7 +5780,10 @@
     }
    ],
    "includedInDataCatalog": {
-    "@id": "https://theflatratemovers.com/datasets/#collection"
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
    }
   },
   {
@@ -5763,10 +5883,13 @@
     "url": "https://theflatratemovers.com/"
    },
    "includedInDataCatalog": {
-    "@id": "https://theflatratemovers.com/datasets/#collection"
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
    },
    "datePublished": "2026-11-03",
-   "dateModified": "2026-11-03",
+   "dateModified": "2026-11-04",
    "temporalCoverage": "2026-09",
    "spatialCoverage": [
     {
@@ -8457,10 +8580,13 @@
     "url": "https://theflatratemovers.com/"
    },
    "includedInDataCatalog": {
-    "@id": "https://theflatratemovers.com/datasets/#collection"
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
    },
    "datePublished": "2026-11-03",
-   "dateModified": "2026-11-03",
+   "dateModified": "2026-11-04",
    "spatialCoverage": [
     {
      "@type": "Place",
@@ -8569,10 +8695,13 @@
     "url": "https://theflatratemovers.com/"
    },
    "includedInDataCatalog": {
-    "@id": "https://theflatratemovers.com/datasets/#collection"
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
    },
    "datePublished": "2026-11-03",
-   "dateModified": "2026-11-03",
+   "dateModified": "2026-11-04",
    "spatialCoverage": [
     {
      "@type": "Place",
@@ -8713,9 +8842,12 @@
     "url": "https://theflatratemovers.com/"
    },
    "datePublished": "2026-11-03",
-   "dateModified": "2026-11-03",
+   "dateModified": "2026-11-04",
    "includedInDataCatalog": {
-    "@id": "https://theflatratemovers.com/datasets/#collection"
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
    },
    "spatialCoverage": [
     {
@@ -9091,7 +9223,10 @@
     "Catalog-element gaps C1–C6, CR-G1, CR-G2 with designed solutions"
    ],
    "includedInDataCatalog": {
-    "@id": "https://theflatratemovers.com/datasets/#collection"
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
    }
   }
  ],

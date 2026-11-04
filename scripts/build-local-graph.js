@@ -2135,7 +2135,7 @@ function enrichDatasetNodes(nodes, datePublished, variableMeasured, strengthenSC
     const types = Array.isArray(n['@type']) ? n['@type'] : [n['@type']];
     if (!types.includes('Dataset')) continue;
     n.datePublished = datePublished;
-    n.includedInDataCatalog = { '@id': 'https://theflatratemovers.com/datasets/#collection' };
+    n.includedInDataCatalog = { '@type': 'DataCatalog', '@id': 'https://theflatratemovers.com/datasets/#collection', 'name': 'The Flat Rate Movers — AI Authority Estate Datasets', 'url': 'https://theflatratemovers.com/datasets/' };
     if (variableMeasured) n.variableMeasured = variableMeasured;
     if (strengthenSC && Array.isArray(n.spatialCoverage)) {
       n.spatialCoverage = n.spatialCoverage.map((p) => (p && ENRICH_PLACES[p['@id']] && Object.keys(p).length === 1) ? ENRICH_PLACES[p['@id']] : p);

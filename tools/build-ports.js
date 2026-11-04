@@ -223,7 +223,7 @@ function datasetShell(idSuffix, name, description) {
     'publisher': JSON.parse(JSON.stringify(ORG_REF)),
     'datePublished': TODAY,
     'dateModified': FILE_DM,
-    'includedInDataCatalog': { '@id': SITE + '/datasets/#collection' },
+    'includedInDataCatalog': { '@type': 'DataCatalog', '@id': SITE + '/datasets/#collection', 'name': 'The Flat Rate Movers — AI Authority Estate Datasets', 'url': SITE + '/datasets/' },
     'spatialCoverage': JSON.parse(JSON.stringify(SPATIAL)),
   };
 }

@@ -447,7 +447,7 @@ function node(type, suffix, name, description, extra, payloadKey) {
   };
   if (type === 'Dataset') {
     n.datePublished = '2026-11-03';
-    n.includedInDataCatalog = { '@id': SITE + '/datasets/#collection' };
+    n.includedInDataCatalog = { '@type': 'DataCatalog', '@id': SITE + '/datasets/#collection', 'name': 'The Flat Rate Movers — AI Authority Estate Datasets', 'url': SITE + '/datasets/' };
     // No variableMeasured: verify.js CV-6 reserves that property to
     // the six measurement datasets; the catalog registry is held to
     // the same bar as the other registry files (execution deviation
