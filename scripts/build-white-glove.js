@@ -226,8 +226,7 @@ const ledger = {
   includedInDataCatalog: template.includedInDataCatalog,
   distribution: template.distribution,
   additionalProperty: Object.entries(store.trustLedger).map(([k, v]) => ap(k, v)),
-  completedJob: ops.completedJob,
-  mentions: [{
+  mentions: [...ops.completedJob, {
     '@type': 'ItemList',
     name: 'Demand corridors — long-distance and white-glove (observed 2026-11-05)',
     description: 'Metropolitan demand signals observed in Cloudflare Web Analytics (top data centers, last 24 hours, 2026-11-05). A demand corridor records where interest in the estate originates; it is not a local service area and adds no town to the service footprint. Long-distance work into these metros rides the interstate contractor model, and white-glove fulfillment outside the home area rides vetted partners — both owner-confirmed scope. The service footprint remains the 71-area Shenandoah Valley / Eastern Panhandle set.',
