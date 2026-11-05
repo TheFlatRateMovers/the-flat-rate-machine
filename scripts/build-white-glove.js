@@ -199,6 +199,25 @@ const ledger = {
   distribution: template.distribution,
   trustLedger: store.trustLedger,
   completedJob: ops.completedJob,
+  demandCorridors: {
+    '@type': 'ItemList',
+    name: 'Demand corridors — long-distance and white-glove (observed 2026-11-05)',
+    description: 'Metropolitan demand signals observed in Cloudflare Web Analytics (top data centers, last 24 hours, 2026-11-05). A demand corridor records where interest in the estate originates; it is not a local service area and adds no town to the service footprint. Long-distance work into these metros rides the interstate contractor model, and white-glove fulfillment outside the home area rides vetted partners — both owner-confirmed scope. The service footprint remains the 71-area Shenandoah Valley / Eastern Panhandle set.',
+    numberOfItems: (store.demandCorridors || []).length,
+    itemListElement: (store.demandCorridors || []).map((m, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      item: {
+        '@type': 'City',
+        name: m.city,
+        geo: { '@type': 'GeoCoordinates', latitude: m.lat, longitude: m.lon },
+        additionalProperty: [
+          { '@type': 'PropertyValue', name: 'cloudflareDataCenter', value: m.code },
+          { '@type': 'PropertyValue', name: 'cloudflareRequests24h', value: m.cloudflareRequests24h, unitText: 'requests in the 24 hours before 2026-11-05' },
+        ],
+      },
+    })),
+  },
 };
 
 nodes.push(research, sources, levels, ledger);

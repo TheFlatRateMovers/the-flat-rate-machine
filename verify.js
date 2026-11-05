@@ -652,6 +652,7 @@ async function main() {
     skipLive('P-4 every served index distribution entry is complete (name, contentUrl, encodingFormat, license, dateModified, SHA-256 digest + byteSize)');
     skipLive('P-5 certificate covers all 257 per-page JSONs + all 255 route documents + llms-full.txt + the site shell + the deployed code sets (1125 distributions)');
     skipLive('P-6 all repo-served distribution digests match the live served bytes');
+    skipLive('P-7 served pages carry exactly one aggregateRating set per branch, DayOfWeek enum URLs only, no stale reviewCount (Review + Validator fix 2026-11-05)');
   } else {
   try {
     const crypto = require('crypto');
@@ -978,6 +979,26 @@ async function main() {
     check('P-6 all repo-served distribution digests match the live served bytes',
       !!servedIndex && p6bad.length === 0 && p6ok === repoEntries.length && repoEntries.length > 0,
       p6ok + '/' + repoEntries.length + ' match' + (p6bad.length ? '; mismatch: ' + p6bad.join('; ') : ''));
+
+    // P-7: served-surface ratings/dayOfWeek gate (Review + Validator fix
+    // batch, 2026-11-05). build-routes' normalization pass guarantees the
+    // shape at generation; this check proves it on the live bytes of six
+    // representative pages so a silent regression fails the suite.
+    try {
+      const p7urls = ['https://theflatratemovers.com/', 'https://theflatratemovers.com/white-glove-delivery/', 'https://theflatratemovers.com/datasets/white-glove/', 'https://theflatratemovers.com/datasets/b2b-specialty-rubric/', 'https://theflatratemovers.com/gun-safe-movers/', 'https://theflatratemovers.com/medical-lab-equipment-relocation/'];
+      const p7bad = [];
+      for (const u of p7urls) {
+        const r = await fetchFull(u);
+        const t = r.buf.toString('utf8');
+        const ar = (t.match(/aggregateRating/g) || []).length;
+        if (ar !== 2) p7bad.push(u + ': aggregateRating x' + ar);
+        if (/"dayOfWeek":\s*"(Mon-Fri|Sat|Sun|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)"/.test(t) || /"dayOfWeek":\s*\[\s*"(Monday|Tuesday|Wednesday|Thursday|Friday)"/.test(t)) p7bad.push(u + ': plain dayOfWeek value');
+        if (/"reviewCount":\s*"?1"?[,}]/.test(t)) p7bad.push(u + ': stale reviewCount 1');
+      }
+      check('P-7 served pages carry exactly one aggregateRating set per branch, DayOfWeek enum URLs only, no stale reviewCount (Review + Validator fix 2026-11-05)', p7bad.length === 0, p7bad.length ? p7bad.join('; ') : '6 pages clean');
+    } catch (e) {
+      check('P-7 served pages carry exactly one aggregateRating set per branch, DayOfWeek enum URLs only, no stale reviewCount (Review + Validator fix 2026-11-05)', false, e.message);
+    }
   } catch (e) {
     check('provenance layer (P-1..P-6) fetched and evaluated', false, e.message);
   }
@@ -5146,8 +5167,13 @@ async function main() {
      if (!dsNode || dsNode['@id'] !== url + '#page-data-dataset') badPG1.push(url + ': Dataset seat');
      else {
        const d0 = dist.find((d) => d.contentUrl === jsonUrl); const d1 = dist.find((d) => d.contentUrl === txtUrl);
-       if (!d0 || d0.contentEncodingFormat !== 'sha256:' + jSha) badPG1.push(url + ': head json digest != file');
-       if (!d1 || d1.contentEncodingFormat !== 'sha256:' + tSha) badPG1.push(url + ': head txt digest != file');
+       // Digest seat (Review + Validator fix, 2026-11-05): the head block
+       // points at the files by contentUrl only — contentEncodingFormat is
+       // not a schema.org DataDownload property, so the claimed digest was
+       // removed from the block; the signed index is the single digest
+       // authority and PG-2 enforces index digest == file for every page.
+       if (!d0) badPG1.push(url + ': head json distribution missing');
+       if (!d1) badPG1.push(url + ': head txt distribution missing');
      }
      // PG-2 (disk): files present, parse, digests == signed index; txt sections.
      if (!jsonBuf || !doc) badPG2.push(url + ': data.json missing/unparseable');
@@ -5182,7 +5208,7 @@ async function main() {
      })());
    }
    if (!LOCAL) await Promise.all(liveJobsPG);
-   check('PG-1 Page Data head block present + correct on every page (alternate links, WebPage seat, Dataset seat digests == the files)',
+   check('PG-1 Page Data head block present + correct on every page (alternate links, WebPage seat, Dataset seat points at the files; digests ride the signed index)',
      badPG1.length === 0, badPG1.slice(0, 4).join('; ') || (regPagesPG.length + ' pages carry the block'));
    check('PG-2 per-page data.json/data.txt present, parse, digests == signed index (and == served bytes when live)',
      badPG2.length === 0, badPG2.slice(0, 4).join('; ') || (regPagesPG.length * 2 + ' files sealed'));

@@ -698,6 +698,21 @@ const EXTRA_PATTERNS = {
     ['data center relocation rfp requirements', 'ai-question', null, 'datasets/b2b-specialty-rubric'],
     ['data center mover selection criteria', 'ai-question', null, 'datasets/b2b-specialty-rubric'],
   ],
+  'service-long-distance': [
+    // Demand corridors (Review + Demand-Geography batch, 2026-11-05):
+    // Cloudflare top-metro demand signals (24h, 2026-11-05). Corridor
+    // rows record demand, never a local service claim; interstate
+    // fulfillment rides the contractor model (owner-settled).
+    ['long distance movers to Seattle', 'research', null, 'long-distance-cross-country-moving'],
+    ['long distance movers to San Jose', 'research', null, 'long-distance-cross-country-moving'],
+    ['long distance movers to Newark NJ', 'research', null, 'long-distance-cross-country-moving'],
+    ['long distance movers to Denver', 'research', null, 'long-distance-cross-country-moving'],
+    ['long distance movers to Paris', 'research', null, 'long-distance-cross-country-moving'],
+    ['long distance movers to Miami', 'research', null, 'long-distance-movers-miami'],
+    ['long distance movers to Dallas', 'research', null, 'long-distance-cross-country-moving'],
+    ['long distance movers to Los Angeles', 'research', null, 'long-distance-cross-country-moving'],
+    ['long distance movers to Ashburn VA', 'research', null, 'long-distance-cross-country-moving'],
+  ],
   'service-white-glove': [
     ['white glove delivery Winchester, VA', 'navigational-local', 'scope-winchester', 'white-glove-delivery-winchester-va'],
     ['white glove delivery service', 'navigational-local', null, 'white-glove-delivery'],
@@ -728,6 +743,19 @@ const EXTRA_PATTERNS = {
     ['white glove delivery rates for retailers and brands', 'cost', null, 'white-glove-delivery'],
     ['final mile delivery pricing per job', 'cost', null, 'white-glove-delivery'],
     ['appliance haul away cost with delivery', 'cost', null, 'white-glove-delivery'],
+    // Demand corridors (Review + Demand-Geography batch, 2026-11-05):
+    // Cloudflare top-metro demand signals (24h, 2026-11-05) as buyer
+    // questions. Corridor rows record demand, never a local service
+    // claim; fulfillment outside the home area rides vetted partners.
+    ['white glove delivery Seattle', 'research', null, 'white-glove-delivery'],
+    ['white glove delivery San Jose', 'research', null, 'white-glove-delivery'],
+    ['white glove delivery Newark NJ', 'research', null, 'white-glove-delivery'],
+    ['white glove delivery Denver', 'research', null, 'white-glove-delivery'],
+    ['white glove delivery Paris', 'research', null, 'white-glove-delivery'],
+    ['white glove delivery Miami', 'research', null, 'white-glove-delivery'],
+    ['white glove delivery Dallas', 'research', null, 'white-glove-delivery'],
+    ['white glove delivery Los Angeles', 'research', null, 'white-glove-delivery'],
+    ['white glove delivery Ashburn VA', 'research', null, 'white-glove-delivery'],
     ['white glove furniture assembly service cost', 'cost', null, 'white-glove-delivery'],
     ['receiving inspection and storage for designers cost', 'cost', null, 'white-glove-delivery'],
     ['flat rate final mile delivery quote', 'cost', null, 'white-glove-delivery'],

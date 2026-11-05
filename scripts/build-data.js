@@ -161,7 +161,7 @@ async function main() {
           { days: 'Sun', opens: '09:00', closes: '16:00' },
         ],
         hoursDisplay: 'Mon-Fri 8-6, Sat 8-4, Sun 9-4',
-        googleRating: { ratingValue: 5.0, reviewCount: 1 },
+        googleRating: { ratingValue: 5.0, reviewCount: 2 },
         serviceArea: ['Leesburg', 'Marshall', 'Sterling', 'Stephens City', 'Loudoun County', 'Berryville 22611', 'Frederick County', 'Middleburg 20117', 'Middletown 22645', 'Moorefield 26836', 'Round Hill 20141', 'Stephenson 22656', 'Upperville 20184', 'Winchester 22601', 'Purcellville 20132', 'South Riding 20152'],
         source: 'Google Business Profile check 2026-10-28 (rating) + GBP Business information screenshots supplied by owner 2026-10-27 (service area) + Places verification 2026-10-27 (address, geo)',
         attested: TODAY,

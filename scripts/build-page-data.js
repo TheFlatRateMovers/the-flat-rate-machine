@@ -668,8 +668,8 @@ for (const page of registry) {
     license: 'https://creativecommons.org/licenses/by/4.0/',
     publisher: { '@id': SITE + '/#organization' },
     distribution: [
-      { '@type': 'DataDownload', contentUrl: jsonUrl, encodingFormat: 'application/json', contentEncodingFormat: 'sha256:' + jsonSha },
-      { '@type': 'DataDownload', contentUrl: txtUrl, encodingFormat: 'text/plain', contentEncodingFormat: 'sha256:' + txtSha },
+      { '@type': 'DataDownload', contentUrl: jsonUrl, encodingFormat: 'application/json' },
+      { '@type': 'DataDownload', contentUrl: txtUrl, encodingFormat: 'text/plain' },
     ],
   };
   const block =

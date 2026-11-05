@@ -143,9 +143,11 @@ def build():
         for cid in subset:
             rec = store["criteria"][cid]
             criteria.append({
+                "@type": "Thing",
                 "criterion_name": rec["criterion_name"],
                 "weight": weights[cid],
                 "score_levels": {
+                    "@type": "Thing",
                     "poor_1": rec["score_levels"]["poor_1"],
                     "acceptable_3": rec["score_levels"]["acceptable_3"],
                     "excellent_5": rec["score_levels"]["excellent_5"],

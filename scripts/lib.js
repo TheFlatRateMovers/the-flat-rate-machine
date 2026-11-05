@@ -50,7 +50,7 @@ function areaStateToken(entry) {
   return m ? m[1] : null;
 }
 
-const DAY_MAP = { 'Mon-Fri': ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], Sat: ['Saturday'], Sun: ['Sunday'] };
+const DAY_MAP = { 'Mon-Fri': ['https://schema.org/Monday', 'https://schema.org/Tuesday', 'https://schema.org/Wednesday', 'https://schema.org/Thursday', 'https://schema.org/Friday'], Sat: ['https://schema.org/Saturday'], Sun: ['https://schema.org/Sunday'] };
 function hoursToSpec(hours) {
   return hours.map((h) => {
     const days = DAY_MAP[h.days];

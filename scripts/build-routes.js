@@ -445,6 +445,120 @@ function injectEmbedHashes(html, pageUrl) {
   });
 }
 
+
+/* ------------------------------------------------------------------ */
+/* Served-surface normalization (Review + Validator fix batch,        */
+/* 2026-11-05). Applied to the assembled route document, every        */
+/* ld+json block except the authored id="page-jsonld" seat:           */
+/*  1. Ratings seat: the FIRST block carrying aggregateRating keeps   */
+/*     it; branch-stub nodes (#winchester / #martinsburg and the      */
+/*     -va/-wv forms) in every later block lose aggregateRating +     */
+/*     review, so a served page carries exactly one rating set per    */
+/*     branch (Google rich-results merge rule — GSC "Review has       */
+/*     multiple aggregate ratings"). The per-page JSON files on disk   */
+/*     keep their full records; only the served copy is stripped.     */
+/*  2. dayOfWeek values become schema.org DayOfWeek enum URLs         */
+/*     ("Mon-Fri" expands to the five weekday URLs).                  */
+/*  3. areaServed string entries and untyped name-only objects gain   */
+/*     a real place type (City, or AdministrativeArea for counties    */
+/*     and regions); @id references are left to resolve to their      */
+/*     typed nodes.                                                   */
+/*  4. BreadcrumbList / FAQPage nodes whose content signature was     */
+/*     already served by an earlier block are dropped (the same       */
+/*     duplication class as the ratings).                             */
+/* Values are never otherwise altered: digests, URLs and names pass   */
+/* through byte-identical at the value level.                         */
+/* ------------------------------------------------------------------ */
+const DOW_URL = { Monday: 'https://schema.org/Monday', Tuesday: 'https://schema.org/Tuesday', Wednesday: 'https://schema.org/Wednesday', Thursday: 'https://schema.org/Thursday', Friday: 'https://schema.org/Friday', Saturday: 'https://schema.org/Saturday', Sunday: 'https://schema.org/Sunday', PublicHolidays: 'https://schema.org/PublicHolidays' };
+function normDayOfWeek(v) {
+  const one = (s) => {
+    if (typeof s !== 'string') return s;
+    if (s.startsWith('http')) return s;
+    if (s === 'Mon-Fri') return ['https://schema.org/Monday', 'https://schema.org/Tuesday', 'https://schema.org/Wednesday', 'https://schema.org/Thursday', 'https://schema.org/Friday'];
+    if (s === 'Sat') return 'https://schema.org/Saturday';
+    if (s === 'Sun') return 'https://schema.org/Sunday';
+    return DOW_URL[s] || s;
+  };
+  const out = (Array.isArray(v) ? v : [v]).flatMap((s) => one(s));
+  return Array.isArray(v) ? out : (out.length === 1 ? out[0] : out);
+}
+function areaTypeFor(name) {
+  return /\bCounty\b/.test(name) || /Panhandle|Region\b/.test(name) ? 'AdministrativeArea' : 'City';
+}
+function normAreaEntry(e) {
+  if (typeof e === 'string') return { '@type': areaTypeFor(e), name: e };
+  if (e && typeof e === 'object' && !e['@type'] && !e['@id'] && typeof e.name === 'string') return Object.assign({ '@type': areaTypeFor(e.name) }, e);
+  return e;
+}
+function normalizeRouteDoc(doc, routeSlug) {
+  let arSeatTaken = false;
+  const seenLists = new Set();
+  const sigOf = (n) => {
+    const t = n['@type'];
+    let sig = t + ':';
+    if (t === 'BreadcrumbList') sig += (n.itemListElement || []).map((li) => { const it = li && li.item; return String(typeof it === 'string' ? it : (it && (it['@id'] || it.url)) || (li && li.name) || ''); }).join('|');
+    else sig += (n.mainEntity || []).map((q) => String((q && q.name) || '')).join('|');
+    return sig;
+  };
+  const out = doc.replace(/<script type="application\/ld\+json"([^>]*)>([\s\S]*?)<\/script>/g, (whole, attrs, body) => {
+    if (attrs.includes('id="page-jsonld"')) {
+      // Authored seat: never modified, but its BreadcrumbList / FAQPage
+      // signatures register so later duplicate copies are dropped.
+      try {
+        const authored = JSON.parse(body);
+        const an = Array.isArray(authored['@graph']) ? authored['@graph'] : [authored];
+        for (const n of an) if (n && (n['@type'] === 'BreadcrumbList' || n['@type'] === 'FAQPage')) seenLists.add(sigOf(n));
+      } catch (_) {}
+      return whole;
+    }
+    let parsed = null;
+    try { parsed = JSON.parse(body); } catch (_) { return whole; }
+    if (!parsed || typeof parsed !== 'object') return whole;
+    const hasAR = body.includes('aggregateRating');
+    const keepAR = hasAR && !arSeatTaken;
+    if (hasAR) arSeatTaken = true;
+    const walk = (o) => {
+      if (Array.isArray(o)) { o.forEach(walk); return; }
+      if (!o || typeof o !== 'object') return;
+      if ('dayOfWeek' in o) o.dayOfWeek = normDayOfWeek(o.dayOfWeek);
+      if (Array.isArray(o.areaServed)) o.areaServed = o.areaServed.map(normAreaEntry);
+      for (const v of Object.values(o)) walk(v);
+    };
+    walk(parsed);
+    if (!keepAR) {
+      const stripWalk = (o) => {
+        if (Array.isArray(o)) { o.forEach(stripWalk); return; }
+        if (!o || typeof o !== 'object') return;
+        const frag = String(o['@id'] || '').split('#')[1] || '';
+        const isBranchStub = /^(place-)?(winchester|martinsburg)(-va|-wv)?$/.test(frag) ||
+          (('aggregateRating' in o) && (o.name === 'The Flat Rate Movers' || o.name === 'Flat Rate Movers Martinsburg WV'));
+        if (isBranchStub && ('aggregateRating' in o || 'review' in o)) {
+          delete o.aggregateRating; delete o.review;
+        }
+        for (const v of Object.values(o)) stripWalk(v);
+      };
+      stripWalk(parsed);
+    }
+    if (Array.isArray(parsed['@graph'])) {
+      parsed['@graph'] = parsed['@graph'].filter((n) => {
+        if (!n || typeof n !== 'object') return true;
+        const t = n['@type'];
+        if (t !== 'BreadcrumbList' && t !== 'FAQPage') return true;
+        const sig = sigOf(n);
+        if (seenLists.has(sig)) return false;
+        seenLists.add(sig);
+        return true;
+      });
+    }
+    const text = body.includes('\n') ? JSON.stringify(parsed, null, 1) : JSON.stringify(parsed);
+    return '<script type="application/ld+json"' + attrs + '>' + text + '</script>';
+  });
+  const arCount = (out.match(/aggregateRating/g) || []).length;
+  if (arCount !== 2) fail(routeSlug + ': served-surface normalization left ' + arCount + ' aggregateRating blocks (expected exactly 2 — one per branch)');
+  if (/"reviewCount":\s*"?1"?[,}]/.test(out)) fail(routeSlug + ': stale Winchester reviewCount 1 survived normalization');
+  return out;
+}
+
 /* ------------------------------------------------------------------ */
 /* Generate                                                            */
 /* ------------------------------------------------------------------ */
@@ -483,7 +597,7 @@ for (const p of pages) {
   if (!div) fail('div missing for pageMeta key ' + routeSlug);
   const divShow = injectPrintedHashes(injectEmbedHashes(div.text.replace('<div class="page" id=', '<div class="page show" id='), p.url), p.url);
   const banner = banners.get(routeSlug);
-  const doc = headFull + prefix + (banner ? banner + '\n' : '') + divShow + '\n</main>\n' + footerTemplate;
+  const doc = normalizeRouteDoc(headFull + prefix + (banner ? banner + '\n' : '') + divShow + '\n</main>\n' + footerTemplate, routeSlug);
 
   /* Per-document assertions. */
   if (!doc.includes('<title>' + escText(entry.t) + '</title>')) fail(routeSlug + ': baked title mismatch');
