@@ -2,7 +2,7 @@
  "description": "Seal-maintained lastmod ledger: for every sitemap URL, the date of the last seal generation in which its own signed distribution changed. Seeded from the 2026-11-02 crawl-demand audit (doc-level digest history across 73 signed generations); maintained by seal.py phase 6b (diff-stamp vs the phase-0 prior index). build-sitemap.js reads this file for every sitemap <lastmod>.",
  "lastSeal": {
   "date": "2026-11-05",
-  "indexSha256": "208508cce65d7132fe434613b28356e39a3db8d1142682f379aad874c26c482a"
+  "indexSha256": "5b8ab108d5368bdad302ed1710a8ca1f132c55237112325581ace1cdf6561ca2"
  },
  "seededFrom": "crawl-demand-audit-2026-11-02.csv",
  "urls": {

@@ -461,8 +461,9 @@ function injectEmbedHashes(html, pageUrl) {
 /*     ("Mon-Fri" expands to the five weekday URLs).                  */
 /*  3. areaServed string entries and untyped name-only objects gain   */
 /*     a real place type (City, or AdministrativeArea for counties    */
-/*     and regions); @id references are left to resolve to their      */
-/*     typed nodes.                                                   */
+/*     and regions); @id references to the 71 area nodes gain the     */
+/*     type their node carries (an ID-only reference reads as Thing   */
+/*     to the validator — residual fix, 2026-11-05).                  */
 /*  4. BreadcrumbList / FAQPage nodes whose content signature was     */
 /*     already served by an earlier block are dropped (the same       */
 /*     duplication class as the ratings).                             */
@@ -485,9 +486,19 @@ function normDayOfWeek(v) {
 function areaTypeFor(name) {
   return /\bCounty\b/.test(name) || /Panhandle|Region\b/.test(name) ? 'AdministrativeArea' : 'City';
 }
+const AREA_ID_TYPE = { place: 'City', county: 'AdministrativeArea', landmark: 'Place', region: 'AdministrativeArea' };
 function normAreaEntry(e) {
   if (typeof e === 'string') return { '@type': areaTypeFor(e), name: e };
   if (e && typeof e === 'object' && !e['@type'] && !e['@id'] && typeof e.name === 'string') return Object.assign({ '@type': areaTypeFor(e.name) }, e);
+  // Validator residual fix (2026-11-05): an @id-only areaServed reference
+  // reads as type "Thing" to the schema.org validator ("Thing is not a
+  // known valid target type for the areaServed property", x71 per item).
+  // Stamp the type the referenced node carries in the pool/graph onto
+  // the reference itself — same node, one added statement.
+  if (e && typeof e === 'object' && !e['@type'] && typeof e['@id'] === 'string') {
+    const m = e['@id'].match(/#(place|county|landmark|region)-/);
+    if (m) return Object.assign({ '@type': AREA_ID_TYPE[m[1]] }, e);
+  }
   return e;
 }
 function normalizeRouteDoc(doc, routeSlug) {
