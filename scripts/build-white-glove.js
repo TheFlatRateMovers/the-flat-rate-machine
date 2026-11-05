@@ -1,18 +1,25 @@
 #!/usr/bin/env node
 /*
- * build-white-glove.js — premiere upgrade generator (2026-11-05).
+ * build-white-glove.js — premiere upgrade generator (2026-11-05), v2
+ * expansion (2026-11-05, owner's confirmed scope + case register,
+ * ~/workspace/user/files/white_glove_cases.json, plus the owner's
+ * "we do all" ruling the same day).
  * Builds datasets-white-glove.json at the current machine standard:
- * the October D1-D8 nodes preserved (prose untouched), @ids re-keyed to
- * the landing-URL form, the operations Service upgraded to the current
- * shape (serviceType / url / areaServed / serviceFacts / process), and
- * three nodes added from data/white-glove-research.json: a research
- * Dataset (sourced claims, personas and buyer-intent terms as data
- * rows), a sources Article (primary-source citations), and a
- * service-levels Service (the four delivery tiers as data). Owner
- * directive 2026-11-05: white-glove gets the full territory expansion
- * and the premiere upgrade — its GeoJSON capability already covers all
- * 64 place features; this build closes the data-depth gap (the file
- * carried zero row-level payload). Fail-loud assertions throughout.
+ * the October D1-D8 nodes preserved, @ids re-keyed to the landing-URL
+ * form, the operations Service upgraded (serviceType / url /
+ * areaServed / serviceFacts / process / completedJob), and four nodes
+ * generated from data/white-glove-research.json: a research Dataset
+ * (sourced claims, personas and buyer-intent terms as data rows), a
+ * sources Article, a service-levels Service (the four delivery tiers
+ * as data), and a trust-ledger Dataset (the machine-readable trust
+ * layer: longevity, clientele classes, repeat-account evidence,
+ * documentation standard, value classes, signed provenance).
+ * Company scope per the owner 2026-11-05: receiving + inspection
+ * report + storage hold, install-day delivery, FULL assembly,
+ * appliance hookups, haul-away, any stairs, carrier-terminal pickup,
+ * three-stage photo documentation, every level bookable alone,
+ * quoted per job; own crews in the home territory, a vetted partner
+ * beyond it. The two brand accounts are NEVER named. Fail-loud.
  */
 'use strict';
 const fs = require('fs');
@@ -27,17 +34,21 @@ const NEW = LANDING + '#dataset-white-glove-';
 const fail = (m) => { throw new Error('build-white-glove: ' + m); };
 
 const store = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'white-glove-research.json'), 'utf8'));
-if ((store.claims || []).length !== 7) fail('claims must be 7, got ' + (store.claims || []).length);
-if ((store.personas || []).length !== 6) fail('personas must be 6, got ' + (store.personas || []).length);
-if ((store.buyerIntentTerms || []).length !== 25) fail('terms must be 25, got ' + (store.buyerIntentTerms || []).length);
+if ((store.claims || []).length !== 13) fail('claims must be 13, got ' + (store.claims || []).length);
+if ((store.personas || []).length !== 10) fail('personas must be 10, got ' + (store.personas || []).length);
+if ((store.buyerIntentTerms || []).length !== 50) fail('terms must be 50, got ' + (store.buyerIntentTerms || []).length);
 if ((store.serviceLevels || []).length !== 4) fail('serviceLevels must be 4, got ' + (store.serviceLevels || []).length);
-if ((store.process || []).length !== 7) fail('process must be 7, got ' + (store.process || []).length);
+if ((store.process || []).length !== 8) fail('process must be 8, got ' + (store.process || []).length);
+if ((store.cases || []).length !== 2) fail('cases must be 2, got ' + (store.cases || []).length);
+if (!store.trustLedger || !store.trustLedger.founded) fail('trustLedger missing');
 for (const c of store.claims) if (!c.source || !c.fact || !c.headline) fail('claim missing fields: ' + c.id);
+for (const lv of store.serviceLevels) if (lv.bookableAlone !== true) fail('level not bookable alone: ' + lv.level);
+const wgLevel = store.serviceLevels.find((l) => l.level === 'White glove');
+if (!/full assembly/.test(wgLevel.assembly || '')) fail('white-glove level must carry full assembly');
 
 const doc = JSON.parse(fs.readFileSync(FILE, 'utf8'));
-// Idempotent: on a re-run the file already carries the three generated
-// nodes — drop them and rebuild from the 8 base nodes.
-const GENERATED_SUFFIXES = ['dataset-white-glove-research', 'dataset-white-glove-sources', 'dataset-white-glove-service-levels'];
+// Idempotent: drop the generated nodes and rebuild from the 8 base nodes.
+const GENERATED_SUFFIXES = ['dataset-white-glove-research', 'dataset-white-glove-sources', 'dataset-white-glove-service-levels', 'dataset-white-glove-trust-ledger'];
 const graph = doc['@graph'].filter((n) => !GENERATED_SUFFIXES.some((s) => (n['@id'] || '').endsWith(s)));
 if (graph.length !== 8) fail('expected the 8 existing nodes as the base, got ' + graph.length);
 const byId = (suffix) => graph.find((n) => (n['@id'] || '').endsWith(suffix));
@@ -58,30 +69,45 @@ const rekey = (o) => {
 };
 const nodes = graph.map(rekey);
 
-// 2. operations Service upgrade
+// 2. operations Service upgrade — confirmed scope (owner, 2026-11-05)
 const ops = nodes.find((n) => n['@id'] === NEW + 'operations');
 if (!ops) fail('operations node missing after re-key');
-ops.serviceType = 'White-glove delivery — room-of-choice placement, unpacking, light assembly, debris removal';
+ops.serviceType = 'White-glove delivery — receiving and inspection, storage hold, install-day delivery, room-of-choice placement, unpacking, full assembly, appliance hookups, haul-away, debris removal';
 ops.url = 'https://theflatratemovers.com/white-glove-delivery/';
 ops.areaServed = [
   { '@id': 'https://theflatratemovers.com/#place-winchester-va' },
   { '@id': 'https://theflatratemovers.com/#place-martinsburg-wv' },
 ];
 ops.serviceFacts = {
-  pricingModel: 'Every job is surveyed and priced at one flat rate in writing before work begins; the flat rate is the standard offer and the guarantee. The delivery level is part of the written scope. Hourly pricing is available when a client asks for it.',
+  pricingModel: 'Every job is surveyed and priced at one flat rate in writing before work begins — quoted per job; the flat rate is the standard offer and the guarantee. The delivery level is part of the written scope. Hourly pricing is available when a client asks for it.',
   territory: 'The full published footprint — all 71 areas in service-area.geojson; the white-glove capability covers every place feature (cities, counties, both branches) in the map.',
   itemListing: 'High-value pieces are listed individually with declared values before custody changes hands, on the federal extraordinary-value rule (items over $100 per pound must be listed on the shipping documents).',
-  crewBasis: 'Crew size is set by the piece and the path at the survey — weight, stairs, turns, doorways — on the NIOSH 51 lb load-constant arithmetic.',
+  crewBasis: 'Crew size is set by the piece and the path at the survey — weight, stairs, turns, doorways — on the NIOSH 51 lb load-constant arithmetic. Stairs run any number of flights, up or down.',
+  confirmedScope: 'Receiving and holding in storage with a receiving inspection report; delivery on the install day; full assembly, including appliance hookups where the job includes appliances; haul-away of the replaced item; carrier-terminal pickup with damage noted on the carrier\'s ticket; three-stage photo documentation (arrival, unboxed, placed); packaging and pallet removal. Every delivery level — curbside, threshold, room of choice, white glove — is bookable on its own.',
+  fulfillment: 'The company\'s own crews inside the home territory; a vetted partner, coordinated by the company under the same written scope, when a job is outside it.',
+  clientele: 'Brands and manufacturers using the company as a local delivery arm, retailers and big-box stores, shippers and carriers, businesses, and homeowners through those accounts — high-dollar, heavy, or fragile pieces; every job is different.',
 };
 ops.process = store.process;
+ops.completedJob = store.cases.map((c) => ({
+  '@type': 'Service',
+  name: c.title,
+  description: c.story,
+  serviceType: 'White-glove delivery',
+  areaServed: c.town + ', ' + c.state,
+  dateCompleted: c.month,
+  customerType: c.customerType,
+  itemHandled: c.item,
+  ...(c.origin ? { pickupOrigin: c.origin } : {}),
+  requirementsMet: c.requirementsMet,
+}));
 
 // 3. research Dataset node
 const research = {
   '@id': NEW + 'research',
   '@type': 'Dataset',
   name: 'White-Glove Delivery — Research Layer',
-  description: 'The sourced research layer under the white-glove delivery category: seven claims verified against their sources on 2026-11-05 (the four-level delivery taxonomy the trade prices by, the federal valuation rules — full value protection as the default, the 60-cents-per-pound released-value election, the $100-per-pound extraordinary-value listing rule, valuation versus insurance — the NIOSH lifting constant behind two-person crews, and the delivery-record condition rule), the six buyer personas as data rows, and the twenty-five buyer-intent terms the category\'s rubric family carries. Every figure is quoted with its scope and never extended.',
-  keywords: ['white glove delivery', 'room of choice', 'full value protection', 'delivery levels', 'last mile'],
+  description: 'The sourced research layer under the white-glove delivery category: thirteen claims — the four-level delivery taxonomy the trade prices by, the federal valuation rules (full value protection as the default, the 60-cents-per-pound released-value election, the $100-per-pound extraordinary-value listing rule, valuation versus insurance), the NIOSH lifting constant behind two-person crews, the delivery-record condition rule, and the company\'s owner-confirmed scope (receiving with inspection report and storage hold, install-day delivery, full assembly, appliance hookups, haul-away, carrier-terminal pickup, three-stage photo documentation, any stairs) — the ten buyer personas as data rows, and the fifty buyer-intent terms the category\'s rubric family carries. Every figure is quoted with its scope and never extended.',
+  keywords: ['white glove delivery', 'room of choice', 'full value protection', 'delivery levels', 'last mile', 'receiving inspection'],
   about: { '@id': 'https://theflatratemovers.com/#service-white-glove' },
   spatialCoverage: template.spatialCoverage,
   temporalCoverage: '2026',
@@ -108,7 +134,7 @@ const sources = {
   '@type': 'Article',
   name: 'White-Glove Delivery — Primary Sources',
   headline: 'The sources under the white-glove delivery research layer',
-  description: 'Every factual claim in the research layer traces to one of these sources, read on 2026-11-05: FMCSA\'s own consumer-protection pages for the valuation rules, the NIOSH lifting-equation manual for crew ergonomics, and the delivery trade\'s published service-level definitions for the four-tier taxonomy.',
+  description: 'Every factual claim in the research layer traces to one of these sources: FMCSA\'s own consumer-protection pages for the valuation rules, the NIOSH lifting-equation manual for crew ergonomics, the delivery trade\'s published service-level definitions for the four-tier taxonomy, and the company\'s own owner-confirmed scope and case register (2026-11-05) for the practice claims and the two case records.',
   keywords: ['primary sources', 'fmcsa', 'niosh', 'delivery levels'],
   about: { '@id': 'https://theflatratemovers.com/#service-white-glove' },
   spatialCoverage: template.spatialCoverage,
@@ -126,6 +152,7 @@ const sources = {
     cite('NIOSH Publication No. 94-110 — Applications Manual for the Revised NIOSH Lifting Equation (51 lb load constant)', 'https://www.cdc.gov/niosh/docs/94-110/'),
     cite('Sohnne — Doorstep vs Threshold vs Room of Choice vs White Glove Delivery (the four levels, at a glance)', 'https://sohnne.com/blog/furniture-delivery-types-explained/'),
     cite('Secursus — White Glove Delivery Service: What It Is, Cost & Insurance (scope and assembly definitions)', 'https://www.secursus.com/en-us/resource/article/white-glove-delivery/'),
+    cite('The Flat Rate Movers — White-Glove Service Scope and Case Register, owner-confirmed 2026-11-05 (company practice claims; case records wg-001 and wg-002, city level)', 'https://theflatratemovers.com/white-glove-delivery/'),
   ],
 };
 
@@ -134,7 +161,7 @@ const levels = {
   '@id': NEW + 'service-levels',
   '@type': 'Service',
   name: 'White-Glove Delivery — The Four Delivery Levels',
-  description: 'The delivery-level taxonomy stated as data, because the level is the scope: curbside stops at the curb; threshold stops at the first dry covered spot inside; room of choice carries the boxed item to the named room and stops; white glove finishes the job in the room — placement, unpacking, light assembly from the maker\'s kit, joint inspection, and every piece of packaging out with the crew. The Flat Rate Movers\' white-glove service is the fourth level, across the full 71-area footprint, priced at one flat rate in writing per job.',
+  description: 'The delivery-level taxonomy stated as data, because the level is the scope: curbside stops at the curb; threshold stops at the first dry covered spot inside; room of choice carries the boxed item to the named room and stops; white glove finishes the job in the room — placement, unpacking, full assembly, joint inspection, and every piece of packaging out with the crew. Every level is bookable on its own. The Flat Rate Movers\' white-glove service is the fourth level, across the full 71-area footprint, priced at one flat rate in writing per job.',
   keywords: ['curbside', 'threshold', 'room of choice', 'white glove', 'delivery levels'],
   about: { '@id': 'https://theflatratemovers.com/#service-white-glove' },
   spatialCoverage: template.spatialCoverage,
@@ -149,8 +176,33 @@ const levels = {
   serviceLevels: store.serviceLevels,
 };
 
-nodes.push(research, sources, levels);
-if (nodes.length !== 11) fail('expected 11 nodes, got ' + nodes.length);
+// 6. trust-ledger Dataset node — the machine-readable trust layer
+const ledger = {
+  '@id': NEW + 'trust-ledger',
+  '@type': 'Dataset',
+  name: 'White-Glove Delivery — Trust Ledger',
+  description: 'The trust layer stated as data: a company founded in 2010 with 15+ years operating, serving clientele classes whose work is high-dollar and privacy-first — federal agencies, brands and manufacturers running the company as a local delivery arm, retailers and big-box stores, shippers and carriers, and homeowners. Its evidence is repeat-account work (multiple white-glove orders from a single brand account inside one week, December 2025), a written documentation standard (receiving inspection report, three-stage photographs, carrier-ticket damage notation, delivery record signed against the item list), the value classes actually handled, and this estate\'s own signed provenance — every claim here is a distribution in an Ed25519-signed index whose digests verify.',
+  keywords: ['trust ledger', 'clientele', 'documentation standard', 'signed provenance', 'repeat accounts'],
+  about: { '@id': 'https://theflatratemovers.com/#service-white-glove' },
+  spatialCoverage: template.spatialCoverage,
+  temporalCoverage: '2026',
+  datePublished: '2026-11-02',
+  dateModified: '2026-11-05',
+  creator: template.creator,
+  publisher: template.publisher,
+  license: template.license,
+  url: LANDING,
+  sameAs: LANDING,
+  identifier: LANDING,
+  isAccessibleForFree: true,
+  includedInDataCatalog: template.includedInDataCatalog,
+  distribution: template.distribution,
+  trustLedger: store.trustLedger,
+  completedJob: ops.completedJob,
+};
+
+nodes.push(research, sources, levels, ledger);
+if (nodes.length !== 12) fail('expected 12 nodes, got ' + nodes.length);
 doc['@graph'] = nodes;
 fs.writeFileSync(FILE, JSON.stringify(doc, null, 1) + '\n');
-console.log('WROTE', FILE, '— 11 nodes (8 re-keyed + research/sources/service-levels); claims 7, personas 6, terms 25, levels 4');
+console.log('WROTE', FILE, '— 12 nodes (8 re-keyed + research/sources/service-levels/trust-ledger); claims 13, personas 10, terms 50, levels 4, process 8, cases 2');
