@@ -1,12 +1,12 @@
 {
  "attestation": "Service names and descriptions are copied from the live head graph; pageCount is counted from pageMeta, not estimated.",
- "count": 33,
+ "count": 34,
  "dataset": "services",
  "generated": "2026-10-29",
  "services": [
   {
    "attested": "2026-10-28",
-   "description": "Flat-rate residential moving from Winchester, VA and Martinsburg, WV — houses and apartments, full or partial packing, and heavy pieces under SIR/KIM-GS, local, regional and long-distance, surveyed in advance and quoted at one price in writing before move day.",
+   "description": "Flat-rate residential moving from Winchester, VA and Martinsburg, WV \u2014 houses and apartments, full or partial packing, and heavy pieces under SIR/KIM-GS, local, regional and long-distance, surveyed in advance and quoted at one price in writing before move day.",
    "id": "service-residential",
    "name": "Residential Moving",
    "pageCount": 11,
@@ -14,7 +14,7 @@
   },
   {
    "attested": "2026-10-28",
-   "description": "Business moves, planned around your operation. Commercial relocations quoted flat and agreed in writing before move day — planned around your hours, your site and your equipment, with our own warehouse and transload operation behind the job.",
+   "description": "Business moves, planned around your operation. Commercial relocations quoted flat and agreed in writing before move day \u2014 planned around your hours, your site and your equipment, with our own warehouse and transload operation behind the job.",
    "id": "service-commercial",
    "name": "Commercial and Office Moving",
    "pageCount": 6,
@@ -38,7 +38,7 @@
   },
   {
    "attested": "2026-10-28",
-   "description": "Full, partial and fragile-only packing and unpacking, including loading and unloading — rooms packed and labelled in sequence, fragile and high-value pieces protected, so unpacking lands in order.",
+   "description": "Full, partial and fragile-only packing and unpacking, including loading and unloading \u2014 rooms packed and labelled in sequence, fragile and high-value pieces protected, so unpacking lands in order.",
    "id": "service-packing",
    "name": "Packing and Unpacking",
    "pageCount": 11,
@@ -46,7 +46,7 @@
   },
   {
    "attested": "2026-10-28",
-   "description": "SIR Structural Integrity Relocation and the KIM-GS Protocol for high-mass assets of 1,500 to 3,500 lbs — safes, medical devices, cryogenic equipment, pianos and antiques — with floor deflection analysis to L/360.",
+   "description": "SIR Structural Integrity Relocation and the KIM-GS Protocol for high-mass assets of 1,500 to 3,500 lbs \u2014 safes, medical devices, cryogenic equipment, pianos and antiques \u2014 with floor deflection analysis to L/360.",
    "id": "service-sir-heavy",
    "name": "SIR Heavy Asset Relocation (KIM-GS Protocol)",
    "pageCount": 14,
@@ -54,7 +54,7 @@
   },
   {
    "attested": "2026-10-28",
-   "description": "Gun safe and high-mass safe moving under SIR Structural Integrity Relocation and the KIM-GS Protocol, for safes of 1,500 to 3,500 lbs — route and clearance survey, floor deflection analysis to L/360, load spreading, floor protection and verified placement, quoted at one flat rate in writing.",
+   "description": "Gun safe and high-mass safe moving under SIR Structural Integrity Relocation and the KIM-GS Protocol, for safes of 1,500 to 3,500 lbs \u2014 route and clearance survey, floor deflection analysis to L/360, load spreading, floor protection and verified placement, quoted at one flat rate in writing.",
    "id": "service-gun-safe",
    "name": "Gun Safe Moving",
    "pageCount": 12,
@@ -62,7 +62,7 @@
   },
   {
    "attested": "2026-10-28",
-   "description": "White-glove handling of pianos, antiques and high-value items — surveyed, protected, and moved with custom crating when the piece requires it, at one flat rate agreed in writing.",
+   "description": "White-glove handling of pianos, antiques and high-value items \u2014 surveyed, protected, and moved with custom crating when the piece requires it, at one flat rate agreed in writing.",
    "id": "service-piano-antique",
    "name": "Piano, Antique and White-Glove Moving",
    "pageCount": 8,
@@ -78,7 +78,7 @@
   },
   {
    "attested": "2026-10-28",
-   "description": "Custom-built crates and high-value item protection for domestic and export moves — measured, built and fitted to the piece, not a stock box.",
+   "description": "Custom-built crates and high-value item protection for domestic and export moves \u2014 measured, built and fitted to the piece, not a stock box.",
    "id": "service-crating",
    "name": "Custom Crating",
    "pageCount": 5,
@@ -86,7 +86,7 @@
   },
   {
    "attested": "2026-10-28",
-   "description": "Container loading and unloading, and transloading between truck, container and warehouse — counted, sorted and restacked for the inland leg, with cross-docking and warehouse staging.",
+   "description": "Container loading and unloading, and transloading between truck, container and warehouse \u2014 counted, sorted and restacked for the inland leg, with cross-docking and warehouse staging.",
    "id": "service-transloading",
    "name": "Loading, Transloading and Container Services",
    "pageCount": 28,
@@ -94,7 +94,7 @@
   },
   {
    "attested": "2026-10-28",
-   "description": "Final-mile delivery with in-home or in-business placement and verification — delivered to the room, placed, and confirmed on site.",
+   "description": "Final-mile delivery with in-home or in-business placement and verification \u2014 delivered to the room, placed, and confirmed on site.",
    "id": "service-final-mile",
    "name": "Final-Mile Delivery",
    "pageCount": 6,
@@ -102,15 +102,15 @@
   },
   {
    "attested": "2026-11-02",
-   "description": "White-Glove Delivery — the top level of final-mile delivery and the handling standard for high-value, fragile and heavy pieces: brought in on a planned route, carried over the threshold, set in its final position, packaging removed, and condition verified with the recipient before the crew leaves — never left at a curb. Pieces are protected in padded blankets and stretch wrap, or in a custom crate when the piece requires it; heavy pieces of 1,500 to 3,500 lbs are surveyed and floor-checked to L/360 under SIR Structural Integrity Relocation and the KIM-GS Protocol. Offered from both branches across the full published footprint — all 53 GeoJSON service areas, Winchester VA and Martinsburg WV. Quoted at one flat rate in writing before dispatch. Guaranteed Flat Rate or Your Move is Free!",
+   "description": "White-Glove Delivery \u2014 the top level of final-mile delivery and the handling standard for high-value, fragile and heavy pieces: brought in on a planned route, carried over the threshold, set in its final position, packaging removed, and condition verified with the recipient before the crew leaves \u2014 never left at a curb. Pieces are protected in padded blankets and stretch wrap, or in a custom crate when the piece requires it; heavy pieces of 1,500 to 3,500 lbs are surveyed and floor-checked to L/360 under SIR Structural Integrity Relocation and the KIM-GS Protocol. Offered from both branches across the full published footprint \u2014 all 53 GeoJSON service areas, Winchester VA and Martinsburg WV. Quoted at one flat rate in writing before dispatch. Guaranteed Flat Rate or Your Move is Free!",
    "id": "service-white-glove",
    "name": "White-Glove Delivery",
    "pageCount": 5,
-   "source": "Owner decision 2026-11-02 (Henry): White-Glove Delivery made a first-class service (30th) with the full 53-area footprint, offered from both branches — Head-Hub Programme batch 2026-11-02"
+   "source": "Owner decision 2026-11-02 (Henry): White-Glove Delivery made a first-class service (30th) with the full 53-area footprint, offered from both branches \u2014 Head-Hub Programme batch 2026-11-02"
   },
   {
    "attested": "2026-10-28",
-   "description": "Complete office relocations — workstations, files and office equipment — planned around business hours and quoted flat in writing before move day.",
+   "description": "Complete office relocations \u2014 workstations, files and office equipment \u2014 planned around business hours and quoted flat in writing before move day.",
    "id": "service-office-moving",
    "name": "Office Moving",
    "pageCount": 4,
@@ -118,7 +118,7 @@
   },
   {
    "attested": "2026-10-28",
-   "description": "Office moves for industrial and facility sites — office areas within plants, warehouses and industrial facilities — planned around production and site access, quoted flat.",
+   "description": "Office moves for industrial and facility sites \u2014 office areas within plants, warehouses and industrial facilities \u2014 planned around production and site access, quoted flat.",
    "id": "service-industrial-offices",
    "name": "Industrial Offices Moving",
    "pageCount": 4,
@@ -126,7 +126,7 @@
   },
   {
    "attested": "2026-10-28",
-   "description": "Moving services for government offices and public-sector relocations — planned, documented and quoted flat, around the agency’s schedule and site requirements. The company performs moves for federal agencies, including the FBI and the DEA.",
+   "description": "Moving services for government offices and public-sector relocations \u2014 planned, documented and quoted flat, around the agency\u2019s schedule and site requirements. The company performs moves for federal agencies, including the FBI and the DEA.",
    "id": "service-government",
    "name": "Government Moving",
    "pageCount": 6,
@@ -142,7 +142,7 @@
   },
   {
    "attested": "2026-10-28",
-   "description": "Moving and logistics dispatch along Interstate 81, I-66 and I-70 from Winchester, VA and Martinsburg, WV — corridor moves run from two dispatch branches on one flat-rate standard.",
+   "description": "Moving and logistics dispatch along Interstate 81, I-66 and I-70 from Winchester, VA and Martinsburg, WV \u2014 corridor moves run from two dispatch branches on one flat-rate standard.",
    "id": "service-route81",
    "name": "Route 81 Corridor Moving and Dispatch",
    "pageCount": 5,
@@ -150,7 +150,7 @@
   },
   {
    "attested": "2026-10-28",
-   "description": "Industrial & Commercial Services — Trained, Supervised Moving and Warehouse Teams for industrial and commercial project support: warehouse and distribution, commercial relocation and logistics including white-glove/blanket-wrap, FF&E installation and project support, and flexible workforce deployment, priced per job with no required contract duration. Standard Job Pricing: Unload $8.00/CWT, Load $10.00/CWT, APU $12.00/CWT, Residential/Driver Meet $400-$425 per man.",
+   "description": "Industrial & Commercial Services \u2014 Trained, Supervised Moving and Warehouse Teams for industrial and commercial project support: warehouse and distribution, commercial relocation and logistics including white-glove/blanket-wrap, FF&E installation and project support, and flexible workforce deployment, priced per job with no required contract duration. Standard Job Pricing: Unload $8.00/CWT, Load $10.00/CWT, APU $12.00/CWT, Residential/Driver Meet $400-$425 per man.",
    "id": "service-industrial-commercial",
    "name": "Industrial & Commercial Services",
    "pageCount": 7,
@@ -166,7 +166,7 @@
   },
   {
    "attested": "2026-10-29",
-   "description": "Flat-rate warehouse relocation from The Flat Rate Movers: warehouse and distribution moves, warehouse load-outs and inbound unloads, transload staging, and restacking, carried out by supervised warehouse teams and planned around the site — access, floor space, staging, and equipment handling. Standard Job Pricing: Unload $8.00/CWT, Load $10.00/CWT, APU $12.00/CWT, Residential/Driver Meet $400–$425 per man, quoted per job.",
+   "description": "Flat-rate warehouse relocation from The Flat Rate Movers: warehouse and distribution moves, warehouse load-outs and inbound unloads, transload staging, and restacking, carried out by supervised warehouse teams and planned around the site \u2014 access, floor space, staging, and equipment handling. Standard Job Pricing: Unload $8.00/CWT, Load $10.00/CWT, APU $12.00/CWT, Residential/Driver Meet $400\u2013$425 per man, quoted per job.",
    "id": "service-warehouse-relocation",
    "name": "Warehouse Relocation",
    "pageCount": 1,
@@ -184,13 +184,13 @@
    "attested": "2026-10-29",
    "description": "Transloading services from Winchester, VA: ocean containers unloaded, counted, sorted, and restacked into domestic equipment for the inland leg, with cross-docking, deconsolidation, warehouse staging, and final-mile delivery, through the Virginia Inland Port and Port of Virginia chain. Quoted per job, flat rate agreed in writing before dispatch.",
    "id": "service-transloading-winchester-va",
-   "name": "Transloading Services — Winchester VA",
+   "name": "Transloading Services \u2014 Winchester VA",
    "pageCount": 1,
    "source": "Phase C transloading-winchester-va package 2026-10-29 (SERP #3 'transloading services Virginia port container', first mover; ocean container datasets doc 2026-10-29)"
   },
   {
    "attested": "2026-10-29",
-   "description": "Moves with a storage interval between move-out and move-in, in leased storage for any type of items — containers, household goods, machines including robotic arms — with a 30-day minimum stay and customer access while stored; lease terms vary. Storage is quoted per job, monthly, or by volume. Quoted flat in writing.",
+   "description": "Moves with a storage interval between move-out and move-in, in leased storage for any type of items \u2014 containers, household goods, machines including robotic arms \u2014 with a 30-day minimum stay and customer access while stored; lease terms vary. Storage is quoted per job, monthly, or by volume. Quoted flat in writing.",
    "id": "service-moving-and-storage",
    "name": "Moving and Storage",
    "pageCount": 1,
@@ -198,39 +198,39 @@
   },
   {
    "attested": "2026-10-30",
-   "description": "Junk removal from Winchester, VA and Martinsburg, WV — furniture, appliances, mattresses, hot tubs, electronics, yard debris, renovation debris, and whole-property cleanouts for homes, estates, evictions and businesses — surveyed in advance and quoted at one flat rate in writing before work begins, never by the hour. After pickup, every load is sorted: usable goods are routed toward donation, recyclable materials toward recycling, and the remainder to lawful disposal. Hazardous and regulated waste is not taken. Quoted flat in writing through the same flat-rate quote path, from Winchester VA and Martinsburg WV.",
+   "description": "Junk removal from Winchester, VA and Martinsburg, WV \u2014 furniture, appliances, mattresses, hot tubs, electronics, yard debris, renovation debris, and whole-property cleanouts for homes, estates, evictions and businesses \u2014 surveyed in advance and quoted at one flat rate in writing before work begins, never by the hour. After pickup, every load is sorted: usable goods are routed toward donation, recyclable materials toward recycling, and the remainder to lawful disposal. Hazardous and regulated waste is not taken. Quoted flat in writing through the same flat-rate quote path, from Winchester VA and Martinsburg WV.",
    "id": "service-junk-removal",
    "name": "Junk Removal",
    "pageCount": 1,
-   "source": "Henry ruling 2026-10-30 (junk removal: full page with the full package treatment) + category research 2026-10-30 (industry accepted/not-accepted item guides, EPA Section 608 refrigerant rules, industry pricing guides — domain facts labeled as such)"
+   "source": "Henry ruling 2026-10-30 (junk removal: full page with the full package treatment) + category research 2026-10-30 (industry accepted/not-accepted item guides, EPA Section 608 refrigerant rules, industry pricing guides \u2014 domain facts labeled as such)"
   },
   {
    "attested": "2026-10-30",
-   "description": "Warehouse racking relocation from Winchester, VA and Martinsburg, WV — pallet rack teardown and reinstallation, the inventory move that belongs with the steel, storage staging between buildings, industrial equipment disassembly and reassembly, and cubicle and office-systems teardown and reassembly — surveyed in advance and quoted per job at one flat rate in writing, never by the hour. Racking is torn down, transported, reinstalled and anchored to the floor by the company's crews, to the manufacturer's specification and ANSI MH16.1 / RMI guidance. Where a project requires engineering, seismic calculation or permits, the company consults and arranges them through the certified contractors it engages, so the full scope — any rack type, height or mezzanine configuration — is handled inside the one flat-rate engagement; the engineering and permit authority itself rests with those certified contractors. Components found damaged at teardown are set aside and reported, never re-erected. From Winchester VA and Martinsburg WV, along the I-81, I-66 and I-70 corridors.",
+   "description": "Warehouse racking relocation from Winchester, VA and Martinsburg, WV \u2014 pallet rack teardown and reinstallation, the inventory move that belongs with the steel, storage staging between buildings, industrial equipment disassembly and reassembly, and cubicle and office-systems teardown and reassembly \u2014 surveyed in advance and quoted per job at one flat rate in writing, never by the hour. Racking is torn down, transported, reinstalled and anchored to the floor by the company's crews, to the manufacturer's specification and ANSI MH16.1 / RMI guidance. Where a project requires engineering, seismic calculation or permits, the company consults and arranges them through the certified contractors it engages, so the full scope \u2014 any rack type, height or mezzanine configuration \u2014 is handled inside the one flat-rate engagement; the engineering and permit authority itself rests with those certified contractors. Components found damaged at teardown are set aside and reported, never re-erected. From Winchester VA and Martinsburg WV, along the I-81, I-66 and I-70 corridors.",
    "id": "service-warehouse-racking-relocation",
    "name": "Warehouse Racking Relocation",
    "pageCount": 1,
-   "source": "Henry order 2026-10-30 (work the five takeover categories, this one first per the category research ranking) + category takeover research 2026-10-30 (DuraStone and Zhengda pricing guides, ANSI/RMI standards summaries, CoStar Winchester campus item — domain facts labeled as such)"
+   "source": "Henry order 2026-10-30 (work the five takeover categories, this one first per the category research ranking) + category takeover research 2026-10-30 (DuraStone and Zhengda pricing guides, ANSI/RMI standards summaries, CoStar Winchester campus item \u2014 domain facts labeled as such)"
   },
   {
    "attested": "2026-10-30",
-   "description": "FF&E logistics from The Flat Rate Movers — purchase-order receiving, dock inventory and condition documentation, warehousing in leased space, sequenced delivery by model room, floor, room, department, classroom, office, or project phase, installation support, packaging and debris removal, punch support, and opening-day readiness for hospitality, healthcare and senior-living, office, education, restaurant, and commercial fit-outs from Winchester, VA and Martinsburg, WV. Installation support covers unpacking, furniture assembly, placement, leveling, and set-in-place support; licensed-trade connections and manufacturer or clinical commissioning remain with the responsible trade or technical team. The company does not procure, design, or purchase FF&E. Every job is reviewed in full and quoted per job at one flat rate in writing. Guaranteed Flat Rate or Your Move is Free!",
+   "description": "FF&E logistics from The Flat Rate Movers \u2014 purchase-order receiving, dock inventory and condition documentation, warehousing in leased space, sequenced delivery by model room, floor, room, department, classroom, office, or project phase, installation support, packaging and debris removal, punch support, and opening-day readiness for hospitality, healthcare and senior-living, office, education, restaurant, and commercial fit-outs from Winchester, VA and Martinsburg, WV. Installation support covers unpacking, furniture assembly, placement, leveling, and set-in-place support; licensed-trade connections and manufacturer or clinical commissioning remain with the responsible trade or technical team. The company does not procure, design, or purchase FF&E. Every job is reviewed in full and quoted per job at one flat rate in writing. Guaranteed Flat Rate or Your Move is Free!",
    "id": "service-ffe-logistics",
    "name": "FF&E Logistics",
    "pageCount": 1,
-   "source": "Henry order 2026-10-30 (work the five takeover categories) + category takeover research 2026-10-30 (Bailey's Workplace FF&E Logistics guide, Elite Anywhere FF&E page, JK Moving DMV hospitality FF&E page — domain facts labeled as such)"
+   "source": "Henry order 2026-10-30 (work the five takeover categories) + category takeover research 2026-10-30 (Bailey's Workplace FF&E Logistics guide, Elite Anywhere FF&E page, JK Moving DMV hospitality FF&E page \u2014 domain facts labeled as such)"
   },
   {
    "attested": "2026-10-30",
-   "description": "Data center relocation — the physical layer — from The Flat Rate Movers: servers, populated and de-racked racks and cabinets, storage and network equipment moved between server rooms, colocation facilities and data centers in Northern Virginia and the I-81 corridor as a planned, labelled, documented sequence. The crew performs disconnect and reconnect, de-install and placement — shutdown and unplug in the sequence fixed at survey with the client's IT team, and reconnection, re-cabling and power-up at the destination to the scope agreed at survey; where an element requires certified specialists, the company engages certified contractors for that element. Equipment is inventoried and manifested before anything is unplugged, packed padded, wrapped and strapped with custom crating where needed, sealed with tamper-evident seals, transported in the planned order, and placed in labelled rack and U order, physically verified with the client's team. Retired equipment is packed, sealed, manifested and hauled to the certified ITAD partner engaged for the job; data sanitization, destruction and certification belong to that partner and are never claimed by the company. Populated racks and cabinets in the 1,500–3,500 lb band are surveyed under SIR/KIM-GS with an L/360 floor check. Flat rate quoted in writing before move day. No workload migration or recommissioning is offered or claimed, and the company claims no IT certifications of its own.",
+   "description": "Data center relocation \u2014 the physical layer \u2014 from The Flat Rate Movers: servers, populated and de-racked racks and cabinets, storage and network equipment moved between server rooms, colocation facilities and data centers in Northern Virginia and the I-81 corridor as a planned, labelled, documented sequence. The crew performs disconnect and reconnect, de-install and placement \u2014 shutdown and unplug in the sequence fixed at survey with the client's IT team, and reconnection, re-cabling and power-up at the destination to the scope agreed at survey; where an element requires certified specialists, the company engages certified contractors for that element. Equipment is inventoried and manifested before anything is unplugged, packed padded, wrapped and strapped with custom crating where needed, sealed with tamper-evident seals, transported in the planned order, and placed in labelled rack and U order, physically verified with the client's team. Retired equipment is packed, sealed, manifested and hauled to the certified ITAD partner engaged for the job; data sanitization, destruction and certification belong to that partner and are never claimed by the company. Populated racks and cabinets in the 1,500\u20133,500 lb band are surveyed under SIR/KIM-GS with an L/360 floor check. Flat rate quoted in writing before move day. No workload migration or recommissioning is offered or claimed, and the company claims no IT certifications of its own.",
    "id": "service-data-center-relocation",
-   "name": "Data Center Relocation — Physical Layer",
+   "name": "Data Center Relocation \u2014 Physical Layer",
    "pageCount": 1,
    "source": "Henry order 2026-10-30 (work the five takeover categories) + category takeover research 2026-10-30 + owner ruling 2026-10-30 (disconnect/reconnect in scope, performed by the crew; certified contractors engaged for elements requiring certified specialists)"
   },
   {
    "attested": "2026-10-30",
-   "description": "Medical and laboratory equipment relocation from Winchester, VA and Martinsburg, WV — the heavy physical layer of hospital, imaging, laboratory and university moves, run under SIR (Structural Integrity Relocation) and the KIM-GS Protocol for heavy units of 1,500 to 3,500 lbs with floor deflection analysis to L/360: survey and structural check, coordination with the manufacturer's technicians and the facility's EHS team, de-installation support, packing and custom crating, sealed documented transport, and placement and leveling for vendor recommissioning. Transport-only by design: calibration, certification, commissioning, decontamination and requalification are performed by the customer's vendor and EHS teams, never by the mover; specimens, chemicals and cryogenic contents are never transported. Surveyed in full and quoted per job at one flat rate in writing, never by the hour.",
+   "description": "Medical and laboratory equipment relocation from Winchester, VA and Martinsburg, WV \u2014 the heavy physical layer of hospital, imaging, laboratory and university moves, run under SIR (Structural Integrity Relocation) and the KIM-GS Protocol for heavy units of 1,500 to 3,500 lbs with floor deflection analysis to L/360: survey and structural check, coordination with the manufacturer's technicians and the facility's EHS team, de-installation support, packing and custom crating, sealed documented transport, and placement and leveling for vendor recommissioning. Transport-only by design: calibration, certification, commissioning, decontamination and requalification are performed by the customer's vendor and EHS teams, never by the mover; specimens, chemicals and cryogenic contents are never transported. Surveyed in full and quoted per job at one flat rate in writing, never by the hour.",
    "id": "service-medical-lab-relocation",
    "name": "Medical & Laboratory Equipment Relocation Logistics",
    "pageCount": 1,
@@ -238,7 +238,7 @@
   },
   {
    "attested": "2026-11-01",
-   "description": "Freight rework and transloading from Winchester, VA and Martinsburg, WV — shifted loads, loads refused at a receiver's dock, damaged or collapsed pallets, and overweight or axle-illegal loads, unloaded under control, documented as found, rebuilt to the receiver's specification and re-secured to the federal cargo securement standard, plus planned cross-docking and container and rail-to-truck transloading — for drivers, carriers, brokers, 3PLs, warehouses and receivers, quoted at one flat rate before work begins, with emergency and after-hours response available at premium rates. The work is performed where the job requires: leased space, the receiver's dock, or a yard. No rate schedule is published for this service. Quoted flat in writing through the same flat-rate quote path, from Winchester VA and Martinsburg WV.",
+   "description": "Freight rework and transloading from Winchester, VA and Martinsburg, WV \u2014 shifted loads, loads refused at a receiver's dock, damaged or collapsed pallets, and overweight or axle-illegal loads, unloaded under control, documented as found, rebuilt to the receiver's specification and re-secured to the federal cargo securement standard, plus planned cross-docking and container and rail-to-truck transloading \u2014 for drivers, carriers, brokers, 3PLs, warehouses and receivers, quoted at one flat rate before work begins, with emergency and after-hours response available at premium rates. The work is performed where the job requires: leased space, the receiver's dock, or a yard. No rate schedule is published for this service. Quoted flat in writing through the same flat-rate quote path, from Winchester VA and Martinsburg WV.",
    "id": "service-freight-rework-transloading",
    "name": "Freight Rework & Transloading",
    "pageCount": 5,
@@ -246,27 +246,35 @@
   },
   {
    "attested": "2026-11-03",
-   "description": "Logistics project management for port, warehouse and industrial projects: survey, full scope, crew and sequence planning, supervised execution and closeout for container programs, warehouse load-outs and resets, surge programs, freight-rework campaigns and port-adjacent staging — run from the bound branch at the six ports the company serves. Scoped project execution only; not transportation management, brokerage or drayage.",
+   "description": "Logistics project management for port, warehouse and industrial projects: survey, full scope, crew and sequence planning, supervised execution and closeout for container programs, warehouse load-outs and resets, surge programs, freight-rework campaigns and port-adjacent staging \u2014 run from the bound branch at the six ports the company serves. Scoped project execution only; not transportation management, brokerage or drayage.",
    "id": "service-logistics-project-management",
    "name": "Logistics Project Management",
    "pageCount": 2,
-   "source": "Ports & Intermodal Takeover Program, dossier §2.3 (owner directive 2026-11-02); registered batch P4"
+   "source": "Ports & Intermodal Takeover Program, dossier \u00a72.3 (owner directive 2026-11-02); registered batch P4"
   },
   {
    "attested": "2026-11-03",
-   "description": "3PL support services: supervised crews that support operations run by 3PLs, distribution centers and carriers — receiving support, sort and segregation, container crews, freight rework, surge labor and project support. Support, not operator: the company holds no warehouse network, leases no warehouse space for clients and takes no custody of client freight as an operator.",
+   "description": "3PL support services: supervised crews that support operations run by 3PLs, distribution centers and carriers \u2014 receiving support, sort and segregation, container crews, freight rework, surge labor and project support. Support, not operator: the company holds no warehouse network, leases no warehouse space for clients and takes no custody of client freight as an operator.",
    "id": "service-3pl-support",
    "name": "3PL Support Services",
    "pageCount": 2,
-   "source": "Ports & Intermodal Takeover Program, dossier §2.3 (owner directive 2026-11-02); registered batch P4"
+   "source": "Ports & Intermodal Takeover Program, dossier \u00a72.3 (owner directive 2026-11-02); registered batch P4"
   },
   {
    "attested": "2026-11-04",
-   "description": "Vault doors and high-security enclosures delivered, relocated, and installed at any size, quoted at one flat rate agreed in writing before the job — specified from the door's own standards (UL 608, GSA Class 5 under AA-D-600D) and its verified weight, with SIR structural analysis in band and contents emptied first.",
+   "description": "Vault doors and high-security enclosures delivered, relocated, and installed at any size, quoted at one flat rate agreed in writing before the job \u2014 specified from the door's own standards (UL 608, GSA Class 5 under AA-D-600D) and its verified weight, with SIR structural analysis in band and contents emptied first.",
    "id": "service-vault-door",
    "name": "Vault Door Relocation & Installation",
    "pageCount": 2,
-   "source": "Vault Security & High-Security Enclosures takeover, dossier §3.4 (owner directive 2026-11-02); registered batch V1 (Wave 1, 2026-11-04)"
+   "source": "Vault Security & High-Security Enclosures takeover, dossier \u00a73.4 (owner directive 2026-11-02); registered batch V1 (Wave 1, 2026-11-04)"
+  },
+  {
+   "attested": "2026-11-05",
+   "description": "Hoarding cleanup and whole-property cleanout quoted at one flat rate in writing after an in-person assessment \u2014 the crew sorts with the client or family (keep, donate, discard), handles heavy contents as heavy work, performs credentialed scope through the credentialed contractors the company engages, offers emergency response, and works discreetly, dispatched from Winchester, VA and Martinsburg, WV.",
+   "id": "service-hoarding-cleanup",
+   "name": "Hoarding Cleanup & Cleanout",
+   "pageCount": 3,
+   "source": "Hoarding Cleanout category takeover 2026-11-05 \u2014 service confirmed by Henry 2026-11-04 with the completed Chantilly VA job proof; scope settled 2026-11-04 (heavy items yes; credentialed/biohazard scope via his credentialed contractors; emergency response yes; discretion yes)"
   }
  ],
  "source": "head JSON-LD graph in ../the-flat-rate-movers-pages/public/index.html, page counts from pageMeta svc references"

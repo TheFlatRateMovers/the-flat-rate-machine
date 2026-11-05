@@ -215,6 +215,7 @@ const HUB = {
   'service-logistics-project-management': 'logistics-project-management',
   'service-3pl-support': '3pl-support-services',
   'service-vault-door': 'vault-doors', // Vault V1 (Wave 1) 2026-11-04 — service #33
+  'service-hoarding-cleanup': 'hoarding-cleanup', // Hoarding V1 2026-11-05 — service #34
 };
 // Query phrase per service (the string customers type), as a lowercase
 // noun phrase; plural=true selects "do" in the cost template.
@@ -252,6 +253,7 @@ const PHRASE = {
   'service-logistics-project-management': ['logistics project management', false],
   'service-3pl-support': ['3PL support services', false],
   'service-vault-door': ['vault door movers', true], // Vault V1 2026-11-04
+  'service-hoarding-cleanup': ['hoarding cleanup', false], // Hoarding V1 2026-11-05
 };
 // Backing dataset file(s) per service (the estate's D1-D8 files at the
 // site root). Validated: file exists in public/ AND is a distribution
@@ -290,6 +292,7 @@ const DATASETS = {
   'service-logistics-project-management': ['datasets-ports.json'],
   'service-3pl-support': ['datasets-ports.json'],
   'service-vault-door': ['datasets-vault-security.json', 'datasets-vault-doors.json', 'datasets-gun-safe.json'], // Vault V1 2026-11-04
+  'service-hoarding-cleanup': ['datasets-hoarding-cleanup.json', 'datasets-junk-removal.json'], // Hoarding V1 2026-11-05
 };
 // GeoJSON capability slug -> registry service id (the geojson uses a
 // capability vocabulary; services not reachable from it fall back to
@@ -348,7 +351,10 @@ const BASE_ONLY = {
   // Vault door (2026-11-04): both branches dispatch, no branch binding
   // (registration spec section 2); the BASE_ONLY 'both' pattern applies
   // exactly as for gun-safe and white-glove. No GeoJSON capability token.
-  'service-vault-door': 'both'
+  'service-vault-door': 'both',
+  // Hoarding cleanup (2026-11-05): both branches dispatch; the BASE_ONLY
+  // 'both' pattern applies, no GeoJSON capability token.
+  'service-hoarding-cleanup': 'both'
 };
 // EXTRA_PATTERNS (Head-Hub Programme / F4, 2026-11-02): explicit bound
 // rows for money phrasings the template families do not generate — the
@@ -593,6 +599,42 @@ const EXTRA_PATTERNS = {
     ['Can an antique vault door be relocated?', 'ai-question', null, 'vault-doors'],
     ['Who moves vault doors in Virginia?', 'ai-question', null, 'vault-doors'],
     ['Who installs vault doors in West Virginia?', 'ai-question', null, 'vault-doors'],
+  ],
+  // Hoarding V1 seed + situation family (2026-11-05): the package's 18
+  // buyer-intent terms bound explicitly — situation rows target the hub,
+  // city rows the branch pages, research rows the dataset landing.
+  'service-hoarding-cleanup': [
+    ['hoarding cleanup near me', 'navigational-local', null, 'hoarding-cleanup'],
+    ['hoarder house cleanout services', 'navigational-local', null, 'hoarding-cleanup'],
+    ['professional hoarding cleanup service', 'navigational-local', null, 'hoarding-cleanup'],
+    ['hoarding and biohazard cleanup', 'navigational-local', null, 'hoarding-cleanup'],
+    ['emergency hoarding cleanup same day', 'navigational-local', null, 'hoarding-cleanup'],
+    ['hoarding cleanup cost', 'navigational-local', null, 'hoarding-cleanup'],
+    ['clean out hoarder house after death of parent', 'navigational-local', null, 'hoarding-cleanup'],
+    ['hoarding cleanup code enforcement condemned house', 'navigational-local', null, 'hoarding-cleanup'],
+    ['hoarder house cleanout before selling', 'navigational-local', null, 'hoarding-cleanup'],
+    ['sell hoarder house as is', 'navigational-local', null, 'hoarding-cleanup'],
+    ['hoarding cleanup for landlords', 'navigational-local', null, 'hoarding-cleanup'],
+    ['hoarder tenant cleanout', 'navigational-local', null, 'hoarding-cleanup'],
+    ['how to hire a hoarding cleanup company', 'navigational-local', null, 'hoarding-cleanup'],
+    ['how to help a hoarder clean out their house', 'navigational-local', null, 'hoarding-cleanup'],
+    ['hoarding cleanup winchester va', 'navigational-local', null, 'hoarding-cleanup-winchester-va'],
+    ['hoarding cleanup martinsburg wv', 'navigational-local', null, 'hoarding-cleanup-martinsburg-wv'],
+    ['hoarding cleanup chantilly va', 'navigational-local', null, 'hoarding-cleanup-winchester-va'],
+    ['hoarding cleanout winchester va', 'navigational-local', null, 'hoarding-cleanup-winchester-va'],
+    ['hoarding cleanout martinsburg wv', 'navigational-local', null, 'hoarding-cleanup-martinsburg-wv'],
+    ['hoarding cleanup dataset', 'navigational-local', null, 'datasets/hoarding-cleanup'],
+    ['hoarding cleanout process', 'navigational-local', null, 'datasets/hoarding-cleanup'],
+    ['hoarding disorder prevalence', 'navigational-local', null, 'datasets/hoarding-cleanup'],
+    ['hoarding cleanup research', 'navigational-local', null, 'datasets/hoarding-cleanup'],
+    ['How much does it cost to clean out a hoarder house?', 'ai-question', null, 'hoarding-cleanup'],
+    ['Does homeowners insurance cover hoarding cleanup?', 'ai-question', null, 'hoarding-cleanup'],
+    ['How do I clean out a hoarder house after a parent dies?', 'ai-question', null, 'hoarding-cleanup'],
+    ['What happens if a hoarded house is condemned?', 'ai-question', null, 'hoarding-cleanup'],
+    ['Is hoarding a fire hazard?', 'ai-question', null, 'datasets/hoarding-cleanup'],
+    ['How common is hoarding disorder?', 'ai-question', null, 'datasets/hoarding-cleanup'],
+    ['What does NFPA say about hoarding and fire risk?', 'ai-question', null, 'datasets/hoarding-cleanup'],
+    ['How does code enforcement work for a hoarded house in Martinsburg WV?', 'ai-question', null, 'hoarding-cleanup-martinsburg-wv'],
   ],
   'service-3pl-support': [
     // Ports P4 service families (2026-11-03): 7 rows re-keyed from
@@ -874,6 +916,9 @@ const BRANCH = {
   // (/vault-door-movers-winchester-va/, /vault-door-movers-martinsburg-wv/)
   // are V3 pages — the pair fills in when they land.
   'service-vault-door': [null, null],
+  // Hoarding cleanup (2026-11-05): branch pages ship WITH the hub at V1
+  // (/hoarding-cleanup-winchester-va/, /hoarding-cleanup-martinsburg-wv/).
+  'service-hoarding-cleanup': ['hoarding-cleanup-winchester-va', 'hoarding-cleanup-martinsburg-wv'],
   'service-logistics-project-management': [null, null],
   'service-3pl-support': [null, null],
 };
