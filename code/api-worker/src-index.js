@@ -19,6 +19,7 @@ import {
   pageDataInventory,
   intentRows,
   bundleManifest,
+  datasetRemote,
 } from '../data/bundle-index.js';
 
 const BASE = 'https://theflatratemovers.com/';
@@ -37,6 +38,32 @@ for (const d of masterIndex.distribution || []) {
 const servicesById = new Map(services.map((s) => [s.id, s]));
 const inventoryByFile = new Map(datasetsInventory.map((d) => [d.file, d]));
 const pageDataBySlug = new Map((pageDataInventory || []).map((d) => [d.slug, d]));
+
+// ------------------------------------------------------- dataset access
+// Payloads over the refresh threshold are not embedded in the worker
+// script (Cloudflare caps a worker at 63.9 MiB uncompressed). They are
+// served fetch-through from the estate's own live files — the same
+// sealed bytes the bundle would have carried — via the edge cache.
+const remoteDatasetSet = new Set(datasetRemote || []);
+const hasDataset = (name) => datasetText[name] !== undefined || remoteDatasetSet.has(name);
+async function dsText(name) {
+  if (datasetText[name] !== undefined) return datasetText[name];
+  if (!remoteDatasetSet.has(name)) return undefined;
+  const url = BASE + name;
+  try {
+    const cache = (typeof caches !== 'undefined' && caches.default) || null;
+    if (cache) { const hit = await cache.match(url); if (hit) return await hit.text(); }
+    const res = await fetch(url, { headers: { 'User-Agent': 'flat-rate-estate-api/dataset' } });
+    if (!res.ok) return undefined;
+    const text = await res.text();
+    if (cache) {
+      try {
+        await cache.put(url, new Response(text, { headers: { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'public, max-age=3600' } }));
+      } catch (_) { /* cache write is best-effort */ }
+    }
+    return text;
+  } catch (_) { return undefined; }
+}
 
 // ------------------------------------------------------------------ counts
 // Every figure this worker publishes — the landing page, the MCP tool
@@ -115,9 +142,9 @@ function serviceDetail(s) {
 // ---------------------------------------------------------------- datasets
 function normalizeDatasetName(name) {
   if (!name) return null;
-  if (datasetText[name]) return name;
+  if (hasDataset(name)) return name;
   const guess = `datasets-${name.replace(/\.json$/, '')}.json`;
-  return datasetText[guess] ? guess : null;
+  return hasDataset(guess) ? guess : null;
 }
 
 // ------------------------------------------------------------------ intent
@@ -261,7 +288,7 @@ async function callTool(name, args) {
     case 'get_dataset': {
       const file = normalizeDatasetName(args.name);
       if (!file) throw new Error(`unknown dataset: ${args.name}`);
-      return datasetText[file]; // raw text content, byte-identical
+      return await dsText(file); // raw text content, byte-identical
     }
     case 'search_intent': {
       const params = new URLSearchParams();
@@ -694,14 +721,18 @@ export default {
     if (path.startsWith('/v1/datasets/')) {
       const file = normalizeDatasetName(decodeURIComponent(path.slice('/v1/datasets/'.length)));
       if (!file) return errorJson('unknown dataset', 404);
-      return textResponse(datasetText[file], 'application/json; charset=utf-8');
+      const rawDataset = await dsText(file);
+      if (rawDataset === undefined) return errorJson('dataset unavailable', 502);
+      return textResponse(rawDataset, 'application/json; charset=utf-8');
     }
     if (path === '/v1/intent') {
       return jsonResponse(paginate(filterIntent(url.searchParams), url.searchParams));
     }
     if (path === '/v1/answer-evidence') {
       const table = url.searchParams.get('table');
-      if (!table) return textResponse(datasetText['datasets-answer-evidence.json'], 'application/json; charset=utf-8');
+      const rawDoc = await dsText('datasets-answer-evidence.json');
+      if (rawDoc === undefined) return errorJson('dataset unavailable', 502);
+      if (!table) return textResponse(rawDoc, 'application/json; charset=utf-8');
       const tables = {
         questions: '#dataset-answer-evidence-questions',
         fragments: '#dataset-answer-evidence-fragments',
@@ -713,14 +744,16 @@ export default {
       };
       const suffix = tables[table];
       if (!suffix) return errorJson(`unknown table: ${table}`, 404);
-      const doc = JSON.parse(datasetText['datasets-answer-evidence.json']);
+      const doc = JSON.parse(rawDoc);
       const node = (doc['@graph'] || []).find((n) => String(n['@id']).endsWith(suffix));
       if (!node) return errorJson(`table not found: ${table}`, 404);
       return jsonResponse(node);
     }
     if (path === '/v1/local-graph') {
       const table = url.searchParams.get('table');
-      if (!table) return textResponse(datasetText['datasets-local-graph-registry.json'], 'application/json; charset=utf-8');
+      const rawDoc = await dsText('datasets-local-graph-registry.json');
+      if (rawDoc === undefined) return errorJson('dataset unavailable', 502);
+      if (!table) return textResponse(rawDoc, 'application/json; charset=utf-8');
       const tables = {
         branches: '#dataset-local-graph-registry-branches',
         records: '#dataset-local-graph-registry-records',
@@ -732,14 +765,16 @@ export default {
       };
       const suffix = tables[table];
       if (!suffix) return errorJson(`unknown table: ${table}`, 404);
-      const doc = JSON.parse(datasetText['datasets-local-graph-registry.json']);
+      const doc = JSON.parse(rawDoc);
       const node = (doc['@graph'] || []).find((n) => String(n['@id']).endsWith(suffix));
       if (!node) return errorJson(`table not found: ${table}`, 404);
       return jsonResponse(node);
     }
     if (path === '/v1/crawl-presence') {
       const table = url.searchParams.get('table');
-      if (!table) return textResponse(datasetText['datasets-crawl-presence.json'], 'application/json; charset=utf-8');
+      const rawDoc = await dsText('datasets-crawl-presence.json');
+      if (rawDoc === undefined) return errorJson('dataset unavailable', 502);
+      if (!table) return textResponse(rawDoc, 'application/json; charset=utf-8');
       const tables = {
         collections: '#dataset-crawl-presence-collections',
         presence: '#dataset-crawl-presence-crawl-presence',
@@ -753,14 +788,16 @@ export default {
       };
       const suffix = tables[table];
       if (!suffix) return errorJson(`unknown table: ${table}`, 404);
-      const doc = JSON.parse(datasetText['datasets-crawl-presence.json']);
+      const doc = JSON.parse(rawDoc);
       const node = (doc['@graph'] || []).find((n) => String(n['@id']).endsWith(suffix));
       if (!node) return errorJson(`table not found: ${table}`, 404);
       return jsonResponse(node);
     }
     if (path === '/v1/archives') {
       const table = url.searchParams.get('table');
-      if (!table) return textResponse(datasetText['datasets-archive-registry.json'], 'application/json; charset=utf-8');
+      const rawDoc = await dsText('datasets-archive-registry.json');
+      if (rawDoc === undefined) return errorJson('dataset unavailable', 502);
+      if (!table) return textResponse(rawDoc, 'application/json; charset=utf-8');
       const tables = {
         targets: '#dataset-archive-registry-targets',
         captures: '#dataset-archive-registry-captures',
@@ -775,14 +812,16 @@ export default {
       };
       const suffix = tables[table];
       if (!suffix) return errorJson(`unknown table: ${table}`, 404);
-      const doc = JSON.parse(datasetText['datasets-archive-registry.json']);
+      const doc = JSON.parse(rawDoc);
       const node = (doc['@graph'] || []).find((n) => String(n['@id']).endsWith(suffix));
       if (!node) return errorJson(`table not found: ${table}`, 404);
       return jsonResponse(node);
     }
     if (path === '/v1/catalog') {
       const table = url.searchParams.get('table');
-      if (!table) return textResponse(datasetText['datasets-catalog-registry.json'], 'application/json; charset=utf-8');
+      const rawDoc = await dsText('datasets-catalog-registry.json');
+      if (rawDoc === undefined) return errorJson('dataset unavailable', 502);
+      if (!table) return textResponse(rawDoc, 'application/json; charset=utf-8');
       const tables = {
         catalogs: '#dataset-catalog-registry-catalogs',
         datasets: '#dataset-catalog-registry-datasets',
@@ -793,7 +832,7 @@ export default {
       };
       const suffix = tables[table];
       if (!suffix) return errorJson(`unknown table: ${table}`, 404);
-      const doc = JSON.parse(datasetText['datasets-catalog-registry.json']);
+      const doc = JSON.parse(rawDoc);
       const node = (doc['@graph'] || []).find((n) => String(n['@id']).endsWith(suffix));
       if (!node) return errorJson(`table not found: ${table}`, 404);
       return jsonResponse(node);
