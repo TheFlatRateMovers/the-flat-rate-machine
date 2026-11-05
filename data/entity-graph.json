@@ -725,7 +725,61 @@
     {
      "@id": "https://theflatratemovers.com/#landmark-interstate-70-corridor"
     }
-   ],
+   ,
+    {
+     "@id": "https://theflatratemovers.com/#place-ashburn-va"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-chantilly-va"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-herndon-va"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-reston-va"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-tysons-va"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-fairfax-va"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-gainesville-va"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-haymarket-va"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-manassas-va"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-warrenton-va"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-luray-va"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-falling-waters-wv"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-williamsport-md"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-chambersburg-pa"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-waynesboro-pa"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-gaithersburg-md"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-rockville-md"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-washington-dc"
+    }],
    "description": "White-Glove Delivery — the top level of final-mile delivery and the handling standard for high-value, fragile and heavy pieces: brought in on a planned route, carried over the threshold, set in its final position, packaging removed, and condition verified with the recipient before the crew leaves — never left at a curb. Pieces are protected in padded blankets and stretch wrap, or in a custom crate when the piece requires it; heavy pieces of 1,500 to 3,500 lbs are surveyed and floor-checked to L/360 under SIR Structural Integrity Relocation and the KIM-GS Protocol. Offered from both branches across the full published footprint — all 53 GeoJSON service areas, Winchester VA and Martinsburg WV. Quoted at one flat rate in writing before dispatch. Guaranteed Flat Rate or Your Move is Free!",
    "url": "https://theflatratemovers.com/white-glove-delivery/"
   },
@@ -4130,7 +4184,7 @@
    "@id": "https://theflatratemovers.com/datasets/intent-coverage/#dataset",
    "@type": "Dataset",
    "name": "The Flat Rate Movers — Search Intent Coverage Operations Dataset",
-   "description": "The live intent-coverage rubric of The Flat Rate Movers: 4123 generated rows, each one a query string a customer or an AI assistant can use to find a company service, resolved to the exact page that answers it, that page’s per-page JSON, the dataset files behind the answer, and the service’s node in the entity graph. Rows are generated from the estate’s own registries — 34 services, 254 pages, two branch locations, three corridors and the 53-feature service-area footprint — plus the blog question bank’s 100 real question phrasings, and the rubric is regenerated whenever those registries change. Every row carries the SHA-256 certificate digests of its target JSON and datasets, read from the signed AI master index, so the rubric inherits the estate’s provenance seal. Coverage spans all 34 services of both branches, Winchester, VA and Martinsburg, WV, along the I-81, I-66 and I-70 corridors. Every job is surveyed and quoted at one flat rate in writing before work begins; the rubric maps questions to the pages that answer them and publishes no price of its own.",
+   "description": "The live intent-coverage rubric of The Flat Rate Movers: 5439 generated rows, each one a query string a customer or an AI assistant can use to find a company service, resolved to the exact page that answers it, that page’s per-page JSON, the dataset files behind the answer, and the service’s node in the entity graph. Rows are generated from the estate’s own registries — 34 services, 254 pages, two branch locations, three corridors and the 71-feature service-area footprint — plus the blog question bank’s 100 real question phrasings, and the rubric is regenerated whenever those registries change. Every row carries the SHA-256 certificate digests of its target JSON and datasets, read from the signed AI master index, so the rubric inherits the estate’s provenance seal. Coverage spans all 34 services of both branches, Winchester, VA and Martinsburg, WV, along the I-81, I-66 and I-70 corridors. Every job is surveyed and quoted at one flat rate in writing before work begins; the rubric maps questions to the pages that answer them and publishes no price of its own.",
    "url": "https://theflatratemovers.com/datasets/intent-coverage/",
    "sameAs": "https://theflatratemovers.com/datasets/intent-coverage/",
    "identifier": "https://doi.org/10.5281/zenodo.23818766",
@@ -8825,7 +8879,7 @@
    "@id": "https://theflatratemovers.com/datasets/page-data-pool/#dataset",
    "@type": "Dataset",
    "name": "Page Data Pool — the Master Database for Page Data",
-   "description": "The Page Data Pool is the single master database every page's Page Data dataset draws its slice from — built in two layers. Layer 1 is the estate's own live data: the full intent rubric (3,848 buyer questions with their phrasings, target pages, per-page JSONs and dataset seats), the 32-service registry with its scope-boundary register (18 drafted boundaries, each carrying the ruling it comes from) and its sourced qualifier register (21 qualifiers, each with its source pointer), all 45 dataset files' metadata, the ports matrix (6 ports × 8 offered services with branch bindings), the vault standards registry (UL 608 classes, AA-D-600D classes, FF-L-2740B, UL 768 lock groups), the SIR/KIM-GS authority data (the 1,500–3,500 lb band and the L/360 criterion), the 53-area footprint with branch bindings, the 16-post blog corpus, and the 20-entry audience guide. Layer 2 is a researched domain layer of 45 entries covering the situation space of logistics and every service — container equipment and packing standards (CTU Code, SOLAS VGM), port charges and credentials (FMC demurrage and detention rules, TWIC), export rules (ISPM 15, AES/EEI filing), household-goods consumer law (49 CFR Part 375: binding estimates, the 110% rule, valuation, storage-in-transit), safe and piano data (UL 687/1037/72 classes, IRC floor loads, manufacturer piano weights), and the standards behind the specialty services (ANSI/ESD S20.20, ANSI MH16.1, ASTM D4169/ISTA, NASMM, museum handling practice, EPA electronics rules, carrier delivery tiers, DP3 and FAR Part 47) — every entry carrying its primary or authoritative source, its retrieval date, the questions it answers and its constraints. Layer 2 supplies domain facts only: it never sources a company capability, price, count or credential. The pool also publishes the eleven draw rules (DR-1 to DR-11) by which the generator assembles each page's slice — services, own and family questions, resolved answers, scoped boundaries, traceable qualifiers, drawn domain entries, bound geography and ledger freshness. Buyer-intelligence data is excluded by standing rule, and the false 'industrial rigging up to twenty-five thousand pounds' figure is excluded and asserted absent at build.",
+   "description": "The Page Data Pool is the single master database every page's Page Data dataset draws its slice from — built in two layers. Layer 1 is the estate's own live data: the full intent rubric (3,848 buyer questions with their phrasings, target pages, per-page JSONs and dataset seats), the 32-service registry with its scope-boundary register (18 drafted boundaries, each carrying the ruling it comes from) and its sourced qualifier register (21 qualifiers, each with its source pointer), all 45 dataset files' metadata, the ports matrix (6 ports × 8 offered services with branch bindings), the vault standards registry (UL 608 classes, AA-D-600D classes, FF-L-2740B, UL 768 lock groups), the SIR/KIM-GS authority data (the 1,500–3,500 lb band and the L/360 criterion), the 71-area footprint with branch bindings, the 16-post blog corpus, and the 20-entry audience guide. Layer 2 is a researched domain layer of 45 entries covering the situation space of logistics and every service — container equipment and packing standards (CTU Code, SOLAS VGM), port charges and credentials (FMC demurrage and detention rules, TWIC), export rules (ISPM 15, AES/EEI filing), household-goods consumer law (49 CFR Part 375: binding estimates, the 110% rule, valuation, storage-in-transit), safe and piano data (UL 687/1037/72 classes, IRC floor loads, manufacturer piano weights), and the standards behind the specialty services (ANSI/ESD S20.20, ANSI MH16.1, ASTM D4169/ISTA, NASMM, museum handling practice, EPA electronics rules, carrier delivery tiers, DP3 and FAR Part 47) — every entry carrying its primary or authoritative source, its retrieval date, the questions it answers and its constraints. Layer 2 supplies domain facts only: it never sources a company capability, price, count or credential. The pool also publishes the eleven draw rules (DR-1 to DR-11) by which the generator assembles each page's slice — services, own and family questions, resolved answers, scoped boundaries, traceable qualifiers, drawn domain entries, bound geography and ledger freshness. Buyer-intelligence data is excluded by standing rule, and the false 'industrial rigging up to twenty-five thousand pounds' figure is excluded and asserted absent at build.",
    "url": "https://theflatratemovers.com/datasets/page-data-pool/",
    "sameAs": "https://theflatratemovers.com/datasets/page-data-pool/",
    "identifier": "https://theflatratemovers.com/datasets/page-data-pool/",
@@ -9544,7 +9598,7 @@
    ],
    "dateModified": "2026-11-04T08:24:35-05:00",
    "datePublished": "2026-11-04T08:24:35-05:00",
-   "description": "White-glove delivery step by step, from The Flat Rate Movers: the pieces named and assessed piece by piece (weight, fragile points, finish, value at risk); protection matched to the piece — padded blankets sealed with clear stretch wrap, or a custom crate built around it; freight received, counted, and staged on the company's own floor; the route protected on arrival; carry-in on a planned route to the room of choice and placement in the final position; unpacking in the room; removal of the delivered item's own packaging; and placement and condition verified with the recipient before the crew leaves — never left at a curb. Heavy deliveries of 1,500 to 3,500 lbs are surveyed and floor-checked to L/360 under SIR and the KIM-GS Protocol before scheduling. The boundaries are stated plainly: assembly and installation are not part of the published scope, and haul-away of old items is not part of the service. The service serves the full 53-area footprint from both branches and is quoted at one flat rate in writing before dispatch, with hourly pricing available when a client asks for it.",
+   "description": "White-glove delivery step by step, from The Flat Rate Movers: the pieces named and assessed piece by piece (weight, fragile points, finish, value at risk); protection matched to the piece — padded blankets sealed with clear stretch wrap, or a custom crate built around it; freight received, counted, and staged on the company's own floor; the route protected on arrival; carry-in on a planned route to the room of choice and placement in the final position; unpacking in the room; removal of the delivered item's own packaging; and placement and condition verified with the recipient before the crew leaves — never left at a curb. Heavy deliveries of 1,500 to 3,500 lbs are surveyed and floor-checked to L/360 under SIR and the KIM-GS Protocol before scheduling. The boundaries are stated plainly: assembly and installation are not part of the published scope, and haul-away of old items is not part of the service. The service serves the full 71-area footprint from both branches and is quoted at one flat rate in writing before dispatch, with hourly pricing available when a client asks for it.",
    "editor": {
     "@type": "Person",
     "jobTitle": "Owner, The Flat Rate Movers",

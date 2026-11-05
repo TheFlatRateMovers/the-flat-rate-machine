@@ -1674,7 +1674,7 @@ async function main() {
     // 30-service registry (8 + 30). Services #31/#32 (PORTS P4) make it
     // 8 + 32 = 40. The assertion is unchanged in intent — frame size is
     // derived from the registry, never hand-carried.
-    check('I-9 published intent dataset v2 fields reconcile with the database (8 + services node frame, row sources with gscObservedRows=0, era-tagged evidence block, outcome roll-up + digest, full page coverage, per-area rows over all 53 GeoJSON features)',
+    check('I-9 published intent dataset v2 fields reconcile with the database (8 + services node frame, row sources with gscObservedRows=0, era-tagged evidence block, outcome roll-up + digest, full page coverage, per-area rows over all 71 GeoJSON features)',
       graphV.length === 8 + services.services.length && d8okV && covBadV.length === 0 && !!d6V && /pre-rebuild/.test(d6V.description),
       'nodes=' + graphV.length + '; coverage nodes bad=' + covBadV.length + '; d8 reconcile=' + d8okV +
         '; outcome digest=' + String(metaV.outcome_digest || '').slice(0, 12) + '…; areas=' + (d8V && d8V.rowsByArea ? d8V.rowsByArea.length : 0));

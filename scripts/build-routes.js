@@ -430,9 +430,15 @@ function injectEmbedHashes(html, pageUrl) {
     if (!replacements.size) return whole;
     let out = body;
     for (const [stale, truth] of replacements) {
-      const needle = '"sha256": ' + JSON.stringify(stale);
-      if (!out.includes(needle)) fail(pageUrl + ': embed hash needle not found for ' + stale.slice(0, 12) + ' (serialization form differs — extend the injector)');
-      out = out.split(needle).join('"sha256": ' + JSON.stringify(truth));
+      // Two serialization forms exist in the shell: spaced (indent-1
+      // embeds) and compact (page-data embeds). Geo batch 2026-11-05:
+      // the geojson hash change reached the compact seats for the first
+      // time and the spaced-only needle failed the routes phase.
+      const spaced = '"sha256": ' + JSON.stringify(stale);
+      const compact = '"sha256":' + JSON.stringify(stale);
+      if (out.includes(spaced)) out = out.split(spaced).join('"sha256": ' + JSON.stringify(truth));
+      else if (out.includes(compact)) out = out.split(compact).join('"sha256":' + JSON.stringify(truth));
+      else fail(pageUrl + ': embed hash needle not found for ' + stale.slice(0, 12) + ' (serialization form differs — extend the injector)');
       embedHashesInjected++;
     }
     return whole.replace(body, () => out);

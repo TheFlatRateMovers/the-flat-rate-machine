@@ -317,45 +317,47 @@ const GEO_MAP = {
   'commercial-relocation': 'service-industrial-commercial',
   'ffe-installation': 'service-industrial-commercial',
   'flexible-deployment': 'service-industrial-commercial',
+  // Territory upgrade (2026-11-05, owner-directed): EVERY service now
+  // carries a GeoJSON capability token — BASE_ONLY is retired. The
+  // footprint grew 53 -> 71 features (18 expansion towns added with map-
+  // geocoded coordinates; branch by real OSRM road routing from both
+  // branches). Specialty tokens (freight-rework, data-center-relocation,
+  // it-relocation, vault-door, industrial-rigging) follow the researched
+  // per-service town mapping; all other tokens ride the full town set.
+  // This supersedes the 2026-11-02/2026-11-04/2026-11-05 no-token notes
+  // formerly recorded under BASE_ONLY for white-glove, vault-door and
+  // hoarding-cleanup: the geojson digest change those notes avoided is
+  // paid once here, estate-wide, by this batch's seal.
+  'industrial-rigging': 'service-sir-heavy',
+  'gun-safe': 'service-gun-safe',
+  'piano-antique': 'service-piano-antique',
+  'long-distance': 'service-long-distance',
+  'local-regional': 'service-local-regional',
+  'route-81': 'service-route81',
+  'senior-moving': 'service-senior-moving',
+  'warehouse-relocation': 'service-warehouse-relocation',
+  'it-relocation': 'service-it-relocation',
+  'moving-and-storage': 'service-moving-and-storage',
+  'junk-removal': 'service-junk-removal',
+  'freight-rework': 'service-freight-rework-transloading',
+  'warehouse-racking': 'service-warehouse-racking-relocation',
+  'ffe-logistics': 'service-ffe-logistics',
+  'data-center-relocation': 'service-data-center-relocation',
+  'medical-lab': 'service-medical-lab-relocation',
+  'logistics-project-management': 'service-logistics-project-management',
+  '3pl-support': 'service-3pl-support',
+  'transloading-winchester': 'service-transloading-winchester-va',
+  'vault-door': 'service-vault-door',
+  'white-glove': 'service-white-glove',
+  'hoarding-cleanup': 'service-hoarding-cleanup',
 };
-// Services with no GeoJSON capability mapping: branch bases only (R1).
-// Value: which branch bases ('both' or 'winchester').
-const BASE_ONLY = {
-  'service-sir-heavy': 'both',
-  'service-gun-safe': 'both',
-  'service-piano-antique': 'both',
-  'service-long-distance': 'both',
-  'service-local-regional': 'both',
-  'service-route81': 'both',
-  'service-senior-moving': 'both',
-  'service-warehouse-relocation': 'both',
-  'service-it-relocation': 'both',
-  'service-moving-and-storage': 'both',
-  'service-junk-removal': 'both',
-  'service-freight-rework-transloading': 'both',
-  'service-warehouse-racking-relocation': 'both',
-  'service-ffe-logistics': 'both',
-  'service-data-center-relocation': 'both',
-  'service-medical-lab-relocation': 'both',
-  'service-logistics-project-management': 'both',
-  'service-3pl-support': 'both',
-  'service-transloading-winchester-va': 'winchester',
-  // White-glove (2026-11-02): the full 53-area footprint is carried in
-  // the service schema shapes (head graph, hub JSON, dataset areas
-  // node); the rubric footprint treatment for a both-branch service is
-  // the BASE_ONLY 'both' pattern (freight precedent) — base rows for
-  // both branch features + scoped rows + page rows. No GeoJSON
-  // capability token was added: service-area.geojson's SHA-256 is
-  // embedded in per-page JSONs and dataset distributions estate-wide.
-  'service-white-glove': 'both',
-  // Vault door (2026-11-04): both branches dispatch, no branch binding
-  // (registration spec section 2); the BASE_ONLY 'both' pattern applies
-  // exactly as for gun-safe and white-glove. No GeoJSON capability token.
-  'service-vault-door': 'both',
-  // Hoarding cleanup (2026-11-05): both branches dispatch; the BASE_ONLY
-  // 'both' pattern applies, no GeoJSON capability token.
-  'service-hoarding-cleanup': 'both'
-};
+// Services with no GeoJSON capability mapping: NONE since the
+// 2026-11-05 territory upgrade — every service carries a capability
+// token in GEO_MAP above (owner-directed: territories expand for all
+// rubrics). BASE_ONLY remains as an empty map so the R1 fallback and
+// the validateConfig XOR stay well-formed for any future service
+// registered before its token is assigned.
+const BASE_ONLY = {};
 // EXTRA_PATTERNS (Head-Hub Programme / F4, 2026-11-02): explicit bound
 // rows for money phrasings the template families do not generate — the
 // exact screenshot queries, the singular "transload" forms, localized
@@ -1703,7 +1705,7 @@ function buildDataset(gen) {
   const d1 = baseNode(
     SITE + '/#dataset-intent-coverage-operations', 'Service',
     'The Flat Rate Movers — Search Intent Coverage Operations Dataset',
-    'The live intent-coverage rubric of The Flat Rate Movers: ' + total + ' generated rows, each one a query string a customer or an AI assistant can use to find a company service, resolved to the exact page that answers it, that page\u2019s per-page JSON, the dataset files behind the answer, and the service\u2019s node in the entity graph. Rows are generated from the estate\u2019s own registries — ' + R.services.services.length + ' services, ' + R.pages.pages.length + ' pages, two branch locations, three corridors and the 53-feature service-area footprint — plus the blog question bank\u2019s 100 real question phrasings, and the rubric is regenerated whenever those registries change. Every row carries the SHA-256 certificate digests of its target JSON and datasets, read from the signed AI master index, so the rubric inherits the estate\u2019s provenance seal. Coverage spans all ' + R.services.services.length + ' services of both branches, Winchester, VA and Martinsburg, WV, along the I-81, I-66 and I-70 corridors. Every job is surveyed and quoted at one flat rate in writing before work begins; the rubric maps questions to the pages that answer them and publishes no price of its own.',
+    'The live intent-coverage rubric of The Flat Rate Movers: ' + total + ' generated rows, each one a query string a customer or an AI assistant can use to find a company service, resolved to the exact page that answers it, that page\u2019s per-page JSON, the dataset files behind the answer, and the service\u2019s node in the entity graph. Rows are generated from the estate\u2019s own registries — ' + R.services.services.length + ' services, ' + R.pages.pages.length + ' pages, two branch locations, three corridors and the ' + areaCov.features + '-feature service-area footprint — plus the blog question bank\u2019s 100 real question phrasings, and the rubric is regenerated whenever those registries change. Every row carries the SHA-256 certificate digests of its target JSON and datasets, read from the signed AI master index, so the rubric inherits the estate\u2019s provenance seal. Coverage spans all ' + R.services.services.length + ' services of both branches, Winchester, VA and Martinsburg, WV, along the I-81, I-66 and I-70 corridors. Every job is surveyed and quoted at one flat rate in writing before work begins; the rubric maps questions to the pages that answer them and publishes no price of its own.',
     ['search intent coverage', 'query rubric', 'movers near me', 'gun safe movers winchester va', 'transloading winchester va', 'questions customers ask movers'],
     [{ '@id': SITE + '/#service-catalog' }]);
   d1.hasPart = coverageNodes.map((n) => ({ '@id': n['@id'] }));
@@ -1744,7 +1746,7 @@ function buildDataset(gen) {
     ['question bank', 'query sources', 'customer questions'],
     [{ '@id': SITE + '/#dataset-intent-coverage-operations' }]);
 
-  d6.description += ' Version 2 separates the rubric\u2019s sources from its evidence. Every row is generated from the live estate itself \u2014 the registries, the pages and what each page is for (rule R13 page-derived rows join the v1 pattern families). Real Google Search Console queries enter only as a historical evidence overlay: the exports on file cover the pre-rebuild era (2026-07-29 to 2026-10-28) and a transition window straddling the rebuild (2026-10-04 to 2026-10-31), and their metrics attach, each era-tagged from its own import window against the 2026-10-29 rebuild cutover, only to rows whose target page existed in that window and is still live at the same URL. Current-era pages carry no borrowed metrics and no zero-filled values; their rows stand as awaiting observation until the new era produces evidence of its own. The deploy generation adds rule R14: hub, category and estate pages that carry no service of their own gain bounded roll-up rows derived from the services they group, so every published page is a rubric target, and the totals node carries the per-area row counts for the whole 53-feature footprint, zero counts included.';
+  d6.description += ' Version 2 separates the rubric\u2019s sources from its evidence. Every row is generated from the live estate itself \u2014 the registries, the pages and what each page is for (rule R13 page-derived rows join the v1 pattern families). Real Google Search Console queries enter only as a historical evidence overlay: the exports on file cover the pre-rebuild era (2026-07-29 to 2026-10-28) and a transition window straddling the rebuild (2026-10-04 to 2026-10-31), and their metrics attach, each era-tagged from its own import window against the 2026-10-29 rebuild cutover, only to rows whose target page existed in that window and is still live at the same URL. Current-era pages carry no borrowed metrics and no zero-filled values; their rows stand as awaiting observation until the new era produces evidence of its own. The deploy generation adds rule R14: hub, category and estate pages that carry no service of their own gain bounded roll-up rows derived from the services they group, so every published page is a rubric target, and the totals node carries the per-area row counts for the whole ' + areaCov.features + '-feature footprint, zero counts included.';
 
   const d7 = baseNode(
     SITE + '/#dataset-intent-coverage-boundaries', 'Service',
@@ -1757,7 +1759,7 @@ function buildDataset(gen) {
     SITE + '/#dataset-intent-coverage-totals', 'Dataset',
     'The Flat Rate Movers — Intent Coverage Totals, Areas and Certificate Dataset',
     'Totals for this generation of the intent-coverage rubric, computed by the generator run of ' + RUBRIC_DATE + ': ' + total + ' rows across ' + R.services.services.length + ' services — ' + classList + '. Per-service row counts are carried on the ' + R.services.services.length + ' coverage nodes in this file. Area coverage follows the service-area GeoJSON: ' + areaCov.features + ' features in total; the Winchester footprint is ' + areaCov.winchesterFootprint + ' areas and the Martinsburg footprint is ' + areaCov.martinsburgFootprint + ' areas, with ' + areaCov.shared + ' areas served by both branches and recorded as shared. The canonical serialization of the rows hashes to the SHA-256 digest recorded on this node (intentRowsDigest), which is also stored in the rubric database, so any reader can re-prove that the published totals describe the exact row set the generator produced. This file is itself a sealed distribution of the signed AI master index, under the certificate block recorded on this node.',
-    ['coverage totals', 'rows digest', 'certificate', '53 areas'],
+    ['coverage totals', 'rows digest', 'certificate', areaCov.features + ' areas'],
     [{ '@id': SITE + '/#dataset-intent-coverage-operations' }]);
   d8.intentRowsDigest = digest;
   d8.intentRowsDigestAlgorithm = 'SHA-256';
