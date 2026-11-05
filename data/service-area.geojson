@@ -205,7 +205,8 @@
      "freight-rework",
      "data-center-relocation",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "transloading-winchester"
     ],
     "rubric_score": 3
    }
@@ -802,7 +803,8 @@
      "3pl-support",
      "warehouse-relocation",
      "warehouse-racking",
-     "ffe-logistics"
+     "ffe-logistics",
+     "transloading-winchester"
     ],
     "rubric_score": 3
    }
@@ -1237,7 +1239,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "transloading-winchester"
     ],
     "rubric_score": 3
    }
@@ -1312,7 +1315,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "transloading-winchester"
     ],
     "rubric_score": 3
    }
@@ -1387,7 +1391,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "transloading-winchester"
     ],
     "rubric_score": 3
    }
@@ -1457,7 +1462,8 @@
      "3pl-support",
      "warehouse-relocation",
      "warehouse-racking",
-     "ffe-logistics"
+     "ffe-logistics",
+     "transloading-winchester"
     ],
     "rubric_score": 3
    }
@@ -1527,7 +1533,8 @@
      "3pl-support",
      "warehouse-relocation",
      "warehouse-racking",
-     "ffe-logistics"
+     "ffe-logistics",
+     "transloading-winchester"
     ],
     "rubric_score": 3
    }
@@ -1597,7 +1604,8 @@
      "3pl-support",
      "warehouse-relocation",
      "warehouse-racking",
-     "ffe-logistics"
+     "ffe-logistics",
+     "transloading-winchester"
     ],
     "rubric_score": 3
    }
@@ -1672,7 +1680,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "transloading-winchester"
     ],
     "rubric_score": 3
    }
@@ -1742,7 +1751,8 @@
      "3pl-support",
      "warehouse-relocation",
      "warehouse-racking",
-     "ffe-logistics"
+     "ffe-logistics",
+     "transloading-winchester"
     ],
     "rubric_score": 3
    }
@@ -1812,7 +1822,8 @@
      "3pl-support",
      "warehouse-relocation",
      "warehouse-racking",
-     "ffe-logistics"
+     "ffe-logistics",
+     "transloading-winchester"
     ],
     "rubric_score": 3
    }
@@ -1887,7 +1898,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "transloading-winchester"
     ],
     "rubric_score": 3
    }
@@ -1957,7 +1969,8 @@
      "3pl-support",
      "warehouse-relocation",
      "warehouse-racking",
-     "ffe-logistics"
+     "ffe-logistics",
+     "transloading-winchester"
     ],
     "rubric_score": 3
    }
@@ -2032,7 +2045,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "transloading-winchester"
     ],
     "rubric_score": 2,
     "rubric_note": "Score 2: coordinates verified by map geocoding 2026-10-28, but this is an expansion city, not a GBP service area, and it has no dedicated page \u2014 so R3 visible-match and R4 source-check score 2. It is served as part of the branch footprint, not presented as a GBP area."
@@ -2108,7 +2122,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "transloading-winchester"
     ],
     "rubric_score": 2,
     "rubric_note": "Score 2: coordinates verified by map geocoding 2026-10-28, but this is an expansion city, not a GBP service area, and it has no dedicated page \u2014 so R3 visible-match and R4 source-check score 2. It is served as part of the branch footprint, not presented as a GBP area."
@@ -2184,7 +2199,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "transloading-winchester"
     ],
     "rubric_score": 2,
     "rubric_note": "Score 2: coordinates verified by map geocoding 2026-10-28, but this is an expansion city, not a GBP service area, and it has no dedicated page \u2014 so R3 visible-match and R4 source-check score 2. It is served as part of the branch footprint, not presented as a GBP area."
@@ -2332,7 +2348,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "transloading-winchester"
     ],
     "rubric_score": 2,
     "rubric_note": "Score 2: coordinates verified by map geocoding 2026-10-28, but this is an expansion city, not a GBP service area, and it has no dedicated page \u2014 so R3 visible-match and R4 source-check score 2. It is served as part of the branch footprint, not presented as a GBP area."
@@ -2407,7 +2424,8 @@
      "data-center-relocation",
      "freight-rework",
      "industrial-rigging",
-     "it-relocation"
+     "it-relocation",
+     "transloading-winchester"
     ],
     "rubric_score": 2,
     "rubric_note": "Score 2: coordinates verified by map geocoding 2026-10-28, but this is an expansion city, not a GBP service area, and it has no dedicated page \u2014 so R3 visible-match and R4 source-check score 2. It is served as part of the branch footprint, not presented as a GBP area."
@@ -2483,7 +2501,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "transloading-winchester"
     ],
     "rubric_score": 2,
     "rubric_note": "Score 2: coordinates verified by map geocoding 2026-10-28, but this is an expansion city, not a GBP service area, and it has no dedicated page \u2014 so R3 visible-match and R4 source-check score 2. It is served as part of the branch footprint, not presented as a GBP area."
@@ -2554,7 +2573,8 @@
      "3pl-support",
      "warehouse-relocation",
      "warehouse-racking",
-     "ffe-logistics"
+     "ffe-logistics",
+     "transloading-winchester"
     ],
     "rubric_score": 2,
     "rubric_note": "Score 2: coordinates verified by map geocoding 2026-10-28, but this is an expansion city, not a GBP service area, and it has no dedicated page \u2014 so R3 visible-match and R4 source-check score 2. It is served as part of the branch footprint, not presented as a GBP area."
@@ -2609,7 +2629,8 @@
      "local-regional",
      "long-distance",
      "moving-and-storage",
-     "white-glove"
+     "white-glove",
+     "transloading-winchester"
     ],
     "rubric_score": 3
    }
@@ -2663,7 +2684,8 @@
      "local-regional",
      "long-distance",
      "moving-and-storage",
-     "white-glove"
+     "white-glove",
+     "transloading-winchester"
     ],
     "rubric_score": 3
    }
@@ -2717,7 +2739,8 @@
      "local-regional",
      "long-distance",
      "moving-and-storage",
-     "white-glove"
+     "white-glove",
+     "transloading-winchester"
     ],
     "rubric_score": 3
    }
@@ -2771,7 +2794,8 @@
      "local-regional",
      "long-distance",
      "moving-and-storage",
-     "white-glove"
+     "white-glove",
+     "transloading-winchester"
     ],
     "rubric_score": 3
    }
@@ -2825,7 +2849,8 @@
      "local-regional",
      "long-distance",
      "moving-and-storage",
-     "white-glove"
+     "white-glove",
+     "transloading-winchester"
     ],
     "rubric_score": 3
    }
@@ -2879,7 +2904,8 @@
      "local-regional",
      "long-distance",
      "moving-and-storage",
-     "white-glove"
+     "white-glove",
+     "transloading-winchester"
     ],
     "rubric_score": 3
    }
@@ -2933,7 +2959,8 @@
      "local-regional",
      "long-distance",
      "moving-and-storage",
-     "white-glove"
+     "white-glove",
+     "transloading-winchester"
     ],
     "rubric_score": 3
    }
@@ -2987,7 +3014,8 @@
      "local-regional",
      "long-distance",
      "moving-and-storage",
-     "white-glove"
+     "white-glove",
+     "transloading-winchester"
     ],
     "rubric_score": 3
    }
@@ -3041,7 +3069,8 @@
      "local-regional",
      "long-distance",
      "moving-and-storage",
-     "white-glove"
+     "white-glove",
+     "transloading-winchester"
     ],
     "rubric_score": 3
    }
@@ -3095,7 +3124,8 @@
      "local-regional",
      "long-distance",
      "moving-and-storage",
-     "white-glove"
+     "white-glove",
+     "transloading-winchester"
     ],
     "rubric_score": 3
    }
@@ -3149,7 +3179,8 @@
      "local-regional",
      "long-distance",
      "moving-and-storage",
-     "white-glove"
+     "white-glove",
+     "transloading-winchester"
     ],
     "rubric_score": 3
    }
@@ -3203,7 +3234,8 @@
      "local-regional",
      "long-distance",
      "moving-and-storage",
-     "white-glove"
+     "white-glove",
+     "transloading-winchester"
     ],
     "rubric_score": 3
    }
@@ -4407,7 +4439,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "transloading-winchester"
     ],
     "rubric_score": 3
    }
@@ -4482,7 +4515,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "transloading-winchester"
     ],
     "rubric_score": 3
    }
@@ -4555,7 +4589,8 @@
      "ffe-logistics",
      "freight-rework",
      "industrial-rigging",
-     "vault-door"
+     "vault-door",
+     "transloading-winchester"
     ],
     "rubric_score": 2
    }
@@ -4630,7 +4665,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "transloading-winchester"
     ],
     "rubric_score": 2
    }
@@ -4704,7 +4740,8 @@
      "data-center-relocation",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "transloading-winchester"
     ],
     "rubric_score": 2
    }
@@ -4778,7 +4815,8 @@
      "data-center-relocation",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "transloading-winchester"
     ],
     "rubric_score": 2
    }

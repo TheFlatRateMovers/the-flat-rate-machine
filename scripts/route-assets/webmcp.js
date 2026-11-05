@@ -91,7 +91,7 @@
     },
     {
       name: 'list_service_areas',
-      description: 'Look up where The Flat Rate Movers works: the published two-branch footprint (53 GeoJSON areas — Winchester, VA and Martinsburg, WV branches, 14 areas shared). With a place name, returns the matching areas and which branch serves each; with no input, returns the full footprint summary and every area name. The branches are distinct and are never blended. Read-only.',
+      description: 'Look up where The Flat Rate Movers works: the published two-branch footprint (71 GeoJSON areas — Winchester, VA and Martinsburg, WV branches, 14 areas shared). With a place name, returns the matching areas and which branch serves each; with no input, returns the full footprint summary and every area name. The branches are distinct and are never blended. Read-only.',
       inputSchema: {
         type: 'object',
         properties: {
