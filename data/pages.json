@@ -1,6 +1,6 @@
 {
  "attestation": "Every URL below was fetched from the live sitemap on 2026-10-28; titles and service links come from pageMeta in the live site source. No URL was hand-typed.",
- "count": 255,
+ "count": 264,
  "dataset": "pages",
  "generated": "2026-10-29",
  "pages": [
@@ -3161,6 +3161,123 @@
    "title": "B2B Specialty Moving Rubric",
    "type": "page",
    "url": "https://theflatratemovers.com/datasets/b2b-specialty-rubric/"
+  },
+  {
+   "attested": "2026-11-05",
+   "lastmod": "2026-11-05",
+   "services": [
+    "service-medical-lab-relocation"
+   ],
+   "slug": "hospital-equipment-moving-rfq-guide",
+   "source": "B2B Specialty B2B-2 2026-11-05 — Hospital Equipment Moving RFQ Guide",
+   "status": "live",
+   "title": "Hospital Equipment Moving RFQ Guide",
+   "type": "page",
+   "url": "https://theflatratemovers.com/hospital-equipment-moving-rfq-guide/"
+  },
+  {
+   "attested": "2026-11-05",
+   "lastmod": "2026-11-05",
+   "services": [
+    "service-medical-lab-relocation"
+   ],
+   "slug": "centrifuge-and-analyzer-moving",
+   "source": "B2B Specialty B2B-2 2026-11-05 — Centrifuge & Analyzer Moving",
+   "status": "live",
+   "title": "Centrifuge & Analyzer Moving",
+   "type": "service",
+   "url": "https://theflatratemovers.com/centrifuge-and-analyzer-moving/"
+  },
+  {
+   "attested": "2026-11-05",
+   "lastmod": "2026-11-05",
+   "services": [
+    "service-medical-lab-relocation"
+   ],
+   "slug": "cleanroom-relocation",
+   "source": "B2B Specialty B2B-2 2026-11-05 — Cleanroom Relocation",
+   "status": "live",
+   "title": "Cleanroom Relocation",
+   "type": "service",
+   "url": "https://theflatratemovers.com/cleanroom-relocation/"
+  },
+  {
+   "attested": "2026-11-05",
+   "lastmod": "2026-11-05",
+   "services": [
+    "service-data-center-relocation"
+   ],
+   "slug": "data-center-decommissioning",
+   "source": "B2B Specialty B2B-2 2026-11-05 — Data Center Decommissioning",
+   "status": "live",
+   "title": "Data Center Decommissioning",
+   "type": "service",
+   "url": "https://theflatratemovers.com/data-center-decommissioning/"
+  },
+  {
+   "attested": "2026-11-05",
+   "lastmod": "2026-11-05",
+   "services": [
+    "service-data-center-relocation"
+   ],
+   "slug": "emergency-data-center-relocation",
+   "source": "B2B Specialty B2B-2 2026-11-05 — Emergency Data Center Relocation",
+   "status": "live",
+   "title": "Emergency Data Center Relocation",
+   "type": "service",
+   "url": "https://theflatratemovers.com/emergency-data-center-relocation/"
+  },
+  {
+   "attested": "2026-11-05",
+   "lastmod": "2026-11-05",
+   "services": [
+    "service-medical-lab-relocation"
+   ],
+   "slug": "medical-equipment-movers-winchester-va",
+   "source": "B2B Specialty B2B-2 2026-11-05 — Medical Equipment Movers — Winchester VA",
+   "status": "live",
+   "title": "Medical Equipment Movers — Winchester VA",
+   "type": "service",
+   "url": "https://theflatratemovers.com/medical-equipment-movers-winchester-va/"
+  },
+  {
+   "attested": "2026-11-05",
+   "lastmod": "2026-11-05",
+   "services": [
+    "service-medical-lab-relocation"
+   ],
+   "slug": "medical-equipment-movers-martinsburg-wv",
+   "source": "B2B Specialty B2B-2 2026-11-05 — Medical Equipment Movers — Martinsburg WV",
+   "status": "live",
+   "title": "Medical Equipment Movers — Martinsburg WV",
+   "type": "service",
+   "url": "https://theflatratemovers.com/medical-equipment-movers-martinsburg-wv/"
+  },
+  {
+   "attested": "2026-11-05",
+   "lastmod": "2026-11-05",
+   "services": [
+    "service-data-center-relocation"
+   ],
+   "slug": "data-center-movers-winchester-va",
+   "source": "B2B Specialty B2B-2 2026-11-05 — Data Center Movers — Winchester VA",
+   "status": "live",
+   "title": "Data Center Movers — Winchester VA",
+   "type": "service",
+   "url": "https://theflatratemovers.com/data-center-movers-winchester-va/"
+  },
+  {
+   "attested": "2026-11-05",
+   "lastmod": "2026-11-05",
+   "services": [
+    "service-data-center-relocation"
+   ],
+   "slug": "data-center-movers-martinsburg-wv",
+   "source": "B2B Specialty B2B-2 2026-11-05 — Data Center Movers — Martinsburg WV",
+   "status": "live",
+   "title": "Data Center Movers — Martinsburg WV",
+   "type": "service",
+   "url": "https://theflatratemovers.com/data-center-movers-martinsburg-wv/"
   }
  ],
  "source": "https://theflatratemovers.com/sitemap.xml joined to pageMeta in ../the-flat-rate-movers-pages/public/index.html",

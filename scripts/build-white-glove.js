@@ -48,7 +48,7 @@ if (!/full assembly/.test(wgLevel.assembly || '')) fail('white-glove level must 
 
 const doc = JSON.parse(fs.readFileSync(FILE, 'utf8'));
 // Idempotent: drop the generated nodes and rebuild from the 8 base nodes.
-const GENERATED_SUFFIXES = ['dataset-white-glove-research', 'dataset-white-glove-sources', 'dataset-white-glove-service-levels', 'dataset-white-glove-trust-ledger'];
+const GENERATED_SUFFIXES = ['dataset-white-glove-research', 'dataset-white-glove-sources', 'dataset-white-glove-service-levels', 'dataset-white-glove-trust-ledger', 'dataset-white-glove-process'];
 const graph = doc['@graph'].filter((n) => !GENERATED_SUFFIXES.some((s) => (n['@id'] || '').endsWith(s)));
 if (graph.length !== 8) fail('expected the 8 existing nodes as the base, got ' + graph.length);
 const byId = (suffix) => graph.find((n) => (n['@id'] || '').endsWith(suffix));
@@ -69,6 +69,28 @@ const rekey = (o) => {
 };
 const nodes = graph.map(rekey);
 
+// Schema-carrier normalization (validator reconciliation, 2026-11-05): every
+// sub-object carries a @type, and extension data rides schema.org carriers
+// (additionalProperty / hasPart / audience / mentions / offers) instead of
+// unrecognized property names — proven zero-error against validator.schema.org.
+const ap = (name, value) => ({ '@type': 'PropertyValue', name, value });
+for (const n of nodes) {
+  if (Array.isArray(n.distribution)) n.distribution = n.distribution.map((e) => (e && typeof e === 'object' && !e['@type']) ? { '@type': 'DataDownload', ...e } : e);
+}
+const mapClaim = (c) => ({
+  '@type': 'Claim', identifier: c.id, name: c.headline, description: c.fact,
+  citation: { '@type': 'CreativeWork', name: c.source.title, url: c.source.url, publisher: { '@type': 'Organization', name: c.source.publisher } },
+  additionalProperty: [ap('detail', c.detail), ap('scope', c.scope)],
+});
+const mapPersona = (p) => ({
+  '@type': 'Audience', identifier: p.id, name: p.name,
+  additionalProperty: [ap('need', p.need), ap('situation', p.situation)],
+});
+const mapTerm = (t) => ({
+  '@type': 'DefinedTerm', name: t.term, url: 'https://theflatratemovers.com' + t.target,
+  additionalProperty: [ap('intentClass', t.intentClass)],
+});
+
 // 2. operations Service upgrade — confirmed scope (owner, 2026-11-05)
 const ops = nodes.find((n) => n['@id'] === NEW + 'operations');
 if (!ops) fail('operations node missing after re-key');
@@ -78,27 +100,30 @@ ops.areaServed = [
   { '@id': 'https://theflatratemovers.com/#place-winchester-va' },
   { '@id': 'https://theflatratemovers.com/#place-martinsburg-wv' },
 ];
-ops.serviceFacts = {
-  pricingModel: 'Every job is surveyed and priced at one flat rate in writing before work begins — quoted per job; the flat rate is the standard offer and the guarantee. The delivery level is part of the written scope. Hourly pricing is available when a client asks for it.',
-  territory: 'The full published footprint — all 71 areas in service-area.geojson; the white-glove capability covers every place feature (cities, counties, both branches) in the map.',
-  itemListing: 'High-value pieces are listed individually with declared values before custody changes hands, on the federal extraordinary-value rule (items over $100 per pound must be listed on the shipping documents).',
-  crewBasis: 'Crew size is set by the piece and the path at the survey — weight, stairs, turns, doorways — on the NIOSH 51 lb load-constant arithmetic. Stairs run any number of flights, up or down.',
-  confirmedScope: 'Receiving and holding in storage with a receiving inspection report; delivery on the install day; full assembly, including appliance hookups where the job includes appliances; haul-away of the replaced item; carrier-terminal pickup with damage noted on the carrier\'s ticket; three-stage photo documentation (arrival, unboxed, placed); packaging and pallet removal. Every delivery level — curbside, threshold, room of choice, white glove — is bookable on its own.',
-  fulfillment: 'The company\'s own crews inside the home territory; a vetted partner, coordinated by the company under the same written scope, when a job is outside it.',
-  clientele: 'Brands and manufacturers using the company as a local delivery arm, retailers and big-box stores, shippers and carriers, businesses, and homeowners through those accounts — high-dollar, heavy, or fragile pieces; every job is different.',
-};
-ops.process = store.process;
+delete ops.serviceFacts;
+delete ops.process;
+ops.additionalProperty = [
+  ap('pricingModel', 'Every job is surveyed and priced at one flat rate in writing before work begins — quoted per job; the flat rate is the standard offer and the guarantee. The delivery level is part of the written scope. Hourly pricing is available when a client asks for it.'),
+  ap('territory', 'The full published footprint — all 71 areas in service-area.geojson; the white-glove capability covers every place feature (cities, counties, both branches) in the map.'),
+  ap('itemListing', 'High-value pieces are listed individually with declared values before custody changes hands, on the federal extraordinary-value rule (items over $100 per pound must be listed on the shipping documents).'),
+  ap('crewBasis', 'Crew size is set by the piece and the path at the survey — weight, stairs, turns, doorways — on the NIOSH 51 lb load-constant arithmetic. Stairs run any number of flights, up or down.'),
+  ap('confirmedScope', 'Receiving and holding in storage with a receiving inspection report; delivery on the install day; full assembly, including appliance hookups where the job includes appliances; haul-away of the replaced item; carrier-terminal pickup with damage noted on the carrier\'s ticket; three-stage photo documentation (arrival, unboxed, placed); packaging and pallet removal. Every delivery level — curbside, threshold, room of choice, white glove — is bookable on its own.'),
+  ap('fulfillment', 'The company\'s own crews inside the home territory; a vetted partner, coordinated by the company under the same written scope, when a job is outside it.'),
+  ap('clientele', 'Brands and manufacturers using the company as a local delivery arm, retailers and big-box stores, shippers and carriers, businesses, and homeowners through those accounts — high-dollar, heavy, or fragile pieces; every job is different.'),
+];
 ops.completedJob = store.cases.map((c) => ({
   '@type': 'Service',
   name: c.title,
   description: c.story,
   serviceType: 'White-glove delivery',
   areaServed: c.town + ', ' + c.state,
-  dateCompleted: c.month,
-  customerType: c.customerType,
-  itemHandled: c.item,
-  ...(c.origin ? { pickupOrigin: c.origin } : {}),
-  requirementsMet: c.requirementsMet,
+  additionalProperty: [
+    ap('dateCompleted', c.month),
+    ap('customerType', c.customerType),
+    ap('itemHandled', c.item),
+    ...(c.origin ? [ap('pickupOrigin', c.origin)] : []),
+    ap('requirementsMet', c.requirementsMet),
+  ],
 }));
 
 // 3. research Dataset node
@@ -122,9 +147,9 @@ const research = {
   isAccessibleForFree: true,
   includedInDataCatalog: template.includedInDataCatalog,
   distribution: template.distribution,
-  researchClaims: store.claims,
-  personas: store.personas,
-  buyerIntentTerms: store.buyerIntentTerms,
+  hasPart: store.claims.map(mapClaim),
+  audience: store.personas.map(mapPersona),
+  mentions: store.buyerIntentTerms.map(mapTerm),
 };
 
 // 4. sources Article node
@@ -146,7 +171,7 @@ const sources = {
   sameAs: LANDING,
   author: termsArticle.author,
   publisher: termsArticle.publisher,
-  citations: [
+  citation: [
     cite('FMCSA — Before Requesting Services from Any Mover (Subpart B): full value protection, released value, extraordinary-value items', 'https://www.fmcsa.dot.gov/protect-your-move/how-to/subpartB'),
     cite('FMCSA — Frequently Asked Questions: mover liability and valuation (valuation is not insurance)', 'https://www.fmcsa.dot.gov/faq?keyword=&term_node_tid_depth=23066'),
     cite('NIOSH Publication No. 94-110 — Applications Manual for the Revised NIOSH Lifting Equation (51 lb load constant)', 'https://www.cdc.gov/niosh/docs/94-110/'),
@@ -173,7 +198,10 @@ const levels = {
   sameAs: LANDING,
   provider: ops.provider,
   publisher: template.publisher,
-  serviceLevels: store.serviceLevels,
+  offers: store.serviceLevels.map((lv) => ({
+    '@type': 'Offer', name: lv.level, description: lv.stops,
+    additionalProperty: [ap('assembly', lv.assembly), ap('debrisRemoval', lv.debrisRemoval), ap('unpacking', lv.unpacking), ap('bookableAlone', lv.bookableAlone)],
+  })),
 };
 
 // 6. trust-ledger Dataset node — the machine-readable trust layer
@@ -197,9 +225,9 @@ const ledger = {
   isAccessibleForFree: true,
   includedInDataCatalog: template.includedInDataCatalog,
   distribution: template.distribution,
-  trustLedger: store.trustLedger,
+  additionalProperty: Object.entries(store.trustLedger).map(([k, v]) => ap(k, v)),
   completedJob: ops.completedJob,
-  demandCorridors: {
+  mentions: [{
     '@type': 'ItemList',
     name: 'Demand corridors — long-distance and white-glove (observed 2026-11-05)',
     description: 'Metropolitan demand signals observed in Cloudflare Web Analytics (top data centers, last 24 hours, 2026-11-05). A demand corridor records where interest in the estate originates; it is not a local service area and adds no town to the service footprint. Long-distance work into these metros rides the interstate contractor model, and white-glove fulfillment outside the home area rides vetted partners — both owner-confirmed scope. The service footprint remains the 71-area Shenandoah Valley / Eastern Panhandle set.',
@@ -217,11 +245,44 @@ const ledger = {
         ],
       },
     })),
-  },
+  }],
 };
 
-nodes.push(research, sources, levels, ledger);
-if (nodes.length !== 12) fail('expected 12 nodes, got ' + nodes.length);
+const howto = {
+  '@id': NEW + 'process',
+  '@type': 'HowTo',
+  name: 'White-Glove Delivery — The Process, Step by Step',
+  description: 'The eight-step white-glove delivery process as data: item list and survey; receiving and the inspection report; the storage hold; install-day scheduling; protected transport; room-of-choice placement; unpacking, full assembly and hookups; and the close — haul-away, debris out, and the three-stage photo record delivered to the account. The same sequence the service page states in prose.',
+  keywords: ['white glove process', 'receiving inspection', 'install-day delivery', 'three-stage photo documentation'],
+  about: { '@id': NEW + 'operations' },
+  spatialCoverage: template.spatialCoverage,
+  temporalCoverage: '2026',
+  dateModified: '2026-11-05',
+  creator: template.creator,
+  publisher: template.publisher,
+  license: template.license,
+  step: store.process.map((s) => ({ '@type': 'HowToStep', position: s.step, name: s.name, text: s.text })),
+};
+
+nodes.push(research, sources, levels, ledger, howto);
+if (nodes.length !== 13) fail('expected 13 nodes, got ' + nodes.length);
+// Digest fill (file-sourced, S2 pattern; DC-2 fix 2026-11-05): every
+// cross-file DataDownload carries its target file's SHA-256 computed from
+// the file on disk at build time. Self-references to this dataset file
+// stay digest-less — the signed index is the self-digest seat.
+{
+  const crypto = require('crypto');
+  for (const n of nodes) {
+    if (!Array.isArray(n.distribution)) continue;
+    for (const e of n.distribution) {
+      if (!e || e['@type'] !== 'DataDownload' || e.sha256 || typeof e.contentUrl !== 'string') continue;
+      const rel = e.contentUrl.replace('https://theflatratemovers.com/', '');
+      if (!rel || rel === 'datasets-white-glove.json') continue;
+      const fp = path.join(PUB, rel);
+      if (fs.existsSync(fp)) e.sha256 = crypto.createHash('sha256').update(fs.readFileSync(fp)).digest('hex');
+    }
+  }
+}
 doc['@graph'] = nodes;
 fs.writeFileSync(FILE, JSON.stringify(doc, null, 1) + '\n');
-console.log('WROTE', FILE, '— 12 nodes (8 re-keyed + research/sources/service-levels/trust-ledger); claims 13, personas 10, terms 50, levels 4, process 8, cases 2');
+console.log('WROTE', FILE, '— 13 nodes (8 re-keyed + research/sources/service-levels/trust-ledger/process HowTo); claims 13, personas 10, terms 50, levels 4, process 8, cases 2');
