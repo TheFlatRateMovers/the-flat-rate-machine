@@ -77,6 +77,29 @@
 //      at a fallback page.
 //   R11 Dedupe on (query_text, service_id); first pattern wins in the
 //      fixed class order below.
+//   R16 Area families (Rubric Full-Depth, 2026-11-05): the R5/R6/R7
+//      cost / best / how families at EVERY footprint area of the
+//      service, not only the three scopes — "how much {do|does}
+//      {phrase} cost in {Area}", "{phrase} cost in {Area}", "best
+//      {phrase} in {Area}", "top rated {phrase} in {Area}", "how to
+//      hire {phrase} in {Area}" per (service, footprint feature),
+//      targeted by the R2 branch rule. Scope rows emit first, so
+//      dedupe keeps the scope binding for the branch cities.
+//   R17 Near-me depth (2026-11-05): "best {phrase} near me",
+//      "{phrase} cost near me" and "how much {do|does} {phrase} cost
+//      near me" per service, hub target, area null.
+//   R18 Corridor forms (2026-11-05): "{phrase} {I-81|I-66|I-70}
+//      corridor" (navigational-local) and "best {phrase} {corridor}
+//      corridor" (best-choice) for corridor-applicable services,
+//      targets as R4.
+//   R19 Question bank v2 (2026-11-05): the researched per-service
+//      question bank (data/question-bank-v2.json) — real customer and
+//      buyer questions per service, mined from the estate's own
+//      category datasets and page FAQs and completed by live search.
+//      Unbound questions target the hub (or the page whose slug the
+//      question matches, as R8); questions flagged local carry an
+//      {area} slot and emit once per footprint area under the R2
+//      branch rule.
 //
 // The signed index is read from the deployed public/ tree for
 // distribution membership. Cert digest values are computed from the
@@ -175,7 +198,7 @@ const GENERATOR = 'build-intent-rubric.js';
 // GeoJSON footprint features, zeros published. Generator version
 // stays 2.0.0 (schema 2); the additions are recorded in intent_meta
 // (rollup_rows, rollup_pages, target_pages_covered/total).
-const GENERATOR_VERSION = '2.0.0';
+const GENERATOR_VERSION = '3.0.0';
 const KID = 'theflatratemovers-2026-10-29-1';
 
 // --- Generator configuration (validated against the registries) ---
@@ -1462,6 +1485,8 @@ function generate() {
       for (const c of R.corridors.corridors) {
         const target = (V.svcPages.get(id) || []).includes(c.page) ? c.page : hub;
         emit(id, 'navigational-local', phrase + ' ' + CORRIDOR_SHORT[c.id], c.id, target, 'R4-corridor');
+        emit(id, 'navigational-local', phrase + ' ' + CORRIDOR_SHORT[c.id] + ' corridor', c.id, target, 'R18-corridor-named');
+        emit(id, 'best-choice', 'best ' + phrase + ' ' + CORRIDOR_SHORT[c.id] + ' corridor', c.id, target, 'R18-corridor-best');
       }
     }
     // R5/R6/R7 scoped patterns.
@@ -1480,6 +1505,23 @@ function generate() {
     }
     emit(id, 'how-process', 'how to book ' + phrase, null, hub, 'R6-how-book');
     emit(id, 'ai-question', 'what should I ask before hiring ' + phrase, null, hub, 'R8-generated');
+    // R16 area families: the full cost / best / how set at every
+    // footprint area (scope rows already emitted win dedupe where the
+    // texts collide at the branch cities).
+    for (const f of footprint.get(id)) {
+      const p = f.properties;
+      const target = p.branch === 'winchester' || p.branch === 'martinsburg'
+        ? (bp[p.branch] || hub) : hub;
+      emit(id, 'cost', 'how much ' + (plural ? 'do' : 'does') + ' ' + phrase + ' cost in ' + p.name, p.id, target, 'R16-area-cost-howmuch');
+      emit(id, 'cost', phrase + ' cost in ' + p.name, p.id, target, 'R16-area-cost-noun');
+      emit(id, 'best-choice', 'best ' + phrase + ' in ' + p.name, p.id, target, 'R16-area-best');
+      emit(id, 'best-choice', 'top rated ' + phrase + ' in ' + p.name, p.id, target, 'R16-area-top-rated');
+      emit(id, 'how-process', 'how to hire ' + phrase + ' in ' + p.name, p.id, target, 'R16-area-how-hire');
+    }
+    // R17 near-me depth.
+    emit(id, 'best-choice', 'best ' + phrase + ' near me', null, hub, 'R17-near-me-best');
+    emit(id, 'cost', phrase + ' cost near me', null, hub, 'R17-near-me-cost-noun');
+    emit(id, 'cost', 'how much ' + (plural ? 'do' : 'does') + ' ' + phrase + ' cost near me', null, hub, 'R17-near-me-cost-howmuch');
     // F4 (2026-11-02): explicit extra phrasings, ahead of R12/R13 so the
     // dedupe keeps these bindings.
     for (const [qText, qClass, qArea, qTarget] of (EXTRA_PATTERNS[id] || [])) {
@@ -1496,6 +1538,34 @@ function generate() {
     const slug = slugifyQuestion(q.text);
     const target = (V.svcPages.get(serviceId) || []).includes(slug) ? slug : HUB[serviceId];
     emit(serviceId, 'ai-question', q.text, null, target, 'R8-question-bank');
+  }
+
+  // R19 question bank v2 (Rubric Full-Depth, 2026-11-05).
+  let qb2Count = 0, qb2Local = 0;
+  const qb2Path = path.join(DATA_ROOT, 'question-bank-v2.json');
+  if (fs.existsSync(qb2Path)) {
+    const qb2 = JSON.parse(fs.readFileSync(qb2Path, 'utf8'));
+    for (const [serviceId, questions] of Object.entries(qb2)) {
+      if (!svcById.has(serviceId)) { excluded.push({ reason: 'question-bank-v2-unknown-service', serviceId, pattern: 'R19-question-bank-v2' }); continue; }
+      for (const q of questions) {
+        const text = americanize(String(q.text || '').trim());
+        if (!text) continue;
+        qb2Count++;
+        if (q.local && text.includes('{area}')) {
+          qb2Local++;
+          for (const f of footprint.get(serviceId)) {
+            const p = f.properties;
+            const target = p.branch === 'winchester' || p.branch === 'martinsburg'
+              ? (branchPage(R, V, serviceId, p.branch) || HUB[serviceId]) : HUB[serviceId];
+            emit(serviceId, 'ai-question', text.split('{area}').join(p.name), p.id, target, 'R19-question-bank-v2-local');
+          }
+        } else {
+          const slug = slugifyQuestion(text);
+          const target = (V.svcPages.get(serviceId) || []).includes(slug) ? slug : HUB[serviceId];
+          emit(serviceId, 'ai-question', text, null, target, 'R19-question-bank-v2');
+        }
+      }
+    }
   }
 
   // R12 (v2): GSC observed feed-in. Enrich exact normalized matches;
@@ -1803,7 +1873,7 @@ function generate() {
     patternByService[r.service_id] = patternByService[r.service_id] || { v1Patterns: 0, pageDerived: 0, rollup: 0 };
     patternByService[r.service_id][fam]++;
   }
-  return { R, rows, excluded, byClass, byService, digest, outcomeDigest, qbParsed, qbTotal: qb.length, footprint, corridorServices,
+  return { R, rows, excluded, byClass, byService, digest, outcomeDigest, qbParsed, qbTotal: qb.length, qb2Count, qb2Local, footprint, corridorServices,
     evidenceStats, pageDerivedStats, rollupStats, targetCoverage, patternByService, evidenceLogCount, observationLinks, observationResolutions, bySource, outcomeGlobal, outcomeByService, existedInWindow };
 }
 
@@ -1933,7 +2003,7 @@ function buildDataset(gen) {
   const d1 = baseNode(
     SITE + '/#dataset-intent-coverage-operations', 'Service',
     'The Flat Rate Movers — Search Intent Coverage Operations Dataset',
-    'The live intent-coverage rubric of The Flat Rate Movers: ' + total + ' generated rows, each one a query string a customer or an AI assistant can use to find a company service, resolved to the exact page that answers it, that page\u2019s per-page JSON, the dataset files behind the answer, and the service\u2019s node in the entity graph. Rows are generated from the estate\u2019s own registries — ' + R.services.services.length + ' services, ' + R.pages.pages.length + ' pages, two branch locations, three corridors and the ' + areaCov.features + '-feature service-area footprint — plus the blog question bank\u2019s 100 real question phrasings, and the rubric is regenerated whenever those registries change. Every row carries the SHA-256 certificate digests of its target JSON and datasets, read from the signed AI master index, so the rubric inherits the estate\u2019s provenance seal. Coverage spans all ' + R.services.services.length + ' services of both branches, Winchester, VA and Martinsburg, WV, along the I-81, I-66 and I-70 corridors. Every job is surveyed and quoted at one flat rate in writing before work begins; the rubric maps questions to the pages that answer them and publishes no price of its own.',
+    'The live intent-coverage rubric of The Flat Rate Movers: ' + total + ' generated rows, each one a query string a customer or an AI assistant can use to find a company service, resolved to the exact page that answers it, that page\u2019s per-page JSON, the dataset files behind the answer, and the service\u2019s node in the entity graph. Rows are generated from the estate\u2019s own registries — ' + R.services.services.length + ' services, ' + R.pages.pages.length + ' pages, two branch locations, three corridors and the ' + areaCov.features + '-feature service-area footprint — plus the blog question bank\u2019s ' + gen.qbTotal + ' real question phrasings and the researched per-service question bank v2 (' + gen.qb2Count + ' questions), and the rubric is regenerated whenever those registries change. Every row carries the SHA-256 certificate digests of its target JSON and datasets, read from the signed AI master index, so the rubric inherits the estate\u2019s provenance seal. Coverage spans all ' + R.services.services.length + ' services of both branches, Winchester, VA and Martinsburg, WV, along the I-81, I-66 and I-70 corridors. Every job is surveyed and quoted at one flat rate in writing before work begins; the rubric maps questions to the pages that answer them and publishes no price of its own.',
     ['search intent coverage', 'query rubric', 'movers near me', 'gun safe movers winchester va', 'transloading winchester va', 'questions customers ask movers'],
     [{ '@id': SITE + '/#service-catalog' }]);
   d1.hasPart = coverageNodes.map((n) => ({ '@id': n['@id'] }));
@@ -1942,14 +2012,14 @@ function buildDataset(gen) {
   const d2 = baseNode(
     SITE + '/#dataset-intent-coverage-scope', 'Dataset',
     'The Flat Rate Movers — Intent Coverage Scope Dataset',
-    'What the intent-coverage rubric covers, and from what sources. Inputs: the machine registries services.json (' + R.services.services.length + ' services), pages.json (' + R.pages.pages.length + ' pages), locations.json (the two distinct branches — Winchester, The Flat Rate Movers, and Martinsburg, Flat Rate Movers Martinsburg WV, never blended), corridors.json (Interstate 81, Interstate 66, Interstate 70) and service-area.geojson (' + areaCov.features + ' features: Winchester footprint ' + areaCov.winchesterFootprint + ' areas, Martinsburg footprint ' + areaCov.martinsburgFootprint + ' areas, ' + areaCov.shared + ' areas shared); the signed AI master index (certificate digests); and the blog question bank (10 categories of the top-10 questions customers actually ask, 100 phrasings). Output: one row per generated query string across five intent classes — ' + classList + '. Rows exist only where the estate has a real page that answers the string; the scope of the rubric is exactly the scope of the published estate, nothing wider.',
+    'What the intent-coverage rubric covers, and from what sources. Inputs: the machine registries services.json (' + R.services.services.length + ' services), pages.json (' + R.pages.pages.length + ' pages), locations.json (the two distinct branches — Winchester, The Flat Rate Movers, and Martinsburg, Flat Rate Movers Martinsburg WV, never blended), corridors.json (Interstate 81, Interstate 66, Interstate 70) and service-area.geojson (' + areaCov.features + ' features: Winchester footprint ' + areaCov.winchesterFootprint + ' areas, Martinsburg footprint ' + areaCov.martinsburgFootprint + ' areas, ' + areaCov.shared + ' areas shared); the signed AI master index (certificate digests); and the blog question bank (10 categories of the top-10 questions customers actually ask, 100 phrasings) and the per-service question bank v2 (' + gen.qb2Count + ' researched questions across all ' + R.services.services.length + ' services, compiled 2026-11-05 from the estate\u2019s own datasets and page FAQs, completed by live search). Output: one row per generated query string across five intent classes — ' + classList + '. Rows exist only where the estate has a real page that answers the string; the scope of the rubric is exactly the scope of the published estate, nothing wider.',
     ['coverage scope', 'service registry', '53 service areas', 'question bank'],
     [{ '@id': SITE + '/#service-catalog' }]);
 
   const d3 = baseNode(
     SITE + '/#dataset-intent-coverage-taxonomy', 'Dataset',
     'The Flat Rate Movers — Intent Taxonomy and Pattern Rules Dataset',
-    'The five intent classes of the rubric and the generation pattern of each. navigational-local: the service phrase with a place ("{phrase} {area}" for every area in the service\u2019s real footprint), the bare phrase, "{phrase} near me", and corridor forms "{phrase} I-81 / I-66 / I-70" for corridor-applicable services. cost: "how much do/does {phrase} cost in {scope}" and "{phrase} cost in {scope}" for the scopes Winchester, VA, Martinsburg, WV and the Shenandoah Valley. how-process: "how to hire {phrase} in {scope}" per scope and "how to book {phrase}". best-choice: "best {phrase} in {scope}" and "top rated {phrase} in {scope}" per scope. ai-question: the question bank\u2019s full natural-language phrasings, mapped to their service, plus "what should I ask before hiring {phrase}" per service. Pattern rules are fixed and bounded: place patterns use the service\u2019s own footprint only, never a blind cross-product of every service with every area.',
+    'The five intent classes of the rubric and the generation pattern of each. navigational-local: the service phrase with a place ("{phrase} {area}" for every area in the service\u2019s real footprint), the bare phrase, "{phrase} near me", and corridor forms "{phrase} I-81 / I-66 / I-70" and "{phrase} I-81 corridor" for corridor-applicable services. cost: "how much do/does {phrase} cost in {area}" and "{phrase} cost in {area}" for every area in the service\u2019s footprint, plus the Winchester, Martinsburg and Shenandoah Valley scopes and the near-me cost forms "{phrase} cost near me" and "how much do/does {phrase} cost near me". how-process: "how to hire {phrase} in {area}" for every footprint area and scope, and "how to book {phrase}". best-choice: "best {phrase} in {area}" and "top rated {phrase} in {area}" for every footprint area and scope, "best {phrase} near me", and "best {phrase} I-81 corridor" forms. ai-question: the blog question bank\u2019s full natural-language phrasings mapped to their service, "what should I ask before hiring {phrase}" per service, and the per-service question bank v2 researched on 2026-11-05 \u2014 unbound questions plus, for place-bound questions, one row per footprint area. Pattern rules are fixed and bounded: place patterns use the service\u2019s own footprint only, never a blind cross-product of every service with every area.',
     ['intent taxonomy', 'navigational-local', 'cost intent', 'how-process', 'best-choice', 'ai-question'],
     [{ '@id': SITE + '/#dataset-intent-coverage-operations' }]);
 
@@ -1970,7 +2040,7 @@ function buildDataset(gen) {
   const d6 = baseNode(
     SITE + '/#dataset-intent-coverage-sources', 'Article',
     'The Flat Rate Movers — Intent Query Sources',
-    'Where the query strings come from. The ai-question rows are the phrasings of the company\u2019s blog question bank (compiled 2026-10-30 from live searches of what people ask about pianos and antiques, ISPM 15 export packing, custom crating, final-mile delivery, industrial offices, government moves, military moves, the I-81 / I-66 / I-70 corridors, transloading and workforce services, and packing), carried verbatim apart from American-spelling normalization. The pattern families — service-plus-place, near-me, cost, how-to-hire, best and top-rated forms — are the standard shapes customers use to search for a mover or a logistics service, instantiated only with this company\u2019s real services, real footprint areas and real corridors. No query string in the rubric names a service, area, certification, price or capability the estate does not publish.',
+    'Where the query strings come from. The ai-question rows are the phrasings of the company\u2019s blog question bank (compiled 2026-10-30 from live searches of what people ask about pianos and antiques, ISPM 15 export packing, custom crating, final-mile delivery, industrial offices, government moves, military moves, the I-81 / I-66 / I-70 corridors, transloading and workforce services, and packing), carried verbatim apart from American-spelling normalization. The pattern families — service-plus-place, near-me, cost, how-to-hire, best and top-rated forms — are the standard shapes customers use to search for a mover or a logistics service, instantiated only with this company\u2019s real services, real footprint areas and real corridors. The per-service question bank v2 was researched on 2026-11-05 from the estate\u2019s own category datasets and page FAQs, completed by live searches of what customers and buyers ask in each category. No query string in the rubric names a service, area, certification, price or capability the estate does not publish.',
     ['question bank', 'query sources', 'customer questions'],
     [{ '@id': SITE + '/#dataset-intent-coverage-operations' }]);
 
@@ -2321,6 +2391,7 @@ function main() {
     excluded: gen.excluded.length,
     excludedByReason: gen.excluded.reduce((a, e) => { a[e.reason] = (a[e.reason] || 0) + 1; return a; }, {}),
     questionBank: { parsed: gen.qbTotal, mapped: gen.qbParsed },
+    questionBankV2: { questions: gen.qb2Count, local: gen.qb2Local },
     rowsDigest: gen.digest,
     datasetNodes: dataset['@graph'].length,
     sql: sqlPath, dataset: datasetPath, rowsFile: rowsPath,

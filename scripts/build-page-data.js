@@ -556,14 +556,23 @@ for (const page of registry) {
     const seenP = new Set(); const fresh = [];
     for (const p of poolP) { const k = norm(p); if (!used.has(k) && !seenP.has(k)) { seenP.add(k); fresh.push(p); } }
     if (fresh.length < 3) continue;
-    const canonical = fresh[0];
-    if (faqNorms.has(norm(canonical))) continue; // FAQ entries carry it below
-    const ans = resolveAnswer(canonical, key);
-    if (!ans || !ans.a) continue;
-    used.add(norm(canonical));
-    const variants = takePhrasings(fresh.slice(1), 4);
-    if (variants.length < 2) continue;
-    questions.push({ q: canonical, variants, a: ans.a, evidence: ans.ev });
+    // DR-2 scan (2026-11-05, Rubric Full-Depth): a cluster is a
+    // phrasing pool, not a single shot — walk the cluster's phrasings
+    // in order until one resolves an answer under DR-4. With the v3
+    // rubric's deep family clusters, the first phrasing is often a
+    // family variant whose answer does not live on this page; the
+    // cluster still holds the page's question in another phrasing.
+    for (let ci = 0; ci < fresh.length; ci++) {
+      const canonical = fresh[ci];
+      if (faqNorms.has(norm(canonical))) continue; // FAQ entries carry it below
+      const ans = resolveAnswer(canonical, key);
+      if (!ans || !ans.a) continue;
+      used.add(norm(canonical));
+      const variants = takePhrasings(fresh.filter((_, j) => j !== ci), 4);
+      if (variants.length < 2) continue;
+      questions.push({ q: canonical, variants, a: ans.a, evidence: ans.ev });
+      break;
+    }
   }
   // 2) the page's FAQ entries, variants from matching clusters (DR-4a)
   for (const f of faqs) {
