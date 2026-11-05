@@ -1,6 +1,6 @@
 {
  "attestation": "Every URL below was fetched from the live sitemap on 2026-10-28; titles and service links come from pageMeta in the live site source. No URL was hand-typed.",
- "count": 254,
+ "count": 255,
  "dataset": "pages",
  "generated": "2026-10-29",
  "pages": [
@@ -3150,6 +3150,17 @@
    "title": "Hoarding Cleanup Dataset",
    "type": "page",
    "url": "https://theflatratemovers.com/datasets/hoarding-cleanup/"
+  },
+  {
+   "attested": "2026-11-05",
+   "lastmod": "2026-11-05",
+   "services": [],
+   "slug": "datasets/b2b-specialty-rubric",
+   "source": "B2B Specialty build 2026-11-05 (frontier C2; rubric core 2026-11-04) — dataset landing for datasets-b2b-specialty-rubric.json",
+   "status": "live",
+   "title": "B2B Specialty Moving Rubric",
+   "type": "page",
+   "url": "https://theflatratemovers.com/datasets/b2b-specialty-rubric/"
   }
  ],
  "source": "https://theflatratemovers.com/sitemap.xml joined to pageMeta in ../the-flat-rate-movers-pages/public/index.html",

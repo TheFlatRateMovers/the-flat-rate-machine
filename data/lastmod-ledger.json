@@ -2,7 +2,7 @@
  "description": "Seal-maintained lastmod ledger: for every sitemap URL, the date of the last seal generation in which its own signed distribution changed. Seeded from the 2026-11-02 crawl-demand audit (doc-level digest history across 73 signed generations); maintained by seal.py phase 6b (diff-stamp vs the phase-0 prior index). build-sitemap.js reads this file for every sitemap <lastmod>.",
  "lastSeal": {
   "date": "2026-11-05",
-  "indexSha256": "261c953f78c158ffb91074b442e432d4efb54da0e368d14184a3d78439b4bc11"
+  "indexSha256": "2905772b71201d293e0feeee8e4a9c114d6abec7a4a56b93ab218e2df71119c9"
  },
  "seededFrom": "crawl-demand-audit-2026-11-02.csv",
  "urls": {
@@ -56,6 +56,7 @@
   "https://theflatratemovers.com/data-center-relocation/": "2026-11-05",
   "https://theflatratemovers.com/datasets-answer-evidence.json": "2026-11-05",
   "https://theflatratemovers.com/datasets-archive-registry.json": "2026-11-04",
+  "https://theflatratemovers.com/datasets-b2b-specialty-rubric.json": "2026-11-05",
   "https://theflatratemovers.com/datasets-catalog-registry.json": "2026-11-05",
   "https://theflatratemovers.com/datasets-commercial.json": "2026-11-05",
   "https://theflatratemovers.com/datasets-crating.json": "2026-11-05",
@@ -105,6 +106,7 @@
   "https://theflatratemovers.com/datasets/": "2026-11-05",
   "https://theflatratemovers.com/datasets/answer-evidence/": "2026-11-05",
   "https://theflatratemovers.com/datasets/archive-registry/": "2026-11-05",
+  "https://theflatratemovers.com/datasets/b2b-specialty-rubric/": "2026-11-05",
   "https://theflatratemovers.com/datasets/catalog-registry/": "2026-11-05",
   "https://theflatratemovers.com/datasets/commercial/": "2026-11-05",
   "https://theflatratemovers.com/datasets/crating/": "2026-11-05",
