@@ -213,7 +213,7 @@ const GENERATOR = 'build-intent-rubric.js';
 // GeoJSON footprint features, zeros published. Generator version
 // stays 2.0.0 (schema 2); the additions are recorded in intent_meta
 // (rollup_rows, rollup_pages, target_pages_covered/total).
-const GENERATOR_VERSION = '3.1.1';
+const GENERATOR_VERSION = '3.1.2';
 const KID = 'theflatratemovers-2026-10-29-1';
 
 // --- Generator configuration (validated against the registries) ---
@@ -1648,30 +1648,40 @@ function generate() {
       const spokes = (V.svcPages.get(SID) || []).filter((s) => s.includes(ts));
       return spokes[0] || HUB[SID];
     };
+    // Dual written forms (v3.1.2): searchers type both "Martinsburg, WV"
+    // and "martinsburg wv" — GSC's observed queries are the no-comma
+    // lowercase forms (the query-8 diagnosis itself). v3.1.0/v3.1.1
+    // emitted only the punctuated feature-name forms, leaving the
+    // exact observed phrases at zero rows and displacing the rollup
+    // rows that used to carry them (the API evidence-serving test
+    // caught the loss). Every R21 form now emits in both forms.
     for (const f of features.filter((x) => x.properties.type === 'city' || x.properties.type === 'branch')) {
       const p = f.properties;
       const target = genericTarget(p);
-      const n = p.name;
-      emit(SID, 'navigational-local', 'movers ' + n, p.id, target, 'R21-generic-movers');
-      emit(SID, 'navigational-local', 'movers in ' + n, p.id, target, 'R21-generic-movers-in');
-      emit(SID, 'navigational-local', 'moving companies ' + n, p.id, target, 'R21-generic-companies');
-      emit(SID, 'navigational-local', 'moving company ' + n, p.id, target, 'R21-generic-company');
-      emit(SID, 'navigational-local', 'local movers ' + n, p.id, target, 'R21-generic-local');
-      emit(SID, 'navigational-local', 'moving services ' + n, p.id, target, 'R21-generic-services');
-      emit(SID, 'best-choice', 'best movers ' + n, p.id, target, 'R21-generic-best');
-      emit(SID, 'best-choice', 'best movers in ' + n, p.id, target, 'R21-generic-best-in');
-      emit(SID, 'best-choice', 'best moving company in ' + n, p.id, target, 'R21-generic-best-company');
-      emit(SID, 'best-choice', 'top rated movers in ' + n, p.id, target, 'R21-generic-top-rated');
-      emit(SID, 'cost', 'how much do movers cost in ' + n, p.id, target, 'R21-generic-cost-howmuch');
-      emit(SID, 'cost', 'movers cost in ' + n, p.id, target, 'R21-generic-cost-noun');
-      emit(SID, 'how-process', 'how to hire movers in ' + n, p.id, target, 'R21-generic-how-hire');
-      emit(SID, 'how-process', 'how to find movers in ' + n, p.id, target, 'R21-generic-how-find');
+      for (const n of [p.name, p.name.replace(/,\s*/g, ' ')]) {
+        emit(SID, 'navigational-local', 'movers ' + n, p.id, target, 'R21-generic-movers');
+        emit(SID, 'navigational-local', 'movers in ' + n, p.id, target, 'R21-generic-movers-in');
+        emit(SID, 'navigational-local', 'moving companies ' + n, p.id, target, 'R21-generic-companies');
+        emit(SID, 'navigational-local', 'moving company ' + n, p.id, target, 'R21-generic-company');
+        emit(SID, 'navigational-local', 'local movers ' + n, p.id, target, 'R21-generic-local');
+        emit(SID, 'navigational-local', 'moving services ' + n, p.id, target, 'R21-generic-services');
+        emit(SID, 'best-choice', 'best movers ' + n, p.id, target, 'R21-generic-best');
+        emit(SID, 'best-choice', 'best movers in ' + n, p.id, target, 'R21-generic-best-in');
+        emit(SID, 'best-choice', 'best moving company in ' + n, p.id, target, 'R21-generic-best-company');
+        emit(SID, 'best-choice', 'top rated movers in ' + n, p.id, target, 'R21-generic-top-rated');
+        emit(SID, 'cost', 'how much do movers cost in ' + n, p.id, target, 'R21-generic-cost-howmuch');
+        emit(SID, 'cost', 'movers cost in ' + n, p.id, target, 'R21-generic-cost-noun');
+        emit(SID, 'how-process', 'how to hire movers in ' + n, p.id, target, 'R21-generic-how-hire');
+        emit(SID, 'how-process', 'how to find movers in ' + n, p.id, target, 'R21-generic-how-find');
+      }
     }
     for (const f of features.filter((x) => x.properties.type === 'county')) {
       const p = f.properties;
       const target = genericTarget(p);
-      emit(SID, 'navigational-local', 'movers in ' + p.name, p.id, target, 'R21-generic-county');
-      emit(SID, 'best-choice', 'best movers in ' + p.name, p.id, target, 'R21-generic-county-best');
+      for (const n of [p.name, p.name.replace(/,\s*/g, ' ')]) {
+        emit(SID, 'navigational-local', 'movers in ' + n, p.id, target, 'R21-generic-county');
+        emit(SID, 'best-choice', 'best movers in ' + n, p.id, target, 'R21-generic-county-best');
+      }
     }
   }
 

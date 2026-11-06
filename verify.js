@@ -1565,7 +1565,7 @@ async function main() {
     const registrySetV = new Set(pages.pages.map((p) => p.url.replace('://www.', '://')));
 
     // I-6: v2 generator version + source accounting + full coverage + evidence window.
-    const i6ok = metaV.generator_version === '3.1.1' && metaV.schema_version === '2' &&
+    const i6ok = metaV.generator_version === '3.1.2' && metaV.schema_version === '2' &&
       parseInt(metaV.row_count, 10) === countsV.rows_n &&
       genSummaryV.rows === countsV.rows_n &&
       parseInt(metaV.page_derived_rows, 10) === genSummaryV.pageDerived.rowsEmitted && genSummaryV.pageDerived.rowsEmitted > 0 &&
@@ -1673,7 +1673,7 @@ async function main() {
     const gateEqV = (pub, dbMap) => !!pub &&
       ['crawled', 'indexed', 'understood', 'corroborated', 'cited-maintained'].every((g) =>
         rollEqV(pub[g], dbMap[g] || {}, ['unknown', 'passed', 'failed', 'not-applicable']));
-    const d8okV = !!d8V && d8V.generatedBy === 'build-intent-rubric.js v3.1.1' &&
+    const d8okV = !!d8V && d8V.generatedBy === 'build-intent-rubric.js v3.1.2' &&
       d8V.rowSources.estateGenerated === countsV.rows_n &&
       d8V.rowSources.pageDerived === parseInt(metaV.page_derived_rows, 10) &&
       d8V.rowSources.gscObservedRows === 0 &&
