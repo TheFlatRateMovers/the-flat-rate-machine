@@ -102,6 +102,7 @@ ops.areaServed = [
 ];
 delete ops.serviceFacts;
 delete ops.process;
+delete ops.completedJob; // rebuilt below as caseNodes -> ops.mentions
 ops.additionalProperty = [
   ap('pricingModel', 'Every job is surveyed and priced at one flat rate in writing before work begins — quoted per job; the flat rate is the standard offer and the guarantee. The delivery level is part of the written scope. Hourly pricing is available when a client asks for it.'),
   ap('territory', 'The full published footprint — all 71 areas in service-area.geojson; the white-glove capability covers every place feature (cities, counties, both branches) in the map.'),
@@ -111,7 +112,7 @@ ops.additionalProperty = [
   ap('fulfillment', 'The company\'s own crews inside the home territory; a vetted partner, coordinated by the company under the same written scope, when a job is outside it.'),
   ap('clientele', 'Brands and manufacturers using the company as a local delivery arm, retailers and big-box stores, shippers and carriers, businesses, and homeowners through those accounts — high-dollar, heavy, or fragile pieces; every job is different.'),
 ];
-ops.completedJob = store.cases.map((c) => ({
+const caseNodes = store.cases.map((c) => ({
   '@type': 'Service',
   name: c.title,
   description: c.story,
@@ -125,6 +126,11 @@ ops.completedJob = store.cases.map((c) => ({
     ap('requirementsMet', c.requirementsMet),
   ],
 }));
+// Validator ruling (2026-11-05): completedJob is not a schema.org property
+// the validator recognizes on a Service — it read as 2 errors on this node,
+// reached through the process HowTo's about link. The cases ride mentions,
+// the carrier the trust ledger proved clean for the same nodes.
+ops.mentions = caseNodes;
 
 // 3. research Dataset node
 const research = {
@@ -226,7 +232,7 @@ const ledger = {
   includedInDataCatalog: template.includedInDataCatalog,
   distribution: template.distribution,
   additionalProperty: Object.entries(store.trustLedger).map(([k, v]) => ap(k, v)),
-  mentions: [...ops.completedJob, {
+  mentions: [...caseNodes, {
     '@type': 'ItemList',
     name: 'Demand corridors — long-distance and white-glove (observed 2026-11-05)',
     description: 'Metropolitan demand signals observed in Cloudflare Web Analytics (top data centers, last 24 hours, 2026-11-05). A demand corridor records where interest in the estate originates; it is not a local service area and adds no town to the service footprint. Long-distance work into these metros rides the interstate contractor model, and white-glove fulfillment outside the home area rides vetted partners — both owner-confirmed scope. The service footprint remains the 71-area Shenandoah Valley / Eastern Panhandle set.',
