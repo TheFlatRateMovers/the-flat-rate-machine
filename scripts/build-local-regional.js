@@ -159,6 +159,20 @@ const boundaries = {
   boundaries: store.boundaries,
 };
 
+// Canonical distributions (2026-11-06): the four deepening nodes inherited a
+// bare 4-entry distribution set from the pre-rekey graph — untyped, no sha256,
+// no self-reference (validator 16-error failure + DC-2/D-2). They carry the
+// template node's canonical distribution set, like every other node here.
+for (const suffix of ['operations', 'terms', 'personas', 'protection-compliance']) {
+  const n = nodes.find((x) => (x['@id'] || '').endsWith(suffix));
+  if (n) n.distribution = JSON.parse(JSON.stringify(template.distribution));
+}
+// validator gate (2026-11-06): every distribution object carries its DataDownload type
+for (const n of nodes) {
+  if (Array.isArray(n.distribution)) for (const d of n.distribution) {
+    if (d && typeof d === 'object' && !d['@type']) d['@type'] = 'DataDownload';
+  }
+}
 nodes.push(research, sources, boundaries);
 if (nodes.length !== 11) fail('expected 11 nodes, got ' + nodes.length);
 doc['@graph'] = nodes;
