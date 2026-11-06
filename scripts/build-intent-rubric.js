@@ -100,6 +100,21 @@
 //      question matches, as R8); questions flagged local carry an
 //      {area} slot and emit once per footprint area under the R2
 //      branch rule.
+//   R20 Flagship binding (Visibility Fix, 2026-11-06): the long-
+//      distance high-value flagship page gets its own cost / best /
+//      how / navigational families at state and region scope, bound
+//      to the flagship itself — the Nov 6 AIO probe found the exact
+//      money query absent everywhere while the flagship carried 2
+//      rows and the branch pages carried the service's intent mass.
+//   R21 Generic-local families (Visibility Fix, 2026-11-06): the
+//      generic mover queries ("movers {town}", "best movers
+//      {town}", "moving companies {town}", cost and hire forms) for
+//      every footprint city and county, bound to the town's own
+//      guide or company page where one exists, else its local-
+//      regional spoke — the probe found the generic Martinsburg
+//      query at position 9.6 with zero exact rubric rows.
+//      Bank entries may also carry an explicit page binding (q.page),
+//      honored by R19 ahead of the slug-match and hub fallbacks.
 //
 // The signed index is read from the deployed public/ tree for
 // distribution membership. Cert digest values are computed from the
@@ -198,7 +213,7 @@ const GENERATOR = 'build-intent-rubric.js';
 // GeoJSON footprint features, zeros published. Generator version
 // stays 2.0.0 (schema 2); the additions are recorded in intent_meta
 // (rollup_rows, rollup_pages, target_pages_covered/total).
-const GENERATOR_VERSION = '3.0.0';
+const GENERATOR_VERSION = '3.1.1';
 const KID = 'theflatratemovers-2026-10-29-1';
 
 // --- Generator configuration (validated against the registries) ---
@@ -750,6 +765,28 @@ const EXTRA_PATTERNS = {
     ['long distance movers to Dallas', 'research', null, 'long-distance-cross-country-moving'],
     ['long distance movers to Los Angeles', 'research', null, 'long-distance-cross-country-moving'],
     ['long distance movers to Ashburn VA', 'research', null, 'long-distance-cross-country-moving'],
+    ['interstate movers for high value items', 'navigational-local', null, 'long-distance-moving-for-high-value-items'],
+    ['long distance movers for antiques', 'navigational-local', null, 'long-distance-moving-for-high-value-items'],
+    ['long distance movers for fine art', 'navigational-local', null, 'long-distance-moving-for-high-value-items'],
+    ['movers with full value protection', 'navigational-local', null, 'long-distance-moving-for-high-value-items'],
+    ['long distance movers with declared value coverage', 'navigational-local', null, 'long-distance-moving-for-high-value-items'],
+    ['fine art long distance movers virginia', 'navigational-local', null, 'long-distance-moving-for-high-value-items'],
+    ['grand piano long distance movers', 'navigational-local', null, 'long-distance-moving-for-high-value-items'],
+    ['best interstate movers for antiques', 'best-choice', null, 'long-distance-moving-for-high-value-items'],
+    ['best long distance movers for pianos', 'best-choice', null, 'long-distance-moving-for-high-value-items'],
+    ['how does full value protection work on a long distance move', 'how-process', null, 'long-distance-moving-for-high-value-items'],
+    ['how to declare high value items to movers', 'how-process', null, 'long-distance-moving-for-high-value-items'],
+    ['how to file a claim against a long distance mover', 'how-process', null, 'long-distance-moving-for-high-value-items'],
+    ['what is the high value inventory form for movers', 'ai-question', null, 'long-distance-moving-for-high-value-items'],
+    ['what is released value on a moving estimate', 'ai-question', null, 'long-distance-moving-for-high-value-items'],
+    ['how long do i have to file a moving claim', 'ai-question', null, 'long-distance-moving-for-high-value-items'],
+    ['what is a delivery spread for long distance movers', 'ai-question', null, 'long-distance-moving-for-high-value-items'],
+    ['what does reasonable dispatch mean for movers', 'ai-question', null, 'long-distance-moving-for-high-value-items'],
+    ['how is a grand piano prepared for a long distance move', 'ai-question', null, 'long-distance-moving-for-high-value-items'],
+    ['when should a piano be tuned after a long distance move', 'ai-question', null, 'long-distance-moving-for-high-value-items'],
+    ['how are antiques protected on a long distance move', 'ai-question', null, 'long-distance-moving-for-high-value-items'],
+    ['long distance moving valuation vs insurance', 'research', null, 'long-distance-moving-for-high-value-items'],
+    ['49 cfr 375 household goods rights', 'research', null, 'long-distance-moving-for-high-value-items'],
   ],
   'service-white-glove': [
     ['white glove delivery Winchester, VA', 'navigational-local', 'scope-winchester', 'white-glove-delivery-winchester-va'],
@@ -1559,12 +1596,82 @@ function generate() {
               ? (branchPage(R, V, serviceId, p.branch) || HUB[serviceId]) : HUB[serviceId];
             emit(serviceId, 'ai-question', text.split('{area}').join(p.name), p.id, target, 'R19-question-bank-v2-local');
           }
+        } else if (q.page && V.pageBySlug.has(q.page)) {
+          emit(serviceId, 'ai-question', text, null, q.page, 'R19-question-bank-v2-bound');
         } else {
           const slug = slugifyQuestion(text);
           const target = (V.svcPages.get(serviceId) || []).includes(slug) ? slug : HUB[serviceId];
           emit(serviceId, 'ai-question', text, null, target, 'R19-question-bank-v2');
         }
       }
+    }
+  }
+
+  // R20 flagship binding (Visibility Fix, 2026-11-06).
+  {
+    const FS = 'long-distance-moving-for-high-value-items';
+    const SID = 'service-long-distance';
+    const scopes = ['Virginia', 'West Virginia', 'the Shenandoah Valley', 'Northern Virginia'];
+    const nav = ['long distance movers for high value items', 'long distance movers for high-value items',
+      'long-distance moving for high-value items', 'long distance moving for high value items',
+      'high value long distance movers', 'long distance movers for antiques and high-value items',
+      'movers for high value items long distance', 'long distance moving for antiques and valuables'];
+    for (const t of nav) emit(SID, 'navigational-local', t, null, FS, 'R20-flagship-nav');
+    for (const sc of scopes) {
+      emit(SID, 'navigational-local', 'long distance movers for high value items in ' + sc, null, FS, 'R20-flagship-nav-scope');
+      emit(SID, 'best-choice', 'best long distance movers for high value items in ' + sc, null, FS, 'R20-flagship-best-scope');
+      emit(SID, 'cost', 'long distance moving cost for high value items in ' + sc, null, FS, 'R20-flagship-cost-scope');
+    }
+    const best = ['best long distance movers for high value items', 'best long distance movers for high-value items',
+      'best movers for antiques and high-value items', 'top rated long distance movers for valuable items',
+      'best long distance movers for antiques'];
+    for (const t of best) emit(SID, 'best-choice', t, null, FS, 'R20-flagship-best');
+    const cost = ['how much does it cost to move high value items long distance',
+      'long distance moving cost for high value items', 'how much do long distance movers charge for high value items',
+      'cost of moving antiques long distance', 'long distance moving quotes for high value items'];
+    for (const t of cost) emit(SID, 'cost', t, null, FS, 'R20-flagship-cost');
+    const how = ['how to move high value items long distance', 'how are high-value items protected on a long-distance move',
+      'how to move antiques long distance safely', 'how to prepare high-value items for a long-distance move',
+      'how does declared value coverage work on a long-distance move'];
+    for (const t of how) emit(SID, 'how-process', t, null, FS, 'R20-flagship-how');
+  }
+
+  // R21 generic-local families (Visibility Fix, 2026-11-06).
+  {
+    const SID = 'service-local-regional';
+    const townSlugOf = (name) => name.toLowerCase().replace(/,\s*/g, '-').replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+    const genericTarget = (p) => {
+      const ts = townSlugOf(p.name);
+      for (const cand of [ts + '-movers-full-service-guide', 'moving-company-' + ts]) {
+        if (V.pageBySlug.has(cand)) return cand;
+      }
+      const spokes = (V.svcPages.get(SID) || []).filter((s) => s.includes(ts));
+      return spokes[0] || HUB[SID];
+    };
+    for (const f of features.filter((x) => x.properties.type === 'city' || x.properties.type === 'branch')) {
+      const p = f.properties;
+      const target = genericTarget(p);
+      const n = p.name;
+      emit(SID, 'navigational-local', 'movers ' + n, p.id, target, 'R21-generic-movers');
+      emit(SID, 'navigational-local', 'movers in ' + n, p.id, target, 'R21-generic-movers-in');
+      emit(SID, 'navigational-local', 'moving companies ' + n, p.id, target, 'R21-generic-companies');
+      emit(SID, 'navigational-local', 'moving company ' + n, p.id, target, 'R21-generic-company');
+      emit(SID, 'navigational-local', 'local movers ' + n, p.id, target, 'R21-generic-local');
+      emit(SID, 'navigational-local', 'moving services ' + n, p.id, target, 'R21-generic-services');
+      emit(SID, 'best-choice', 'best movers ' + n, p.id, target, 'R21-generic-best');
+      emit(SID, 'best-choice', 'best movers in ' + n, p.id, target, 'R21-generic-best-in');
+      emit(SID, 'best-choice', 'best moving company in ' + n, p.id, target, 'R21-generic-best-company');
+      emit(SID, 'best-choice', 'top rated movers in ' + n, p.id, target, 'R21-generic-top-rated');
+      emit(SID, 'cost', 'how much do movers cost in ' + n, p.id, target, 'R21-generic-cost-howmuch');
+      emit(SID, 'cost', 'movers cost in ' + n, p.id, target, 'R21-generic-cost-noun');
+      emit(SID, 'how-process', 'how to hire movers in ' + n, p.id, target, 'R21-generic-how-hire');
+      emit(SID, 'how-process', 'how to find movers in ' + n, p.id, target, 'R21-generic-how-find');
+    }
+    for (const f of features.filter((x) => x.properties.type === 'county')) {
+      const p = f.properties;
+      const target = genericTarget(p);
+      emit(SID, 'navigational-local', 'movers in ' + p.name, p.id, target, 'R21-generic-county');
+      emit(SID, 'best-choice', 'best movers in ' + p.name, p.id, target, 'R21-generic-county-best');
     }
   }
 

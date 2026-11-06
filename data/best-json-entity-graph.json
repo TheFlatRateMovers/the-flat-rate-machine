@@ -2172,7 +2172,7 @@
     "url": "https://theflatratemovers.com/"
    },
    "datePublished": "2026-11-02",
-   "dateModified": "2026-11-05",
+   "dateModified": "2026-11-06",
    "includedInDataCatalog": {
     "@type": "DataCatalog",
     "@id": "https://theflatratemovers.com/datasets/#collection",
@@ -4983,7 +4983,7 @@
    "@id": "https://theflatratemovers.com/datasets/intent-coverage/#dataset",
    "@type": "Dataset",
    "name": "The Flat Rate Movers — Search Intent Coverage Operations Dataset",
-   "description": "The live intent-coverage rubric of The Flat Rate Movers: 24728 generated rows, each one a query string a customer or an AI assistant can use to find a company service, resolved to the exact page that answers it, that page’s per-page JSON, the dataset files behind the answer, and the service’s node in the entity graph. Rows are generated from the estate’s own registries — 34 services, 264 pages, two branch locations, three corridors and the 71-feature service-area footprint — plus the blog question bank’s 100 real question phrasings and the researched per-service question bank v2 (617 questions), and the rubric is regenerated whenever those registries change. Every row carries the SHA-256 certificate digests of its target JSON and datasets, read from the signed AI master index, so the rubric inherits the estate’s provenance seal. Coverage spans all 34 services of both branches, Winchester, VA and Martinsburg, WV, along the I-81, I-66 and I-70 corridors. Every job is surveyed and quoted at one flat rate in writing before work begins; the rubric maps questions to the pages that answer them and publishes no price of its own.",
+   "description": "The live intent-coverage rubric of The Flat Rate Movers: 25517 generated rows, each one a query string a customer or an AI assistant can use to find a company service, resolved to the exact page that answers it, that page’s per-page JSON, the dataset files behind the answer, and the service’s node in the entity graph. Rows are generated from the estate’s own registries — 34 services, 264 pages, two branch locations, three corridors and the 71-feature service-area footprint — plus the blog question bank’s 100 real question phrasings and the researched per-service question bank v2 (684 questions), and the rubric is regenerated whenever those registries change. Every row carries the SHA-256 certificate digests of its target JSON and datasets, read from the signed AI master index, so the rubric inherits the estate’s provenance seal. Coverage spans all 34 services of both branches, Winchester, VA and Martinsburg, WV, along the I-81, I-66 and I-70 corridors. Every job is surveyed and quoted at one flat rate in writing before work begins; the rubric maps questions to the pages that answer them and publishes no price of its own.",
    "url": "https://theflatratemovers.com/datasets/intent-coverage/",
    "sameAs": "https://theflatratemovers.com/datasets/intent-coverage/",
    "identifier": "https://doi.org/10.5281/zenodo.23818766",
@@ -5017,7 +5017,7 @@
      "https://medium.com/@ratemovers"
     ]
    },
-   "dateModified": "2026-11-05",
+   "dateModified": "2026-11-06",
    "temporalCoverage": "2010/2026",
    "spatialCoverage": [
     {
@@ -7695,7 +7695,7 @@
   {
    "@type": "WebPage",
    "@id": "https://theflatratemovers.com/commercial-freight-handling-white-glove-final-mile-services/",
-   "dateModified": "2026-11-05",
+   "dateModified": "2026-11-06",
    "url": "https://theflatratemovers.com/commercial-freight-handling-white-glove-final-mile-services/",
    "name": "Commercial Freight Handling, White-Glove & Final Mile Services",
    "breadcrumb": {
@@ -7763,7 +7763,7 @@
   {
    "@type": "WebPage",
    "@id": "https://theflatratemovers.com/container-deconsolidation-cross-docking-transloading-services-virginia/",
-   "dateModified": "2026-11-05",
+   "dateModified": "2026-11-06",
    "url": "https://theflatratemovers.com/container-deconsolidation-cross-docking-transloading-services-virginia/",
    "name": "Container Deconsolidation, Cross-Docking & Transloading — Virginia",
    "breadcrumb": {
@@ -8123,7 +8123,7 @@
   {
    "@type": "WebPage",
    "@id": "https://theflatratemovers.com/interstate-66-corridor/",
-   "dateModified": "2026-11-05",
+   "dateModified": "2026-11-06",
    "url": "https://theflatratemovers.com/interstate-66-corridor/",
    "name": "Interstate 66 Corridor Moving",
    "breadcrumb": {
@@ -8143,7 +8143,7 @@
   {
    "@type": "WebPage",
    "@id": "https://theflatratemovers.com/interstate-70-corridor/",
-   "dateModified": "2026-11-05",
+   "dateModified": "2026-11-06",
    "url": "https://theflatratemovers.com/interstate-70-corridor/",
    "name": "Interstate 70 Corridor Moving",
    "breadcrumb": {
@@ -8362,7 +8362,7 @@
   {
    "@type": "WebPage",
    "@id": "https://theflatratemovers.com/military-government-moving/",
-   "dateModified": "2026-11-05",
+   "dateModified": "2026-11-06",
    "url": "https://theflatratemovers.com/military-government-moving/",
    "name": "Military & Government Moving",
    "description": "Moves for military households and government offices across the Shenandoah Valley and the Eastern Panhandle — planned in advance around orders, deadlines and operating hours, and quoted at one flat rate in writing. The company performs moves for the FBI, the DEA and other federal agencies, for the U.S. military, and for private-sector clients.",
@@ -8558,7 +8558,7 @@
     "url": "https://theflatratemovers.com/assets/img-15-6ff0065cf230.webp",
     "caption": "Sofas padded in moving blankets and fully sealed in clear stretch wrap, staged cleanly in the living room before loading. · Reference photo."
    },
-   "dateModified": "2026-11-05",
+   "dateModified": "2026-11-06",
    "hasPart": [
     {
      "@type": "WebPageElement",
@@ -9703,7 +9703,7 @@
     "url": "https://theflatratemovers.com/datasets/"
    },
    "datePublished": "2026-11-03",
-   "dateModified": "2026-11-05",
+   "dateModified": "2026-11-06",
    "spatialCoverage": [
     {
      "@type": "Place",
@@ -10740,5 +10740,5 @@
   "howToUse": "Paste this whole script as application/ld+json in the <head> of every rebuilt page, changing only the WebPage name/url, Breadcrumb, and the main Service for that page. Keep Organization, Places, and Catalog identical on every page.",
   "rubric": "See rubric-database-query-model.md: every node must chain by @id, every fact must carry a named source and date, no unverified field may appear."
  },
- "dateModified": "2026-11-05"
+ "dateModified": "2026-11-06"
 }
