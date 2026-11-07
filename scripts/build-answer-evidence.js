@@ -1194,7 +1194,7 @@ function enrichDatasetNodes(nodes, datePublished, variableMeasured, strengthenSC
 
 enrichDatasetNodes(graph, '2026-10-31', ["citationObservations (ourCited, citedUrlsInOrder, answerStatementsAboutUs, engine, date)", "questions (panelState, fragmentBinding, moneyWeight)", "answerFragments (bodyChars, substantive, questionShaped)", "reviewDistributionSnapshots (displayedAverage, displayedCount, platform, branchRef)"], true);
 const doc = { '@context': 'https://schema.org', '@graph': graph };
-const bytes = JSON.stringify(doc, null, 2) + '\n';
+const bytes = JSON.stringify(doc) + '\n'; // compact emit (2026-11-07): pretty emit crossed the 25 MiB Pages per-file limit at 30,209 rows
 if (CHECK) {
   const cur = fs.readFileSync(outPath, 'utf8');
   if (cur !== bytes) { console.error('CHECK FAIL: ' + outPath + ' differs from regeneration'); process.exit(1); }

@@ -102,6 +102,29 @@ def preflight(probe_push=True):
              "(twin check failed — the divergent pair is named "
              "above). Nothing was deployed or pushed. Fix the pair "
              "at its canonical source, re-seal, and publish again.")
+    # Pages per-file size gate (2026-11-07, WV-3 close): Cloudflare
+    # Pages refuses any file over 25 MiB mid-deploy — the Nov 4
+    # shell incident, and datasets-answer-evidence.json crossing at
+    # 30,209 rubric rows the same day this gate was coded. Scan the
+    # whole PUB tree here so the close stops BEFORE any deploy with
+    # the oversized file named, never at Wrangler.
+    oversize = []
+    for dirpath, _dirs, names in os.walk(PUB):
+        for name in names:
+            fp = os.path.join(dirpath, name)
+            sz = os.path.getsize(fp)
+            if sz > 25 * 1024 * 1024:
+                oversize.append((fp, sz))
+    if oversize:
+        named = "; ".join(
+            f"{os.path.relpath(fp, PUB)} is {sz / 1048576:.1f} MiB"
+            for fp, sz in oversize)
+        fail("preflight: file(s) over the 25 MiB Cloudflare Pages "
+             f"per-file limit: {named}. Nothing was deployed or "
+             "pushed. Shrink the file at its generator (compact "
+             "serialization or a designed split), re-seal, and "
+             "publish again.")
+    print("    PUB size scan: no file over the 25 MiB Pages limit")
     # Day-3 drift fix (2026-11-04): the full local verification runs
     # HERE, before anything ships. The figure-drift class (llms.txt
     # and landing figures a generation behind the sealed data,
