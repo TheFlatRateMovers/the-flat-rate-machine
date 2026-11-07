@@ -126,7 +126,18 @@ for (const s of items('services')) SERVICES.set(s.serviceId, { id: s['@id'], nam
 const BOUNDARIES = items('boundaries').map((b) => ({ name: b.name, source: b.source, scope: b.scope }));
 const QUALIFIERS = items('qualifiers');
 const AUDIENCES = items('audiences');
-const AREAS = items('areas');
+const AREAS = items('areas').map((a) => {
+  // Places shape fix (2026-11-07, WV-3): pool area records carry
+  // state/county/postalCode/branchBinding/audiences/services as
+  // additionalProperty entries (validator-clean Place nodes);
+  // fold them back to direct fields for internal use.
+  if (!a.additionalProperty) return a;
+  const out = { ...a };
+  for (const e of a.additionalProperty) {
+    try { out[e.name] = JSON.parse(e.value); } catch { out[e.name] = e.value; }
+  }
+  return out;
+});
 const DOMAIN = items('domain-layer').map((e) => ({
   id: String(e['@id']).split('#').pop(), headline: e.headline, fact: e.fact, detail: e.detail,
   questions: e.questionsItAnswers || [], source: e.source,
