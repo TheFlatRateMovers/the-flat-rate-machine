@@ -1,12 +1,12 @@
 {
  "attestation": "Every URL below was fetched from the live sitemap on 2026-10-28; titles and service links come from pageMeta in the live site source. No URL was hand-typed.",
- "count": 264,
+ "count": 266,
  "dataset": "pages",
  "generated": "2026-10-29",
  "pages": [
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-06",
+   "lastmod": "2026-11-07",
    "services": [],
    "slug": "home",
    "source": "live sitemap.xml + pageMeta in live site source",
@@ -883,7 +883,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-06",
+   "lastmod": "2026-11-07",
    "services": [
     "service-long-distance"
    ],
@@ -1960,7 +1960,7 @@
   },
   {
    "attested": "2026-10-29",
-   "lastmod": "2026-11-06",
+   "lastmod": "2026-11-07",
    "services": [],
    "slug": "videos",
    "source": "live sitemap.xml + pageMeta in live site source",
@@ -2008,7 +2008,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-06",
+   "lastmod": "2026-11-07",
    "services": [
     "service-packing"
    ],
@@ -2021,7 +2021,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-06",
+   "lastmod": "2026-11-07",
    "services": [
     "service-ispm15"
    ],
@@ -2034,7 +2034,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-06",
+   "lastmod": "2026-11-07",
    "services": [
     "service-piano-antique"
    ],
@@ -2047,7 +2047,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-06",
+   "lastmod": "2026-11-07",
    "services": [
     "service-final-mile",
     "service-white-glove"
@@ -2423,7 +2423,7 @@
   },
   {
    "attested": "2026-10-31",
-   "lastmod": "2026-11-06",
+   "lastmod": "2026-11-07",
    "services": [],
    "slug": "datasets/crawl-presence",
    "source": "Retrieval Machine build E5-B1 2026-10-31 (Dossier 05 corpora registry design; generator scripts/build-crawl-presence.js)",
@@ -2434,7 +2434,7 @@
   },
   {
    "attested": "2026-11-03",
-   "lastmod": "2026-11-06",
+   "lastmod": "2026-11-07",
    "services": [],
    "slug": "datasets/catalog-registry",
    "source": "Catalog registry batch 2026-11-03 (Dossier 04 §5 catalog registry design; generator scripts/build-catalog-registry.js)",
@@ -2445,7 +2445,7 @@
   },
   {
    "attested": "2026-11-01",
-   "lastmod": "2026-11-06",
+   "lastmod": "2026-11-07",
    "services": [],
    "slug": "datasets/archive-registry",
    "source": "Retrieval Machine build E6-B1 2026-11-01 (Dossier 06 archives registry design; generator scripts/build-archive-registry.js)",
@@ -2555,7 +2555,7 @@
   },
   {
    "attested": "2026-10-31",
-   "lastmod": "2026-11-06",
+   "lastmod": "2026-11-07",
    "services": [
     "service-crating"
    ],
@@ -2568,7 +2568,7 @@
   },
   {
    "attested": "2026-10-31",
-   "lastmod": "2026-11-06",
+   "lastmod": "2026-11-07",
    "services": [
     "service-route81"
    ],
@@ -2581,7 +2581,7 @@
   },
   {
    "attested": "2026-10-31",
-   "lastmod": "2026-11-06",
+   "lastmod": "2026-11-07",
    "services": [
     "service-transloading"
    ],
@@ -2594,7 +2594,7 @@
   },
   {
    "attested": "2026-10-31",
-   "lastmod": "2026-11-06",
+   "lastmod": "2026-11-07",
    "services": [
     "service-industrial-offices"
    ],
@@ -2607,7 +2607,7 @@
   },
   {
    "attested": "2026-10-31",
-   "lastmod": "2026-11-06",
+   "lastmod": "2026-11-07",
    "services": [
     "service-gun-safe"
    ],
@@ -2644,7 +2644,7 @@
   },
   {
    "attested": "2026-11-02",
-   "lastmod": "2026-11-06",
+   "lastmod": "2026-11-07",
    "services": [
     "service-transloading"
    ],
@@ -2670,7 +2670,7 @@
   },
   {
    "attested": "2026-11-02",
-   "lastmod": "2026-11-06",
+   "lastmod": "2026-11-07",
    "services": [
     "service-long-distance"
    ],
@@ -2683,7 +2683,7 @@
   },
   {
    "attested": "2026-11-02",
-   "lastmod": "2026-11-06",
+   "lastmod": "2026-11-07",
    "services": [
     "service-government"
    ],
@@ -2696,7 +2696,7 @@
   },
   {
    "attested": "2026-11-02",
-   "lastmod": "2026-11-06",
+   "lastmod": "2026-11-07",
    "services": [
     "service-military"
    ],
@@ -2709,7 +2709,7 @@
   },
   {
    "attested": "2026-11-02",
-   "lastmod": "2026-11-06",
+   "lastmod": "2026-11-07",
    "services": [
     "service-crating"
    ],
@@ -2722,7 +2722,7 @@
   },
   {
    "attested": "2026-11-02",
-   "lastmod": "2026-11-06",
+   "lastmod": "2026-11-07",
    "services": [
     "service-piano-antique"
    ],
@@ -2761,7 +2761,7 @@
   },
   {
    "attested": "2026-11-02",
-   "lastmod": "2026-11-06",
+   "lastmod": "2026-11-07",
    "services": [
     "service-final-mile"
    ],
@@ -2774,7 +2774,7 @@
   },
   {
    "attested": "2026-11-02",
-   "lastmod": "2026-11-06",
+   "lastmod": "2026-11-07",
    "services": [
     "service-white-glove"
    ],
@@ -2798,7 +2798,7 @@
   },
   {
    "attested": "2026-11-02",
-   "lastmod": "2026-11-06",
+   "lastmod": "2026-11-07",
    "services": [
     "service-long-distance"
    ],
@@ -2822,7 +2822,7 @@
   },
   {
    "attested": "2026-11-02",
-   "lastmod": "2026-11-06",
+   "lastmod": "2026-11-07",
    "services": [
     "service-transloading"
    ],
@@ -2835,7 +2835,7 @@
   },
   {
    "attested": "2026-11-02",
-   "lastmod": "2026-11-06",
+   "lastmod": "2026-11-07",
    "services": [
     "service-transloading"
    ],
@@ -2848,7 +2848,7 @@
   },
   {
    "attested": "2026-11-03",
-   "lastmod": "2026-11-06",
+   "lastmod": "2026-11-07",
    "services": [
     "service-gun-safe"
    ],
@@ -2861,7 +2861,7 @@
   },
   {
    "attested": "2026-11-03",
-   "lastmod": "2026-11-06",
+   "lastmod": "2026-11-07",
    "services": [],
    "slug": "datasets/vault-door-case-study",
    "source": "Vault Security program case study VC-1 2026-11-03 — dataset landing for datasets-vault-door-case-study.json",
@@ -2872,7 +2872,7 @@
   },
   {
    "attested": "2026-11-03",
-   "lastmod": "2026-11-06",
+   "lastmod": "2026-11-07",
    "services": [],
    "slug": "flat-rate-movers-dataset-estate-citable-doi",
    "source": "Spec C announcement story (News Formula story lane), Launch Protocol 2026-11-03 — announces the 2026-11-02 open-record publications: Zenodo dataset deposit (concept DOI 10.5281/zenodo.23879048), Wikidata items Q141969215 / Q141969268 / Q141969285, OpenStreetMap branch nodes 14340286372 / 14340286373, Hugging Face mirror re-sync, Google Publisher Center publication; byline Henry Pitts Jr., reviewer Henry Pitts",
@@ -2883,7 +2883,7 @@
   },
   {
    "attested": "2026-11-03",
-   "lastmod": "2026-11-06",
+   "lastmod": "2026-11-07",
    "services": [
     "service-gun-safe"
    ],
@@ -2896,7 +2896,7 @@
   },
   {
    "attested": "2026-11-03",
-   "lastmod": "2026-11-06",
+   "lastmod": "2026-11-07",
    "services": [
     "service-piano-antique"
    ],
@@ -2920,7 +2920,7 @@
   },
   {
    "attested": "2026-11-03",
-   "lastmod": "2026-11-06",
+   "lastmod": "2026-11-07",
    "services": [],
    "slug": "datasets/quote-tool",
    "source": "Quote Tool batch 2026-11-03 — dataset landing for datasets-quote-tool.json (form inventory + the eight-check coverage rubric with measured results + the 20-audience guide)",
@@ -2942,7 +2942,7 @@
   },
   {
    "attested": "2026-11-03",
-   "lastmod": "2026-11-06",
+   "lastmod": "2026-11-07",
    "services": [
     "service-transloading",
     "service-freight-rework-transloading",
@@ -2968,7 +2968,7 @@
   },
   {
    "attested": "2026-11-03",
-   "lastmod": "2026-11-06",
+   "lastmod": "2026-11-07",
    "services": [
     "service-transloading",
     "service-freight-rework-transloading",
@@ -2985,7 +2985,7 @@
   },
   {
    "attested": "2026-11-03",
-   "lastmod": "2026-11-06",
+   "lastmod": "2026-11-07",
    "services": [
     "service-logistics-project-management",
     "service-transloading",
@@ -3000,7 +3000,7 @@
   },
   {
    "attested": "2026-11-03",
-   "lastmod": "2026-11-06",
+   "lastmod": "2026-11-07",
    "services": [
     "service-3pl-support",
     "service-industrial-commercial",
@@ -3015,7 +3015,7 @@
   },
   {
    "attested": "2026-11-03",
-   "lastmod": "2026-11-06",
+   "lastmod": "2026-11-07",
    "services": [
     "service-transloading",
     "service-freight-rework-transloading"
@@ -3029,7 +3029,7 @@
   },
   {
    "attested": "2026-11-04",
-   "lastmod": "2026-11-06",
+   "lastmod": "2026-11-07",
    "services": [
     "service-piano-antique"
    ],
@@ -3042,7 +3042,7 @@
   },
   {
    "attested": "2026-11-04",
-   "lastmod": "2026-11-06",
+   "lastmod": "2026-11-07",
    "services": [
     "service-white-glove"
    ],
@@ -3090,7 +3090,7 @@
   },
   {
    "attested": "2026-11-04",
-   "lastmod": "2026-11-06",
+   "lastmod": "2026-11-07",
    "services": [
     "service-vault-door"
    ],
@@ -3278,6 +3278,40 @@
    "title": "Data Center Movers — Martinsburg WV",
    "type": "service",
    "url": "https://theflatratemovers.com/data-center-movers-martinsburg-wv/"
+  },
+  {
+   "attested": "2026-11-07",
+   "lastmod": "2026-11-07",
+   "services": [
+    "service-white-glove",
+    "service-long-distance",
+    "service-sir-heavy",
+    "service-piano-antique",
+    "service-crating"
+   ],
+   "slug": "luxury-estate-relocation-west-virginia",
+   "source": "WV Luxury Estate Program (owner directive 2026-11-06; expansion brief 2026-11-07) — destination page for three gated WV communities + the LERSI index; research database wv-luxury-program/wv-luxury-database.json (2026-11-06). Communities are destinations, not service areas.",
+   "status": "live",
+   "title": "Luxury Estate Relocation — West Virginia",
+   "type": "page",
+   "url": "https://theflatratemovers.com/luxury-estate-relocation-west-virginia/"
+  },
+  {
+   "attested": "2026-11-07",
+   "lastmod": "2026-11-07",
+   "services": [
+    "service-white-glove",
+    "service-long-distance",
+    "service-sir-heavy",
+    "service-piano-antique",
+    "service-crating"
+   ],
+   "slug": "datasets/luxury-estate-relocation",
+   "source": "WV Luxury Estate Program 2026-11-07 — dataset landing for datasets-luxury-estate-relocation.json",
+   "status": "live",
+   "title": "Luxury Estate Relocation Datasets",
+   "type": "page",
+   "url": "https://theflatratemovers.com/datasets/luxury-estate-relocation/"
   }
  ],
  "source": "https://theflatratemovers.com/sitemap.xml joined to pageMeta in ../the-flat-rate-movers-pages/public/index.html",

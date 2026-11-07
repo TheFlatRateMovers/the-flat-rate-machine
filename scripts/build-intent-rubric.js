@@ -309,7 +309,7 @@ const DATASETS = {
   'service-crating': ['datasets-crating.json'],
   'service-transloading': ['datasets-transloading.json', 'datasets-transloading-inland-port.json', 'datasets-ocean-container.json', 'datasets-ports.json', 'datasets-port-of-virginia.json'], // + datasets-port-of-virginia.json in Ports P3 2026-11-03 (per-port dataset seat; gives the /datasets/port-of-virginia/ landing its R13 rows + full coverage)
   'service-final-mile': ['datasets-final-mile.json'],
-  'service-white-glove': ['datasets-white-glove.json'],
+  'service-white-glove': ['datasets-white-glove.json', 'datasets-luxury-estate-relocation.json'],
   'service-office-moving': ['datasets-office.json'],
   'service-industrial-offices': ['datasets-industrial-offices.json'],
   'service-government': ['datasets-government.json'],
@@ -536,6 +536,37 @@ const EXTRA_PATTERNS = {
     ['cross docking near Virginia Inland Port', 'navigational-local', 'scope-winchester', 'cross-docking-services'],
     ['who does cross-docking in Virginia', 'ai-question', 'scope-winchester', 'cross-docking-services'],
     ['who provides cross-docking services near PhilaPort', 'ai-question', 'scope-martinsburg', 'cross-docking-services'],
+    // WV Luxury Estate Program (2026-11-07): LERSI families per DOSSIER S6 —
+    // community-direct, place-anchored luxury, service-led (offered LERSI
+    // only), situation-led, FAQ-shaped. Market-context services generate no
+    // offer-intent rows. Target: the destination hub page.
+    ['movers to The Greenbrier Sporting Club', 'navigational-local', null, 'luxury-estate-relocation-west-virginia'],
+    ['moving company for Greenbrier Sporting Club homes', 'navigational-local', null, 'luxury-estate-relocation-west-virginia'],
+    ['Glade Springs movers', 'navigational-local', null, 'luxury-estate-relocation-west-virginia'],
+    ['movers near Glade Springs WV', 'navigational-local', null, 'luxury-estate-relocation-west-virginia'],
+    ['White Rock Mountain movers', 'navigational-local', null, 'luxury-estate-relocation-west-virginia'],
+    ['moving to The Retreat Caldwell WV', 'navigational-local', null, 'luxury-estate-relocation-west-virginia'],
+    ['luxury movers Lewisburg WV', 'navigational-local', null, 'luxury-estate-relocation-west-virginia'],
+    ['white glove movers White Sulphur Springs WV', 'navigational-local', null, 'luxury-estate-relocation-west-virginia'],
+    ['estate movers Greenbrier County WV', 'navigational-local', null, 'luxury-estate-relocation-west-virginia'],
+    ['high-end moving company Beckley WV area', 'navigational-local', null, 'luxury-estate-relocation-west-virginia'],
+    ['luxury home movers Daniels WV', 'navigational-local', null, 'luxury-estate-relocation-west-virginia'],
+    ['white glove packing and unpacking West Virginia estates', 'navigational-local', null, 'luxury-estate-relocation-west-virginia'],
+    ['custom crating chandeliers movers WV', 'navigational-local', null, 'luxury-estate-relocation-west-virginia'],
+    ['piano movers Greenbrier County', 'navigational-local', null, 'luxury-estate-relocation-west-virginia'],
+    ['gun safe movers Lewisburg WV', 'navigational-local', null, 'luxury-estate-relocation-west-virginia'],
+    ['fine art movers West Virginia', 'navigational-local', null, 'luxury-estate-relocation-west-virginia'],
+    ['new construction furniture delivery gated community WV', 'navigational-local', null, 'luxury-estate-relocation-west-virginia'],
+    ['moving into a gated community West Virginia', 'navigational-local', null, 'luxury-estate-relocation-west-virginia'],
+    ['HOA moving rules gated community delivery', 'navigational-local', null, 'luxury-estate-relocation-west-virginia'],
+    ['delivering furniture to a new build in the mountains WV', 'navigational-local', null, 'luxury-estate-relocation-west-virginia'],
+    ['long distance movers to West Virginia resort communities', 'navigational-local', null, 'luxury-estate-relocation-west-virginia'],
+    ['movers from Virginia to Greenbrier WV', 'navigational-local', null, 'luxury-estate-relocation-west-virginia'],
+    ['can movers get into the Greenbrier Sporting Club gate', 'ai-question', null, 'luxury-estate-relocation-west-virginia'],
+    ['how are deliveries handled at gated communities in WV', 'ai-question', null, 'luxury-estate-relocation-west-virginia'],
+    ['who moves grand pianos into mountain homes in West Virginia', 'ai-question', null, 'luxury-estate-relocation-west-virginia'],
+    ['luxury estate relocation West Virginia', 'navigational-local', null, 'luxury-estate-relocation-west-virginia'],
+    ['estate relocation services index LERSI', 'navigational-local', null, 'datasets/luxury-estate-relocation'],
   ],
   'service-freight-rework-transloading': [
     // Ports P3 Norfolk + Richmond families (2026-11-03)

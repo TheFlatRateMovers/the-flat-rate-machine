@@ -4983,7 +4983,7 @@
    "@id": "https://theflatratemovers.com/datasets/intent-coverage/#dataset",
    "@type": "Dataset",
    "name": "The Flat Rate Movers — Search Intent Coverage Operations Dataset",
-   "description": "The live intent-coverage rubric of The Flat Rate Movers: 26245 generated rows, each one a query string a customer or an AI assistant can use to find a company service, resolved to the exact page that answers it, that page’s per-page JSON, the dataset files behind the answer, and the service’s node in the entity graph. Rows are generated from the estate’s own registries — 34 services, 264 pages, two branch locations, three corridors and the 71-feature service-area footprint — plus the blog question bank’s 100 real question phrasings and the researched per-service question bank v2 (684 questions), and the rubric is regenerated whenever those registries change. Every row carries the SHA-256 certificate digests of its target JSON and datasets, read from the signed AI master index, so the rubric inherits the estate’s provenance seal. Coverage spans all 34 services of both branches, Winchester, VA and Martinsburg, WV, along the I-81, I-66 and I-70 corridors. Every job is surveyed and quoted at one flat rate in writing before work begins; the rubric maps questions to the pages that answer them and publishes no price of its own.",
+   "description": "The live intent-coverage rubric of The Flat Rate Movers: 26258 generated rows, each one a query string a customer or an AI assistant can use to find a company service, resolved to the exact page that answers it, that page’s per-page JSON, the dataset files behind the answer, and the service’s node in the entity graph. Rows are generated from the estate’s own registries — 34 services, 266 pages, two branch locations, three corridors and the 71-feature service-area footprint — plus the blog question bank’s 100 real question phrasings and the researched per-service question bank v2 (684 questions), and the rubric is regenerated whenever those registries change. Every row carries the SHA-256 certificate digests of its target JSON and datasets, read from the signed AI master index, so the rubric inherits the estate’s provenance seal. Coverage spans all 34 services of both branches, Winchester, VA and Martinsburg, WV, along the I-81, I-66 and I-70 corridors. Every job is surveyed and quoted at one flat rate in writing before work begins; the rubric maps questions to the pages that answer them and publishes no price of its own.",
    "url": "https://theflatratemovers.com/datasets/intent-coverage/",
    "sameAs": "https://theflatratemovers.com/datasets/intent-coverage/",
    "identifier": "https://doi.org/10.5281/zenodo.23818766",
@@ -10562,6 +10562,191 @@
     "name": "The Flat Rate Movers — AI Authority Estate Datasets",
     "url": "https://theflatratemovers.com/datasets/"
    }
+  },
+  {
+   "@id": "https://theflatratemovers.com/datasets/luxury-estate-relocation/#dataset-luxury-estate-relocation",
+   "@type": "Dataset",
+   "name": "Luxury Estate Relocation Services Index (LERSI) & West Virginia Luxury Communities",
+   "description": "The destination dataset for luxury estate relocation into three gated West Virginia communities — The Greenbrier Sporting Club (White Sulphur Springs), The Resort at Glade Springs (Daniels), and The Retreat at White Rock Mountain (Caldwell) — served as long-distance destination work from The Flat Rate Movers' Winchester VA and Martinsburg WV branches. The communities are destinations beyond the published service-area footprint; the company claims no past work in them. Each community record carries its sourced operating conditions (credential gates, staffed gatehouse, HOA and architectural-review regimes, mountain terrain, new-construction delivery patterns) and approximate road distances from both branches. The LERSI index states all twenty services with the company's position on each: 12 offered, 3 coordinated, 5 market-context-only (education, never offers).",
+   "keywords": [
+    "luxury estate relocation",
+    "lersi",
+    "greenbrier sporting club",
+    "glade springs",
+    "white rock mountain",
+    "gated community movers",
+    "west virginia",
+    "white glove",
+    "estate movers"
+   ],
+   "about": {
+    "@id": "https://theflatratemovers.com/#service-luxury-estate-relocation"
+   },
+   "spatialCoverage": [
+    {
+     "@type": "Place",
+     "@id": "https://theflatratemovers.com/#winchester",
+     "name": "The Flat Rate Movers — Winchester",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.18711576,
+      "longitude": -78.1668352
+     }
+    },
+    {
+     "@type": "Place",
+     "@id": "https://theflatratemovers.com/#martinsburg",
+     "name": "Flat Rate Movers Martinsburg WV",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.48319665,
+      "longitude": -77.94760443
+     }
+    }
+   ],
+   "temporalCoverage": "2026",
+   "datePublished": "2026-11-07",
+   "dateModified": "2026-11-07",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "url": "https://theflatratemovers.com/datasets/luxury-estate-relocation/",
+   "sameAs": "https://theflatratemovers.com/datasets/luxury-estate-relocation/",
+   "identifier": "https://theflatratemovers.com/datasets/luxury-estate-relocation/",
+   "isAccessibleForFree": true,
+   "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
+   },
+   "hasPart": [
+    {
+     "@id": "https://theflatratemovers.com/datasets/luxury-estate-relocation/#dataset-luxury-estate-community-greenbrier-sporting-club"
+    },
+    {
+     "@id": "https://theflatratemovers.com/datasets/luxury-estate-relocation/#dataset-luxury-estate-community-resort-at-glade-springs"
+    },
+    {
+     "@id": "https://theflatratemovers.com/datasets/luxury-estate-relocation/#dataset-luxury-estate-community-retreat-at-white-rock-mountain"
+    },
+    {
+     "@id": "https://theflatratemovers.com/datasets/luxury-estate-relocation/#dataset-luxury-estate-lersi"
+    }
+   ],
+   "mentions": [
+    {
+     "@id": "https://theflatratemovers.com/datasets/luxury-estate-relocation/#dataset-luxury-estate-lersi",
+     "name": "LERSI 101 — Virtual & In-Home Valuation Surveying"
+    },
+    {
+     "@id": "https://theflatratemovers.com/datasets/luxury-estate-relocation/#dataset-luxury-estate-lersi",
+     "name": "LERSI 102 — Photo Inventory & Digital Asset Cataloging"
+    },
+    {
+     "@id": "https://theflatratemovers.com/datasets/luxury-estate-relocation/#dataset-luxury-estate-lersi",
+     "name": "LERSI 201 — White-Glove Full-Service Packing"
+    },
+    {
+     "@id": "https://theflatratemovers.com/datasets/luxury-estate-relocation/#dataset-luxury-estate-lersi",
+     "name": "LERSI 202 — Partial Packing / Fragile-Only Packing"
+    },
+    {
+     "@id": "https://theflatratemovers.com/datasets/luxury-estate-relocation/#dataset-luxury-estate-lersi",
+     "name": "LERSI 203 — Custom On-Site Crating"
+    },
+    {
+     "@id": "https://theflatratemovers.com/datasets/luxury-estate-relocation/#dataset-luxury-estate-lersi",
+     "name": "LERSI 301 — Fine Art & Antique Relocation"
+    },
+    {
+     "@id": "https://theflatratemovers.com/datasets/luxury-estate-relocation/#dataset-luxury-estate-lersi",
+     "name": "LERSI 303 — Piano & Heavy Instrument Moving"
+    },
+    {
+     "@id": "https://theflatratemovers.com/datasets/luxury-estate-relocation/#dataset-luxury-estate-lersi",
+     "name": "LERSI 304 — Heavy Safe & Vault Logistics"
+    },
+    {
+     "@id": "https://theflatratemovers.com/datasets/luxury-estate-relocation/#dataset-luxury-estate-lersi",
+     "name": "LERSI 402 — Structural Disassembly"
+    },
+    {
+     "@id": "https://theflatratemovers.com/datasets/luxury-estate-relocation/#dataset-luxury-estate-lersi",
+     "name": "LERSI 601 — Complete Structural Reassembly"
+    },
+    {
+     "@id": "https://theflatratemovers.com/datasets/luxury-estate-relocation/#dataset-luxury-estate-lersi",
+     "name": "LERSI 602 — White-Glove Room-by-Room Unpacking"
+    },
+    {
+     "@id": "https://theflatratemovers.com/datasets/luxury-estate-relocation/#dataset-luxury-estate-lersi",
+     "name": "LERSI 603 — Complete Debris & Box Removal"
+    }
+   ],
+   "additionalProperty": [
+    {
+     "@type": "PropertyValue",
+     "name": "destinationCommunities",
+     "value": "The Greenbrier Sporting Club (White Sulphur Springs, Greenbrier County, WV 24986); The Resort at Glade Springs (Daniels, Raleigh County, WV 25832); The Retreat at White Rock Mountain (Caldwell (adjacent to Lewisburg), Greenbrier County, WV 24925)"
+    },
+    {
+     "@type": "PropertyValue",
+     "name": "footprintNote",
+     "value": "These communities are long-distance destinations outside the published service-area footprint (service-area.geojson). They are not service areas, carry no area chips, and add nothing to published area counts."
+    },
+    {
+     "@type": "PropertyValue",
+     "name": "marketNotesLabel",
+     "value": "OWNER-SUPPLIED (Henry Pitts, 2026-11-06) — market research data, not a company claim and not independently warranted"
+    },
+    {
+     "@type": "PropertyValue",
+     "name": "retreatLotBandOwnerSupplied",
+     "value": "$55,000–$145,000 for raw mountain lots"
+    },
+    {
+     "@type": "PropertyValue",
+     "name": "retreatCompletedHomesBandOwnerSupplied",
+     "value": "$750,000 to over $1,000,000+"
+    },
+    {
+     "@type": "PropertyValue",
+     "name": "retreatDemandShape",
+     "value": "Many owners purchase lots to build later; moving-service demand concentrates on brand-new luxury construction deliveries rather than standard residential turnovers."
+    },
+    {
+     "@type": "PropertyValue",
+     "name": "servicePage",
+     "value": "https://theflatratemovers.com/luxury-estate-relocation-west-virginia/"
+    }
+   ]
   }
  ],
  "_humanSummary": "This is the best JSON for The Flat Rate Movers: one @graph, stable @ids, Organization chained to two Places, each Place carrying its full footprint (Winchester 32 areas, Martinsburg 35, shared 14) with the Google Business Profile subset (Winchester 17, Martinsburg 14) also carried as named City nodes, each Service chained to the Organization and to its branch Place or Places, per-branch Google ratings (Winchester 5.0 with 1 review, Martinsburg 4.7 with 6 reviews, never blended), founding June 2010, geo, hours, sameAs, and no license, price, testimonial, or move count. Humans read the names, addresses, and service lists; machines follow the @ids. 2026-10-28: 24 new branch and corridor pages added, each with Service JSON-LD, logo image, and backlinks.",
