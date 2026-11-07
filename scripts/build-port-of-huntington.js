@@ -94,7 +94,7 @@ const coverageDataset = {
   'includedInDataCatalog': catalogRef,
   'spatialCoverage': BRANCH_PLACES,
   'keywords': 'service coverage, Port of Huntington Tri-State, delivery points, branch binding, transloading coverage, Winchester VA',
-  'coverageMatrix': cells,
+  'additionalProperty': [{ '@type': 'PropertyValue', 'name': 'coverageMatrix', 'value': JSON.stringify(cells) }],
   'distribution': [selfDownload],
 };
 

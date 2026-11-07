@@ -186,7 +186,29 @@ function portDescription(p) {
 }
 
 function portNode(p) {
-  const node = {
+  // Node-shape fix (2026-11-07, Henry's order): the port facts
+  // schema.org does not define for Place (authority, operator,
+  // terminals, cargo, rail, corridors, FTZ, volumes, status,
+  // branch binding, sources, last-verified) ride as
+  // additionalProperty PropertyValue entries — lossless, and the
+  // served node validates clean on validator.schema.org.
+  // verify.js PB-1/PB-2 read them back from additionalProperty.
+  const ext = [
+    ['portAuthority', p.authorityName],
+    ['operator', p.operatorName],
+    ['terminals', p.terminals],
+    ['cargoSpecialties', p.cargoSpecialties],
+    ['railService', p.railService],
+    ['corridors', p.corridors],
+  ];
+  if (p.ftz) ext.push(['ftz', p.ftz]);
+  if (p.customsPortOfEntry) ext.push(['customsPortOfEntry', true]);
+  ext.push(['volumes', p.volumes || []]);
+  ext.push(['statusItems', p.statusItems || []]);
+  ext.push(['branchBinding', p.branchBinding]);
+  ext.push(['sources', p.sources]);
+  ext.push(['lastVerified', p.lastVerified]);
+  return {
     '@type': 'Place',
     '@id': SITE + '/datasets/ports/#' + p.id,
     'name': p.name,
@@ -194,21 +216,11 @@ function portNode(p) {
     'description': portDescription(p),
     'address': Object.assign({ '@type': 'PostalAddress' }, p.address),
     'geo': { '@type': 'GeoCoordinates', 'latitude': p.geo.latitude, 'longitude': p.geo.longitude },
-    'portAuthority': p.authorityName,
-    'operator': p.operatorName,
-    'terminals': p.terminals,
-    'cargoSpecialties': p.cargoSpecialties,
-    'railService': p.railService,
-    'corridors': p.corridors,
+    'additionalProperty': ext.map(([name, v]) => ({
+      '@type': 'PropertyValue', 'name': name,
+      'value': (typeof v === 'string') ? v : JSON.stringify(v),
+    })),
   };
-  if (p.ftz) node.ftz = p.ftz;
-  if (p.customsPortOfEntry) node.customsPortOfEntry = true;
-  node.volumes = p.volumes || [];
-  node.statusItems = p.statusItems || [];
-  node.branchBinding = p.branchBinding;
-  node.sources = p.sources;
-  node.lastVerified = p.lastVerified;
-  return node;
 }
 
 function datasetShell(idSuffix, name, description) {
@@ -248,7 +260,9 @@ for (const f of ['ai-sitemap.json', 'entity-graph.json', 'best-json-entity-graph
 
 const matrix = datasetShell('dataset-ports-coverage', 'Ports Service Coverage Matrix Dataset', MATRIX_DESC);
 matrix.keywords = 'service coverage matrix, port services, delivery points, branch binding, transloading coverage, cross-docking coverage, 3PL support coverage';
-matrix.coverageMatrix = db.serviceCoverage;
+// Node-shape fix (2026-11-07): coverageMatrix is not a schema.org
+// Dataset property — it rides as an additionalProperty entry.
+matrix.additionalProperty = [{ '@type': 'PropertyValue', 'name': 'coverageMatrix', 'value': JSON.stringify(db.serviceCoverage) }];
 matrix.distribution = [
   { '@type': 'DataDownload', 'name': 'datasets-ports.json — this file', 'contentUrl': FILE_URL, 'encodingFormat': 'application/json' },
 ];

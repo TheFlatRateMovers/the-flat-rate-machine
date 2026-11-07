@@ -2,7 +2,7 @@
  "description": "Seal-maintained lastmod ledger: for every sitemap URL, the date of the last seal generation in which its own signed distribution changed. Seeded from the 2026-11-02 crawl-demand audit (doc-level digest history across 73 signed generations); maintained by seal.py phase 6b (diff-stamp vs the phase-0 prior index). build-sitemap.js reads this file for every sitemap <lastmod>.",
  "lastSeal": {
   "date": "2026-11-07",
-  "indexSha256": "60c7c4d567158be7979667b467df438eb262d36bc9c9f09354238c9174c3745e"
+  "indexSha256": "9e04f33f48b7ff0a488c3fdd2e2501093b423ac7ac2ac0b7ee3efbda56467ebf"
  },
  "seededFrom": "crawl-demand-audit-2026-11-02.csv",
  "urls": {
@@ -92,7 +92,7 @@
   "https://theflatratemovers.com/datasets-page-data-pool.json": "2026-11-07",
   "https://theflatratemovers.com/datasets-piano-antique.json": "2026-11-07",
   "https://theflatratemovers.com/datasets-port-of-huntington.json": "2026-11-07",
-  "https://theflatratemovers.com/datasets-port-of-virginia.json": "2026-11-04",
+  "https://theflatratemovers.com/datasets-port-of-virginia.json": "2026-11-07",
   "https://theflatratemovers.com/datasets-ports.json": "2026-11-07",
   "https://theflatratemovers.com/datasets-quote-tool.json": "2026-11-04",
   "https://theflatratemovers.com/datasets-residential.json": "2026-11-07",

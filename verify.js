@@ -4296,6 +4296,13 @@ async function main() {
     const dsPorts = portNodesOf(dsPB);
     const egPorts = portNodesOf(egPB);
     const bgPorts = portNodesOf(bgPB);
+    // Node-shape fix (2026-11-07): port extension facts ride as
+    // additionalProperty entries on the Place nodes; read them back.
+    const extOf = (n, name) => {
+      const e = ((n && n.additionalProperty) || []).find((x) => x && x.name === name);
+      if (!e) return undefined;
+      try { return JSON.parse(e.value); } catch { return e.value; }
+    };
 
     // PB-1: binding consistency — database binding map, dataset port
     // nodes, graph port nodes and every coverage cell must agree.
@@ -4308,8 +4315,9 @@ async function main() {
         for (const [label, m] of [['dataset', dsPorts], ['entity graph', egPorts], ['best graph', bgPorts]]) {
           const n = m.get(p.id);
           if (!n) { bad.push(p.id + ': missing from ' + label); continue; }
-          if (!n.branchBinding || n.branchBinding.branch !== p.branchBinding.branch) bad.push(p.id + ': branch in ' + label);
-          if (n.branchBinding && n.branchBinding.bindingBasis !== p.branchBinding.bindingBasis) bad.push(p.id + ': basis in ' + label);
+          const bb = extOf(n, 'branchBinding');
+          if (!bb || bb.branch !== p.branchBinding.branch) bad.push(p.id + ': branch in ' + label);
+          if (bb && bb.bindingBasis !== p.branchBinding.bindingBasis) bad.push(p.id + ': basis in ' + label);
         }
       }
       for (const c of dbPB.serviceCoverage || []) {
@@ -4330,8 +4338,9 @@ async function main() {
         for (const [label, m] of [['dataset', dsPorts], ['entity graph', egPorts], ['best graph', bgPorts]]) {
           const n = m.get(p.id);
           if (!n) continue;
-          if (!Array.isArray(n.sources) || !n.sources.length) bad.push(p.id + ': no sources in ' + label);
-          const dv = n.volumes || [];
+          const nSources = extOf(n, 'sources');
+          if (!Array.isArray(nSources) || !nSources.length) bad.push(p.id + ': no sources in ' + label);
+          const dv = extOf(n, 'volumes') || [];
           if (dv.length !== (p.volumes || []).length) bad.push(p.id + ': volume count in ' + label + ' (' + dv.length + ' != ' + (p.volumes || []).length + ')');
           for (const v of dv) {
             if (!(p.volumes || []).some((w) => w.value === v.value && w.unit === v.unit && w.period === v.period)) {
