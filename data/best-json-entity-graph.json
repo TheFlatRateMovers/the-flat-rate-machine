@@ -1866,8 +1866,7 @@
     },
     {
      "@id": "https://theflatratemovers.com/#landmark-interstate-70-corridor"
-    }
-   ,
+    },
     {
      "@id": "https://theflatratemovers.com/#place-ashburn-va"
     },
@@ -1921,7 +1920,8 @@
     },
     {
      "@id": "https://theflatratemovers.com/#place-washington-dc"
-    }],
+    }
+   ],
    "description": "White-Glove Delivery — the top level of final-mile delivery and the handling standard for high-value, fragile and heavy pieces: brought in on a planned route, carried over the threshold, set in its final position, packaging removed, and condition verified with the recipient before the crew leaves — never left at a curb. Pieces are protected in padded blankets and stretch wrap, or in a custom crate when the piece requires it; heavy pieces of 1,500 to 3,500 lbs are surveyed and floor-checked to L/360 under SIR Structural Integrity Relocation and the KIM-GS Protocol. Offered from both branches across the full published footprint — all 53 GeoJSON service areas, Winchester VA and Martinsburg WV. Quoted at one flat rate in writing before dispatch. Guaranteed Flat Rate or Your Move is Free!",
    "url": "https://theflatratemovers.com/white-glove-delivery/"
   },
@@ -3299,6 +3299,173 @@
     "https://d-r-s.com/Philadelphia.aspx"
    ],
    "lastVerified": "2026-11-02"
+  },
+  {
+   "@type": "Place",
+   "@id": "https://theflatratemovers.com/datasets/ports/#port-of-huntington-tri-state",
+   "name": "Port of Huntington Tri-State",
+   "alternateName": "Port of Huntington (Tri-State)",
+   "description": "Port of Huntington Tri-State (Huntington, WV) — inland river port district (barge, bulk, breakbulk) — a U.S. Port Statistical Area spanning the Ohio, Kanawha and Big Sandy rivers in West Virginia, Ohio and Kentucky. Authority: Huntington District Waterways Association (the district is a Port Statistical Area, not a single port authority). Operator: Multiple private terminal and dock operators across the district (no single operator). Cargo: coal and lignite; gasoline, distillate fuel oil and petroleum products; chemicals; limestone and aggregates; steel-related cargo; crude materials. Rail: Norfolk Southern — serves the Ohio-side docks; mainline on the WV shore of the Big Sandy; CSX — serves the district; mainline on the KY shore of the Big Sandy. Highway corridors: US-52, I-64, US-23, US-60, US-32. Volume (CY2023, calendar): 29,699,657 short tons — Port Statistical Area basis — the district moves tens of millions of tons annually on every published basis; this is the USACE figure on the PSA basis (source: USACE Top-50 ports list (2023), via WV program research verification 2026-11-07). Branch binding: this port is served from the Winchester, VA branch of The Flat Rate Movers — about 312.8 road miles from Winchester and 359 from Martinsburg; bound to Winchester on miles. about 45 mi closer from Winchester (measured range 357.7-360.4 mi from Martinsburg).",
+   "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Huntington",
+    "addressRegion": "WV",
+    "addressCountry": "US"
+   },
+   "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 38.41925,
+    "longitude": -82.44515
+   },
+   "portAuthority": "Huntington District Waterways Association (the district is a Port Statistical Area, not a single port authority)",
+   "operator": "Multiple private terminal and dock operators across the district (no single operator)",
+   "terminals": [
+    {
+     "name": "Marathon Petroleum Catlettsburg Refinery docks",
+     "port": "port-of-huntington-tri-state",
+     "operatorName": "Marathon Petroleum",
+     "cargoTypes": [
+      "petroleum products",
+      "crude oil"
+     ],
+     "specs": [
+      {
+       "label": "Docks",
+       "value": "three docks on the west bank of the Big Sandy River, about 2 mi south of the Ohio River, at the I-64 / US-23 junction",
+       "source": "Kentucky Transportation Cabinet Maritime doc M-23, Feb 2025, via WV program research verification 2026-11-07"
+      },
+      {
+       "label": "Operations",
+       "value": "refinery processes crude into gasoline, distillates, asphalt, NGLs and petrochemicals; Marathon also runs inland marine operations and a Marine Repair Facility at Catlettsburg",
+       "source": "WV program research verification 2026-11-07"
+      }
+     ],
+     "railAccess": {
+      "railroads": [
+       "Norfolk Southern",
+       "CSX"
+      ],
+      "onDock": false,
+      "note": "Big Sandy: NS mainline on the WV shore, CSX on the KY shore"
+     },
+     "gateHours": null
+    },
+    {
+     "name": "McGinnis Inc. — South Point",
+     "port": "port-of-huntington-tri-state",
+     "operatorName": "McGinnis Inc.",
+     "cargoTypes": [
+      "barge repair",
+      "marine services"
+     ],
+     "specs": [
+      {
+       "label": "Facilities",
+       "value": "headquarters at South Point, OH near the Big Sandy mouth: barge repair plus a fully enclosed blast-and-paint facility",
+       "source": "Professional Mariner, via WV program research verification 2026-11-07"
+      }
+     ],
+     "railAccess": {
+      "railroads": [
+       "Norfolk Southern",
+       "CSX"
+      ],
+      "onDock": false
+     },
+     "gateHours": null
+    },
+    {
+     "name": "Ohio-side freight docks (district reach)",
+     "port": "port-of-huntington-tri-state",
+     "operatorName": "Multiple private operators",
+     "cargoTypes": [
+      "coal",
+      "petroleum products",
+      "chemicals",
+      "aggregates",
+      "steel"
+     ],
+     "specs": [
+      {
+       "label": "Active freight docks (Ohio side, 2022)",
+       "value": "18 active freight docks handling 7.2M tons; 12 of the 18 have rail access",
+       "source": "Ohio DOT Port Statistical Area profile, via WV program research verification 2026-11-07"
+      }
+     ],
+     "railAccess": {
+      "railroads": [
+       "Norfolk Southern",
+       "CSX"
+      ],
+      "onDock": false,
+      "note": "NS primarily serves the Ohio-side docks"
+     },
+     "gateHours": null
+    }
+   ],
+   "cargoSpecialties": [
+    "coal and lignite",
+    "gasoline, distillate fuel oil and petroleum products",
+    "chemicals",
+    "limestone and aggregates",
+    "steel-related cargo",
+    "crude materials"
+   ],
+   "railService": [
+    {
+     "railroad": "Norfolk Southern",
+     "qualifier": "serves the Ohio-side docks; mainline on the WV shore of the Big Sandy"
+    },
+    {
+     "railroad": "CSX",
+     "qualifier": "serves the district; mainline on the KY shore of the Big Sandy"
+    }
+   ],
+   "corridors": [
+    "US-52",
+    "I-64",
+    "US-23",
+    "US-60",
+    "US-32"
+   ],
+   "volumes": [
+    {
+     "value": 29699657,
+     "unit": "short tons",
+     "period": "CY2023",
+     "fiscalOrCalendar": "calendar",
+     "scope": "Port Statistical Area basis — the district moves tens of millions of tons annually on every published basis; this is the USACE figure on the PSA basis",
+     "source": "USACE Top-50 ports list (2023), via WV program research verification 2026-11-07"
+    }
+   ],
+   "statusItems": [
+    {
+     "title": "District form",
+     "state": "The Port of Huntington Tri-State is a Port Statistical Area overseen by the Huntington District Waterways Association — 100 navigable miles on the Ohio River, 90 on the Kanawha and 9 on the Big Sandy (199 total), anchored by Huntington and Kenova, WV, Catlettsburg, KY and South Point, OH. It is not a single port authority, and no port tenancy or authority relationship is claimed.",
+     "asOf": "2026-11-07",
+     "source": "Ohio DOT PSA profile; U.S. EPA port fact sheet; HDWA (huntingtonwaterways.com), via WV program research verification 2026-11-07"
+    }
+   ],
+   "branchBinding": {
+    "branch": "winchester",
+    "bindingBasis": "miles",
+    "milesFromWinchester": 312.8,
+    "timeFromWinchester": "5:46",
+    "milesFromMartinsburg": 359,
+    "timeFromMartinsburg": "about 6:00",
+    "routeFromBindingBranch": "I-81 S to I-64 W (Lexington, VA) to Huntington",
+    "marginNote": "about 45 mi closer from Winchester (measured range 357.7-360.4 mi from Martinsburg)",
+    "branchPageUrl": "https://theflatratemovers.com/locations/winchester-va/"
+   },
+   "sources": [
+    "https://huntingtonwaterways.com",
+    "https://en.wikipedia.org/wiki/Port_of_Huntington_Tri-State",
+    "Ohio DOT Port Statistical Area profile (Port of Huntington Tri-State)",
+    "U.S. EPA port fact sheet — Port of Huntington Tri-State",
+    "USACE Top-50 ports list, 2023",
+    "Kentucky Transportation Cabinet Maritime doc M-23 (Feb 2025)"
+   ],
+   "lastVerified": "2026-11-07"
   },
   {
    "@id": "https://theflatratemovers.com/blog/#blog",
@@ -4983,7 +5150,7 @@
    "@id": "https://theflatratemovers.com/datasets/intent-coverage/#dataset",
    "@type": "Dataset",
    "name": "The Flat Rate Movers — Search Intent Coverage Operations Dataset",
-   "description": "The live intent-coverage rubric of The Flat Rate Movers: 26258 generated rows, each one a query string a customer or an AI assistant can use to find a company service, resolved to the exact page that answers it, that page’s per-page JSON, the dataset files behind the answer, and the service’s node in the entity graph. Rows are generated from the estate’s own registries — 34 services, 266 pages, two branch locations, three corridors and the 71-feature service-area footprint — plus the blog question bank’s 100 real question phrasings and the researched per-service question bank v2 (684 questions), and the rubric is regenerated whenever those registries change. Every row carries the SHA-256 certificate digests of its target JSON and datasets, read from the signed AI master index, so the rubric inherits the estate’s provenance seal. Coverage spans all 34 services of both branches, Winchester, VA and Martinsburg, WV, along the I-81, I-66 and I-70 corridors. Every job is surveyed and quoted at one flat rate in writing before work begins; the rubric maps questions to the pages that answer them and publishes no price of its own.",
+   "description": "The live intent-coverage rubric of The Flat Rate Movers: 26279 generated rows, each one a query string a customer or an AI assistant can use to find a company service, resolved to the exact page that answers it, that page’s per-page JSON, the dataset files behind the answer, and the service’s node in the entity graph. Rows are generated from the estate’s own registries — 34 services, 268 pages, two branch locations, three corridors and the 71-feature service-area footprint — plus the blog question bank’s 100 real question phrasings and the researched per-service question bank v2 (684 questions), and the rubric is regenerated whenever those registries change. Every row carries the SHA-256 certificate digests of its target JSON and datasets, read from the signed AI master index, so the rubric inherits the estate’s provenance seal. Coverage spans all 34 services of both branches, Winchester, VA and Martinsburg, WV, along the I-81, I-66 and I-70 corridors. Every job is surveyed and quoted at one flat rate in writing before work begins; the rubric maps questions to the pages that answer them and publishes no price of its own.",
    "url": "https://theflatratemovers.com/datasets/intent-coverage/",
    "sameAs": "https://theflatratemovers.com/datasets/intent-coverage/",
    "identifier": "https://doi.org/10.5281/zenodo.23818766",
@@ -9769,211 +9936,211 @@
     "@id": "https://theflatratemovers.com/#service-port-of-virginia-logistics"
    }
   },
- {
+  {
    "@id": "https://theflatratemovers.com/#service-port-logistics",
    "@type": "Service",
    "areaServed": [
-     {
-       "@id": "https://theflatratemovers.com/#winchester"
-     },
-     {
-       "@id": "https://theflatratemovers.com/#martinsburg"
-     }
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
    ],
    "description": "The Flat Rate Movers' port and intermodal logistics program: eight attached services — transloading, ocean container packing and unpacking (stuffing, destuffing, devanning), loading and unloading / container labor, cross-docking, freight rework, specialized workforce crews, logistics project management and 3PL support services — at six ports, each bound to exactly one branch by measured road distance: Virginia Inland Port, Port of Virginia (Norfolk) and Richmond Marine Terminal to Winchester, VA; Port of Baltimore, Port of Wilmington (DE) and PhilaPort to Martinsburg, WV (PhilaPort on drive time only — road miles are tied and no mileage advantage is claimed). Work happens at port-adjacent warehouses, receivers' docks, yards and leased space; on-terminal only by arrangement. The company runs no port drayage, holds no tenancy at any terminal and claims no port-authority relationship. Every engagement is surveyed and scoped in full, quoted at one flat rate — the standard offer and guarantee; hourly pricing is available when a client asks for it.",
    "isRelatedTo": [
-     {
-       "@id": "https://theflatratemovers.com/#service-transloading"
-     },
-     {
-       "@id": "https://theflatratemovers.com/#service-logistics-project-management"
-     },
-     {
-       "@id": "https://theflatratemovers.com/#service-3pl-support"
-     },
-     {
-       "@id": "https://theflatratemovers.com/datasets/ports/#dataset-ports"
-     }
+    {
+     "@id": "https://theflatratemovers.com/#service-transloading"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-logistics-project-management"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-3pl-support"
+    },
+    {
+     "@id": "https://theflatratemovers.com/datasets/ports/#dataset-ports"
+    }
    ],
    "name": "Port & Intermodal Logistics Services",
    "provider": {
-     "@id": "https://theflatratemovers.com/#organization"
+    "@id": "https://theflatratemovers.com/#organization"
    },
    "serviceType": "Port and intermodal logistics support program: transloading; ocean container packing and unpacking; container labor; cross-docking; freight rework; specialized workforce; logistics project management; 3PL support services — at six ports, each bound to one branch",
    "url": "https://theflatratemovers.com/port-logistics/"
- },
- {
+  },
+  {
    "@type": "WebPage",
    "@id": "https://theflatratemovers.com/port-logistics/#webpage",
    "url": "https://theflatratemovers.com/port-logistics/",
    "name": "The Flat Rate Movers — Port & Intermodal Logistics Services",
    "isPartOf": {
-     "@id": "https://theflatratemovers.com/#website"
+    "@id": "https://theflatratemovers.com/#website"
    },
    "about": [
-     {
-       "@id": "https://theflatratemovers.com/#service-port-logistics"
-     }
+    {
+     "@id": "https://theflatratemovers.com/#service-port-logistics"
+    }
    ],
    "inLanguage": "en-US",
    "description": "Port & Intermodal Logistics — the front door to The Flat Rate Movers’ six-port program: the binding map (Virginia Inland Port, Norfolk and Richmond from Winchester; Baltimore, Wilmington and PhilaPort from Martinsburg — Philadelphia on drive time, miles tied), the eight attached services, and the route to every port hub and dataset. No drayage; one flat rate per job.",
    "mainEntity": {
-     "@id": "https://theflatratemovers.com/#service-port-logistics"
+    "@id": "https://theflatratemovers.com/#service-port-logistics"
    }
- },
- {
+  },
+  {
    "@id": "https://theflatratemovers.com/#service-logistics-project-management",
    "@type": "Service",
    "areaServed": [
-     {
-       "@id": "https://theflatratemovers.com/#winchester"
-     },
-     {
-       "@id": "https://theflatratemovers.com/#martinsburg"
-     }
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
    ],
    "description": "Logistics project management scoped to port, warehouse and industrial project work: survey, full scope, crew and sequence plan, supervised execution and closeout for container programs, warehouse load-outs and resets, surge programs, freight-rework campaigns and port-adjacent staging projects around the six ports the company serves — Virginia Inland Port, Port of Virginia and Richmond Marine Terminal from the Winchester branch; Port of Baltimore, Port of Wilmington and PhilaPort from the Martinsburg branch. Work happens at port-adjacent warehouses, receivers' docks, yards and leased space; on-terminal only by arrangement. Support and execution, never drayage: freight moves on the customer's or carrier's trucks. Surveyed and scoped in full, quoted at one flat rate — the company's standard offer and guarantee; hourly pricing is available when a client asks for it.",
    "isRelatedTo": [
-     {
-       "@id": "https://theflatratemovers.com/#service-transloading"
-     },
-     {
-       "@id": "https://theflatratemovers.com/#service-freight-rework-transloading"
-     },
-     {
-       "@id": "https://theflatratemovers.com/#service-industrial-commercial"
-     },
-     {
-       "@id": "https://theflatratemovers.com/datasets/ports/#dataset-ports-coverage"
-     }
+    {
+     "@id": "https://theflatratemovers.com/#service-transloading"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-freight-rework-transloading"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-industrial-commercial"
+    },
+    {
+     "@id": "https://theflatratemovers.com/datasets/ports/#dataset-ports-coverage"
+    }
    ],
    "name": "Logistics Project Management",
    "provider": {
-     "@id": "https://theflatratemovers.com/#organization"
+    "@id": "https://theflatratemovers.com/#organization"
    },
    "serviceType": "Logistics project management for port, warehouse and industrial projects: survey, scope, crew and sequence planning, supervised execution, closeout",
    "url": "https://theflatratemovers.com/logistics-project-management/"
- },
- {
+  },
+  {
    "@type": "WebPage",
    "@id": "https://theflatratemovers.com/logistics-project-management/#webpage",
    "url": "https://theflatratemovers.com/logistics-project-management/",
    "name": "The Flat Rate Movers — Logistics Project Management",
    "isPartOf": {
-     "@id": "https://theflatratemovers.com/#website"
+    "@id": "https://theflatratemovers.com/#website"
    },
    "about": [
-     {
-       "@id": "https://theflatratemovers.com/#service-logistics-project-management"
-     }
+    {
+     "@id": "https://theflatratemovers.com/#service-logistics-project-management"
+    }
    ],
    "inLanguage": "en-US",
    "description": "Logistics Project Management — one accountable plan for port and warehouse project work: survey, full scope, crew & sequence plan, supervised execution and closeout for container programs, warehouse resets, surge programs and rework campaigns at the six ports The Flat Rate Movers serves, run from the bound branch (Winchester for the Virginia ports, Martinsburg for Baltimore, Wilmington and PhilaPort). One flat rate per project; no drayage; crews hold TWIC cards.",
    "mainEntity": {
-     "@id": "https://theflatratemovers.com/#service-logistics-project-management"
+    "@id": "https://theflatratemovers.com/#service-logistics-project-management"
    }
- },
- {
+  },
+  {
    "@id": "https://theflatratemovers.com/#service-3pl-support",
    "@type": "Service",
    "areaServed": [
-     {
-       "@id": "https://theflatratemovers.com/#winchester"
-     },
-     {
-       "@id": "https://theflatratemovers.com/#martinsburg"
-     }
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
    ],
    "description": "3PL support services: supervised crews that support operations run by 3PLs, distribution centers and carriers — receiving support, sort and segregation, container stuffing and destuffing, freight rework, surge and peak labor, and project support (stand-ups, resets, re-slots, load-outs) — at the six ports the company serves and the warehouse corridors of the Shenandoah Valley and Eastern Panhandle. SUPPORT, NOT OPERATOR: the company is not a 3PL warehouse operator under this service; it holds no warehouse network, leases no warehouse space for clients, takes no custody of client freight as an operator, and runs no client's inventory on its own systems. The operator keeps the space, the systems, the custody and the client relationship; this service supplies the crew layer. Surveyed and scoped in full, quoted at one flat rate — the company's standard offer and guarantee; hourly pricing is available when a client asks for it.",
    "isRelatedTo": [
-     {
-       "@id": "https://theflatratemovers.com/#service-industrial-commercial"
-     },
-     {
-       "@id": "https://theflatratemovers.com/#service-transloading"
-     },
-     {
-       "@id": "https://theflatratemovers.com/#service-freight-rework-transloading"
-     },
-     {
-       "@id": "https://theflatratemovers.com/datasets/ports/#dataset-ports-coverage"
-     }
+    {
+     "@id": "https://theflatratemovers.com/#service-industrial-commercial"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-transloading"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-freight-rework-transloading"
+    },
+    {
+     "@id": "https://theflatratemovers.com/datasets/ports/#dataset-ports-coverage"
+    }
    ],
    "name": "3PL Support Services",
    "provider": {
-     "@id": "https://theflatratemovers.com/#organization"
+    "@id": "https://theflatratemovers.com/#organization"
    },
    "serviceType": "Support services for third-party logistics operations: receiving support, sort and segregation, container crews, rework, surge labor, project support — support, not operation",
    "url": "https://theflatratemovers.com/3pl-support-services/"
- },
- {
+  },
+  {
    "@type": "WebPage",
    "@id": "https://theflatratemovers.com/3pl-support-services/#webpage",
    "url": "https://theflatratemovers.com/3pl-support-services/",
    "name": "The Flat Rate Movers — 3PL Support Services",
    "isPartOf": {
-     "@id": "https://theflatratemovers.com/#website"
+    "@id": "https://theflatratemovers.com/#website"
    },
    "about": [
-     {
-       "@id": "https://theflatratemovers.com/#service-3pl-support"
-     }
+    {
+     "@id": "https://theflatratemovers.com/#service-3pl-support"
+    }
    ],
    "inLanguage": "en-US",
    "description": "3PL Support Services — supervised crews that support 3PL, distribution-center and carrier operations: receiving, sort & segregation, container crews, rework, surge labor and project support at the six ports The Flat Rate Movers serves. Support, not operator: no warehouse network, no space leased for clients, no freight custody. One flat rate per engagement; run from Winchester and Martinsburg by port binding.",
    "mainEntity": {
-     "@id": "https://theflatratemovers.com/#service-3pl-support"
+    "@id": "https://theflatratemovers.com/#service-3pl-support"
    }
- },
- {
+  },
+  {
    "@id": "https://theflatratemovers.com/#service-cross-docking-services",
    "@type": "Service",
    "areaServed": [
-     {
-       "@id": "https://theflatratemovers.com/#winchester"
-     },
-     {
-       "@id": "https://theflatratemovers.com/#martinsburg"
-     }
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
    ],
    "description": "Cross-docking services: the crew layer for freight that crosses a dock without entering storage — door planning, receiving with count and condition check at the door, sort and consolidation by destination, order, store or route, load-out inside the appointment or schedule window, and closeout counts tying the two doors together. Executed at port-adjacent warehouses, receivers' docks, yards and leased space around the six ports the company serves (hub coverage at the Virginia Inland Port, Port of Virginia, Richmond Marine Terminal, Port of Baltimore and PhilaPort; dataset-level coverage at the Port of Wilmington) and across the Shenandoah Valley and Eastern Panhandle. The company operates no cross-dock facility and sells none: the buildings belong to the operations it supports. This hub rides the Transloading service registration and joins the estate's two deconsolidation pages as spokes. Surveyed and scoped in full, quoted at one flat rate — the company's standard offer and guarantee; hourly pricing is available when a client asks for it.",
    "isRelatedTo": [
-     {
-       "@id": "https://theflatratemovers.com/#service-transloading"
-     },
-     {
-       "@id": "https://theflatratemovers.com/#service-freight-rework-transloading"
-     },
-     {
-       "@id": "https://theflatratemovers.com/datasets/ports/#dataset-ports-coverage"
-     }
+    {
+     "@id": "https://theflatratemovers.com/#service-transloading"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-freight-rework-transloading"
+    },
+    {
+     "@id": "https://theflatratemovers.com/datasets/ports/#dataset-ports-coverage"
+    }
    ],
    "name": "Cross-Docking Services",
    "provider": {
-     "@id": "https://theflatratemovers.com/#organization"
+    "@id": "https://theflatratemovers.com/#organization"
    },
    "serviceType": "Cross-docking execution: door planning, receiving and door counts, sort and consolidation by destination, load-out inside the window, closeout counts — riding the Transloading service registration",
    "url": "https://theflatratemovers.com/cross-docking-services/"
- },
- {
+  },
+  {
    "@type": "WebPage",
    "@id": "https://theflatratemovers.com/cross-docking-services/#webpage",
    "url": "https://theflatratemovers.com/cross-docking-services/",
    "name": "The Flat Rate Movers — Cross-Docking Services",
    "isPartOf": {
-     "@id": "https://theflatratemovers.com/#website"
+    "@id": "https://theflatratemovers.com/#website"
    },
    "about": [
-     {
-       "@id": "https://theflatratemovers.com/#service-cross-docking-services"
-     }
+    {
+     "@id": "https://theflatratemovers.com/#service-cross-docking-services"
+    }
    ],
    "inLanguage": "en-US",
    "description": "Cross-Docking Services — freight across the dock, not into storage: door plans, door counts, sort & consolidation by destination and load-out inside the window, executed by supervised crews at docks and warehouses around the six ports The Flat Rate Movers serves. No facility sold — the crew layer only. One flat rate per engagement; Winchester and Martinsburg by port binding.",
    "mainEntity": {
-     "@id": "https://theflatratemovers.com/#service-cross-docking-services"
+    "@id": "https://theflatratemovers.com/#service-cross-docking-services"
    }
- },
+  },
   {
    "@type": "Dataset",
    "@id": "https://theflatratemovers.com/datasets/catalog-registry/#dataset",
@@ -10747,6 +10914,71 @@
      "value": "https://theflatratemovers.com/luxury-estate-relocation-west-virginia/"
     }
    ]
+  },
+  {
+   "@type": "Dataset",
+   "@id": "https://theflatratemovers.com/datasets/port-of-huntington/#dataset-port-of-huntington",
+   "name": "Port of Huntington Tri-State Logistics Dataset",
+   "description": "The per-port dataset for the Port of Huntington Tri-State in the Ports & Intermodal program of The Flat Rate Movers: the full port record for the inland river port district — a U.S. Port Statistical Area of 199 navigable river miles (Ohio River 100, Kanawha River 90, Big Sandy River 9) across West Virginia, Ohio and Kentucky, overseen by the Huntington District Waterways Association — its anchor points (Huntington and Kenova, WV; Catlettsburg, KY; South Point, OH), its sourced facilities (the Marathon Petroleum Catlettsburg refinery docks; McGinnis Inc. at South Point; 18 active Ohio-side freight docks), cargo specialties (coal, petroleum products, chemicals, limestone and aggregates, steel), Norfolk Southern and CSX rail service, the US-52 / I-64 highway corridors, the USACE CY2023 tonnage on the Port Statistical Area basis (29,699,657 short tons — the district moves tens of millions of tons annually on every published basis), and the branch binding: the district is served from the Winchester, VA branch, about 312.8 road miles away (Martinsburg measures 357.7 to 360.4). The company's eight attached port services are recorded cell by cell in the companion coverage dataset. No port tenancy or port-authority relationship is claimed; the company's crews hold TWIC cards and its contractors hold valid TWIC cards.",
+   "url": "https://theflatratemovers.com/datasets/port-of-huntington/",
+   "sameAs": "https://theflatratemovers.com/datasets/port-of-huntington/",
+   "identifier": "https://theflatratemovers.com/datasets/port-of-huntington/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@type": "Organization",
+    "@id": "https://theflatratemovers.com/#organization",
+    "name": "The Flat Rate Movers LLC",
+    "url": "https://theflatratemovers.com/"
+   },
+   "publisher": {
+    "@type": "Organization",
+    "@id": "https://theflatratemovers.com/#organization",
+    "name": "The Flat Rate Movers LLC",
+    "url": "https://theflatratemovers.com/"
+   },
+   "datePublished": "2026-11-07",
+   "dateModified": "2026-11-07",
+   "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
+   },
+   "spatialCoverage": [
+    {
+     "@type": "Place",
+     "@id": "https://theflatratemovers.com/#winchester",
+     "name": "The Flat Rate Movers — Winchester",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.18711576,
+      "longitude": -78.1668352
+     }
+    },
+    {
+     "@type": "Place",
+     "@id": "https://theflatratemovers.com/#martinsburg",
+     "name": "Flat Rate Movers Martinsburg WV",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.48319665,
+      "longitude": -77.94760443
+     }
+    }
+   ],
+   "keywords": "Port of Huntington Tri-State, Huntington West Virginia, inland river port, Port Statistical Area, Huntington District Waterways Association, Ohio River, Kanawha River, Big Sandy River, Kenova, Catlettsburg Kentucky, South Point Ohio, Marathon Catlettsburg refinery, barge freight, coal, petroleum, transloading, freight rework, Winchester VA",
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-transloading"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-freight-rework-transloading"
+    }
+   ],
+   "isPartOf": {
+    "@id": "https://theflatratemovers.com/datasets/ports/#dataset-ports"
+   }
   }
  ],
  "_humanSummary": "This is the best JSON for The Flat Rate Movers: one @graph, stable @ids, Organization chained to two Places, each Place carrying its full footprint (Winchester 32 areas, Martinsburg 35, shared 14) with the Google Business Profile subset (Winchester 17, Martinsburg 14) also carried as named City nodes, each Service chained to the Organization and to its branch Place or Places, per-branch Google ratings (Winchester 5.0 with 1 review, Martinsburg 4.7 with 6 reviews, never blended), founding June 2010, geo, hours, sameAs, and no license, price, testimonial, or move count. Humans read the names, addresses, and service lists; machines follow the @ids. 2026-10-28: 24 new branch and corridor pages added, each with Service JSON-LD, logo image, and backlinks.",

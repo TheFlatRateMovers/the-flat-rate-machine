@@ -307,7 +307,7 @@ const DATASETS = {
   'service-piano-antique': ['datasets-piano-antique.json'],
   'service-ispm15': ['datasets-ispm15.json'],
   'service-crating': ['datasets-crating.json'],
-  'service-transloading': ['datasets-transloading.json', 'datasets-transloading-inland-port.json', 'datasets-ocean-container.json', 'datasets-ports.json', 'datasets-port-of-virginia.json'], // + datasets-port-of-virginia.json in Ports P3 2026-11-03 (per-port dataset seat; gives the /datasets/port-of-virginia/ landing its R13 rows + full coverage)
+  'service-transloading': ['datasets-transloading.json', 'datasets-transloading-inland-port.json', 'datasets-ocean-container.json', 'datasets-ports.json', 'datasets-port-of-virginia.json', 'datasets-port-of-huntington.json'], // + datasets-port-of-huntington.json in WV-2 2026-11-07 (per-port dataset seat for the Huntington river district) // + datasets-port-of-virginia.json in Ports P3 2026-11-03 (per-port dataset seat; gives the /datasets/port-of-virginia/ landing its R13 rows + full coverage)
   'service-final-mile': ['datasets-final-mile.json'],
   'service-white-glove': ['datasets-white-glove.json', 'datasets-luxury-estate-relocation.json'],
   'service-office-moving': ['datasets-office.json'],
@@ -458,6 +458,21 @@ const EXTRA_PATTERNS = {
     ['lumper services Norfolk Virginia', 'navigational-local', 'scope-winchester', 'port-of-virginia-logistics'],
     ['Port of Virginia warehouse and logistics services from Winchester VA', 'navigational-local', 'scope-winchester', 'port-of-virginia-logistics'],
     ['ro-ro project cargo support Norfolk Virginia', 'navigational-local', 'scope-winchester', 'port-of-virginia-logistics'],
+    // WV-2 (2026-11-07): Port of Huntington Tri-State family — the river
+    // district binds Winchester on miles (312.8 vs 357.7-360.4).
+    ['transloading near Port of Huntington', 'navigational-local', 'scope-winchester', 'port-of-huntington-logistics'],
+    ['transloading services Huntington West Virginia', 'navigational-local', 'scope-winchester', 'port-of-huntington-logistics'],
+    ['Port of Huntington Tri-State transload services', 'navigational-local', 'scope-winchester', 'port-of-huntington-logistics'],
+    ['barge freight unloading labor Huntington West Virginia', 'navigational-local', 'scope-winchester', 'port-of-huntington-logistics'],
+    ['river port container devanning Huntington', 'navigational-local', 'scope-winchester', 'port-of-huntington-logistics'],
+    ['cross docking services Huntington West Virginia', 'navigational-local', 'scope-winchester', 'port-of-huntington-logistics'],
+    ['warehouse labor near Port of Huntington', 'navigational-local', 'scope-winchester', 'port-of-huntington-logistics'],
+    ['freight rework near Port of Huntington', 'navigational-local', 'scope-winchester', 'port-of-huntington-logistics'],
+    ['who can unload freight at Port of Huntington', 'ai-question', 'scope-winchester', 'port-of-huntington-logistics'],
+    ['who does transloading at Port of Huntington Tri-State', 'ai-question', 'scope-winchester', 'port-of-huntington-logistics'],
+    ['lumper services Huntington West Virginia', 'navigational-local', 'scope-winchester', 'port-of-huntington-logistics'],
+    ['Port of Huntington warehouse and logistics services from Winchester VA', 'navigational-local', 'scope-winchester', 'port-of-huntington-logistics'],
+    ['Ohio River port logistics support Winchester VA', 'navigational-local', 'scope-winchester', 'port-of-huntington-logistics'],
     ['ocean container packing and unpacking services Virginia', 'navigational-local', 'scope-winchester', 'datasets/ports'],
     ['transloading near Richmond Marine Terminal', 'navigational-local', 'scope-winchester', 'port-of-virginia-logistics'],
     ['transloading services Richmond Virginia', 'navigational-local', 'scope-winchester', 'port-of-virginia-logistics'],

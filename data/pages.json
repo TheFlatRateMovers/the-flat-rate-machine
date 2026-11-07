@@ -1,6 +1,6 @@
 {
  "attestation": "Every URL below was fetched from the live sitemap on 2026-10-28; titles and service links come from pageMeta in the live site source. No URL was hand-typed.",
- "count": 266,
+ "count": 268,
  "dataset": "pages",
  "generated": "2026-10-29",
  "pages": [
@@ -3312,6 +3312,32 @@
    "title": "Luxury Estate Relocation Datasets",
    "type": "page",
    "url": "https://theflatratemovers.com/datasets/luxury-estate-relocation/"
+  },
+  {
+   "attested": "2026-11-07",
+   "lastmod": "2026-11-07",
+   "services": [
+    "service-transloading",
+    "service-freight-rework-transloading",
+    "service-industrial-commercial"
+   ],
+   "slug": "port-of-huntington-logistics",
+   "source": "WV-2 2026-11-07 — Port of Huntington Tri-State hub (WV expansion of the Ports & Intermodal program); the river district binds Winchester (312.8 mi vs 357.7-360.4 from Martinsburg, RESEARCH-VERIFY-2026-11-07)",
+   "status": "live",
+   "title": "Port of Huntington Tri-State Logistics",
+   "type": "service",
+   "url": "https://theflatratemovers.com/port-of-huntington-logistics/"
+  },
+  {
+   "attested": "2026-11-07",
+   "lastmod": "2026-11-07",
+   "services": [],
+   "slug": "datasets/port-of-huntington",
+   "source": "WV-2 2026-11-07 — per-port dataset landing for the Port of Huntington Tri-State",
+   "status": "live",
+   "title": "Port of Huntington Tri-State Logistics Dataset",
+   "type": "page",
+   "url": "https://theflatratemovers.com/datasets/port-of-huntington/"
   }
  ],
  "source": "https://theflatratemovers.com/sitemap.xml joined to pageMeta in ../the-flat-rate-movers-pages/public/index.html",

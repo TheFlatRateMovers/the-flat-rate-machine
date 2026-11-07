@@ -252,6 +252,7 @@ def settle_consumers(tag):
         os.path.join(PUB, "datasets-search-index.json"),
         os.path.join(PUB, "datasets-answer-evidence.json"),
         os.path.join(PUB, "datasets-intent-coverage.json"),
+        os.path.join(PUB, "datasets-page-data-pool.json"),
     ]
     chk_env = {**os.environ, "RUBRIC_DATE": RUBRIC_DATE}
     for rnd in range(1, 11):
@@ -270,6 +271,12 @@ def settle_consumers(tag):
             run(["node", f"scripts/{gen}"], env_extra=stamps_env)
         run(["node", "scripts/build-catalog-registry.js"],
             env_extra={"CATALOG_DATE": RUBRIC_DATE})
+        # DC-2 permanent fix (2026-11-07): the resyncs above can
+        # rewrite dataset files, which stales the sha256 embeds the
+        # page-data pool carries for them. Refresh the pool's embeds
+        # from live bytes inside the round, so the settle's
+        # byte-stability check covers the pool too.
+        run(["node", "scripts/refresh-pool-digests.js"])
         h1 = {p: sha(p) for p in consumer_files}
         for gen in ("build-search-index.js", "build-answer-evidence.js"):
             run(["node", f"scripts/{gen}"], env_extra=stamps_env)
@@ -578,6 +585,15 @@ def main():
             fail("intent --check still failing after the 4c "
                  "consumer settle: " + (chk2.stdout or "")[-300:])
         print("    consumer settle complete; intent --check clean")
+
+    # DC-2 permanent fix (2026-11-07): phase 4's digest-refresh
+    # string-replaces root digests inside every PUB-root JSON —
+    # dataset files included — which can move a dataset file's
+    # bytes without moving the intent rubric, so the 4c contingency
+    # above does not fire. Refresh the pool's dataset embeds from
+    # final bytes here, unconditionally, before phase 4.5 draws
+    # from the pool and before the digest pass signs it.
+    run(["node", "scripts/refresh-pool-digests.js"])
 
     # Page Data wave (2026-11-03): the per-page data files are drawn
     # from the pool AFTER digest-refresh (phase 4 can rewrite root

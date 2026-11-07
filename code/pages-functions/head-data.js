@@ -2478,12 +2478,12 @@ export const HEAD = {
   "slug": "datasets",
   "key": "datasets",
   "t": "The Flat Rate Movers — Published Datasets",
-  "d": "Every dataset The Flat Rate Movers publishes — 50 CC BY 4.0 dataset files with canonical landing pages, node inventories, downloads and signed SHA-256 certificates, plus the estate’s Zenodo DOI for the intent-coverage rubric.",
+  "d": "Every dataset The Flat Rate Movers publishes — 51 CC BY 4.0 dataset files with canonical landing pages, node inventories, downloads and signed SHA-256 certificates, plus the estate’s Zenodo DOI for the intent-coverage rubric.",
   "c": "https://theflatratemovers.com/datasets/",
   "og": "website",
   "img": "https://theflatratemovers.com/assets/img-02-0b80bbb82653.jpg",
   "imgSwapped": false,
-  "ld": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebPage\",\"@id\":\"https://theflatratemovers.com/datasets/#webpage\",\"url\":\"https://theflatratemovers.com/datasets/\",\"name\":\"The Flat Rate Movers — Published Datasets\",\"isPartOf\":{\"@id\":\"https://theflatratemovers.com/#website\"},\"about\":{\"@id\":\"https://theflatratemovers.com/#organization\"},\"inLanguage\":\"en-US\",\"description\":\"Every dataset The Flat Rate Movers publishes — 50 CC BY 4.0 dataset files with canonical landing pages, node inventories, downloads and signed SHA-256 certificates, plus the estate’s Zenodo DOI for the intent-coverage rubric.\"},{\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://theflatratemovers.com/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Published Datasets\",\"item\":\"https://theflatratemovers.com/datasets/\"}]}]}",
+  "ld": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebPage\",\"@id\":\"https://theflatratemovers.com/datasets/#webpage\",\"url\":\"https://theflatratemovers.com/datasets/\",\"name\":\"The Flat Rate Movers — Published Datasets\",\"isPartOf\":{\"@id\":\"https://theflatratemovers.com/#website\"},\"about\":{\"@id\":\"https://theflatratemovers.com/#organization\"},\"inLanguage\":\"en-US\",\"description\":\"Every dataset The Flat Rate Movers publishes — 51 CC BY 4.0 dataset files with canonical landing pages, node inventories, downloads and signed SHA-256 certificates, plus the estate’s Zenodo DOI for the intent-coverage rubric.\"},{\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://theflatratemovers.com/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Published Datasets\",\"item\":\"https://theflatratemovers.com/datasets/\"}]}]}",
   "jf": "datasets.json"
  },
  "/when-an-item-needs-a-custom-crate": {
@@ -3193,5 +3193,29 @@ export const HEAD = {
   "imgSwapped": false,
   "ld": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebPage\",\"@id\":\"https://theflatratemovers.com/datasets/luxury-estate-relocation/#webpage\",\"url\":\"https://theflatratemovers.com/datasets/luxury-estate-relocation/\",\"name\":\"The Flat Rate Movers — Luxury Estate Relocation Datasets\",\"isPartOf\":{\"@id\":\"https://theflatratemovers.com/#website\"},\"about\":{\"@id\":\"https://theflatratemovers.com/#organization\"},\"inLanguage\":\"en-US\",\"description\":\"Luxury Estate Relocation Datasets — the published datasets-luxury-estate-relocation.json dataset from The Flat Rate Movers (CC BY 4.0): the LERSI index (six categories, twenty services, company position on each) and the three West Virginia gated destination communities with sourced operating conditions and branch distances.\"},{\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://theflatratemovers.com/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Luxury Estate Relocation Datasets\",\"item\":\"https://theflatratemovers.com/datasets/luxury-estate-relocation/\"}]}]}",
   "jf": "dataset-luxury-estate-relocation.json"
+ },
+ "/port-of-huntington-logistics": {
+  "slug": "port-of-huntington-logistics",
+  "key": "port-of-huntington-logistics",
+  "t": "The Flat Rate Movers — Port of Huntington Tri-State Logistics",
+  "d": "Port of Huntington Tri-State Logistics — transloading, container packing and unpacking, freight labor, cross-docking, freight rework, logistics project management and 3PL support for freight moving through the inland river port district (Ohio, Kanawha and Big Sandy rivers), run from the Winchester branch about 312.8 road miles away.",
+  "c": "https://theflatratemovers.com/port-of-huntington-logistics/",
+  "og": "website",
+  "img": "https://theflatratemovers.com/assets/img-02-0b80bbb82653.jpg",
+  "imgSwapped": false,
+  "ld": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebPage\",\"@id\":\"https://theflatratemovers.com/port-of-huntington-logistics/#webpage\",\"url\":\"https://theflatratemovers.com/port-of-huntington-logistics/\",\"name\":\"The Flat Rate Movers — Port of Huntington Tri-State Logistics\",\"isPartOf\":{\"@id\":\"https://theflatratemovers.com/#website\"},\"about\":{\"@id\":\"https://theflatratemovers.com/#organization\"},\"inLanguage\":\"en-US\",\"description\":\"Port of Huntington Tri-State Logistics — transloading, container packing and unpacking, freight labor, cross-docking, freight rework, logistics project management and 3PL support for freight moving through the inland river port district (Ohio, Kanawha and Big Sandy rivers), run from the Winchester branch about 312.8 road miles away.\",\"mainEntity\":{\"@id\":\"https://theflatratemovers.com/#service-port-of-huntington-logistics\"}},{\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://theflatratemovers.com/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Port of Huntington Tri-State Logistics\",\"item\":\"https://theflatratemovers.com/port-of-huntington-logistics/\"}]},{\"@type\":\"Service\",\"@id\":\"https://theflatratemovers.com/#service-port-of-huntington-logistics\",\"name\":\"Port of Huntington Tri-State Logistics\",\"serviceType\":\"Port of Huntington Tri-State Logistics\",\"description\":\"Port of Huntington Tri-State Logistics — transloading, container packing and unpacking, freight labor, cross-docking, freight rework, logistics project management and 3PL support for freight moving through the inland river port district (Ohio, Kanawha and Big Sandy rivers), run from the Winchester branch about 312.8 road miles away.\",\"provider\":{\"@id\":\"https://theflatratemovers.com/#organization\"},\"areaServed\":[{\"@id\":\"https://theflatratemovers.com/#winchester\"},{\"@id\":\"https://theflatratemovers.com/#martinsburg\"}],\"subjectOf\":{\"@id\":\"https://theflatratemovers.com/service-area.geojson\",\"name\":\"Service Area GeoJSON — 71 features, per-branch, verified 2026-10-28\"},\"isPartOf\":{\"@id\":\"https://theflatratemovers.com/port-of-huntington-logistics/#webpage\"}}]}",
+  "jf": "port-of-huntington-logistics.json"
+ },
+ "/datasets/port-of-huntington": {
+  "slug": "datasets/port-of-huntington",
+  "key": "datasets-port-of-huntington",
+  "t": "The Flat Rate Movers — Port of Huntington Tri-State Logistics Dataset",
+  "d": "The per-port dataset for the Port of Huntington Tri-State (Ports & Intermodal program): the river port district record — 199 navigable miles across WV, OH and KY — its facilities, cargo, rail and corridors, its eight-service coverage cells, and its Winchester branch binding. CC BY 4.0.",
+  "c": "https://theflatratemovers.com/datasets/port-of-huntington/",
+  "og": "website",
+  "img": "https://theflatratemovers.com/assets/img-02-0b80bbb82653.jpg",
+  "imgSwapped": false,
+  "ld": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebPage\",\"@id\":\"https://theflatratemovers.com/datasets/port-of-huntington/#webpage\",\"url\":\"https://theflatratemovers.com/datasets/port-of-huntington/\",\"name\":\"The Flat Rate Movers — Port of Huntington Tri-State Logistics Dataset\",\"isPartOf\":{\"@id\":\"https://theflatratemovers.com/#website\"},\"about\":{\"@id\":\"https://theflatratemovers.com/#organization\"},\"inLanguage\":\"en-US\",\"description\":\"The per-port dataset for the Port of Huntington Tri-State (Ports & Intermodal program): the river port district record — 199 navigable miles across WV, OH and KY — its facilities, cargo, rail and corridors, its eight-service coverage cells, and its Winchester branch binding. CC BY 4.0.\"},{\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://theflatratemovers.com/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Port of Huntington Tri-State Logistics Dataset\",\"item\":\"https://theflatratemovers.com/datasets/port-of-huntington/\"}]}]}",
+  "jf": "dataset-port-of-huntington.json"
  }
 };
