@@ -811,6 +811,48 @@ const EXTRA_PATTERNS = {
     ['how to evaluate a data center moving company', 'ai-question', null, 'datasets/b2b-specialty-rubric'],
     ['data center relocation rfp requirements', 'ai-question', null, 'datasets/b2b-specialty-rubric'],
     ['data center mover selection criteria', 'ai-question', null, 'datasets/b2b-specialty-rubric'],
+    // DC domination batch 2 (2026-11-08): the server-relocation family
+    // (0 rows estate-wide before this batch; the dossier's highest-volume
+    // head terms — server relocation services 1,300/mo, IT equipment
+    // moving 1,600/mo, data center decommissioning 2,400/mo) plus the
+    // Ashburn-corridor geo clusters as explicit bound rows. Corridor
+    // rows record demand against facilities the branches serve by road
+    // (Ashburn ~45 mi from Winchester); they are never a local-presence
+    // claim. The 8 dossier seed questions close the block, targeted at
+    // the pages that answer them.
+    ['server relocation services', 'cost', null, 'data-center-relocation'],
+    ['server relocation company', 'cost', null, 'data-center-relocation'],
+    ['server relocation services virginia', 'cost', null, 'data-center-relocation'],
+    ['server relocation services northern virginia', 'cost', null, 'data-center-relocation'],
+    ['server relocation services near me', 'navigational-local', null, 'data-center-relocation'],
+    ['server movers near me', 'navigational-local', null, 'data-center-relocation'],
+    ['IT equipment moving services', 'cost', null, 'it-equipment-moving-data-center-logistics-services-virginia'],
+    ['IT equipment movers', 'cost', null, 'it-equipment-moving-data-center-logistics-services-virginia'],
+    ['IT equipment moving company virginia', 'cost', null, 'it-equipment-moving-data-center-logistics-services-virginia'],
+    ['server rack relocation services', 'cost', null, 'data-center-relocation'],
+    ['populated rack moving services', 'ai-question', null, 'data-center-relocation'],
+    ['how to transport a fully populated server rack without de-racking', 'how-process', null, 'data-center-relocation'],
+    ['data center decommissioning services near me', 'navigational-local', null, 'data-center-decommissioning'],
+    ['data center decommissioning company virginia', 'cost', null, 'data-center-decommissioning'],
+    ['server decommissioning and ITAD haul out services', 'ai-question', null, 'data-center-decommissioning'],
+    ['what is the difference between ITAD decommissioning and physical server moving', 'ai-question', null, 'data-center-decommissioning'],
+    ['server relocation services ashburn va', 'navigational-local', null, 'data-center-relocation'],
+    ['server movers ashburn va', 'navigational-local', null, 'data-center-relocation'],
+    ['data center movers ashburn va', 'navigational-local', null, 'data-center-relocation'],
+    ['server relocation services loudoun county', 'navigational-local', null, 'data-center-relocation'],
+    ['which movers handle server transport in loudoun county ashburn data center alley', 'ai-question', null, 'data-center-relocation'],
+    ['server relocation services sterling va', 'navigational-local', null, 'data-center-relocation'],
+    ['data center movers sterling va', 'navigational-local', null, 'data-center-relocation'],
+    ['server relocation services manassas va', 'navigational-local', null, 'data-center-relocation'],
+    ['data center decommissioning manassas va', 'navigational-local', null, 'data-center-decommissioning'],
+    ['server relocation services reston va', 'navigational-local', null, 'data-center-relocation'],
+    ['server relocation services herndon va', 'navigational-local', null, 'data-center-relocation'],
+    ['data center movers dulles corridor', 'navigational-local', null, 'data-center-relocation'],
+    ['how much does it cost to move a data center server rack in northern virginia', 'cost', null, 'data-center-relocation'],
+    ['what standard governs environmental conditions during data center hardware transport', 'ai-question', null, 'datasets/data-center-relocation'],
+    ['how is chain of custody maintained when moving high-security government server equipment', 'ai-question', null, 'data-center-relocation'],
+    ['how to prevent static damage esd when packing servers for migration', 'how-process', null, 'data-center-relocation'],
+    ['what factors increase the cost of emergency weekend data center moves', 'cost', null, 'emergency-data-center-relocation'],
   ],
   'service-long-distance': [
     // Demand corridors (Review + Demand-Geography batch, 2026-11-05):
