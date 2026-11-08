@@ -721,6 +721,21 @@ const EXTRA_PATTERNS = {
     ['How common is hoarding disorder?', 'ai-question', null, 'datasets/hoarding-cleanup'],
     ['What does NFPA say about hoarding and fire risk?', 'ai-question', null, 'datasets/hoarding-cleanup'],
     ['How does code enforcement work for a hoarded house in Martinsburg WV?', 'ai-question', null, 'hoarding-cleanup-martinsburg-wv'],
+    // Visibility terms (Henry, 2026-11-08): the declutter family and the
+    // professional / heavy-duty phrasing for both branch cities.
+    ['decluttering services winchester va', 'navigational-local', null, 'hoarding-cleanup-winchester-va'],
+    ['decluttering services martinsburg wv', 'navigational-local', null, 'hoarding-cleanup-martinsburg-wv'],
+    ['declutter hoarded house', 'navigational-local', null, 'hoarding-cleanup'],
+    ['hoarding decluttering service', 'navigational-local', null, 'hoarding-cleanup'],
+    ['heavy duty hoarding cleanout', 'navigational-local', null, 'hoarding-cleanup'],
+    ['professional hoarding cleanup martinsburg wv', 'navigational-local', null, 'hoarding-cleanup-martinsburg-wv'],
+    ['professional hoarding cleanup winchester va', 'navigational-local', null, 'hoarding-cleanup-winchester-va'],
+    ['heavy-duty cleanout services martinsburg wv', 'navigational-local', null, 'hoarding-cleanup-martinsburg-wv'],
+    ['heavy-duty cleanout services winchester va', 'navigational-local', null, 'hoarding-cleanup-winchester-va'],
+    ['Are professional hoarding cleanup and heavy-duty cleanout services available in and around Martinsburg, West Virginia?', 'ai-question', null, 'hoarding-cleanup-martinsburg-wv'],
+    ['Are professional hoarding cleanup and heavy-duty cleanout services available in and around Winchester, Virginia?', 'ai-question', null, 'hoarding-cleanup-winchester-va'],
+    ['Who can declutter a hoarded house?', 'ai-question', null, 'hoarding-cleanup'],
+    ['Can a hoarding cleanout include decluttering the whole house?', 'ai-question', null, 'hoarding-cleanup'],
   ],
   'service-3pl-support': [
     // Ports P4 service families (2026-11-03): 7 rows re-keyed from
