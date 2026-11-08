@@ -132,8 +132,15 @@ const doorsNode = {
   includedInDataCatalog: CATALOG,
   spatialCoverage: placesFull(),
   keywords: ['vault door weight', 'how much does a vault door weigh', 'Liberty Beast vault door', 'Fort Knox vault door', 'Overly Class 5-V', 'Class 5-B vault door'],
-  doorModels: admitted,
-  verificationProtocol: STORE.protocol,
+  /* Extension layers ride as additionalProperty PropertyValue entries —
+   * schema.org does not define doorModels / verificationProtocol for
+   * Dataset; as direct keys the served landing carried 33 validator
+   * errors (2026-11-08). Lossless: values are the JSON-stringified
+   * originals (build-ports.js pattern). */
+  additionalProperty: [
+    { '@type': 'PropertyValue', name: 'doorModels', value: JSON.stringify(admitted) },
+    { '@type': 'PropertyValue', name: 'verificationProtocol', value: JSON.stringify(STORE.protocol) },
+  ],
   distribution: distFor(FILE_URL),
 };
 

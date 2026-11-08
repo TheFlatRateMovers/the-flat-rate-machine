@@ -5592,9 +5592,13 @@ async function main() {
     /* VS-2 — door-model admission re-run over the published file. */
     {
       const dnode = nodeById(doorFile, '#dataset-vault-doors');
+      /* doorModels rides as an additionalProperty PropertyValue since the
+       * 2026-11-08 validator fix (schema.org does not define the key for
+       * Dataset) — read it back from there, PB-1/PB-2 extOf pattern. */
+      const doorRows = dnode.doorModels || JSON.parse((dnode.additionalProperty || []).find((p) => p.name === 'doorModels').value);
       const admitted = new Map(doorStore.admitted.map((r) => [r.manufacturer.name + '|' + r.model, r]));
       const errs = [];
-      for (const row of dnode.doorModels) {
+      for (const row of doorRows) {
         const key = row.manufacturer.name + '|' + row.model;
         if (!admitted.has(key)) { errs.push(key + ': not in the store admitted list'); continue; }
         const v = row.verification || {};
@@ -5604,8 +5608,8 @@ async function main() {
         if (!row.weightBand || row.weightBand.sirBand !== band) errs.push(key + ': sirBand mismatch');
       }
       check('VS-2 door admission: every published row is in the store admitted list with a complete verification block, the price rule holds, and sirBand recomputes from weight',
-        errs.length === 0 && dnode.doorModels.length === doorStore.admitted.length,
-        dnode.doorModels.length + ' published rows vs ' + doorStore.admitted.length + ' admitted; errors: ' + errs.slice(0, 4).join(' ;; '));
+        errs.length === 0 && doorRows.length === doorStore.admitted.length,
+        doorRows.length + ' published rows vs ' + doorStore.admitted.length + ' admitted; errors: ' + errs.slice(0, 4).join(' ;; '));
     }
 
     /* VS-3 — no-claim scan over the category surfaces. */
