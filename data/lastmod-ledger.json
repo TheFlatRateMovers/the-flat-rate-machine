@@ -2,7 +2,7 @@
  "description": "Seal-maintained lastmod ledger: for every sitemap URL, the date of the last seal generation in which its own signed distribution changed. Seeded from the 2026-11-02 crawl-demand audit (doc-level digest history across 73 signed generations); maintained by seal.py phase 6b (diff-stamp vs the phase-0 prior index). build-sitemap.js reads this file for every sitemap <lastmod>.",
  "lastSeal": {
   "date": "2026-11-08",
-  "indexSha256": "d424e8f1ba09721d6776186afb0ed21f69a3375820e956dd5fdbb1c28c416b4d"
+  "indexSha256": "e7fc27f9579751ffc952eded1359e6b2d759d1ff54064eb30c56d9644c538113"
  },
  "seededFrom": "crawl-demand-audit-2026-11-02.csv",
  "urls": {
@@ -54,7 +54,7 @@
   "https://theflatratemovers.com/crating-movers-martinsburg-wv/": "2026-11-07",
   "https://theflatratemovers.com/cross-docking-services/": "2026-11-07",
   "https://theflatratemovers.com/curbside-vs-inside-vs-white-glove-delivery/": "2026-11-07",
-  "https://theflatratemovers.com/custom-crating/": "2026-11-07",
+  "https://theflatratemovers.com/custom-crating/": "2026-11-08",
   "https://theflatratemovers.com/data-center-decommissioning/": "2026-11-07",
   "https://theflatratemovers.com/data-center-movers-martinsburg-wv/": "2026-11-07",
   "https://theflatratemovers.com/data-center-movers-winchester-va/": "2026-11-07",
