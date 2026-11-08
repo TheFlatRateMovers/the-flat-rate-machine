@@ -179,5 +179,29 @@ for (const n of doc['@graph']) {
     n.creator = org; n.publisher = org;
   }
 }
+/* Canonical-reference repair (2026-11-08): the re-key moved REFERENCE @ids
+ * into the landing namespace, where their targets are never defined as
+ * typed nodes — the served landing carried 12 validator errors (untyped
+ * #organization copies/refs in creator/provider/publisher, dangling
+ * #service and #place refs). Canonical entities keep their root @ids;
+ * an embedded organization copy also carries its @type. */
+const CANON = ['organization', 'service-data-center-relocation', 'service-it-relocation', 'winchester', 'martinsburg'];
+const canonRefs = (o) => {
+  if (Array.isArray(o)) return o.map(canonRefs);
+  if (o && typeof o === 'object') {
+    const out = {};
+    for (const [k, v] of Object.entries(o)) out[k] = canonRefs(v);
+    if (typeof out['@id'] === 'string' && out['@id'].startsWith(NEW)) {
+      const frag = out['@id'].slice(NEW.length);
+      if (CANON.includes(frag)) {
+        out['@id'] = OLD + frag;
+        if (frag === 'organization' && !out['@type']) { out['@type'] = 'Organization'; out.name = out.name || 'The Flat Rate Movers'; }
+      }
+    }
+    return out;
+  }
+  return o;
+};
+doc['@graph'] = doc['@graph'].map(canonRefs);
 fs.writeFileSync(FILE, JSON.stringify(doc, null, 1) + '\n');
 console.log('WROTE', FILE, '— 12 nodes (8 re-keyed + research/sources/rubric-cross-reference + case dc-001); claims 6, personas 8, terms 12');
