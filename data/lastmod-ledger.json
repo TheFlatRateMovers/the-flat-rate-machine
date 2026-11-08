@@ -2,7 +2,7 @@
  "description": "Seal-maintained lastmod ledger: for every sitemap URL, the date of the last seal generation in which its own signed distribution changed. Seeded from the 2026-11-02 crawl-demand audit (doc-level digest history across 73 signed generations); maintained by seal.py phase 6b (diff-stamp vs the phase-0 prior index). build-sitemap.js reads this file for every sitemap <lastmod>.",
  "lastSeal": {
   "date": "2026-11-08",
-  "indexSha256": "048aeb7dd6ba69ecb636ca15e97ce80772bbf652a86d4522a83e37c13663bda6"
+  "indexSha256": "d424e8f1ba09721d6776186afb0ed21f69a3375820e956dd5fdbb1c28c416b4d"
  },
  "seededFrom": "crawl-demand-audit-2026-11-02.csv",
  "urls": {
@@ -269,7 +269,7 @@
   "https://theflatratemovers.com/packing-unpacking-services-2/": "2026-11-08",
   "https://theflatratemovers.com/packing/": "2026-11-07",
   "https://theflatratemovers.com/piano-antique-movers-martinsburg-wv/": "2026-11-07",
-  "https://theflatratemovers.com/piano-antique-white-glove-moving/": "2026-11-07",
+  "https://theflatratemovers.com/piano-antique-white-glove-moving/": "2026-11-08",
   "https://theflatratemovers.com/port-logistics/": "2026-11-07",
   "https://theflatratemovers.com/port-of-huntington-logistics/": "2026-11-07",
   "https://theflatratemovers.com/port-of-virginia-container-loading-unloading-logistics-services/": "2026-11-07",
