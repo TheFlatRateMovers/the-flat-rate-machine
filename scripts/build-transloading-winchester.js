@@ -73,13 +73,22 @@ ops.areaServed = [
   { '@id': 'https://theflatratemovers.com/#place-winchester-va' },
   { '@id': 'https://theflatratemovers.com/#place-martinsburg-wv' },
 ];
-ops.serviceFacts = {
+/* serviceFacts + process ride as additionalProperty PropertyValue entries —
+ * schema.org does not define either key for Service; as direct keys the
+ * served winchester landing carried 15 validator errors (2026-11-08).
+ * Lossless: values are the JSON-stringified originals. Territory figure
+ * corrected 71 -> 81 areas (WV-3 footprint, 2026-11-07). */
+delete ops.serviceFacts;
+delete ops.process;
+ops.additionalProperty = [
+  { '@type': 'PropertyValue', name: 'serviceFacts', value: JSON.stringify({
   pricingModel: 'Transloading work is quoted per job — scope, container count, handling, and timing priced in writing before work begins. No per-hundredweight schedule, standing rate, or minimum is published for this service.',
-  territory: 'The full published footprint — all 71 areas in service-area.geojson; the transloading-winchester capability covers every place feature (cities, counties, both branches) in the map, with the work anchored on the Winchester branch at the Virginia Inland Port end of the chain.',
+  territory: 'The full published footprint — all 81 areas in service-area.geojson; the transloading-winchester capability covers every place feature (cities, counties, both branches) in the map, with the work anchored on the Winchester branch at the Virginia Inland Port end of the chain.',
   chainPosition: 'The dock-and-road side of the Norfolk → rail → Virginia Inland Port → truck chain: loading, unloading, devanning, restacking, and regional trucking arranged per job. The terminal and the railroad are operated by their owners; no tenancy or port-authority relationship is claimed.',
   dispatchBasis: 'Dock time is booked against the chain\'s clocks — terminal appointments, rail arrivals, vessel windows.',
-};
-ops.process = store.process;
+  }) },
+  { '@type': 'PropertyValue', name: 'process', value: JSON.stringify(store.process) },
+];
 
 // 3. research Dataset node
 const research = {
