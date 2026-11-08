@@ -102,9 +102,16 @@ const research = {
   isAccessibleForFree: true,
   includedInDataCatalog: template.includedInDataCatalog,
   distribution: template.distribution,
-  researchClaims: store.claims,
-  personas: store.personas,
-  buyerIntentTerms: store.buyerIntentTerms,
+  /* Extension layers ride as additionalProperty PropertyValue entries —
+   * schema.org does not define researchClaims / personas /
+   * buyerIntentTerms / boundaries for Dataset or Service; as direct keys
+   * the served B2B landings carried validator errors (W12: 113 on two
+   * nodes). Lossless: values are the JSON-stringified originals. */
+  additionalProperty: [
+    { '@type': 'PropertyValue', name: 'researchClaims', value: JSON.stringify(store.claims) },
+    { '@type': 'PropertyValue', name: 'personas', value: JSON.stringify(store.personas) },
+    { '@type': 'PropertyValue', name: 'buyerIntentTerms', value: JSON.stringify(store.buyerIntentTerms) },
+  ],
 };
 
 // 4. sources Article node
@@ -126,7 +133,7 @@ const sources = {
   sameAs: LANDING,
   author: termsArticle.author,
   publisher: termsArticle.publisher,
-  citations: [
+  citation: [
     cite('Commonwealth of Virginia — Agencies: Virginia Port Authority (VIP identity, 220-mile reach, export consolidation)', 'https://www.transportation.virginia.gov/agencies/'),
     cite('Virginia Port Authority — Comprehensive Annual Financial Report (VIP plant: 161 acres, 1989, cross-dock, customs port of entry)', 'https://rga.lis.virginia.gov/Published/2005/RD202'),
     cite('VirginiaPlaces.org — Virginia Inland Port (VIP) and Intermodal Terminals (the Norfolk → rail → Front Royal chain)', 'https://www.virginiaplaces.org/transportation/inlandport.html'),
@@ -153,7 +160,9 @@ const boundaries = {
   sameAs: LANDING,
   provider: ops.provider,
   publisher: template.publisher,
-  boundaries: store.boundaries,
+  additionalProperty: [
+    { '@type': 'PropertyValue', name: 'boundaries', value: JSON.stringify(store.boundaries) },
+  ],
 };
 
 nodes.push(research, sources, boundaries);
