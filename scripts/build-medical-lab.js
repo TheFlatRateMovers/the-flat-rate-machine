@@ -35,6 +35,12 @@ for (const c of store.claims) if (!c.source || !c.fact || !c.headline) fail('cla
 
 const doc = JSON.parse(fs.readFileSync(FILE, 'utf8'));
 const GENERATED_SUFFIXES = ['research', 'sources', 'rubric-cross-reference'];
+/* Extension layers ride as additionalProperty PropertyValue entries —
+ * schema.org does not define researchClaims / personas / buyerIntentTerms /
+ * rubricDataset / criteria / rubricTerms for Dataset; as direct keys the
+ * served data-center landing carried 113 validator errors (2026-11-08).
+ * Lossless: values are the JSON-stringified originals (build-ports.js). */
+const pv = (name, value) => ({ '@type': 'PropertyValue', name, value: JSON.stringify(value) });
 const graph = doc['@graph'].filter((n) => !GENERATED_SUFFIXES.some((s) => (n['@id'] || '').endsWith(s)));
 if (graph.length !== 11) fail('expected the 11 existing nodes as the base, got ' + graph.length);
 const template = graph.find((n) => n['@type'] === 'Dataset');
@@ -82,9 +88,11 @@ const research = {
   isAccessibleForFree: true,
   includedInDataCatalog: template.includedInDataCatalog,
   distribution: template.distribution,
-  researchClaims: store.claims,
-  personas: store.personas,
-  buyerIntentTerms: store.buyerIntentTerms,
+  additionalProperty: [
+    pv('researchClaims', store.claims),
+    pv('personas', store.personas),
+    pv('buyerIntentTerms', store.buyerIntentTerms),
+  ],
 };
 
 const cite = (name, url) => ({ '@type': 'CreativeWork', name, url });
@@ -105,7 +113,7 @@ const sources = {
   sameAs: LANDING,
   author: termsArticle ? termsArticle.author : template.creator,
   publisher: template.publisher,
-  citations: [
+  citation: [
     cite('The Flat Rate Movers — B2B Specialty Research Dossier (2026-11-04): 24 buyer-intent terms, criteria L1–L6 with named trade sources', 'https://theflatratemovers.com/datasets/b2b-specialty-rubric/'),
     cite('B2B Specialty Moving Rubric dataset — the 24 rubric objects and the criteria set this layer quotes', RUBRIC_URL),
   ],
@@ -131,9 +139,11 @@ const xref = {
   isAccessibleForFree: true,
   includedInDataCatalog: template.includedInDataCatalog,
   distribution: template.distribution,
-  rubricDataset: RUBRIC_URL,
-  criteria: store.claims.map((c) => ({ id: c.id, criterion: c.headline })),
-  rubricTerms: store.buyerIntentTerms.map((t) => t.term),
+  additionalProperty: [
+    pv('rubricDataset', RUBRIC_URL),
+    pv('criteria', store.claims.map((c) => ({ id: c.id, criterion: c.headline }))),
+    pv('rubricTerms', store.buyerIntentTerms.map((t) => t.term)),
+  ],
 };
 
 nodes.push(research, sources, xref);
@@ -146,5 +156,28 @@ for (const n of doc['@graph']) {
     n.creator = org; n.publisher = org;
   }
 }
+/* Canonical-reference repair (2026-11-08, W13 — the W12 template): the
+ * re-key moved REFERENCE @ids into the landing namespace, where their
+ * targets are never defined as typed nodes (validator Unspecified Type +
+ * target-type errors). Canonical entities keep their root @ids; an
+ * embedded organization copy also carries its @type. */
+const CANON = ['organization', 'service-medical-lab-relocation', 'service-sir-heavy', 'winchester', 'martinsburg'];
+const canonRefs = (o) => {
+  if (Array.isArray(o)) return o.map(canonRefs);
+  if (o && typeof o === 'object') {
+    const out = {};
+    for (const [k, v] of Object.entries(o)) out[k] = canonRefs(v);
+    if (typeof out['@id'] === 'string' && out['@id'].startsWith(NEW)) {
+      const frag = out['@id'].slice(NEW.length);
+      if (CANON.includes(frag)) {
+        out['@id'] = OLD + frag;
+        if (frag === 'organization' && !out['@type']) { out['@type'] = 'Organization'; out.name = out.name || 'The Flat Rate Movers'; }
+      }
+    }
+    return out;
+  }
+  return o;
+};
+doc['@graph'] = doc['@graph'].map(canonRefs);
 fs.writeFileSync(FILE, JSON.stringify(doc, null, 1) + '\n');
 console.log('WROTE', FILE, '— 14 nodes (11 re-keyed + research/sources/rubric-cross-reference); claims 6, personas 8, terms 12');
