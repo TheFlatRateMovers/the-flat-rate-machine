@@ -34,7 +34,13 @@ if ((store.buyerIntentTerms || []).length !== 12) fail('terms must be 12, got ' 
 for (const c of store.claims) if (!c.source || !c.fact || !c.headline) fail('claim missing fields: ' + c.id);
 
 const doc = JSON.parse(fs.readFileSync(FILE, 'utf8'));
-const GENERATED_SUFFIXES = ['research', 'sources', 'rubric-cross-reference'];
+const GENERATED_SUFFIXES = ['research', 'sources', 'rubric-cross-reference', 'rack-deployment-2024'];
+/* Extension layers ride as additionalProperty PropertyValue entries —
+ * schema.org does not define researchClaims / personas / buyerIntentTerms /
+ * rubricDataset / criteria / rubricTerms for Dataset; as direct keys the
+ * served landing carried 113 validator errors (2026-11-08). Lossless:
+ * values are the JSON-stringified originals (build-ports.js pattern). */
+const pv = (name, value) => ({ '@type': 'PropertyValue', name, value: JSON.stringify(value) });
 const graph = doc['@graph'].filter((n) => !GENERATED_SUFFIXES.some((s) => (n['@id'] || '').endsWith(s)));
 if (graph.length !== 8) fail('expected the 8 existing nodes as the base, got ' + graph.length);
 const template = graph.find((n) => n['@type'] === 'Dataset');
@@ -82,9 +88,11 @@ const research = {
   isAccessibleForFree: true,
   includedInDataCatalog: template.includedInDataCatalog,
   distribution: template.distribution,
-  researchClaims: store.claims,
-  personas: store.personas,
-  buyerIntentTerms: store.buyerIntentTerms,
+  additionalProperty: [
+    pv('researchClaims', store.claims),
+    pv('personas', store.personas),
+    pv('buyerIntentTerms', store.buyerIntentTerms),
+  ],
 };
 
 const cite = (name, url) => ({ '@type': 'CreativeWork', name, url });
@@ -105,7 +113,7 @@ const sources = {
   sameAs: LANDING,
   author: termsArticle ? termsArticle.author : template.creator,
   publisher: template.publisher,
-  citations: [
+  citation: [
     cite('The Flat Rate Movers — B2B Specialty Research Dossier (2026-11-04): 24 buyer-intent terms, criteria D1–D6 with named trade sources', 'https://theflatratemovers.com/datasets/b2b-specialty-rubric/'),
     cite('B2B Specialty Moving Rubric dataset — the 24 rubric objects and the criteria set this layer quotes', RUBRIC_URL),
   ],
@@ -131,13 +139,38 @@ const xref = {
   isAccessibleForFree: true,
   includedInDataCatalog: template.includedInDataCatalog,
   distribution: template.distribution,
-  rubricDataset: RUBRIC_URL,
-  criteria: store.claims.map((c) => ({ id: c.id, criterion: c.headline })),
-  rubricTerms: store.buyerIntentTerms.map((t) => t.term),
+  additionalProperty: [
+    pv('rubricDataset', RUBRIC_URL),
+    pv('criteria', store.claims.map((c) => ({ id: c.id, criterion: c.headline }))),
+    pv('rubricTerms', store.buyerIntentTerms.map((t) => t.term)),
+  ],
 };
 
-nodes.push(research, sources, xref);
-if (nodes.length !== 11) fail('expected 14 nodes, got ' + nodes.length);
+/* Case dc-001 (owner-supplied 2026-11-08): eight-site rack deployment,
+ * northern Shenandoah Valley, June 2024. City-level only — client and
+ * site names are never published. */
+const dcCase = {
+  '@id': NEW + 'case-dc-001-eight-site-rack-deployment-2024',
+  '@type': 'Article',
+  name: 'Case dc-001 — Eight-Site Rack Deployment, Northern Shenandoah Valley (2024)',
+  headline: 'Eight sites, 33 equipment racks: a multi-site deployment across the northern Shenandoah Valley',
+  description: 'In June 2024 the company deployed 33 equipment racks across eight sites in the northern Shenandoah Valley — five racks at each of five sites, four at one site and two at each of two sites — in Cross Junction, Clear Brook, Gainesboro, Gore, Winchester and Front Royal, Virginia. The racks measure about 2 ft by 7 ft and weigh up to about 500 lb each. Client and site names are not published.',
+  keywords: ['rack deployment', 'multi-site', 'case record', 'data center relocation'],
+  about: { '@id': 'https://theflatratemovers.com/#service-data-center-relocation' },
+  spatialCoverage: template.spatialCoverage,
+  temporalCoverage: '2024',
+  datePublished: '2026-11-08',
+  dateModified: '2026-11-08',
+  creator: template.creator,
+  publisher: template.publisher,
+  license: template.license,
+  url: LANDING,
+  sameAs: LANDING,
+  author: termsArticle ? termsArticle.author : template.creator,
+};
+
+nodes.push(research, sources, xref, dcCase);
+if (nodes.length !== 12) fail('expected 12 nodes, got ' + nodes.length);
 doc['@graph'] = nodes;
 /* DC-4 normalization: every Dataset node's creator/publisher is the typed canonical Organization. */
 for (const n of doc['@graph']) {
@@ -147,4 +180,4 @@ for (const n of doc['@graph']) {
   }
 }
 fs.writeFileSync(FILE, JSON.stringify(doc, null, 1) + '\n');
-console.log('WROTE', FILE, '— 11 nodes (8 re-keyed + research/sources/rubric-cross-reference); claims 6, personas 8, terms 12');
+console.log('WROTE', FILE, '— 12 nodes (8 re-keyed + research/sources/rubric-cross-reference + case dc-001); claims 6, personas 8, terms 12');
