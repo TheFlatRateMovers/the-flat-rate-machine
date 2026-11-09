@@ -5682,6 +5682,199 @@ async function main() {
   } catch (e) { check('§43 Vault Security gates VS-1..VS-5 execute', false, String(e && e.message || e).slice(0, 240)); }
 }
 
+/* ============ 44. Territory Matrix gates TM-1..TM-5 (2026-11-09, REPORT MODE) ============ */
+{
+  // Born from the W25 validator find (a Dataset @id sitting in a Service
+  // areaServed seat — 9 errors on one hub) and Henry's Territory Matrix
+  // directive (2026-11-09): a geo rubric beside the intent rubric, generated
+  // from service-area.geojson. The SPEC names these gates GS-1..GS-5; in
+  // this file GS-1 was already taken by §36 (graph copy sync), so the
+  // Matrix gates are TM-1..TM-5 (TM-n == SPEC GS-n).
+  // REPORT MODE (SPEC staging P2): findings print as REPORT lines and do
+  // NOT enter results[] — the pass counts and the closing gate are
+  // unchanged. P3 flips TM_ENFORCE to true and every line below becomes a
+  // real gate in the same motion as the P4 live batch. Evidence seats that
+  // do not exist yet (the production coverage dataset, the data/ alias map)
+  // are read from the P2 staging copies in out/territory-matrix-2026-11-09/;
+  // each report line names the seat it actually read.
+  const TM_ENFORCE = false;
+  const tmReport = (name, ok, detail) => {
+    if (TM_ENFORCE) { check(name, ok, detail); return; }
+    console.log('REPORT  ' + name + ' — ' + (ok ? 'clean: ' : 'FINDINGS: ') + (detail || ''));
+  };
+  try {
+    const readTM = (f) => JSON.parse(fs.readFileSync(f, 'utf8'));
+    const graphOfTM = (doc) => (doc && Array.isArray(doc['@graph'])) ? doc['@graph']
+      : (Array.isArray(doc) ? doc : (doc ? [doc] : []));
+    const extOfTM = (node, key) => {
+      const ap = (node && node.additionalProperty) || [];
+      const hit = Array.isArray(ap) ? ap.find((p) => p && p.name === key) : null;
+      return hit ? hit.value : undefined;
+    };
+    const TM_DIR = path.join(ROOT, 'out', 'territory-matrix-2026-11-09');
+    const geoTM = readTM(path.join(ROOT, 'data', 'service-area.geojson'));
+
+    /* TM-1 (SPEC GS-1) — no Dataset/DataDownload in any areaServed seat. */
+    {
+      const corpus = [];
+      for (const f of fs.readdirSync(PAGES_PUBLIC)) if (f.endsWith('.json')) corpus.push(path.join(PAGES_PUBLIC, f));
+      for (const f of fs.readdirSync(path.join(ROOT, 'data'))) if (f.endsWith('.json')) corpus.push(path.join(ROOT, 'data', f));
+      const seatFiles = corpus.filter((f) => fs.readFileSync(f, 'utf8').includes('"areaServed"'));
+      const docsTM = [];
+      // Dataset identifiers in every form a seat can reference: node @ids,
+      // distribution contentUrls, and the canonical file URLs of the
+      // dataset files themselves. (First run of this gate missed the ffe
+      // seat because it references the geojson FILE URL — a distribution
+      // URL, not a node @id. All three forms are collected.)
+      const dataIds = new Set();
+      const collectTM = (d) => {
+        for (const n of graphOfTM(d)) {
+          if (!n) continue;
+          if ((n['@type'] === 'Dataset' || n['@type'] === 'DataDownload') && n['@id']) dataIds.add(n['@id']);
+          if (n['@type'] === 'DataDownload' && n.contentUrl) dataIds.add(n.contentUrl);
+          if (n['@type'] === 'Dataset') {
+            const dists = Array.isArray(n.distribution) ? n.distribution : (n.distribution ? [n.distribution] : []);
+            for (const dist of dists) if (dist && dist.contentUrl) dataIds.add(dist.contentUrl);
+          }
+        }
+      };
+      for (const f of corpus) {
+        try {
+          const d = readTM(f);
+          if (seatFiles.includes(f)) docsTM.push([f, d]);
+          collectTM(d);
+        } catch (e) { /* unreadable files are other gates' business */ }
+      }
+      for (const f of corpus) {
+        const base = path.basename(f);
+        if (/^datasets-.+\.json$/.test(base) || base === 'service-area.geojson')
+          dataIds.add('https://theflatratemovers.com/' + base);
+      }
+      const badTM = [];
+      const scanTM = (node, where) => {
+        if (!node || typeof node !== 'object') return;
+        if ('areaServed' in node) {
+          const vals = Array.isArray(node.areaServed) ? node.areaServed : [node.areaServed];
+          for (const v of vals) {
+            if (v && typeof v === 'object' && (v['@type'] === 'Dataset' || v['@type'] === 'DataDownload'))
+              badTM.push(where + ': inline ' + v['@type'] + ' in areaServed');
+            else if (v && typeof v === 'object' && v['@id'] && dataIds.has(v['@id']))
+              badTM.push(where + ': areaServed -> ' + v['@id']);
+            else if (typeof v === 'string' && dataIds.has(v))
+              badTM.push(where + ': areaServed -> ' + v);
+          }
+        }
+        for (const val of Object.values(node)) {
+          if (Array.isArray(val)) val.forEach((x) => scanTM(x, where));
+          else if (val && typeof val === 'object') scanTM(val, where);
+        }
+      };
+      for (const [f, d] of docsTM) for (const n of graphOfTM(d)) scanTM(n, path.basename(f) + (n && n['@id'] ? ' ' + n['@id'] : ''));
+      tmReport('TM-1 no Dataset or DataDownload node appears in any areaServed seat, estate-wide (SPEC GS-1)',
+        badTM.length === 0,
+        badTM.slice(0, 4).join('; ') || 'no dataset reference in any areaServed seat across ' + docsTM.length + ' seat-bearing files');
+    }
+
+    /* TM-2 (SPEC GS-2) — every geojson feature has exactly one typed Place
+       node carrying geo + branch binding. Pre-P4 the pool is the places
+       layer of record; at P4 this seat becomes the coverage dataset. */
+    {
+      const pool = readTM(path.join(PAGES_PUBLIC, 'datasets-page-data-pool.json'));
+      const byName = new Map();
+      (function walkTM(o) {
+        if (Array.isArray(o)) return o.forEach(walkTM);
+        if (o && typeof o === 'object') {
+          if (typeof o.name === 'string' && ['Place', 'City', 'AdministrativeArea'].includes(o['@type'])) {
+            if (!byName.has(o.name)) byName.set(o.name, []);
+            byName.get(o.name).push(o);
+          }
+          Object.values(o).forEach(walkTM);
+        }
+      })(pool);
+      // A feature is carried when some typed Place node of its name holds a
+      // binding seat CONSISTENT with the geojson branch: branchBinding equal
+      // to it, or — the ports family seat — boundBranch naming one of its
+      // branches (a port bound to Winchester while the geojson carries it
+      // for both branches is consistent: serving branch vs footprint are
+      // different facts). First run of this gate missed Virginia Inland
+      // Port entirely: its binding lives only in the ports seat, and its
+      // landmark node carries no binding at all (pool-rebuild debt).
+      const seatsTM = (node) => {
+        const s = [];
+        const bb = extOfTM(node, 'branchBinding'); if (bb !== undefined) s.push(bb);
+        if (typeof node.boundBranch === 'string') s.push(node.boundBranch);
+        return s;
+      };
+      const consistentTM = (seat, branch) => seat === branch || (branch === 'both' && (seat === 'winchester' || seat === 'martinsburg'));
+      const missTM = [], unboundTM = [], inconsTM = [];
+      let multiTM = 0;
+      for (const f of geoTM.features) {
+        const hits = byName.get(f.properties.name) || [];
+        if (hits.length === 0) { missTM.push(f.properties.name); continue; }
+        if (hits.length > 1) multiTM++;
+        const seats = hits.flatMap(seatsTM);
+        if (seats.length === 0) unboundTM.push(f.properties.name);
+        else if (!seats.some((s) => consistentTM(s, f.properties.branch)))
+          inconsTM.push(f.properties.name + ': pool seats ' + seats.join('/') + ' vs geojson ' + f.properties.branch);
+      }
+      const badTM2 = missTM.length + unboundTM.length + inconsTM.length;
+      tmReport('TM-2 every geojson feature is carried by a typed Place node with a branch binding consistent with the geojson (pool as places layer of record, pre-P4) (SPEC GS-2)',
+        badTM2 === 0,
+        (badTM2 ? ('missing: ' + missTM.slice(0, 3).join(', ') + '; no binding seat: ' + unboundTM.slice(0, 3).join(', ') + '; inconsistent: ' + inconsTM.slice(0, 3).join(', '))
+          : geoTM.features.length + ' features carried with consistent bindings')
+          + '; names with >1 Place node (port families): ' + multiTM);
+    }
+
+    /* TM-3 (SPEC GS-3) — coverage reconciliation: geojson service labels
+       resolve to the 34-service registry directly or through the alias map;
+       zero orphan cells. */
+    {
+      const regDocTM = readTM(path.join(ROOT, 'data', 'services.json'));
+      const registryTM = Array.isArray(regDocTM) ? regDocTM : regDocTM.services;
+      const regIdsTM = new Set(registryTM.map((s) => s.id || s['@id'] || s.slug));
+      const prodMap = path.join(ROOT, 'data', 'coverage-alias-map.json');
+      const draftMap = path.join(TM_DIR, 'alias-map-draft.json');
+      const mapSeat = fs.existsSync(prodMap) ? prodMap : draftMap;
+      const aliasesTM = (readTM(mapSeat).aliases) || {};
+      let cells = 0; const orphans = [];
+      for (const f of geoTM.features) for (const label of f.properties.services || []) {
+        cells++;
+        if (regIdsTM.has('service-' + label)) continue;
+        if (aliasesTM[label] && regIdsTM.has(aliasesTM[label].registry)) continue;
+        orphans.push(f.properties.name + ': ' + label);
+      }
+      tmReport('TM-3 coverage table == geojson services lists reconciled to the 34-service registry, no orphan cells (SPEC GS-3)',
+        orphans.length === 0,
+        (orphans.slice(0, 4).join('; ') || cells + ' cells, 0 orphans') + ' [alias map seat: ' + path.basename(mapSeat) + ']');
+    }
+
+    /* TM-4 (SPEC GS-4) + TM-5 (SPEC GS-5) — staged Matrix artifacts until
+       P4 seats them in the estate: containment chains resolve inside the
+       coverage graph; every pair distance carries its basis label. */
+    {
+      const stagedGraph = path.join(TM_DIR, 'p2', 'staged', 'datasets-coverage.draft.json');
+      if (fs.existsSync(stagedGraph)) {
+        const g = readTM(stagedGraph);
+        const ids = new Set(graphOfTM(g).map((n) => n && n['@id']).filter(Boolean));
+        const dangling = [];
+        for (const n of graphOfTM(g)) {
+          const chain = n && n.containedInPlace ? (Array.isArray(n.containedInPlace) ? n.containedInPlace : [n.containedInPlace]) : [];
+          for (const r of chain) if (r && r['@id'] && !ids.has(r['@id'])) dangling.push((n['@id'] || n.name) + ' -> ' + r['@id']);
+        }
+        tmReport('TM-4 every containment chain resolves to a defined node (staged coverage graph, pre-P4) (SPEC GS-4)',
+          dangling.length === 0, dangling.slice(0, 4).join('; ') || ids.size + ' nodes defined, all chains resolve');
+      } else tmReport('TM-4 every containment chain resolves to a defined node (SPEC GS-4)', false, 'staged coverage graph not present at ' + stagedGraph);
+      const stagedPairs = path.join(TM_DIR, 'p2', 'staged', 'pairs-table.json');
+      if (fs.existsSync(stagedPairs)) {
+        const pairs = readTM(stagedPairs);
+        const unlabeled = pairs.filter((p) => !p.distance_basis).length;
+        tmReport('TM-5 pair distances carry their basis label — computed-centroid or researched-road; none unlabeled (SPEC GS-5)',
+          unlabeled === 0 && pairs.length === 6480, pairs.length + ' pairs, ' + unlabeled + ' unlabeled');
+      } else tmReport('TM-5 pair distances carry their basis label (SPEC GS-5)', false, 'staged pairs table not present at ' + stagedPairs);
+    }
+  } catch (e) { tmReport('§44 Territory Matrix gates TM-1..TM-5 execute', false, String(e && e.message || e).slice(0, 240)); }
+}
+
   // --- 9. Guardrail scan: no placeholders, no invented license identifiers ---
   const registryText = JSON.stringify({ pages, services, locations, corridors });
   check('registry files contain no placeholder text',
