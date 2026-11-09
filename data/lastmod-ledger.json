@@ -2,7 +2,7 @@
  "description": "Seal-maintained lastmod ledger: for every sitemap URL, the date of the last seal generation in which its own signed distribution changed. Seeded from the 2026-11-02 crawl-demand audit (doc-level digest history across 73 signed generations); maintained by seal.py phase 6b (diff-stamp vs the phase-0 prior index). build-sitemap.js reads this file for every sitemap <lastmod>.",
  "lastSeal": {
   "date": "2026-11-09",
-  "indexSha256": "e4a50e4e2c87a4c951c1b6613784640d44495ed811c56ad0ad34cc8bfb0a470c"
+  "indexSha256": "eb1864aef7aa899d8921a857cdd27bb95e522166773692c5a4a32234cbe6a2e7"
  },
  "seededFrom": "crawl-demand-audit-2026-11-02.csv",
  "urls": {
@@ -249,7 +249,7 @@
   "https://theflatratemovers.com/military-government-moving/": "2026-11-09",
   "https://theflatratemovers.com/military-movers-martinsburg-wv/": "2026-11-07",
   "https://theflatratemovers.com/military-movers-winchester-va/": "2026-11-07",
-  "https://theflatratemovers.com/military-moving/": "2026-11-07",
+  "https://theflatratemovers.com/military-moving/": "2026-11-09",
   "https://theflatratemovers.com/moving-a-piano/": "2026-11-07",
   "https://theflatratemovers.com/moving-an-office-inside-a-plant-or-warehouse/": "2026-11-07",
   "https://theflatratemovers.com/moving-and-storage/": "2026-11-09",
