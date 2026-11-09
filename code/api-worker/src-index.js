@@ -18,6 +18,7 @@ import {
   datasetsInventory,
   pageDataInventory,
   intentRows,
+  coverageData,
   bundleManifest,
   datasetRemote,
 } from '../data/bundle-index.js';
@@ -46,6 +47,23 @@ const pageDataBySlug = new Map((pageDataInventory || []).map((d) => [d.slug, d])
 // sealed bytes the bundle would have carried — via the edge cache.
 const remoteDatasetSet = new Set(datasetRemote || []);
 const hasDataset = (name) => datasetText[name] !== undefined || remoteDatasetSet.has(name);
+async function fetchThrough(name) {
+  const url = BASE + name;
+  try {
+    const cache = (typeof caches !== 'undefined' && caches.default) || null;
+    if (cache) { const hit = await cache.match(url); if (hit) return await hit.text(); }
+    const res = await fetch(url, { headers: { 'User-Agent': 'flat-rate-estate-api/dataset' } });
+    if (!res.ok) return undefined;
+    const text = await res.text();
+    if (cache) {
+      try {
+        await cache.put(url, new Response(text, { headers: { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'public, max-age=3600' } }));
+      } catch (_) { /* cache write is best-effort */ }
+    }
+    return text;
+  } catch (_) { return undefined; }
+}
+
 async function dsText(name) {
   if (datasetText[name] !== undefined) return datasetText[name];
   if (!remoteDatasetSet.has(name)) return undefined;
@@ -129,13 +147,26 @@ function serviceSummary(s) {
   };
 }
 
+// ------------------------------------------------- Territory Matrix (P4)
+// Place <-> service bindings from the published coverage dataset
+// (datasets-coverage.json + its tables), bundled by refresh-bundle.py.
+const COVERAGE = coverageData || { places: [], byPlace: {}, byService: {}, cells: 0 };
+const placeById = new Map((COVERAGE.places || []).map((pl) => [pl.id, pl]));
+function placeObj(id) {
+  const pl = placeById.get(id);
+  return pl ? { id: pl.id, name: pl.name, branch: pl.branch, state: pl.state, county: pl.county } : { id };
+}
+
 function serviceDetail(s) {
+  const placeIds = (COVERAGE.byService || {})[s.id] || [];
   return {
     ...serviceSummary(s),
     node: s.node,
     datasetFiles: s.datasets
       .map((f) => inventoryByFile.get(f))
       .filter(Boolean),
+    places: placeIds.map(placeObj),
+    placesCount: placeIds.length,
   };
 }
 
@@ -226,6 +257,11 @@ const TOOLS = [
     inputSchema: { type: 'object', properties: {} },
   },
   {
+    name: 'get_coverage',
+    description: 'Territory Matrix coverage: with no arguments, the coverage summary (place count, cell count, pair count, branch split). With "place" (a place id like "place-petersburg-wv"), the services offered at that place. With "service" (a service id), the places where that service is offered.',
+    inputSchema: { type: 'object', properties: { place: { type: 'string' }, service: { type: 'string' } } },
+  },
+  {
     name: 'get_service',
     description: 'Get one service by its id (e.g. "service-commercial"): the full entity-graph node, its dataset files and its intent-row count.',
     inputSchema: {
@@ -276,6 +312,24 @@ const TOOLS = [
 
 async function callTool(name, args) {
   switch (name) {
+    case 'get_coverage': {
+      if (args.place) {
+        const ids = (COVERAGE.byPlace || {})[args.place] || [];
+        return { place: placeById.get(args.place) || { id: args.place }, services: ids };
+      }
+      if (args.service) {
+        const ids = (COVERAGE.byService || {})[args.service] || [];
+        return { service: args.service, places: ids.map(placeObj) };
+      }
+      const split = { winchesterOnly: 0, martinsburgOnly: 0, both: 0 };
+      for (const pl of COVERAGE.places || []) {
+        if (pl.branch === 'both') split.both++;
+        else if (pl.branch === 'winchester') split.winchesterOnly++;
+        else if (pl.branch === 'martinsburg') split.martinsburgOnly++;
+      }
+      const n = (COVERAGE.places || []).length;
+      return { places: n, cells: COVERAGE.cells, pairs: n * (n - 1), branchSplit: split, dataset: 'datasets-coverage.json', landing: BASE + 'datasets/coverage/' };
+    }
     case 'list_services':
       return { count: services.length, services: services.map(serviceSummary) };
     case 'get_service': {
@@ -397,7 +451,8 @@ The Flat Rate Movers, <em>Search Intent Coverage Dataset</em>,
 (concept DOI <a href="https://doi.org/${CONCEPT_DOI}">${CONCEPT_DOI}</a>), or query it live here.</p>
 <h2>Endpoints</h2>
 <ul>
-<li><code>GET /v1/services</code> — all services</li>
+<li><code>GET /v1/services</code> — all services (add <code>?place=place-petersburg-wv</code> for the services offered at one place)</li>
+<li><code>GET /v1/coverage</code> — the Territory Matrix coverage dataset, byte-identical (add <code>?table=coverage|pairs|features</code> for one table; <code>?table=coverage&amp;place=</code> filters cells by place)</li>
 <li><code>GET /v1/services/{service_id}</code> — one service, its datasets and intent rows count</li>
 <li><code>GET /v1/datasets</code> — dataset inventory</li>
 <li><code>GET /v1/datasets/{name}</code> — a dataset's full JSON</li>
@@ -413,7 +468,7 @@ The Flat Rate Movers, <em>Search Intent Coverage Dataset</em>,
 <li><code>GET /v1/page-data/{slug}</code> — one page's Page Data record (slug is the page path, e.g. <code>gun-safe-movers</code> or <code>datasets/gun-safe</code>; the homepage is <code>home</code>)</li>
 <li><code>GET /v1/verify?file={filename}</code> — live SHA-256 vs the signed index</li>
 <li><code>GET /openapi.json</code> — this API as an OpenAPI 3 document</li>
-<li><code>POST /mcp</code> — MCP JSON-RPC endpoint (tools: list_services, get_service, list_datasets, get_dataset, search_intent, verify_file)</li>
+<li><code>POST /mcp</code> — MCP JSON-RPC endpoint (tools: list_services, get_service, get_coverage, list_datasets, get_dataset, search_intent, verify_file)</li>
 </ul>
 <h2>Access, caching and limits</h2>
 <ul>
@@ -479,6 +534,7 @@ const OPENAPI = {
     '/v1/services': {
       get: {
         summary: 'List all services',
+        parameters: [{ name: 'place', in: 'query', required: false, schema: { type: 'string' }, example: 'place-petersburg-wv', description: 'When given, only the services offered at that place (Territory Matrix coverage table), with the place record echoed as "place".' }],
         responses: { '200': { description: 'Service registry summaries.', content: { 'application/json': { schema: { type: 'object', properties: { count: { type: 'integer' }, services: { type: 'array', items: { $ref: '#/components/schemas/ServiceSummary' } } }, required: ['count', 'services'] } } } } },
       },
     },
@@ -487,7 +543,7 @@ const OPENAPI = {
         summary: 'Get one service',
         parameters: [{ name: 'service_id', in: 'path', required: true, schema: { type: 'string' }, example: 'service-commercial' }],
         responses: {
-          '200': { description: 'The service summary plus its full entity-graph node and dataset file records.', content: { 'application/json': { schema: { allOf: [{ $ref: '#/components/schemas/ServiceSummary' }, { type: 'object', properties: { node: { type: 'object' }, datasetFiles: { type: 'array', items: { type: 'object' } } } }] } } } },
+          '200': { description: 'The service summary plus its full entity-graph node, dataset file records, and the places where the service is offered (places / placesCount, from the Territory Matrix coverage table).', content: { 'application/json': { schema: { allOf: [{ $ref: '#/components/schemas/ServiceSummary' }, { type: 'object', properties: { node: { type: 'object' }, datasetFiles: { type: 'array', items: { type: 'object' } } } }] } } } },
           '404': { $ref: '#/components/responses/Error' },
         },
       },
@@ -536,6 +592,13 @@ const OPENAPI = {
         summary: 'Local graph registry dataset',
         parameters: [tableParam(['branches', 'records', 'coverage', 'reviews', 'collisions', 'gaps', 'owner-steps'])],
         responses: { '200': datasetDocResponse('The full dataset file (no ?table) or the single requested table node.'), '404': { $ref: '#/components/responses/Error' } },
+      },
+    },
+    '/v1/coverage': {
+      get: {
+        summary: 'Territory Matrix coverage dataset',
+        parameters: [tableParam(['coverage', 'pairs', 'features']), { name: 'place', in: 'query', required: false, schema: { type: 'string' }, example: 'place-petersburg-wv', description: 'With ?table=coverage, filters the coverage cells to one place.' }],
+        responses: { '200': datasetDocResponse('The full coverage dataset file (no ?table) or the single requested table.'), '404': { $ref: '#/components/responses/Error' } },
       },
     },
     '/v1/crawl-presence': {
@@ -707,7 +770,14 @@ export default {
     if (path === '/bbf7b7d5281876c13897f6e1498f6cc56abb3487f12603698128f7b08bae3a6d.txt') return textResponse('bbf7b7d5281876c13897f6e1498f6cc56abb3487f12603698128f7b08bae3a6d', 'text/plain; charset=utf-8');
     if (path === '/openapi.json') return jsonResponse(OPENAPI);
     if (path === '/v1/services') {
-      return jsonResponse({ count: services.length, services: services.map(serviceSummary) });
+      const place = url.searchParams.get('place');
+      if (!place) return jsonResponse({ count: services.length, services: services.map(serviceSummary) });
+      const ids = new Set((COVERAGE.byPlace || {})[place] || []);
+      const list = services.filter((sv) => ids.has(sv.id)).map(serviceSummary);
+      const out = { count: list.length, services: list };
+      const meta = placeById.get(place);
+      if (meta) out.place = { ...meta };
+      return jsonResponse(out);
     }
     if (path.startsWith('/v1/services/')) {
       const id = decodeURIComponent(path.slice('/v1/services/'.length));
@@ -769,6 +839,29 @@ export default {
       const node = (doc['@graph'] || []).find((n) => String(n['@id']).endsWith(suffix));
       if (!node) return errorJson(`table not found: ${table}`, 404);
       return jsonResponse(node);
+    }
+    if (path === '/v1/coverage') {
+      const table = url.searchParams.get('table');
+      if (!table) {
+        const rawDoc = await dsText('datasets-coverage.json');
+        if (rawDoc === undefined) return errorJson('dataset unavailable', 502);
+        return textResponse(rawDoc, 'application/json; charset=utf-8');
+      }
+      const tables = {
+        coverage: 'datasets/coverage/coverage-table.json',
+        pairs: 'datasets/coverage/pairs-table.json',
+        features: 'datasets/coverage/features-table.json',
+      };
+      const file = tables[table];
+      if (!file) return errorJson(`unknown table: ${table}`, 404);
+      const text = await fetchThrough(file);
+      if (text === undefined) return errorJson('dataset unavailable', 502);
+      const place = url.searchParams.get('place');
+      if (table === 'coverage' && place) {
+        const cells = JSON.parse(text).filter((c) => c.feature_id === place);
+        return jsonResponse({ place, count: cells.length, cells });
+      }
+      return textResponse(text, 'application/json; charset=utf-8');
     }
     if (path === '/v1/crawl-presence') {
       const table = url.searchParams.get('table');

@@ -4451,7 +4451,7 @@
    "@id": "https://theflatratemovers.com/datasets/intent-coverage/#dataset",
    "@type": "Dataset",
    "name": "The Flat Rate Movers — Search Intent Coverage Operations Dataset",
-   "description": "The live intent-coverage rubric of The Flat Rate Movers: 30576 generated rows, each one a query string a customer or an AI assistant can use to find a company service, resolved to the exact page that answers it, that page’s per-page JSON, the dataset files behind the answer, and the service’s node in the entity graph. Rows are generated from the estate’s own registries — 34 services, 268 pages, two branch locations, three corridors and the 81-feature service-area footprint — plus the blog question bank’s 100 real question phrasings and the researched per-service question bank v2 (694 questions), and the rubric is regenerated whenever those registries change. Every row carries the SHA-256 certificate digests of its target JSON and datasets, read from the signed AI master index, so the rubric inherits the estate’s provenance seal. Coverage spans all 34 services of both branches, Winchester, VA and Martinsburg, WV, along the I-81, I-66 and I-70 corridors. Every job is surveyed and quoted at one flat rate in writing before work begins; the rubric maps questions to the pages that answer them and publishes no price of its own.",
+   "description": "The live intent-coverage rubric of The Flat Rate Movers: 30610 generated rows, each one a query string a customer or an AI assistant can use to find a company service, resolved to the exact page that answers it, that page’s per-page JSON, the dataset files behind the answer, and the service’s node in the entity graph. Rows are generated from the estate’s own registries — 34 services, 269 pages, two branch locations, three corridors and the 81-feature service-area footprint — plus the blog question bank’s 100 real question phrasings and the researched per-service question bank v2 (694 questions), and the rubric is regenerated whenever those registries change. Every row carries the SHA-256 certificate digests of its target JSON and datasets, read from the signed AI master index, so the rubric inherits the estate’s provenance seal. Coverage spans all 34 services of both branches, Winchester, VA and Martinsburg, WV, along the I-81, I-66 and I-70 corridors. Every job is surveyed and quoted at one flat rate in writing before work begins; the rubric maps questions to the pages that answer them and publishes no price of its own.",
    "url": "https://theflatratemovers.com/datasets/intent-coverage/",
    "sameAs": "https://theflatratemovers.com/datasets/intent-coverage/",
    "identifier": "https://doi.org/10.5281/zenodo.23818766",
@@ -6440,7 +6440,7 @@
    "@id": "https://theflatratemovers.com/case-study-3500lb-safe-moving-winchester-va/",
    "url": "https://theflatratemovers.com/case-study-3500lb-safe-moving-winchester-va/",
    "name": "Case Study — 3,500 lb Safe Moving, Winchester VA",
-   "dateModified": "2026-11-07",
+   "dateModified": "2026-11-09",
    "hasPart": [
     {
      "@type": "WebPageElement",
@@ -7144,7 +7144,7 @@
      "@id": "https://theflatratemovers.com/#service-final-mile"
     }
    ],
-   "dateModified": "2026-11-07",
+   "dateModified": "2026-11-09",
    "hasPart": [
     {
      "@type": "WebPageElement",
@@ -7182,7 +7182,7 @@
   {
    "@type": "WebPage",
    "@id": "https://theflatratemovers.com/commercial-movers-winchester-va/",
-   "dateModified": "2026-11-07",
+   "dateModified": "2026-11-09",
    "url": "https://theflatratemovers.com/commercial-movers-winchester-va/",
    "name": "Commercial and Office Movers — Winchester VA",
    "image": {
@@ -7248,7 +7248,7 @@
     "url": "https://theflatratemovers.com/assets/img-01-9c77693ba66b.png",
     "caption": "The Flat Rate Movers logo — company brand image, not a job photo."
    },
-   "dateModified": "2026-11-07",
+   "dateModified": "2026-11-09",
    "hasPart": [
     {
      "@type": "WebPageElement",
@@ -7265,7 +7265,7 @@
   {
    "@type": "WebPage",
    "@id": "https://theflatratemovers.com/container-loading-unloading-services-port-transload-virginia/",
-   "dateModified": "2026-11-07",
+   "dateModified": "2026-11-09",
    "url": "https://theflatratemovers.com/container-loading-unloading-services-port-transload-virginia/",
    "name": "Container Loading & Unloading — Port Transload, Virginia",
    "mainEntity": {
@@ -7285,7 +7285,7 @@
   {
    "@type": "WebPage",
    "@id": "https://theflatratemovers.com/crating-movers-martinsburg-wv/",
-   "dateModified": "2026-11-07",
+   "dateModified": "2026-11-09",
    "url": "https://theflatratemovers.com/crating-movers-martinsburg-wv/",
    "name": "Custom Crating — Martinsburg WV",
    "image": {
@@ -7312,7 +7312,7 @@
     "url": "https://theflatratemovers.com/assets/img-01-9c77693ba66b.png",
     "caption": "The Flat Rate Movers logo — company brand image, not a job photo."
    },
-   "dateModified": "2026-11-07",
+   "dateModified": "2026-11-09",
    "hasPart": [
     {
      "@type": "WebPageElement",
@@ -7329,7 +7329,7 @@
   {
    "@type": "WebPage",
    "@id": "https://theflatratemovers.com/final-mile-movers-martinsburg-wv/",
-   "dateModified": "2026-11-07",
+   "dateModified": "2026-11-09",
    "url": "https://theflatratemovers.com/final-mile-movers-martinsburg-wv/",
    "name": "Final-Mile Delivery — Martinsburg WV",
    "image": {
@@ -7346,7 +7346,7 @@
   {
    "@type": "WebPage",
    "@id": "https://theflatratemovers.com/government-movers-martinsburg-wv/",
-   "dateModified": "2026-11-07",
+   "dateModified": "2026-11-09",
    "url": "https://theflatratemovers.com/government-movers-martinsburg-wv/",
    "name": "Government Movers — Martinsburg WV",
    "image": {
@@ -7363,7 +7363,7 @@
   {
    "@type": "WebPage",
    "@id": "https://theflatratemovers.com/government-movers-winchester-va/",
-   "dateModified": "2026-11-07",
+   "dateModified": "2026-11-09",
    "url": "https://theflatratemovers.com/government-movers-winchester-va/",
    "name": "Government Movers — Winchester VA",
    "image": {
@@ -7380,7 +7380,7 @@
   {
    "@type": "WebPage",
    "@id": "https://theflatratemovers.com/gun-safe-movers-martinsburg-wv/",
-   "dateModified": "2026-11-07",
+   "dateModified": "2026-11-09",
    "url": "https://theflatratemovers.com/gun-safe-movers-martinsburg-wv/",
    "name": "Gun Safe Movers — Martinsburg WV",
    "image": {
@@ -7397,7 +7397,7 @@
   {
    "@type": "WebPage",
    "@id": "https://theflatratemovers.com/gun-safe-movers-winchester-va/",
-   "dateModified": "2026-11-07",
+   "dateModified": "2026-11-09",
    "url": "https://theflatratemovers.com/gun-safe-movers-winchester-va/",
    "name": "Gun Safe Movers — Winchester VA",
    "image": {
@@ -7421,7 +7421,7 @@
     "url": "https://theflatratemovers.com/assets/img-15-6ff0065cf230.webp",
     "caption": "Sofas padded in moving blankets and fully sealed in clear stretch wrap, staged in the living room ready for an interstate load. · Reference photo."
    },
-   "dateModified": "2026-11-07",
+   "dateModified": "2026-11-09",
    "hasPart": [
     {
      "@type": "WebPageElement",
@@ -7438,7 +7438,7 @@
   {
    "@type": "WebPage",
    "@id": "https://theflatratemovers.com/industrial-commercial-movers-martinsburg-wv/",
-   "dateModified": "2026-11-07",
+   "dateModified": "2026-11-09",
    "url": "https://theflatratemovers.com/industrial-commercial-movers-martinsburg-wv/",
    "name": "Industrial & Commercial Services — Martinsburg WV",
    "image": {
@@ -7455,7 +7455,7 @@
   {
    "@type": "WebPage",
    "@id": "https://theflatratemovers.com/industrial-commercial-movers-winchester-va/",
-   "dateModified": "2026-11-07",
+   "dateModified": "2026-11-09",
    "url": "https://theflatratemovers.com/industrial-commercial-movers-winchester-va/",
    "name": "Industrial & Commercial Services — Winchester VA",
    "image": {
@@ -7472,7 +7472,7 @@
   {
    "@type": "WebPage",
    "@id": "https://theflatratemovers.com/industrial-offices-movers-martinsburg-wv/",
-   "dateModified": "2026-11-07",
+   "dateModified": "2026-11-09",
    "url": "https://theflatratemovers.com/industrial-offices-movers-martinsburg-wv/",
    "name": "Industrial Offices Moving — Martinsburg WV",
    "image": {
@@ -7489,7 +7489,7 @@
   {
    "@type": "WebPage",
    "@id": "https://theflatratemovers.com/industrial-offices-movers-winchester-va/",
-   "dateModified": "2026-11-07",
+   "dateModified": "2026-11-09",
    "url": "https://theflatratemovers.com/industrial-offices-movers-winchester-va/",
    "name": "Industrial Offices Moving — Winchester VA",
    "image": {
@@ -7513,7 +7513,7 @@
     "url": "https://theflatratemovers.com/assets/img-19-blurred-warehouse-2.webp",
     "caption": "The Flat Rate Movers warehouse and transload operation — a red shipping container being positioned by forklift and track loader, crew working. Photo supplied by The Flat Rate Movers."
    },
-   "dateModified": "2026-11-07",
+   "dateModified": "2026-11-09",
    "hasPart": [
     {
      "@type": "WebPageElement",
@@ -7571,7 +7571,7 @@
     "url": "https://theflatratemovers.com/assets/img-02-0b80bbb82653.webp",
     "caption": "I-81 at Exit 315 (Route 7), Winchester, Frederick County, VA — where interstate runs from our home base begin · Photo: Famartin, CC BY-SA 4.0, Wikimedia Commons"
    },
-   "dateModified": "2026-11-07",
+   "dateModified": "2026-11-09",
    "hasPart": [
     {
      "@type": "WebPageElement",
@@ -7595,7 +7595,7 @@
     "url": "https://theflatratemovers.com/assets/img-07-b39ba374a49a.webp",
     "caption": "I-81 in Virginia — the spine of our interstate work: about 855 miles from Tennessee to New York, with its longest segment, 325 miles, here in Virginia · Photo: Doug Kerr, CC BY-SA 2.0, Wikimedia Commons"
    },
-   "dateModified": "2026-11-07",
+   "dateModified": "2026-11-09",
    "hasPart": [
     {
      "@type": "WebPageElement",
@@ -7631,7 +7631,7 @@
   {
    "@type": "WebPage",
    "@id": "https://theflatratemovers.com/ispm15-movers-martinsburg-wv/",
-   "dateModified": "2026-11-07",
+   "dateModified": "2026-11-09",
    "url": "https://theflatratemovers.com/ispm15-movers-martinsburg-wv/",
    "name": "ISPM 15 Export Packing — Martinsburg WV",
    "image": {
@@ -7648,7 +7648,7 @@
   {
    "@type": "WebPage",
    "@id": "https://theflatratemovers.com/local-regional-movers-martinsburg-wv/",
-   "dateModified": "2026-11-07",
+   "dateModified": "2026-11-09",
    "url": "https://theflatratemovers.com/local-regional-movers-martinsburg-wv/",
    "name": "Local & Regional Movers — Martinsburg WV",
    "image": {
@@ -7665,7 +7665,7 @@
   {
    "@type": "WebPage",
    "@id": "https://theflatratemovers.com/local-regional-movers-winchester-va/",
-   "dateModified": "2026-11-07",
+   "dateModified": "2026-11-09",
    "url": "https://theflatratemovers.com/local-regional-movers-winchester-va/",
    "name": "Local & Regional Movers — Winchester VA",
    "image": {
@@ -7689,7 +7689,7 @@
     "url": "https://theflatratemovers.com/assets/img-07-b39ba374a49a.webp",
     "caption": "I-81 in Virginia — the first leg of most of our cross-country runs, out of the Shenandoah Valley, where both our branches sit on the corridor · Photo: Doug Kerr, CC BY-SA 2.0, Wikimedia Commons"
    },
-   "dateModified": "2026-11-07",
+   "dateModified": "2026-11-09",
    "hasPart": [
     {
      "@type": "WebPageElement",
@@ -7706,7 +7706,7 @@
   {
    "@type": "WebPage",
    "@id": "https://theflatratemovers.com/long-distance-movers-martinsburg-wv/",
-   "dateModified": "2026-11-07",
+   "dateModified": "2026-11-09",
    "url": "https://theflatratemovers.com/long-distance-movers-martinsburg-wv/",
    "name": "Long-Distance Movers — Martinsburg WV",
    "image": {
@@ -7771,7 +7771,7 @@
   {
    "@type": "WebPage",
    "@id": "https://theflatratemovers.com/military-movers-martinsburg-wv/",
-   "dateModified": "2026-11-07",
+   "dateModified": "2026-11-09",
    "url": "https://theflatratemovers.com/military-movers-martinsburg-wv/",
    "name": "Military Movers — Martinsburg WV",
    "image": {
@@ -7788,7 +7788,7 @@
   {
    "@type": "WebPage",
    "@id": "https://theflatratemovers.com/military-movers-winchester-va/",
-   "dateModified": "2026-11-07",
+   "dateModified": "2026-11-09",
    "url": "https://theflatratemovers.com/military-movers-winchester-va/",
    "name": "Military Movers — Winchester VA",
    "image": {
@@ -7805,7 +7805,7 @@
   {
    "@type": "WebPage",
    "@id": "https://theflatratemovers.com/office-moving-movers-martinsburg-wv/",
-   "dateModified": "2026-11-07",
+   "dateModified": "2026-11-09",
    "url": "https://theflatratemovers.com/office-moving-movers-martinsburg-wv/",
    "name": "Office Moving — Martinsburg WV",
    "image": {
@@ -7822,7 +7822,7 @@
   {
    "@type": "WebPage",
    "@id": "https://theflatratemovers.com/office-moving-movers-winchester-va/",
-   "dateModified": "2026-11-07",
+   "dateModified": "2026-11-09",
    "url": "https://theflatratemovers.com/office-moving-movers-winchester-va/",
    "name": "Office Moving — Winchester VA",
    "image": {
@@ -7846,7 +7846,7 @@
     "url": "https://theflatratemovers.com/assets/img-01-9c77693ba66b.png",
     "caption": "The Flat Rate Movers logo — company brand image, not a job photo."
    },
-   "dateModified": "2026-11-07",
+   "dateModified": "2026-11-09",
    "hasPart": [
     {
      "@type": "WebPageElement",
@@ -7863,7 +7863,7 @@
   {
    "@type": "WebPage",
    "@id": "https://theflatratemovers.com/packing-movers-martinsburg-wv/",
-   "dateModified": "2026-11-07",
+   "dateModified": "2026-11-09",
    "url": "https://theflatratemovers.com/packing-movers-martinsburg-wv/",
    "name": "Packing Movers — Martinsburg WV",
    "image": {
@@ -7887,7 +7887,7 @@
     "url": "https://theflatratemovers.com/assets/img-14-8e3ed7b85836.webp",
     "caption": "Furniture padded in a blue moving blanket and fully sealed in clear stretch wrap, staged cleanly and ready to load. · Reference photo."
    },
-   "dateModified": "2026-11-07",
+   "dateModified": "2026-11-09",
    "hasPart": [
     {
      "@type": "WebPageElement",
@@ -7928,7 +7928,7 @@
   {
    "@type": "WebPage",
    "@id": "https://theflatratemovers.com/piano-antique-movers-martinsburg-wv/",
-   "dateModified": "2026-11-07",
+   "dateModified": "2026-11-09",
    "url": "https://theflatratemovers.com/piano-antique-movers-martinsburg-wv/",
    "name": "Piano, Antique & White-Glove Movers — Martinsburg WV",
    "image": {
@@ -7955,7 +7955,7 @@
     "url": "https://theflatratemovers.com/assets/img-01-9c77693ba66b.png",
     "caption": "The Flat Rate Movers logo — company brand image, not a job photo."
    },
-   "dateModified": "2026-11-07",
+   "dateModified": "2026-11-09",
    "hasPart": [
     {
      "@type": "WebPageElement",
@@ -7979,7 +7979,7 @@
     "url": "https://theflatratemovers.com/assets/img-15-6ff0065cf230.webp",
     "caption": "Sofas padded in moving blankets and fully sealed in clear stretch wrap, staged cleanly in the living room before loading. · Reference photo."
    },
-   "dateModified": "2026-11-07",
+   "dateModified": "2026-11-09",
    "hasPart": [
     {
      "@type": "WebPageElement",
@@ -8003,7 +8003,7 @@
     "url": "https://theflatratemovers.com/assets/img-01-9c77693ba66b.png",
     "caption": "The Flat Rate Movers logo — company brand image, not a job photo."
    },
-   "dateModified": "2026-11-07",
+   "dateModified": "2026-11-09",
    "hasPart": [
     {
      "@type": "WebPageElement",
@@ -8022,7 +8022,7 @@
    "@id": "https://theflatratemovers.com/relocation-engineering-standards-portal/",
    "url": "https://theflatratemovers.com/relocation-engineering-standards-portal/",
    "name": "Relocation Engineering Standards Portal",
-   "dateModified": "2026-11-07",
+   "dateModified": "2026-11-09",
    "hasPart": [
     {
      "@type": "WebPageElement",
@@ -8046,7 +8046,7 @@
     "url": "https://theflatratemovers.com/assets/img-01-9c77693ba66b.png",
     "caption": "The Flat Rate Movers logo — company brand image, not a job photo."
    },
-   "dateModified": "2026-11-07",
+   "dateModified": "2026-11-09",
    "hasPart": [
     {
      "@type": "WebPageElement",
@@ -8070,7 +8070,7 @@
     "url": "https://theflatratemovers.com/assets/img-01-9c77693ba66b.png",
     "caption": "The Flat Rate Movers logo — company brand image, not a job photo."
    },
-   "dateModified": "2026-11-07",
+   "dateModified": "2026-11-09",
    "hasPart": [
     {
      "@type": "WebPageElement",
@@ -8094,7 +8094,7 @@
     "url": "https://theflatratemovers.com/assets/img-01-9c77693ba66b.png",
     "caption": "The Flat Rate Movers logo — company brand image, not a job photo."
    },
-   "dateModified": "2026-11-07",
+   "dateModified": "2026-11-09",
    "hasPart": [
     {
      "@type": "WebPageElement",
@@ -8111,7 +8111,7 @@
   {
    "@type": "WebPage",
    "@id": "https://theflatratemovers.com/sir-heavy-movers-martinsburg-wv/",
-   "dateModified": "2026-11-07",
+   "dateModified": "2026-11-09",
    "url": "https://theflatratemovers.com/sir-heavy-movers-martinsburg-wv/",
    "name": "SIR Heavy Movers — Martinsburg WV",
    "image": {
@@ -8409,7 +8409,7 @@
     "url": "https://theflatratemovers.com/assets/img-18-blurred-warehouse-1.webp",
     "caption": "Rigging and handling equipment at work in The Flat Rate Movers warehouse and transload operation — forklift, track loader and crew. Photo supplied by The Flat Rate Movers."
    },
-   "dateModified": "2026-11-07",
+   "dateModified": "2026-11-09",
    "hasPart": [
     {
      "@type": "WebPageElement",
@@ -8433,7 +8433,7 @@
     "url": "https://theflatratemovers.com/assets/img-03-06ba6c3aa9ad.webp",
     "caption": "Old Town Winchester, VA — a short walk from our Winchester branch at 116 W Piccadilly St (39.1871° N, 78.1668° W) · Photo via Virginia Economic Development Partnership"
    },
-   "dateModified": "2026-11-07",
+   "dateModified": "2026-11-09",
    "hasPart": [
     {
      "@type": "WebPageElement",
@@ -8450,7 +8450,7 @@
   {
    "@type": "WebPage",
    "@id": "https://theflatratemovers.com/transloading-movers-martinsburg-wv/",
-   "dateModified": "2026-11-07",
+   "dateModified": "2026-11-09",
    "url": "https://theflatratemovers.com/transloading-movers-martinsburg-wv/",
    "name": "Loading, Transloading & Container Services — Martinsburg WV",
    "image": {
@@ -8504,7 +8504,7 @@
     "url": "https://theflatratemovers.com/assets/img-01-9c77693ba66b.png",
     "caption": "The Flat Rate Movers logo — company brand image, not a job photo."
    },
-   "dateModified": "2026-11-07",
+   "dateModified": "2026-11-09",
    "hasPart": [
     {
      "@type": "WebPageElement",
@@ -8547,7 +8547,7 @@
     "url": "https://theflatratemovers.com/assets/img-07-b39ba374a49a.webp",
     "caption": "I-81 in Virginia — where every state-to-state run from our bases begins, dispatched from Winchester at the I-81 × I-66 junction and from Martinsburg on I-81 · Photo: Doug Kerr, CC BY-SA 2.0, Wikimedia Commons"
    },
-   "dateModified": "2026-11-07",
+   "dateModified": "2026-11-09",
    "hasPart": [
     {
      "@type": "WebPageElement",
@@ -8571,7 +8571,7 @@
     "url": "https://theflatratemovers.com/assets/img-07-b39ba374a49a.webp",
     "caption": "I-81 in Virginia — where every state-to-state run from our bases begins, dispatched from Winchester at the I-81 × I-66 junction and from Martinsburg on I-81 · Photo: Doug Kerr, CC BY-SA 2.0, Wikimedia Commons"
    },
-   "dateModified": "2026-11-07",
+   "dateModified": "2026-11-09",
    "hasPart": [
     {
      "@type": "WebPageElement",
@@ -8595,7 +8595,7 @@
     "url": "https://theflatratemovers.com/assets/img-07-b39ba374a49a.webp",
     "caption": "I-81 in Virginia — where every state-to-state run from our bases begins, dispatched from Winchester at the I-81 × I-66 junction and from Martinsburg on I-81 · Photo: Doug Kerr, CC BY-SA 2.0, Wikimedia Commons"
    },
-   "dateModified": "2026-11-07",
+   "dateModified": "2026-11-09",
    "hasPart": [
     {
      "@type": "WebPageElement",
@@ -8619,7 +8619,7 @@
     "url": "https://theflatratemovers.com/assets/img-07-b39ba374a49a.webp",
     "caption": "I-81 in Virginia — where every state-to-state run from our bases begins, dispatched from Winchester at the I-81 × I-66 junction and from Martinsburg on I-81 · Photo: Doug Kerr, CC BY-SA 2.0, Wikimedia Commons"
    },
-   "dateModified": "2026-11-07",
+   "dateModified": "2026-11-09",
    "hasPart": [
     {
      "@type": "WebPageElement",
@@ -8643,7 +8643,7 @@
     "url": "https://theflatratemovers.com/assets/img-07-b39ba374a49a.webp",
     "caption": "I-81 in Virginia — where every state-to-state run from our bases begins, dispatched from Winchester at the I-81 × I-66 junction and from Martinsburg on I-81 · Photo: Doug Kerr, CC BY-SA 2.0, Wikimedia Commons"
    },
-   "dateModified": "2026-11-07",
+   "dateModified": "2026-11-09",
    "hasPart": [
     {
      "@type": "WebPageElement",
@@ -10280,6 +10280,167 @@
    "isPartOf": {
     "@id": "https://theflatratemovers.com/datasets/ports/#dataset-ports"
    }
+  },
+  {
+   "@type": "Dataset",
+   "@id": "https://theflatratemovers.com/datasets/coverage/#dataset",
+   "name": "Territory Matrix — Service Coverage by Place",
+   "description": "The Flat Rate Movers service-coverage matrix: every place in the company footprint as a typed schema.org Place node with coordinates and branch binding (Winchester VA and Martinsburg WV), the full feature-by-service coverage table reconciled to the 34-service registry, and the place-to-place distance table (centroid distances, computed and labeled as computed; road miles only where separately researched). Generated from service-area.geojson by build-coverage.js.",
+   "url": "https://theflatratemovers.com/datasets/coverage/",
+   "identifier": "https://theflatratemovers.com/datasets/coverage/",
+   "isAccessibleForFree": true,
+   "datePublished": "2026-11-09",
+   "dateModified": "2026-11-09",
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "sameAs": "https://theflatratemovers.com/datasets/coverage/",
+   "creator": {
+    "@type": "Organization",
+    "@id": "https://theflatratemovers.com/#organization",
+    "name": "The Flat Rate Movers LLC",
+    "url": "https://theflatratemovers.com/"
+   },
+   "publisher": {
+    "@type": "Organization",
+    "@id": "https://theflatratemovers.com/#organization",
+    "name": "The Flat Rate Movers LLC",
+    "url": "https://theflatratemovers.com/"
+   },
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-residential"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-commercial"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-local-regional"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-long-distance"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-packing"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-gun-safe"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-piano-antique"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-ispm15"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-crating"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-transloading"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-final-mile"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-white-glove"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-office-moving"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-industrial-offices"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-government"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-military"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-route81"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-industrial-commercial"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-senior-moving"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-warehouse-relocation"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-it-relocation"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-transloading-winchester-va"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-moving-and-storage"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-junk-removal"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-warehouse-racking-relocation"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-ffe-logistics"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-data-center-relocation"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-medical-lab-relocation"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-freight-rework-transloading"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-logistics-project-management"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-3pl-support"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-vault-door"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-hoarding-cleanup"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "keywords": "service coverage, territory matrix, places, branch binding, Winchester VA, Martinsburg WV, Shenandoah Valley, Eastern Panhandle, I-81, I-66, I-70, coverage matrix, place-to-place distance, The Flat Rate Movers",
+   "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
+   },
+   "spatialCoverage": [
+    {
+     "@type": "Place",
+     "@id": "https://theflatratemovers.com/#winchester",
+     "name": "The Flat Rate Movers — Winchester",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.18711576,
+      "longitude": -78.1668352
+     }
+    },
+    {
+     "@type": "Place",
+     "@id": "https://theflatratemovers.com/#martinsburg",
+     "name": "Flat Rate Movers Martinsburg WV",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.48319665,
+      "longitude": -77.94760443
+     }
+    }
+   ]
   }
  ],
  "_humanSummary": "This is the best JSON for The Flat Rate Movers: one @graph, stable @ids, Organization chained to two Places, each Place carrying its full footprint (Winchester 32 areas, Martinsburg 35, shared 14) with the Google Business Profile subset (Winchester 17, Martinsburg 14) also carried as named City nodes, each Service chained to the Organization and to its branch Place or Places, per-branch Google ratings (Winchester 5.0 with 1 review, Martinsburg 4.7 with 6 reviews, never blended), founding June 2010, geo, hours, sameAs, and no license, price, testimonial, or move count. Humans read the names, addresses, and service lists; machines follow the @ids. 2026-10-28: 24 new branch and corridor pages added, each with Service JSON-LD, logo image, and backlinks.",

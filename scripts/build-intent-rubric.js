@@ -1217,7 +1217,7 @@ const ROLLUP_SETS = {
 };
 const ROLLUP_ALL = new Set([
   'home', 'services', 'all-pages', 'sitemap', 'blog', 'datasets',
-  'datasets/intent-coverage', 'datasets/search-index', 'datasets/answer-evidence', 'datasets/local-graph-registry', 'datasets/crawl-presence', 'datasets/archive-registry', 'datasets/quote-tool', 'datasets/page-data-pool', 'datasets/catalog-registry', 'faq', 'moving-questions-answers', // +'datasets/catalog-registry' 2026-11-03 (Catalog Registry batch): the catalog landing carries the full 32-service roll-up, like the other registry landings
+  'datasets/intent-coverage', 'datasets/search-index', 'datasets/answer-evidence', 'datasets/local-graph-registry', 'datasets/crawl-presence', 'datasets/archive-registry', 'datasets/quote-tool', 'datasets/page-data-pool', 'datasets/catalog-registry', 'datasets/coverage', 'faq', 'moving-questions-answers', // +'datasets/coverage' 2026-11-09 (Territory Matrix P4): the coverage landing carries the full roll-up, like the other estate dataset landings // +'datasets/catalog-registry' 2026-11-03 (Catalog Registry batch): the catalog landing carries the full 32-service roll-up, like the other registry landings
   'quote', 'quote-tool', 'online-estimate', 'flat-rate-moving-quote-winchester', // +'quote-tool' +'datasets/quote-tool' 2026-11-03 (Quote Tool batch): the estate-level guide + its dataset landing carry the full 30-service roll-up, like 'quote' and 'faq' // +'datasets/page-data-pool' 2026-11-03 (Page Data Pool batch): the pool landing carries the full 30-service roll-up on the same pattern
   'flat-rate-guarantee', 'areas-served', 'service-areas-moving-company',
   'find-us', 'moving-cost-guide-winchester-va', 'developer', 'entities',
