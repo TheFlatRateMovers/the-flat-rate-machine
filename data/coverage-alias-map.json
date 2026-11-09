@@ -1,0 +1,106 @@
+{
+ "aliases": {
+  "commercial-moving": {
+   "class": "alias",
+   "registry": "service-commercial",
+   "why": "Registry name is 'Commercial and Office Moving'."
+  },
+  "commercial-relocation": {
+   "class": "alias",
+   "registry": "service-commercial",
+   "why": "Commercial relocation is the commercial moving service under its relocation name; warehouse relocation is its own registry service and is NOT this label."
+  },
+  "custom-crating": {
+   "class": "alias",
+   "registry": "service-crating",
+   "why": "Registry slug is the short form of Custom Crating."
+  },
+  "ffe-installation": {
+   "class": "work-type",
+   "registry": "service-ffe-logistics",
+   "why": "Installation is the FF&E service's core task."
+  },
+  "flexible-deployment": {
+   "class": "program",
+   "registry": "service-logistics-project-management",
+   "why": "Flexible deployment is the project-managed workforce model; its engagements are led by logistics project management."
+  },
+  "freight-rework": {
+   "class": "alias",
+   "registry": "service-freight-rework-transloading",
+   "why": "Short form of the registry service name."
+  },
+  "government-moving": {
+   "class": "alias",
+   "registry": "service-government",
+   "why": "Registry slug drops the -moving suffix (Government Moving)."
+  },
+  "industrial-rigging": {
+   "class": "work-type",
+   "registry": "service-industrial-commercial",
+   "why": "Rigging as sold work sits in Industrial & Commercial Services; SIR Heavy is the protocol service for the 1,500-3,500 lb band and stays distinct."
+  },
+  "ispm15-export-packing": {
+   "class": "alias",
+   "registry": "service-ispm15",
+   "why": "Registry slug is the short form of ISPM 15 Export Packing."
+  },
+  "loading": {
+   "class": "work-type",
+   "registry": "service-transloading",
+   "why": "Registry transloading name is 'Loading, Transloading and Container Services' — loading is named in it."
+  },
+  "medical-lab": {
+   "class": "alias",
+   "registry": "service-medical-lab-relocation",
+   "why": "Short form of the registry service name."
+  },
+  "military-moving": {
+   "class": "alias",
+   "registry": "service-military",
+   "why": "Registry slug drops the -moving suffix (Military Moving)."
+  },
+  "ocean-container": {
+   "class": "work-type",
+   "registry": "service-transloading",
+   "why": "Container services are named in the transloading registry service; per-port depth rides the ports datasets."
+  },
+  "pods": {
+   "class": "work-type",
+   "registry": "service-moving-and-storage",
+   "why": "Portable-container moves are sold inside moving & storage."
+  },
+  "residential-moving": {
+   "class": "alias",
+   "registry": "service-residential",
+   "why": "Registry slug shortens the service name (Residential Moving); geojson uses the full name form."
+  },
+  "restacking": {
+   "class": "work-type",
+   "registry": "service-transloading",
+   "why": "Restacking is a container/transloading task (also priced in the industrial CWT schedule; the coverage cell stays with transloading, its home family)."
+  },
+  "route-81": {
+   "class": "alias",
+   "registry": "service-route81",
+   "why": "Registry slug drops the hyphen (Route 81 Corridor Moving and Dispatch)."
+  },
+  "transloading-winchester": {
+   "class": "alias",
+   "registry": "service-transloading-winchester-va",
+   "why": "Short form of the branch-specific registry service."
+  },
+  "warehouse-distribution": {
+   "class": "work-type",
+   "registry": "service-3pl-support",
+   "why": "Distribution support is 3PL work; warehouse RELOCATION is a different registry service and is not this label."
+  },
+  "warehouse-racking": {
+   "class": "alias",
+   "registry": "service-warehouse-racking-relocation",
+   "why": "Short form of the registry service name."
+  }
+ },
+ "coverage_math": "2,769 geojson cells, all resolved: 1,437 strict-slug direct + 422 name-form alias cells (6 labels found by the production builder 2026-11-09: residential-moving 74, government-moving 74, military-moving 74, custom-crating 69, ispm15-export-packing 69, route-81 62) + 910 cells under the original 14 labels (5 alias, 8 work-type, 1 program). Map now carries 20 labels (11 alias, 8 work-type, 1 program) onto the 34-service registry; every feature's coverage fully counted, labels preserved. The P1 prototype's 1,859 \"direct\" figure = 1,437 strict + 422 name-form; its name-normalization matcher is retired — one reconciliation mechanism (this map) only.",
+ "note": "DRAFT for review — maps the geojson's 20 non-slug service labels onto the 34-service registry. Classes: alias = same service under another name; work-type = a task sold inside the parent service (coverage cell counts under the parent, label preserved in the cell); program = a delivery model spanning services (counts under the named lead service). No cell is dropped; every geojson label keeps its name in the coverage table."
+}
