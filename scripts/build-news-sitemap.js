@@ -147,6 +147,15 @@ function main() {
     included: included.map((e) => e.slug), pruned,
     count: included.length,
   }, null, 1));
+  if (included.length === 0) {
+    // Empty-window state (2026-11-09): no published ledger post inside the
+    // trailing 48 hours. The valid empty urlset just written is the CORRECT
+    // output — say so in the log, so the state is never mistaken for a
+    // generator failure (Google's console calls an empty news sitemap
+    // "Missing XML tag"; the file itself is well-formed and complete).
+    // Printed AFTER the JSON summary so the seal log's tail excerpt keeps it.
+    console.log('build-news-sitemap: EMPTY-WINDOW — no published ledger post inside the trailing 48 hours; a valid empty urlset was emitted (correct state, not an error)');
+  }
 }
 
 main();

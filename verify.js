@@ -3231,8 +3231,14 @@ async function main() {
       if (e.title !== xmlEscNS(bp.headline || '')) problemsNS.push(pg.slug + ' (title != schema headline)');
       if (!fs.existsSync(path.join(PAGES_PUBLIC, pg.slug, 'index.html'))) problemsNS.push(pg.slug + ' (no route document)');
     }
-    check('NS-2 the local news-sitemap.xml is a well-formed news urlset (news namespace declared, every entry complete) within the 1,000-URL cap',
-      localNewsXmlNS.includes('<urlset') && localNewsXmlNS.includes('xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"') &&
+    // NS-2 well-formedness made explicit 2026-11-09 (news-sitemap gate batch):
+    // the XML declaration and the closing </urlset> are now asserted, so an
+    // EMPTY urlset inside an empty 48-hour window passes as correct state
+    // while a malformed or truncated file fails — previously the empty case
+    // passed only by vacuous truth and a truncated file could slip through.
+    check('NS-2 the local news-sitemap.xml is a well-formed news urlset (XML declaration, news namespace declared, closing urlset tag, every entry complete) within the 1,000-URL cap — an empty urlset inside an empty window is correct state and passes; a malformed file fails',
+      localNewsXmlNS.startsWith('<?xml') && localNewsXmlNS.includes('<urlset') && localNewsXmlNS.trimEnd().endsWith('</urlset>') &&
+      localNewsXmlNS.includes('xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"') &&
       localEntriesNS.every((e) => e.loc && e.date && e.title) && localEntriesNS.length <= 1000,
       'entries=' + localEntriesNS.length);
     check('NS-3 every news sitemap entry is a published ledger post with a route document, and its publication_date and title byte-match the post\u2019s BlogPosting schema',
