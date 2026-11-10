@@ -32,9 +32,19 @@
 // Usage: node scripts/check-twins.js [--json]
 // Exit 0 = every pair/group byte-identical and every duplicated seat
 // classified. Exit 1 = divergence or unclassified seat.
+//
+// TW-7 (W30 Machine repair, 2026-11-10): the shell's inline router
+// script is a REDUCED copy, not a byte twin — its data literals
+// (pages / redirects / pageMeta) are compared SEMANTICALLY against
+// repo-dir/main.js by running scripts/sync-shell-inline-router.js
+// --check (the same code seal.py phase 0.5 runs to heal the seat, so
+// the gate and the fixer can never disagree). Root cause: the inline
+// pages array was hand-maintained and silently lost 10 slugs from the
+// Nov 4–7 batches while its pageMeta stayed current.
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
+const { execFileSync } = require('child_process');
 
 const ROOT = path.resolve(__dirname, '..');           // the-flat-rate-machine
 const WS = path.resolve(ROOT, '..');                  // ~/workspace
@@ -209,6 +219,22 @@ function main() {
     ok: unclassified.length === 0 && stateBad.length === 0,
     detail: [...unclassified.map((u) => 'unclassified seat: ' + u), ...stateBad].join('; ') ||
       'all multi-seat groups classified; new duplicated seats fail here until paired, grouped, or excluded with a reason' });
+
+  // TW-7: shell inline router data vs repo-dir/main.js (semantic —
+  // the inline script is a reduced copy, so byte identity is not the
+  // contract; its data literals are). The check RUNS the syncer's own
+  // --check mode: one implementation for gate and fixer.
+  let tw7ok = false, tw7detail = '';
+  try {
+    const out = execFileSync('node', [path.join(ROOT, 'scripts', 'sync-shell-inline-router.js'), '--check'],
+      { encoding: 'utf8', timeout: 120000, maxBuffer: 16 * 1024 * 1024 });
+    tw7ok = true;
+    tw7detail = out.trim();
+  } catch (e) {
+    tw7detail = String((e.stdout || '') + (e.message || '')).trim().slice(0, 400);
+  }
+  checks.push({ id: 'TW-7', name: 'TW-7 shell inline router data identical to repo-dir/main.js (pages/redirects/pageMeta, semantic; sync-shell-inline-router.js --check)',
+    ok: tw7ok, detail: tw7detail || 'no output' });
 
   const failed = checks.filter((c) => !c.ok);
   if (process.argv.includes('--json')) {

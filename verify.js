@@ -5073,7 +5073,7 @@ async function main() {
  // repo-dir/main.js — the copy digest-index.py resolves for that
  // signed distribution (repo-dir/<basename> for every
  // raw.githubusercontent contentUrl). The seal certified the stale
- // twin; only the live P-6 caught it, after deploy. TW-1..TW-6 move
+ // twin; only the live P-6 caught it, after deploy. TW-1..TW-7 move
  // the catch to disk: scripts/check-twins.js byte-compares every
  // duplicated seat in the estate (pair list DERIVED by directory
  // intersection + a completeness scan over the working trees, never
@@ -5091,7 +5091,7 @@ async function main() {
    if (parsed && parsed.checks) {
      for (const c of parsed.checks) check(c.name, c.ok, c.detail);
    } else {
-     check('§39 twin-identity gates TW-1..TW-6 execute', false, String(e && e.message || e).slice(0, 240));
+     check('§39 twin-identity gates TW-1..TW-7 execute', false, String(e && e.message || e).slice(0, 240));
    }
  }
 }
