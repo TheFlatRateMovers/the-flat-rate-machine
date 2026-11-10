@@ -231,6 +231,26 @@
     "status": "owner-photo-needed",
     "reason": "No estate or photo-catalog photograph depicts an office relocation (workstations, files, and equipment being moved): the catalog subjects are warehouse staging, containers, a custom crate, a safe, pianos, and highway corridors. Owner photo needed: an office move in progress at a client’s office."
    }
+  },
+  {
+   "slug": "fire-safe-white-glove-delivery-haslet-tx",
+   "ledgerDate": "2026-11-10",
+   "lane": "story",
+   "instant": "2026-11-10T10:15:48-05:00",
+   "image": {
+    "status": "owner-photo-needed",
+    "reason": "No publishable photograph of this job exists: the job's photographs are the three-stage delivery record, held with the order for the customer and the brand, and photographs inside a customer's home are not published. Owner photo needed: a fire safe delivery in progress, cleared for publication."
+   }
+  },
+  {
+   "slug": "540-lb-dining-table-freight-terminal-delivery-martinsburg-wv",
+   "ledgerDate": "2026-11-10",
+   "lane": "story",
+   "instant": "2026-11-10T10:15:48-05:00",
+   "image": {
+    "status": "owner-photo-needed",
+    "reason": "No publishable photograph of this job exists: the job's photographs document freight condition for the brand's record and are held with the order. Owner photo needed: a carrier-terminal pickup or an in-room furniture placement, cleared for publication."
+   }
   }
  ]
 }

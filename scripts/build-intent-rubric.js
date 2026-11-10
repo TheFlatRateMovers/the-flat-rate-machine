@@ -1838,6 +1838,30 @@ function generate() {
     emit('service-local-regional', 'navigational-local', 'winchester movers near me', 'place-winchester-va', 'local-regional-movers-winchester-va', 'R22-near-me-domination-place');
   }
 
+  // R22 extension — White-Glove Wave 1 (2026-11-10): the audit found R22
+  // minted ZERO white-glove rows — the service phrase is "delivery", so
+  // the movers/moving phrasings people actually type ("white glove movers
+  // near me", "white glove movers winchester va", "white glove movers
+  // martinsburg wv") had no row under any service, and the Martinsburg
+  // branch page did not exist. Bound here through the same gated emit()
+  // path, at R17/R22 depth (bare / best / cost) for the near-me family,
+  // plus the town forms to their branch pages.
+  {
+    const WG = [
+      ['navigational-local', 'white glove movers near me', null, 'white-glove-delivery'],
+      ['navigational-local', 'white glove moving near me', null, 'white-glove-delivery'],
+      ['navigational-local', 'white glove moving company near me', null, 'white-glove-delivery'],
+      ['best-choice', 'best white glove movers near me', null, 'white-glove-delivery'],
+      ['cost', 'white glove movers near me prices', null, 'white-glove-delivery'],
+      ['cost', 'white glove movers cost near me', null, 'white-glove-delivery'],
+      ['cost', 'how much do white glove movers cost near me', null, 'white-glove-delivery'],
+      ['navigational-local', 'white glove movers winchester va', 'place-winchester-va', 'white-glove-delivery-winchester-va'],
+      ['navigational-local', 'white glove delivery martinsburg wv', 'place-martinsburg-wv', 'white-glove-delivery-martinsburg-wv'],
+      ['navigational-local', 'white glove movers martinsburg wv', 'place-martinsburg-wv', 'white-glove-delivery-martinsburg-wv'],
+    ];
+    for (const [cls, text, place, target] of WG) emit('service-white-glove', cls, text, place, target, 'R22-white-glove-wave1');
+  }
+
   // R12 (v2): GSC observed feed-in. Enrich exact normalized matches;
   // resolve unmatched observed queries to a service + target under the
   // same R10 gates (via emit); exclude the rest with reasons.

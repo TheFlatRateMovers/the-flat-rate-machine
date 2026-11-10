@@ -1,6 +1,6 @@
 {
  "attestation": "Every URL below was fetched from the live sitemap on 2026-10-28; titles and service links come from pageMeta in the live site source. No URL was hand-typed.",
- "count": 271,
+ "count": 274,
  "dataset": "pages",
  "generated": "2026-10-29",
  "pages": [
@@ -3375,6 +3375,45 @@
    "title": "Office moving: how workstations, files, and equipment are sequenced",
    "type": "page",
    "url": "https://theflatratemovers.com/how-an-office-move-is-sequenced/"
+  },
+  {
+   "attested": "2026-11-10",
+   "lastmod": "2026-11-10",
+   "services": [
+    "service-white-glove"
+   ],
+   "slug": "white-glove-delivery-martinsburg-wv",
+   "source": "White-Glove Wave 1 (2026-11-10) — new Martinsburg branch service page for white-glove delivery, closing the audit gap: no Martinsburg white-glove page existed while the hub and the Winchester branch page were live. Branch facts from the verified branch record (Flat Rate Movers Martinsburg WV, 736 Williamsport Pike Suite 2, Martinsburg WV 25404; hours Mon-Fri 9-6, Sat 9-4, Sun 9-4; Google 4.7 with 6 reviews); scope from the owner-confirmed white-glove scope of 2026-11-05; 48 branch areas from service-area.geojson branch properties (Territory Matrix 2026-11-09); FAQ 7, visible and schema byte-equal.",
+   "status": "live",
+   "title": "White-Glove Delivery — Martinsburg WV",
+   "type": "service",
+   "url": "https://theflatratemovers.com/white-glove-delivery-martinsburg-wv/"
+  },
+  {
+   "attested": "2026-11-10",
+   "lastmod": "2026-11-10",
+   "services": [
+    "service-white-glove"
+   ],
+   "slug": "fire-safe-white-glove-delivery-haslet-tx",
+   "source": "White-Glove Wave 1 (2026-11-10) — News Formula story lane: case record wg-001 from data/white-glove-research.json (owner-supplied case register, 2026-11-05): a large residential fire safe delivered white-glove to a residence in Haslet, TX, December 2025, one of several orders for the same brand that week; three-stage photo rule (arrival in packaging, after unboxing, in final location); battery keys and accessories handed directly to the customer; all boxing materials and pallets removed. City-level facts only; the brand and the customer are not named. Byline Henry Pitts Jr., reviewer Henry Pitts; image owner-photo-needed.",
+   "status": "live",
+   "title": "A fire safe, delivered white-glove in Haslet, Texas",
+   "type": "page",
+   "url": "https://theflatratemovers.com/fire-safe-white-glove-delivery-haslet-tx/"
+  },
+  {
+   "attested": "2026-11-10",
+   "lastmod": "2026-11-10",
+   "services": [
+    "service-white-glove"
+   ],
+   "slug": "540-lb-dining-table-freight-terminal-delivery-martinsburg-wv",
+   "source": "White-Glove Wave 1 (2026-11-10) — News Formula story lane: case record wg-002 from data/white-glove-research.json (owner-supplied case register, 2026-11-05): a solid-wood double-pedestal dining table, two crated pieces, 540 lb total, collected at a freight carrier terminal in Greencastle, PA in May 2026 — visible carton damage noted on the carrier’s delivery ticket at pickup, photographs sent to the brand immediately — and delivered and placed in a residence in Martinsburg, WV. City-level facts only; the brand and the customer are not named. Byline Henry Pitts Jr., reviewer Henry Pitts; image owner-photo-needed.",
+   "status": "live",
+   "title": "A 540 lb dining table, picked up at a freight terminal in Greencastle and placed in a Martinsburg home",
+   "type": "page",
+   "url": "https://theflatratemovers.com/540-lb-dining-table-freight-terminal-delivery-martinsburg-wv/"
   }
  ],
  "source": "https://theflatratemovers.com/sitemap.xml joined to pageMeta in ../the-flat-rate-movers-pages/public/index.html",

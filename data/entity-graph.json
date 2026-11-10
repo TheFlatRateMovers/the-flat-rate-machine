@@ -3652,7 +3652,7 @@
    "@id": "https://theflatratemovers.com/datasets/intent-coverage/#dataset",
    "@type": "Dataset",
    "name": "The Flat Rate Movers — Search Intent Coverage Operations Dataset",
-   "description": "The live intent-coverage rubric of The Flat Rate Movers: 30639 generated rows, each one a query string a customer or an AI assistant can use to find a company service, resolved to the exact page that answers it, that page’s per-page JSON, the dataset files behind the answer, and the service’s node in the entity graph. Rows are generated from the estate’s own registries — 34 services, 271 pages, two branch locations, three corridors and the 81-feature service-area footprint — plus the blog question bank’s 100 real question phrasings and the researched per-service question bank v2 (694 questions), and the rubric is regenerated whenever those registries change. Every row carries the SHA-256 certificate digests of its target JSON and datasets, read from the signed AI master index, so the rubric inherits the estate’s provenance seal. Coverage spans all 34 services of both branches, Winchester, VA and Martinsburg, WV, along the I-81, I-66 and I-70 corridors. Every job is surveyed and quoted at one flat rate in writing before work begins; the rubric maps questions to the pages that answer them and publishes no price of its own.",
+   "description": "The live intent-coverage rubric of The Flat Rate Movers: 30653 generated rows, each one a query string a customer or an AI assistant can use to find a company service, resolved to the exact page that answers it, that page’s per-page JSON, the dataset files behind the answer, and the service’s node in the entity graph. Rows are generated from the estate’s own registries — 34 services, 274 pages, two branch locations, three corridors and the 81-feature service-area footprint — plus the blog question bank’s 100 real question phrasings and the researched per-service question bank v2 (694 questions), and the rubric is regenerated whenever those registries change. Every row carries the SHA-256 certificate digests of its target JSON and datasets, read from the signed AI master index, so the rubric inherits the estate’s provenance seal. Coverage spans all 34 services of both branches, Winchester, VA and Martinsburg, WV, along the I-81, I-66 and I-70 corridors. Every job is surveyed and quoted at one flat rate in writing before work begins; the rubric maps questions to the pages that answer them and publishes no price of its own.",
    "url": "https://theflatratemovers.com/datasets/intent-coverage/",
    "sameAs": "https://theflatratemovers.com/datasets/intent-coverage/",
    "identifier": "https://doi.org/10.5281/zenodo.23818766",
@@ -9757,6 +9757,134 @@
     "@id": "https://theflatratemovers.com/blog/#blog"
    },
    "mainEntityOfPage": "https://theflatratemovers.com/how-an-office-move-is-sequenced/",
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/fire-safe-white-glove-delivery-haslet-tx/#post",
+   "@type": [
+    "BlogPosting",
+    "NewsArticle"
+   ],
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-white-glove"
+    },
+    {
+     "@id": "https://theflatratemovers.com/datasets/white-glove/#dataset-white-glove"
+    }
+   ],
+   "articleSection": "Job stories",
+   "author": {
+    "@type": "Person",
+    "name": "Henry Pitts Jr.",
+    "url": "https://theflatratemovers.com/author/henry-pitts-jr/",
+    "sameAs": [
+     "https://theflatratemovers.com/",
+     "https://www.instagram.com/theflatratemoversllc",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://medium.com/@ratemovers",
+     "https://github.com/TheFlatRateMovers"
+    ]
+   },
+   "contentLocation": [
+    {
+     "@type": "Place",
+     "name": "Haslet, Tarrant County, TX",
+     "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Haslet",
+      "addressRegion": "TX",
+      "addressCountry": "US"
+     },
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 32.95972,
+      "longitude": -97.34
+     }
+    }
+   ],
+   "dateModified": "2026-11-10T10:15:48-05:00",
+   "datePublished": "2026-11-10T10:15:48-05:00",
+   "description": "A large residential fire safe delivered white-glove to a home in Haslet, Texas, in December 2025, under a safe brand's order — three-stage photographs, packaging and pallet removed, battery keys and accessories handed directly to the customer.",
+   "editor": {
+    "@type": "Person",
+    "name": "Henry Pitts",
+    "jobTitle": "Owner, The Flat Rate Movers"
+   },
+   "headline": "A fire safe, delivered white-glove in Haslet, Texas",
+   "inLanguage": "en-US",
+   "isAccessibleForFree": true,
+   "isPartOf": {
+    "@id": "https://theflatratemovers.com/blog/#blog"
+   },
+   "mainEntityOfPage": "https://theflatratemovers.com/fire-safe-white-glove-delivery-haslet-tx/",
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/540-lb-dining-table-freight-terminal-delivery-martinsburg-wv/#post",
+   "@type": [
+    "BlogPosting",
+    "NewsArticle"
+   ],
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-white-glove"
+    },
+    {
+     "@id": "https://theflatratemovers.com/datasets/white-glove/#dataset-white-glove"
+    }
+   ],
+   "articleSection": "Job stories",
+   "author": {
+    "@type": "Person",
+    "name": "Henry Pitts Jr.",
+    "url": "https://theflatratemovers.com/author/henry-pitts-jr/",
+    "sameAs": [
+     "https://theflatratemovers.com/",
+     "https://www.instagram.com/theflatratemoversllc",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://medium.com/@ratemovers",
+     "https://github.com/TheFlatRateMovers"
+    ]
+   },
+   "contentLocation": [
+    {
+     "@type": "Place",
+     "name": "Martinsburg, Berkeley County, WV",
+     "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Martinsburg",
+      "addressRegion": "WV",
+      "addressCountry": "US"
+     },
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.48319665,
+      "longitude": -77.94760443
+     }
+    }
+   ],
+   "dateModified": "2026-11-10T10:15:48-05:00",
+   "datePublished": "2026-11-10T10:15:48-05:00",
+   "description": "A 540 lb solid-wood dining table in two crated pieces, collected at a freight carrier terminal in Greencastle, Pennsylvania — carton damage noted on the carrier's ticket, photographs to the brand immediately — and placed in a Martinsburg, West Virginia home, May 2026.",
+   "editor": {
+    "@type": "Person",
+    "name": "Henry Pitts",
+    "jobTitle": "Owner, The Flat Rate Movers"
+   },
+   "headline": "A 540 lb dining table, picked up at a freight terminal in Greencastle and placed in a Martinsburg home",
+   "inLanguage": "en-US",
+   "isAccessibleForFree": true,
+   "isPartOf": {
+    "@id": "https://theflatratemovers.com/blog/#blog"
+   },
+   "mainEntityOfPage": "https://theflatratemovers.com/540-lb-dining-table-freight-terminal-delivery-martinsburg-wv/",
    "publisher": {
     "@id": "https://theflatratemovers.com/#organization"
    }

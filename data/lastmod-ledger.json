@@ -2,7 +2,7 @@
  "description": "Seal-maintained lastmod ledger: for every sitemap URL, the date of the last seal generation in which its own signed distribution changed. Seeded from the 2026-11-02 crawl-demand audit (doc-level digest history across 73 signed generations); maintained by seal.py phase 6b (diff-stamp vs the phase-0 prior index). build-sitemap.js reads this file for every sitemap <lastmod>.",
  "lastSeal": {
   "date": "2026-11-10",
-  "indexSha256": "aac63d725a92ee2a8436f4beca5ed2db27f1e876bc04721765dce0b98a250cfb"
+  "indexSha256": "e394bdc397727f318225b28036422c6f459801ab59dc60ae5c754efee182ac1b"
  },
  "seededFrom": "crawl-demand-audit-2026-11-02.csv",
  "urls": {
@@ -11,6 +11,7 @@
   "https://theflatratemovers.com/1600-lb-gun-safe-moving-winchester-va-to-las-vegas-nv/": "2026-11-10",
   "https://theflatratemovers.com/1650-lb-gun-safe-delivered-and-installed-moorefield-wv/": "2026-11-10",
   "https://theflatratemovers.com/3pl-support-services/": "2026-11-10",
+  "https://theflatratemovers.com/540-lb-dining-table-freight-terminal-delivery-martinsburg-wv/": "2026-11-10",
   "https://theflatratemovers.com/ai-license/": "2026-11-10",
   "https://theflatratemovers.com/all-pages/": "2026-11-10",
   "https://theflatratemovers.com/areas-served/": "2026-11-10",
@@ -182,6 +183,7 @@
   "https://theflatratemovers.com/final-mile-delivery/": "2026-11-10",
   "https://theflatratemovers.com/final-mile-movers-martinsburg-wv/": "2026-11-10",
   "https://theflatratemovers.com/find-us/": "2026-11-10",
+  "https://theflatratemovers.com/fire-safe-white-glove-delivery-haslet-tx/": "2026-11-10",
   "https://theflatratemovers.com/flat-rate-guarantee/": "2026-11-10",
   "https://theflatratemovers.com/flat-rate-movers-dataset-estate-citable-doi/": "2026-11-10",
   "https://theflatratemovers.com/flat-rate-moving-quote-winchester/": "2026-11-10",
@@ -325,6 +327,7 @@
   "https://theflatratemovers.com/warehouse-racking-relocation/": "2026-11-10",
   "https://theflatratemovers.com/warehouse-relocation/": "2026-11-10",
   "https://theflatratemovers.com/when-an-item-needs-a-custom-crate/": "2026-11-10",
+  "https://theflatratemovers.com/white-glove-delivery-martinsburg-wv/": "2026-11-10",
   "https://theflatratemovers.com/white-glove-delivery-step-by-step/": "2026-11-10",
   "https://theflatratemovers.com/white-glove-delivery-winchester-va/": "2026-11-10",
   "https://theflatratemovers.com/white-glove-delivery/": "2026-11-10",
