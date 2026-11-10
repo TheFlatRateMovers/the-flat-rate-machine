@@ -1,6 +1,6 @@
 {
  "attestation": "Every URL below was fetched from the live sitemap on 2026-10-28; titles and service links come from pageMeta in the live site source. No URL was hand-typed.",
- "count": 274,
+ "count": 283,
  "dataset": "pages",
  "generated": "2026-10-29",
  "pages": [
@@ -3414,6 +3414,123 @@
    "title": "A 540 lb dining table, picked up at a freight terminal in Greencastle and placed in a Martinsburg home",
    "type": "page",
    "url": "https://theflatratemovers.com/540-lb-dining-table-freight-terminal-delivery-martinsburg-wv/"
+  },
+  {
+   "attested": "2026-11-10",
+   "lastmod": "2026-11-10",
+   "services": [
+    "service-local-regional"
+   ],
+   "slug": "movers-in-strasburg-va",
+   "source": "Pack Claim batch (2026-11-10) — new town landing page for the scouted map-pack target \"movers in strasburg, va\" (owner order 2026-11-10: all ten packs). Branch facts from the verified branch record; town and county from the published service-area data (service-area.geojson); FAQ 7, visible and schema byte-equal; the exact pack phrasing family is bound to this page by the R23 block of build-intent-rubric.js.",
+   "status": "live",
+   "title": "Movers in Strasburg, VA",
+   "type": "service",
+   "url": "https://theflatratemovers.com/movers-in-strasburg-va/"
+  },
+  {
+   "attested": "2026-11-10",
+   "lastmod": "2026-11-10",
+   "services": [
+    "service-local-regional"
+   ],
+   "slug": "movers-in-woodstock-va",
+   "source": "Pack Claim batch (2026-11-10) — new town landing page for the scouted map-pack target \"movers in woodstock, va\" (owner order 2026-11-10: all ten packs). Branch facts from the verified branch record; town and county from the published service-area data (service-area.geojson); FAQ 7, visible and schema byte-equal; the exact pack phrasing family is bound to this page by the R23 block of build-intent-rubric.js.",
+   "status": "live",
+   "title": "Movers in Woodstock, VA",
+   "type": "service",
+   "url": "https://theflatratemovers.com/movers-in-woodstock-va/"
+  },
+  {
+   "attested": "2026-11-10",
+   "lastmod": "2026-11-10",
+   "services": [
+    "service-local-regional"
+   ],
+   "slug": "movers-in-new-market-va",
+   "source": "Pack Claim batch (2026-11-10) — new town landing page for the scouted map-pack target \"movers in new market, va\" (owner order 2026-11-10: all ten packs). Branch facts from the verified branch record; town and county from the published service-area data (service-area.geojson); FAQ 7, visible and schema byte-equal; the exact pack phrasing family is bound to this page by the R23 block of build-intent-rubric.js.",
+   "status": "live",
+   "title": "Movers in New Market, VA",
+   "type": "service",
+   "url": "https://theflatratemovers.com/movers-in-new-market-va/"
+  },
+  {
+   "attested": "2026-11-10",
+   "lastmod": "2026-11-10",
+   "services": [
+    "service-local-regional"
+   ],
+   "slug": "movers-in-berryville-va",
+   "source": "Pack Claim batch (2026-11-10) — new town landing page for the scouted map-pack target \"movers in berryville, va\" (owner order 2026-11-10: all ten packs). Branch facts from the verified branch record; town and county from the published service-area data (service-area.geojson); FAQ 7, visible and schema byte-equal; the exact pack phrasing family is bound to this page by the R23 block of build-intent-rubric.js.",
+   "status": "live",
+   "title": "Movers in Berryville, VA",
+   "type": "service",
+   "url": "https://theflatratemovers.com/movers-in-berryville-va/"
+  },
+  {
+   "attested": "2026-11-10",
+   "lastmod": "2026-11-10",
+   "services": [
+    "service-local-regional"
+   ],
+   "slug": "moving-company-berkeley-springs-wv",
+   "source": "Pack Claim batch (2026-11-10) — new town landing page for the scouted map-pack target \"moving company in berkeley springs, wv\" (owner order 2026-11-10: all ten packs). Branch facts from the verified branch record; town and county from the published service-area data (service-area.geojson); FAQ 7, visible and schema byte-equal; the exact pack phrasing family is bound to this page by the R23 block of build-intent-rubric.js.",
+   "status": "live",
+   "title": "Moving Company in Berkeley Springs, WV",
+   "type": "service",
+   "url": "https://theflatratemovers.com/moving-company-berkeley-springs-wv/"
+  },
+  {
+   "attested": "2026-11-10",
+   "lastmod": "2026-11-10",
+   "services": [
+    "service-local-regional"
+   ],
+   "slug": "moving-company-charles-town-wv",
+   "source": "Pack Claim batch (2026-11-10) — new town landing page for the scouted map-pack target \"moving company in charles town, wv\" (owner order 2026-11-10: all ten packs). Branch facts from the verified branch record; town and county from the published service-area data (service-area.geojson); FAQ 7, visible and schema byte-equal; the exact pack phrasing family is bound to this page by the R23 block of build-intent-rubric.js.",
+   "status": "live",
+   "title": "Moving Company in Charles Town, WV",
+   "type": "service",
+   "url": "https://theflatratemovers.com/moving-company-charles-town-wv/"
+  },
+  {
+   "attested": "2026-11-10",
+   "lastmod": "2026-11-10",
+   "services": [
+    "service-local-regional"
+   ],
+   "slug": "movers-in-shepherdstown-wv",
+   "source": "Pack Claim batch (2026-11-10) — new town landing page for the scouted map-pack target \"movers in shepherdstown, wv\" (owner order 2026-11-10: all ten packs). Branch facts from the verified branch record; town and county from the published service-area data (service-area.geojson); FAQ 7, visible and schema byte-equal; the exact pack phrasing family is bound to this page by the R23 block of build-intent-rubric.js.",
+   "status": "live",
+   "title": "Movers in Shepherdstown, WV",
+   "type": "service",
+   "url": "https://theflatratemovers.com/movers-in-shepherdstown-wv/"
+  },
+  {
+   "attested": "2026-11-10",
+   "lastmod": "2026-11-10",
+   "services": [
+    "service-local-regional"
+   ],
+   "slug": "moving-company-inwood-wv",
+   "source": "Pack Claim batch (2026-11-10) — new town landing page for the scouted map-pack target \"moving company in inwood, wv\" (owner order 2026-11-10: all ten packs). Branch facts from the verified branch record; town and county from the published service-area data (service-area.geojson); FAQ 7, visible and schema byte-equal; the exact pack phrasing family is bound to this page by the R23 block of build-intent-rubric.js.",
+   "status": "live",
+   "title": "Moving Company in Inwood, WV",
+   "type": "service",
+   "url": "https://theflatratemovers.com/moving-company-inwood-wv/"
+  },
+  {
+   "attested": "2026-11-10",
+   "lastmod": "2026-11-10",
+   "services": [
+    "service-white-glove"
+   ],
+   "slug": "white-glove-delivery-front-royal-va",
+   "source": "Pack Claim batch (2026-11-10) — new town landing page for the scouted map-pack target \"white-glove delivery — front royal va\" (owner order 2026-11-10: all ten packs). Branch facts from the verified branch record; town and county from the published service-area data (service-area.geojson); FAQ 7, visible and schema byte-equal; the exact pack phrasing family is bound to this page by the R23 block of build-intent-rubric.js.",
+   "status": "live",
+   "title": "White-Glove Delivery — Front Royal VA",
+   "type": "service",
+   "url": "https://theflatratemovers.com/white-glove-delivery-front-royal-va/"
   }
  ],
  "source": "https://theflatratemovers.com/sitemap.xml joined to pageMeta in ../the-flat-rate-movers-pages/public/index.html",

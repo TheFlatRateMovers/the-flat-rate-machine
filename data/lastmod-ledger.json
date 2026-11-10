@@ -2,7 +2,7 @@
  "description": "Seal-maintained lastmod ledger: for every sitemap URL, the date of the last seal generation in which its own signed distribution changed. Seeded from the 2026-11-02 crawl-demand audit (doc-level digest history across 73 signed generations); maintained by seal.py phase 6b (diff-stamp vs the phase-0 prior index). build-sitemap.js reads this file for every sitemap <lastmod>.",
  "lastSeal": {
   "date": "2026-11-10",
-  "indexSha256": "e394bdc397727f318225b28036422c6f459801ab59dc60ae5c754efee182ac1b"
+  "indexSha256": "f001e2d27102452b3b3b7a611a9d15a4994c4133589e95269191a6abb726bcaa"
  },
  "seededFrom": "crawl-demand-audit-2026-11-02.csv",
  "urls": {
@@ -256,10 +256,18 @@
   "https://theflatratemovers.com/military-movers-martinsburg-wv/": "2026-11-10",
   "https://theflatratemovers.com/military-movers-winchester-va/": "2026-11-10",
   "https://theflatratemovers.com/military-moving/": "2026-11-10",
+  "https://theflatratemovers.com/movers-in-berryville-va/": "2026-11-10",
+  "https://theflatratemovers.com/movers-in-new-market-va/": "2026-11-10",
+  "https://theflatratemovers.com/movers-in-shepherdstown-wv/": "2026-11-10",
+  "https://theflatratemovers.com/movers-in-strasburg-va/": "2026-11-10",
+  "https://theflatratemovers.com/movers-in-woodstock-va/": "2026-11-10",
   "https://theflatratemovers.com/moving-a-piano/": "2026-11-10",
   "https://theflatratemovers.com/moving-an-office-inside-a-plant-or-warehouse/": "2026-11-10",
   "https://theflatratemovers.com/moving-and-storage/": "2026-11-10",
   "https://theflatratemovers.com/moving-antiques-and-museum-pieces/": "2026-11-10",
+  "https://theflatratemovers.com/moving-company-berkeley-springs-wv/": "2026-11-10",
+  "https://theflatratemovers.com/moving-company-charles-town-wv/": "2026-11-10",
+  "https://theflatratemovers.com/moving-company-inwood-wv/": "2026-11-10",
   "https://theflatratemovers.com/moving-company-martinsburg-wv/": "2026-11-10",
   "https://theflatratemovers.com/moving-company-winchester-va/": "2026-11-10",
   "https://theflatratemovers.com/moving-cost-guide-winchester-va/": "2026-11-10",
@@ -327,6 +335,7 @@
   "https://theflatratemovers.com/warehouse-racking-relocation/": "2026-11-10",
   "https://theflatratemovers.com/warehouse-relocation/": "2026-11-10",
   "https://theflatratemovers.com/when-an-item-needs-a-custom-crate/": "2026-11-10",
+  "https://theflatratemovers.com/white-glove-delivery-front-royal-va/": "2026-11-10",
   "https://theflatratemovers.com/white-glove-delivery-martinsburg-wv/": "2026-11-10",
   "https://theflatratemovers.com/white-glove-delivery-step-by-step/": "2026-11-10",
   "https://theflatratemovers.com/white-glove-delivery-winchester-va/": "2026-11-10",

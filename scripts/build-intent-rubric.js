@@ -1862,6 +1862,47 @@ function generate() {
     for (const [cls, text, place, target] of WG) emit('service-white-glove', cls, text, place, target, 'R22-white-glove-wave1');
   }
 
+  // R23 Pack Claim (2026-11-10): the ten scouted map packs. The exact
+  // lowercase strings searchers type for the satellite towns ("movers
+  // in strasburg va", "moving company charles town wv") had no row at
+  // all — the generic family mints mixed-case forms bound to the
+  // service hubs. Bound here, through the same gated emit() path, to
+  // the new town landing pages built for the pack claims (owner order
+  // 2026-11-10: all ten packs). Hub-bound mixed-case rows are NOT
+  // re-pointed; the matrix keeps its bindings. Martinsburg gun-safe
+  // already carries its exact row (R-family) to its branch page — no
+  // R23 row needed there.
+  {
+    const TOWNS = [
+      ['place-strasburg-va', 'strasburg va', 'movers-in-strasburg-va'],
+      ['place-woodstock-va', 'woodstock va', 'movers-in-woodstock-va'],
+      ['place-new-market-va', 'new market va', 'movers-in-new-market-va'],
+      ['place-berryville-va', 'berryville va', 'movers-in-berryville-va'],
+      ['place-berkeley-springs-wv', 'berkeley springs wv', 'moving-company-berkeley-springs-wv'],
+      ['place-charles-town-wv', 'charles town wv', 'moving-company-charles-town-wv'],
+      ['place-shepherdstown-wv', 'shepherdstown wv', 'movers-in-shepherdstown-wv'],
+      ['place-inwood-wv', 'inwood wv', 'moving-company-inwood-wv'],
+    ];
+    for (const [place, n, target] of TOWNS) {
+      emit('service-local-regional', 'navigational-local', 'movers in ' + n, place, target, 'R23-pack-claim');
+      emit('service-local-regional', 'navigational-local', 'moving company ' + n, place, target, 'R23-pack-claim');
+      emit('service-local-regional', 'navigational-local', 'movers ' + n, place, target, 'R23-pack-claim');
+      emit('service-local-regional', 'navigational-local', n + ' movers', place, target, 'R23-pack-claim');
+      emit('service-local-regional', 'best-choice', 'best movers in ' + n, place, target, 'R23-pack-claim');
+      emit('service-local-regional', 'cost', 'movers cost in ' + n, place, target, 'R23-pack-claim');
+      emit('service-local-regional', 'cost', 'how much do movers cost in ' + n, place, target, 'R23-pack-claim');
+    }
+    const WGF = [
+      ['navigational-local', 'white glove delivery front royal va'],
+      ['navigational-local', 'white glove delivery in front royal va'],
+      ['navigational-local', 'white glove movers front royal va'],
+      ['navigational-local', 'white glove movers in front royal va'],
+      ['best-choice', 'best white glove delivery front royal va'],
+      ['cost', 'white glove delivery cost in front royal va'],
+    ];
+    for (const [cls, text] of WGF) emit('service-white-glove', cls, text, 'place-front-royal-va', 'white-glove-delivery-front-royal-va', 'R23-pack-claim-white-glove');
+  }
+
   // R12 (v2): GSC observed feed-in. Enrich exact normalized matches;
   // resolve unmatched observed queries to a service + target under the
   // same R10 gates (via emit); exclude the rest with reasons.
