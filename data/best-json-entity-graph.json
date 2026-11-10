@@ -2153,7 +2153,7 @@
    "@type": "Dataset",
    "@id": "https://theflatratemovers.com/datasets/ports/#dataset-ports",
    "name": "Ports & Intermodal Logistics Dataset",
-   "description": "The master dataset of the Ports & Intermodal program of The Flat Rate Movers: the six ports the company's crews serve with logistics project management, specialized labor, ocean container packing and unpacking, loading and unloading, cross-docking, transloading, 3PL support and freight rework — the Virginia Inland Port at Front Royal, the Port of Virginia at Norfolk (Norfolk International Terminals, Virginia International Gateway, Portsmouth Marine Terminal and Newport News Marine Terminal), Richmond Marine Terminal, the Port of Baltimore, the Port of Wilmington, Delaware, and PhilaPort at Philadelphia. Each port is a full entity: authority and operator of record, terminal facts with acreage, berths, depth and capacity where the port authority publishes them, cargo specialties, rail service with on-dock and interchange qualifiers, highway corridors, foreign-trade-zone facts where designated, labeled volume figures with their sources and periods, current status items, and the branch binding that assigns the port to Winchester, VA or Martinsburg, WV by verified road distance. Portsmouth Marine Terminal is recorded as what it is — a heavy-lift and offshore-wind hub, not a container terminal; Virginia International Gateway is recorded as leased, not port-authority-owned; the Port of Wilmington's operator of record is Enstructure. No volume figure is published for the Virginia Inland Port, Richmond Marine Terminal or the Port of Wilmington, because none is verified. The company's crews hold TWIC cards and its contractors hold valid TWIC cards. The offer set does not include drayage: the company does not run port drayage — freight moves on the customer's or carrier's trucks, and the company's crews do the hands-on work at port-adjacent warehouses, receivers' docks, yards, leased space, and on-terminal only by arrangement through the terminal's own processes. Every fact carries its source; the companion coverage-matrix node in this file maps all 48 port-by-service cells.",
+   "description": "The master dataset of the Ports & Intermodal program of The Flat Rate Movers: the eight ports the company's crews serve with logistics project management, specialized labor, ocean container packing and unpacking, loading and unloading, cross-docking, transloading, 3PL support and freight rework — the Virginia Inland Port at Front Royal, the Port of Virginia at Norfolk (Norfolk International Terminals, Virginia International Gateway, Portsmouth Marine Terminal and Newport News Marine Terminal), Richmond Marine Terminal, the Port of Baltimore, the Port of Wilmington, Delaware, PhilaPort at Philadelphia, the Port of Huntington Tri-State river district, and the Port of New York and New Jersey. Each port is a full entity: authority and operator of record, terminal facts with acreage, berths, depth and capacity where the port authority publishes them, cargo specialties, rail service with on-dock and interchange qualifiers, highway corridors, foreign-trade-zone facts where designated, labeled volume figures with their sources and periods, current status items, and the branch binding that assigns the port to Winchester, VA or Martinsburg, WV by verified road distance. Portsmouth Marine Terminal is recorded as what it is — a heavy-lift and offshore-wind hub, not a container terminal; Virginia International Gateway is recorded as leased, not port-authority-owned; the Port of Wilmington's operator of record is Enstructure. No volume figure is published for the Virginia Inland Port, Richmond Marine Terminal or the Port of Wilmington, because none is verified. The company's crews hold TWIC cards and its contractors hold valid TWIC cards. The offer set does not include drayage: the company does not run port drayage — freight moves on the customer's or carrier's trucks, and the company's crews do the hands-on work at port-adjacent warehouses, receivers' docks, yards, leased space, and on-terminal only by arrangement through the terminal's own processes. Every fact carries its source; the companion coverage-matrix node in this file maps all 64 port-by-service cells.",
    "url": "https://theflatratemovers.com/datasets/ports/",
    "sameAs": "https://theflatratemovers.com/datasets/ports/",
    "identifier": "https://theflatratemovers.com/datasets/ports/",
@@ -2765,6 +2765,91 @@
      "@type": "PropertyValue",
      "name": "lastVerified",
      "value": "2026-11-07"
+    }
+   ]
+  },
+  {
+   "@type": "Place",
+   "@id": "https://theflatratemovers.com/datasets/ports/#port-of-new-york-new-jersey",
+   "name": "Port of New York and New Jersey",
+   "alternateName": "Port of New York and New Jersey",
+   "description": "Port of New York and New Jersey (Elizabeth, NJ) — deepwater marine port (containers, autos and RoRo, bulk, breakbulk) — the largest container port on the U.S. East Coast and the third-largest in the United States. Authority: The Port Authority of New York and New Jersey. Operator: Multiple private terminal operators running Port Authority terminals under long-term leases (landlord port — the Port Authority owns the terminals, the operators run them). Cargo: containers; autos and roll-on/roll-off vehicles; bulk (salt, cement, edible oils and juice, aggregates); breakbulk and project cargo. Rail: CSX — Class I partner serving the port through the ExpressRail system; Norfolk Southern — Class I partner serving the port through the ExpressRail system; Conrail Shared Assets Operations — switching carrier for CSX and Norfolk Southern in the North Jersey shared-assets district — not a third Class I. Highway corridors: I-95 (New Jersey Turnpike), I-78, I-287, US-1/9. Foreign-trade zone: FTZ 49, Newark/Elizabeth (grantee The Port Authority of New York and New Jersey). U.S. Customs port of entry. Volume (CY2025, calendar): 8,897,531 TEU — Port of New York and New Jersey system (source: Port Authority of NY & NJ year-end 2025 release, via Port #8 research verification 2026-11-10). Volume (CY2024, calendar): 8,698,526 TEU — Port of New York and New Jersey system (source: Port Authority of NY & NJ, Cargo Facility Charge Annual Report 2025, Table 2, via Port #8 research verification 2026-11-10). Volume (CY2024, calendar): 639,657 rail lifts (units) — ExpressRail system (source: Port Authority of NY & NJ, Cargo Facility Charge Annual Report 2025, Table 2, via Port #8 research verification 2026-11-10). Volume (CY2024, calendar): 410,092 autos (units) — Port of New York and New Jersey system (source: Port Authority of NY & NJ, Port 2024 At A Glance, via Port #8 research verification 2026-11-10). Volume (CY2024, calendar): 2,785,839 metric tons — system total bulk tonnage (source: Port Authority of NY & NJ, Port 2024 At A Glance, via Port #8 research verification 2026-11-10). Branch binding: this port is served from the Martinsburg, WV branch of The Flat Rate Movers — about 275.6 road miles from Winchester and 251.1 from Martinsburg; bound to Martinsburg on miles. about 24.5 mi closer from Martinsburg (OSRM road routing measured 2026-11-10 to the Elizabeth Marine Terminal point from both branches).",
+   "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Elizabeth",
+    "addressRegion": "NJ",
+    "addressCountry": "US"
+   },
+   "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 40.68155,
+    "longitude": -74.1505
+   },
+   "additionalProperty": [
+    {
+     "@type": "PropertyValue",
+     "name": "portAuthority",
+     "value": "The Port Authority of New York and New Jersey"
+    },
+    {
+     "@type": "PropertyValue",
+     "name": "operator",
+     "value": "Multiple private terminal operators running Port Authority terminals under long-term leases (landlord port — the Port Authority owns the terminals, the operators run them)"
+    },
+    {
+     "@type": "PropertyValue",
+     "name": "terminals",
+     "value": "[{\"name\":\"Maher Terminals\",\"port\":\"port-of-new-york-new-jersey\",\"operatorName\":\"Maher Terminals LLC\",\"cargoTypes\":[\"containers\"],\"specs\":[{\"label\":\"Standing\",\"value\":\"the port's largest container terminal, at Elizabeth–Port Authority Marine Terminal\",\"source\":\"PANYNJ facilities material; HTS Logistics terminal reference, via Port #8 research verification 2026-11-10\"}],\"railAccess\":{\"railroads\":[\"CSX\",\"Norfolk Southern\"],\"onDock\":true,\"note\":\"ExpressRail Elizabeth (on-dock)\"},\"gateHours\":null},{\"name\":\"APM Terminals Elizabeth\",\"port\":\"port-of-new-york-new-jersey\",\"operatorName\":\"APM Terminals Elizabeth, LLC (A.P. Moller-Maersk)\",\"cargoTypes\":[\"containers\"],\"specs\":[{\"label\":\"Area\",\"value\":\"350 acres\",\"source\":\"HTS Logistics terminal reference, via Port #8 research verification 2026-11-10\"}],\"railAccess\":{\"railroads\":[\"CSX\",\"Norfolk Southern\"],\"onDock\":true,\"note\":\"ExpressRail Elizabeth (on-dock)\"},\"gateHours\":null},{\"name\":\"Port Newark Container Terminal (PNCT)\",\"port\":\"port-of-new-york-new-jersey\",\"operatorName\":\"Port Newark Container Terminal, LLC (Ports America)\",\"cargoTypes\":[\"containers\"],\"specs\":[{\"label\":\"Lease\",\"value\":\"Port Authority lease through 2050\",\"source\":\"HTS Logistics terminal reference, via Port #8 research verification 2026-11-10\"}],\"railAccess\":{\"railroads\":[\"CSX\",\"Norfolk Southern\"],\"onDock\":true,\"note\":\"ExpressRail Newark (on-dock)\"},\"gateHours\":null},{\"name\":\"Port Liberty Bayonne\",\"port\":\"port-of-new-york-new-jersey\",\"operatorName\":\"Port Liberty Bayonne LLC (CMA CGM Group)\",\"cargoTypes\":[\"containers\"],\"specs\":[{\"label\":\"Site\",\"value\":\"Port Jersey–Port Authority Marine Terminal, 302 Port Jersey Boulevard, Jersey City, NJ 07305\",\"source\":\"HTS Logistics terminal reference; Wikipedia, Port Jersey, via Port #8 research verification 2026-11-10\"},{\"label\":\"Former name\",\"value\":\"GCT Bayonne — renamed Port Liberty Bayonne on 12 October 2023 when CMA CGM took over the terminal\",\"source\":\"HTS Logistics terminal reference, via Port #8 research verification 2026-11-10\"}],\"railAccess\":{\"railroads\":[\"CSX\",\"Norfolk Southern\"],\"onDock\":false,\"note\":\"ExpressRail Port Jersey (near-dock; operated by CMA CGM)\"},\"gateHours\":null},{\"name\":\"Port Liberty New York\",\"port\":\"port-of-new-york-new-jersey\",\"operatorName\":\"Port Liberty New York LLC (CMA CGM Group)\",\"cargoTypes\":[\"containers\"],\"specs\":[{\"label\":\"Site\",\"value\":\"Howland Hook Marine Terminal, 300 Western Avenue, Staten Island, NY 10303\",\"source\":\"HTS Logistics terminal reference; Wikipedia, ExpressRail, via Port #8 research verification 2026-11-10\"},{\"label\":\"Former name\",\"value\":\"GCT New York (New York Container Terminal) — renamed Port Liberty New York on 12 October 2023\",\"source\":\"HTS Logistics terminal reference, via Port #8 research verification 2026-11-10\"}],\"railAccess\":{\"railroads\":[\"CSX\",\"Norfolk Southern\"],\"onDock\":true,\"note\":\"ExpressRail Staten Island (on-dock)\"},\"gateHours\":null},{\"name\":\"Red Hook Container Terminal\",\"port\":\"port-of-new-york-new-jersey\",\"operatorName\":\"Red Hook Container Terminal LLC\",\"cargoTypes\":[\"containers\"],\"specs\":[{\"label\":\"Operations\",\"value\":\"Brooklyn container terminal plus a Port Newark container-on-barge operation\",\"source\":\"HTS Logistics terminal reference, via Port #8 research verification 2026-11-10\"}],\"railAccess\":{\"railroads\":[],\"onDock\":false,\"note\":\"no on-dock ExpressRail facility; container-on-barge service\"},\"gateHours\":null},{\"name\":\"Port Newark auto terminal (FAPS)\",\"port\":\"port-of-new-york-new-jersey\",\"operatorName\":\"FAPS Inc.\",\"cargoTypes\":[\"autos\",\"RoRo\"],\"specs\":[{\"label\":\"Site\",\"value\":\"371 Craneway Street, Port Newark, Newark, NJ 07114\",\"source\":\"PANYNJ–FAPS Railroad Operating Agreement No. MNS333; PANYNJ Portfolio, Auto Processing at the Port, via Port #8 research verification 2026-11-10\"},{\"label\":\"Standing\",\"value\":\"one of three auto processors at the port, with the Toyota Motor Logistics Center and the BMW Port Jersey Vehicle Preparation Center\",\"source\":\"PANYNJ Portfolio, Auto Processing at the Port, via Port #8 research verification 2026-11-10\"}],\"railAccess\":{\"railroads\":[\"CSX\"],\"onDock\":false,\"note\":\"CSX switching at the FAPS facility (AAR Automotive Facility Guide, Jan 2026); the Doremus Avenue auto terminals are switched by Conrail Shared Assets Operations\"},\"gateHours\":null}]"
+    },
+    {
+     "@type": "PropertyValue",
+     "name": "cargoSpecialties",
+     "value": "[\"containers\",\"autos and roll-on/roll-off vehicles\",\"bulk (salt, cement, edible oils and juice, aggregates)\",\"breakbulk and project cargo\"]"
+    },
+    {
+     "@type": "PropertyValue",
+     "name": "railService",
+     "value": "[{\"railroad\":\"CSX\",\"qualifier\":\"Class I partner serving the port through the ExpressRail system\"},{\"railroad\":\"Norfolk Southern\",\"qualifier\":\"Class I partner serving the port through the ExpressRail system\"},{\"railroad\":\"Conrail Shared Assets Operations\",\"qualifier\":\"switching carrier for CSX and Norfolk Southern in the North Jersey shared-assets district — not a third Class I\"}]"
+    },
+    {
+     "@type": "PropertyValue",
+     "name": "corridors",
+     "value": "[\"I-95 (New Jersey Turnpike)\",\"I-78\",\"I-287\",\"US-1/9\"]"
+    },
+    {
+     "@type": "PropertyValue",
+     "name": "ftz",
+     "value": "{\"zone\":\"FTZ 49\",\"site\":\"Newark/Elizabeth\",\"grantee\":\"The Port Authority of New York and New Jersey\",\"note\":\"FTZ 49 covers the Newark/Elizabeth area (FTZ 1 is the separate New York-side zone). The port sits within the New York/Newark U.S. Customs port of entry.\"}"
+    },
+    {
+     "@type": "PropertyValue",
+     "name": "customsPortOfEntry",
+     "value": "true"
+    },
+    {
+     "@type": "PropertyValue",
+     "name": "volumes",
+     "value": "[{\"value\":8897531,\"unit\":\"TEU\",\"period\":\"CY2025\",\"fiscalOrCalendar\":\"calendar\",\"scope\":\"Port of New York and New Jersey system\",\"source\":\"Port Authority of NY & NJ year-end 2025 release, via Port #8 research verification 2026-11-10\"},{\"value\":8698526,\"unit\":\"TEU\",\"period\":\"CY2024\",\"fiscalOrCalendar\":\"calendar\",\"scope\":\"Port of New York and New Jersey system\",\"source\":\"Port Authority of NY & NJ, Cargo Facility Charge Annual Report 2025, Table 2, via Port #8 research verification 2026-11-10\"},{\"value\":639657,\"unit\":\"rail lifts (units)\",\"period\":\"CY2024\",\"fiscalOrCalendar\":\"calendar\",\"scope\":\"ExpressRail system\",\"source\":\"Port Authority of NY & NJ, Cargo Facility Charge Annual Report 2025, Table 2, via Port #8 research verification 2026-11-10\"},{\"value\":410092,\"unit\":\"autos (units)\",\"period\":\"CY2024\",\"fiscalOrCalendar\":\"calendar\",\"scope\":\"Port of New York and New Jersey system\",\"source\":\"Port Authority of NY & NJ, Port 2024 At A Glance, via Port #8 research verification 2026-11-10\"},{\"value\":2785839,\"unit\":\"metric tons\",\"period\":\"CY2024\",\"fiscalOrCalendar\":\"calendar\",\"scope\":\"system total bulk tonnage\",\"source\":\"Port Authority of NY & NJ, Port 2024 At A Glance, via Port #8 research verification 2026-11-10\"}]"
+    },
+    {
+     "@type": "PropertyValue",
+     "name": "statusItems",
+     "value": "[{\"title\":\"Port form\",\"state\":\"The Port of New York and New Jersey is a landlord port: the Port Authority of New York and New Jersey (a bi-state authority established in 1921) owns the marine terminals and private operators run them under long-term leases. The harbor channel is deepened to 50 feet. No port tenancy or authority relationship is claimed.\",\"asOf\":\"2026-11-10\",\"source\":\"PANYNJ facilities material; Wikipedia, Port of New York and New Jersey, via Port #8 research verification 2026-11-10\"},{\"title\":\"ExpressRail program\",\"state\":\"The ExpressRail system is a $600M Port Authority program with 1.5M annual rail-lift capacity across four facilities — Elizabeth (Maher and APM), Newark (PNCT), Staten Island (Port Liberty New York) and Port Jersey (Port Liberty Bayonne) — served by the port's two Class I partners, CSX and Norfolk Southern.\",\"asOf\":\"2026-11-10\",\"source\":\"PANYNJ Rail Guide, via Port #8 research verification 2026-11-10\"}]"
+    },
+    {
+     "@type": "PropertyValue",
+     "name": "branchBinding",
+     "value": "{\"branch\":\"martinsburg\",\"bindingBasis\":\"miles\",\"milesFromWinchester\":275.6,\"timeFromWinchester\":\"about 5:37\",\"milesFromMartinsburg\":251.1,\"timeFromMartinsburg\":\"about 5:10\",\"routeFromBindingBranch\":\"I-81 N to I-78 E (Harrisburg) to I-95 / NJ Turnpike at Newark Bay, Elizabeth\",\"marginNote\":\"about 24.5 mi closer from Martinsburg (OSRM road routing measured 2026-11-10 to the Elizabeth Marine Terminal point from both branches)\",\"branchPageUrl\":\"https://theflatratemovers.com/locations/martinsburg-wv/\"}"
+    },
+    {
+     "@type": "PropertyValue",
+     "name": "sources",
+     "value": "[\"https://www.panynj.gov/port/en/index.html\",\"PANYNJ Rail Guide (ExpressRail)\",\"Port Authority of NY & NJ, Cargo Facility Charge Annual Report 2025, Table 2\",\"Port Authority of NY & NJ, Port 2024 At A Glance\",\"Port Authority of NY & NJ year-end 2025 release\",\"Wikipedia, Port of New York and New Jersey; ExpressRail; Port Jersey\",\"HTS Logistics terminal reference (checked Oct-Nov 2026)\",\"AAR Automotive Facility Guide, Jan 2026\"]"
+    },
+    {
+     "@type": "PropertyValue",
+     "name": "lastVerified",
+     "value": "2026-11-10"
     }
    ]
   },
@@ -4451,7 +4536,7 @@
    "@id": "https://theflatratemovers.com/datasets/intent-coverage/#dataset",
    "@type": "Dataset",
    "name": "The Flat Rate Movers — Search Intent Coverage Operations Dataset",
-   "description": "The live intent-coverage rubric of The Flat Rate Movers: 30723 generated rows, each one a query string a customer or an AI assistant can use to find a company service, resolved to the exact page that answers it, that page’s per-page JSON, the dataset files behind the answer, and the service’s node in the entity graph. Rows are generated from the estate’s own registries — 34 services, 283 pages, two branch locations, three corridors and the 81-feature service-area footprint — plus the blog question bank’s 100 real question phrasings and the researched per-service question bank v2 (694 questions), and the rubric is regenerated whenever those registries change. Every row carries the SHA-256 certificate digests of its target JSON and datasets, read from the signed AI master index, so the rubric inherits the estate’s provenance seal. Coverage spans all 34 services of both branches, Winchester, VA and Martinsburg, WV, along the I-81, I-66 and I-70 corridors. Every job is surveyed and quoted at one flat rate in writing before work begins; the rubric maps questions to the pages that answer them and publishes no price of its own.",
+   "description": "The live intent-coverage rubric of The Flat Rate Movers: 30744 generated rows, each one a query string a customer or an AI assistant can use to find a company service, resolved to the exact page that answers it, that page’s per-page JSON, the dataset files behind the answer, and the service’s node in the entity graph. Rows are generated from the estate’s own registries — 34 services, 285 pages, two branch locations, three corridors and the 81-feature service-area footprint — plus the blog question bank’s 100 real question phrasings and the researched per-service question bank v2 (694 questions), and the rubric is regenerated whenever those registries change. Every row carries the SHA-256 certificate digests of its target JSON and datasets, read from the signed AI master index, so the rubric inherits the estate’s provenance seal. Coverage spans all 34 services of both branches, Winchester, VA and Martinsburg, WV, along the I-81, I-66 and I-70 corridors. Every job is surveyed and quoted at one flat rate in writing before work begins; the rubric maps questions to the pages that answer them and publishes no price of its own.",
    "url": "https://theflatratemovers.com/datasets/intent-coverage/",
    "sameAs": "https://theflatratemovers.com/datasets/intent-coverage/",
    "identifier": "https://doi.org/10.5281/zenodo.23818766",
@@ -10686,6 +10771,71 @@
    "mainEntityOfPage": "https://theflatratemovers.com/540-lb-dining-table-freight-terminal-delivery-martinsburg-wv/",
    "publisher": {
     "@id": "https://theflatratemovers.com/#organization"
+   }
+  },
+  {
+   "@type": "Dataset",
+   "@id": "https://theflatratemovers.com/datasets/port-of-new-york-new-jersey/#dataset-port-of-new-york-new-jersey",
+   "name": "Port of New York and New Jersey Logistics Dataset",
+   "description": "The per-port dataset for the Port of New York and New Jersey in the Ports & Intermodal program of The Flat Rate Movers: the full port record for the largest container port on the U.S. East Coast and the third-largest in the nation — a landlord port owned by The Port Authority of New York and New Jersey (a bi-state authority established in 1921) and run by private terminal operators under long-term leases — its container terminals (Maher Terminals and APM Terminals Elizabeth at Elizabeth–Port Authority Marine Terminal; Port Newark Container Terminal at Port Newark; Port Liberty Bayonne at Port Jersey; Port Liberty New York at Howland Hook, Staten Island; Red Hook Container Terminal in Brooklyn), the Port Newark auto terminal (FAPS), its 50-foot harbor channel, its container volume on the Port Authority's named bases (8,897,531 TEU in CY2025; 8,698,526 TEU in CY2024), ExpressRail service by the two Class I partners CSX and Norfolk Southern with Conrail Shared Assets switching, the I-95 (New Jersey Turnpike), I-78, I-287 and US-1/9 corridors, Foreign-Trade Zone 49, and the branch binding: the port is served from the Martinsburg, WV branch, about 251.1 road miles away (Winchester measures 275.6). The company's eight attached port services are recorded cell by cell in the companion coverage dataset. No port tenancy or port-authority relationship is claimed; the company's crews hold TWIC cards and its contractors hold valid TWIC cards.",
+   "url": "https://theflatratemovers.com/datasets/port-of-new-york-new-jersey/",
+   "sameAs": "https://theflatratemovers.com/datasets/port-of-new-york-new-jersey/",
+   "identifier": "https://theflatratemovers.com/datasets/port-of-new-york-new-jersey/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@type": "Organization",
+    "@id": "https://theflatratemovers.com/#organization",
+    "name": "The Flat Rate Movers LLC",
+    "url": "https://theflatratemovers.com/"
+   },
+   "publisher": {
+    "@type": "Organization",
+    "@id": "https://theflatratemovers.com/#organization",
+    "name": "The Flat Rate Movers LLC",
+    "url": "https://theflatratemovers.com/"
+   },
+   "datePublished": "2026-11-10",
+   "dateModified": "2026-11-10",
+   "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
+   },
+   "spatialCoverage": [
+    {
+     "@type": "Place",
+     "@id": "https://theflatratemovers.com/#winchester",
+     "name": "The Flat Rate Movers — Winchester",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.18711576,
+      "longitude": -78.1668352
+     }
+    },
+    {
+     "@type": "Place",
+     "@id": "https://theflatratemovers.com/#martinsburg",
+     "name": "Flat Rate Movers Martinsburg WV",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.48319665,
+      "longitude": -77.94760443
+     }
+    }
+   ],
+   "keywords": "Port of New York and New Jersey, Port Authority of New York and New Jersey, PANYNJ, Port Newark, Elizabeth Marine Terminal, Maher Terminals, APM Terminals Elizabeth, Port Newark Container Terminal, Port Liberty Bayonne, Port Liberty New York, Howland Hook, Red Hook Container Terminal, FAPS, ExpressRail, container terminal, transloading, freight rework, Martinsburg WV",
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-transloading"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-freight-rework-transloading"
+    }
+   ],
+   "isPartOf": {
+    "@id": "https://theflatratemovers.com/datasets/ports/#dataset-ports"
    }
   }
  ],

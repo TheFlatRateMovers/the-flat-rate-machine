@@ -2,7 +2,7 @@
  "description": "Seal-maintained lastmod ledger: for every sitemap URL, the date of the last seal generation in which its own signed distribution changed. Seeded from the 2026-11-02 crawl-demand audit (doc-level digest history across 73 signed generations); maintained by seal.py phase 6b (diff-stamp vs the phase-0 prior index). build-sitemap.js reads this file for every sitemap <lastmod>.",
  "lastSeal": {
   "date": "2026-11-10",
-  "indexSha256": "f001e2d27102452b3b3b7a611a9d15a4994c4133589e95269191a6abb726bcaa"
+  "indexSha256": "9f047bb786b0af328e0c45ae240975fa1f068d1ee618b85027d04218ce2948c1"
  },
  "seededFrom": "crawl-demand-audit-2026-11-02.csv",
  "urls": {
@@ -94,6 +94,7 @@
   "https://theflatratemovers.com/datasets-page-data-pool.json": "2026-11-10",
   "https://theflatratemovers.com/datasets-piano-antique.json": "2026-11-10",
   "https://theflatratemovers.com/datasets-port-of-huntington.json": "2026-11-07",
+  "https://theflatratemovers.com/datasets-port-of-new-york-new-jersey.json": "2026-11-10",
   "https://theflatratemovers.com/datasets-port-of-virginia.json": "2026-11-07",
   "https://theflatratemovers.com/datasets-ports.json": "2026-11-10",
   "https://theflatratemovers.com/datasets-quote-tool.json": "2026-11-04",
@@ -147,6 +148,7 @@
   "https://theflatratemovers.com/datasets/page-data-pool/": "2026-11-10",
   "https://theflatratemovers.com/datasets/piano-antique/": "2026-11-10",
   "https://theflatratemovers.com/datasets/port-of-huntington/": "2026-11-10",
+  "https://theflatratemovers.com/datasets/port-of-new-york-new-jersey/": "2026-11-10",
   "https://theflatratemovers.com/datasets/port-of-virginia/": "2026-11-10",
   "https://theflatratemovers.com/datasets/ports/": "2026-11-10",
   "https://theflatratemovers.com/datasets/quote-tool/": "2026-11-10",
@@ -286,6 +288,7 @@
   "https://theflatratemovers.com/piano-antique-white-glove-moving/": "2026-11-10",
   "https://theflatratemovers.com/port-logistics/": "2026-11-10",
   "https://theflatratemovers.com/port-of-huntington-logistics/": "2026-11-10",
+  "https://theflatratemovers.com/port-of-new-york-new-jersey-logistics/": "2026-11-10",
   "https://theflatratemovers.com/port-of-virginia-container-loading-unloading-logistics-services/": "2026-11-10",
   "https://theflatratemovers.com/port-of-virginia-logistics/": "2026-11-10",
   "https://theflatratemovers.com/privacy-policy/": "2026-11-10",

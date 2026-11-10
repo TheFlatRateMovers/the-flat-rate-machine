@@ -2,7 +2,7 @@
  "@type": "PortsDatabase",
  "program": "Ports & Intermodal Takeover Program",
  "version": "2026-11-03",
- "lastVerified": "2026-11-07",
+ "lastVerified": "2026-11-10",
  "sourceDossier": "~/workspace/theflatratemovers/ports-program/DOSSIER.md (facts with sources inline; section 1 port facts, section 1.7 binding table, section 4 coverage matrix)",
  "bindingMap": {
   "port-virginia-inland-port": {
@@ -74,9 +74,19 @@
    "timeFromMartinsburg": "about 6:00",
    "routeFromBindingBranch": "I-81 S to I-64 W (Lexington, VA) to Huntington",
    "marginNote": "about 45 mi closer from Winchester (measured range 357.7-360.4 mi from Martinsburg)"
+  },
+  "port-of-new-york-new-jersey": {
+   "branch": "martinsburg",
+   "bindingBasis": "miles",
+   "milesFromWinchester": 275.6,
+   "timeFromWinchester": "about 5:37",
+   "milesFromMartinsburg": 251.1,
+   "timeFromMartinsburg": "about 5:10",
+   "routeFromBindingBranch": "I-81 N to I-78 E (Harrisburg) to I-95 / NJ Turnpike at Newark Bay, Elizabeth",
+   "marginNote": "about 24.5 mi closer from Martinsburg (OSRM road routing measured 2026-11-10 to the Elizabeth Marine Terminal point from both branches)"
   }
  },
- "bindingNote": "The binding map above is the single source every generator and gate reads: each port binds to its nearer branch by verified road distance (PhilaPort binds on drive time only — road miles are tied, and no mileage advantage may be claimed for it). Terminal-to-branch odometer readings at execution time can refine, never silently replace, this table; any change re-runs gate PB-1. Port of Huntington Tri-State added 2026-11-07 (WV-2): bound to Winchester on miles (312.8 mi vs 357.7-360.4 mi from Martinsburg).",
+ "bindingNote": "The binding map above is the single source every generator and gate reads: each port binds to its nearer branch by verified road distance (PhilaPort binds on drive time only — road miles are tied, and no mileage advantage may be claimed for it). Terminal-to-branch odometer readings at execution time can refine, never silently replace, this table; any change re-runs gate PB-1. Port of Huntington Tri-State added 2026-11-07 (WV-2): bound to Winchester on miles (312.8 mi vs 357.7-360.4 mi from Martinsburg). Port of New York and New Jersey added 2026-11-10 (Port #8): bound to Martinsburg on miles — OSRM road routing measured 2026-11-10 from both branches to the Elizabeth Marine Terminal point (40.68155, -74.1505): Martinsburg 251.1 mi / about 5:10 against Winchester 275.6 mi / about 5:37, a margin of about 24.5 mi.",
  "offerSet": {
   "services": [
    "logistics project management",
@@ -1394,6 +1404,324 @@
    ],
    "datasetFile": "datasets-port-of-huntington.json",
    "lastVerified": "2026-11-07"
+  },
+  {
+   "id": "port-of-new-york-new-jersey",
+   "name": "Port of New York and New Jersey",
+   "shortName": "Port of New York and New Jersey",
+   "portType": "deepwater marine port (containers, autos and RoRo, bulk, breakbulk) — the largest container port on the U.S. East Coast and the third-largest in the United States",
+   "authorityName": "The Port Authority of New York and New Jersey",
+   "authorityUrl": "https://www.panynj.gov/port/en/index.html",
+   "operatorName": "Multiple private terminal operators running Port Authority terminals under long-term leases (landlord port — the Port Authority owns the terminals, the operators run them)",
+   "operatorType": "mixed private",
+   "address": {
+    "addressLocality": "Elizabeth",
+    "addressRegion": "NJ",
+    "addressCountry": "US"
+   },
+   "geo": {
+    "latitude": 40.68155,
+    "longitude": -74.1505,
+    "basis": "Elizabeth Marine Terminal point on Newark Bay (Wikipedia, ExpressRail article coordinates), retrieved 2026-11-10 — the terminal complex the crews serve, matching the other ports' terminal basis"
+   },
+   "terminals": [
+    {
+     "name": "Maher Terminals",
+     "port": "port-of-new-york-new-jersey",
+     "operatorName": "Maher Terminals LLC",
+     "cargoTypes": [
+      "containers"
+     ],
+     "specs": [
+      {
+       "label": "Standing",
+       "value": "the port's largest container terminal, at Elizabeth–Port Authority Marine Terminal",
+       "source": "PANYNJ facilities material; HTS Logistics terminal reference, via Port #8 research verification 2026-11-10"
+      }
+     ],
+     "railAccess": {
+      "railroads": [
+       "CSX",
+       "Norfolk Southern"
+      ],
+      "onDock": true,
+      "note": "ExpressRail Elizabeth (on-dock)"
+     },
+     "gateHours": null
+    },
+    {
+     "name": "APM Terminals Elizabeth",
+     "port": "port-of-new-york-new-jersey",
+     "operatorName": "APM Terminals Elizabeth, LLC (A.P. Moller-Maersk)",
+     "cargoTypes": [
+      "containers"
+     ],
+     "specs": [
+      {
+       "label": "Area",
+       "value": "350 acres",
+       "source": "HTS Logistics terminal reference, via Port #8 research verification 2026-11-10"
+      }
+     ],
+     "railAccess": {
+      "railroads": [
+       "CSX",
+       "Norfolk Southern"
+      ],
+      "onDock": true,
+      "note": "ExpressRail Elizabeth (on-dock)"
+     },
+     "gateHours": null
+    },
+    {
+     "name": "Port Newark Container Terminal (PNCT)",
+     "port": "port-of-new-york-new-jersey",
+     "operatorName": "Port Newark Container Terminal, LLC (Ports America)",
+     "cargoTypes": [
+      "containers"
+     ],
+     "specs": [
+      {
+       "label": "Lease",
+       "value": "Port Authority lease through 2050",
+       "source": "HTS Logistics terminal reference, via Port #8 research verification 2026-11-10"
+      }
+     ],
+     "railAccess": {
+      "railroads": [
+       "CSX",
+       "Norfolk Southern"
+      ],
+      "onDock": true,
+      "note": "ExpressRail Newark (on-dock)"
+     },
+     "gateHours": null
+    },
+    {
+     "name": "Port Liberty Bayonne",
+     "port": "port-of-new-york-new-jersey",
+     "operatorName": "Port Liberty Bayonne LLC (CMA CGM Group)",
+     "cargoTypes": [
+      "containers"
+     ],
+     "specs": [
+      {
+       "label": "Site",
+       "value": "Port Jersey–Port Authority Marine Terminal, 302 Port Jersey Boulevard, Jersey City, NJ 07305",
+       "source": "HTS Logistics terminal reference; Wikipedia, Port Jersey, via Port #8 research verification 2026-11-10"
+      },
+      {
+       "label": "Former name",
+       "value": "GCT Bayonne — renamed Port Liberty Bayonne on 12 October 2023 when CMA CGM took over the terminal",
+       "source": "HTS Logistics terminal reference, via Port #8 research verification 2026-11-10"
+      }
+     ],
+     "railAccess": {
+      "railroads": [
+       "CSX",
+       "Norfolk Southern"
+      ],
+      "onDock": false,
+      "note": "ExpressRail Port Jersey (near-dock; operated by CMA CGM)"
+     },
+     "gateHours": null
+    },
+    {
+     "name": "Port Liberty New York",
+     "port": "port-of-new-york-new-jersey",
+     "operatorName": "Port Liberty New York LLC (CMA CGM Group)",
+     "cargoTypes": [
+      "containers"
+     ],
+     "specs": [
+      {
+       "label": "Site",
+       "value": "Howland Hook Marine Terminal, 300 Western Avenue, Staten Island, NY 10303",
+       "source": "HTS Logistics terminal reference; Wikipedia, ExpressRail, via Port #8 research verification 2026-11-10"
+      },
+      {
+       "label": "Former name",
+       "value": "GCT New York (New York Container Terminal) — renamed Port Liberty New York on 12 October 2023",
+       "source": "HTS Logistics terminal reference, via Port #8 research verification 2026-11-10"
+      }
+     ],
+     "railAccess": {
+      "railroads": [
+       "CSX",
+       "Norfolk Southern"
+      ],
+      "onDock": true,
+      "note": "ExpressRail Staten Island (on-dock)"
+     },
+     "gateHours": null
+    },
+    {
+     "name": "Red Hook Container Terminal",
+     "port": "port-of-new-york-new-jersey",
+     "operatorName": "Red Hook Container Terminal LLC",
+     "cargoTypes": [
+      "containers"
+     ],
+     "specs": [
+      {
+       "label": "Operations",
+       "value": "Brooklyn container terminal plus a Port Newark container-on-barge operation",
+       "source": "HTS Logistics terminal reference, via Port #8 research verification 2026-11-10"
+      }
+     ],
+     "railAccess": {
+      "railroads": [],
+      "onDock": false,
+      "note": "no on-dock ExpressRail facility; container-on-barge service"
+     },
+     "gateHours": null
+    },
+    {
+     "name": "Port Newark auto terminal (FAPS)",
+     "port": "port-of-new-york-new-jersey",
+     "operatorName": "FAPS Inc.",
+     "cargoTypes": [
+      "autos",
+      "RoRo"
+     ],
+     "specs": [
+      {
+       "label": "Site",
+       "value": "371 Craneway Street, Port Newark, Newark, NJ 07114",
+       "source": "PANYNJ–FAPS Railroad Operating Agreement No. MNS333; PANYNJ Portfolio, Auto Processing at the Port, via Port #8 research verification 2026-11-10"
+      },
+      {
+       "label": "Standing",
+       "value": "one of three auto processors at the port, with the Toyota Motor Logistics Center and the BMW Port Jersey Vehicle Preparation Center",
+       "source": "PANYNJ Portfolio, Auto Processing at the Port, via Port #8 research verification 2026-11-10"
+      }
+     ],
+     "railAccess": {
+      "railroads": [
+       "CSX"
+      ],
+      "onDock": false,
+      "note": "CSX switching at the FAPS facility (AAR Automotive Facility Guide, Jan 2026); the Doremus Avenue auto terminals are switched by Conrail Shared Assets Operations"
+     },
+     "gateHours": null
+    }
+   ],
+   "cargoSpecialties": [
+    "containers",
+    "autos and roll-on/roll-off vehicles",
+    "bulk (salt, cement, edible oils and juice, aggregates)",
+    "breakbulk and project cargo"
+   ],
+   "railService": [
+    {
+     "railroad": "CSX",
+     "qualifier": "Class I partner serving the port through the ExpressRail system"
+    },
+    {
+     "railroad": "Norfolk Southern",
+     "qualifier": "Class I partner serving the port through the ExpressRail system"
+    },
+    {
+     "railroad": "Conrail Shared Assets Operations",
+     "qualifier": "switching carrier for CSX and Norfolk Southern in the North Jersey shared-assets district — not a third Class I"
+    }
+   ],
+   "corridors": [
+    "I-95 (New Jersey Turnpike)",
+    "I-78",
+    "I-287",
+    "US-1/9"
+   ],
+   "ftz": {
+    "zone": "FTZ 49",
+    "site": "Newark/Elizabeth",
+    "grantee": "The Port Authority of New York and New Jersey",
+    "note": "FTZ 49 covers the Newark/Elizabeth area (FTZ 1 is the separate New York-side zone). The port sits within the New York/Newark U.S. Customs port of entry."
+   },
+   "customsPortOfEntry": true,
+   "branchBinding": {
+    "branch": "martinsburg",
+    "bindingBasis": "miles",
+    "milesFromWinchester": 275.6,
+    "timeFromWinchester": "about 5:37",
+    "milesFromMartinsburg": 251.1,
+    "timeFromMartinsburg": "about 5:10",
+    "routeFromBindingBranch": "I-81 N to I-78 E (Harrisburg) to I-95 / NJ Turnpike at Newark Bay, Elizabeth",
+    "marginNote": "about 24.5 mi closer from Martinsburg (OSRM road routing measured 2026-11-10 to the Elizabeth Marine Terminal point from both branches)",
+    "branchPageUrl": "https://theflatratemovers.com/locations/martinsburg-wv/"
+   },
+   "volumes": [
+    {
+     "value": 8897531,
+     "unit": "TEU",
+     "period": "CY2025",
+     "fiscalOrCalendar": "calendar",
+     "scope": "Port of New York and New Jersey system",
+     "source": "Port Authority of NY & NJ year-end 2025 release, via Port #8 research verification 2026-11-10"
+    },
+    {
+     "value": 8698526,
+     "unit": "TEU",
+     "period": "CY2024",
+     "fiscalOrCalendar": "calendar",
+     "scope": "Port of New York and New Jersey system",
+     "source": "Port Authority of NY & NJ, Cargo Facility Charge Annual Report 2025, Table 2, via Port #8 research verification 2026-11-10"
+    },
+    {
+     "value": 639657,
+     "unit": "rail lifts (units)",
+     "period": "CY2024",
+     "fiscalOrCalendar": "calendar",
+     "scope": "ExpressRail system",
+     "source": "Port Authority of NY & NJ, Cargo Facility Charge Annual Report 2025, Table 2, via Port #8 research verification 2026-11-10"
+    },
+    {
+     "value": 410092,
+     "unit": "autos (units)",
+     "period": "CY2024",
+     "fiscalOrCalendar": "calendar",
+     "scope": "Port of New York and New Jersey system",
+     "source": "Port Authority of NY & NJ, Port 2024 At A Glance, via Port #8 research verification 2026-11-10"
+    },
+    {
+     "value": 2785839,
+     "unit": "metric tons",
+     "period": "CY2024",
+     "fiscalOrCalendar": "calendar",
+     "scope": "system total bulk tonnage",
+     "source": "Port Authority of NY & NJ, Port 2024 At A Glance, via Port #8 research verification 2026-11-10"
+    }
+   ],
+   "statusItems": [
+    {
+     "title": "Port form",
+     "state": "The Port of New York and New Jersey is a landlord port: the Port Authority of New York and New Jersey (a bi-state authority established in 1921) owns the marine terminals and private operators run them under long-term leases. The harbor channel is deepened to 50 feet. No port tenancy or authority relationship is claimed.",
+     "asOf": "2026-11-10",
+     "source": "PANYNJ facilities material; Wikipedia, Port of New York and New Jersey, via Port #8 research verification 2026-11-10"
+    },
+    {
+     "title": "ExpressRail program",
+     "state": "The ExpressRail system is a $600M Port Authority program with 1.5M annual rail-lift capacity across four facilities — Elizabeth (Maher and APM), Newark (PNCT), Staten Island (Port Liberty New York) and Port Jersey (Port Liberty Bayonne) — served by the port's two Class I partners, CSX and Norfolk Southern.",
+     "asOf": "2026-11-10",
+     "source": "PANYNJ Rail Guide, via Port #8 research verification 2026-11-10"
+    }
+   ],
+   "sources": [
+    "https://www.panynj.gov/port/en/index.html",
+    "PANYNJ Rail Guide (ExpressRail)",
+    "Port Authority of NY & NJ, Cargo Facility Charge Annual Report 2025, Table 2",
+    "Port Authority of NY & NJ, Port 2024 At A Glance",
+    "Port Authority of NY & NJ year-end 2025 release",
+    "Wikipedia, Port of New York and New Jersey; ExpressRail; Port Jersey",
+    "HTS Logistics terminal reference (checked Oct-Nov 2026)",
+    "AAR Automotive Facility Guide, Jan 2026"
+   ],
+   "estatePages": [
+    "https://theflatratemovers.com/port-of-new-york-new-jersey-logistics/",
+    "https://theflatratemovers.com/datasets/port-of-new-york-new-jersey/"
+   ],
+   "datasetFile": "datasets-port-of-new-york-new-jersey.json",
+   "lastVerified": "2026-11-10"
   }
  ],
  "serviceCoverage": [
@@ -2359,6 +2687,144 @@
     "on-terminal-by-arrangement"
    ],
    "boundBranch": "winchester",
+   "treatment": "H",
+   "hubSection": true,
+   "serviceStatus": "registered in batch P4"
+  },
+  {
+   "port": "port-of-new-york-new-jersey",
+   "serviceColumn": "TR",
+   "serviceLabel": "Transloading",
+   "service": "service-transloading",
+   "offered": true,
+   "deliveryPoints": [
+    "port-adjacent-warehouse",
+    "receivers-dock",
+    "yard",
+    "leased-space",
+    "on-terminal-by-arrangement"
+   ],
+   "boundBranch": "martinsburg",
+   "treatment": "H",
+   "hubSection": true
+  },
+  {
+   "port": "port-of-new-york-new-jersey",
+   "serviceColumn": "OC",
+   "serviceLabel": "Ocean container packing and unpacking (stuffing, destuffing, devanning)",
+   "service": "service-transloading",
+   "offered": true,
+   "deliveryPoints": [
+    "port-adjacent-warehouse",
+    "receivers-dock",
+    "yard",
+    "leased-space",
+    "on-terminal-by-arrangement"
+   ],
+   "boundBranch": "martinsburg",
+   "treatment": "H",
+   "hubSection": true
+  },
+  {
+   "port": "port-of-new-york-new-jersey",
+   "serviceColumn": "LU",
+   "serviceLabel": "Loading and unloading / container labor",
+   "service": "service-transloading",
+   "offered": true,
+   "deliveryPoints": [
+    "port-adjacent-warehouse",
+    "receivers-dock",
+    "yard",
+    "leased-space",
+    "on-terminal-by-arrangement"
+   ],
+   "boundBranch": "martinsburg",
+   "treatment": "H",
+   "hubSection": true
+  },
+  {
+   "port": "port-of-new-york-new-jersey",
+   "serviceColumn": "XD",
+   "serviceLabel": "Cross-docking",
+   "service": "service-freight-rework-transloading",
+   "offered": true,
+   "deliveryPoints": [
+    "port-adjacent-warehouse",
+    "receivers-dock",
+    "yard",
+    "leased-space",
+    "on-terminal-by-arrangement"
+   ],
+   "boundBranch": "martinsburg",
+   "treatment": "H",
+   "hubSection": true
+  },
+  {
+   "port": "port-of-new-york-new-jersey",
+   "serviceColumn": "RW",
+   "serviceLabel": "Freight rework",
+   "service": "service-freight-rework-transloading",
+   "offered": true,
+   "deliveryPoints": [
+    "port-adjacent-warehouse",
+    "receivers-dock",
+    "yard",
+    "leased-space",
+    "on-terminal-by-arrangement"
+   ],
+   "boundBranch": "martinsburg",
+   "treatment": "H",
+   "hubSection": true
+  },
+  {
+   "port": "port-of-new-york-new-jersey",
+   "serviceColumn": "WF",
+   "serviceLabel": "Specialized workforce",
+   "service": "service-industrial-commercial",
+   "offered": true,
+   "deliveryPoints": [
+    "port-adjacent-warehouse",
+    "receivers-dock",
+    "yard",
+    "leased-space",
+    "on-terminal-by-arrangement"
+   ],
+   "boundBranch": "martinsburg",
+   "treatment": "H",
+   "hubSection": true
+  },
+  {
+   "port": "port-of-new-york-new-jersey",
+   "serviceColumn": "PM",
+   "serviceLabel": "Logistics project management",
+   "service": "service-logistics-project-management",
+   "offered": true,
+   "deliveryPoints": [
+    "port-adjacent-warehouse",
+    "receivers-dock",
+    "yard",
+    "leased-space",
+    "on-terminal-by-arrangement"
+   ],
+   "boundBranch": "martinsburg",
+   "treatment": "H",
+   "hubSection": true,
+   "serviceStatus": "registered in batch P4"
+  },
+  {
+   "port": "port-of-new-york-new-jersey",
+   "serviceColumn": "3P",
+   "serviceLabel": "3PL support services",
+   "service": "service-3pl-support",
+   "offered": true,
+   "deliveryPoints": [
+    "port-adjacent-warehouse",
+    "receivers-dock",
+    "yard",
+    "leased-space",
+    "on-terminal-by-arrangement"
+   ],
+   "boundBranch": "martinsburg",
    "treatment": "H",
    "hubSection": true,
    "serviceStatus": "registered in batch P4"

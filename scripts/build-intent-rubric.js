@@ -307,7 +307,7 @@ const DATASETS = {
   'service-piano-antique': ['datasets-piano-antique.json'],
   'service-ispm15': ['datasets-ispm15.json'],
   'service-crating': ['datasets-crating.json'],
-  'service-transloading': ['datasets-transloading.json', 'datasets-transloading-inland-port.json', 'datasets-ocean-container.json', 'datasets-ports.json', 'datasets-port-of-virginia.json', 'datasets-port-of-huntington.json'], // + datasets-port-of-huntington.json in WV-2 2026-11-07 (per-port dataset seat for the Huntington river district) // + datasets-port-of-virginia.json in Ports P3 2026-11-03 (per-port dataset seat; gives the /datasets/port-of-virginia/ landing its R13 rows + full coverage)
+  'service-transloading': ['datasets-transloading.json', 'datasets-transloading-inland-port.json', 'datasets-ocean-container.json', 'datasets-ports.json', 'datasets-port-of-virginia.json', 'datasets-port-of-huntington.json', 'datasets-port-of-new-york-new-jersey.json'], // + datasets-port-of-new-york-new-jersey.json in Port #8 2026-11-10 (per-port dataset seat for the Port of New York and New Jersey) // + datasets-port-of-huntington.json in WV-2 2026-11-07 (per-port dataset seat for the Huntington river district) // + datasets-port-of-virginia.json in Ports P3 2026-11-03 (per-port dataset seat; gives the /datasets/port-of-virginia/ landing its R13 rows + full coverage)
   'service-final-mile': ['datasets-final-mile.json'],
   'service-white-glove': ['datasets-white-glove.json', 'datasets-luxury-estate-relocation.json'],
   'service-office-moving': ['datasets-office.json'],
@@ -473,6 +473,21 @@ const EXTRA_PATTERNS = {
     ['lumper services Huntington West Virginia', 'navigational-local', 'scope-winchester', 'port-of-huntington-logistics'],
     ['Port of Huntington warehouse and logistics services from Winchester VA', 'navigational-local', 'scope-winchester', 'port-of-huntington-logistics'],
     ['Ohio River port logistics support Winchester VA', 'navigational-local', 'scope-winchester', 'port-of-huntington-logistics'],
+    // Port #8 (2026-11-10): Port of New York and New Jersey family — the
+    // port binds Martinsburg on miles (251.1 vs 275.6, OSRM 2026-11-10).
+    ['transloading near Port of New York and New Jersey', 'navigational-local', 'scope-martinsburg', 'port-of-new-york-new-jersey-logistics'],
+    ['transloading services Port Newark New Jersey', 'navigational-local', 'scope-martinsburg', 'port-of-new-york-new-jersey-logistics'],
+    ['Port of New York and New Jersey transload services', 'navigational-local', 'scope-martinsburg', 'port-of-new-york-new-jersey-logistics'],
+    ['container unloading labor Port Newark', 'navigational-local', 'scope-martinsburg', 'port-of-new-york-new-jersey-logistics'],
+    ['container devanning Elizabeth New Jersey', 'navigational-local', 'scope-martinsburg', 'port-of-new-york-new-jersey-logistics'],
+    ['cross docking services Port Newark New Jersey', 'navigational-local', 'scope-martinsburg', 'port-of-new-york-new-jersey-logistics'],
+    ['warehouse labor near Port of New York and New Jersey', 'navigational-local', 'scope-martinsburg', 'port-of-new-york-new-jersey-logistics'],
+    ['freight rework near Port of New York and New Jersey', 'navigational-local', 'scope-martinsburg', 'port-of-new-york-new-jersey-logistics'],
+    ['who can unload containers at Port of New York and New Jersey', 'ai-question', 'scope-martinsburg', 'port-of-new-york-new-jersey-logistics'],
+    ['who does transloading at Port Newark', 'ai-question', 'scope-martinsburg', 'port-of-new-york-new-jersey-logistics'],
+    ['lumper services Elizabeth New Jersey', 'navigational-local', 'scope-martinsburg', 'port-of-new-york-new-jersey-logistics'],
+    ['Port of New York and New Jersey warehouse and logistics services from Martinsburg WV', 'navigational-local', 'scope-martinsburg', 'port-of-new-york-new-jersey-logistics'],
+    ['ExpressRail container terminal logistics support Martinsburg WV', 'navigational-local', 'scope-martinsburg', 'port-of-new-york-new-jersey-logistics'],
     ['ocean container packing and unpacking services Virginia', 'navigational-local', 'scope-winchester', 'datasets/ports'],
     ['transloading near Richmond Marine Terminal', 'navigational-local', 'scope-winchester', 'port-of-virginia-logistics'],
     ['transloading services Richmond Virginia', 'navigational-local', 'scope-winchester', 'port-of-virginia-logistics'],
