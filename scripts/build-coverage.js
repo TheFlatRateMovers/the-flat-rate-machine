@@ -10,6 +10,13 @@
  *   datasets/coverage/features-table.json
  *   datasets/coverage/coverage-table.json  (feature x service, reconciled)
  *   datasets/coverage/pairs-table.json     (haversine, labeled computed-centroid)
+ *   datasets/coverage/national-table.json  (national layer, 2026-11-09: the
+ *                                       company's performed-work record at
+ *                                       state level — 49 State nodes, every
+ *                                       state except Hawaii — generated from
+ *                                       data/national-scope.json; state rows
+ *                                       are the work record, NEVER merged
+ *                                       into branch areaServed)
  *   dataset-coverage.json             — the /datasets/coverage/ landing jf
  *                                       (summary node shared @id; org + branch
  *                                       nodes copied from the ports jf at
@@ -42,6 +49,7 @@ function arg(name, fallback) {
 const GEO_PATH = arg('geojson', path.join(MACHINE, 'data', 'service-area.geojson'));
 const SERVICES_PATH = arg('services', path.join(MACHINE, 'data', 'services.json'));
 const ALIAS_PATH = arg('alias-map', path.join(MACHINE, 'data', 'coverage-alias-map.json'));
+const NATIONAL_PATH = arg('national', path.join(MACHINE, 'data', 'national-scope.json'));
 const BATCH_DATE = arg('date', '2026-11-09');
 // FB-3 stamps (seal phase 0.5): dateModified for the dataset file and the
 // landing page come from the seal's stamps map when present.
@@ -60,6 +68,8 @@ const registry = Array.isArray(regDoc) ? regDoc : regDoc.services;
 const regIds = new Set(registry.map(s => s.id || s['@id'] || s.slug));
 const aliasDoc = JSON.parse(fs.readFileSync(ALIAS_PATH, 'utf8'));
 const aliases = aliasDoc.aliases || {};
+const nationalDoc = JSON.parse(fs.readFileSync(NATIONAL_PATH, 'utf8'));
+const nationalStates = nationalDoc.states || [];
 
 const TYPE_MAP = {
   city: 'City', branch: 'Place', county: 'AdministrativeArea',
@@ -127,6 +137,50 @@ for (const f of feats) {
     ],
   });
 }
+// ---------- national layer (state-level performed-work record) ----------
+// One State node per state in data/national-scope.json (49 — every state
+// except Hawaii). Footprint states reuse the chain nodes built above (same
+// @ids); the rest are minted here in the same form. State nodes are the
+// company's work record at state level: they carry NO branch binding and
+// are never referenced by branch areaServed. Enrichment (mail-scan tiers,
+// cities, dates, counts) rides as additionalProperty PropertyValue entries
+// on the node and as fields on the national table rows — one source file,
+// both surfaces generated, nothing hand-carried.
+for (const s of nationalStates) {
+  const sid = 'place-state-' + s.abbr.toLowerCase();
+  if (!stateNodes.has(sid)) {
+    stateNodes.set(sid, { '@type': 'State', '@id': `${BASE}/#${sid}`, name: s.state,
+      containedInPlace: { '@id': `${BASE}/#place-country-us` } });
+  }
+  const node = stateNodes.get(sid);
+  const ap = [
+    { '@type': 'PropertyValue', name: 'matrixRole',
+      value: 'national-layer — state in the company performed-work record (not a branch service area)' },
+  ];
+  const e = s.evidence;
+  if (e) {
+    ap.push({ '@type': 'PropertyValue', name: 'workRecordTier', value: e.tier });
+    if (e.jobs !== null && e.jobs !== undefined)
+      ap.push({ '@type': 'PropertyValue', name: 'workRecordJobs', value: e.jobs });
+    if (Array.isArray(e.cities) && e.cities.length)
+      ap.push({ '@type': 'PropertyValue', name: 'workRecordCities', value: JSON.stringify(e.cities) });
+    if (e.first) ap.push({ '@type': 'PropertyValue', name: 'workRecordFirstDate', value: e.first });
+    if (e.last) ap.push({ '@type': 'PropertyValue', name: 'workRecordLastDate', value: e.last });
+  }
+  node.additionalProperty = ap;
+}
+const national = nationalStates.map((s) => ({
+  state: s.state,
+  state_abbr: s.abbr,
+  node_id: `${BASE}/#place-state-${s.abbr.toLowerCase()}`,
+  coverage_basis: 'performed work — national work record (not a branch service area)',
+  evidence_tier: s.evidence ? s.evidence.tier : null,
+  evidenced_jobs: s.evidence ? s.evidence.jobs : null,
+  cities: s.evidence ? s.evidence.cities : [],
+  first_date: s.evidence ? s.evidence.first : null,
+  last_date: s.evidence ? s.evidence.last : null,
+}));
+
 const countryNode = { '@type': 'Country', '@id': `${BASE}/#place-country-us`, name: 'United States' };
 // state chains already reference the country; feature chains that end at a state
 // resolve through the state node. Feature chains without a state point at country directly.
@@ -172,7 +226,7 @@ for (const a of features) for (const b of features) {
 // ---------- distribution digests (estate form: self carries no sha256;
 // every other download carries contentSize + sha256 of the file as written)
 const ser = (o) => JSON.stringify(o, null, 1) + '\n';
-const covStr = ser(coverage), pairsStr = ser(pairs), featStr = ser(features);
+const covStr = ser(coverage), pairsStr = ser(pairs), featStr = ser(features), natStr = ser(national);
 const geoBytes = fs.readFileSync(path.join(PUB, 'service-area.geojson'));
 const shaOf = (buf) => crypto.createHash('sha256').update(buf).digest('hex');
 const dlFull = (name, url, buf) => ({ '@type': 'DataDownload', name, contentUrl: url, encodingFormat: 'application/json', contentSize: Buffer.byteLength(buf), sha256: shaOf(buf) });
@@ -194,7 +248,11 @@ const datasetNode = {
     'schema.org Place node with coordinates and branch binding (Winchester VA and Martinsburg WV), ' +
     'the full feature-by-service coverage table reconciled to the 34-service registry, and the ' +
     'place-to-place distance table (centroid distances, computed and labeled as computed; road miles ' +
-    'only where separately researched). Generated from service-area.geojson by build-coverage.js.',
+    'only where separately researched). A national layer records the company performed-work record at ' +
+    'state level: State nodes for the 49 states where the company has moved clients and performed job ' +
+    'work — every state except Hawaii — published as the national table, kept separate from the branch ' +
+    'footprint (state rows are the work record, not branch service areas). Generated from ' +
+    'service-area.geojson and data/national-scope.json by build-coverage.js.',
   url: landing, identifier: landing, isAccessibleForFree: true,
   datePublished: BATCH_DATE, dateModified: FILE_DM,
   license: 'https://creativecommons.org/licenses/by/4.0/',
@@ -219,6 +277,7 @@ const datasetNode = {
     dlFull('Coverage table (feature x service)', `${landing}coverage-table.json`, covStr),
     dlFull('Place pairs distance table', `${landing}pairs-table.json`, pairsStr),
     dlFull('Features table', `${landing}features-table.json`, featStr),
+    dlFull('National work record table (state level)', `${landing}national-table.json`, natStr),
     dlFull('Service-area GeoJSON (the source map)', `${BASE}/service-area.geojson`, geoBytes),
   ],
 };
@@ -259,6 +318,7 @@ const wTo = (p, obj) => fs.writeFileSync(p, JSON.stringify(obj, null, 1) + '\n')
 fs.writeFileSync(path.join(PUB, 'datasets', 'coverage', 'features-table.json'), featStr);
 fs.writeFileSync(path.join(PUB, 'datasets', 'coverage', 'coverage-table.json'), covStr);
 fs.writeFileSync(path.join(PUB, 'datasets', 'coverage', 'pairs-table.json'), pairsStr);
+fs.writeFileSync(path.join(PUB, 'datasets', 'coverage', 'national-table.json'), natStr);
 wTo(path.join(PUB, 'datasets-coverage.json'), datasetFile);
 wTo(path.join(PUB, 'dataset-coverage.json'), jfFile);
 
@@ -290,6 +350,26 @@ T('T12 GS-1 shape: no Dataset/DataDownload id appears in any node seat other tha
   nodes.every(n => !JSON.stringify(n).includes('#dataset')));
 T('T13 dataset summary description within 50..5000 chars',
   datasetNode.description.length >= 50 && datasetNode.description.length <= 5000);
+T('T14 national layer: exactly 49 state rows, Hawaii absent',
+  national.length === 49 && nationalStates.length === 49 &&
+  !national.some(r => r.state_abbr === 'HI') &&
+  !nationalStates.some(s => s.abbr === 'HI'));
+T('T15 national layer: one State node per national state in the graph (49), DC scaffolding untouched',
+  national.every(r => { const n = stateNodes.get('place-state-' + r.state_abbr.toLowerCase());
+    return n && n['@type'] === 'State' && n['@id'] === r.node_id; }) &&
+  stateNodes.size === 50 && stateNodes.has('place-state-dc'));
+T('T16 national layer: no state node carries a branch binding; national rows add no coverage cells',
+  national.every(r => { const n = stateNodes.get('place-state-' + r.state_abbr.toLowerCase());
+    const ap = n.additionalProperty || [];
+    return !ap.some(p => p.name === 'branchBinding'); }) &&
+  coverage.every(c => regIds.has(c.service_registry_id)));
+T('T17 national layer: table rows re-project exactly from data/national-scope.json (no orphan detail)',
+  national.every((r, i) => { const s = nationalStates[i], e = s.evidence;
+    return r.state === s.state && r.state_abbr === s.abbr &&
+      r.evidence_tier === (e ? e.tier : null) &&
+      r.evidenced_jobs === (e ? e.jobs : null) &&
+      JSON.stringify(r.cities) === JSON.stringify(e ? e.cities : []) &&
+      r.first_date === (e ? e.first : null) && r.last_date === (e ? e.last : null); }));
 
 let ok = true;
 for (const [name, pass] of tests) { console.log((pass ? 'PASS' : 'FAIL'), name); ok = ok && pass; }
@@ -298,6 +378,7 @@ for (const c of coverage) byClass[c.mapping_class] = (byClass[c.mapping_class] |
 console.log(`features: ${features.length} | nodes: ${nodes.length} | county scaffolding: ${countyNodes.size} | states: ${stateNodes.size}`);
 console.log(`coverage cells: ${coverage.length} by class:`, byClass);
 console.log(`pairs: ${pairs.length} | unresolved cells: ${unresolved.length}`);
+console.log(`national layer: ${national.length} states (${national.filter(r => r.evidence_tier).length} with mail/case enrichment)`);
 console.log('catalog object: lib-constants CATALOG');
 console.log('BUILD-COVERAGE:', ok ? 'ALL TESTS PASS' : 'FAILURES PRESENT');
 process.exit(ok ? 0 : 1);

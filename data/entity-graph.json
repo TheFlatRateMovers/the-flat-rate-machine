@@ -9486,7 +9486,7 @@
    "@type": "Dataset",
    "@id": "https://theflatratemovers.com/datasets/coverage/#dataset",
    "name": "Territory Matrix — Service Coverage by Place",
-   "description": "The Flat Rate Movers service-coverage matrix: every place in the company footprint as a typed schema.org Place node with coordinates and branch binding (Winchester VA and Martinsburg WV), the full feature-by-service coverage table reconciled to the 34-service registry, and the place-to-place distance table (centroid distances, computed and labeled as computed; road miles only where separately researched). Generated from service-area.geojson by build-coverage.js.",
+   "description": "The Flat Rate Movers service-coverage matrix: every place in the company footprint as a typed schema.org Place node with coordinates and branch binding (Winchester VA and Martinsburg WV), the full feature-by-service coverage table reconciled to the 34-service registry, and the place-to-place distance table (centroid distances, computed and labeled as computed; road miles only where separately researched). A national layer records the company performed-work record at state level: State nodes for the 49 states where the company has moved clients and performed job work — every state except Hawaii — published as the national table, kept separate from the branch footprint (state rows are the work record, not branch service areas). Generated from service-area.geojson and data/national-scope.json by build-coverage.js.",
    "url": "https://theflatratemovers.com/datasets/coverage/",
    "identifier": "https://theflatratemovers.com/datasets/coverage/",
    "isAccessibleForFree": true,

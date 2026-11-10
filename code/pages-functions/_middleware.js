@@ -435,6 +435,7 @@ const STATIC_FILES = new Set([
   "/datasets/coverage/data.txt",
   "/datasets/coverage/features-table.json",
   "/datasets/coverage/index.html",
+  "/datasets/coverage/national-table.json",
   "/datasets/coverage/pairs-table.json",
   "/datasets/crating/data.json",
   "/datasets/crating/data.txt",

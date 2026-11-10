@@ -452,7 +452,7 @@ The Flat Rate Movers, <em>Search Intent Coverage Dataset</em>,
 <h2>Endpoints</h2>
 <ul>
 <li><code>GET /v1/services</code> — all services (add <code>?place=place-petersburg-wv</code> for the services offered at one place)</li>
-<li><code>GET /v1/coverage</code> — the Territory Matrix coverage dataset, byte-identical (add <code>?table=coverage|pairs|features</code> for one table; <code>?table=coverage&amp;place=</code> filters cells by place)</li>
+<li><code>GET /v1/coverage</code> — the Territory Matrix coverage dataset, byte-identical (add <code>?table=coverage|pairs|features|national</code> for one table; <code>?table=coverage&amp;place=</code> filters cells by place; <code>?table=national&amp;state=</code> filters the national work-record table to one state)</li>
 <li><code>GET /v1/services/{service_id}</code> — one service, its datasets and intent rows count</li>
 <li><code>GET /v1/datasets</code> — dataset inventory</li>
 <li><code>GET /v1/datasets/{name}</code> — a dataset's full JSON</li>
@@ -597,7 +597,7 @@ const OPENAPI = {
     '/v1/coverage': {
       get: {
         summary: 'Territory Matrix coverage dataset',
-        parameters: [tableParam(['coverage', 'pairs', 'features']), { name: 'place', in: 'query', required: false, schema: { type: 'string' }, example: 'place-petersburg-wv', description: 'With ?table=coverage, filters the coverage cells to one place.' }],
+        parameters: [tableParam(['coverage', 'pairs', 'features', 'national']), { name: 'place', in: 'query', required: false, schema: { type: 'string' }, example: 'place-petersburg-wv', description: 'With ?table=coverage, filters the coverage cells to one place.' }, { name: 'state', in: 'query', required: false, schema: { type: 'string' }, example: 'TX', description: 'With ?table=national, filters the national work-record table to one state (abbreviation, state name, or place-state-<abbr> node id).' }],
         responses: { '200': datasetDocResponse('The full coverage dataset file (no ?table) or the single requested table.'), '404': { $ref: '#/components/responses/Error' } },
       },
     },
@@ -851,6 +851,7 @@ export default {
         coverage: 'datasets/coverage/coverage-table.json',
         pairs: 'datasets/coverage/pairs-table.json',
         features: 'datasets/coverage/features-table.json',
+        national: 'datasets/coverage/national-table.json',
       };
       const file = tables[table];
       if (!file) return errorJson(`unknown table: ${table}`, 404);
@@ -860,6 +861,14 @@ export default {
       if (table === 'coverage' && place) {
         const cells = JSON.parse(text).filter((c) => c.feature_id === place);
         return jsonResponse({ place, count: cells.length, cells });
+      }
+      const state = url.searchParams.get('state');
+      if (table === 'national' && state) {
+        const q = state.trim().toLowerCase();
+        const rows = JSON.parse(text).filter((r) =>
+          r.state_abbr.toLowerCase() === q || r.state.toLowerCase() === q ||
+          ('place-state-' + r.state_abbr.toLowerCase()) === q);
+        return jsonResponse({ state, count: rows.length, rows });
       }
       return textResponse(text, 'application/json; charset=utf-8');
     }
