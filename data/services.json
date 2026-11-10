@@ -17,7 +17,7 @@
    "description": "Business moves, planned around your operation. Commercial relocations quoted flat and agreed in writing before move day — planned around your hours, your site and your equipment, with our own warehouse and transload operation behind the job.",
    "id": "service-commercial",
    "name": "Commercial and Office Moving",
-   "pageCount": 6,
+   "pageCount": 7,
    "source": "head JSON-LD graph in live site source (index.html)"
   },
   {
@@ -113,7 +113,7 @@
    "description": "Complete office relocations — workstations, files and office equipment — planned around business hours and quoted flat in writing before move day.",
    "id": "service-office-moving",
    "name": "Office Moving",
-   "pageCount": 4,
+   "pageCount": 5,
    "source": "head JSON-LD graph in live site source (index.html)"
   },
   {

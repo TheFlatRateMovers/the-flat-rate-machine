@@ -1,12 +1,12 @@
 {
  "attestation": "Every URL below was fetched from the live sitemap on 2026-10-28; titles and service links come from pageMeta in the live site source. No URL was hand-typed.",
- "count": 269,
+ "count": 271,
  "dataset": "pages",
  "generated": "2026-10-29",
  "pages": [
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [],
    "slug": "home",
    "source": "live sitemap.xml + pageMeta in live site source",
@@ -17,7 +17,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-gun-safe"
    ],
@@ -30,7 +30,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [],
    "slug": "ai-license",
    "source": "live sitemap.xml + pageMeta in live site source",
@@ -41,7 +41,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [],
    "slug": "all-pages",
    "source": "live sitemap.xml + pageMeta in live site source",
@@ -52,7 +52,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [],
    "slug": "areas-served",
    "source": "live sitemap.xml + pageMeta in live site source",
@@ -63,7 +63,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [],
    "slug": "author/ratemoversgmail-com",
    "source": "live sitemap.xml + pageMeta in live site source",
@@ -74,7 +74,7 @@
   },
   {
    "attested": "2026-11-02",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [],
    "slug": "author/henry-pitts-jr",
    "source": "News Formula batch 2026-11-02 (Google News dossier gate N-4): author profile page for Henry Pitts Jr., owner and byline of the estate’s articles",
@@ -85,7 +85,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [],
    "slug": "blog",
    "source": "live sitemap.xml + pageMeta in live site source",
@@ -96,7 +96,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-sir-heavy"
    ],
@@ -109,7 +109,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-gun-safe"
    ],
@@ -122,7 +122,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-transloading"
    ],
@@ -135,7 +135,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [],
    "slug": "category/logistics",
    "source": "live sitemap.xml + pageMeta in live site source",
@@ -146,7 +146,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-long-distance"
    ],
@@ -159,7 +159,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-ispm15"
    ],
@@ -172,7 +172,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-government",
     "service-military"
@@ -186,7 +186,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-commercial"
    ],
@@ -199,7 +199,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-transloading"
    ],
@@ -212,7 +212,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-sir-heavy"
    ],
@@ -225,7 +225,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-sir-heavy"
    ],
@@ -238,7 +238,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [],
    "slug": "category/shenandoah-valley-logistics",
    "source": "live sitemap.xml + pageMeta in live site source",
@@ -249,7 +249,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-gun-safe"
    ],
@@ -262,7 +262,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [],
    "slug": "category/winchester-va",
    "source": "live sitemap.xml + pageMeta in live site source",
@@ -273,7 +273,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-residential"
    ],
@@ -286,7 +286,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [],
    "slug": "category/winchester-va/residential-logistics/relocation-services",
    "source": "live sitemap.xml + pageMeta in live site source",
@@ -297,7 +297,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-residential"
    ],
@@ -310,7 +310,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-residential"
    ],
@@ -323,7 +323,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-packing"
    ],
@@ -336,7 +336,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-long-distance"
    ],
@@ -362,7 +362,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-transloading"
    ],
@@ -375,7 +375,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-packing"
    ],
@@ -388,7 +388,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-residential"
    ],
@@ -401,7 +401,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-transloading",
     "service-final-mile"
@@ -469,7 +469,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-transloading"
    ],
@@ -482,7 +482,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-transloading"
    ],
@@ -495,7 +495,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [],
    "slug": "developer",
    "source": "live sitemap.xml + pageMeta in live site source",
@@ -506,7 +506,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [],
    "slug": "docs",
    "source": "live sitemap.xml + pageMeta in live site source",
@@ -517,7 +517,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-transloading"
    ],
@@ -530,7 +530,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-commercial"
    ],
@@ -543,7 +543,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [],
    "slug": "docs/logistics-event-protocol",
    "source": "live sitemap.xml + pageMeta in live site source",
@@ -554,7 +554,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [],
    "slug": "docs/logistics-ontology",
    "source": "live sitemap.xml + pageMeta in live site source",
@@ -578,7 +578,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-transloading"
    ],
@@ -591,7 +591,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [],
    "slug": "entities",
    "source": "live sitemap.xml + pageMeta in live site source",
@@ -602,7 +602,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [],
    "slug": "entity-authority-layer",
    "source": "live sitemap.xml + pageMeta in live site source",
@@ -626,7 +626,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [],
    "slug": "faq",
    "source": "live sitemap.xml + pageMeta in live site source",
@@ -637,7 +637,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [],
    "slug": "find-us",
    "source": "live sitemap.xml + pageMeta in live site source",
@@ -648,7 +648,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [],
    "slug": "flat-rate-moving-quote-winchester",
    "source": "live sitemap.xml + pageMeta in live site source",
@@ -659,7 +659,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-packing"
    ],
@@ -672,7 +672,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-gun-safe"
    ],
@@ -711,7 +711,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-sir-heavy"
    ],
@@ -724,7 +724,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-transloading"
    ],
@@ -737,7 +737,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-transloading"
    ],
@@ -764,7 +764,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-transloading",
     "service-route81"
@@ -778,7 +778,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-packing"
    ],
@@ -804,7 +804,7 @@
   },
   {
    "attested": "2026-10-29",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-industrial-commercial"
    ],
@@ -830,7 +830,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-sir-heavy"
    ],
@@ -857,7 +857,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-long-distance"
    ],
@@ -870,7 +870,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-long-distance"
    ],
@@ -883,7 +883,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-long-distance"
    ],
@@ -910,7 +910,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [],
    "slug": "knowledge-entities",
    "source": "live sitemap.xml + pageMeta in live site source",
@@ -921,7 +921,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [],
    "slug": "knowledge-equipment",
    "source": "live sitemap.xml + pageMeta in live site source",
@@ -932,7 +932,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [],
    "slug": "knowledge-events",
    "source": "live sitemap.xml + pageMeta in live site source",
@@ -943,7 +943,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [],
    "slug": "knowledge-locations",
    "source": "live sitemap.xml + pageMeta in live site source",
@@ -954,7 +954,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [],
    "slug": "knowledge-services",
    "source": "live sitemap.xml + pageMeta in live site source",
@@ -978,7 +978,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [],
    "slug": "logistics-data-engineering-center",
    "source": "live sitemap.xml + pageMeta in live site source",
@@ -989,7 +989,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-long-distance"
    ],
@@ -1002,7 +1002,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-gun-safe"
    ],
@@ -1015,7 +1015,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-long-distance"
    ],
@@ -1028,7 +1028,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-long-distance"
    ],
@@ -1054,7 +1054,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-residential"
    ],
@@ -1067,7 +1067,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-residential",
     "service-commercial"
@@ -1109,7 +1109,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [],
    "slug": "moving-company-martinsburg-wv",
    "source": "live sitemap.xml + pageMeta in live site source",
@@ -1131,7 +1131,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [],
    "slug": "moving-cost-guide-winchester-va",
    "source": "live sitemap.xml + pageMeta in live site source",
@@ -1142,7 +1142,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [],
    "slug": "moving-questions-answers",
    "source": "live sitemap.xml + pageMeta in live site source",
@@ -1153,7 +1153,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-residential"
    ],
@@ -1166,7 +1166,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [],
    "slug": "online-estimate",
    "source": "live sitemap.xml + pageMeta in live site source",
@@ -1177,7 +1177,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-packing"
    ],
@@ -1190,7 +1190,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-packing"
    ],
@@ -1216,7 +1216,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-transloading"
    ],
@@ -1229,7 +1229,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [],
    "slug": "privacy-policy",
    "source": "live sitemap.xml + pageMeta in live site source",
@@ -1240,7 +1240,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-packing"
    ],
@@ -1253,7 +1253,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [],
    "slug": "quote",
    "source": "live sitemap.xml + pageMeta in live site source",
@@ -1264,7 +1264,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [],
    "slug": "recursive-indexing-layer",
    "source": "live sitemap.xml + pageMeta in live site source",
@@ -1275,7 +1275,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-residential"
    ],
@@ -1288,7 +1288,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-sir-heavy"
    ],
@@ -1301,7 +1301,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-sir-heavy"
    ],
@@ -1340,7 +1340,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-gun-safe"
    ],
@@ -1353,7 +1353,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [],
    "slug": "service-areas-moving-company",
    "source": "live sitemap.xml + pageMeta in live site source",
@@ -1364,7 +1364,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [],
    "slug": "services",
    "source": "live sitemap.xml + pageMeta in live site source",
@@ -1375,7 +1375,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-sir-heavy"
    ],
@@ -1388,7 +1388,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-sir-heavy"
    ],
@@ -1401,7 +1401,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [],
    "slug": "sitemap",
    "source": "live sitemap.xml + pageMeta in live site source",
@@ -1412,7 +1412,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-gun-safe",
     "service-sir-heavy"
@@ -1426,7 +1426,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-sir-heavy"
    ],
@@ -1439,7 +1439,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-long-distance"
    ],
@@ -1452,7 +1452,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [],
    "slug": "the-flat-rate-logistics-data-hub",
    "source": "live sitemap.xml + pageMeta in live site source",
@@ -1463,7 +1463,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-sir-heavy"
    ],
@@ -1476,7 +1476,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-long-distance"
    ],
@@ -1489,7 +1489,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-residential"
    ],
@@ -1502,7 +1502,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-residential"
    ],
@@ -1515,7 +1515,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-transloading"
    ],
@@ -1528,7 +1528,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-long-distance"
    ],
@@ -1541,7 +1541,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-long-distance"
    ],
@@ -1554,7 +1554,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-long-distance"
    ],
@@ -1567,7 +1567,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-long-distance"
    ],
@@ -1580,7 +1580,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-long-distance"
    ],
@@ -1608,7 +1608,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-commercial"
    ],
@@ -1621,7 +1621,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-local-regional"
    ],
@@ -1634,7 +1634,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-office-moving"
    ],
@@ -1647,7 +1647,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-industrial-offices"
    ],
@@ -1660,7 +1660,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-government"
    ],
@@ -1673,7 +1673,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-military"
    ],
@@ -1686,7 +1686,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-industrial-commercial"
    ],
@@ -1699,7 +1699,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-local-regional"
    ],
@@ -1712,7 +1712,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-long-distance"
    ],
@@ -1725,7 +1725,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-packing"
    ],
@@ -1738,7 +1738,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-sir-heavy"
    ],
@@ -1751,7 +1751,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-gun-safe"
    ],
@@ -1764,7 +1764,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-piano-antique"
    ],
@@ -1777,7 +1777,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-ispm15"
    ],
@@ -1790,7 +1790,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-crating"
    ],
@@ -1803,7 +1803,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-transloading"
    ],
@@ -1816,7 +1816,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-final-mile"
    ],
@@ -1829,7 +1829,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-office-moving"
    ],
@@ -1842,7 +1842,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-industrial-offices"
    ],
@@ -1855,7 +1855,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-government"
    ],
@@ -1868,7 +1868,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-military"
    ],
@@ -1881,7 +1881,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-industrial-commercial"
    ],
@@ -1960,7 +1960,7 @@
   },
   {
    "attested": "2026-10-29",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [],
    "slug": "videos",
    "source": "live sitemap.xml + pageMeta in live site source",
@@ -1997,7 +1997,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [],
    "slug": "flat-rate-guarantee",
    "source": "Blog foundation batch 2026-10-30 (Henry order 2026-10-30: create the blog; guarantee terms from Henry's stated terms 2026-10-29 + the estate's published copy)",
@@ -2008,7 +2008,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-packing"
    ],
@@ -2021,7 +2021,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-ispm15"
    ],
@@ -2034,7 +2034,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-piano-antique"
    ],
@@ -2047,7 +2047,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-final-mile",
     "service-white-glove"
@@ -2401,7 +2401,7 @@
   },
   {
    "attested": "2026-10-31",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [],
    "slug": "datasets/answer-evidence",
    "source": "Retrieval Machine build B2 2026-10-31 (Dossier 02 answer-engine evidence dataset design; generator scripts/build-answer-evidence.js)",
@@ -2412,7 +2412,7 @@
   },
   {
    "attested": "2026-10-31",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [],
    "slug": "datasets/local-graph-registry",
    "source": "Retrieval Machine build B3 2026-10-31 (Dossier 03 local-business graph dataset design; generator scripts/build-local-graph.js)",
@@ -2423,7 +2423,7 @@
   },
   {
    "attested": "2026-10-31",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [],
    "slug": "datasets/crawl-presence",
    "source": "Retrieval Machine build E5-B1 2026-10-31 (Dossier 05 corpora registry design; generator scripts/build-crawl-presence.js)",
@@ -2434,7 +2434,7 @@
   },
   {
    "attested": "2026-11-03",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [],
    "slug": "datasets/catalog-registry",
    "source": "Catalog registry batch 2026-11-03 (Dossier 04 §5 catalog registry design; generator scripts/build-catalog-registry.js)",
@@ -2445,7 +2445,7 @@
   },
   {
    "attested": "2026-11-01",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [],
    "slug": "datasets/archive-registry",
    "source": "Retrieval Machine build E6-B1 2026-11-01 (Dossier 06 archives registry design; generator scripts/build-archive-registry.js)",
@@ -2511,7 +2511,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [],
    "slug": "datasets/videos",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -2544,7 +2544,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [],
    "slug": "datasets",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -2555,7 +2555,7 @@
   },
   {
    "attested": "2026-10-31",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-crating"
    ],
@@ -2568,7 +2568,7 @@
   },
   {
    "attested": "2026-10-31",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-route81"
    ],
@@ -2581,7 +2581,7 @@
   },
   {
    "attested": "2026-10-31",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-transloading"
    ],
@@ -2594,7 +2594,7 @@
   },
   {
    "attested": "2026-10-31",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-industrial-offices"
    ],
@@ -2607,7 +2607,7 @@
   },
   {
    "attested": "2026-10-31",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-gun-safe"
    ],
@@ -2644,7 +2644,7 @@
   },
   {
    "attested": "2026-11-02",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-transloading"
    ],
@@ -2670,7 +2670,7 @@
   },
   {
    "attested": "2026-11-02",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-long-distance"
    ],
@@ -2683,7 +2683,7 @@
   },
   {
    "attested": "2026-11-02",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-government"
    ],
@@ -2696,7 +2696,7 @@
   },
   {
    "attested": "2026-11-02",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-military"
    ],
@@ -2709,7 +2709,7 @@
   },
   {
    "attested": "2026-11-02",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-crating"
    ],
@@ -2722,7 +2722,7 @@
   },
   {
    "attested": "2026-11-02",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-piano-antique"
    ],
@@ -2735,7 +2735,7 @@
   },
   {
    "attested": "2026-11-02",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-office-moving"
    ],
@@ -2748,7 +2748,7 @@
   },
   {
    "attested": "2026-11-02",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-packing"
    ],
@@ -2761,7 +2761,7 @@
   },
   {
    "attested": "2026-11-02",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-final-mile"
    ],
@@ -2774,7 +2774,7 @@
   },
   {
    "attested": "2026-11-02",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-white-glove"
    ],
@@ -2798,7 +2798,7 @@
   },
   {
    "attested": "2026-11-02",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-long-distance"
    ],
@@ -2833,7 +2833,7 @@
   },
   {
    "attested": "2026-11-02",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-transloading"
    ],
@@ -2846,7 +2846,7 @@
   },
   {
    "attested": "2026-11-02",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-transloading"
    ],
@@ -2859,7 +2859,7 @@
   },
   {
    "attested": "2026-11-03",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-gun-safe"
    ],
@@ -2872,7 +2872,7 @@
   },
   {
    "attested": "2026-11-03",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [],
    "slug": "datasets/vault-door-case-study",
    "source": "Vault Security program case study VC-1 2026-11-03 — dataset landing for datasets-vault-door-case-study.json",
@@ -2883,7 +2883,7 @@
   },
   {
    "attested": "2026-11-03",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [],
    "slug": "flat-rate-movers-dataset-estate-citable-doi",
    "source": "Spec C announcement story (News Formula story lane), Launch Protocol 2026-11-03 — announces the 2026-11-02 open-record publications: Zenodo dataset deposit (concept DOI 10.5281/zenodo.23879048), Wikidata items Q141969215 / Q141969268 / Q141969285, OpenStreetMap branch nodes 14340286372 / 14340286373, Hugging Face mirror re-sync, Google Publisher Center publication; byline Henry Pitts Jr., reviewer Henry Pitts",
@@ -2894,7 +2894,7 @@
   },
   {
    "attested": "2026-11-03",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-gun-safe"
    ],
@@ -2907,7 +2907,7 @@
   },
   {
    "attested": "2026-11-03",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-piano-antique"
    ],
@@ -2920,7 +2920,7 @@
   },
   {
    "attested": "2026-11-03",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [],
    "slug": "quote-tool",
    "source": "Quote Tool batch 2026-11-03 — the guide to the flat rate quote tool: Short/Detailed modes, the five required fields, all 20 project types with preparation guidance, the video walkthrough (Survey Room) route, and how a request becomes one flat rate in writing; form inventory measured from the live form source (44 field controls, 33 pick chips, 77 visitor-value controls); the form itself unchanged",
@@ -2931,7 +2931,7 @@
   },
   {
    "attested": "2026-11-03",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [],
    "slug": "datasets/quote-tool",
    "source": "Quote Tool batch 2026-11-03 — dataset landing for datasets-quote-tool.json (form inventory + the eight-check coverage rubric with measured results + the 20-audience guide)",
@@ -2953,7 +2953,7 @@
   },
   {
    "attested": "2026-11-03",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-transloading",
     "service-freight-rework-transloading",
@@ -2968,7 +2968,7 @@
   },
   {
    "attested": "2026-11-03",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [],
    "slug": "datasets/port-of-virginia",
    "source": "Ports & Intermodal Takeover Program batch P3 2026-11-03 — dataset landing for datasets-port-of-virginia.json (per-port dataset: Norfolk Harbor terminals + Richmond Marine Terminal covered facility, 16-cell coverage matrix, Winchester binding)",
@@ -2979,7 +2979,7 @@
   },
   {
    "attested": "2026-11-03",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-transloading",
     "service-freight-rework-transloading",
@@ -2996,7 +2996,7 @@
   },
   {
    "attested": "2026-11-03",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-logistics-project-management",
     "service-transloading",
@@ -3011,7 +3011,7 @@
   },
   {
    "attested": "2026-11-03",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-3pl-support",
     "service-industrial-commercial",
@@ -3026,7 +3026,7 @@
   },
   {
    "attested": "2026-11-03",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-transloading",
     "service-freight-rework-transloading"
@@ -3040,7 +3040,7 @@
   },
   {
    "attested": "2026-11-04",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-piano-antique"
    ],
@@ -3053,7 +3053,7 @@
   },
   {
    "attested": "2026-11-04",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-white-glove"
    ],
@@ -3066,7 +3066,7 @@
   },
   {
    "attested": "2026-11-04",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-vault-door"
    ],
@@ -3101,7 +3101,7 @@
   },
   {
    "attested": "2026-11-04",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-vault-door"
    ],
@@ -3114,7 +3114,7 @@
   },
   {
    "attested": "2026-11-05",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-hoarding-cleanup"
    ],
@@ -3127,7 +3127,7 @@
   },
   {
    "attested": "2026-11-05",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-hoarding-cleanup"
    ],
@@ -3140,7 +3140,7 @@
   },
   {
    "attested": "2026-11-05",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-hoarding-cleanup"
    ],
@@ -3164,7 +3164,7 @@
   },
   {
    "attested": "2026-11-05",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [],
    "slug": "datasets/b2b-specialty-rubric",
    "source": "B2B Specialty build 2026-11-05 (frontier C2; rubric core 2026-11-04) — dataset landing for datasets-b2b-specialty-rubric.json",
@@ -3175,7 +3175,7 @@
   },
   {
    "attested": "2026-11-05",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-medical-lab-relocation"
    ],
@@ -3188,7 +3188,7 @@
   },
   {
    "attested": "2026-11-05",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-medical-lab-relocation"
    ],
@@ -3201,7 +3201,7 @@
   },
   {
    "attested": "2026-11-05",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-medical-lab-relocation"
    ],
@@ -3214,7 +3214,7 @@
   },
   {
    "attested": "2026-11-05",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-data-center-relocation"
    ],
@@ -3227,7 +3227,7 @@
   },
   {
    "attested": "2026-11-05",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-data-center-relocation"
    ],
@@ -3240,7 +3240,7 @@
   },
   {
    "attested": "2026-11-05",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-medical-lab-relocation"
    ],
@@ -3253,7 +3253,7 @@
   },
   {
    "attested": "2026-11-05",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-medical-lab-relocation"
    ],
@@ -3266,7 +3266,7 @@
   },
   {
    "attested": "2026-11-05",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-data-center-relocation"
    ],
@@ -3279,7 +3279,7 @@
   },
   {
    "attested": "2026-11-05",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-data-center-relocation"
    ],
@@ -3326,7 +3326,7 @@
   },
   {
    "attested": "2026-11-07",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [
     "service-transloading",
     "service-freight-rework-transloading",
@@ -3341,7 +3341,7 @@
   },
   {
    "attested": "2026-11-07",
-   "lastmod": "2026-11-09",
+   "lastmod": "2026-11-10",
    "services": [],
    "slug": "datasets/port-of-huntington",
    "source": "WV-2 2026-11-07 — per-port dataset landing for the Port of Huntington Tri-State",
@@ -3349,6 +3349,32 @@
    "title": "Port of Huntington Tri-State Logistics Dataset",
    "type": "page",
    "url": "https://theflatratemovers.com/datasets/port-of-huntington/"
+  },
+  {
+   "attested": "2026-11-10",
+   "lastmod": "2026-11-10",
+   "services": [
+    "service-commercial"
+   ],
+   "slug": "how-a-commercial-move-is-planned",
+   "source": "Blog Wave 1 Day 4 AM flagship (News Formula guide lane), Launch Protocol 2026-11-10 — commercial moving planned around your hours: a business move is not a household move under the FMCSA household-goods framework; the building packet (Certificate of Insurance wording, confirmed freight-elevator reservation, dock window, after-hours security access, the whole packet reconfirmed 48 to 72 hours before move day); the eight-step operation (survey, quote, phased plan, pack and label, sequenced move, install and place, verify, close-out); the asset classes; IOMI building-protection and anti-static electronics standards; the retiring stream under the EPA universal-waste framework; heavy pieces of 1,500 to 3,500 lb under SIR and the KIM-GS Protocol with L/360 floor-deflection analysis; built from the live commercial moving hub and its dataset; byline Henry Pitts Jr., reviewer Henry Pitts",
+   "status": "live",
+   "title": "Commercial moving: how a business relocation is planned around your hours",
+   "type": "page",
+   "url": "https://theflatratemovers.com/how-a-commercial-move-is-planned/"
+  },
+  {
+   "attested": "2026-11-10",
+   "lastmod": "2026-11-10",
+   "services": [
+    "service-office-moving"
+   ],
+   "slug": "how-an-office-move-is-sequenced",
+   "source": "Blog Wave 1 Day 4 PM flagship (News Formula guide lane), Launch Protocol 2026-11-10 — office moving as a sequence: the plan spine (what moves first, what moves last, what works on day one); the ten-step operation (survey, quote, plan order, label, pack, stage, sequenced move, place, systems check, walkthrough); workstations disassembled in a fixed order on a circuit de-energized by the customer’s or building’s qualified person, hardware bagged and labeled per station; color-coded destination labeling; files kept in shelf order on rolling book carts; electronics wrapped in anti-static bubble wrap; warehouse staging when the dates do not line up; built from the live office moving hub and its dataset; byline Henry Pitts Jr., reviewer Henry Pitts",
+   "status": "live",
+   "title": "Office moving: how workstations, files, and equipment are sequenced",
+   "type": "page",
+   "url": "https://theflatratemovers.com/how-an-office-move-is-sequenced/"
   }
  ],
  "source": "https://theflatratemovers.com/sitemap.xml joined to pageMeta in ../the-flat-rate-movers-pages/public/index.html",

@@ -1788,6 +1788,56 @@ function generate() {
     }
   }
 
+  // R22 Near-me domination (2026-11-10): the GSC-observed head phrasings
+  // of the two money query families sat at evidence-unattached — no
+  // service phrase in PHRASE generates them ("movers" bare belongs to no
+  // service), so the exact strings searchers type had no row at all:
+  // "movers near me" (368 impressions, position ~4.6), "moving companies
+  // near me" (128), "safe moving company near me" (67), "moving company
+  // near me" (62), "winchester movers near me" (47), "safe movers near
+  // me" (Trends' #2 related query for "safe movers", index 79). Bound
+  // here, in generator config, to the owning services — the bindings the
+  // attached sibling rows already carry ('local movers near me' ->
+  // service-local-regional, 'best movers near me' ->
+  // service-residential, 'gun safe movers near me' -> service-gun-safe)
+  // — at full near-me depth (bare / best / cost forms, R17's shape) plus
+  // the one observed place form. Rows remain generated, gated and
+  // deduped by the same emit() path as every other pattern.
+  {
+    const NM = [
+      // service-local-regional owns the generic movers family (R21).
+      ['service-local-regional', 'navigational-local', 'movers near me', 'local-regional-moving'],
+      ['service-local-regional', 'navigational-local', 'moving companies near me', 'local-regional-moving'],
+      ['service-local-regional', 'navigational-local', 'moving company near me', 'local-regional-moving'],
+      ['service-local-regional', 'navigational-local', 'local moving companies near me', 'local-regional-moving'],
+      ['service-local-regional', 'navigational-local', 'local moving company near me', 'local-regional-moving'],
+      ['service-local-regional', 'navigational-local', 'moving services near me', 'local-regional-moving'],
+      ['service-local-regional', 'navigational-local', 'flat rate movers near me', 'local-regional-moving'],
+      ['service-local-regional', 'navigational-local', 'moving near me', 'local-regional-moving'],
+      ['service-local-regional', 'navigational-local', 'furniture movers near me', 'local-regional-moving'],
+      ['service-local-regional', 'best-choice', 'best movers near me', 'local-regional-moving'],
+      ['service-local-regional', 'best-choice', 'best moving companies near me', 'local-regional-moving'],
+      ['service-local-regional', 'cost', 'movers cost near me', 'local-regional-moving'],
+      ['service-local-regional', 'cost', 'how much do movers cost near me', 'local-regional-moving'],
+      ['service-local-regional', 'cost', 'cost of movers near me', 'local-regional-moving'],
+      // service-residential: second binding for the head phrase.
+      ['service-residential', 'navigational-local', 'movers near me', 'residential-moving'],
+      // service-gun-safe owns the safe near-me family.
+      ['service-gun-safe', 'navigational-local', 'safe movers near me', 'gun-safe-movers'],
+      ['service-gun-safe', 'navigational-local', 'safe moving company near me', 'gun-safe-movers'],
+      ['service-gun-safe', 'navigational-local', 'gun safe moving company near me', 'gun-safe-movers'],
+      ['service-gun-safe', 'navigational-local', 'professional gun safe movers near me', 'gun-safe-movers'],
+      ['service-gun-safe', 'best-choice', 'best safe movers near me', 'gun-safe-movers'],
+      ['service-gun-safe', 'cost', 'safe movers near me prices', 'gun-safe-movers'],
+      ['service-gun-safe', 'cost', 'safe movers cost near me', 'gun-safe-movers'],
+      ['service-gun-safe', 'cost', 'how much do safe movers cost near me', 'gun-safe-movers'],
+      // service-sir-heavy: the protocol behind safe moving answers too.
+      ['service-sir-heavy', 'navigational-local', 'safe movers near me', 'heavy'],
+    ];
+    for (const [sid, cls, text, target] of NM) emit(sid, cls, text, null, target, 'R22-near-me-domination');
+    emit('service-local-regional', 'navigational-local', 'winchester movers near me', 'place-winchester-va', 'local-regional-movers-winchester-va', 'R22-near-me-domination-place');
+  }
+
   // R12 (v2): GSC observed feed-in. Enrich exact normalized matches;
   // resolve unmatched observed queries to a service + target under the
   // same R10 gates (via emit); exclude the rest with reasons.
