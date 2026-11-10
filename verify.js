@@ -5878,13 +5878,23 @@ async function main() {
       } else tmReport('TM-5 pair distances carry their basis label (SPEC GS-5)', false, 'production pairs table not present at ' + stagedPairs);
     }
 
-    /* TM-6 (national layer, 2026-11-09; ENFORCING from birth) — the
-       published national table IS the standing data file, no more and no
-       less: its state set equals data/national-scope.json exactly (49
-       states, Hawaii absent), every row's enrichment fields match the
-       data file field for field (no orphan detail, no stripped detail),
-       and the coverage graph carries exactly one State node per national
-       state. National rows are the performed-work record: they never
+    /* TM-6 (national layer, 2026-11-09; ENFORCING from birth; shape
+       corrected 2026-11-10 on Henry's order) — the published national
+       table IS the standing data file's published projection, no more
+       and no less: its state set equals data/national-scope.json exactly
+       (49 states, Hawaii absent); every row carries exactly the six
+       locked fields — state, state_abbr, node_id, coverage_basis,
+       services_performed (the owner's stated per-state minimum:
+       antiques moving, gun safe moving, full-service moving) and cities
+       (the record work cities, field-equal to the data file, which
+       carries the 2026-11-10 deep city pass verbatim) — and NO scan
+       detail: evidenced_jobs / evidence_tier / first_date / last_date
+       keys are forbidden in the table, and the coverage graph's State
+       nodes carry no workRecordTier / workRecordJobs / date properties
+       (the scan count is the inbox's count, not the work count; the
+       understatement must not creep back on any surface). The scan
+       detail itself lives only in the data file's internal_record
+       blocks. National rows are the performed-work record: they never
        merge into branch areaServed (TM-1 discipline) — the summary
        node's spatialCoverage stays the two branch Place objects and no
        State node carries a branch binding. */
@@ -5894,36 +5904,52 @@ async function main() {
       const wantAbbrs = natStates.map((s) => s.abbr).sort();
       const natTablePath = path.join(PAGES_PUBLIC, 'datasets', 'coverage', 'national-table.json');
       if (!fs.existsSync(natTablePath)) {
-        tmReport('TM-6 national table == data/national-scope.json (49 states, Hawaii absent, enrichment field-equal, 49 State nodes)', false, 'national table not present at ' + natTablePath);
+        tmReport('TM-6 national table == data/national-scope.json published projection (49 states, Hawaii absent, services on every row, record cities field-equal, no scan detail published, 49 State nodes)', false, 'national table not present at ' + natTablePath);
       } else {
         const rows = readTM(natTablePath);
         const gotAbbrs = rows.map((r) => r.state_abbr).sort();
         const setOk = rows.length === 49 && natStates.length === 49 &&
           JSON.stringify(gotAbbrs) === JSON.stringify(wantAbbrs) && !gotAbbrs.includes('HI');
         const byAbbr = new Map(natStates.map((s) => [s.abbr, s]));
+        // Henry's final cities file (2026-11-10 directive; repo seat
+        // data/state-city-final.json, delivered as
+        // out/state-city-final-2026-11-10.json): the standing scope
+        // file's cities must equal it state for state, so the published
+        // projection is asserted against the final file through the
+        // scope file — published == scope == final, no drift possible.
+        const finCities = readTM(path.join(ROOT, 'data', 'state-city-final.json')) || {};
+        const citySrcBad = natStates.filter((s) => JSON.stringify(s.cities) !== JSON.stringify(finCities[s.abbr] || null));
+        const FORBIDDEN = ['evidenced_jobs', 'evidence_tier', 'first_date', 'last_date'];
         const fieldBad = [];
+        let forbiddenHits = 0;
         for (const r of rows) {
           const s = byAbbr.get(r.state_abbr);
           if (!s) { fieldBad.push(r.state_abbr + ': not in data file'); continue; }
-          const e = s.evidence;
+          for (const k of FORBIDDEN) if (k in r) forbiddenHits++;
           if (r.state !== s.state || r.node_id !== 'https://theflatratemovers.com/#place-state-' + s.abbr.toLowerCase() ||
-              r.evidence_tier !== (e ? e.tier : null) || r.evidenced_jobs !== (e ? e.jobs : null) ||
-              JSON.stringify(r.cities) !== JSON.stringify(e ? e.cities : []) ||
-              r.first_date !== (e ? e.first : null) || r.last_date !== (e ? e.last : null))
-            fieldBad.push(r.state_abbr + ': enrichment differs from data file');
+              JSON.stringify(r.services_performed) !== JSON.stringify(s.services_performed) ||
+              JSON.stringify(r.cities) !== JSON.stringify(s.cities) ||
+              Object.keys(r).length !== 6)
+            fieldBad.push(r.state_abbr + ': published projection differs from data file');
         }
         const graph = readTM(path.join(PAGES_PUBLIC, 'datasets-coverage.json'));
         const nodesTM = graphOfTM(graph);
         const stateIds = new Set(natStates.map((s) => 'https://theflatratemovers.com/#place-state-' + s.abbr.toLowerCase()));
         const stateNodes = nodesTM.filter((n) => n && n['@type'] === 'State' && stateIds.has(n['@id']));
+        const graphScanBad = stateNodes.filter((n) => (n.additionalProperty || []).some((p) =>
+          ['workRecordTier', 'workRecordJobs', 'workRecordFirstDate', 'workRecordLastDate'].includes(p.name)));
         const summary = nodesTM.find((n) => n && n['@type'] === 'Dataset');
         const spatial = JSON.stringify((summary && summary.spatialCoverage) || []);
         const spatialOk = !natStates.some((s) => spatial.includes('place-state-' + s.abbr.toLowerCase()));
         const bindingBad = stateNodes.filter((n) => extOfTM(n, 'branchBinding') !== undefined);
-        tmReport('TM-6 national table == data/national-scope.json (49 states, Hawaii absent, enrichment field-equal, 49 State nodes)',
-          setOk && fieldBad.length === 0 && stateNodes.length === 49 && spatialOk && bindingBad.length === 0,
+        tmReport('TM-6 national table == data/national-scope.json published projection (49 states, Hawaii absent, services on every row, record cities field-equal, no scan detail published, 49 State nodes)',
+          setOk && fieldBad.length === 0 && forbiddenHits === 0 && graphScanBad.length === 0 &&
+          citySrcBad.length === 0 && stateNodes.length === 49 && spatialOk && bindingBad.length === 0,
           'rows=' + rows.length + ', states in data file=' + natStates.length +
           ', field mismatches=' + fieldBad.length + (fieldBad.length ? ' (' + fieldBad.slice(0, 3).join('; ') + ')' : '') +
+          ', scope-vs-final city mismatches=' + citySrcBad.length +
+          ', forbidden scan fields in table=' + forbiddenHits +
+          ', State nodes carrying scan detail=' + graphScanBad.length +
           ', State nodes=' + stateNodes.length + ', spatialCoverage state-free=' + spatialOk +
           ', branch-bound State nodes=' + bindingBad.length);
       }

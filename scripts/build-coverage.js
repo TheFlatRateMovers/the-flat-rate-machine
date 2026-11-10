@@ -142,10 +142,15 @@ for (const f of feats) {
 // except Hawaii). Footprint states reuse the chain nodes built above (same
 // @ids); the rest are minted here in the same form. State nodes are the
 // company's work record at state level: they carry NO branch binding and
-// are never referenced by branch areaServed. Enrichment (mail-scan tiers,
-// cities, dates, counts) rides as additionalProperty PropertyValue entries
-// on the node and as fields on the national table rows — one source file,
-// both surfaces generated, nothing hand-carried.
+// are never referenced by branch areaServed. Published projection (Henry's
+// correction, 2026-11-10): every row and node carries the stated per-state
+// services performed (antiques moving, gun safe moving, full-service
+// moving — the owner's stated minimum for each of the 49 states) and the
+// record work cities from the deep city pass. The mailbox-scan detail in
+// each state's internal_record block (tier, evidenced job count, scan
+// cities, first/last dates) is INTERNAL ONLY and is never emitted here:
+// the scan count is the inbox's count, not the work count, and publishing
+// it understated the work.
 for (const s of nationalStates) {
   const sid = 'place-state-' + s.abbr.toLowerCase();
   if (!stateNodes.has(sid)) {
@@ -156,17 +161,11 @@ for (const s of nationalStates) {
   const ap = [
     { '@type': 'PropertyValue', name: 'matrixRole',
       value: 'national-layer — state in the company performed-work record (not a branch service area)' },
+    { '@type': 'PropertyValue', name: 'servicesPerformed',
+      value: JSON.stringify(s.services_performed) },
   ];
-  const e = s.evidence;
-  if (e) {
-    ap.push({ '@type': 'PropertyValue', name: 'workRecordTier', value: e.tier });
-    if (e.jobs !== null && e.jobs !== undefined)
-      ap.push({ '@type': 'PropertyValue', name: 'workRecordJobs', value: e.jobs });
-    if (Array.isArray(e.cities) && e.cities.length)
-      ap.push({ '@type': 'PropertyValue', name: 'workRecordCities', value: JSON.stringify(e.cities) });
-    if (e.first) ap.push({ '@type': 'PropertyValue', name: 'workRecordFirstDate', value: e.first });
-    if (e.last) ap.push({ '@type': 'PropertyValue', name: 'workRecordLastDate', value: e.last });
-  }
+  if (Array.isArray(s.cities) && s.cities.length)
+    ap.push({ '@type': 'PropertyValue', name: 'workRecordCities', value: JSON.stringify(s.cities) });
   node.additionalProperty = ap;
 }
 const national = nationalStates.map((s) => ({
@@ -174,11 +173,8 @@ const national = nationalStates.map((s) => ({
   state_abbr: s.abbr,
   node_id: `${BASE}/#place-state-${s.abbr.toLowerCase()}`,
   coverage_basis: 'performed work — national work record (not a branch service area)',
-  evidence_tier: s.evidence ? s.evidence.tier : null,
-  evidenced_jobs: s.evidence ? s.evidence.jobs : null,
-  cities: s.evidence ? s.evidence.cities : [],
-  first_date: s.evidence ? s.evidence.first : null,
-  last_date: s.evidence ? s.evidence.last : null,
+  services_performed: s.services_performed,
+  cities: s.cities,
 }));
 
 const countryNode = { '@type': 'Country', '@id': `${BASE}/#place-country-us`, name: 'United States' };
@@ -358,18 +354,23 @@ T('T15 national layer: one State node per national state in the graph (49), DC s
   national.every(r => { const n = stateNodes.get('place-state-' + r.state_abbr.toLowerCase());
     return n && n['@type'] === 'State' && n['@id'] === r.node_id; }) &&
   stateNodes.size === 50 && stateNodes.has('place-state-dc'));
-T('T16 national layer: no state node carries a branch binding; national rows add no coverage cells',
+T('T16 national layer: no state node carries a branch binding or scan detail; national rows add no coverage cells',
   national.every(r => { const n = stateNodes.get('place-state-' + r.state_abbr.toLowerCase());
     const ap = n.additionalProperty || [];
-    return !ap.some(p => p.name === 'branchBinding'); }) &&
+    return !ap.some(p => p.name === 'branchBinding') &&
+      !ap.some(p => ['workRecordTier', 'workRecordJobs', 'workRecordFirstDate', 'workRecordLastDate'].includes(p.name)) &&
+      ap.some(p => p.name === 'servicesPerformed'); }) &&
   coverage.every(c => regIds.has(c.service_registry_id)));
-T('T17 national layer: table rows re-project exactly from data/national-scope.json (no orphan detail)',
-  national.every((r, i) => { const s = nationalStates[i], e = s.evidence;
+T('T17 national layer: table rows re-project exactly from data/national-scope.json — locked published shape only (no scan detail emitted)',
+  national.every((r, i) => { const s = nationalStates[i];
     return r.state === s.state && r.state_abbr === s.abbr &&
-      r.evidence_tier === (e ? e.tier : null) &&
-      r.evidenced_jobs === (e ? e.jobs : null) &&
-      JSON.stringify(r.cities) === JSON.stringify(e ? e.cities : []) &&
-      r.first_date === (e ? e.first : null) && r.last_date === (e ? e.last : null); }));
+      r.node_id === `${BASE}/#place-state-${s.abbr.toLowerCase()}` &&
+      JSON.stringify(r.services_performed) === JSON.stringify(s.services_performed) &&
+      JSON.stringify(r.cities) === JSON.stringify(s.cities) &&
+      !('evidence_tier' in r) && !('evidenced_jobs' in r) &&
+      !('first_date' in r) && !('last_date' in r) &&
+      Object.keys(r).length === 6; }) &&
+  national.every(r => Array.isArray(r.services_performed) && r.services_performed.length === 3));
 
 let ok = true;
 for (const [name, pass] of tests) { console.log((pass ? 'PASS' : 'FAIL'), name); ok = ok && pass; }
@@ -378,7 +379,7 @@ for (const c of coverage) byClass[c.mapping_class] = (byClass[c.mapping_class] |
 console.log(`features: ${features.length} | nodes: ${nodes.length} | county scaffolding: ${countyNodes.size} | states: ${stateNodes.size}`);
 console.log(`coverage cells: ${coverage.length} by class:`, byClass);
 console.log(`pairs: ${pairs.length} | unresolved cells: ${unresolved.length}`);
-console.log(`national layer: ${national.length} states (${national.filter(r => r.evidence_tier).length} with mail/case enrichment)`);
+console.log(`national layer: ${national.length} states (${national.filter(r => r.cities.length).length} with record cities, ${national.reduce((a, r) => a + r.cities.length, 0)} cities; services_performed on all rows; no scan detail published)`);
 console.log('catalog object: lib-constants CATALOG');
 console.log('BUILD-COVERAGE:', ok ? 'ALL TESTS PASS' : 'FAILURES PRESENT');
 process.exit(ok ? 0 : 1);
