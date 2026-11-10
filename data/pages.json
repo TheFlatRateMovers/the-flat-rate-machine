@@ -1,6 +1,6 @@
 {
  "attestation": "Every URL below was fetched from the live sitemap on 2026-10-28; titles and service links come from pageMeta in the live site source. No URL was hand-typed.",
- "count": 285,
+ "count": 293,
  "dataset": "pages",
  "generated": "2026-10-29",
  "pages": [
@@ -3557,6 +3557,110 @@
    "title": "White-Glove Delivery — Front Royal VA",
    "type": "service",
    "url": "https://theflatratemovers.com/white-glove-delivery-front-royal-va/"
+  },
+  {
+   "attested": "2026-11-10",
+   "lastmod": "2026-11-10",
+   "services": [
+    "service-transloading",
+    "service-freight-rework-transloading",
+    "service-industrial-commercial"
+   ],
+   "slug": "port-of-baltimore-logistics",
+   "source": "Ports Completion 2026-11-10 — per-port hub (Ports & Intermodal program completion; audit out/batch-ports-completion-2026-11-10/AUDIT.md) — Baltimore binds Martinsburg (91-96 mi vs 106-116 from Winchester)",
+   "status": "live",
+   "title": "Port of Baltimore Logistics",
+   "type": "service",
+   "url": "https://theflatratemovers.com/port-of-baltimore-logistics/"
+  },
+  {
+   "attested": "2026-11-10",
+   "lastmod": "2026-11-10",
+   "services": [
+    "service-transloading",
+    "service-freight-rework-transloading",
+    "service-industrial-commercial"
+   ],
+   "slug": "philaport-logistics",
+   "source": "Ports Completion 2026-11-10 — per-port hub (Ports & Intermodal program completion; audit out/batch-ports-completion-2026-11-10/AUDIT.md) — PhilaPort binds Martinsburg on drive time (miles tied)",
+   "status": "live",
+   "title": "PhilaPort Logistics",
+   "type": "service",
+   "url": "https://theflatratemovers.com/philaport-logistics/"
+  },
+  {
+   "attested": "2026-11-10",
+   "lastmod": "2026-11-10",
+   "services": [
+    "service-transloading",
+    "service-freight-rework-transloading",
+    "service-industrial-commercial"
+   ],
+   "slug": "port-of-wilmington-logistics",
+   "source": "Ports Completion 2026-11-10 — per-port hub (Ports & Intermodal program completion; audit out/batch-ports-completion-2026-11-10/AUDIT.md) — Wilmington binds Martinsburg (150 mi vs 165 from Winchester)",
+   "status": "live",
+   "title": "Port of Wilmington Logistics",
+   "type": "service",
+   "url": "https://theflatratemovers.com/port-of-wilmington-logistics/"
+  },
+  {
+   "attested": "2026-11-10",
+   "lastmod": "2026-11-10",
+   "services": [
+    "service-transloading",
+    "service-freight-rework-transloading",
+    "service-industrial-commercial"
+   ],
+   "slug": "richmond-marine-terminal-logistics",
+   "source": "Ports Completion 2026-11-10 — per-port hub (Ports & Intermodal program completion; audit out/batch-ports-completion-2026-11-10/AUDIT.md) — Richmond binds Winchester (135 mi vs ~158 from Martinsburg); retired from the Port of Virginia file in this batch",
+   "status": "live",
+   "title": "Richmond Marine Terminal Logistics",
+   "type": "service",
+   "url": "https://theflatratemovers.com/richmond-marine-terminal-logistics/"
+  },
+  {
+   "attested": "2026-11-10",
+   "lastmod": "2026-11-10",
+   "services": [],
+   "slug": "datasets/port-of-baltimore",
+   "source": "Ports Completion 2026-11-10 — per-port dataset landing (Ports & Intermodal program completion)",
+   "status": "live",
+   "title": "Port of Baltimore Logistics Dataset",
+   "type": "page",
+   "url": "https://theflatratemovers.com/datasets/port-of-baltimore/"
+  },
+  {
+   "attested": "2026-11-10",
+   "lastmod": "2026-11-10",
+   "services": [],
+   "slug": "datasets/philaport",
+   "source": "Ports Completion 2026-11-10 — per-port dataset landing (Ports & Intermodal program completion)",
+   "status": "live",
+   "title": "PhilaPort Logistics Dataset",
+   "type": "page",
+   "url": "https://theflatratemovers.com/datasets/philaport/"
+  },
+  {
+   "attested": "2026-11-10",
+   "lastmod": "2026-11-10",
+   "services": [],
+   "slug": "datasets/port-of-wilmington",
+   "source": "Ports Completion 2026-11-10 — per-port dataset landing (Ports & Intermodal program completion)",
+   "status": "live",
+   "title": "Port of Wilmington Logistics Dataset",
+   "type": "page",
+   "url": "https://theflatratemovers.com/datasets/port-of-wilmington/"
+  },
+  {
+   "attested": "2026-11-10",
+   "lastmod": "2026-11-10",
+   "services": [],
+   "slug": "datasets/richmond-marine-terminal",
+   "source": "Ports Completion 2026-11-10 — per-port dataset landing (Ports & Intermodal program completion)",
+   "status": "live",
+   "title": "Richmond Marine Terminal Logistics Dataset",
+   "type": "page",
+   "url": "https://theflatratemovers.com/datasets/richmond-marine-terminal/"
   }
  ],
  "source": "https://theflatratemovers.com/sitemap.xml joined to pageMeta in ../the-flat-rate-movers-pages/public/index.html",

@@ -560,7 +560,7 @@
     "milesFromMartinsburg": 158,
     "timeFromMartinsburg": "about 3:00",
     "routeFromBindingBranch": "I-81 S to I-64 E to I-95 S, Richmond",
-    "marginNote": "about 23 mi / about 20 min closer from Winchester; secondary node (section of the Port of Virginia hub, no dedicated hub page or dataset file in wave 1)",
+    "marginNote": "about 23 mi / about 20 min closer from Winchester; dedicated hub page and per-port dataset file since the ports-completion build (2026-11-10)",
     "branchPageUrl": "https://theflatratemovers.com/locations/winchester-va/"
    },
    "volumes": [],
@@ -585,10 +585,11 @@
     "https://www.freightwaves.com/news/city-of-richmond-leases-port-to-state-for-40-years"
    ],
    "estatePages": [
-    "https://theflatratemovers.com/port-of-virginia-logistics/"
+    "https://theflatratemovers.com/richmond-marine-terminal-logistics/",
+    "https://theflatratemovers.com/datasets/richmond-marine-terminal/"
    ],
-   "datasetFile": "datasets-port-of-virginia.json",
-   "lastVerified": "2026-11-03"
+   "datasetFile": "datasets-richmond-marine-terminal.json",
+   "lastVerified": "2026-11-10"
   },
   {
    "id": "port-of-baltimore",
@@ -872,9 +873,9 @@
     },
     {
      "title": "Howard Street Tunnel double-stack",
-     "state": "The $496M CSX clearance project reopened the tunnel Sept 2025; double-stack service formally began June 2026 (about 160,000 containers/yr expected gain).",
-     "asOf": "2026-11-02",
-     "source": "Progressive Railroading, via ports program dossier §1.4"
+     "state": "The $518M CSX clearance project reopened the tunnel Sept 2025; double-stack service formally began June 2026 (about 160,000 containers/yr expected gain).",
+     "asOf": "2026-11-10",
+     "source": "Maryland Port Administration CY2025 results release, 2026-03-24 (ports-completion audit §1.2)"
     }
    ],
    "sources": [
@@ -884,9 +885,12 @@
     "https://mpa.maryland.gov/Pages/north-locust-point.aspx",
     "https://msa.maryland.gov/msa/mdmanual/01glance/html/port.html"
    ],
-   "estatePages": [],
-   "datasetFile": "datasets-ports.json",
-   "lastVerified": "2026-11-03"
+   "estatePages": [
+    "https://theflatratemovers.com/port-of-baltimore-logistics/",
+    "https://theflatratemovers.com/datasets/port-of-baltimore/"
+   ],
+   "datasetFile": "datasets-port-of-baltimore.json",
+   "lastVerified": "2026-11-10"
   },
   {
    "id": "port-of-wilmington-de",
@@ -1033,9 +1037,12 @@
     "https://clui.org/ludb/site/port-wilmington",
     "https://news.delaware.gov/2026/09/14/enstructure-diamond-state-port-corporation-stakeholders-celebrate-groundbreaking-of-the-delaware-container-terminal/"
    ],
-   "estatePages": [],
-   "datasetFile": "datasets-ports.json",
-   "lastVerified": "2026-11-03"
+   "estatePages": [
+    "https://theflatratemovers.com/port-of-wilmington-logistics/",
+    "https://theflatratemovers.com/datasets/port-of-wilmington/"
+   ],
+   "datasetFile": "datasets-port-of-wilmington.json",
+   "lastVerified": "2026-11-10"
   },
   {
    "id": "port-philaport",
@@ -1227,9 +1234,12 @@
     "https://www.philaport.com/philadelphia-named-most-productive-port-in-north-america/",
     "https://d-r-s.com/Philadelphia.aspx"
    ],
-   "estatePages": [],
-   "datasetFile": "datasets-ports.json",
-   "lastVerified": "2026-11-03"
+   "estatePages": [
+    "https://theflatratemovers.com/philaport-logistics/",
+    "https://theflatratemovers.com/datasets/philaport/"
+   ],
+   "datasetFile": "datasets-philaport.json",
+   "lastVerified": "2026-11-10"
   },
   {
    "id": "port-of-huntington-tri-state",
