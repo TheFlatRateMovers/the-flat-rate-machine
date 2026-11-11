@@ -277,6 +277,13 @@ def settle_consumers(tag):
         # from live bytes inside the round, so the settle's
         # byte-stability check covers the pool too.
         run(["node", "scripts/refresh-pool-digests.js"])
+        # Answer-evidence landing reconciliation (Outside-Copies
+        # micro-batch, 2026-11-11): the same class, one seat over —
+        # the AE landing embed + pageMeta figures + singular jf date
+        # derive from the AE dataset file, which the consumer
+        # generators above can rewrite. Re-glue the landing inside
+        # the round; verify.js AE-5 gates the result.
+        run(["node", "scripts/sync-ae-landing.js"])
         h1 = {p: sha(p) for p in consumer_files}
         for gen in ("build-search-index.js", "build-answer-evidence.js"):
             run(["node", f"scripts/{gen}"], env_extra=stamps_env)
@@ -609,6 +616,12 @@ def main():
     # final bytes here, unconditionally, before phase 4.5 draws
     # from the pool and before the digest pass signs it.
     run(["node", "scripts/refresh-pool-digests.js"])
+    # Answer-evidence landing reconciliation (2026-11-11): the same
+    # unconditional post-4c run for the AE landing seats — phase 4
+    # can move the AE file's bytes (root-digest embeds), and the
+    # landing must be glued to the final file before routes bake it
+    # (phase 5) and the digest pass signs the tree (phase 6).
+    run(["node", "scripts/sync-ae-landing.js"])
 
     # Page Data wave (2026-11-03): the per-page data files are drawn
     # from the pool AFTER digest-refresh (phase 4 can rewrite root
@@ -746,6 +759,21 @@ def main():
               f"): {len(_dist)} distributions, {_ds_count} dataset "
               f"files, {_per_page} per-page, {_rows} rows, "
               f"{_targeted} targeted")
+
+    # Outside-Copies micro-batch (2026-11-11): the AI ingestion card
+    # regenerates HERE — after page-data registration and the llms
+    # figure sync, so the membership it reads is this seal's final
+    # membership, and before routes/digest, so phase 5's middleware
+    # manifest picks the file up as a static seat and phase 6 digests
+    # its final bytes. The card stamps the PRIOR seal (the phase-0
+    # snapshot's SHA) as its "estate seal at generation" — it never
+    # claims the seal that contains itself. A card failure fails the
+    # seal loud, like every other generator.
+    run(["node", "scripts/build-ai-card.js"],
+        env_extra={"AI_CARD_PRIOR_INDEX":
+                   os.path.join(WORK, "prior-index.json"),
+                   "AI_CARD_DATE": RUBRIC_DATE})
+    print("    ai ingestion card regenerated (prior-seal stamped)")
 
     phase("5. routes (shell -> public/index.html, route docs, middleware)")
     shutil.copyfile(os.path.join(REPO, "index.html"),

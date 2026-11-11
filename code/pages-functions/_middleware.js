@@ -42,6 +42,7 @@ const STATIC_FILES = new Set([
   "/540-lb-dining-table-freight-terminal-delivery-martinsburg-wv/data.txt",
   "/540-lb-dining-table-freight-terminal-delivery-martinsburg-wv/index.html",
   "/ai-catalog.json",
+  "/ai-ingestion-card.html",
   "/ai-license.json",
   "/ai-license/data.json",
   "/ai-license/data.txt",
