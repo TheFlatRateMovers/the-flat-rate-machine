@@ -1,6 +1,6 @@
 {
  "attestation": "Every URL below was fetched from the live sitemap on 2026-10-28; titles and service links come from pageMeta in the live site source. No URL was hand-typed.",
- "count": 293,
+ "count": 294,
  "dataset": "pages",
  "generated": "2026-10-29",
  "pages": [
@@ -3661,6 +3661,19 @@
    "title": "Richmond Marine Terminal Logistics Dataset",
    "type": "page",
    "url": "https://theflatratemovers.com/datasets/richmond-marine-terminal/"
+  },
+  {
+   "attested": "2026-11-10",
+   "lastmod": "2026-11-10",
+   "services": [
+    "service-local-regional"
+   ],
+   "slug": "movers-in-washington-va",
+   "source": "Washington VA Seize batch (2026-11-10) — new town landing page for Washington, VA and Rappahannock County (owner order 2026-11-10, after the competitive audit of the same day: 7 empty and 14 weak categories of 24, FRM present in 1). Branch facts from the verified Winchester branch record; the town is outside the 81-area published footprint and is served from the Winchester branch on quoted jobs (New Market precedent: page + bindings, no geojson change). FAQ 7, visible and schema byte-equal; the seized phrasing families are bound to this page by the R24 block of build-intent-rubric.js.",
+   "status": "live",
+   "title": "Movers in Washington, VA",
+   "type": "service",
+   "url": "https://theflatratemovers.com/movers-in-washington-va/"
   }
  ],
  "source": "https://theflatratemovers.com/sitemap.xml joined to pageMeta in ../the-flat-rate-movers-pages/public/index.html",

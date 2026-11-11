@@ -2012,6 +2012,88 @@ function generate() {
     for (const [cls, text] of WGF) emit('service-white-glove', cls, text, 'place-front-royal-va', 'white-glove-delivery-front-royal-va', 'R23-pack-claim-white-glove');
   }
 
+  // R24 Washington VA Seize (2026-11-10): the competitive audit of
+  // Washington VA / Rappahannock County (24 queries: 7 empty, 14 weak,
+  // 3 defended) found exactly one FRM presence — 'gun safe movers
+  // washington va' at #1 on the general hub — and no row at all for
+  // the town, the county, or Sperryville. Bound here, through the same
+  // gated emit() path, to the new town landing page built for the
+  // seize (owner order 2026-11-10). The town is outside the 81-area
+  // footprint (New Market precedent: page + bindings, no geojson
+  // change). Defended families (senior movers, junk removal) are bound
+  // on their real-service forms — the flank, not a frontal assault.
+  {
+    const T = 'movers-in-washington-va';
+    const W = 'place-washington-va', C = 'place-rappahannock-county-va', S = 'place-sperryville-va';
+    // Town core — the R23 forms plus the audited near/local/long-
+    // distance empties and the two weak commercial-side seats.
+    for (const [sid, cls, text] of [
+      ['service-local-regional', 'navigational-local', 'movers in washington va'],
+      ['service-local-regional', 'navigational-local', 'moving company washington va'],
+      ['service-local-regional', 'navigational-local', 'movers washington va'],
+      ['service-local-regional', 'navigational-local', 'washington va movers'],
+      ['service-local-regional', 'navigational-local', 'movers near washington va'],
+      ['service-local-regional', 'navigational-local', 'local movers washington va'],
+      ['service-local-regional', 'best-choice', 'best movers in washington va'],
+      ['service-local-regional', 'best-choice', 'best movers washington va'],
+      ['service-local-regional', 'cost', 'movers cost in washington va'],
+      ['service-local-regional', 'cost', 'how much do movers cost in washington va'],
+      ['service-long-distance', 'navigational-local', 'long distance movers washington va'],
+      ['service-office-moving', 'navigational-local', 'office movers washington va'],
+      ['service-moving-and-storage', 'navigational-local', 'storage washington va'],
+    ]) emit(sid, cls, text, W, T, 'R24-washington-va-seize');
+    // County forms — the audit's empty county queries.
+    for (const [sid, cls, text] of [
+      ['service-local-regional', 'navigational-local', 'moving company rappahannock county va'],
+      ['service-local-regional', 'navigational-local', 'movers in rappahannock county va'],
+      ['service-local-regional', 'navigational-local', 'movers rappahannock county va'],
+      ['service-gun-safe', 'navigational-local', 'safe movers rappahannock county va'],
+      ['service-gun-safe', 'navigational-local', 'gun safe movers rappahannock county va'],
+      ['service-commercial', 'navigational-local', 'commercial moving company rappahannock county va'],
+      ['service-commercial', 'navigational-local', 'commercial movers rappahannock county va'],
+      ['service-hoarding-cleanup', 'navigational-local', 'hoarding cleanup rappahannock county va'],
+      ['service-junk-removal', 'navigational-local', 'estate cleanout rappahannock county va'],
+    ]) emit(sid, cls, text, C, T, 'R24-washington-va-seize-county');
+    // Specialty forms bound to the town page — gun safe extends the
+    // existing #1; white-glove takes the empty seat; the cleanout
+    // family binds the real-service phrasings.
+    for (const [sid, cls, text] of [
+      ['service-gun-safe', 'navigational-local', 'gun safe movers washington va'],
+      ['service-gun-safe', 'navigational-local', 'gun safe moving washington va'],
+      ['service-gun-safe', 'navigational-local', 'safe movers washington va'],
+      ['service-piano-antique', 'navigational-local', 'piano movers washington va'],
+      ['service-piano-antique', 'navigational-local', 'piano moving washington va'],
+      ['service-piano-antique', 'navigational-local', 'antique movers washington va'],
+      ['service-piano-antique', 'navigational-local', 'antique moving washington va'],
+      ['service-packing', 'navigational-local', 'packing services washington va'],
+      ['service-sir-heavy', 'navigational-local', 'heavy item movers washington va'],
+      ['service-sir-heavy', 'navigational-local', 'heavy item moving washington va'],
+      ['service-senior-moving', 'navigational-local', 'senior movers washington va'],
+      ['service-senior-moving', 'navigational-local', 'senior moving washington va'],
+      ['service-white-glove', 'navigational-local', 'white glove delivery washington va'],
+      ['service-white-glove', 'navigational-local', 'white glove delivery in washington va'],
+      ['service-white-glove', 'navigational-local', 'white glove movers washington va'],
+      ['service-junk-removal', 'navigational-local', 'junk removal washington va'],
+      ['service-junk-removal', 'navigational-local', 'junk removal services washington va'],
+      ['service-junk-removal', 'navigational-local', 'estate cleanout washington va'],
+      ['service-junk-removal', 'navigational-local', 'estate cleanouts washington va'],
+      ['service-hoarding-cleanup', 'navigational-local', 'hoarding cleanup washington va'],
+      ['service-hoarding-cleanup', 'navigational-local', 'hoarding cleanout washington va'],
+    ]) emit(sid, cls, text, W, T, 'R24-washington-va-seize-specialty');
+    // Sperryville — the satellite door: bindings to the county-seat
+    // page (same county, same branch, same facts; no separate page).
+    for (const [sid, cls, text] of [
+      ['service-local-regional', 'navigational-local', 'movers sperryville va'],
+      ['service-local-regional', 'navigational-local', 'movers in sperryville va'],
+      ['service-local-regional', 'navigational-local', 'moving company sperryville va'],
+      ['service-local-regional', 'navigational-local', 'sperryville va movers'],
+      ['service-local-regional', 'best-choice', 'best movers in sperryville va'],
+      ['service-local-regional', 'cost', 'how much do movers cost in sperryville va'],
+      ['service-gun-safe', 'navigational-local', 'gun safe movers sperryville va'],
+      ['service-white-glove', 'navigational-local', 'white glove delivery sperryville va'],
+    ]) emit(sid, cls, text, S, T, 'R24-washington-va-seize-sperryville');
+  }
+
   // R12 (v2): GSC observed feed-in. Enrich exact normalized matches;
   // resolve unmatched observed queries to a service + target under the
   // same R10 gates (via emit); exclude the rest with reasons.
