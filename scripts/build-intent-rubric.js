@@ -2094,6 +2094,62 @@ function generate() {
     ]) emit(sid, cls, text, S, T, 'R24-washington-va-seize-sperryville');
   }
 
+  // R25 White-Glove Wave 2 — Freight / Pad Wrap (2026-11-11): the
+  // pad-wrap / blanket-wrap terminology family from the owner's
+  // research package (queries Q11-Q16, Q18) had ZERO rows under any
+  // service — the freight-side phrasings shippers and brokers type
+  // ("pad wrap shipping", "blanket wrap carriers near me") were
+  // unbound while the consumer white-glove family (R22 wave 1) was
+  // bound. Bound here, through the same gated emit() path, to the new
+  // freight-facing page /pad-wrap-blanket-wrap-shipping/, plus the two
+  // white-glove-led terminology forms to the hub. Q17 ("air ride
+  // blanket wrap trucking") is deliberately NOT bound and NOT
+  // answered: air-ride is a quarantined vendor spec, never a company
+  // claim (wave-1 adjudication of the same package).
+  {
+    const P = 'pad-wrap-blanket-wrap-shipping';
+    for (const [cls, text] of [
+      // Terminology core — the bridge itself (Q11-Q13).
+      ['ai-question', 'what is pad wrap shipping'],
+      ['ai-question', 'what is blanket wrap shipping'],
+      ['ai-question', 'are pad wrap and blanket wrap the same thing'],
+      ['ai-question', 'difference between pad wrap and blanket wrap'],
+      ['navigational-local', 'pad wrap shipping'],
+      ['navigational-local', 'blanket wrap shipping'],
+      // Service forms — how the freight audience names the work.
+      ['navigational-local', 'pad wrap movers'],
+      ['navigational-local', 'pad wrapped movers'],
+      ['navigational-local', 'blanket wrap movers'],
+      ['navigational-local', 'pad wrap freight'],
+      ['navigational-local', 'blanket wrapped freight'],
+      ['navigational-local', 'pad wrap furniture shipping'],
+      ['navigational-local', 'blanket wrap furniture shipping'],
+      ['navigational-local', 'blanket wrap delivery service'],
+      // Comparisons (Q14-Q15) — bare forms, estate convention.
+      ['navigational-local', 'pad wrap vs ltl freight for furniture'],
+      ['navigational-local', 'blanket wrap vs crating'],
+      ['navigational-local', 'pad wrap vs crating'],
+      // Cost family (Q16) — priced per job; no figures published.
+      ['cost', 'blanket wrap shipping cost'],
+      ['cost', 'pad wrap shipping cost'],
+      ['cost', 'how much does blanket wrap shipping cost'],
+      // Carrier / near-me family (Q18) + the regional forms.
+      ['navigational-local', 'blanket wrap carriers near me'],
+      ['navigational-local', 'blanket wrap shipping near me'],
+      ['navigational-local', 'pad wrap shipping near me'],
+      ['best-choice', 'best blanket wrap carriers near me'],
+      ['navigational-local', 'blanket wrap shipping virginia'],
+      ['navigational-local', 'pad wrap shipping virginia'],
+      ['navigational-local', 'blanket wrap shipping west virginia'],
+    ]) emit('service-white-glove', cls, text, null, P, 'R25-white-glove-wave2-padwrap');
+    // White-glove-led terminology forms — the consumer side of the
+    // bridge, bound to the hub that carries the written scope matrix.
+    for (const [cls, text] of [
+      ['navigational-local', 'white glove pad wrap'],
+      ['navigational-local', 'white glove blanket wrap'],
+    ]) emit('service-white-glove', cls, text, null, 'white-glove-delivery', 'R25-white-glove-wave2-hub');
+  }
+
   // R12 (v2): GSC observed feed-in. Enrich exact normalized matches;
   // resolve unmatched observed queries to a service + target under the
   // same R10 gates (via emit); exclude the rest with reasons.
