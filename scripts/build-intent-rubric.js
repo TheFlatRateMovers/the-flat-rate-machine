@@ -1854,7 +1854,18 @@ function generate() {
     const townSlugOf = (name) => name.toLowerCase().replace(/,\s*/g, '-').replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
     const genericTarget = (p) => {
       const ts = townSlugOf(p.name);
-      for (const cand of [ts + '-movers-full-service-guide', 'moving-company-' + ts]) {
+      // R26 (2026-11-11): branch places resolve to their branch hub
+      // FIRST — the hubs own the head family (Branch Head-Term
+      // Seizure). Before R26, Martinsburg's generic-local rows bound
+      // to /martinsburg-wv-movers-full-service-guide/ because the
+      // guide candidate was tried first; the guide keeps its own
+      // guide-intent rows (R13/R14) but no longer carries the branch
+      // head signal. Winchester already resolved to its hub (no guide
+      // page exists there), so the reorder changes Martinsburg only.
+      const cands = p.type === 'branch'
+        ? ['moving-company-' + ts, ts + '-movers-full-service-guide']
+        : [ts + '-movers-full-service-guide', 'moving-company-' + ts];
+      for (const cand of cands) {
         if (V.pageBySlug.has(cand)) return cand;
       }
       const spokes = (V.svcPages.get(SID) || []).filter((s) => s.includes(ts));
@@ -2150,6 +2161,79 @@ function generate() {
     ]) emit('service-white-glove', cls, text, null, 'white-glove-delivery', 'R25-white-glove-wave2-hub');
   }
 
+  // R26 Branch Head-Term Seizure (2026-11-11): the Wave-1 live probe
+  // (52 place-anchored searches) plus GSC showed the two branch
+  // cities' head terms split and thin — the homepage outranks the
+  // branch pages in GSC while the rubric's head family was a sliver
+  // (one service row per form for Winchester; the Martinsburg forms
+  // bound to a guide page; reversed and near forms at zero rows).
+  // The order is redefined here: ONE owner per query family.
+  // (a) The 12 head forms x both branch cities x all 34 services
+  // bind to the branch hub pages — the same shape 'moving company
+  // martinsburg wv' already carried — in the lowercase forms
+  // searchers type (GSC-observed). Reversed and near forms included.
+  // (b) The R21 generic Martinsburg rows rebind from the guide to
+  // the branch hub via the genericTarget reorder above.
+  // (c) The Wave-1 service misses bind, for both cities, to their
+  // existing owner pages (DESIGN ownership map); head-adjacent
+  // services (senior, junk, storage, commercial) also gain a
+  // branch-hub row under service-local-regional, the generic-local
+  // owner (R21/R22 precedent).
+  // (d) Deep local/residential forms seat on the local-regional
+  // branch pages. No homepage rows exist for these forms and none
+  // are emitted — the hubs are the only bindings.
+  {
+    // LANE SPLIT (measured on this batch's first regen): the branch
+    // hubs are R14 roll-up pages (type 'location', no registry
+    // services) — R14 skips any page an earlier row already targets,
+    // so emitting hub-bound rows here displaced the hubs' 68 R14
+    // roll-up rows (the 'moving company' title form x 34 among
+    // them). The estate's standing answer is the late lane
+    // (PANEL_LATE_ROWS precedent): everything bound for the two
+    // branch hubs emits in the R26 late lane AFTER R14 (below);
+    // this early lane carries only the owner-page rows.
+    const CITIES = [
+      { place: 'place-winchester-va', city: 'winchester va', lr: 'local-regional-movers-winchester-va' },
+      { place: 'place-martinsburg-wv', city: 'martinsburg wv', lr: 'local-regional-movers-martinsburg-wv' },
+    ];
+    for (const c of CITIES) {
+      for (const [sid, cls, form] of [
+        ['service-local-regional', 'navigational-local', 'local movers in {c}'],
+        ['service-local-regional', 'navigational-local', 'residential movers in {c}'],
+        ['service-residential', 'navigational-local', 'residential movers in {c}'],
+        ['service-residential', 'navigational-local', 'residential moving {c}'],
+        ['service-local-regional', 'navigational-local', 'local moving {c}'],
+      ]) emit(sid, cls, form.split('{c}').join(c.city), c.place, c.lr, 'R26-branch-head-deep');
+    }
+    // Service-miss forms — Winchester.
+    for (const [sid, cls, text, target] of [
+      ['service-packing', 'navigational-local', 'packing services winchester va', 'packing-services-winchester-va'],
+      ['service-white-glove', 'navigational-local', 'white glove delivery winchester va', 'white-glove-delivery-winchester-va'],
+      ['service-white-glove', 'navigational-local', 'white glove movers winchester va', 'white-glove-delivery-winchester-va'],
+      ['service-hoarding-cleanup', 'navigational-local', 'hoarding cleanup winchester va', 'hoarding-cleanup-winchester-va'],
+      ['service-medical-lab-relocation', 'navigational-local', 'medical equipment movers winchester va', 'medical-equipment-movers-winchester-va'],
+      ['service-medical-lab-relocation', 'navigational-local', 'medical equipment movers in winchester va', 'medical-equipment-movers-winchester-va'],
+      ['service-long-distance', 'navigational-local', 'long distance movers winchester va', 'long-distance-movers-winchester-va'],
+      ['service-senior-moving', 'navigational-local', 'senior movers winchester va', 'senior-moving'],
+      ['service-piano-antique', 'navigational-local', 'piano movers winchester va', 'piano-antique-white-glove-moving'],
+      ['service-junk-removal', 'navigational-local', 'junk removal winchester va', 'junk-removal'],
+      ['service-moving-and-storage', 'navigational-local', 'moving and storage winchester va', 'moving-and-storage'],
+      ['service-sir-heavy', 'navigational-local', 'heavy item movers winchester va', 'heavy'],
+      ['service-final-mile', 'navigational-local', 'final mile delivery winchester va', 'final-mile-delivery'],
+    ]) emit(sid, cls, text, 'place-winchester-va', target, 'R26-service-miss-winchester');
+    // Service-miss forms — Martinsburg.
+    for (const [sid, cls, text, target] of [
+      ['service-packing', 'navigational-local', 'packing services martinsburg wv', 'packing-movers-martinsburg-wv'],
+      ['service-commercial', 'navigational-local', 'commercial movers martinsburg wv', 'commercial-moving'],
+      ['service-gun-safe', 'navigational-local', 'gun safe movers martinsburg wv', 'gun-safe-movers-martinsburg-wv'],
+      ['service-sir-heavy', 'navigational-local', 'gun safe movers martinsburg wv', 'gun-safe-movers-martinsburg-wv'],
+      ['service-white-glove', 'navigational-local', 'white glove delivery martinsburg wv', 'white-glove-delivery-martinsburg-wv'],
+      ['service-senior-moving', 'navigational-local', 'senior movers martinsburg wv', 'senior-moving'],
+      ['service-junk-removal', 'navigational-local', 'junk removal martinsburg wv', 'junk-removal'],
+      ['service-moving-and-storage', 'navigational-local', 'moving and storage martinsburg wv', 'moving-and-storage'],
+    ]) emit(sid, cls, text, 'place-martinsburg-wv', target, 'R26-service-miss-martinsburg');
+  }
+
   // R12 (v2): GSC observed feed-in. Enrich exact normalized matches;
   // resolve unmatched observed queries to a service + target under the
   // same R10 gates (via emit); exclude the rest with reasons.
@@ -2290,6 +2374,68 @@ function generate() {
         }
       }
       if (pageRows) rollupStats.pagesWithRows++;
+    }
+  }
+
+  // R26 late lane (Branch Head-Term Seizure, 2026-11-11): the head
+  // family for the two branch cities, emitted AFTER R14 so the
+  // branch hubs keep their roll-up rows (lane-split note at the R26
+  // early lane). The DESIGN's 12 forms x 2 cities x all 34 services,
+  // target = the branch hub, in the lowercase forms searchers type;
+  // the two reversed forms emit in BOTH typed spellings ('winchester
+  // movers' — the GSC-observed form — and 'winchester va movers'),
+  // making 14 forms. Plus the branch-hub rows for the head-adjacent
+  // service misses, under service-local-regional (the generic-local
+  // owner, R21/R22 precedent).
+  {
+    const CITIES = [
+      { place: 'place-winchester-va', city: 'winchester va', town: 'winchester', hub: 'moving-company-winchester-va' },
+      { place: 'place-martinsburg-wv', city: 'martinsburg wv', town: 'martinsburg', hub: 'moving-company-martinsburg-wv' },
+    ];
+    const HEADS = [
+      ['navigational-local', 'movers {c}'],
+      ['navigational-local', '{c} movers'],
+      ['navigational-local', '{t} movers'],
+      ['navigational-local', 'moving company {c}'],
+      ['navigational-local', '{c} moving company'],
+      ['navigational-local', '{t} moving company'],
+      ['navigational-local', 'moving companies {c}'],
+      ['navigational-local', 'local movers {c}'],
+      ['best-choice', 'best movers {c}'],
+      ['navigational-local', 'movers in {c}'],
+      ['navigational-local', 'movers near {c}'],
+      ['navigational-local', 'moving companies near {c}'],
+      ['navigational-local', 'moving services {c}'],
+      ['navigational-local', 'residential movers {c}'],
+    ];
+    for (const c of CITIES) {
+      for (const svc of R.services.services) {
+        for (const [cls, form] of HEADS) {
+          emit(svc.id, cls, form.split('{c}').join(c.city).split('{t}').join(c.town), c.place, c.hub, 'R26-branch-head-family');
+        }
+      }
+    }
+    for (const [sid, text, place, target] of [
+      ['service-local-regional', 'senior movers winchester va', 'place-winchester-va', 'moving-company-winchester-va'],
+      ['service-local-regional', 'junk removal winchester va', 'place-winchester-va', 'moving-company-winchester-va'],
+      ['service-local-regional', 'moving and storage winchester va', 'place-winchester-va', 'moving-company-winchester-va'],
+      ['service-local-regional', 'commercial movers martinsburg wv', 'place-martinsburg-wv', 'moving-company-martinsburg-wv'],
+      ['service-local-regional', 'senior movers martinsburg wv', 'place-martinsburg-wv', 'moving-company-martinsburg-wv'],
+      ['service-local-regional', 'junk removal martinsburg wv', 'place-martinsburg-wv', 'moving-company-martinsburg-wv'],
+      ['service-local-regional', 'moving and storage martinsburg wv', 'place-martinsburg-wv', 'moving-company-martinsburg-wv'],
+    ]) emit(sid, 'navigational-local', text, place, target, 'R26-branch-head-hubrows');
+    // Roll-up restore: the R21 reorder makes Martinsburg's generic
+    // forms target the hub, which marks the hub targeted before R14
+    // — R14 then skips it, and its title-form roll-up rows
+    // ('moving company' x 34 services) would silently vanish (the
+    // displacement the R14 header itself warns about; measured on
+    // this batch's second regen: exactly -34). Re-emitted here in
+    // the late lane, identical in text, class, service set and
+    // target to the rows R14 produced before the reorder.
+    // Winchester's hub was already R21-targeted before R26, so it
+    // never carried these rows and needs no restore.
+    for (const svc of R.services.services) {
+      emit(svc.id, 'navigational-local', 'moving company', null, 'moving-company-martinsburg-wv', 'R26-rollup-restore');
     }
   }
 
