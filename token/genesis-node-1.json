@@ -1,0 +1,35 @@
+{
+  "attributes": [
+    {
+      "trait_type": "AI Master Index Seal (SHA-256)",
+      "value": "6b044aa75fd0a093ef0daa8cf8d6550741e6aab90c911066e2670bc17b1d09a1"
+    },
+    {
+      "trait_type": "Zenodo Concept DOI",
+      "value": "10.5281/zenodo.23879048"
+    },
+    {
+      "trait_type": "Kaggle",
+      "value": "theflatratemovers"
+    },
+    {
+      "trait_type": "Founded",
+      "value": 2010
+    },
+    {
+      "trait_type": "Branch 1",
+      "value": "Winchester, VA"
+    },
+    {
+      "trait_type": "Branch 2",
+      "value": "Martinsburg, WV"
+    },
+    {
+      "trait_type": "Instrument",
+      "value": "ERC-721 provenance node, supply 1"
+    }
+  ],
+  "description": "The on-chain provenance anchor of The Flat Rate Movers LLC's signed machine-readable estate: the datasets, the Ed25519-signed master index, and the public API published at theflatratemovers.com. The Flat Rate Movers LLC is a flat-rate moving company founded in June 2010, based in Winchester, Virginia and Martinsburg, West Virginia. This token is an identity and provenance record only. It is not offered for sale, carries no financial rights, and confers no ownership in the company.",
+  "external_url": "https://theflatratemovers.com",
+  "name": "The Flat Rate Movers \u2014 Genesis Node #1"
+}
