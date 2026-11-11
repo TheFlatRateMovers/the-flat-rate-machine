@@ -268,6 +268,19 @@ def main() -> int:
             # "/") is served by that route's index.html document.
             if rel == "" or rel.endswith("/"):
                 cand = os.path.join(cand, "index.html")
+            elif not os.path.isfile(cand) and "." not in os.path.basename(rel):
+                # Serving-alias resolution (Outside-Copies micro-batch,
+                # 2026-11-11): the Pages asset server serves an
+                # extensionless path from the .html file of that name
+                # (a .html request 308-redirects to the alias), so a
+                # contentUrl registered at its serving URL resolves to
+                # the .html file — the same rule build-routes.js
+                # encodes as STATIC_FILES serving aliases (verify.js
+                # S-2B gates those). First occurrence: /ai-ingestion-card,
+                # the estate's first root-level non-index .html asset.
+                alt = cand + ".html"
+                if os.path.isfile(alt):
+                    cand = alt
             if os.path.isfile(cand):
                 path, rec["resolved"] = cand, f"public/{rel}"
         elif "raw.githubusercontent.com" in url and "/main/" in url:
