@@ -1030,6 +1030,28 @@ async function main() {
     check('S-2 functions/_middleware.js present and driven by head-data (per-URL head resolver)',
       mwSrc.includes("from './head-data.js'") && mwSrc.includes('onRequest'),
       'middleware ' + mwSrc.length + ' bytes');
+    // S-2B: every .html entry in STATIC_FILES must be accompanied by
+    // its serving alias (Outside-Copies micro-batch, 2026-11-11).
+    // The Pages asset server 308-redirects .html requests to the
+    // serving path (/x.html -> /x, /dir/index.html -> /dir/,
+    // /index.html -> /) and the redirected request re-enters the
+    // middleware under the alias — an alias missing from the set
+    // takes the middleware's genuine-404 return even though the
+    // file is deployed (ai-ingestion-card.html, the estate's first
+    // root-level non-index .html file, shipped exactly that 404).
+    // build-routes.js --update-middleware emits the aliases; this
+    // gate fails the close if a future generation drops them.
+    const sfBlock = (mwSrc.match(/const STATIC_FILES = new Set\(\[([\s\S]*?)\]\);/) || [])[1] || '';
+    const sfEntries = new Set([...sfBlock.matchAll(/"([^"]+)"/g)].map((m) => m[1]));
+    const aliasOf = (f) => f.endsWith('/index.html')
+      ? (f.slice(0, -'index.html'.length).replace(/\/$/, '') || '/')
+      : f.slice(0, -'.html'.length);
+    const htmlEntries = [...sfEntries].filter((f) => f.endsWith('.html'));
+    const aliasMissing = htmlEntries.filter((f) => !sfEntries.has(aliasOf(f)));
+    check('S-2B middleware STATIC_FILES carries the serving alias of every .html entry (Pages 308 alias gate)',
+      sfEntries.size > 0 && aliasMissing.length === 0,
+      'entries=' + sfEntries.size + ', html=' + htmlEntries.length + ', aliases missing=' + aliasMissing.length +
+      (aliasMissing.length ? ' (' + aliasMissing.slice(0, 3).join(', ') + ')' : ''));
     // S-3: live per-URL heads on a defined route set (home, branch service,
     // article, workforce, category, faq, services index, developer).
     const routeSet = ['/', '/gun-safe-movers-winchester-va/', '/the-invisible-risk-of-high-mass-relocation/',

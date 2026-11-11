@@ -49,13 +49,30 @@ if (process.argv.includes('--update-middleware')) {
     }
   })(tree, '');
   files.sort();
+  // Serving aliases (Outside-Copies micro-batch, 2026-11-11): the
+  // Pages asset server answers a .html request with a 308 to the
+  // file's serving path — /x.html -> /x, /dir/index.html -> /dir/,
+  // /index.html -> / — and the redirected request re-enters the
+  // middleware under that alias. STATIC_FILES must carry the alias
+  // beside the literal path, or the middleware's genuine-404 rule
+  // fires on the platform's own redirect. (The estate's first
+  // root-level non-index .html file, ai-ingestion-card.html, 404'd
+  // exactly this way while its .html form passed; page documents
+  // were immune only because their aliases are HEAD routes.)
+  // verify.js S-2B gates the invariant.
+  const entries = new Set(files);
+  for (const f of files) {
+    if (f.endsWith('/index.html')) entries.add(f.slice(0, -'index.html'.length).replace(/\/$/, '') || '/');
+    else if (f.endsWith('.html')) entries.add(f.slice(0, -'.html'.length));
+  }
+  const all = [...entries].sort();
   const src = fs.readFileSync(mwPath, 'utf8');
   const a = src.indexOf('const STATIC_FILES = new Set([');
   const b = src.indexOf(']);', a);
   if (a < 0 || b < 0) throw new Error('STATIC_FILES block not found in ' + mwPath);
-  const inner = files.map((f) => '\n  ' + JSON.stringify(f)).join(',') + '\n';
+  const inner = all.map((f) => '\n  ' + JSON.stringify(f)).join(',') + '\n';
   fs.writeFileSync(mwPath, src.slice(0, a) + 'const STATIC_FILES = new Set([' + inner + src.slice(b));
-  console.log('STATIC_FILES regenerated: ' + files.length + ' entries from ' + tree);
+  console.log('STATIC_FILES regenerated: ' + all.length + ' entries (' + files.length + ' files + ' + (all.length - files.length) + ' serving aliases) from ' + tree);
   process.exit(0);
 }
 
