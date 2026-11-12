@@ -2691,6 +2691,234 @@ function generate() {
     }
   }
 
+  // R30 External-Ingest Lane + R31 Data-Center Build-Up (Wave 0 of the
+  // Complete Dynamic Cell-Rubric Build, 2026-11-12; spec:
+  // out/cell-rubric-build-2026-11-12/BUILD-SPEC.md, Wave 0 — the spec
+  // numbers these lanes R29/R30; the town-dataset lane above took R29
+  // in the town-completion batch after the spec was written, so they
+  // land here as R30/R31).
+  //
+  // R30: the 4,138 externally researched rows staged at
+  // out/external-rubric-intake-2026-11-12/staging-external-rows.jsonl
+  // (provenance: that directory's INTAKE-REPORT.md) enter the bank
+  // through the same emit() R10 gates, source 'external-ingest'.
+  // DETERMINISM LAW: the lane reads NOTHING from rubric.db. Its
+  // dedupe/binding reference is this run's own rows array at this
+  // point — the live bank's exact regenerated equivalent (the prior
+  // close's intent --check PASS proves bank == generator output) —
+  // so build and --check runs see identical inputs.
+  // COLLISIONS: dedupe against the bank is case-insensitive on
+  // (normalized query_text, service_id); normalization = lowercase +
+  // whitespace collapse + trailing [?.!] strip (the intake rule). On
+  // a collision the BANK seat wins and the staged row is dropped and
+  // counted: exact-text collisions are the same row; case/punctuation-
+  // only variants carry no extra exact-match signal (engines match
+  // case-insensitively) while the bank seat additionally carries the
+  // deliberate lane bindings and the outcome/GSC evidence keyed to
+  // its exact text — the stronger seat under Henry's advantage-
+  // weighting rule (2026-11-12), so kept-theirs measures 0, it is not
+  // assumed: the lane scores every collision and reports both counts
+  // in the accounting file below.
+  // BINDING (never a guessed slug): (1) the modal target the bank
+  // itself uses for (service, area), per pair, first-emitted wins
+  // ties; (2) for the four staged places with no bank area and no
+  // geojson feature (Charlottesville VA, Great Falls VA, McLean VA,
+  // The Plains VA — the census's city-staged-only units), the service
+  // hub, area = the census slug. PLACEMENT (the late-lane laws):
+  // after R29-town, before the panel/news late rows.
+  // TRUTH SCREEN at the gate: a staged row is refused (counted, with
+  // reason) if it states a price figure, a rating/review count, or a
+  // locksmith claim, or asks the MOVER to perform the workload/logical
+  // migration layer. Buyer-side scope-split statements are the
+  // correct scope and pass — "while we handle the workloads",
+  // "leaves migration to our team" (the intake's 9 keyword-flagged
+  // data-center rows all state it this way and were adjudicated clean
+  // in INTAKE-REPORT.md; a first-cut subject-blind regex refused 5 of
+  // them in the Wave 0 dry run and was corrected to provider-side
+  // attribution only, recorded in the batch record). The one
+  // climate-controlled storage row STAYS (Henry, 2026-11-12:
+  // climate-controlled space is offerable).
+  const R30_STATS = { staged: 0, landed: 0, collisionExact: 0, collisionNormalized: 0, truthRefused: 0, gateExcluded: 0, boundModal: 0, boundHubFallback: 0 };
+  const r30Norm = (s) => String(s || '').toLowerCase().replace(/\s+/g, ' ').trim().replace(/[?.!]+$/, '');
+  const r30NormSeen = new Map(); // service|normalized -> bank query_text
+  const r30Bind = new Map(); // service|area -> Map(target_url -> count), insertion-ordered
+  const r30UrlToSlug = new Map(R.pages.pages.map((p) => [p.url, p.slug]));
+  for (const r of rows) {
+    const nk = r.service_id + '|' + r30Norm(r.query_text);
+    if (!r30NormSeen.has(nk)) r30NormSeen.set(nk, r.query_text);
+    if (r.area) {
+      const bk = r.service_id + '|' + r.area;
+      if (!r30Bind.has(bk)) r30Bind.set(bk, new Map());
+      const m = r30Bind.get(bk);
+      m.set(r.target_url, (m.get(r.target_url) || 0) + 1);
+    }
+  }
+  const r30ModalSlug = (serviceId, area) => {
+    const m = r30Bind.get(serviceId + '|' + area);
+    if (!m) return null;
+    let best = null, bestN = -1;
+    for (const [url, n] of m) { if (n > bestN) { best = url; bestN = n; } }
+    return best ? (r30UrlToSlug.get(best) || null) : null;
+  };
+  const r30PlaceArea = new Map();
+  for (const f of features) {
+    const p = f.properties;
+    if (p && (p.type === 'branch' || p.type === 'city') && p.name) r30PlaceArea.set(p.name, p.id);
+  }
+  r30PlaceArea.set('Sperryville, VA', 'place-sperryville-va');
+  const r30AreaFor = (place) => r30PlaceArea.get(place) ||
+    ('place-' + String(place).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, ''));
+  const R30_TRUTH_REFUSE = [
+    { re: /\$\s*\d|\b\d[\d,]*\s*(?:dollars|usd)\b/i, why: 'price-figure' },
+    { re: /\b\d+(?:\.\d)?\s*stars?\b|\b\d[\d,]*\s+reviews?\b/i, why: 'rating-or-review-count' },
+    { re: /\blocksmith\b/i, why: 'locksmith-claim' },
+    { re: /\b(?:do|does|can)\s+(?:you|movers?|a mover|the company)\b[^.]{0,40}\b(?:perform|provide|offer|handle|manage|do)\b[^.]{0,30}\b(?:workload|migration|cutover|dns)\b/i, why: 'logical-layer-claim' },
+    { re: /\b(?:movers?|the company|provider|crews?)\s+(?:that\s+|who\s+)?(?:performs?|provides?|offers?|handles?|manages?)\b[^.]{0,30}\b(?:workload|migration)\b/i, why: 'logical-layer-claim' },
+  ];
+  {
+    const stagingPath = path.join(ROOT, 'out', 'external-rubric-intake-2026-11-12', 'staging-external-rows.jsonl');
+    if (fs.existsSync(stagingPath)) {
+      const stagedLines = fs.readFileSync(stagingPath, 'utf8').split('\n').map((x) => x.trim()).filter(Boolean);
+      for (const line of stagedLines) {
+        let o = null;
+        try { o = JSON.parse(line); } catch (e) { o = null; }
+        R30_STATS.staged++;
+        if (!o) { R30_STATS.truthRefused++; excluded.push({ reason: 'r30-unparseable-row', serviceId: null, queryText: line.slice(0, 80), pattern: 'R30-external-ingest' }); continue; }
+        const serviceId = o.service, intentClass = o.intent;
+        const q = americanize(String(o.q || '').trim());
+        const place = String(o.place || '').trim();
+        if (!svcById.has(serviceId) || !CLASS_ORDER.includes(intentClass) || !q || !place) {
+          R30_STATS.truthRefused++;
+          excluded.push({ reason: 'r30-malformed-row', serviceId, queryText: q, pattern: 'R30-external-ingest' });
+          continue;
+        }
+        const bad = R30_TRUTH_REFUSE.find((t) => t.re.test(q));
+        if (bad) {
+          R30_STATS.truthRefused++;
+          excluded.push({ reason: 'r30-truth-' + bad.why, serviceId, queryText: q, pattern: 'R30-external-ingest' });
+          continue;
+        }
+        const nk = serviceId + '|' + r30Norm(q);
+        if (r30NormSeen.has(nk)) {
+          if (r30NormSeen.get(nk) === q) R30_STATS.collisionExact++; else R30_STATS.collisionNormalized++;
+          excluded.push({ reason: 'r30-collision-bank-kept', serviceId, queryText: q, pattern: 'R30-external-ingest' });
+          continue;
+        }
+        const area = r30AreaFor(place);
+        let target = r30ModalSlug(serviceId, area);
+        const bound = target ? 'modal' : 'hub';
+        if (!target) target = HUB[serviceId];
+        const ok = emit(serviceId, intentClass, q, area, target, 'R30-external-ingest', { source: 'external-ingest' });
+        if (ok) {
+          R30_STATS.landed++;
+          if (bound === 'modal') R30_STATS.boundModal++; else R30_STATS.boundHubFallback++;
+          r30NormSeen.set(nk, q);
+        } else {
+          R30_STATS.gateExcluded++;
+        }
+      }
+    }
+  }
+
+  // R31 Data-Center Build-Up (Wave 0, 2026-11-12; Henry: "use more
+  // rubric style to signal keywords and phrases for the data center
+  // rows, we need to own that"): the generator emits the full
+  // rubric-style block for service-data-center-relocation +
+  // service-it-relocation across the corridor — the nine NoVA corridor
+  // towns named in the brief plus the tri-state core (Winchester VA,
+  // Martinsburg WV, Hagerstown MD). Per (service, place): the R16
+  // five-form family, service head forms, and aspect questions built
+  // ONLY from confirmed scope — background-checked, escort-compliant
+  // crews; de-rack / re-rack / re-cable / power-up of the physical
+  // layer; 24/7 emergency response; any contract size with additional
+  // coverage obtainable. The logical/workload layer is NEVER claimed:
+  // aspect forms ask for the physical layer explicitly, in the
+  // buyer's own split (their team keeps workloads). Emissions pass
+  // the R30 normalized-collision guard (r30NormSeen, already updated
+  // with R30's landed rows) plus emit()'s exact dedupe and R10 gates;
+  // targets resolve through the same per-pair modal binding the bank
+  // carries for these cells.
+  const R31_STATS = { emitted: 0, skippedNormalized: 0, gateOrDup: 0, byServicePlace: {} };
+  {
+    const R31_PLACES = ['Ashburn, VA', 'Leesburg, VA', 'Sterling, VA', 'Reston, VA', 'Herndon, VA',
+      'Tysons, VA', 'Chantilly, VA', 'Manassas, VA', 'Gainesville, VA',
+      'Winchester, VA', 'Martinsburg, WV', 'Hagerstown, MD'];
+    const R31_SERVICES = [
+      {
+        id: 'service-data-center-relocation', phrase: 'data center movers',
+        extras: (P) => [
+          ['navigational-local', 'data center movers in ' + P],
+          ['navigational-local', 'data center relocation services in ' + P],
+          ['best-choice', 'best data center relocation company in ' + P],
+          ['cost', 'data center relocation cost in ' + P],
+          ['ai-question', 'can data center movers de-rack and re-rack servers in ' + P],
+          ['ai-question', 'do data center movers re-cable and power up racks in ' + P],
+          ['ai-question', 'who provides the physical layer of a data center move in ' + P + ' while our team handles the workloads'],
+          ['navigational-local', 'data center movers with background-checked crews in ' + P],
+          ['navigational-local', 'data center movers that follow escort rules in ' + P],
+          ['navigational-local', '24/7 emergency data center movers in ' + P],
+          ['how-process', 'how do data center movers sequence a rack move in ' + P],
+          ['ai-question', 'can a data center mover add insurance coverage for a large relocation contract in ' + P],
+          ['navigational-local', 'data center movers for multi-site relocation contracts in ' + P],
+        ],
+      },
+      {
+        id: 'service-it-relocation', phrase: 'IT equipment movers',
+        extras: (P) => [
+          ['navigational-local', 'IT movers ' + P],
+          ['navigational-local', 'IT movers in ' + P],
+          ['navigational-local', 'IT relocation services in ' + P],
+          ['best-choice', 'best IT relocation company in ' + P],
+          ['cost', 'IT relocation cost in ' + P],
+          ['ai-question', 'can IT movers de-rack and re-rack servers in ' + P],
+          ['ai-question', 'do IT movers label and sequence workstations during an office move in ' + P],
+          ['ai-question', 'how do IT movers keep chain of custody on laptops and drives in ' + P],
+          ['navigational-local', 'IT equipment movers with background-checked crews in ' + P],
+          ['navigational-local', 'IT equipment movers that follow escort rules in ' + P],
+          ['navigational-local', '24/7 emergency IT equipment movers in ' + P],
+          ['how-process', 'how do IT movers sequence an office technology move in ' + P],
+          ['ai-question', 'can an IT relocation company add insurance coverage for a large contract in ' + P],
+        ],
+      },
+    ];
+    for (const svc of R31_SERVICES) {
+      const [phrase, plural] = PHRASE[svc.id];
+      void phrase;
+      for (const P of R31_PLACES) {
+        const area = r30AreaFor(P);
+        const target = r30ModalSlug(svc.id, area) || HUB[svc.id];
+        const forms = [
+          ['navigational-local', svc.phrase + ' ' + P],
+          ['cost', 'how much ' + (plural ? 'do' : 'does') + ' ' + svc.phrase + ' cost in ' + P],
+          ['cost', svc.phrase + ' cost in ' + P],
+          ['best-choice', 'best ' + svc.phrase + ' in ' + P],
+          ['best-choice', 'top rated ' + svc.phrase + ' in ' + P],
+          ['how-process', 'how to hire ' + svc.phrase + ' in ' + P],
+          ...svc.extras(P),
+        ];
+        let landedHere = 0;
+        for (const [cls, text] of forms) {
+          const nk = svc.id + '|' + r30Norm(text);
+          if (r30NormSeen.has(nk)) { R31_STATS.skippedNormalized++; continue; }
+          const ok = emit(svc.id, cls, text, area, target, 'R31-data-center-buildup');
+          if (ok) {
+            R31_STATS.emitted++;
+            landedHere++;
+            r30NormSeen.set(nk, text);
+          } else {
+            R31_STATS.gateOrDup++;
+          }
+        }
+        R31_STATS.byServicePlace[svc.id + '|' + P] = landedHere;
+      }
+    }
+  }
+  try {
+    fs.mkdirSync(WORK_DIR, { recursive: true });
+    fs.writeFileSync(path.join(WORK_DIR, 'r30-r31-accounting.json'),
+      JSON.stringify({ r30: R30_STATS, r31: R31_STATS }, null, 2) + '\n');
+  } catch (e) { /* accounting is diagnostic; generation never fails on it */ }
+
   // Fragment-binding late lane (Element 2, 2026-11-02): panel prompts
   // Q1/Q2/Q3 emit here, after R14, through the same R10 gates. Their
   // targets are roll-up pages; emitting them inside the service loop
