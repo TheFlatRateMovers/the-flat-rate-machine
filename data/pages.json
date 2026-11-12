@@ -3669,7 +3669,7 @@
     "service-local-regional"
    ],
    "slug": "movers-in-washington-va",
-   "source": "Washington VA Seize batch (2026-11-10) — new town landing page for Washington, VA and Rappahannock County (owner order 2026-11-10, after the competitive audit of the same day: 7 empty and 14 weak categories of 24, FRM present in 1). Branch facts from the verified Winchester branch record; the town is outside the 81-area published footprint and is served from the Winchester branch on quoted jobs (New Market precedent: page + bindings, no geojson change). FAQ 7, visible and schema byte-equal; the seized phrasing families are bound to this page by the R24 block of build-intent-rubric.js.",
+   "source": "Washington VA Seize batch (2026-11-10) — new town landing page for Washington, VA and Rappahannock County (owner order 2026-11-10, after the competitive audit of the same day: 7 empty and 14 weak categories of 24, FRM present in 1). Branch facts from the verified Winchester branch record; the town joined the published footprint 2026-11-12 as place-washington-va, Winchester branch, with the full build (geo + matrix + rubric) in batch-washington-va-full-build-2026-11-12. FAQ 7, visible and schema byte-equal; the seized phrasing families are bound to this page by the R24 block of build-intent-rubric.js.",
    "status": "live",
    "title": "Movers in Washington, VA",
    "type": "service",

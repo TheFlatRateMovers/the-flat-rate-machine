@@ -2034,9 +2034,13 @@ function generate() {
   // washington va' at #1 on the general hub — and no row at all for
   // the town, the county, or Sperryville. Bound here, through the same
   // gated emit() path, to the new town landing page built for the
-  // seize (owner order 2026-11-10). The town is outside the 81-area
-  // footprint (New Market precedent: page + bindings, no geojson
-  // change). Defended families (senior movers, junk removal) are bound
+  // seize (owner order 2026-11-10). The town was then outside the
+  // published footprint (New Market precedent: page + bindings, no
+  // geojson change); on 2026-11-12 Washington joined the published
+  // footprint as place-washington-va (Winchester branch) in
+  // service-area.geojson, with the full build (geo + matrix +
+  // rubric) in batch-washington-va-full-build-2026-11-12. Defended
+  // families (senior movers, junk removal) are bound
   // on their real-service forms — the flank, not a frontal assault.
   {
     const T = 'movers-in-washington-va';

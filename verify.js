@@ -5933,7 +5933,7 @@ async function main() {
         const pairs = readTM(stagedPairs);
         const unlabeled = pairs.filter((p) => !p.distance_basis).length;
         tmReport('TM-5 pair distances carry their basis label — computed-centroid or researched-road; none unlabeled (SPEC GS-5)',
-          unlabeled === 0 && pairs.length === 6480, pairs.length + ' pairs, ' + unlabeled + ' unlabeled');
+          unlabeled === 0 && pairs.length === 6642, pairs.length + ' pairs, ' + unlabeled + ' unlabeled');
       } else tmReport('TM-5 pair distances carry their basis label (SPEC GS-5)', false, 'production pairs table not present at ' + stagedPairs);
     }
 
