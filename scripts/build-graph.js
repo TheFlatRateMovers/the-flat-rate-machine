@@ -106,6 +106,13 @@ for (const b of branches) graph.push(branchNode(b));
 for (const b of branches) for (const n of cityNodes(b)) graph.push(n);
 for (const s of services) {
   if (!s.id || !s.name || !s.description) fail('service ' + JSON.stringify(s.id) + ' missing id, name, or description');
+  // ADD-1 (2026-11-12): White-Glove Delivery areaServed is the FULL footprint
+  // by standing rule — derived from data/service-area.geojson (all features,
+  // geojson order), never an authored snapshot. The published graph seats are
+  // kept on the same derivation by scripts/sync-service-graph-areas.js.
+  const areaServed = s.id === 'service-white-glove'
+    ? (geojson.features || []).map((f) => ({ '@id': SITE + '/#' + f.properties.id }))
+    : branches.map((b) => ({ '@id': SITE + '/#' + b.id }));
   graph.push({
     '@id': SITE + '/#' + s.id,
     '@type': 'Service',
@@ -113,7 +120,7 @@ for (const s of services) {
     serviceType: s.name,
     description: s.description,
     provider: { '@id': ORG },
-    areaServed: branches.map((b) => ({ '@id': SITE + '/#' + b.id })),
+    areaServed,
   });
 }
 graph.push({

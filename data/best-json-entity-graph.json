@@ -1920,9 +1920,45 @@
     },
     {
      "@id": "https://theflatratemovers.com/#place-washington-dc"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-petersburg-wv"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-keyser-wv"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-cumberland-md"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-harrisonburg-va"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-staunton-va"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-old-fields-wv"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-fisher-wv"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-fort-run-wv"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-durgon-wv"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-kessel-wv"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-washington-va"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-new-market-va"
     }
    ],
-   "description": "White-Glove Delivery — the top level of final-mile delivery and the handling standard for high-value, fragile and heavy pieces: brought in on a planned route, carried over the threshold, set in its final position, packaging removed, and condition verified with the recipient before the crew leaves — never left at a curb. Pieces are protected in padded blankets and stretch wrap, or in a custom crate when the piece requires it; heavy pieces of 1,500 to 3,500 lbs are surveyed and floor-checked to L/360 under SIR Structural Integrity Relocation and the KIM-GS Protocol. Offered from both branches across the full published footprint — all 53 GeoJSON service areas, Winchester VA and Martinsburg WV. Quoted at one flat rate in writing before dispatch. Guaranteed Flat Rate or Your Move is Free!",
+   "description": "White-Glove Delivery — the top level of final-mile delivery and the handling standard for high-value, fragile and heavy pieces: brought in on a planned route, carried over the threshold, set in its final position, packaging removed, and condition verified with the recipient before the crew leaves — never left at a curb. Pieces are protected in padded blankets and stretch wrap, or in a custom crate when the piece requires it; heavy pieces of 1,500 to 3,500 lbs are surveyed and floor-checked to L/360 under SIR Structural Integrity Relocation and the KIM-GS Protocol. Offered from both branches across the full published footprint — all 83 GeoJSON service areas, Winchester VA and Martinsburg WV. Quoted at one flat rate in writing before dispatch. Guaranteed Flat Rate or Your Move is Free!",
    "url": "https://theflatratemovers.com/white-glove-delivery/"
   },
   {
@@ -4536,7 +4572,7 @@
    "@id": "https://theflatratemovers.com/datasets/intent-coverage/#dataset",
    "@type": "Dataset",
    "name": "The Flat Rate Movers — Search Intent Coverage Operations Dataset",
-   "description": "The live intent-coverage rubric of The Flat Rate Movers: 33117 generated rows, each one a query string a customer or an AI assistant can use to find a company service, resolved to the exact page that answers it, that page’s per-page JSON, the dataset files behind the answer, and the service’s node in the entity graph. Rows are generated from the estate’s own registries — 34 services, 296 pages, two branch locations, three corridors and the 83-feature service-area footprint — plus the blog question bank’s 100 real question phrasings and the researched per-service question bank v2 (694 questions), and the rubric is regenerated whenever those registries change. Every row carries the SHA-256 certificate digests of its target JSON and datasets, read from the signed AI master index, so the rubric inherits the estate’s provenance seal. Coverage spans all 34 services of both branches, Winchester, VA and Martinsburg, WV, along the I-81, I-66 and I-70 corridors. Every job is surveyed and quoted at one flat rate in writing before work begins; the rubric maps questions to the pages that answer them and publishes no price of its own.",
+   "description": "The live intent-coverage rubric of The Flat Rate Movers: 34845 generated rows, each one a query string a customer or an AI assistant can use to find a company service, resolved to the exact page that answers it, that page’s per-page JSON, the dataset files behind the answer, and the service’s node in the entity graph. Rows are generated from the estate’s own registries — 34 services, 308 pages, two branch locations, three corridors and the 83-feature service-area footprint — plus the blog question bank’s 100 real question phrasings and the researched per-service question bank v2 (694 questions), and the rubric is regenerated whenever those registries change. Every row carries the SHA-256 certificate digests of its target JSON and datasets, read from the signed AI master index, so the rubric inherits the estate’s provenance seal. Coverage spans all 34 services of both branches, Winchester, VA and Martinsburg, WV, along the I-81, I-66 and I-70 corridors. Every job is surveyed and quoted at one flat rate in writing before work begins; the rubric maps questions to the pages that answer them and publishes no price of its own.",
    "url": "https://theflatratemovers.com/datasets/intent-coverage/",
    "sameAs": "https://theflatratemovers.com/datasets/intent-coverage/",
    "identifier": "https://doi.org/10.5281/zenodo.23818766",
@@ -11096,6 +11132,858 @@
    ],
    "isPartOf": {
     "@id": "https://theflatratemovers.com/datasets/ports/#dataset-ports"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/datasets/berkeley-springs-wv/#dataset",
+   "@type": "Dataset",
+   "name": "Berkeley Springs, WV Moving Market, Services, Coverage & Intent",
+   "description": "Berkeley Springs, WV Moving Datasets — the published datasets-berkeley-springs-wv.json dataset from The Flat Rate Movers (CC BY 4.0): the moving market, service offer, coverage binding and intent rubric of Berkeley Springs, WV (Morgan), served from the Martinsburg branch (Flat Rate Movers Martinsburg WV). Researched market note: America's first spa town (pop. ~755): ~half of home buyers seek a second residence (Homes.com local guide), Victorian/estate stock to ~$840k, inns/spas/Cacapon Resort — premium second-home and hospitality work leads; county-seat hospital/schools keep residential volume real. All 34 registry services are offered in Berkeley Springs, WV; the town's researched showcase order leads with White-Glove Delivery, Residential Moving, Piano, Antique and White-Glove Moving, Custom Crating, Final-Mile Delivery, FF&E Logistics, and the full 34-service offer is enumerated, in that order, in the dataset file's services node and in the operations node's servicesOffered payload. The town's intent-rubric family carries 410 rows covering 34 of 34 services, counted live from the 34821-row rubric bank; its coverage binding rides the Territory Matrix place node https://theflatratemovers.com/#place-berkeley-springs-wv with branchBinding 'martinsburg'. Every job in the town is surveyed in full and priced at one flat rate in writing before work begins. The dataset's five Dataset nodes, three Service nodes and three Article nodes are published in the file linked below; the town page is https://theflatratemovers.com/moving-company-berkeley-springs-wv/.",
+   "url": "https://theflatratemovers.com/datasets/berkeley-springs-wv/",
+   "sameAs": "https://theflatratemovers.com/datasets/berkeley-springs-wv/",
+   "identifier": "https://theflatratemovers.com/datasets/berkeley-springs-wv/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "dateModified": "2026-11-12",
+   "temporalCoverage": "2010/2026",
+   "spatialCoverage": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "keywords": [
+    "movers in berkeley springs wv",
+    "moving company berkeley springs wv",
+    "berkeley springs wv movers",
+    "white glove delivery berkeley springs, wv",
+    "residential movers berkeley springs, wv",
+    "movers near me"
+   ],
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-local-regional"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-berkeley-springs-wv"
+    }
+   ],
+   "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/datasets/berryville-va/#dataset",
+   "@type": "Dataset",
+   "name": "Berryville, VA Moving Market, Services, Coverage & Intent",
+   "description": "Berryville, VA Moving Datasets — the published datasets-berryville-va.json dataset from The Flat Rate Movers (CC BY 4.0): the moving market, service offer, coverage binding and intent rubric of Berryville, VA (Clarke), served from the Winchester branch (The Flat Rate Movers, Winchester VA). Researched market note: Clarke county seat; town median HH income $102,788, county $117,111 (Census); horse breeding, historic estates and protected farmland — premium estate market. All 34 registry services are offered in Berryville, VA; the town's researched showcase order leads with White-Glove Delivery, Piano, Antique and White-Glove Moving, Residential Moving, Custom Crating, Gun Safe Moving, Packing and Unpacking, and the full 34-service offer is enumerated, in that order, in the dataset file's services node and in the operations node's servicesOffered payload. The town's intent-rubric family carries 410 rows covering 34 of 34 services, counted live from the 34821-row rubric bank; its coverage binding rides the Territory Matrix place node https://theflatratemovers.com/#place-berryville-va with branchBinding 'winchester'. Every job in the town is surveyed in full and priced at one flat rate in writing before work begins. The dataset's five Dataset nodes, three Service nodes and three Article nodes are published in the file linked below; the town page is https://theflatratemovers.com/movers-in-berryville-va/.",
+   "url": "https://theflatratemovers.com/datasets/berryville-va/",
+   "sameAs": "https://theflatratemovers.com/datasets/berryville-va/",
+   "identifier": "https://theflatratemovers.com/datasets/berryville-va/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "dateModified": "2026-11-12",
+   "temporalCoverage": "2010/2026",
+   "spatialCoverage": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "keywords": [
+    "movers in berryville va",
+    "moving company berryville va",
+    "berryville va movers",
+    "white glove delivery berryville, va",
+    "piano movers berryville, va",
+    "movers near me"
+   ],
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-local-regional"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-berryville-va"
+    }
+   ],
+   "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/datasets/charles-town-wv/#dataset",
+   "@type": "Dataset",
+   "name": "Charles Town, WV Moving Market, Services, Coverage & Intent",
+   "description": "Charles Town, WV Moving Datasets — the published datasets-charles-town-wv.json dataset from The Flat Rate Movers (CC BY 4.0): the moving market, service offer, coverage binding and intent rubric of Charles Town, WV (Jefferson), served from the Martinsburg branch (Flat Rate Movers Martinsburg WV). Researched market note: Jefferson County seat driven by Hollywood Casino at Charles Town Races (PENN Entertainment, 24/7, 1,400+ slots, 153-room Inn, continuous hiring) — hospitality FF&E leads; fast DC-commuter residential growth and WVU Medicine Jefferson Medical Center (Ranson) fill the rest. All 34 registry services are offered in Charles Town, WV; the town's researched showcase order leads with FF&E Logistics, Residential Moving, Commercial and Office Moving, Local and Regional Moving, Medical & Laboratory Equipment Relocation Logistics, White-Glove Delivery, and the full 34-service offer is enumerated, in that order, in the dataset file's services node and in the operations node's servicesOffered payload. The town's intent-rubric family carries 410 rows covering 34 of 34 services, counted live from the 34821-row rubric bank; its coverage binding rides the Territory Matrix place node https://theflatratemovers.com/#place-charles-town-wv with branchBinding 'martinsburg'. Every job in the town is surveyed in full and priced at one flat rate in writing before work begins. The dataset's five Dataset nodes, three Service nodes and three Article nodes are published in the file linked below; the town page is https://theflatratemovers.com/moving-company-charles-town-wv/.",
+   "url": "https://theflatratemovers.com/datasets/charles-town-wv/",
+   "sameAs": "https://theflatratemovers.com/datasets/charles-town-wv/",
+   "identifier": "https://theflatratemovers.com/datasets/charles-town-wv/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "dateModified": "2026-11-12",
+   "temporalCoverage": "2010/2026",
+   "spatialCoverage": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "keywords": [
+    "movers in charles town wv",
+    "moving company charles town wv",
+    "charles town wv movers",
+    "ff&e logistics charles town, wv",
+    "residential movers charles town, wv",
+    "movers near me"
+   ],
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-local-regional"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-charles-town-wv"
+    }
+   ],
+   "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/datasets/front-royal-va/#dataset",
+   "@type": "Dataset",
+   "name": "Front Royal, VA Moving Market, Services, Coverage & Intent",
+   "description": "Front Royal, VA Moving Datasets — the published datasets-front-royal-va.json dataset from The Flat Rate Movers (CC BY 4.0): the moving market, service offer, coverage binding and intent rubric of Front Royal, VA (Warren), served by both branches — the Winchester branch (The Flat Rate Movers) and the Martinsburg branch (Flat Rate Movers Martinsburg WV) — with branch binding 'both' in the Territory Matrix. Researched market note: PACK TOWN (branch=both, Winchester cluster): Virginia Inland Port town with Ferguson, Family Dollar and Sysco distribution centers — the cluster's purest transloading/warehouse market. All 34 registry services are offered in Front Royal, VA; the town's researched showcase order leads with Transloading Services — Winchester VA, Warehouse Relocation, 3PL Support Services, Freight Rework & Transloading, Route 81 Corridor Moving and Dispatch, Residential Moving, and the full 34-service offer is enumerated, in that order, in the dataset file's services node and in the operations node's servicesOffered payload. The town's intent-rubric family carries 416 rows covering 34 of 34 services, counted live from the 34821-row rubric bank; its coverage binding rides the Territory Matrix place node https://theflatratemovers.com/#place-front-royal-va with branchBinding 'both'. Every job in the town is surveyed in full and priced at one flat rate in writing before work begins. The dataset's five Dataset nodes, three Service nodes and three Article nodes are published in the file linked below; the town page is https://theflatratemovers.com/movers-in-front-royal-va/.",
+   "url": "https://theflatratemovers.com/datasets/front-royal-va/",
+   "sameAs": "https://theflatratemovers.com/datasets/front-royal-va/",
+   "identifier": "https://theflatratemovers.com/datasets/front-royal-va/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "dateModified": "2026-11-12",
+   "temporalCoverage": "2010/2026",
+   "spatialCoverage": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "keywords": [
+    "movers in front royal va",
+    "moving company front royal va",
+    "front royal va movers",
+    "transloading front royal, va",
+    "warehouse relocation services front royal, va",
+    "movers near me"
+   ],
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-local-regional"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-front-royal-va"
+    }
+   ],
+   "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/datasets/inwood-wv/#dataset",
+   "@type": "Dataset",
+   "name": "Inwood, WV Moving Market, Services, Coverage & Intent",
+   "description": "Inwood, WV Moving Datasets — the published datasets-inwood-wv.json dataset from The Flat Rate Movers (CC BY 4.0): the moving market, service offer, coverage binding and intent rubric of Inwood, WV (Berkeley), served from the Martinsburg branch (Flat Rate Movers Martinsburg WV). Researched market note: Purest logistics town in cluster: DSV (261/396 Development Dr), DHL Supply Chain, Amazon, Knauf Insulation and P&G packing operations all hiring warehouse crews on the I-81/Tabler Station corridor — every top slot is warehouse/freight work. All 34 registry services are offered in Inwood, WV; the town's researched showcase order leads with Warehouse Relocation, Loading, Transloading and Container Services, 3PL Support Services, Freight Rework & Transloading, Route 81 Corridor Moving and Dispatch, Warehouse Racking Relocation, and the full 34-service offer is enumerated, in that order, in the dataset file's services node and in the operations node's servicesOffered payload. The town's intent-rubric family carries 410 rows covering 34 of 34 services, counted live from the 34821-row rubric bank; its coverage binding rides the Territory Matrix place node https://theflatratemovers.com/#place-inwood-wv with branchBinding 'martinsburg'. Every job in the town is surveyed in full and priced at one flat rate in writing before work begins. The dataset's five Dataset nodes, three Service nodes and three Article nodes are published in the file linked below; the town page is https://theflatratemovers.com/moving-company-inwood-wv/.",
+   "url": "https://theflatratemovers.com/datasets/inwood-wv/",
+   "sameAs": "https://theflatratemovers.com/datasets/inwood-wv/",
+   "identifier": "https://theflatratemovers.com/datasets/inwood-wv/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "dateModified": "2026-11-12",
+   "temporalCoverage": "2010/2026",
+   "spatialCoverage": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "keywords": [
+    "movers in inwood wv",
+    "moving company inwood wv",
+    "inwood wv movers",
+    "warehouse relocation services inwood, wv",
+    "transloading services inwood, wv",
+    "movers near me"
+   ],
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-local-regional"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-inwood-wv"
+    }
+   ],
+   "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/datasets/martinsburg-wv/#dataset",
+   "@type": "Dataset",
+   "name": "Martinsburg, WV Moving Market, Services, Coverage & Intent",
+   "description": "Martinsburg, WV Moving Datasets — the published datasets-martinsburg-wv.json dataset from The Flat Rate Movers (CC BY 4.0): the moving market, service offer, coverage binding and intent rubric of Martinsburg, WV (Berkeley), served from the Martinsburg branch (Flat Rate Movers Martinsburg WV). Researched market note: Branch hub on I-81 Exit 8 corridor: P&G Tabler Station (2M+ sq ft, ~1,650 jobs + ~1,000 partner jobs) plus Clorox/P&G/TREX distribution at Mid-Atlantic 81 park; VA Medical Center (2,200+ staff, 39k veterans) and WVU Medicine Berkeley anchor medical; Coast Guard National Maritime Center + IRS add federal weight — logistics leads, medical in top-6. All 34 registry services are offered in Martinsburg, WV; the town's researched showcase order leads with Loading, Transloading and Container Services, 3PL Support Services, Freight Rework & Transloading, Warehouse Relocation, Route 81 Corridor Moving and Dispatch, Medical & Laboratory Equipment Relocation Logistics, and the full 34-service offer is enumerated, in that order, in the dataset file's services node and in the operations node's servicesOffered payload. The town's intent-rubric family carries 722 rows covering 34 of 34 services, counted live from the 34821-row rubric bank; its coverage binding rides the Territory Matrix place node https://theflatratemovers.com/#place-martinsburg-wv with branchBinding 'martinsburg'. Every job in the town is surveyed in full and priced at one flat rate in writing before work begins. The dataset's five Dataset nodes, three Service nodes and three Article nodes are published in the file linked below; the town page is https://theflatratemovers.com/moving-company-martinsburg-wv/.",
+   "url": "https://theflatratemovers.com/datasets/martinsburg-wv/",
+   "sameAs": "https://theflatratemovers.com/datasets/martinsburg-wv/",
+   "identifier": "https://theflatratemovers.com/datasets/martinsburg-wv/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "dateModified": "2026-11-12",
+   "temporalCoverage": "2010/2026",
+   "spatialCoverage": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "keywords": [
+    "movers in martinsburg wv",
+    "moving company martinsburg wv",
+    "martinsburg wv movers",
+    "transloading services martinsburg, wv",
+    "3pl support services martinsburg, wv",
+    "movers near me"
+   ],
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-local-regional"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-martinsburg-wv"
+    }
+   ],
+   "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/datasets/new-market-va/#dataset",
+   "@type": "Dataset",
+   "name": "New Market, VA Moving Market, Services, Coverage & Intent",
+   "description": "New Market, VA Moving Datasets — the published datasets-new-market-va.json dataset from The Flat Rate Movers (CC BY 4.0): the moving market, service offer, coverage binding and intent rubric of New Market, VA (Shenandoah), served from the Winchester branch (The Flat Rate Movers, Winchester VA). Researched market note: Direct I-81 interchange town in the Shenandoah Valley/I-81 industrial corridor (Colliers spotlight; warehouse stock on the interstate) — corridor logistics genuinely leads here. All 34 registry services are offered in New Market, VA; the town's researched showcase order leads with Warehouse Relocation, Loading, Transloading and Container Services, Freight Rework & Transloading, Route 81 Corridor Moving and Dispatch, Residential Moving, Local and Regional Moving, and the full 34-service offer is enumerated, in that order, in the dataset file's services node and in the operations node's servicesOffered payload. The town's intent-rubric family carries 410 rows covering 34 of 34 services, counted live from the 34821-row rubric bank; its coverage binding rides the Territory Matrix place node https://theflatratemovers.com/#place-new-market-va with branchBinding 'winchester'. Every job in the town is surveyed in full and priced at one flat rate in writing before work begins. The dataset's five Dataset nodes, three Service nodes and three Article nodes are published in the file linked below; the town page is https://theflatratemovers.com/movers-in-new-market-va/.",
+   "url": "https://theflatratemovers.com/datasets/new-market-va/",
+   "sameAs": "https://theflatratemovers.com/datasets/new-market-va/",
+   "identifier": "https://theflatratemovers.com/datasets/new-market-va/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "dateModified": "2026-11-12",
+   "temporalCoverage": "2010/2026",
+   "spatialCoverage": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "keywords": [
+    "movers in new market va",
+    "moving company new market va",
+    "new market va movers",
+    "warehouse relocation services new market, va",
+    "transloading services new market, va",
+    "movers near me"
+   ],
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-local-regional"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-new-market-va"
+    }
+   ],
+   "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/datasets/shepherdstown-wv/#dataset",
+   "@type": "Dataset",
+   "name": "Shepherdstown, WV Moving Market, Services, Coverage & Intent",
+   "description": "Shepherdstown, WV Moving Datasets — the published datasets-shepherdstown-wv.json dataset from The Flat Rate Movers (CC BY 4.0): the moving market, service offer, coverage binding and intent rubric of Shepherdstown, WV (Jefferson), served from the Martinsburg branch (Flat Rate Movers Martinsburg WV). Researched market note: Premium pocket: Shepherd University town where NeighborhoodScout profiles the university neighborhood as wealthy/educated executives (53.4% executive/professional, median home $484k, top 2.8% in WV) plus DC-exile professionals and historic homes — white-glove/antique/crating leads; university FF&E and office work supports #6. All 34 registry services are offered in Shepherdstown, WV; the town's researched showcase order leads with White-Glove Delivery, Piano, Antique and White-Glove Moving, Custom Crating, Packing and Unpacking, Residential Moving, FF&E Logistics, and the full 34-service offer is enumerated, in that order, in the dataset file's services node and in the operations node's servicesOffered payload. The town's intent-rubric family carries 410 rows covering 34 of 34 services, counted live from the 34821-row rubric bank; its coverage binding rides the Territory Matrix place node https://theflatratemovers.com/#place-shepherdstown-wv with branchBinding 'martinsburg'. Every job in the town is surveyed in full and priced at one flat rate in writing before work begins. The dataset's five Dataset nodes, three Service nodes and three Article nodes are published in the file linked below; the town page is https://theflatratemovers.com/movers-in-shepherdstown-wv/.",
+   "url": "https://theflatratemovers.com/datasets/shepherdstown-wv/",
+   "sameAs": "https://theflatratemovers.com/datasets/shepherdstown-wv/",
+   "identifier": "https://theflatratemovers.com/datasets/shepherdstown-wv/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "dateModified": "2026-11-12",
+   "temporalCoverage": "2010/2026",
+   "spatialCoverage": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "keywords": [
+    "movers in shepherdstown wv",
+    "moving company shepherdstown wv",
+    "shepherdstown wv movers",
+    "white glove delivery shepherdstown, wv",
+    "piano movers shepherdstown, wv",
+    "movers near me"
+   ],
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-local-regional"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-shepherdstown-wv"
+    }
+   ],
+   "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/datasets/strasburg-va/#dataset",
+   "@type": "Dataset",
+   "name": "Strasburg, VA Moving Market, Services, Coverage & Intent",
+   "description": "Strasburg, VA Moving Datasets — the published datasets-strasburg-va.json dataset from The Flat Rate Movers (CC BY 4.0): the moving market, service offer, coverage binding and intent rubric of Strasburg, VA (Shenandoah), served by both branches — the Winchester branch (The Flat Rate Movers) and the Martinsburg branch (Flat Rate Movers Martinsburg WV) — with branch binding 'both' in the Territory Matrix. Researched market note: PACK TOWN (branch=both): I-81/I-66 junction town; Census median HH income $62,464 — working residential market on the corridor, logistics present but not the lead. All 34 registry services are offered in Strasburg, VA; the town's researched showcase order leads with Residential Moving, Local and Regional Moving, Route 81 Corridor Moving and Dispatch, Warehouse Relocation, Packing and Unpacking, Gun Safe Moving, and the full 34-service offer is enumerated, in that order, in the dataset file's services node and in the operations node's servicesOffered payload. The town's intent-rubric family carries 410 rows covering 34 of 34 services, counted live from the 34821-row rubric bank; its coverage binding rides the Territory Matrix place node https://theflatratemovers.com/#place-strasburg-va with branchBinding 'both'. Every job in the town is surveyed in full and priced at one flat rate in writing before work begins. The dataset's five Dataset nodes, three Service nodes and three Article nodes are published in the file linked below; the town page is https://theflatratemovers.com/movers-in-strasburg-va/.",
+   "url": "https://theflatratemovers.com/datasets/strasburg-va/",
+   "sameAs": "https://theflatratemovers.com/datasets/strasburg-va/",
+   "identifier": "https://theflatratemovers.com/datasets/strasburg-va/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "dateModified": "2026-11-12",
+   "temporalCoverage": "2010/2026",
+   "spatialCoverage": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "keywords": [
+    "movers in strasburg va",
+    "moving company strasburg va",
+    "strasburg va movers",
+    "residential movers strasburg, va",
+    "local movers strasburg, va",
+    "movers near me"
+   ],
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-local-regional"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-strasburg-va"
+    }
+   ],
+   "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/datasets/washington-va/#dataset",
+   "@type": "Dataset",
+   "name": "Washington, VA Moving Market, Services, Coverage & Intent",
+   "description": "Washington, VA Moving Datasets — the published datasets-washington-va.json dataset from The Flat Rate Movers (CC BY 4.0): the moving market, service offer, coverage binding and intent rubric of Washington, VA (Rappahannock), served from the Winchester branch (The Flat Rate Movers, Winchester VA). Researched market note: FIXED BY HENRY: high-dollar Rappahannock estate town (county median HH income $83,380, median home value $506,400 — Census) — exact lead set as directed; SIR/gun-safe sit right behind at #6. All 34 registry services are offered in Washington, VA; the town's researched showcase order leads with White-Glove Delivery, Final-Mile Delivery, Custom Crating, Packing and Unpacking, Piano, Antique and White-Glove Moving, Gun Safe Moving, and the full 34-service offer is enumerated, in that order, in the dataset file's services node and in the operations node's servicesOffered payload. The town's intent-rubric family carries 436 rows covering 34 of 34 services, counted live from the 34821-row rubric bank; its coverage binding rides the Territory Matrix place node https://theflatratemovers.com/#place-washington-va with branchBinding 'winchester'. Every job in the town is surveyed in full and priced at one flat rate in writing before work begins. The dataset's five Dataset nodes, three Service nodes and three Article nodes are published in the file linked below; the town page is https://theflatratemovers.com/movers-in-washington-va/.",
+   "url": "https://theflatratemovers.com/datasets/washington-va/",
+   "sameAs": "https://theflatratemovers.com/datasets/washington-va/",
+   "identifier": "https://theflatratemovers.com/datasets/washington-va/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "dateModified": "2026-11-12",
+   "temporalCoverage": "2010/2026",
+   "spatialCoverage": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "keywords": [
+    "movers in washington va",
+    "moving company washington va",
+    "washington va movers",
+    "white glove delivery washington, va",
+    "final mile delivery washington, va",
+    "movers near me"
+   ],
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-local-regional"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-washington-va"
+    }
+   ],
+   "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/datasets/winchester-va/#dataset",
+   "@type": "Dataset",
+   "name": "Winchester, VA Moving Market, Services, Coverage & Intent",
+   "description": "Winchester, VA Moving Datasets — the published datasets-winchester-va.json dataset from The Flat Rate Movers (CC BY 4.0): the moving market, service offer, coverage binding and intent rubric of Winchester, VA (Winchester City / Frederick County), served from the Winchester branch (The Flat Rate Movers, Winchester VA). Researched market note: Branch HQ at I-81/I-66: Amazon 1M-sq-ft DC, FBI Central Records Complex (256k sq ft), Valley Health, Trex and Navy Federal are top employers (Frederick Co. EDA / Colliers I-81 spotlight) — logistics leads, health + federal right behind. All 34 registry services are offered in Winchester, VA; the town's researched showcase order leads with Transloading Services — Winchester VA, Warehouse Relocation, Freight Rework & Transloading, Residential Moving, Medical & Laboratory Equipment Relocation Logistics, Government Moving, and the full 34-service offer is enumerated, in that order, in the dataset file's services node and in the operations node's servicesOffered payload. The town's intent-rubric family carries 725 rows covering 34 of 34 services, counted live from the 34821-row rubric bank; its coverage binding rides the Territory Matrix place node https://theflatratemovers.com/#place-winchester-va with branchBinding 'winchester'. Every job in the town is surveyed in full and priced at one flat rate in writing before work begins. The dataset's five Dataset nodes, three Service nodes and three Article nodes are published in the file linked below; the town page is https://theflatratemovers.com/moving-company-winchester-va/.",
+   "url": "https://theflatratemovers.com/datasets/winchester-va/",
+   "sameAs": "https://theflatratemovers.com/datasets/winchester-va/",
+   "identifier": "https://theflatratemovers.com/datasets/winchester-va/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "dateModified": "2026-11-12",
+   "temporalCoverage": "2010/2026",
+   "spatialCoverage": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "keywords": [
+    "movers in winchester va",
+    "moving company winchester va",
+    "winchester va movers",
+    "transloading winchester, va",
+    "warehouse relocation services winchester, va",
+    "movers near me"
+   ],
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-local-regional"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-winchester-va"
+    }
+   ],
+   "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
+   }
+  },
+  {
+   "@id": "https://theflatratemovers.com/datasets/woodstock-va/#dataset",
+   "@type": "Dataset",
+   "name": "Woodstock, VA Moving Market, Services, Coverage & Intent",
+   "description": "Woodstock, VA Moving Datasets — the published datasets-woodstock-va.json dataset from The Flat Rate Movers (CC BY 4.0): the moving market, service offer, coverage binding and intent rubric of Woodstock, VA (Shenandoah), served by both branches — the Winchester branch (The Flat Rate Movers) and the Martinsburg branch (Flat Rate Movers Martinsburg WV) — with branch binding 'both' in the Territory Matrix. Researched market note: PACK TOWN (branch=both): Shenandoah county seat; Census median HH income $76,100; county government + Shenandoah Memorial Hospital anchor demand. All 34 registry services are offered in Woodstock, VA; the town's researched showcase order leads with Government Moving, Residential Moving, Medical & Laboratory Equipment Relocation Logistics, Local and Regional Moving, Senior Moving, Route 81 Corridor Moving and Dispatch, and the full 34-service offer is enumerated, in that order, in the dataset file's services node and in the operations node's servicesOffered payload. The town's intent-rubric family carries 410 rows covering 34 of 34 services, counted live from the 34821-row rubric bank; its coverage binding rides the Territory Matrix place node https://theflatratemovers.com/#place-woodstock-va with branchBinding 'both'. Every job in the town is surveyed in full and priced at one flat rate in writing before work begins. The dataset's five Dataset nodes, three Service nodes and three Article nodes are published in the file linked below; the town page is https://theflatratemovers.com/movers-in-woodstock-va/.",
+   "url": "https://theflatratemovers.com/datasets/woodstock-va/",
+   "sameAs": "https://theflatratemovers.com/datasets/woodstock-va/",
+   "identifier": "https://theflatratemovers.com/datasets/woodstock-va/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "publisher": {
+    "@id": "https://theflatratemovers.com/#organization",
+    "@type": "Organization",
+    "name": "The Flat Rate Movers",
+    "foundingDate": "2010-06",
+    "sameAs": [
+     "https://www.instagram.com/theflatratemoversllc/",
+     "https://www.threads.com/@theflatratemoversllc",
+     "https://x.com/ratemovers",
+     "https://www.youtube.com/@theflatratemovers",
+     "https://github.com/TheFlatRateMovers",
+     "https://medium.com/@ratemovers"
+    ]
+   },
+   "dateModified": "2026-11-12",
+   "temporalCoverage": "2010/2026",
+   "spatialCoverage": [
+    {
+     "@id": "https://theflatratemovers.com/#winchester"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#martinsburg"
+    }
+   ],
+   "keywords": [
+    "movers in woodstock va",
+    "moving company woodstock va",
+    "woodstock va movers",
+    "government movers woodstock, va",
+    "residential movers woodstock, va",
+    "movers near me"
+   ],
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-local-regional"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#place-woodstock-va"
+    }
+   ],
+   "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
    }
   }
  ],

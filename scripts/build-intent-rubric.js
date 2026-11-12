@@ -2533,6 +2533,164 @@ function generate() {
     }
   }
 
+  // R28 Stub-Family Completion (Scope B, 2026-11-12): the two
+  // geo-less place families — place-sperryville-va (8 rows, 3/34
+  // services) and place-rappahannock-county-va (9 rows, 5/34) —
+  // exist only as R24 seize rows. They have NO service-area.geojson
+  // feature (the footprint stays 83 features in this batch), so the
+  // footprint-gated lanes (R2/R16/R19-local, R21, R27) can never
+  // reach them. This lane emits, for both families, exactly what
+  // those lanes would have emitted had the features existed: the
+  // per-service town template (the R2 place form + the five R16
+  // cost/best/how forms + the service's question-bank-v2 local
+  // ai-questions, instantiated with the family's own area name
+  // through the same americanize + {area} substitution R19 uses)
+  // and the generic head family under service-local-regional
+  // (R21's 14 forms in both written forms for the Sperryville city
+  // shape; R21's 2 effective county forms + R27's 6 state-suffixed
+  // county forms for Rappahannock County; R27's 5 lowercase head
+  // forms for Sperryville). BINDING EXCEPTION, by established
+  // doctrine (R24): every R28 row binds the Washington town page
+  // 'movers-in-washington-va' — the page documented as serving
+  // Washington VA and Rappahannock County, and Sperryville's
+  // county-seat page — never a branch variant or service hub, so
+  // the families stay single-headed like their R24 rows.
+  // PLACEMENT (the two late-lane laws): this block sits AFTER R14
+  // (and after R26-late/R27), so no row it emits can displace an
+  // R14 roll-up row — its target is in any case already R24-targeted
+  // before R14 and is not a roll-up page; and it sits BEFORE the
+  // panel/news late rows, the only later generic lanes. The generic
+  // lanes proper (R21/R27) iterate geojson features only, so they
+  // cannot mint stub texts at all — there is no earlier lane for
+  // R28 to pre-empt, and dedupe (global, first-wins) resolves the
+  // one internal overlap ('local movers Sperryville, VA', the R2
+  // form inside R21's set) in favour of the template emit above it
+  // in this same block. Generator version stays 3.1.2 for this
+  // batch; the --check digest is the proof of the row-set change.
+  {
+    const T = 'movers-in-washington-va';
+    const SIDL = 'service-local-regional';
+    const qb2PathR28 = path.join(DATA_ROOT, 'question-bank-v2.json');
+    const qb2R28 = fs.existsSync(qb2PathR28) ? JSON.parse(fs.readFileSync(qb2PathR28, 'utf8')) : {};
+    const localQs = (sid) => (qb2R28[sid] || [])
+      .filter((q) => q && q.local && String(q.text || '').includes('{area}'))
+      .map((q) => americanize(String(q.text || '').trim()))
+      .filter(Boolean);
+    const STUBS = [
+      { id: 'place-sperryville-va', name: 'Sperryville, VA', kind: 'city' },
+      { id: 'place-rappahannock-county-va', name: 'Rappahannock County', kind: 'county' },
+    ];
+    for (const st of STUBS) {
+      // Per-service town template — R2 + R16 + R19-local shapes,
+      // verbatim, bound to the Washington page (binding exception).
+      for (const svc of R.services.services) {
+        const sid = svc.id;
+        const [phrase, plural] = PHRASE[sid];
+        emit(sid, 'navigational-local', phrase + ' ' + st.name, st.id, T, 'R28-stub-place');
+        emit(sid, 'cost', 'how much ' + (plural ? 'do' : 'does') + ' ' + phrase + ' cost in ' + st.name, st.id, T, 'R28-stub-cost');
+        emit(sid, 'cost', phrase + ' cost in ' + st.name, st.id, T, 'R28-stub-cost');
+        emit(sid, 'best-choice', 'best ' + phrase + ' in ' + st.name, st.id, T, 'R28-stub-best');
+        emit(sid, 'best-choice', 'top rated ' + phrase + ' in ' + st.name, st.id, T, 'R28-stub-best');
+        emit(sid, 'how-process', 'how to hire ' + phrase + ' in ' + st.name, st.id, T, 'R28-stub-how');
+        for (const q of localQs(sid)) {
+          emit(sid, 'ai-question', q.split('{area}').join(st.name), st.id, T, 'R28-stub-ai');
+        }
+      }
+      // Generic head family — service-local-regional, R21/R27 shapes.
+      if (st.kind === 'city') {
+        for (const n of [st.name, st.name.replace(/,\s*/g, ' ')]) {
+          emit(SIDL, 'navigational-local', 'movers ' + n, st.id, T, 'R28-stub-generic-movers');
+          emit(SIDL, 'navigational-local', 'movers in ' + n, st.id, T, 'R28-stub-generic-movers-in');
+          emit(SIDL, 'navigational-local', 'moving companies ' + n, st.id, T, 'R28-stub-generic-companies');
+          emit(SIDL, 'navigational-local', 'moving company ' + n, st.id, T, 'R28-stub-generic-company');
+          emit(SIDL, 'navigational-local', 'local movers ' + n, st.id, T, 'R28-stub-generic-local');
+          emit(SIDL, 'navigational-local', 'moving services ' + n, st.id, T, 'R28-stub-generic-services');
+          emit(SIDL, 'best-choice', 'best movers ' + n, st.id, T, 'R28-stub-generic-best');
+          emit(SIDL, 'best-choice', 'best movers in ' + n, st.id, T, 'R28-stub-generic-best-in');
+          emit(SIDL, 'best-choice', 'best moving company in ' + n, st.id, T, 'R28-stub-generic-best-company');
+          emit(SIDL, 'best-choice', 'top rated movers in ' + n, st.id, T, 'R28-stub-generic-top-rated');
+          emit(SIDL, 'cost', 'how much do movers cost in ' + n, st.id, T, 'R28-stub-generic-cost-howmuch');
+          emit(SIDL, 'cost', 'movers cost in ' + n, st.id, T, 'R28-stub-generic-cost-noun');
+          emit(SIDL, 'how-process', 'how to hire movers in ' + n, st.id, T, 'R28-stub-generic-how-hire');
+          emit(SIDL, 'how-process', 'how to find movers in ' + n, st.id, T, 'R28-stub-generic-how-find');
+        }
+        const town = st.name.split(',')[0].trim().toLowerCase();
+        const townst = st.name.replace(/,\s*/g, ' ').toLowerCase();
+        emit(SIDL, 'navigational-local', town + ' movers', st.id, T, 'R28-stub-head-town-movers');
+        emit(SIDL, 'navigational-local', 'moving company in ' + townst, st.id, T, 'R28-stub-head-company-in');
+        emit(SIDL, 'navigational-local', 'residential movers ' + townst, st.id, T, 'R28-stub-head-residential');
+        emit(SIDL, 'navigational-local', 'movers near ' + townst, st.id, T, 'R28-stub-head-near');
+        emit(SIDL, 'navigational-local', 'moving companies in ' + townst, st.id, T, 'R28-stub-head-companies-in');
+      } else {
+        // County shape: R21's county lane carries 2 effective forms
+        // on the stateless county name; R27's county lane adds the
+        // 6 state-suffixed forms (state from the family key: VA).
+        emit(SIDL, 'navigational-local', 'movers in ' + st.name, st.id, T, 'R28-stub-generic-county');
+        emit(SIDL, 'best-choice', 'best movers in ' + st.name, st.id, T, 'R28-stub-generic-county-best');
+        const town = st.name.trim().toLowerCase();
+        const townst = town + ' va';
+        emit(SIDL, 'navigational-local', town + ' movers', st.id, T, 'R28-stub-head-county-movers');
+        emit(SIDL, 'navigational-local', 'moving company in ' + townst, st.id, T, 'R28-stub-head-county-company-in');
+        emit(SIDL, 'navigational-local', 'residential movers ' + townst, st.id, T, 'R28-stub-head-county-residential');
+        emit(SIDL, 'navigational-local', 'movers near ' + townst, st.id, T, 'R28-stub-head-county-near');
+        emit(SIDL, 'navigational-local', 'moving companies in ' + townst, st.id, T, 'R28-stub-head-county-companies-in');
+        emit(SIDL, 'best-choice', 'best movers in ' + townst, st.id, T, 'R28-stub-head-county-best-in');
+      }
+    }
+  }
+
+  // R29 Town Dataset Landings (Town Datasets batch heal, 2026-11-12):
+  // the twelve town dataset landings (datasets/<town-stem>/, backing
+  // files datasets-<town-stem>.json) entered the registry with no
+  // service association (pages.json services=[]), so R13's reverse
+  // DATASETS map cannot reach them without extending
+  // DATASETS['service-local-regional'] — rejected here: R13 hardwires
+  // area=null (this lane must bind place-<stem>), its fileToService
+  // binding is last-wins over the DATASETS map (datasets-gun-safe.json
+  // binds service-vault-door, not service-gun-safe), and extending the
+  // map would rewrite dataset_ids on all 3,311 existing
+  // service-local-regional rows. This gated late lane instead emits
+  // exactly the two rows per landing that R13's form rules produce
+  // for a dataset landing whose per-page JSON carries no Service node
+  // (typeForms empty — measured on all twelve singular
+  // dataset-<stem>.json seats): the slug form (last slug segment,
+  // dashes to spaces) and the title form (registry title's first
+  // segment, lowercased — R13's title rule verbatim), both
+  // navigational-local under R13's class rule, under
+  // service-local-regional (the landings' backing service), bound to
+  // the landing itself with area place-<stem>. All 24 (form, service)
+  // pairs audited absent from the bank before this lane, so dedupe
+  // takes nothing. PLACEMENT (the late-lane laws): AFTER R14 (and
+  // after R26-late/R27/R28), so no roll-up row can be displaced, and
+  // BEFORE the panel/news late rows, the only later generic lanes.
+  // Generator version stays 3.1.2; the --check digest is the proof of
+  // the row-set change.
+  {
+    const R29_STEMS = [
+      'winchester-va', 'martinsburg-wv', 'berryville-va', 'inwood-wv',
+      'shepherdstown-wv', 'charles-town-wv', 'front-royal-va',
+      'strasburg-va', 'woodstock-va', 'berkeley-springs-wv',
+      'washington-va', 'new-market-va',
+    ];
+    for (const stem of R29_STEMS) {
+      const slug = 'datasets/' + stem;
+      const page = V.pageBySlug.get(slug);
+      if (!page) { excluded.push({ reason: 'r29-page-not-in-registry', serviceId: 'service-local-regional', queryText: slug, pattern: 'R29-town-dataset' }); continue; }
+      const slugQuery = page.slug.split('/').pop().replace(/-/g, ' ').replace(/\s+/g, ' ').trim();
+      const titleSegs = String(page.title || '').split(/\s*[—–|]\s*/).map((x) => x.trim()).filter(Boolean)
+        .filter((x) => x.toLowerCase() !== 'category' && !/flat rate movers/i.test(x));
+      const titleQuery = (titleSegs[0] || '').toLowerCase().replace(/\s+/g, ' ').trim();
+      const forms = [];
+      for (const f of [slugQuery, titleQuery]) {
+        if (f && f.split(' ').length >= 2 && !forms.includes(f)) forms.push(f);
+      }
+      for (const form of forms) {
+        emit('service-local-regional', 'navigational-local', form, 'place-' + stem, slug,
+          form === slugQuery ? 'R29-town-dataset-slug' : 'R29-town-dataset-title');
+      }
+    }
+  }
+
   // Fragment-binding late lane (Element 2, 2026-11-02): panel prompts
   // Q1/Q2/Q3 emit here, after R14, through the same R10 gates. Their
   // targets are roll-up pages; emitting them inside the service loop

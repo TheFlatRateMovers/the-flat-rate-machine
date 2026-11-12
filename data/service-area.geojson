@@ -156,8 +156,10 @@
     "county": "Berkeley",
     "postal_code": "25404",
     "branch": "martinsburg",
-    "gbp_service_area": false,
-    "gbp_branches": [],
+    "gbp_service_area": true,
+    "gbp_branches": [
+     "martinsburg"
+    ],
     "audiences": [
      "residential",
      "commercial",
@@ -353,6 +355,11 @@
      "warehouse-relocation",
      "warehouse-racking",
      "ffe-logistics",
+     "data-center-relocation",
+     "freight-rework",
+     "industrial-rigging",
+     "it-relocation",
+     "vault-door",
      "transloading-winchester"
     ],
     "rubric_score": 3
@@ -380,7 +387,7 @@
     "county": "Loudoun",
     "postal_code": "20165",
     "branch": "winchester",
-    "gbp_service_area": true,
+    "gbp_service_area": false,
     "audiences": [
      "residential",
      "commercial",
@@ -804,6 +811,11 @@
      "warehouse-relocation",
      "warehouse-racking",
      "ffe-logistics",
+     "data-center-relocation",
+     "freight-rework",
+     "industrial-rigging",
+     "it-relocation",
+     "vault-door",
      "transloading-winchester"
     ],
     "rubric_score": 3
@@ -875,6 +887,11 @@
      "warehouse-relocation",
      "warehouse-racking",
      "ffe-logistics",
+     "data-center-relocation",
+     "freight-rework",
+     "industrial-rigging",
+     "it-relocation",
+     "vault-door",
      "transloading-winchester"
     ],
     "rubric_score": 3
@@ -946,6 +963,11 @@
      "warehouse-relocation",
      "warehouse-racking",
      "ffe-logistics",
+     "data-center-relocation",
+     "freight-rework",
+     "industrial-rigging",
+     "it-relocation",
+     "vault-door",
      "transloading-winchester"
     ],
     "rubric_score": 3
@@ -1017,6 +1039,11 @@
      "warehouse-relocation",
      "warehouse-racking",
      "ffe-logistics",
+     "data-center-relocation",
+     "freight-rework",
+     "industrial-rigging",
+     "it-relocation",
+     "vault-door",
      "transloading-winchester"
     ],
     "rubric_score": 3
@@ -1044,7 +1071,7 @@
     "county": "Loudoun",
     "postal_code": "20132",
     "branch": "winchester",
-    "gbp_service_area": true,
+    "gbp_service_area": false,
     "audiences": [
      "residential",
      "commercial",
@@ -1120,7 +1147,7 @@
     "county": "Loudoun",
     "postal_code": "20152",
     "branch": "winchester",
-    "gbp_service_area": true,
+    "gbp_service_area": false,
     "audiences": [
      "residential",
      "commercial",
@@ -1164,6 +1191,11 @@
      "warehouse-relocation",
      "warehouse-racking",
      "ffe-logistics",
+     "data-center-relocation",
+     "freight-rework",
+     "industrial-rigging",
+     "it-relocation",
+     "vault-door",
      "transloading-winchester"
     ],
     "rubric_score": 3
@@ -1463,6 +1495,11 @@
      "warehouse-relocation",
      "warehouse-racking",
      "ffe-logistics",
+     "data-center-relocation",
+     "freight-rework",
+     "industrial-rigging",
+     "it-relocation",
+     "vault-door",
      "transloading-winchester"
     ],
     "rubric_score": 3
@@ -1610,6 +1647,11 @@
      "warehouse-relocation",
      "warehouse-racking",
      "ffe-logistics",
+     "data-center-relocation",
+     "freight-rework",
+     "industrial-rigging",
+     "it-relocation",
+     "vault-door",
      "transloading-winchester"
     ],
     "rubric_score": 3
@@ -1757,6 +1799,11 @@
      "warehouse-relocation",
      "warehouse-racking",
      "ffe-logistics",
+     "data-center-relocation",
+     "freight-rework",
+     "industrial-rigging",
+     "it-relocation",
+     "vault-door",
      "transloading-winchester"
     ],
     "rubric_score": 3
@@ -1828,6 +1875,11 @@
      "warehouse-relocation",
      "warehouse-racking",
      "ffe-logistics",
+     "data-center-relocation",
+     "freight-rework",
+     "industrial-rigging",
+     "it-relocation",
+     "vault-door",
      "transloading-winchester"
     ],
     "rubric_score": 3
@@ -1975,6 +2027,11 @@
      "warehouse-relocation",
      "warehouse-racking",
      "ffe-logistics",
+     "data-center-relocation",
+     "freight-rework",
+     "industrial-rigging",
+     "it-relocation",
+     "vault-door",
      "transloading-winchester"
     ],
     "rubric_score": 3
@@ -2002,7 +2059,7 @@
     "county": "Warren",
     "postal_code": "22630",
     "branch": "both",
-    "gbp_service_area": false,
+    "gbp_service_area": true,
     "audiences": [
      "residential",
      "commercial",
@@ -2079,7 +2136,7 @@
     "county": "Shenandoah",
     "postal_code": "22657",
     "branch": "both",
-    "gbp_service_area": false,
+    "gbp_service_area": true,
     "audiences": [
      "residential",
      "commercial",
@@ -2156,7 +2213,7 @@
     "county": "Shenandoah",
     "postal_code": "22664",
     "branch": "both",
-    "gbp_service_area": false,
+    "gbp_service_area": true,
     "audiences": [
      "residential",
      "commercial",
@@ -2277,6 +2334,11 @@
      "warehouse-relocation",
      "warehouse-racking",
      "ffe-logistics",
+     "data-center-relocation",
+     "freight-rework",
+     "industrial-rigging",
+     "it-relocation",
+     "vault-door",
      "transloading-winchester"
     ],
     "rubric_score": 2,
@@ -2305,7 +2367,7 @@
     "county": "Morgan",
     "postal_code": "25411",
     "branch": "martinsburg",
-    "gbp_service_area": false,
+    "gbp_service_area": true,
     "audiences": [
      "residential",
      "commercial",
@@ -2430,6 +2492,7 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
+     "vault-door",
      "transloading-winchester"
     ],
     "rubric_score": 2,
@@ -2579,6 +2642,11 @@
      "warehouse-relocation",
      "warehouse-racking",
      "ffe-logistics",
+     "data-center-relocation",
+     "freight-rework",
+     "industrial-rigging",
+     "it-relocation",
+     "vault-door",
      "transloading-winchester"
     ],
     "rubric_score": 2,
@@ -2770,7 +2838,7 @@
     "citation": "https://theflatratemovers.com/service-area.geojson",
     "state": "WV",
     "branch": "martinsburg",
-    "gbp_service_area": false,
+    "gbp_service_area": true,
     "note": "County representative point at county seat / branch city; full county polygon referenced by county name, not embedded, for file size and scalability.",
     "audiences": [
      "residential",
@@ -2825,7 +2893,7 @@
     "citation": "https://theflatratemovers.com/service-area.geojson",
     "state": "WV",
     "branch": "martinsburg",
-    "gbp_service_area": false,
+    "gbp_service_area": true,
     "note": "County representative point at county seat / branch city; full county polygon referenced by county name, not embedded, for file size and scalability.",
     "audiences": [
      "residential",
@@ -2880,7 +2948,7 @@
     "citation": "https://theflatratemovers.com/service-area.geojson",
     "state": "VA",
     "branch": "winchester",
-    "gbp_service_area": false,
+    "gbp_service_area": true,
     "note": "County representative point at county seat / branch city; full county polygon referenced by county name, not embedded, for file size and scalability.",
     "audiences": [
      "residential",
@@ -2935,7 +3003,7 @@
     "citation": "https://theflatratemovers.com/service-area.geojson",
     "state": "VA",
     "branch": "both",
-    "gbp_service_area": false,
+    "gbp_service_area": true,
     "note": "County representative point at county seat / branch city; full county polygon referenced by county name, not embedded, for file size and scalability.",
     "audiences": [
      "residential",
@@ -2990,7 +3058,7 @@
     "citation": "https://theflatratemovers.com/service-area.geojson",
     "state": "VA",
     "branch": "both",
-    "gbp_service_area": false,
+    "gbp_service_area": true,
     "note": "County representative point at county seat / branch city; full county polygon referenced by county name, not embedded, for file size and scalability.",
     "audiences": [
      "residential",
@@ -3692,8 +3760,10 @@
      "warehouse-racking",
      "ffe-logistics",
      "data-center-relocation",
+     "freight-rework",
      "industrial-rigging",
      "it-relocation",
+     "vault-door",
      "transloading-winchester"
     ],
     "rubric_score": 2
@@ -3769,6 +3839,7 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
+     "vault-door",
      "transloading-winchester"
     ],
     "rubric_score": 2
@@ -3844,6 +3915,7 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
+     "vault-door",
      "transloading-winchester"
     ],
     "rubric_score": 2
@@ -3916,8 +3988,10 @@
      "warehouse-racking",
      "ffe-logistics",
      "data-center-relocation",
+     "freight-rework",
      "industrial-rigging",
      "it-relocation",
+     "vault-door",
      "transloading-winchester"
     ],
     "rubric_score": 2
@@ -3990,8 +4064,10 @@
      "warehouse-racking",
      "ffe-logistics",
      "data-center-relocation",
+     "freight-rework",
      "industrial-rigging",
      "it-relocation",
+     "vault-door",
      "transloading-winchester"
     ],
     "rubric_score": 2
@@ -4067,6 +4143,7 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
+     "vault-door",
      "transloading-winchester"
     ],
     "rubric_score": 2
@@ -4142,6 +4219,7 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
+     "vault-door",
      "transloading-winchester"
     ],
     "rubric_score": 2
@@ -4217,6 +4295,7 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
+     "vault-door",
      "transloading-winchester"
     ],
     "rubric_score": 2
@@ -4396,7 +4475,7 @@
     "county": "Berkeley",
     "postal_code": "25419",
     "branch": "martinsburg",
-    "gbp_service_area": false,
+    "gbp_service_area": true,
     "audiences": [
      "residential",
      "commercial",
@@ -4592,8 +4671,10 @@
      "warehouse-relocation",
      "warehouse-racking",
      "ffe-logistics",
+     "data-center-relocation",
      "freight-rework",
      "industrial-rigging",
+     "it-relocation",
      "vault-door",
      "transloading-winchester"
     ],
@@ -4743,6 +4824,7 @@
      "warehouse-racking",
      "ffe-logistics",
      "data-center-relocation",
+     "freight-rework",
      "industrial-rigging",
      "it-relocation",
      "vault-door",
@@ -4818,6 +4900,7 @@
      "warehouse-racking",
      "ffe-logistics",
      "data-center-relocation",
+     "freight-rework",
      "industrial-rigging",
      "it-relocation",
      "vault-door",
@@ -4893,8 +4976,10 @@
      "warehouse-racking",
      "ffe-logistics",
      "data-center-relocation",
+     "freight-rework",
      "industrial-rigging",
      "it-relocation",
+     "vault-door",
      "transloading-winchester"
     ],
     "rubric_score": 2

@@ -1,6 +1,6 @@
 {
  "attestation": "Every URL below was fetched from the live sitemap on 2026-10-28; titles and service links come from pageMeta in the live site source. No URL was hand-typed.",
- "count": 296,
+ "count": 308,
  "dataset": "pages",
  "generated": "2026-10-29",
  "pages": [
@@ -3661,6 +3661,138 @@
    "title": "Richmond Marine Terminal Logistics Dataset",
    "type": "page",
    "url": "https://theflatratemovers.com/datasets/richmond-marine-terminal/"
+  },
+  {
+   "attested": "2026-11-12",
+   "lastmod": "2026-11-12",
+   "services": [],
+   "slug": "datasets/winchester-va",
+   "source": "Town Datasets batch 2026-11-12 — dataset landing for datasets-winchester-va.json",
+   "status": "live",
+   "title": "Winchester, VA Moving Datasets",
+   "type": "page",
+   "url": "https://theflatratemovers.com/datasets/winchester-va/"
+  },
+  {
+   "attested": "2026-11-12",
+   "lastmod": "2026-11-12",
+   "services": [],
+   "slug": "datasets/martinsburg-wv",
+   "source": "Town Datasets batch 2026-11-12 — dataset landing for datasets-martinsburg-wv.json",
+   "status": "live",
+   "title": "Martinsburg, WV Moving Datasets",
+   "type": "page",
+   "url": "https://theflatratemovers.com/datasets/martinsburg-wv/"
+  },
+  {
+   "attested": "2026-11-12",
+   "lastmod": "2026-11-12",
+   "services": [],
+   "slug": "datasets/berryville-va",
+   "source": "Town Datasets batch 2026-11-12 — dataset landing for datasets-berryville-va.json",
+   "status": "live",
+   "title": "Berryville, VA Moving Datasets",
+   "type": "page",
+   "url": "https://theflatratemovers.com/datasets/berryville-va/"
+  },
+  {
+   "attested": "2026-11-12",
+   "lastmod": "2026-11-12",
+   "services": [],
+   "slug": "datasets/inwood-wv",
+   "source": "Town Datasets batch 2026-11-12 — dataset landing for datasets-inwood-wv.json",
+   "status": "live",
+   "title": "Inwood, WV Moving Datasets",
+   "type": "page",
+   "url": "https://theflatratemovers.com/datasets/inwood-wv/"
+  },
+  {
+   "attested": "2026-11-12",
+   "lastmod": "2026-11-12",
+   "services": [],
+   "slug": "datasets/shepherdstown-wv",
+   "source": "Town Datasets batch 2026-11-12 — dataset landing for datasets-shepherdstown-wv.json",
+   "status": "live",
+   "title": "Shepherdstown, WV Moving Datasets",
+   "type": "page",
+   "url": "https://theflatratemovers.com/datasets/shepherdstown-wv/"
+  },
+  {
+   "attested": "2026-11-12",
+   "lastmod": "2026-11-12",
+   "services": [],
+   "slug": "datasets/charles-town-wv",
+   "source": "Town Datasets batch 2026-11-12 — dataset landing for datasets-charles-town-wv.json",
+   "status": "live",
+   "title": "Charles Town, WV Moving Datasets",
+   "type": "page",
+   "url": "https://theflatratemovers.com/datasets/charles-town-wv/"
+  },
+  {
+   "attested": "2026-11-12",
+   "lastmod": "2026-11-12",
+   "services": [],
+   "slug": "datasets/front-royal-va",
+   "source": "Town Datasets batch 2026-11-12 — dataset landing for datasets-front-royal-va.json",
+   "status": "live",
+   "title": "Front Royal, VA Moving Datasets",
+   "type": "page",
+   "url": "https://theflatratemovers.com/datasets/front-royal-va/"
+  },
+  {
+   "attested": "2026-11-12",
+   "lastmod": "2026-11-12",
+   "services": [],
+   "slug": "datasets/strasburg-va",
+   "source": "Town Datasets batch 2026-11-12 — dataset landing for datasets-strasburg-va.json",
+   "status": "live",
+   "title": "Strasburg, VA Moving Datasets",
+   "type": "page",
+   "url": "https://theflatratemovers.com/datasets/strasburg-va/"
+  },
+  {
+   "attested": "2026-11-12",
+   "lastmod": "2026-11-12",
+   "services": [],
+   "slug": "datasets/woodstock-va",
+   "source": "Town Datasets batch 2026-11-12 — dataset landing for datasets-woodstock-va.json",
+   "status": "live",
+   "title": "Woodstock, VA Moving Datasets",
+   "type": "page",
+   "url": "https://theflatratemovers.com/datasets/woodstock-va/"
+  },
+  {
+   "attested": "2026-11-12",
+   "lastmod": "2026-11-12",
+   "services": [],
+   "slug": "datasets/berkeley-springs-wv",
+   "source": "Town Datasets batch 2026-11-12 — dataset landing for datasets-berkeley-springs-wv.json",
+   "status": "live",
+   "title": "Berkeley Springs, WV Moving Datasets",
+   "type": "page",
+   "url": "https://theflatratemovers.com/datasets/berkeley-springs-wv/"
+  },
+  {
+   "attested": "2026-11-12",
+   "lastmod": "2026-11-12",
+   "services": [],
+   "slug": "datasets/washington-va",
+   "source": "Town Datasets batch 2026-11-12 — dataset landing for datasets-washington-va.json",
+   "status": "live",
+   "title": "Washington, VA Moving Datasets",
+   "type": "page",
+   "url": "https://theflatratemovers.com/datasets/washington-va/"
+  },
+  {
+   "attested": "2026-11-12",
+   "lastmod": "2026-11-12",
+   "services": [],
+   "slug": "datasets/new-market-va",
+   "source": "Town Datasets batch 2026-11-12 — dataset landing for datasets-new-market-va.json",
+   "status": "live",
+   "title": "New Market, VA Moving Datasets",
+   "type": "page",
+   "url": "https://theflatratemovers.com/datasets/new-market-va/"
   },
   {
    "attested": "2026-11-10",
