@@ -2036,7 +2036,9 @@ function generate() {
   // gated emit() path, to the new town landing page built for the
   // seize (owner order 2026-11-10). The town was then outside the
   // published footprint (New Market precedent: page + bindings, no
-  // geojson change); on 2026-11-12 Washington joined the published
+  // geojson change — New Market itself joined the footprint on
+  // 2026-11-12 in batch-six-town-follow-on-2026-11-12); on
+  // 2026-11-12 Washington joined the published
   // footprint as place-washington-va (Winchester branch) in
   // service-area.geojson, with the full build (geo + matrix +
   // rubric) in batch-washington-va-full-build-2026-11-12. Defended

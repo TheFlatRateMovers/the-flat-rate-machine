@@ -3474,7 +3474,7 @@
     "service-local-regional"
    ],
    "slug": "movers-in-new-market-va",
-   "source": "Pack Claim batch (2026-11-10) — new town landing page for the scouted map-pack target \"movers in new market, va\" (owner order 2026-11-10: all ten packs). Branch facts from the verified branch record; town and county from the published service-area data (service-area.geojson); FAQ 7, visible and schema byte-equal; the exact pack phrasing family is bound to this page by the R23 block of build-intent-rubric.js.",
+   "source": "Pack Claim batch (2026-11-10) — new town landing page for the scouted map-pack target \"movers in new market, va\" (owner order 2026-11-10: all ten packs). Branch facts from the verified branch record; town and county from the published service-area data; the town joined the published footprint 2026-11-12 as place-new-market-va, Winchester branch, with the full build (geo + matrix + rubric) in batch-six-town-follow-on-2026-11-12; FAQ 7, visible and schema byte-equal; the exact pack phrasing family is bound to this page by the R23 block of build-intent-rubric.js.",
    "status": "live",
    "title": "Movers in New Market, VA",
    "type": "service",

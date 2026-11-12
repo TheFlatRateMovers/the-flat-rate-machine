@@ -1534,6 +1534,11 @@
      "warehouse-relocation",
      "warehouse-racking",
      "ffe-logistics",
+     "data-center-relocation",
+     "freight-rework",
+     "industrial-rigging",
+     "it-relocation",
+     "vault-door",
      "transloading-winchester"
     ],
     "rubric_score": 3
@@ -5730,6 +5735,82 @@
     ],
     "rubric_score": 2,
     "rubric_note": "Score 2: coordinates verified by map geocoding 2026-11-12; expansion city with a dedicated page, not a GBP service area. Served as part of the Winchester branch footprint, not presented as a GBP area."
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "place-new-market-va",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -78.67235,
+     38.64641
+    ]
+   },
+   "properties": {
+    "id": "place-new-market-va",
+    "name": "New Market, VA",
+    "type": "city",
+    "source": "Town page built 2026-11-10 (pack-claim batch, R23 bindings); coordinates via map geocoding 2026-11-12; joined the published footprint 2026-11-12 in batch-six-town-follow-on-2026-11-12 (geo + matrix + rubric full build)",
+    "verified": "2026-11-12",
+    "provider": "https://theflatratemovers.com/#organization",
+    "citation": "https://theflatratemovers.com/service-area.geojson",
+    "state": "VA",
+    "county": "Shenandoah",
+    "postal_code": "22844",
+    "branch": "winchester",
+    "gbp_service_area": false,
+    "audiences": [
+     "residential",
+     "commercial",
+     "industrial",
+     "government",
+     "military"
+    ],
+    "services": [
+     "residential-moving",
+     "commercial-moving",
+     "office-moving",
+     "industrial-offices",
+     "government-moving",
+     "military-moving",
+     "packing",
+     "custom-crating",
+     "ispm15-export-packing",
+     "loading",
+     "transloading",
+     "final-mile",
+     "warehouse-distribution",
+     "commercial-relocation",
+     "ffe-installation",
+     "flexible-deployment",
+     "ocean-container",
+     "pods",
+     "restacking",
+     "gun-safe",
+     "piano-antique",
+     "senior-moving",
+     "junk-removal",
+     "hoarding-cleanup",
+     "local-regional",
+     "long-distance",
+     "moving-and-storage",
+     "white-glove",
+     "route-81",
+     "medical-lab",
+     "logistics-project-management",
+     "3pl-support",
+     "warehouse-relocation",
+     "warehouse-racking",
+     "ffe-logistics",
+     "data-center-relocation",
+     "freight-rework",
+     "industrial-rigging",
+     "it-relocation",
+     "vault-door",
+     "transloading-winchester"
+    ],
+    "rubric_score": 3
    }
   }
  ],
