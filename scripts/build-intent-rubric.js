@@ -2002,6 +2002,11 @@ function generate() {
       ['place-charles-town-wv', 'charles town wv', 'moving-company-charles-town-wv'],
       ['place-shepherdstown-wv', 'shepherdstown wv', 'movers-in-shepherdstown-wv'],
       ['place-inwood-wv', 'inwood wv', 'moving-company-inwood-wv'],
+      // Three-Town Authority (2026-11-12): Front Royal was a pack
+      // target in R23's own batch, but only its white-glove page was
+      // built then — the movers forms had no page to bind. The town
+      // page now exists; the same seven forms bind to it here.
+      ['place-front-royal-va', 'front royal va', 'movers-in-front-royal-va'],
     ];
     for (const [place, n, target] of TOWNS) {
       emit('service-local-regional', 'navigational-local', 'movers in ' + n, place, target, 'R23-pack-claim');

@@ -23,7 +23,14 @@ batch the rest of the way, in this order:
   2. Full live verify — deployment-unique URL first (verify.js
      --base-url), then the production alias run as the closing gate.
   3. API refresh (bundle -> tests -> worker deploy).
-  4. Pulse seal mode (IndexNow from the signed-index diff; the prior
+  4. Sitemap re-submission (Search Console API, added 2026-11-11):
+     the six sitemap files are re-submitted via
+     scripts/submit-sitemaps.py so Google re-reads the maps at the
+     new seal without waiting for its own refetch schedule.
+     WARN-ONLY: a Google-side failure prints loudly and is named,
+     but never fails the close — the deploy is already verified
+     live by this point in the sequence.
+  5. Pulse seal mode (IndexNow from the signed-index diff; the prior
      is the seal's own phase-0 snapshot, out/seal-work/prior-index.json).
 
 A failure at any step exits nonzero and stops the sequence — a batch
@@ -34,7 +41,8 @@ scripts/push-mirrors.py (persistent clones, one commit per repo;
 git push over the SSH deploy-key route since 2026-11-03, the
 connector one-shot only as a reported fallback when git fails).
 Timings print per step. Steps can be skipped individually for repair
-runs (--skip-deploy/--skip-push/--skip-verify/--skip-api/--skip-pulse);
+runs (--skip-deploy/--skip-push/--skip-verify/--skip-api/
+--skip-sitemaps/--skip-pulse);
 a skipped step is printed as SKIPPED, never silently.
 """
 import argparse
@@ -185,6 +193,7 @@ def main():
     ap.add_argument("--skip-push", action="store_true")
     ap.add_argument("--skip-verify", action="store_true")
     ap.add_argument("--skip-api", action="store_true")
+    ap.add_argument("--skip-sitemaps", action="store_true")
     ap.add_argument("--skip-pulse", action="store_true")
     ap.add_argument("--pulse-prior", default=None,
                     help="index JSON to diff Pulse against (default: "
@@ -312,14 +321,37 @@ def main():
             print(out[-3000:])
             fail("API worker deploy failed")
 
-    # 4. Pulse (seal mode; prior defaults to the seal's phase-0
+    # 4. Sitemap re-submission (Search Console API, 2026-11-11):
+    # the six sitemap files, live at the new seal since step 1 and
+    # proven by step 2, are re-submitted so Google re-reads them
+    # now. WARN-ONLY by design: Google being unreachable cannot be
+    # allowed to fail a close — a failure prints loudly here, the
+    # close completes, and scripts/submit-sitemaps.py re-runs by
+    # hand once Google answers again.
+    if args.skip_sitemaps:
+        print("--- 4. sitemap re-submission SKIPPED")
+    else:
+        print("--- 4. sitemap re-submission (Search Console API)",
+              flush=True)
+        rc, out, dt = run([sys.executable, os.path.join(
+            ROOT, "scripts", "submit-sitemaps.py")],
+            label="submit-sitemaps")
+        timings["sitemaps"] = dt
+        print("\n".join(out.strip().splitlines()))
+        if rc != 0:
+            print("    WARNING: sitemap re-submission FAILED "
+                  "(the failing file(s) are named above) — the "
+                  "close continues; re-run "
+                  "scripts/submit-sitemaps.py by hand to retry.")
+
+    # 5. Pulse (seal mode; prior defaults to the seal's phase-0
     # snapshot — a batch that sealed more than once passes the
     # PRE-BATCH index via --pulse-prior, since the last seal's
     # snapshot is its own predecessor, not the batch's baseline)
     if args.skip_pulse:
-        print("--- 4. Pulse SKIPPED")
+        print("--- 5. Pulse SKIPPED")
     else:
-        print("--- 4. Pulse (seal mode)", flush=True)
+        print("--- 5. Pulse (seal mode)", flush=True)
         prior = args.pulse_prior or os.path.join(WORK,
                                                  "prior-index.json")
         if not os.path.exists(prior):
