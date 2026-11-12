@@ -2450,6 +2450,89 @@ function generate() {
     }
   }
 
+  // R27 Head-Form Completion (2026-11-12): the full-estate audit of
+  // all 83 geojson features (case-insensitive exact reads of
+  // rubric.db; batch record: out/batch-head-form-rubric-buildup-
+  // 2026-11-12) found the generic head family still missing its
+  // exact lowercase forms. For all 62 cities: "<town> movers",
+  // "moving company in <town> <st>", "residential movers
+  // <town> <st>" and "moving companies in <town> <st>" sat at zero
+  // rows in any case, and "movers near <town> <st>" existed only
+  // for Washington (R24). The two branch hubs already carried
+  // "<town> movers", "residential movers <town> <st>" and "movers
+  // near <town> <st>" via the R26 late lane, but lacked the two
+  // "in" forms. The 12 county families lacked all six forms in
+  // their state-suffixed spellings (their stateless spellings are
+  // R21's county lane and stay untouched). "best movers in
+  // <town> <st>" audited PRESENT in every city and branch family
+  // (R21 written forms; lowercase via R23 for the pack towns) and
+  // is NOT emitted for towns. Emitted here — in the late lane,
+  // after R14 and the R26 branch lane, so no roll-up row can be
+  // displaced — through the same gated emit() path, under
+  // service-local-regional (the generic-local owner, R21/R23
+  // precedent), bound by the R21 genericTarget resolution
+  // (headTarget below is that function, carried verbatim) so each
+  // place's new rows land on the exact page its family already
+  // targets: the town page where one exists, the owning spoke or
+  // hub where none does, the branch hub for branch places.
+  // Dedupe keeps every pre-existing binding — Washington's R24
+  // "movers near washington va" row stands, and the branch hubs'
+  // R26 rows are not re-minted. The 7 landmark / region /
+  // corridor features carry no rubric family (zero rows) and are
+  // out of scope.
+  // Name collision (measured on this batch's first regen): the
+  // bare "<town> movers" string is unique per service in the bank,
+  // and two features share the town name Washington — Washington,
+  // VA (own movers page, the seized town) and Washington, DC (no
+  // page of its own; its family binds the local-regional hub).
+  // F1 therefore emits dedicated-target places BEFORE hub-bound
+  // ones: the place with its own page owns the bare string, and a
+  // hub-bound same-name place's F1 emit dedupes against it. Every
+  // other form carries the state suffix and cannot collide.
+  {
+    const SID = 'service-local-regional';
+    const townSlugOf = (name) => name.toLowerCase().replace(/,\s*/g, '-').replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+    const headTarget = (p) => {
+      const ts = townSlugOf(p.name);
+      const cands = p.type === 'branch'
+        ? ['moving-company-' + ts, ts + '-movers-full-service-guide']
+        : [ts + '-movers-full-service-guide', 'moving-company-' + ts];
+      for (const cand of cands) {
+        if (V.pageBySlug.has(cand)) return cand;
+      }
+      const spokes = (V.svcPages.get(SID) || []).filter((s) => s.includes(ts));
+      return spokes[0] || HUB[SID];
+    };
+    const townPlaces = features
+      .filter((x) => x.properties.type === 'city' || x.properties.type === 'branch')
+      .map((f) => ({ p: f.properties, target: headTarget(f.properties) }));
+    const f1Order = townPlaces.slice().sort((a, b) =>
+      (a.target === HUB[SID] ? 1 : 0) - (b.target === HUB[SID] ? 1 : 0));
+    for (const { p, target } of f1Order) {
+      const town = p.name.split(',')[0].trim().toLowerCase();
+      emit(SID, 'navigational-local', town + ' movers', p.id, target, 'R27-head-town-movers');
+    }
+    for (const { p, target } of townPlaces) {
+      const townst = p.name.replace(/,\s*/g, ' ').toLowerCase();
+      emit(SID, 'navigational-local', 'moving company in ' + townst, p.id, target, 'R27-head-company-in');
+      emit(SID, 'navigational-local', 'residential movers ' + townst, p.id, target, 'R27-head-residential');
+      emit(SID, 'navigational-local', 'movers near ' + townst, p.id, target, 'R27-head-near');
+      emit(SID, 'navigational-local', 'moving companies in ' + townst, p.id, target, 'R27-head-companies-in');
+    }
+    for (const f of features.filter((x) => x.properties.type === 'county')) {
+      const p = f.properties;
+      const target = headTarget(p);
+      const town = p.name.trim().toLowerCase();
+      const townst = town + ' ' + (p.state || '').toLowerCase();
+      emit(SID, 'navigational-local', town + ' movers', p.id, target, 'R27-head-county-movers');
+      emit(SID, 'navigational-local', 'moving company in ' + townst, p.id, target, 'R27-head-county-company-in');
+      emit(SID, 'navigational-local', 'residential movers ' + townst, p.id, target, 'R27-head-county-residential');
+      emit(SID, 'navigational-local', 'movers near ' + townst, p.id, target, 'R27-head-county-near');
+      emit(SID, 'navigational-local', 'moving companies in ' + townst, p.id, target, 'R27-head-county-companies-in');
+      emit(SID, 'best-choice', 'best movers in ' + townst, p.id, target, 'R27-head-county-best-in');
+    }
+  }
+
   // Fragment-binding late lane (Element 2, 2026-11-02): panel prompts
   // Q1/Q2/Q3 emit here, after R14, through the same R10 gates. Their
   // targets are roll-up pages; emitting them inside the service loop
