@@ -3477,6 +3477,401 @@ function generate() {
     } catch (e) { /* accounting is diagnostic; generation never fails on it */ }
   }
 
+  // R34 Scope-Layer Completion (Wave 3 of the Complete Dynamic
+  // Cell-Rubric Build, 2026-11-12; spec:
+  // out/cell-rubric-build-2026-11-12/BUILD-SPEC.md, Wave 3 — the
+  // spec numbers this lane R33; the Wave 2 place-grid lane took R33,
+  // so it lands here as R34, and Wave 4 shifts to R35 likewise).
+  //
+  // Scope: every non-place, non-B2B cell in the grid (2,312 cells):
+  // the 12 county FEATURES to the county standard (11), the three
+  // interstate corridors to the all-intents corridor standard (6),
+  // the two regions to the region standard (7), the two landmark
+  // ports to the port standard (5), and the national layer — the
+  // FULL 34-service registry x 49 states — to the national standard
+  // (6). The work order is derived in-run from the machine data
+  // alone (service-area.geojson county / landmark-port features,
+  // data/corridors.json, data/national-scope.json), per the R30
+  // determinism law: the lane reads NOTHING from rubric.db and
+  // nothing from the census file; cell counts come from this run's
+  // own rows array at this point — the live bank's exact regenerated
+  // equivalent — so build and --check runs see identical inputs.
+  // BANK AREA KEYS follow the bank's own conventions, which the
+  // census maps to its units: counties and landmark ports carry
+  // their geojson feature ids; corridors carry the corridors.json
+  // ids (i-81 / i-66 / i-70); Shenandoah Valley carries the standing
+  // scope key scope-shenandoah-valley; the Eastern Panhandle carries
+  // its geojson feature id; national rows carry state-<abbr> from
+  // national-scope.json (the binding registry for the state set —
+  // TM-6: exactly the 49 states, Hawaii excluded).
+  // BINDING (never a guessed slug): the modal target the bank itself
+  // uses for (service, area) at this point in the run (r30ModalSlug);
+  // else, per layer — county: the county branch's branch page for
+  // the service, else the hub (the R2/R16 rule); corridor: the
+  // corridor page when the service owns it, else the hub (the R4
+  // rule); Eastern Panhandle: the Martinsburg branch page, else the
+  // hub (the scope rule — the Panhandle is Martinsburg's ground);
+  // Shenandoah Valley, ports and the national layer: the service
+  // hub. Layer discipline (spec, Wave 3): the rubric layer's
+  // coverage standard is the full registry; the PUBLISHED national
+  // dataset keeps its per-state performed-service floor as
+  // published fact — this lane does not touch the published record.
+  // FORMS: the proven set per layer — county: the R33 candidate
+  // stack verbatim at the county name; corridor: the R4/R18 three
+  // forms plus the missing cost / how / ai forms, so the cell
+  // carries all five intents; region: the R5/R6/R7 scope set plus
+  // the nav + ai forms the region standard adds; port: the scope
+  // set at the port door; national: the scope set plus one state
+  // nav form. Aspect ai forms bind only confirmed ADVANTAGE-MAP
+  // anchors — the R34 aspect map below is the R33 map verbatim —
+  // filtered at scope layers to forms that read at a scope phrase
+  // (no 'near {P}' forms, no place-nav forms). Emission stops per
+  // cell at its standard; every candidate passes the R30 normalized
+  // guard plus emit()'s exact dedupe and R10 gates.
+  const R34_STATS = { emitted: 0, skippedNormalized: 0, gateOrDup: 0, cellsCompleted: 0, cellsAlreadyComplete: 0, cellsShort: [], byLayer: {}, cellsByLayer: {} };
+  {
+    const R34_ASPECT = {
+      'service-residential': [
+        ['best-choice', 'flat rate movers in {P}'],
+        ['ai-question', 'do movers in {P} give a flat rate quote in writing'],
+        ['navigational-local', 'full service movers in {P}'],
+      ],
+      'service-commercial': [
+        ['ai-question', 'can a commercial mover in {P} price the whole job at one flat rate'],
+        ['how-process', 'how does a full scope commercial relocation in {P} work'],
+        ['best-choice', 'commercial movers with a flat rate guarantee in {P}'],
+      ],
+      'service-local-regional': [
+        ['best-choice', 'best local movers in {P}'],
+        ['ai-question', 'which local movers in {P} quote a flat rate in writing'],
+        ['navigational-local', 'local moving company in {P}'],
+      ],
+      'service-long-distance': [
+        ['ai-question', 'who does long distance moves from {P} with a flat rate in writing'],
+        ['navigational-local', 'long distance moving company in {P}'],
+        ['best-choice', 'best long distance movers from {P}'],
+      ],
+      'service-packing': [
+        ['ai-question', 'do packing services in {P} include export packing'],
+        ['navigational-local', 'full packing services in {P}'],
+        ['how-process', 'how do packers prepare fragile items in {P}'],
+      ],
+      'service-sir-heavy': [
+        ['ai-question', 'who moves heavy equipment in the 1500 to 3500 lb range in {P}'],
+        ['ai-question', 'what is SIR for heavy asset moves in {P}'],
+        ['navigational-local', 'heavy equipment movers in {P}'],
+      ],
+      'service-gun-safe': [
+        ['ai-question', 'who moves gun safes up and down stairs in {P}'],
+        ['ai-question', 'can a gun safe mover re-anchor a safe in {P}'],
+        ['navigational-local', 'gun safe moving company in {P}'],
+      ],
+      'service-piano-antique': [
+        ['ai-question', 'who moves museum items in {P}'],
+        ['navigational-local', 'antique movers in {P}'],
+        ['ai-question', 'who moves pianos and antiques in {P} with white glove handling'],
+      ],
+      'service-ispm15': [
+        ['ai-question', 'who performs ISPM 15 export packing in {P}'],
+        ['navigational-local', 'export packing services in {P}'],
+        ['how-process', 'how does ISPM 15 export packing work in {P}'],
+      ],
+      'service-crating': [
+        ['ai-question', 'who builds custom crates for high value items in {P}'],
+        ['navigational-local', 'custom crating services in {P}'],
+        ['ai-question', 'can crating in {P} handle museum items'],
+      ],
+      'service-transloading': [
+        ['navigational-local', 'transloading services in {P} for freight professionals'],
+        ['ai-question', 'who does transloading quoted per job in {P}'],
+        ['how-process', 'how does transloading work in {P}'],
+      ],
+      'service-final-mile': [
+        ['ai-question', 'who does carrier terminal pickup for final mile delivery in {P}'],
+        ['ai-question', 'what is the difference between final mile delivery and white glove delivery in {P}'],
+        ['navigational-local', 'final mile delivery services in {P}'],
+      ],
+      'service-white-glove': [
+        ['ai-question', 'who does white glove delivery with full assembly and no exclusions in {P}'],
+        ['ai-question', 'which white glove movers take three stage photos in {P}'],
+        ['navigational-local', 'white glove movers in {P}'],
+      ],
+      'service-office-moving': [
+        ['how-process', 'how is an office move in {P} sequenced'],
+        ['ai-question', 'who does office moves in {P} at one flat rate'],
+        ['navigational-local', 'office moving company in {P}'],
+      ],
+      'service-industrial-offices': [
+        ['ai-question', 'who moves industrial offices in {P} under one engagement'],
+        ['navigational-local', 'industrial office movers in {P}'],
+        ['how-process', 'how does an industrial office relocation in {P} work'],
+      ],
+      'service-government': [
+        ['ai-question', 'who does government moving in {P} for federal agencies'],
+        ['navigational-local', 'government moving company in {P}'],
+        ['best-choice', 'best government movers in {P}'],
+      ],
+      'service-military': [
+        ['navigational-local', 'military moving company in {P}'],
+        ['ai-question', 'who does military moves in {P}'],
+        ['best-choice', 'best military movers in {P}'],
+      ],
+      'service-route81': [
+        ['navigational-local', 'movers on the I-81 corridor near {P}'],
+        ['ai-question', 'who is the Route 81 moving company for {P}'],
+        ['best-choice', 'best I-81 corridor movers for {P}'],
+      ],
+      'service-industrial-commercial': [
+        ['ai-question', 'what is the CWT rate for unloading freight in {P}'],
+        ['navigational-local', 'industrial moving services in {P}'],
+        ['how-process', 'how do industrial movers price freight handling in {P}'],
+      ],
+      'service-senior-moving': [
+        ['ai-question', 'who does estate moves for seniors in {P}'],
+        ['navigational-local', 'senior moving company in {P}'],
+        ['best-choice', 'best senior movers in {P}'],
+      ],
+      'service-warehouse-relocation': [
+        ['ai-question', 'what is the standard CWT pricing for a warehouse move in {P}'],
+        ['how-process', 'how are warehouse moves planned around the site in {P}'],
+        ['navigational-local', 'warehouse movers in {P}'],
+      ],
+      'service-it-relocation': [
+        ['ai-question', 'how do IT movers keep chain of custody on laptops and drives in {P}'],
+        ['navigational-local', 'IT equipment movers with background-checked crews in {P}'],
+        ['ai-question', 'can IT movers de-rack and re-rack servers in {P}'],
+      ],
+      'service-transloading-winchester-va': [
+        ['ai-question', 'who does transloading near the Virginia Inland Port for freight from {P}'],
+        ['navigational-local', 'Winchester VA transloading services for {P} freight'],
+        ['how-process', 'how does Winchester transloading work for freight from {P}'],
+      ],
+      'service-moving-and-storage': [
+        ['ai-question', 'is climate controlled storage space available in {P}'],
+        ['ai-question', 'who offers storage with a 30 day minimum in {P}'],
+        ['navigational-local', 'moving and storage company in {P}'],
+      ],
+      'service-junk-removal': [
+        ['ai-question', 'who gives a flat rate junk removal quote in writing in {P}'],
+        ['how-process', 'how does junk removal sorting and routing work in {P}'],
+        ['navigational-local', 'junk removal company in {P}'],
+      ],
+      'service-warehouse-racking-relocation': [
+        ['ai-question', 'who reinstalls pallet racking to ANSI MH16.1 in {P}'],
+        ['ai-question', 'who does racking teardown labeled bay by bay in {P}'],
+        ['navigational-local', 'pallet racking movers in {P}'],
+      ],
+      'service-ffe-logistics': [
+        ['ai-question', 'who does FF&E receiving and installation support in {P}'],
+        ['how-process', 'how does FF&E dock inventory and condition documentation work in {P}'],
+        ['navigational-local', 'FF&E movers in {P}'],
+      ],
+      'service-data-center-relocation': [
+        ['ai-question', 'can data center movers de-rack and re-rack servers in {P}'],
+        ['navigational-local', 'data center movers with background-checked crews in {P}'],
+        ['ai-question', 'who provides the physical layer of a data center move in {P} while our team handles the workloads'],
+      ],
+      'service-medical-lab-relocation': [
+        ['ai-question', 'who moves commercial lab and medical equipment in {P}'],
+        ['navigational-local', 'medical equipment movers in {P}'],
+        ['how-process', 'how are lab equipment moves in {P} handled under one engagement'],
+      ],
+      'service-freight-rework-transloading': [
+        ['ai-question', 'who does freight rework and transloading in {P} for freight professionals'],
+        ['navigational-local', 'freight rework services in {P}'],
+        ['how-process', 'how does freight rework work in {P}'],
+      ],
+      'service-logistics-project-management': [
+        ['ai-question', 'who manages logistics projects with a single project lead in {P}'],
+        ['how-process', 'how does a logistics project survey work in {P}'],
+        ['navigational-local', 'logistics project managers in {P}'],
+      ],
+      'service-3pl-support': [
+        ['ai-question', 'who provides 3PL labor support in {P}'],
+        ['ai-question', 'can a 3PL support company in {P} handle any size contract'],
+        ['navigational-local', '3PL support services in {P}'],
+      ],
+      'service-vault-door': [
+        ['ai-question', 'who installs vault doors of any size in {P}'],
+        ['navigational-local', 'vault door moving company in {P}'],
+        ['ai-question', 'can a vault door mover re-anchor a vault in {P}'],
+      ],
+      'service-hoarding-cleanup': [
+        ['ai-question', 'who does discreet hoarding cleanouts in {P}'],
+        ['ai-question', 'who does emergency hoarding cleanup in {P}'],
+        ['navigational-local', 'hoarding cleanup services in {P}'],
+      ],
+    };
+    // question-bank-v2 local ai-questions (county lane), as R33.
+    const qb2R34Path = path.join(DATA_ROOT, 'question-bank-v2.json');
+    const qb2R34 = fs.existsSync(qb2R34Path) ? JSON.parse(fs.readFileSync(qb2R34Path, 'utf8')) : {};
+    const localQsR34 = (sid) => (qb2R34[sid] || [])
+      .filter((q) => q && q.local && String(q.text || '').includes('{area}'))
+      .map((q) => americanize(String(q.text || '').trim()))
+      .filter(Boolean);
+    // Aspect forms at a scope phrase P: drop the forms that only
+    // read at a place ('near {P}' forms; the route81 place-nav).
+    const aspectFor = (sid, P) => (R34_ASPECT[sid] || [])
+      .filter(([cls, tpl]) => !tpl.includes('near {P}') && !tpl.startsWith('movers on the'))
+      .map(([cls, tpl]) => [cls, tpl.split('{P}').join(P)]);
+    // Cell counts from this run's own rows array (R30 determinism law).
+    const r34Count = new Map();
+    for (const r of rows) {
+      if (!r.area) continue;
+      const k = r.service_id + '|' + r.area;
+      r34Count.set(k, (r34Count.get(k) || 0) + 1);
+    }
+    const r34Cell = (layer, area, min, sid, target, pattern, candidates) => {
+      const key = sid + '|' + area;
+      let count = r34Count.get(key) || 0;
+      if (!R34_STATS.cellsByLayer[layer]) R34_STATS.cellsByLayer[layer] = { completed: 0, alreadyComplete: 0, short: 0 };
+      if (count >= min) { R34_STATS.cellsAlreadyComplete++; R34_STATS.cellsByLayer[layer].alreadyComplete++; return; }
+      for (const [cls, text] of candidates) {
+        if (count >= min) break;
+        const nk = sid + '|' + r30Norm(text);
+        if (r30NormSeen.has(nk)) { R34_STATS.skippedNormalized++; continue; }
+        const ok = emit(sid, cls, text, area, target, pattern);
+        if (ok) {
+          R34_STATS.emitted++;
+          R34_STATS.byLayer[layer] = (R34_STATS.byLayer[layer] || 0) + 1;
+          count++;
+          r34Count.set(key, count);
+          r30NormSeen.set(nk, text);
+        } else {
+          R34_STATS.gateOrDup++;
+        }
+      }
+      if (count >= min) { R34_STATS.cellsCompleted++; R34_STATS.cellsByLayer[layer].completed++; }
+      else { R34_STATS.cellsShort.push({ layer, service: sid, area, count }); R34_STATS.cellsByLayer[layer].short++; }
+    };
+    // --- County features (standard 11): the R33 stack verbatim ---
+    for (const f of features) {
+      const p = f.properties;
+      if (p.type !== 'county') continue;
+      for (const svc of R.services.services) {
+        const sid = svc.id;
+        const [phrase, plural] = PHRASE[sid];
+        const P = p.name;
+        const target = r30ModalSlug(sid, p.id) || branchPage(R, V, sid, p.branch) || HUB[sid];
+        r34Cell('county', p.id, 11, sid, target, 'R34-county', [
+          ['navigational-local', phrase + ' ' + P],
+          ['navigational-local', phrase + ' in ' + P],
+          ['cost', 'how much ' + (plural ? 'do' : 'does') + ' ' + phrase + ' cost in ' + P],
+          ['cost', phrase + ' cost in ' + P],
+          ['best-choice', 'best ' + phrase + ' in ' + P],
+          ['best-choice', 'top rated ' + phrase + ' in ' + P],
+          ['how-process', 'how to hire ' + phrase + ' in ' + P],
+          ['how-process', 'how to find ' + phrase + ' in ' + P],
+          ...(R34_ASPECT[sid] || []).map(([cls, tpl]) => [cls, tpl.split('{P}').join(P)]),
+          ...localQsR34(sid).slice(0, 3).map((q) => ['ai-question', q.split('{area}').join(P)]),
+          ['navigational-local', phrase + ' near ' + P],
+          ['best-choice', 'best ' + phrase + ' near ' + P],
+        ]);
+      }
+    }
+    // --- Corridors (standard 6): R4/R18 forms + the missing intents ---
+    for (const c of R.corridors.corridors) {
+      const S = CORRIDOR_SHORT[c.id];
+      const C = 'the ' + S + ' corridor';
+      for (const svc of R.services.services) {
+        const sid = svc.id;
+        const [phrase, plural] = PHRASE[sid];
+        const target = r30ModalSlug(sid, c.id) || ((V.svcPages.get(sid) || []).includes(c.page) ? c.page : HUB[sid]);
+        r34Cell('corridor', c.id, 6, sid, target, 'R34-corridor', [
+          ['navigational-local', phrase + ' ' + S],
+          ['navigational-local', phrase + ' ' + S + ' corridor'],
+          ['best-choice', 'best ' + phrase + ' ' + S + ' corridor'],
+          ['cost', 'how much ' + (plural ? 'do' : 'does') + ' ' + phrase + ' cost on ' + C],
+          ['how-process', 'how to hire ' + phrase + ' on ' + C],
+          ...aspectFor(sid, C),
+          ['ai-question', 'who provides ' + phrase + ' on ' + C + ' with a flat rate in writing'],
+          ['cost', phrase + ' cost on ' + C],
+          ['best-choice', 'top rated ' + phrase + ' ' + S + ' corridor'],
+          ['navigational-local', phrase + ' along ' + S],
+        ]);
+      }
+    }
+    // --- Regions (standard 7): the scope set + nav + ai ---
+    const R34_REGIONS = [
+      { area: 'scope-shenandoah-valley', label: 'the Shenandoah Valley', branch: null },
+      { area: 'landmark-eastern-panhandle-of-west-virginia', label: 'the Eastern Panhandle', branch: 'martinsburg' },
+    ];
+    for (const U of R34_REGIONS) {
+      for (const svc of R.services.services) {
+        const sid = svc.id;
+        const [phrase, plural] = PHRASE[sid];
+        const L = U.label;
+        const target = r30ModalSlug(sid, U.area) || (U.branch ? branchPage(R, V, sid, U.branch) : null) || HUB[sid];
+        r34Cell('region', U.area, 7, sid, target, 'R34-region', [
+          ['navigational-local', phrase + ' in ' + L],
+          ['cost', 'how much ' + (plural ? 'do' : 'does') + ' ' + phrase + ' cost in ' + L],
+          ['cost', phrase + ' cost in ' + L],
+          ['best-choice', 'best ' + phrase + ' in ' + L],
+          ['best-choice', 'top rated ' + phrase + ' in ' + L],
+          ['how-process', 'how to hire ' + phrase + ' in ' + L],
+          ...aspectFor(sid, L),
+          ['ai-question', 'who provides ' + phrase + ' in ' + L + ' with a flat rate in writing'],
+          ['how-process', 'how to find ' + phrase + ' in ' + L],
+        ]);
+      }
+    }
+    // --- Landmark ports (standard 5): the scope set at the port door ---
+    const R34_PORT_FRAG = {
+      'landmark-port-of-virginia': { frag: 'in the Port of Virginia', P: 'the Port of Virginia' },
+      'landmark-virginia-inland-port': { frag: 'at Virginia Inland Port', P: 'Virginia Inland Port' },
+    };
+    for (const f of features) {
+      const p = f.properties;
+      if (p.type !== 'landmark-port') continue;
+      const pf = R34_PORT_FRAG[p.id];
+      if (!pf) continue;
+      for (const svc of R.services.services) {
+        const sid = svc.id;
+        const [phrase, plural] = PHRASE[sid];
+        const target = r30ModalSlug(sid, p.id) || HUB[sid];
+        r34Cell('port', p.id, 5, sid, target, 'R34-port', [
+          ['cost', 'how much ' + (plural ? 'do' : 'does') + ' ' + phrase + ' cost ' + pf.frag],
+          ['cost', phrase + ' cost ' + pf.frag],
+          ['best-choice', 'best ' + phrase + ' ' + pf.frag],
+          ['best-choice', 'top rated ' + phrase + ' ' + pf.frag],
+          ['how-process', 'how to hire ' + phrase + ' ' + pf.frag],
+          ...aspectFor(sid, pf.P),
+          ['navigational-local', phrase + ' ' + pf.frag],
+          ['how-process', 'how to find ' + phrase + ' ' + pf.frag],
+        ]);
+      }
+    }
+    // --- National layer (standard 6): the FULL registry x 49 states,
+    // bound to data/national-scope.json (scope set + one state nav form) ---
+    const natScope = loadData('data/national-scope.json');
+    for (const st of natScope.states || []) {
+      const area = 'state-' + String(st.abbr || '').toLowerCase();
+      const ST = st.state;
+      if (!st.abbr || !ST) continue;
+      for (const svc of R.services.services) {
+        const sid = svc.id;
+        const [phrase, plural] = PHRASE[sid];
+        r34Cell('national', area, 6, sid, HUB[sid], 'R34-national', [
+          ['navigational-local', phrase + ' in ' + ST],
+          ['cost', 'how much ' + (plural ? 'do' : 'does') + ' ' + phrase + ' cost in ' + ST],
+          ['cost', phrase + ' cost in ' + ST],
+          ['best-choice', 'best ' + phrase + ' in ' + ST],
+          ['best-choice', 'top rated ' + phrase + ' in ' + ST],
+          ['how-process', 'how to hire ' + phrase + ' in ' + ST],
+          ...aspectFor(sid, ST),
+          ['ai-question', 'who provides ' + phrase + ' in ' + ST + ' with a flat rate in writing'],
+          ['navigational-local', phrase + ' ' + ST],
+          ['how-process', 'how to find ' + phrase + ' in ' + ST],
+        ]);
+      }
+    }
+    try {
+      fs.mkdirSync(WORK_DIR, { recursive: true });
+      fs.writeFileSync(path.join(WORK_DIR, 'r34-accounting.json'),
+        JSON.stringify({ r34: R34_STATS }, null, 2) + '\n');
+    } catch (e) { /* accounting is diagnostic; generation never fails on it */ }
+  }
+
   // Fragment-binding late lane (Element 2, 2026-11-02): panel prompts
   // Q1/Q2/Q3 emit here, after R14, through the same R10 gates. Their
   // targets are roll-up pages; emitting them inside the service loop
