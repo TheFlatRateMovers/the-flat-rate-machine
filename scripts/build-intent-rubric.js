@@ -139,7 +139,21 @@ const DATA_ROOT = process.env.RUBRIC_DATA_ROOT || path.join(ROOT, 'data');
 const DB_PATH = process.env.RUBRIC_DB_PATH || path.join(FLAT, 'rubric.db');
 const QB_PATH = process.env.RUBRIC_QB_PATH || path.join(FLAT, 'blog-project', '04-question-bank.md');
 const WORK_DIR = process.env.RUBRIC_WORK_DIR || path.resolve(ROOT, 'out', 'batch-intent-rubric', 'work');
-const RUBRIC_DATE = process.env.RUBRIC_DATE || '2026-10-31';
+// RUBRIC_DATE fallback (fixed 2026-11-13): the lastmod ledger is the date
+// authority for the intent file (S-7f, Q124 Q2=A wiring), so a standalone
+// rebuild (e.g. the outcome-evidence ingest chain, which passes no env)
+// must reproduce the sealed date exactly. The old hardcoded '2026-10-31'
+// default silently re-dated the sealed file on an out-of-seal ingest and
+// broke S-7f + CI-7. Fallback chain: env -> ledger entry -> today.
+function ledgerRubricDate() {
+  try {
+    const led = JSON.parse(fs.readFileSync(path.join(DATA_ROOT, 'lastmod-ledger.json'), 'utf8'));
+    const d = led && led.urls && led.urls[SITE + '/datasets-intent-coverage.json'];
+    if (typeof d === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(d)) return d;
+  } catch (e) { /* fall through to today */ }
+  return new Date().toISOString().slice(0, 10);
+}
+const RUBRIC_DATE = process.env.RUBRIC_DATE || ledgerRubricDate();
 const GENERATOR = 'build-intent-rubric.js';
 // 2026-10-30 (Batch Inland Port Transloading): service-transloading rows gain the
 // Virginia Inland Port datasets file as backing data (the new hub's own rows
@@ -1103,6 +1117,18 @@ const EXTRA_PATTERNS = {
     ['What does a residential move with The Flat Rate Movers include, and how is it priced?', 'ai-question', null, 'residential-moving'],
   ],
   'service-gun-safe': [
+    // R37 (Money Spot 2, 2026-11-13): the DC head terms and the McLean
+    // seat bind to the dedicated place pages (the winchester/martinsburg
+    // branch pattern), not the branch page — the place pages own the
+    // money intent for the spot.
+    ['gun safe movers washington dc', 'navigational-local', null, 'gun-safe-movers-washington-dc'],
+    ['safe movers washington dc', 'navigational-local', null, 'gun-safe-movers-washington-dc'],
+    ['gun safe movers in washington dc', 'navigational-local', null, 'gun-safe-movers-washington-dc'],
+    ['safe movers in washington dc', 'navigational-local', null, 'gun-safe-movers-washington-dc'],
+    ['gun safe movers mclean va', 'navigational-local', null, 'gun-safe-movers-mclean-va'],
+    ['safe movers mclean va', 'navigational-local', null, 'gun-safe-movers-mclean-va'],
+    ['gun safe movers in mclean va', 'navigational-local', null, 'gun-safe-movers-mclean-va'],
+    ['safe movers in mclean va', 'navigational-local', null, 'gun-safe-movers-mclean-va'],
     ['Who should I call to move a 2,000 lb gun safe in northern Virginia?', 'ai-question', null, 'gun-safe-movers'],
     // The panel's Q4 prompt VERBATIM (fragment-binding Defect 5,
     // 2026-11-02): the design's panel join is normalized-text equality
@@ -1466,6 +1492,10 @@ const PLACE_SERVICE_PAGE = {
   'service-data-center-relocation|place-leesburg-va': 'data-center-movers-leesburg-va',
   'service-it-relocation|place-ashburn-va': 'data-center-movers-ashburn-va',
   'service-it-relocation|place-leesburg-va': 'data-center-movers-leesburg-va',
+  // R37 (Money Spot 2, 2026-11-13): the gun-safe place pages for the
+  // Washington DC head term and the McLean seat own their cells.
+  'service-gun-safe|place-washington-dc': 'gun-safe-movers-washington-dc',
+  'service-gun-safe|place-mclean-va': 'gun-safe-movers-mclean-va',
 };
 function placeServicePage(V, serviceId, placeId) {
   const slug = PLACE_SERVICE_PAGE[serviceId + '|' + placeId];

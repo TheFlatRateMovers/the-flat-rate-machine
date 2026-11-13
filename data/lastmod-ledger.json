@@ -2,7 +2,7 @@
  "description": "Seal-maintained lastmod ledger: for every sitemap URL, the date of the last seal generation in which its own signed distribution changed. Seeded from the 2026-11-02 crawl-demand audit (doc-level digest history across 73 signed generations); maintained by seal.py phase 6b (diff-stamp vs the phase-0 prior index). build-sitemap.js reads this file for every sitemap <lastmod>.",
  "lastSeal": {
   "date": "2026-11-13",
-  "indexSha256": "5b8dbfc4b77c705e91279c26e3a150dc5729927a262fc98a53974513653a34a7"
+  "indexSha256": "f906320d3754bb2d7843799f1932668c9a4bb49797472bdb9aeaa504385e99b8"
  },
  "seededFrom": "crawl-demand-audit-2026-11-02.csv",
  "urls": {
@@ -230,6 +230,8 @@
   "https://theflatratemovers.com/government-movers-winchester-va/": "2026-11-13",
   "https://theflatratemovers.com/government-moving/": "2026-11-13",
   "https://theflatratemovers.com/gun-safe-movers-martinsburg-wv/": "2026-11-13",
+  "https://theflatratemovers.com/gun-safe-movers-mclean-va/": "2026-11-13",
+  "https://theflatratemovers.com/gun-safe-movers-washington-dc/": "2026-11-13",
   "https://theflatratemovers.com/gun-safe-movers-winchester-va/": "2026-11-13",
   "https://theflatratemovers.com/gun-safe-movers/": "2026-11-13",
   "https://theflatratemovers.com/heavy/": "2026-11-13",
