@@ -178,7 +178,13 @@ def fail(msg):
 
 def install_intent():
     """Install the generated intent dataset into the public tree and
-    pin-sync the landing seat's description (the I-10 pair)."""
+    pin-sync the landing seat's description + dateModified (the I-10
+    pair). The date pin rides the same sync (Wave 4 finish,
+    2026-11-13): the jf is a batch-authored artifact with no standing
+    generator, and the first post-rollover seal left its @graph[0]
+    dateModified one day behind the dataset file's — I-10 asserts
+    the copy is no older than its source, so the pin carries both
+    fields the gate reads."""
     shutil.copyfile(
         os.path.join(ROOT, "out", "batch-intent-rubric", "work",
                      "datasets-intent-coverage.json"),
@@ -190,6 +196,8 @@ def install_intent():
     with open(land_p, encoding="utf-8") as f:
         pp = json.load(f)
     pp["@graph"][0]["description"] = ds["@graph"][0]["description"]
+    if ds["@graph"][0].get("dateModified"):
+        pp["@graph"][0]["dateModified"] = ds["@graph"][0]["dateModified"]
     with open(land_p, "w", encoding="utf-8") as f:
         json.dump(pp, f, indent=1, ensure_ascii=False)
         f.write("\n")

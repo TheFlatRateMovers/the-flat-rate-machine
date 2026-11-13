@@ -3872,6 +3872,310 @@ function generate() {
     } catch (e) { /* accounting is diagnostic; generation never fails on it */ }
   }
 
+  // R35 B2B / 3PL Entry-Point Ingest (Wave 4 of the Complete Dynamic
+  // Cell-Rubric Build, 2026-11-13; spec:
+  // out/cell-rubric-build-2026-11-12/BUILD-SPEC.md, Wave 4 + the 3PL
+  // research: out/3pl-labor-coverage-research-2026-11-12/REPORT.md
+  // §F/§G — the spec numbers this lane R34; the Wave 3 scope-layer
+  // block took R34 in this file, so it lands here as R35).
+  //
+  // R35: the combined 1,080-row B2B buyer-inquiry bank staged at
+  // out/external-rubric-intake-3pl-gemini-2026-11-12/ — 325 screened
+  // Gemini rows (INTAKE-REPORT.md there) + 755 in-house completion
+  // rows (COMPLETION-REPORT.md there, validation PASS) — enters the
+  // bank in ONE pass on the R30 ingest pattern, through the same
+  // emit() R10 gates, source '3pl-intake'. Every staged row carries
+  // a measured entry_point_id (the 28 doors F-1.1..F-4.5 of research
+  // §F; §G-1: a row that cannot name its door does not exist).
+  // DETERMINISM LAW (the R30 pattern): the lane reads NOTHING from
+  // rubric.db. Its dedupe/binding reference is this run's own rows
+  // array at this point — the live bank's exact regenerated
+  // equivalent — so build and --check runs see identical inputs.
+  // AREA KEY: the census counts B2B cells by (service_id, area) with
+  // the door id as the area key (census.py's B2B units are the door
+  // ids themselves), so the row's area IS its entry_point_id — the
+  // bank's standing non-feature-area convention (corridor ids, scope
+  // keys, state keys); the intent dataset's totals node publishes
+  // these counts in rowsByNonFeatureArea like the corridor counts.
+  // The entry_point_id ALSO rides the pattern seat ('R35-F-1.12')
+  // per the spec's lightweight rule; the remaining §G-2 fields
+  // (buyer_role, aspect, fit, proof_anchor) live in the lane's
+  // source record (r35-source-rows.jsonl in the work dir), never as
+  // new bank columns.
+  // SERVICE ASSIGNMENT (the staged rows carry no service_id — the
+  // door bank is a program bank): the census minimums bind per
+  // (service, door) for the 10-service logistics cluster (§G-3:
+  // door totals / 10 — F-1.1..F-1.9: 4, F-1.10..F-1.14: 9, F-2: 2,
+  // F-3: 3, F-4: 1), so each row is dealt to exactly one cluster
+  // service: candidates are ordered by affinity (service-tier
+  // primary — final-mile-standalone -> service-final-mile,
+  // white-glove-full -> service-white-glove, receiving-inspection ->
+  // white-glove then 3pl-support, partner-program ->
+  // service-3pl-support — then keyword/door/role boosts for the
+  // transloading, freight-rework, warehouse and corridor services,
+  // ties broken by a per-door rotation), and the row lands on the
+  // first candidate that (a) still needs rows to reach the door
+  // minimum and (b) passes the R30 normalized-collision guard; if
+  // every needy candidate collides, the first non-colliding
+  // candidate overall (over-minimum — the F-4 doors carry 12 rows
+  // against 10 minimums, the taxonomy-floor remainder of §G-3); if
+  // all ten collide, the bank seat wins and the row is counted
+  // dropped (collisions keep ours, per Henry's advantage rule).
+  // BINDING (never a guessed slug): (1) the modal target the bank
+  // itself uses for (service, area), per pair, first-emitted wins
+  // ties — no bank row carries a door area before this lane, so the
+  // expected seat is (2) the service hub (HUB), the registry seat
+  // the spec's Wave 4 estate side names for the F-door targets.
+  // FIT FIXES AT BINDING (INTAKE-REPORT.md, the Gemini screen):
+  // aspect 1.4 is dual in the taxonomy — STRONG for performed-work
+  // HISTORY framing, PARTIAL for going-forward PROGRAM framing.
+  // Seven Gemini rows are program-framed but staged STRONG; they
+  // land as PARTIAL here (asserted in-lane: aspect 1.4 + STRONG +
+  // the exact staged line numbers 39 / 136 / 162 / 200 / 290 / 303 /
+  // 315). The one history-framed 1.4 row (line 243, F-3.2) stays
+  // STRONG; lines 9 and 67 already carry PARTIAL and pass through.
+  // The fix lands in the lane's source record + accounting — the
+  // staged files are never rewritten.
+  // TRUTH SCREEN at the gate (Wave 0 calibration; this bank passed
+  // two independent pre-screens with 0 hard violations — the intake
+  // error hunt and the completion forbidden-content scanner — and
+  // the lane screen is the landing backstop): the R30 set verbatim
+  // (price figure, rating/review count, locksmith, provider-side
+  // logical-layer attribution — buyer-side scope-split statements
+  // pass), plus the §G NEVER list in figure form: DOT/MC numbers,
+  // percent figures, per-period capacity figures. Capability
+  // attribution (EDI/API/TMS/portal/tracking, drug screening,
+  // returns program) is refused ONLY as a provider-side assertion
+  // and never on GAP-fit rows — GAP rows are process questions by
+  // taxonomy ('what is your process for discussing EDI...'), the
+  // §G-2 honest form, and every such row in this bank is one.
+  // TIER LAW: a final-mile-standalone row that ASSERTS assembly or
+  // haul-away as included is refused; the bank's standalone rows
+  // that mention them are 5.20 boundary/separation forms and F-1.9
+  // definition questions (interrogative or boundary-worded) and
+  // pass — the boundary is the selling distinction, never blurred.
+  // The climate-controlled storage rows STAY (Henry, 2026-11-12:
+  // climate-controlled storage SPACE is offerable — the rows frame
+  // storage/holding space on the published 30-day-minimum leased
+  // basis; no row claims climate-controlled transit).
+  const R35_STATS = { staged: 0, landed: 0, collisionExact: 0, collisionNormalized: 0, collisionDropped: 0, collisionRedealt: 0, truthRefused: 0, gateExcluded: 0, boundModal: 0, boundHubFallback: 0, fitFixesApplied: [], cellsShort: [], byDoor: {}, byService: {} };
+  const R35_CLUSTER = ['service-3pl-support', 'service-final-mile', 'service-white-glove', 'service-transloading', 'service-transloading-winchester-va', 'service-freight-rework-transloading', 'service-warehouse-relocation', 'service-warehouse-racking-relocation', 'service-logistics-project-management', 'service-route81'];
+  const R35_DOOR_MIN = (door) => {
+    const m = /^F-(\d)\.(\d+)$/.exec(door || '');
+    if (!m) return -1;
+    const g = +m[1], n = +m[2];
+    if (g === 1 && n >= 1 && n <= 14) return n <= 9 ? 4 : 9;
+    if (g === 2 && n >= 1 && n <= 6) return 2;
+    if (g === 3 && n >= 1 && n <= 3) return 3;
+    if (g === 4 && n >= 1 && n <= 5) return 1;
+    return -1;
+  };
+  const R35_FIT_FIX_LINES = new Set([39, 136, 162, 200, 290, 303, 315]);
+  const R35_TRUTH_REFUSE = [
+    { re: /\$\s*\d|\b\d[\d,]*\s*(?:dollars|usd)\b/i, why: 'price-figure' },
+    { re: /\b\d+(?:\.\d)?\s*stars?\b|\b\d[\d,]*\s+reviews?\b/i, why: 'rating-or-review-count' },
+    { re: /\blocksmith\b/i, why: 'locksmith-claim' },
+    { re: /\b(?:do|does|can)\s+(?:you|movers?|a mover|the company)\b[^.]{0,40}\b(?:perform|provide|offer|handle|manage|do)\b[^.]{0,30}\b(?:workload|migration|cutover|dns)\b/i, why: 'logical-layer-claim' },
+    { re: /\b(?:movers?|the company|provider|crews?)\s+(?:that\s+|who\s+)?(?:performs?|provides?|offers?|handles?|manages?)\b[^.]{0,30}\b(?:workload|migration)\b/i, why: 'logical-layer-claim' },
+    { re: /\b(?:usdot|dot|mc)\s*(?:#|number|no\.?)\s*\d{4,}\b/i, why: 'dot-mc-number' },
+    { re: /\b\d+(?:\.\d+)?\s*%/, why: 'percent-figure' },
+    { re: /\b\d[\d,]*\s*(?:loads?|deliveries|trucks?|crews?|teams?)\s+(?:per|a)\s+(?:day|week|month)\b/i, why: 'capacity-figure' },
+  ];
+  const R35_CAPABILITY_REFUSE = [
+    { re: /\b(?:we|the company|our crews?|the provider)\s+(?:offer|provide|support|include|feature|deliver|guarantee)s?\b[^.]{0,40}\b(?:edi|api|tms|portal|live tracking|real-time tracking)\b/i, why: 'tech-capability-claim' },
+    { re: /\b(?:edi|api)\s+integration\s+(?:is\s+)?(?:included|provided|offered|available)\b/i, why: 'tech-capability-claim' },
+    { re: /\bdrug screening\s+(?:is\s+)?(?:performed|provided|included|completed)\b/i, why: 'drug-screen-claim' },
+    { re: /\bw-?2\s+(?:employees?|crews?|staff|teams?|workforce)\b[^.]{0,20}\b(?:only|all|every)\b/i, why: 'w2-status-claim' },
+    { re: /\b(?:we|the company|our crews?|the provider)\s+(?:offer|provide|include|run|operate)s?\b[^.]{0,30}\breturns?\s+(?:program|management|processing)\b/i, why: 'returns-program-claim' },
+  ];
+  const R35_SOURCE_ROWS = [];
+  {
+    // Binding reference from this run's own rows (determinism law).
+    const r35Bind = new Map();
+    for (const r of rows) {
+      if (!r.area) continue;
+      const bk = r.service_id + '|' + r.area;
+      if (!r35Bind.has(bk)) r35Bind.set(bk, new Map());
+      const mm = r35Bind.get(bk);
+      mm.set(r.target_url, (mm.get(r.target_url) || 0) + 1);
+    }
+    const r35ModalSlug = (serviceId, area) => {
+      const mm = r35Bind.get(serviceId + '|' + area);
+      if (!mm) return null;
+      let best = null, bestN = -1;
+      for (const [url, n] of mm) { if (n > bestN) { best = url; bestN = n; } }
+      return best ? (r30UrlToSlug.get(best) || null) : null;
+    };
+    // Pre-lane cell counts per (service, door) from the run's rows.
+    const r35CellCount = new Map();
+    for (const r of rows) {
+      if (r.area && /^F-\d\.\d+$/.test(r.area)) {
+        const ck = r.service_id + '|' + r.area;
+        r35CellCount.set(ck, (r35CellCount.get(ck) || 0) + 1);
+      }
+    }
+    const r35Affinity = (o) => {
+      const score = new Map(R35_CLUSTER.map((s) => [s, 0]));
+      const add = (s, n) => score.set(s, (score.get(s) || 0) + n);
+      const q = String(o.q || '').toLowerCase();
+      if (o.service_tier === 'final-mile-standalone') add('service-final-mile', 100);
+      else if (o.service_tier === 'white-glove-full') add('service-white-glove', 100);
+      else if (o.service_tier === 'receiving-inspection') { add('service-white-glove', 70); add('service-3pl-support', 50); add('service-final-mile', 20); }
+      else if (o.service_tier === 'partner-program') add('service-3pl-support', 100);
+      if (q.includes('terminal')) { add('service-transloading', 60); add('service-freight-rework-transloading', 50); add('service-final-mile', 30); if (o.geography === 'Winchester VA') add('service-transloading-winchester-va', 55); }
+      if (q.includes('transload')) { add('service-transloading', 80); if (o.geography === 'Winchester VA') add('service-transloading-winchester-va', 75); }
+      if (q.includes('warehouse')) { add('service-warehouse-relocation', 60); add('service-warehouse-racking-relocation', 30); }
+      if (q.includes('racking')) add('service-warehouse-racking-relocation', 80);
+      if (q.includes('rework')) add('service-freight-rework-transloading', 70);
+      if (o.entry_point_id === 'F-4.5') { add('service-transloading', 40); add('service-freight-rework-transloading', 30); }
+      if (o.entry_point_id === 'F-1.14' || String(o.entry_point_id || '').startsWith('F-4.')) { add('service-route81', 25); add('service-logistics-project-management', 15); }
+      if (o.buyer_role === 'carrier-network') { add('service-transloading', 20); add('service-freight-rework-transloading', 15); }
+      if (o.buyer_role === 'forwarder') add('service-transloading', 20);
+      return score;
+    };
+    const intakeDir = path.join(ROOT, 'out', 'external-rubric-intake-3pl-gemini-2026-11-12');
+    const stagedAll = [];
+    for (const [srcTag, file] of [['gemini', 'staging-3pl-gemini-rows.jsonl'], ['completion', 'staging-3pl-completion-rows.jsonl']]) {
+      const p = path.join(intakeDir, file);
+      if (!fs.existsSync(p)) continue;
+      const lines = fs.readFileSync(p, 'utf8').split('\n');
+      lines.forEach((line, i) => {
+        const t = line.trim();
+        if (!t) return;
+        let o = null;
+        try { o = JSON.parse(t); } catch (e) { o = null; }
+        stagedAll.push({ srcTag, lineNo: i + 1, raw: t, o });
+      });
+    }
+    // Doors in canonical order; within a door, staged order (the
+    // Gemini file first, then the completion file — the read order
+    // above), so the dealing is a pure function of the staged files.
+    const doorOrder = (d) => { const m = /^F-(\d)\.(\d+)$/.exec(d || ''); return m ? (+m[1]) * 100 + (+m[2]) : 9999; };
+    const doorsPresent = [...new Set(stagedAll.map((s) => (s.o && s.o.entry_point_id) || ''))].sort((a, b) => doorOrder(a) - doorOrder(b));
+    let doorIdx = 0;
+    for (const door of doorsPresent) {
+      doorIdx++;
+      const min = R35_DOOR_MIN(door);
+      const needs = new Map(R35_CLUSTER.map((s) => [s, Math.max(0, min - (r35CellCount.get(s + '|' + door) || 0))]));
+      R35_STATS.byDoor[door] = 0;
+      for (const item of stagedAll.filter((s) => s.o && s.o.entry_point_id === door)) {
+        R35_STATS.staged++;
+        const o = item.o;
+        if (min < 0 || !CLASS_ORDER.includes(o.intent) || !o.q || !o.aspect || !o.service_tier || !o.fit) {
+          R35_STATS.truthRefused++;
+          excluded.push({ reason: 'r35-malformed-row', serviceId: null, queryText: String((o && o.q) || item.raw).slice(0, 80), pattern: 'R35-b2b-ingest' });
+          continue;
+        }
+        // The 7 aspect-1.4 fit fixes, applied at binding (asserted).
+        let fit = o.fit;
+        if (item.srcTag === 'gemini' && R35_FIT_FIX_LINES.has(item.lineNo)) {
+          if (o.aspect === '1.4' && o.fit === 'STRONG') {
+            fit = 'PARTIAL';
+            R35_STATS.fitFixesApplied.push({ line: item.lineNo, door, aspect: o.aspect, from: 'STRONG', to: 'PARTIAL' });
+          } else {
+            R35_STATS.truthRefused++;
+            excluded.push({ reason: 'r35-fitfix-assert-failed', serviceId: null, queryText: String(o.q).slice(0, 80), pattern: 'R35-b2b-ingest' });
+            continue;
+          }
+        }
+        const q = americanize(String(o.q || '').trim());
+        const badBase = R35_TRUTH_REFUSE.find((t) => t.re.test(q));
+        const badCap = (!badBase && fit !== 'GAP') ? R35_CAPABILITY_REFUSE.find((t) => t.re.test(q)) : null;
+        let badTier = null;
+        if (!badBase && !badCap && o.service_tier === 'final-mile-standalone' &&
+            /\binclude[sd]?\b[^.]{0,30}\b(?:assembly|haul-?away)\b/i.test(q) &&
+            !/^(?:who|what|how|why|which|when|where|do|does|is|are|can|should|would)\b/i.test(q) &&
+            !/\?/.test(q) &&
+            !/\b(?:without|exclud\w*|separat\w*|vs\.?|versus|differ\w*|boundar\w*|only|not\s+includ\w*)\b/i.test(q)) {
+          badTier = { why: 'tier-blur-standalone-includes-assembly' };
+        }
+        const bad = badBase || badCap || badTier;
+        if (bad) {
+          R35_STATS.truthRefused++;
+          excluded.push({ reason: 'r35-truth-' + bad.why, serviceId: null, queryText: q, pattern: 'R35-b2b-ingest' });
+          continue;
+        }
+        const score = r35Affinity(o);
+        const candidates = R35_CLUSTER.slice().sort((a, b) => {
+          const d = score.get(b) - score.get(a);
+          if (d) return d;
+          const ra = (R35_CLUSTER.indexOf(a) - doorIdx * 3 % 10 + 10) % 10;
+          const rb = (R35_CLUSTER.indexOf(b) - doorIdx * 3 % 10 + 10) % 10;
+          return ra - rb;
+        });
+        const nk0 = r30Norm(q);
+        let landedSvc = null, landedBound = null, sawCollision = false, sawGate = false, topCollided = false;
+        for (const pass of [1, 2]) {
+          for (const svcId of candidates) {
+            if (pass === 1 && (needs.get(svcId) || 0) <= 0) continue;
+            const nk = svcId + '|' + nk0;
+            if (r30NormSeen.has(nk)) {
+              sawCollision = true;
+              if (svcId === candidates[0]) topCollided = true;
+              continue;
+            }
+            let target = r35ModalSlug(svcId, door);
+            const bound = target ? 'modal' : 'hub';
+            if (!target) target = HUB[svcId];
+            const ok = emit(svcId, o.intent, q, door, target, 'R35-' + door, { source: '3pl-intake' });
+            if (ok) {
+              landedSvc = svcId; landedBound = bound;
+              r30NormSeen.set(nk, q);
+              if ((needs.get(svcId) || 0) > 0) needs.set(svcId, needs.get(svcId) - 1);
+              break;
+            }
+            sawGate = true;
+          }
+          if (landedSvc) break;
+        }
+        if (!landedSvc) {
+          if (sawCollision && !sawGate) {
+            R35_STATS.collisionDropped++;
+            const first = r30NormSeen.get(candidates[0] + '|' + nk0);
+            if (first === q) R35_STATS.collisionExact++; else R35_STATS.collisionNormalized++;
+            excluded.push({ reason: 'r35-collision-bank-kept', serviceId: null, queryText: q, pattern: 'R35-b2b-ingest' });
+          } else {
+            R35_STATS.gateExcluded++;
+            excluded.push({ reason: 'r35-gate-excluded', serviceId: null, queryText: q, pattern: 'R35-b2b-ingest' });
+          }
+          continue;
+        }
+        R35_STATS.landed++;
+        if (topCollided) R35_STATS.collisionRedealt++;
+        if (landedBound === 'modal') R35_STATS.boundModal++; else R35_STATS.boundHubFallback++;
+        R35_STATS.byDoor[door]++;
+        R35_STATS.byService[landedSvc] = (R35_STATS.byService[landedSvc] || 0) + 1;
+        const landedRow = rows[rows.length - 1];
+        R35_SOURCE_ROWS.push({
+          entry_point_id: door, buyer_role: o.buyer_role, q, geography: o.geography,
+          service_tier: o.service_tier, aspect: o.aspect, fit, proof_anchor: o.proof_anchor,
+          intent: o.intent, service_id: landedSvc, area: door,
+          target_url: landedRow.target_url, source_file: item.srcTag, source_line: item.lineNo,
+        });
+      }
+      for (const svcId of R35_CLUSTER) {
+        const finalCount = (r35CellCount.get(svcId + '|' + door) || 0) + R35_SOURCE_ROWS.filter((r) => r.entry_point_id === door && r.service_id === svcId).length;
+        if (min > 0 && finalCount < min) R35_STATS.cellsShort.push({ door, service: svcId, count: finalCount, min });
+      }
+    }
+    // Rows in the staged files whose door did not parse (counted,
+    // never silently dropped): staged total must reconcile.
+    for (const item of stagedAll) {
+      if (!item.o) {
+        R35_STATS.staged++;
+        R35_STATS.truthRefused++;
+        excluded.push({ reason: 'r35-unparseable-row', serviceId: null, queryText: item.raw.slice(0, 80), pattern: 'R35-b2b-ingest' });
+      }
+    }
+    try {
+      fs.mkdirSync(WORK_DIR, { recursive: true });
+      fs.writeFileSync(path.join(WORK_DIR, 'r35-accounting.json'),
+        JSON.stringify({ r35: R35_STATS }, null, 2) + '\n');
+      fs.writeFileSync(path.join(WORK_DIR, 'r35-source-rows.jsonl'),
+        R35_SOURCE_ROWS.map((r) => JSON.stringify(r)).join('\n') + '\n');
+    } catch (e) { /* accounting is diagnostic; generation never fails on it */ }
+  }
+
   // Fragment-binding late lane (Element 2, 2026-11-02): panel prompts
   // Q1/Q2/Q3 emit here, after R14, through the same R10 gates. Their
   // targets are roll-up pages; emitting them inside the service loop
