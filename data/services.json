@@ -65,7 +65,7 @@
    "description": "White-glove handling of pianos, antiques and high-value items — surveyed, protected, and moved with custom crating when the piece requires it, at one flat rate agreed in writing.",
    "id": "service-piano-antique",
    "name": "Piano, Antique and White-Glove Moving",
-   "pageCount": 10,
+   "pageCount": 13,
    "source": "head JSON-LD graph in live site source (index.html)"
   },
   {
@@ -81,7 +81,7 @@
    "description": "Custom-built crates and high-value item protection for domestic and export moves — measured, built and fitted to the piece, not a stock box.",
    "id": "service-crating",
    "name": "Custom Crating",
-   "pageCount": 7,
+   "pageCount": 10,
    "source": "head JSON-LD graph in live site source (index.html)"
   },
   {
@@ -105,7 +105,7 @@
    "description": "White-Glove Delivery — the top level of final-mile delivery and the handling standard for high-value, fragile and heavy pieces: brought in on a planned route, carried over the threshold, set in its final position, packaging removed, and condition verified with the recipient before the crew leaves — never left at a curb. Pieces are protected in padded blankets and stretch wrap, or in a custom crate when the piece requires it; heavy pieces of 1,500 to 3,500 lbs are surveyed and floor-checked to L/360 under SIR Structural Integrity Relocation and the KIM-GS Protocol. Offered from both branches across the full published footprint — all 83 GeoJSON service areas, Winchester VA and Martinsburg WV. Quoted at one flat rate in writing before dispatch. Guaranteed Flat Rate or Your Move is Free!",
    "id": "service-white-glove",
    "name": "White-Glove Delivery",
-   "pageCount": 12,
+   "pageCount": 15,
    "source": "Owner decision 2026-11-02 (Henry): White-Glove Delivery made a first-class service (30th) with the full footprint (71 areas as the footprint then stood), offered from both branches — Head-Hub Programme batch 2026-11-02. ADD-1 (2026-11-12): the entity-graph areaServed enumeration is DERIVED from data/service-area.geojson (all features, geojson order) by scripts/sync-service-graph-areas.js and build-graph.js — 83 areas as of 2026-11-12; never re-author the list by hand."
   },
   {

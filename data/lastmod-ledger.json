@@ -2,7 +2,7 @@
  "description": "Seal-maintained lastmod ledger: for every sitemap URL, the date of the last seal generation in which its own signed distribution changed. Seeded from the 2026-11-02 crawl-demand audit (doc-level digest history across 73 signed generations); maintained by seal.py phase 6b (diff-stamp vs the phase-0 prior index). build-sitemap.js reads this file for every sitemap <lastmod>.",
  "lastSeal": {
   "date": "2026-11-13",
-  "indexSha256": "f906320d3754bb2d7843799f1932668c9a4bb49797472bdb9aeaa504385e99b8"
+  "indexSha256": "4e4c1d1eda7a88574cfc840849c03e868bce5c781075e2a9fd13922141d510f7"
  },
  "seededFrom": "crawl-demand-audit-2026-11-02.csv",
  "urls": {
@@ -214,6 +214,9 @@
   "https://theflatratemovers.com/emergency-port-container-recovery-twic-labor-virginia/": "2026-11-13",
   "https://theflatratemovers.com/entities/": "2026-11-13",
   "https://theflatratemovers.com/entity-authority-layer/": "2026-11-13",
+  "https://theflatratemovers.com/estate-movers-middleburg-va/": "2026-11-13",
+  "https://theflatratemovers.com/estate-movers-the-plains-va/": "2026-11-13",
+  "https://theflatratemovers.com/estate-movers-upperville-va/": "2026-11-13",
   "https://theflatratemovers.com/export/": "2026-11-13",
   "https://theflatratemovers.com/faq/": "2026-11-13",
   "https://theflatratemovers.com/ffe-logistics/": "2026-11-13",

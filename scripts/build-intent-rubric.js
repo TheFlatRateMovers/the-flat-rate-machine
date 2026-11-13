@@ -1085,6 +1085,35 @@ const EXTRA_PATTERNS = {
     ['what is three stage photo documentation for delivery', 'ai-question', null, 'datasets/white-glove'],
     ['how long has the flat rate movers been in business', 'ai-question', null, 'white-glove-delivery'],
     ['who delivers high value items for manufacturers and brands', 'ai-question', null, 'white-glove-delivery'],
+    // R38 (Money Spot 3, 2026-11-13): the Middleburg / The Plains /
+    // Upperville estate head terms bind to the dedicated estate place
+    // pages (the winchester/martinsburg branch pattern), not the
+    // Winchester branch white-glove page — the estate place pages own
+    // the money intent for the spot. The antique heads ride the
+    // service-piano-antique array below.
+    ['estate movers middleburg va', 'navigational-local', null, 'estate-movers-middleburg-va'],
+    ['estate movers in middleburg va', 'navigational-local', null, 'estate-movers-middleburg-va'],
+    ['estate moving middleburg va', 'navigational-local', null, 'estate-movers-middleburg-va'],
+    ['white glove movers middleburg va', 'navigational-local', null, 'estate-movers-middleburg-va'],
+    ['white glove movers in middleburg va', 'navigational-local', null, 'estate-movers-middleburg-va'],
+    ['luxury movers middleburg va', 'navigational-local', null, 'estate-movers-middleburg-va'],
+    ['estate movers the plains va', 'navigational-local', null, 'estate-movers-the-plains-va'],
+    ['estate movers in the plains va', 'navigational-local', null, 'estate-movers-the-plains-va'],
+    ['white glove movers the plains va', 'navigational-local', null, 'estate-movers-the-plains-va'],
+    ['estate movers upperville va', 'navigational-local', null, 'estate-movers-upperville-va'],
+    ['estate movers in upperville va', 'navigational-local', null, 'estate-movers-upperville-va'],
+    ['white glove movers upperville va', 'navigational-local', null, 'estate-movers-upperville-va'],
+  ],
+  // R38 (Money Spot 3, 2026-11-13): service-piano-antique had NO
+  // EXTRA_PATTERNS array before this lane — the Middleburg-corridor
+  // antique head terms bind to the dedicated estate place pages,
+  // which carry the piano-antique service alongside white-glove and
+  // crating (the estate family's composite registration).
+  'service-piano-antique': [
+    ['antique movers middleburg va', 'navigational-local', null, 'estate-movers-middleburg-va'],
+    ['antique movers in middleburg va', 'navigational-local', null, 'estate-movers-middleburg-va'],
+    ['antique movers the plains va', 'navigational-local', null, 'estate-movers-the-plains-va'],
+    ['antique movers upperville va', 'navigational-local', null, 'estate-movers-upperville-va'],
   ],
   // Head-hubs batch repair (2026-11-02): the combined government +
   // military DEPTH page (military-government-moving) lost every
@@ -1496,6 +1525,22 @@ const PLACE_SERVICE_PAGE = {
   // Washington DC head term and the McLean seat own their cells.
   'service-gun-safe|place-washington-dc': 'gun-safe-movers-washington-dc',
   'service-gun-safe|place-mclean-va': 'gun-safe-movers-mclean-va',
+  // R38 (Money Spot 3, 2026-11-13): the estate place pages for
+  // Middleburg, The Plains and Upperville own their cells across the
+  // estate family's three category services — white-glove,
+  // piano-antique and crating (the pages are registered under all
+  // three services in pages.json, the luxury-estate composite
+  // pattern). sir-heavy / long-distance / senior-moving cells for
+  // these places stay with their own lanes.
+  'service-white-glove|place-middleburg-va': 'estate-movers-middleburg-va',
+  'service-white-glove|place-the-plains-va': 'estate-movers-the-plains-va',
+  'service-white-glove|place-upperville-va': 'estate-movers-upperville-va',
+  'service-piano-antique|place-middleburg-va': 'estate-movers-middleburg-va',
+  'service-piano-antique|place-the-plains-va': 'estate-movers-the-plains-va',
+  'service-piano-antique|place-upperville-va': 'estate-movers-upperville-va',
+  'service-crating|place-middleburg-va': 'estate-movers-middleburg-va',
+  'service-crating|place-the-plains-va': 'estate-movers-the-plains-va',
+  'service-crating|place-upperville-va': 'estate-movers-upperville-va',
 };
 function placeServicePage(V, serviceId, placeId) {
   const slug = PLACE_SERVICE_PAGE[serviceId + '|' + placeId];

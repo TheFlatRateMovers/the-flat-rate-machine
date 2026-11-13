@@ -1,6 +1,6 @@
 {
  "attestation": "Every URL below was fetched from the live sitemap on 2026-10-28; titles and service links come from pageMeta in the live site source. No URL was hand-typed.",
- "count": 312,
+ "count": 315,
  "dataset": "pages",
  "generated": "2026-10-29",
  "pages": [
@@ -3306,6 +3306,51 @@
    "title": "Luxury Estate Relocation — West Virginia",
    "type": "page",
    "url": "https://theflatratemovers.com/luxury-estate-relocation-west-virginia/"
+  },
+  {
+   "attested": "2026-11-13",
+   "lastmod": "2026-11-13",
+   "services": [
+    "service-white-glove",
+    "service-piano-antique",
+    "service-crating"
+   ],
+   "slug": "estate-movers-middleburg-va",
+   "source": "Money Spot 3 estate takeover 2026-11-13 (Category Takeover) — estate moving place page for Middleburg VA (Loudoun County, Winchester branch, geojson place-middleburg-va); dedicated place page binding service-white-glove + service-piano-antique + service-crating under the estate family (root Service #service-luxury-estate-relocation); rubric lane R38 in build-intent-rubric.js.",
+   "status": "live",
+   "title": "Estate Movers — Middleburg VA",
+   "type": "service",
+   "url": "https://theflatratemovers.com/estate-movers-middleburg-va/"
+  },
+  {
+   "attested": "2026-11-13",
+   "lastmod": "2026-11-13",
+   "services": [
+    "service-white-glove",
+    "service-piano-antique",
+    "service-crating"
+   ],
+   "slug": "estate-movers-the-plains-va",
+   "source": "Money Spot 3 estate takeover 2026-11-13 (Category Takeover) — estate moving place page for The Plains VA (Fauquier County, Winchester branch, geojson place-the-plains-va); dedicated place page binding service-white-glove + service-piano-antique + service-crating under the estate family (root Service #service-luxury-estate-relocation); rubric lane R38 in build-intent-rubric.js.",
+   "status": "live",
+   "title": "Estate Movers — The Plains VA",
+   "type": "service",
+   "url": "https://theflatratemovers.com/estate-movers-the-plains-va/"
+  },
+  {
+   "attested": "2026-11-13",
+   "lastmod": "2026-11-13",
+   "services": [
+    "service-white-glove",
+    "service-piano-antique",
+    "service-crating"
+   ],
+   "slug": "estate-movers-upperville-va",
+   "source": "Money Spot 3 estate takeover 2026-11-13 (Category Takeover) — estate moving place page for Upperville VA (Fauquier County, Winchester branch, geojson place-upperville-va); dedicated place page binding service-white-glove + service-piano-antique + service-crating under the estate family (root Service #service-luxury-estate-relocation); rubric lane R38 in build-intent-rubric.js.",
+   "status": "live",
+   "title": "Estate Movers — Upperville VA",
+   "type": "service",
+   "url": "https://theflatratemovers.com/estate-movers-upperville-va/"
   },
   {
    "attested": "2026-11-07",
