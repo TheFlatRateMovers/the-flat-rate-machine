@@ -945,9 +945,18 @@ const EXTRA_PATTERNS = {
     ['data center decommissioning company virginia', 'cost', null, 'data-center-decommissioning'],
     ['server decommissioning and ITAD haul out services', 'ai-question', null, 'data-center-decommissioning'],
     ['what is the difference between ITAD decommissioning and physical server moving', 'ai-question', null, 'data-center-decommissioning'],
-    ['server relocation services ashburn va', 'navigational-local', null, 'data-center-relocation'],
-    ['server movers ashburn va', 'navigational-local', null, 'data-center-relocation'],
-    ['data center movers ashburn va', 'navigational-local', null, 'data-center-relocation'],
+    // R36 (Money Spot 1, 2026-11-13): the Ashburn/Leesburg head terms
+    // bind to the dedicated place pages (the winchester/martinsburg
+    // pattern above), not the hub — the place pages own the money
+    // intent for the spot.
+    ['server relocation services ashburn va', 'navigational-local', null, 'data-center-movers-ashburn-va'],
+    ['server movers ashburn va', 'navigational-local', null, 'data-center-movers-ashburn-va'],
+    ['data center movers ashburn va', 'navigational-local', null, 'data-center-movers-ashburn-va'],
+    ['data center relocation ashburn va', 'navigational-local', null, 'data-center-movers-ashburn-va'],
+    ['data center movers leesburg va', 'navigational-local', null, 'data-center-movers-leesburg-va'],
+    ['server movers leesburg va', 'navigational-local', null, 'data-center-movers-leesburg-va'],
+    ['data center relocation leesburg va', 'navigational-local', null, 'data-center-movers-leesburg-va'],
+    ['server relocation services leesburg va', 'navigational-local', null, 'data-center-movers-leesburg-va'],
     ['server relocation services loudoun county', 'navigational-local', null, 'data-center-relocation'],
     ['which movers handle server transport in loudoun county ashburn data center alley', 'ai-question', null, 'data-center-relocation'],
     ['server relocation services sterling va', 'navigational-local', null, 'data-center-relocation'],
@@ -962,6 +971,15 @@ const EXTRA_PATTERNS = {
     ['how is chain of custody maintained when moving high-security government server equipment', 'ai-question', null, 'data-center-relocation'],
     ['how to prevent static damage esd when packing servers for migration', 'how-process', null, 'data-center-relocation'],
     ['what factors increase the cost of emergency weekend data center moves', 'cost', null, 'emergency-data-center-relocation'],
+  ],
+  'service-it-relocation': [
+    // R36 (Money Spot 1, 2026-11-13): the spot's IT head terms bind to
+    // the dedicated Ashburn/Leesburg place pages (which carry both
+    // services), not the Virginia IT hub page.
+    ['IT equipment movers ashburn va', 'navigational-local', null, 'data-center-movers-ashburn-va'],
+    ['IT equipment movers leesburg va', 'navigational-local', null, 'data-center-movers-leesburg-va'],
+    ['IT movers ashburn va', 'navigational-local', null, 'data-center-movers-ashburn-va'],
+    ['IT movers leesburg va', 'navigational-local', null, 'data-center-movers-leesburg-va'],
   ],
   'service-long-distance': [
     // Demand corridors (Review + Demand-Geography batch, 2026-11-05):
@@ -1434,6 +1452,26 @@ function branchPage(R, V, serviceId, branch) {
   return slug;
 }
 
+// R36 (Money Spot 1 Category Takeover, 2026-11-13): dedicated place
+// pages own their (service, place) cells outright. Where a place has
+// its own page for a service, the place family binds to that page
+// instead of the branch/hub fallback — and because the R30 modal
+// binding is computed from the rows these base lanes emit, the modal
+// cascade (R30 ingest, R31 build-up, R32 money cells) follows the
+// same binding with no per-lane change. Guarded by svcPages exactly
+// like branchPage: an unregistered slug falls through to the
+// standing resolution, never a hard fail mid-generation.
+const PLACE_SERVICE_PAGE = {
+  'service-data-center-relocation|place-ashburn-va': 'data-center-movers-ashburn-va',
+  'service-data-center-relocation|place-leesburg-va': 'data-center-movers-leesburg-va',
+  'service-it-relocation|place-ashburn-va': 'data-center-movers-ashburn-va',
+  'service-it-relocation|place-leesburg-va': 'data-center-movers-leesburg-va',
+};
+function placeServicePage(V, serviceId, placeId) {
+  const slug = PLACE_SERVICE_PAGE[serviceId + '|' + placeId];
+  return slug && (V.svcPages.get(serviceId) || []).includes(slug) ? slug : null;
+}
+
 // Graph Service node for a service: the canonical root-fragment @id
 // (#service-*) when the best graph carries it, else a Service node on
 // the service's hub page, else a Service node carrying the service's
@@ -1725,8 +1763,8 @@ function generate() {
     // R2 place patterns.
     for (const f of footprint.get(id)) {
       const p = f.properties;
-      const target = p.branch === 'winchester' || p.branch === 'martinsburg'
-        ? (bp[p.branch] || hub) : hub;
+      const target = placeServicePage(V, id, p.id) || (p.branch === 'winchester' || p.branch === 'martinsburg'
+        ? (bp[p.branch] || hub) : hub);
       emit(id, 'navigational-local', phrase + ' ' + p.name, p.id, target, 'R2-place');
     }
     // R4 corridor patterns.
@@ -1759,8 +1797,8 @@ function generate() {
     // texts collide at the branch cities).
     for (const f of footprint.get(id)) {
       const p = f.properties;
-      const target = p.branch === 'winchester' || p.branch === 'martinsburg'
-        ? (bp[p.branch] || hub) : hub;
+      const target = placeServicePage(V, id, p.id) || (p.branch === 'winchester' || p.branch === 'martinsburg'
+        ? (bp[p.branch] || hub) : hub);
       emit(id, 'cost', 'how much ' + (plural ? 'do' : 'does') + ' ' + phrase + ' cost in ' + p.name, p.id, target, 'R16-area-cost-howmuch');
       emit(id, 'cost', phrase + ' cost in ' + p.name, p.id, target, 'R16-area-cost-noun');
       emit(id, 'best-choice', 'best ' + phrase + ' in ' + p.name, p.id, target, 'R16-area-best');
@@ -1804,8 +1842,8 @@ function generate() {
           qb2Local++;
           for (const f of footprint.get(serviceId)) {
             const p = f.properties;
-            const target = p.branch === 'winchester' || p.branch === 'martinsburg'
-              ? (branchPage(R, V, serviceId, p.branch) || HUB[serviceId]) : HUB[serviceId];
+            const target = placeServicePage(V, serviceId, p.id) || (p.branch === 'winchester' || p.branch === 'martinsburg'
+              ? (branchPage(R, V, serviceId, p.branch) || HUB[serviceId]) : HUB[serviceId]);
             emit(serviceId, 'ai-question', text.split('{area}').join(p.name), p.id, target, 'R19-question-bank-v2-local');
           }
         } else if (q.page && V.pageBySlug.has(q.page)) {

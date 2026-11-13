@@ -1,6 +1,6 @@
 {
  "attestation": "Every URL below was fetched from the live sitemap on 2026-10-28; titles and service links come from pageMeta in the live site source. No URL was hand-typed.",
- "count": 308,
+ "count": 310,
  "dataset": "pages",
  "generated": "2026-10-29",
  "pages": [
@@ -3832,6 +3832,34 @@
    "title": "Movers in Front Royal, VA",
    "type": "service",
    "url": "https://theflatratemovers.com/movers-in-front-royal-va/"
+  },
+  {
+   "attested": "2026-11-13",
+   "lastmod": "2026-11-13",
+   "services": [
+    "service-data-center-relocation",
+    "service-it-relocation"
+   ],
+   "slug": "data-center-movers-ashburn-va",
+   "source": "Money Spot 1 Category Takeover 2026-11-13 — Data Center Movers — Ashburn VA (place page owning the Ashburn money intent; Wave 1 money cells, R36 binding)",
+   "status": "live",
+   "title": "Data Center Movers — Ashburn VA",
+   "type": "service",
+   "url": "https://theflatratemovers.com/data-center-movers-ashburn-va/"
+  },
+  {
+   "attested": "2026-11-13",
+   "lastmod": "2026-11-13",
+   "services": [
+    "service-data-center-relocation",
+    "service-it-relocation"
+   ],
+   "slug": "data-center-movers-leesburg-va",
+   "source": "Money Spot 1 Category Takeover 2026-11-13 — Data Center Movers — Leesburg VA (place page owning the Leesburg money intent; Wave 1 money cells, R36 binding)",
+   "status": "live",
+   "title": "Data Center Movers — Leesburg VA",
+   "type": "service",
+   "url": "https://theflatratemovers.com/data-center-movers-leesburg-va/"
   }
  ],
  "source": "https://theflatratemovers.com/sitemap.xml joined to pageMeta in ../the-flat-rate-movers-pages/public/index.html",
