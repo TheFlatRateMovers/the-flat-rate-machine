@@ -83,7 +83,7 @@ delete ops.process;
 ops.additionalProperty = [
   { '@type': 'PropertyValue', name: 'serviceFacts', value: JSON.stringify({
   pricingModel: 'Transloading work is quoted per job — scope, container count, handling, and timing priced in writing before work begins. No per-hundredweight schedule, standing rate, or minimum is published for this service.',
-  territory: 'The full published footprint — all 83 areas in service-area.geojson; the transloading-winchester capability covers every place feature (cities, counties, both branches) in the map, with the work anchored on the Winchester branch at the Virginia Inland Port end of the chain.',
+  territory: 'The full published footprint — all 87 areas in service-area.geojson; the transloading-winchester capability covers every place feature (cities, counties, both branches) in the map, with the work anchored on the Winchester branch at the Virginia Inland Port end of the chain.',
   chainPosition: 'The dock-and-road side of the Norfolk → rail → Virginia Inland Port → truck chain: loading, unloading, devanning, restacking, and regional trucking arranged per job. The terminal and the railroad are operated by their owners; no tenancy or port-authority relationship is claimed.',
   dispatchBasis: 'Dock time is booked against the chain\'s clocks — terminal appointments, rail arrivals, vessel windows.',
   }) },

@@ -440,6 +440,7 @@ const STATIC_FILES = new Set([
   "/dataset-winchester-va.json",
   "/dataset-woodstock-va.json",
   "/datasets",
+  "/datasets-answer-evidence-questions.json",
   "/datasets-answer-evidence.json",
   "/datasets-archive-registry.json",
   "/datasets-b2b-specialty-rubric.json",

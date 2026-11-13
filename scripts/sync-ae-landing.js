@@ -29,6 +29,12 @@
  *      totals/scope/description nodes ride verbatim, so the
  *      landing states the file's true counts (with the file's
  *      DataDownload seats) while the full set stays in the file.
+ *      AE SPLIT (2026-11-12): the main file's questions node now
+ *      carries a summary object, not the array — the sample is
+ *      sourced from the companion file
+ *      datasets-answer-evidence-questions.json (the same node at
+ *      the same @id) and spliced into the embed's questions node,
+ *      restoring the embed's bounded-array shape.
  *      The block's serialization (JSON indent 1, no trailing
  *      newline) round-trips byte-identically — asserted here on
  *      every run before any splice.
@@ -77,6 +83,16 @@ if (!totalsNode || !totalsNode.totals) {
 }
 const Q = totalsNode.totals.questions;
 const F = totalsNode.totals.fragments;
+/* AE split (2026-11-12): the full questions array lives in the
+ * companion questions file; its node is the sample's source. */
+const qFileDoc = JSON.parse(fs.readFileSync(
+  path.join(PUB, 'datasets-answer-evidence-questions.json'), 'utf8'));
+const qFileNode = (qFileDoc['@graph'] || []).find((n) =>
+  String(n['@id']).endsWith('#dataset-answer-evidence-questions'));
+if (!qFileNode || !Array.isArray(qFileNode.questions)) {
+  throw new Error('answer-evidence questions file node missing — cannot reconcile the landing sample');
+}
+const allQuestions = qFileNode.questions;
 const DM = totalsNode.dateModified;
 summary.questions = Q;
 summary.fragments = F;
@@ -86,8 +102,8 @@ const landingGraph = {
   '@context': fileDoc['@context'],
   '@graph': g.map((n) => {
     if (String(n['@id']).endsWith('#dataset-answer-evidence-questions')) {
-      summary.sampleQuestions = Math.min(SAMPLE, (n.questions || []).length);
-      return { ...n, questions: (n.questions || []).slice(0, SAMPLE) };
+      summary.sampleQuestions = Math.min(SAMPLE, allQuestions.length);
+      return { ...n, questions: allQuestions.slice(0, SAMPLE) };
     }
     if (String(n['@id']).endsWith('#dataset-answer-evidence-fragments')) {
       summary.sampleFragments = Math.min(SAMPLE,

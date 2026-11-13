@@ -162,7 +162,7 @@ const html = `<!DOCTYPE html>
 <head>
 <meta charset="utf-8">
 <title>The Flat Rate Movers LLC — AI Ingestion Card</title>
-<meta name="description" content="Compact identity card for AI fetchers: The Flat Rate Movers LLC — both branches, all ${services.length} services, the 83-area footprint, the 49-state work record, the live estate census and the full machine-readable map, with a freshness stamp.">
+<meta name="description" content="Compact identity card for AI fetchers: The Flat Rate Movers LLC — both branches, all ${services.length} services, the 87-area footprint, the 49-state work record, the live estate census and the full machine-readable map, with a freshness stamp.">
 </head>
 <body>
 <h1>The Flat Rate Movers LLC — AI Ingestion Card</h1>

@@ -800,11 +800,23 @@ export default {
     }
     if (path === '/v1/answer-evidence') {
       const table = url.searchParams.get('table');
+      // AE split (2026-11-12): the questions table lives in its own
+      // dataset file (datasets-answer-evidence-questions.json, the
+      // questions node at the same @id with the full array); the main
+      // file carries a summary node instead. Both files are served
+      // fetch-through (datasetRemote) like the main file before them.
+      if (table === 'questions') {
+        const rawQ = await dsText('datasets-answer-evidence-questions.json');
+        if (rawQ === undefined) return errorJson('dataset unavailable', 502);
+        const docQ = JSON.parse(rawQ);
+        const nodeQ = (docQ['@graph'] || []).find((n) => String(n['@id']).endsWith('#dataset-answer-evidence-questions'));
+        if (!nodeQ) return errorJson('table not found: questions', 404);
+        return jsonResponse(nodeQ);
+      }
       const rawDoc = await dsText('datasets-answer-evidence.json');
       if (rawDoc === undefined) return errorJson('dataset unavailable', 502);
       if (!table) return textResponse(rawDoc, 'application/json; charset=utf-8');
       const tables = {
-        questions: '#dataset-answer-evidence-questions',
         fragments: '#dataset-answer-evidence-fragments',
         coverage: '#dataset-answer-evidence-coverage',
         profiles: '#dataset-answer-evidence-profiles',

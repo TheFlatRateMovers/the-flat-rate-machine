@@ -37,6 +37,7 @@ const GENERATOR_OWNED = new Set([
   'datasets-intent-coverage.json',
   'datasets-search-index.json',
   'datasets-answer-evidence.json',
+  'datasets-answer-evidence-questions.json',
   'datasets-local-graph-registry.json',
   'datasets-archive-registry.json',
 ]);

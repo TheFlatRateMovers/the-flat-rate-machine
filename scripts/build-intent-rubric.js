@@ -2919,6 +2919,280 @@ function generate() {
       JSON.stringify({ r30: R30_STATS, r31: R31_STATS }, null, 2) + '\n');
   } catch (e) { /* accounting is diagnostic; generation never fails on it */ }
 
+  // R32 Money-Cell Completion (Wave 1 of the Complete Dynamic
+  // Cell-Rubric Build, 2026-11-12; spec:
+  // out/cell-rubric-build-2026-11-12/BUILD-SPEC.md, Wave 1 — the
+  // spec numbers this lane R31; the Wave 0 data-center block took
+  // R31 after the town-dataset lane took R29, so it lands here as
+  // R32, and later waves shift +1 likewise).
+  //
+  // Scope: the nine money places (Ashburn, Leesburg, Washington DC,
+  // McLean, Great Falls, Charlottesville, Middleburg, The Plains,
+  // Upperville) x all 34 services, completed to the place depth
+  // standard (12) on CURRENT rows. The branch head layer is already
+  // COMPLETE (170/170 at the post-Wave-0 census) and is verification
+  // only — this lane emits nothing for head cells.
+  // DETERMINISM LAW (the R30 pattern): the lane reads NOTHING from
+  // rubric.db. Cell counts come from this run's own rows array at
+  // this point — the live bank's exact regenerated equivalent — so
+  // build and --check runs see identical inputs.
+  // BINDING (never a guessed slug): the modal target the bank itself
+  // uses for (service, area) at this point in the run (r30ModalSlug,
+  // R30's map, which now also carries R30's own landed bindings);
+  // for pairs with no bank seat — the EMPTY cells of the four
+  // money-spot places wired into service-area.geojson in this batch
+  // (Charlottesville, Great Falls, McLean, The Plains) — the service
+  // hub, the Wave 0 hub-fallback pattern.
+  // FORMS: the R16/R28 core family first (the estate's proven place
+  // shapes), then per-service ADVANTAGE forms built only from the
+  // confirmed anchors in out/cell-rubric-build-2026-11-12/
+  // ADVANTAGE-MAP.md (flat rate in writing; SIR 1,500-3,500 lb band;
+  // white-glove full bundle in writing; the published industrial
+  // CWT schedule; screening/escort physical-layer scope for data
+  // center + IT — the logical layer is never claimed), then the
+  // R19 question-bank local ai-questions. Emission stops per cell
+  // at the standard (12); every candidate passes the R30 normalized
+  // guard plus emit()'s exact dedupe and R10 gates.
+  const R32_STATS = { emitted: 0, skippedNormalized: 0, gateOrDup: 0, cellsCompleted: 0, cellsAlreadyComplete: 0, cellsShort: [], byPlace: {} };
+  {
+    const R32_MIN = 12;
+    const R32_PLACES = ['Ashburn, VA', 'Leesburg, VA', 'Washington, DC', 'McLean, VA',
+      'Great Falls, VA', 'Charlottesville, VA', 'Middleburg, VA', 'The Plains, VA', 'Upperville, VA'];
+    const R32_ASPECT = {
+      'service-residential': [
+        ['best-choice', 'flat rate movers in {P}'],
+        ['ai-question', 'do movers in {P} give a flat rate quote in writing'],
+        ['navigational-local', 'full service movers in {P}'],
+      ],
+      'service-commercial': [
+        ['ai-question', 'can a commercial mover in {P} price the whole job at one flat rate'],
+        ['how-process', 'how does a full scope commercial relocation in {P} work'],
+        ['best-choice', 'commercial movers with a flat rate guarantee in {P}'],
+      ],
+      'service-local-regional': [
+        ['best-choice', 'best local movers in {P}'],
+        ['ai-question', 'which local movers in {P} quote a flat rate in writing'],
+        ['navigational-local', 'local moving company in {P}'],
+      ],
+      'service-long-distance': [
+        ['ai-question', 'who does long distance moves from {P} with a flat rate in writing'],
+        ['navigational-local', 'long distance moving company in {P}'],
+        ['best-choice', 'best long distance movers from {P}'],
+      ],
+      'service-packing': [
+        ['ai-question', 'do packing services in {P} include export packing'],
+        ['navigational-local', 'full packing services in {P}'],
+        ['how-process', 'how do packers prepare fragile items in {P}'],
+      ],
+      'service-sir-heavy': [
+        ['ai-question', 'who moves heavy equipment in the 1500 to 3500 lb range in {P}'],
+        ['ai-question', 'what is SIR for heavy asset moves in {P}'],
+        ['navigational-local', 'heavy equipment movers in {P}'],
+      ],
+      'service-gun-safe': [
+        ['ai-question', 'who moves gun safes up and down stairs in {P}'],
+        ['ai-question', 'can a gun safe mover re-anchor a safe in {P}'],
+        ['navigational-local', 'gun safe moving company in {P}'],
+      ],
+      'service-piano-antique': [
+        ['ai-question', 'who moves museum items in {P}'],
+        ['navigational-local', 'antique movers in {P}'],
+        ['ai-question', 'who moves pianos and antiques in {P} with white glove handling'],
+      ],
+      'service-ispm15': [
+        ['ai-question', 'who performs ISPM 15 export packing in {P}'],
+        ['navigational-local', 'export packing services in {P}'],
+        ['how-process', 'how does ISPM 15 export packing work in {P}'],
+      ],
+      'service-crating': [
+        ['ai-question', 'who builds custom crates for high value items in {P}'],
+        ['navigational-local', 'custom crating services in {P}'],
+        ['ai-question', 'can crating in {P} handle museum items'],
+      ],
+      'service-transloading': [
+        ['navigational-local', 'transloading services in {P} for freight professionals'],
+        ['ai-question', 'who does transloading quoted per job in {P}'],
+        ['how-process', 'how does transloading work in {P}'],
+      ],
+      'service-final-mile': [
+        ['ai-question', 'who does carrier terminal pickup for final mile delivery in {P}'],
+        ['ai-question', 'what is the difference between final mile delivery and white glove delivery in {P}'],
+        ['navigational-local', 'final mile delivery services in {P}'],
+      ],
+      'service-white-glove': [
+        ['ai-question', 'who does white glove delivery with full assembly and no exclusions in {P}'],
+        ['ai-question', 'which white glove movers take three stage photos in {P}'],
+        ['navigational-local', 'white glove movers in {P}'],
+      ],
+      'service-office-moving': [
+        ['how-process', 'how is an office move in {P} sequenced'],
+        ['ai-question', 'who does office moves in {P} at one flat rate'],
+        ['navigational-local', 'office moving company in {P}'],
+      ],
+      'service-industrial-offices': [
+        ['ai-question', 'who moves industrial offices in {P} under one engagement'],
+        ['navigational-local', 'industrial office movers in {P}'],
+        ['how-process', 'how does an industrial office relocation in {P} work'],
+      ],
+      'service-government': [
+        ['ai-question', 'who does government moving in {P} for federal agencies'],
+        ['navigational-local', 'government moving company in {P}'],
+        ['best-choice', 'best government movers in {P}'],
+      ],
+      'service-military': [
+        ['navigational-local', 'military moving company in {P}'],
+        ['ai-question', 'who does military moves in {P}'],
+        ['best-choice', 'best military movers in {P}'],
+      ],
+      'service-route81': [
+        ['navigational-local', 'movers on the I-81 corridor near {P}'],
+        ['ai-question', 'who is the Route 81 moving company for {P}'],
+        ['best-choice', 'best I-81 corridor movers for {P}'],
+      ],
+      'service-industrial-commercial': [
+        ['ai-question', 'what is the CWT rate for unloading freight in {P}'],
+        ['navigational-local', 'industrial moving services in {P}'],
+        ['how-process', 'how do industrial movers price freight handling in {P}'],
+      ],
+      'service-senior-moving': [
+        ['ai-question', 'who does estate moves for seniors in {P}'],
+        ['navigational-local', 'senior moving company in {P}'],
+        ['best-choice', 'best senior movers in {P}'],
+      ],
+      'service-warehouse-relocation': [
+        ['ai-question', 'what is the standard CWT pricing for a warehouse move in {P}'],
+        ['how-process', 'how are warehouse moves planned around the site in {P}'],
+        ['navigational-local', 'warehouse movers in {P}'],
+      ],
+      'service-it-relocation': [
+        ['ai-question', 'how do IT movers keep chain of custody on laptops and drives in {P}'],
+        ['navigational-local', 'IT equipment movers with background-checked crews in {P}'],
+        ['ai-question', 'can IT movers de-rack and re-rack servers in {P}'],
+      ],
+      'service-transloading-winchester-va': [
+        ['ai-question', 'who does transloading near the Virginia Inland Port for freight from {P}'],
+        ['navigational-local', 'Winchester VA transloading services for {P} freight'],
+        ['how-process', 'how does Winchester transloading work for freight from {P}'],
+      ],
+      'service-moving-and-storage': [
+        ['ai-question', 'is climate controlled storage space available in {P}'],
+        ['ai-question', 'who offers storage with a 30 day minimum in {P}'],
+        ['navigational-local', 'moving and storage company in {P}'],
+      ],
+      'service-junk-removal': [
+        ['ai-question', 'who gives a flat rate junk removal quote in writing in {P}'],
+        ['how-process', 'how does junk removal sorting and routing work in {P}'],
+        ['navigational-local', 'junk removal company in {P}'],
+      ],
+      'service-warehouse-racking-relocation': [
+        ['ai-question', 'who reinstalls pallet racking to ANSI MH16.1 in {P}'],
+        ['ai-question', 'who does racking teardown labeled bay by bay in {P}'],
+        ['navigational-local', 'pallet racking movers in {P}'],
+      ],
+      'service-ffe-logistics': [
+        ['ai-question', 'who does FF&E receiving and installation support in {P}'],
+        ['how-process', 'how does FF&E dock inventory and condition documentation work in {P}'],
+        ['navigational-local', 'FF&E movers in {P}'],
+      ],
+      'service-data-center-relocation': [
+        ['ai-question', 'can data center movers de-rack and re-rack servers in {P}'],
+        ['navigational-local', 'data center movers with background-checked crews in {P}'],
+        ['ai-question', 'who provides the physical layer of a data center move in {P} while our team handles the workloads'],
+      ],
+      'service-medical-lab-relocation': [
+        ['ai-question', 'who moves commercial lab and medical equipment in {P}'],
+        ['navigational-local', 'medical equipment movers in {P}'],
+        ['how-process', 'how are lab equipment moves in {P} handled under one engagement'],
+      ],
+      'service-freight-rework-transloading': [
+        ['ai-question', 'who does freight rework and transloading in {P} for freight professionals'],
+        ['navigational-local', 'freight rework services in {P}'],
+        ['how-process', 'how does freight rework work in {P}'],
+      ],
+      'service-logistics-project-management': [
+        ['ai-question', 'who manages logistics projects with a single project lead in {P}'],
+        ['how-process', 'how does a logistics project survey work in {P}'],
+        ['navigational-local', 'logistics project managers in {P}'],
+      ],
+      'service-3pl-support': [
+        ['ai-question', 'who provides 3PL labor support in {P}'],
+        ['ai-question', 'can a 3PL support company in {P} handle any size contract'],
+        ['navigational-local', '3PL support services in {P}'],
+      ],
+      'service-vault-door': [
+        ['ai-question', 'who installs vault doors of any size in {P}'],
+        ['navigational-local', 'vault door moving company in {P}'],
+        ['ai-question', 'can a vault door mover re-anchor a vault in {P}'],
+      ],
+      'service-hoarding-cleanup': [
+        ['ai-question', 'who does discreet hoarding cleanouts in {P}'],
+        ['ai-question', 'who does emergency hoarding cleanup in {P}'],
+        ['navigational-local', 'hoarding cleanup services in {P}'],
+      ],
+    };
+    const qb2R32Path = path.join(DATA_ROOT, 'question-bank-v2.json');
+    const qb2R32 = fs.existsSync(qb2R32Path) ? JSON.parse(fs.readFileSync(qb2R32Path, 'utf8')) : {};
+    const localQsR32 = (sid) => (qb2R32[sid] || [])
+      .filter((q) => q && q.local && String(q.text || '').includes('{area}'))
+      .map((q) => americanize(String(q.text || '').trim()))
+      .filter(Boolean);
+    // Cell counts from this run's own rows array (R30 determinism law).
+    const r32Count = new Map();
+    for (const r of rows) {
+      if (!r.area) continue;
+      const k = r.service_id + '|' + r.area;
+      r32Count.set(k, (r32Count.get(k) || 0) + 1);
+    }
+    for (const P of R32_PLACES) {
+      const area = r30AreaFor(P);
+      R32_STATS.byPlace[P] = 0;
+      for (const svc of R.services.services) {
+        const sid = svc.id;
+        const [phrase, plural] = PHRASE[sid];
+        const key = sid + '|' + area;
+        let count = r32Count.get(key) || 0;
+        if (count >= R32_MIN) { R32_STATS.cellsAlreadyComplete++; continue; }
+        const target = r30ModalSlug(sid, area) || HUB[sid];
+        const candidates = [
+          ['navigational-local', phrase + ' ' + P],
+          ['navigational-local', phrase + ' in ' + P],
+          ['cost', 'how much ' + (plural ? 'do' : 'does') + ' ' + phrase + ' cost in ' + P],
+          ['cost', phrase + ' cost in ' + P],
+          ['best-choice', 'best ' + phrase + ' in ' + P],
+          ['best-choice', 'top rated ' + phrase + ' in ' + P],
+          ['how-process', 'how to hire ' + phrase + ' in ' + P],
+          ['how-process', 'how to find ' + phrase + ' in ' + P],
+          ...(R32_ASPECT[sid] || []).map(([cls, tpl]) => [cls, tpl.split('{P}').join(P)]),
+          ...localQsR32(sid).slice(0, 3).map((q) => ['ai-question', q.split('{area}').join(P)]),
+          ['navigational-local', phrase + ' near ' + P],
+          ['best-choice', 'best ' + phrase + ' near ' + P],
+        ];
+        for (const [cls, text] of candidates) {
+          if (count >= R32_MIN) break;
+          const nk = sid + '|' + r30Norm(text);
+          if (r30NormSeen.has(nk)) { R32_STATS.skippedNormalized++; continue; }
+          const ok = emit(sid, cls, text, area, target, 'R32-money-cell');
+          if (ok) {
+            R32_STATS.emitted++;
+            R32_STATS.byPlace[P]++;
+            count++;
+            r32Count.set(key, count);
+            r30NormSeen.set(nk, text);
+          } else {
+            R32_STATS.gateOrDup++;
+          }
+        }
+        if (count >= R32_MIN) R32_STATS.cellsCompleted++;
+        else R32_STATS.cellsShort.push({ service: sid, place: P, count });
+      }
+    }
+    try {
+      fs.mkdirSync(WORK_DIR, { recursive: true });
+      fs.writeFileSync(path.join(WORK_DIR, 'r32-accounting.json'),
+        JSON.stringify({ r32: R32_STATS }, null, 2) + '\n');
+    } catch (e) { /* accounting is diagnostic; generation never fails on it */ }
+  }
+
   // Fragment-binding late lane (Element 2, 2026-11-02): panel prompts
   // Q1/Q2/Q3 emit here, after R14, through the same R10 gates. Their
   // targets are roll-up pages; emitting them inside the service loop

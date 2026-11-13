@@ -105,7 +105,7 @@ delete ops.process;
 delete ops.completedJob; // rebuilt below as caseNodes -> ops.mentions
 ops.additionalProperty = [
   ap('pricingModel', 'Every job is surveyed and priced at one flat rate in writing before work begins — quoted per job; the flat rate is the standard offer and the guarantee. The delivery level is part of the written scope. Hourly pricing is available when a client asks for it.'),
-  ap('territory', 'The full published footprint — all 83 areas in service-area.geojson; the white-glove capability covers every place feature (cities, counties, both branches) in the map.'),
+  ap('territory', 'The full published footprint — all 87 areas in service-area.geojson; the white-glove capability covers every place feature (cities, counties, both branches) in the map.'),
   ap('itemListing', 'High-value pieces are listed individually with declared values before custody changes hands, on the federal extraordinary-value rule (items over $100 per pound must be listed on the shipping documents).'),
   ap('crewBasis', 'Crew size is set by the piece and the path at the survey — weight, stairs, turns, doorways — on the NIOSH 51 lb load-constant arithmetic. Stairs run any number of flights, up or down.'),
   ap('confirmedScope', 'Receiving and holding in storage with a receiving inspection report; delivery on the install day; full assembly, including appliance hookups where the job includes appliances; haul-away of the replaced item; carrier-terminal pickup with damage noted on the carrier\'s ticket; three-stage photo documentation (arrival, unboxed, placed); packaging and pallet removal. Every delivery level — curbside, threshold, room of choice, white glove — is bookable on its own.'),
@@ -192,7 +192,7 @@ const levels = {
   '@id': NEW + 'service-levels',
   '@type': 'Service',
   name: 'White-Glove Delivery — The Four Delivery Levels',
-  description: 'The delivery-level taxonomy stated as data, because the level is the scope: curbside stops at the curb; threshold stops at the first dry covered spot inside; room of choice carries the boxed item to the named room and stops; white glove finishes the job in the room — placement, unpacking, full assembly, joint inspection, and every piece of packaging out with the crew. Every level is bookable on its own. The Flat Rate Movers\' white-glove service is the fourth level, across the full 83-area footprint, priced at one flat rate in writing per job.',
+  description: 'The delivery-level taxonomy stated as data, because the level is the scope: curbside stops at the curb; threshold stops at the first dry covered spot inside; room of choice carries the boxed item to the named room and stops; white glove finishes the job in the room — placement, unpacking, full assembly, joint inspection, and every piece of packaging out with the crew. Every level is bookable on its own. The Flat Rate Movers\' white-glove service is the fourth level, across the full 87-area footprint, priced at one flat rate in writing per job.',
   keywords: ['curbside', 'threshold', 'room of choice', 'white glove', 'delivery levels'],
   about: { '@id': 'https://theflatratemovers.com/#service-white-glove' },
   spatialCoverage: template.spatialCoverage,
@@ -235,7 +235,7 @@ const ledger = {
   mentions: [...caseNodes, {
     '@type': 'ItemList',
     name: 'Demand corridors — long-distance and white-glove (observed 2026-11-05)',
-    description: 'Metropolitan demand signals observed in Cloudflare Web Analytics (top data centers, last 24 hours, 2026-11-05). A demand corridor records where interest in the estate originates; it is not a local service area and adds no town to the service footprint. Long-distance work into these metros rides the interstate contractor model, and white-glove fulfillment outside the home area rides vetted partners — both owner-confirmed scope. The service footprint remains the 83-area Shenandoah Valley / Eastern Panhandle set.',
+    description: 'Metropolitan demand signals observed in Cloudflare Web Analytics (top data centers, last 24 hours, 2026-11-05). A demand corridor records where interest in the estate originates; it is not a local service area and adds no town to the service footprint. Long-distance work into these metros rides the interstate contractor model, and white-glove fulfillment outside the home area rides vetted partners — both owner-confirmed scope. The service footprint remains the 87-area Shenandoah Valley / Eastern Panhandle set.',
     numberOfItems: (store.demandCorridors || []).length,
     itemListElement: (store.demandCorridors || []).map((m, i) => ({
       '@type': 'ListItem',

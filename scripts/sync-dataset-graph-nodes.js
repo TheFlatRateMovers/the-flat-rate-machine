@@ -40,6 +40,17 @@ const CHECK = process.argv.includes('--check');
 const RESYNC = process.argv.includes('--resync');
 const exclArg = process.argv.indexOf('--exclude');
 const EXCLUDE = new Set(exclArg >= 0 ? process.argv[exclArg + 1].split(',') : []);
+/* Registered exclusions (AE split, 2026-11-12): the questions half of
+ * the answer-evidence dataset is a split seat, not a dataset with its
+ * own landing — it has no per-page summary JSON and no landing, and
+ * the answer-evidence dataset's citizenship node (derived from
+ * datasets-answer-evidence.json's seat) already represents the
+ * dataset in the graphs. Deriving a citizen for it would require a
+ * landing that does not exist by design. */
+const REGISTERED_EXCLUDED = {
+  'answer-evidence-questions': 'AE split seat (2026-11-12): questions half of the answer-evidence dataset; citizenship rides the answer-evidence citizen; no landing or per-page JSON of its own by design',
+};
+for (const stem of Object.keys(REGISTERED_EXCLUDED)) EXCLUDE.add(stem);
 
 function sortKeys(o) {
   if (Array.isArray(o)) return o.map(sortKeys);

@@ -1740,7 +1740,13 @@ async function main() {
     const SITE_D = 'https://theflatratemovers.com';
     const DOI_D = '10.5281/zenodo.23818766';
     const dsFilesD = DATASET_FILES.slice().sort();
-    const landingOfD = (f) => SITE_D + '/datasets/' + f.replace(/^datasets-/, '').replace(/\.json$/, '') + '/';
+    // AE split (2026-11-12): datasets-answer-evidence-questions.json is
+    // the questions half of the answer-evidence dataset — it shares
+    // the main file's landing (/datasets/answer-evidence/) rather
+    // than carrying a landing of its own.
+    const landingOfD = (f) => (f === 'datasets-answer-evidence.json' || f === 'datasets-answer-evidence-questions.json')
+      ? SITE_D + '/datasets/answer-evidence/'
+      : SITE_D + '/datasets/' + f.replace(/^datasets-/, '').replace(/\.json$/, '') + '/';
     const dsNodesOfD = (doc) => ((doc && doc['@graph']) || []).filter((n) => n && n['@type'] === 'Dataset');
     // D-1: a landing page per dataset file — registry entry, per-page
     // JSON sealed in the served signed index, head-data entry.
@@ -1781,8 +1787,13 @@ async function main() {
       for (const n of dsNodesOfD(d)) if (n['@id']) id2fileD[n['@id']] = f;
     }
     const badNodesD = [];
-    const checkNodeD = (n, src) => {
-      const f = id2fileD[n['@id']];
+    const checkNodeD = (n, src, seatFile) => {
+      // AE split (2026-11-12): the questions node @id lives in TWO
+      // dataset files (summary seat + full-array seat), so the @id ->
+      // file map cannot name a seat for it; file-seat checks pass
+      // their own file explicitly and only shell copies resolve
+      // through the map.
+      const f = seatFile || id2fileD[n['@id']];
       if (!f) { badNodesD.push(src + ' unmapped ' + n['@id']); return; }
       const L = landingOfD(f);
       if (n.url !== L) badNodesD.push(src + ' ' + n['@id'] + ' url');
@@ -1803,7 +1814,7 @@ async function main() {
       if (dist.some((e) => !e || e['@type'] !== 'DataDownload')) badNodesD.push(src + ' ' + n['@id'] + ' untyped distribution');
       if (!dist.some((e) => e && e.contentUrl === SITE_D + '/' + f)) badNodesD.push(src + ' ' + n['@id'] + ' no self download');
     };
-    for (const f of dsFilesD) for (const n of dsNodesOfD(fileDocsD[f])) checkNodeD(n, f);
+    for (const f of dsFilesD) for (const n of dsNodesOfD(fileDocsD[f])) checkNodeD(n, f, f);
     const routeDocsD = [];
     (function walkD(d, rel) {
       for (const e of fs.readdirSync(d, { withFileTypes: true })) {
@@ -2295,7 +2306,17 @@ async function main() {
     const dsAE = JSON.parse(fs.readFileSync(path.join(PAGES_PUBLIC, 'datasets-answer-evidence.json'), 'utf8'));
     const gAE = dsAE['@graph'] || [];
     const nodeAE = (suffix) => gAE.find((n) => String(n['@id']).endsWith(suffix));
-    const questionsAE = (nodeAE('#dataset-answer-evidence-questions') || {}).questions || [];
+    // AE split (2026-11-12): the full questions array lives in the
+    // companion file datasets-answer-evidence-questions.json (the
+    // questions node at the same @id); the main file's node carries
+    // a summary object. Rows there omit default-valued fields
+    // (panelState / panelMember / owningFragmentId / moneyWeight) —
+    // absence reads as the default stated in the summary.
+    const dsAEQ = JSON.parse(fs.readFileSync(path.join(PAGES_PUBLIC, 'datasets-answer-evidence-questions.json'), 'utf8'));
+    const gAEQ = dsAEQ['@graph'] || [];
+    const nodeAEQ = (suffix) => gAEQ.find((n) => String(n['@id']).endsWith(suffix));
+    const questionsAE = (nodeAEQ('#dataset-answer-evidence-questions') || {}).questions || [];
+    const summaryAE = (nodeAE('#dataset-answer-evidence-questions') || {}).questions || {};
     const fragmentsAE = (nodeAE('#dataset-answer-evidence-fragments') || {}).answerFragments || [];
     const coverageAE = (nodeAE('#dataset-answer-evidence-coverage') || {}).fragmentCoverage || {};
     const profilesAE = (nodeAE('#dataset-answer-evidence-profiles') || {}).engineProfiles || [];
@@ -2309,8 +2330,11 @@ async function main() {
     const bindSumAE = questionsAE.filter((q) => q.fragmentBinding === 'bound-exact').length +
       questionsAE.filter((q) => q.fragmentBinding === 'target-page-has-fragments').length +
       questionsAE.filter((q) => q.fragmentBinding === 'no-fragment-on-target-page').length;
-    check('AE-1 answer-evidence dataset carries all nine tables and its totals reconcile with the rubric database and the computed coverage',
+    check('AE-1 answer-evidence dataset carries all nine tables and its totals reconcile with the rubric database and the computed coverage (AE split: the questions table lives in datasets-answer-evidence-questions.json and the main node summary states its count and file)',
       questionsAE.length === dbRowsAE && totAE.questions === questionsAE.length &&
+      summaryAE.totalQuestions === questionsAE.length &&
+      summaryAE.fullQuestionsFile === 'https://theflatratemovers.com/datasets-answer-evidence-questions.json' &&
+      (summaryAE.byFragmentBinding || {}).boundExact === covTotAE.boundExact &&
       fragmentsAE.length > 0 && totAE.fragments === fragmentsAE.length &&
       profilesAE.length === 4 && totAE.engineProfiles === 4 &&
       obsAE.length > 0 && totAE.citationObservations === obsAE.length &&
@@ -4244,7 +4268,7 @@ async function main() {
     // 'catalog-registry': '2026-11-03' added — the table now covers
     // all 45 dataset files.
     {
-      const DATES = { 'answer-evidence': '2026-10-31', 'archive-registry': '2026-11-01', 'commercial': '2026-10-29', 'crating': '2026-10-29', 'crawl-presence': '2026-10-31', 'data-center-relocation': '2026-10-30', 'ffe-logistics': '2026-10-30', 'final-mile': '2026-10-29', 'freight-rework': '2026-11-01', 'government': '2026-10-29', 'gun-safe': '2026-10-29', 'industrial-commercial': '2026-10-29', 'industrial-offices': '2026-10-29', 'intent-coverage': '2026-10-30', 'ispm15': '2026-10-29', 'it': '2026-10-29', 'junk-removal': '2026-10-30', 'local-graph-registry': '2026-10-31', 'local-regional': '2026-10-29', 'long-distance': '2026-10-29', 'medical-lab-relocation': '2026-10-30', 'military': '2026-10-29', 'moving-and-storage': '2026-10-29', 'ocean-container': '2026-10-29', 'office': '2026-10-29', 'packing': '2026-10-29', 'piano-antique': '2026-10-29', 'ports': '2026-11-02', 'port-of-virginia': '2026-11-03', 'residential': '2026-10-29', 'route81': '2026-10-29', 'search-index': '2026-10-31', 'senior': '2026-10-29', 'sir-heavy': '2026-10-29', 'transloading': '2026-10-29', 'transloading-inland-port': '2026-10-30', 'transloading-winchester': '2026-10-29', 'vault-door-case-study': '2026-11-03', 'videos': '2026-10-29', 'warehouse': '2026-10-29', 'warehouse-racking-relocation': '2026-10-30', 'white-glove': '2026-11-02', 'quote-tool': '2026-11-03', 'page-data-pool': '2026-11-03', 'catalog-registry': '2026-11-03', 'vault-security': '2026-11-04', 'vault-doors': '2026-11-04', 'hoarding-cleanup': '2026-11-05', 'b2b-specialty-rubric': '2026-11-04', 'luxury-estate-relocation': '2026-11-07', 'port-of-huntington': '2026-11-07', 'coverage': '2026-11-09', 'port-of-new-york-new-jersey': '2026-11-10', 'port-of-baltimore': '2026-11-10', 'philaport': '2026-11-10', 'port-of-wilmington': '2026-11-10', 'richmond-marine-terminal': '2026-11-10', 'winchester-va': '2026-11-12', 'martinsburg-wv': '2026-11-12', 'berryville-va': '2026-11-12', 'inwood-wv': '2026-11-12', 'shepherdstown-wv': '2026-11-12', 'charles-town-wv': '2026-11-12', 'front-royal-va': '2026-11-12', 'strasburg-va': '2026-11-12', 'woodstock-va': '2026-11-12', 'berkeley-springs-wv': '2026-11-12', 'washington-va': '2026-11-12', 'new-market-va': '2026-11-12' }; // Vault Wave 1 (2026-11-04): the two vault dataset files' first publication — the table then covered all 47 dataset files. Hoarding (2026-11-05): hoarding-cleanup first publication — the table then covered all 48 dataset files. B2B Specialty (2026-11-05): b2b-specialty-rubric first publication 2026-11-04 (rubric core) — the table then covered all 49 dataset files. WV Luxury Estate Program (2026-11-07): luxury-estate-relocation first publication — the table then covered all 50 dataset files. WV-2 (2026-11-07): port-of-huntington first publication — the table now covers all 51 dataset files. Territory Matrix P4 (2026-11-09): coverage first publication — the table then covered all 52 dataset files. Ports Completion (2026-11-10): port-of-baltimore, philaport, port-of-wilmington and richmond-marine-terminal first publication — the table now covers all 57 dataset files. Port #8 (2026-11-10): port-of-new-york-new-jersey first publication — the table then covered all 53 dataset files
+      const DATES = { 'answer-evidence': '2026-10-31', 'answer-evidence-questions': '2026-11-12', 'archive-registry': '2026-11-01', 'commercial': '2026-10-29', 'crating': '2026-10-29', 'crawl-presence': '2026-10-31', 'data-center-relocation': '2026-10-30', 'ffe-logistics': '2026-10-30', 'final-mile': '2026-10-29', 'freight-rework': '2026-11-01', 'government': '2026-10-29', 'gun-safe': '2026-10-29', 'industrial-commercial': '2026-10-29', 'industrial-offices': '2026-10-29', 'intent-coverage': '2026-10-30', 'ispm15': '2026-10-29', 'it': '2026-10-29', 'junk-removal': '2026-10-30', 'local-graph-registry': '2026-10-31', 'local-regional': '2026-10-29', 'long-distance': '2026-10-29', 'medical-lab-relocation': '2026-10-30', 'military': '2026-10-29', 'moving-and-storage': '2026-10-29', 'ocean-container': '2026-10-29', 'office': '2026-10-29', 'packing': '2026-10-29', 'piano-antique': '2026-10-29', 'ports': '2026-11-02', 'port-of-virginia': '2026-11-03', 'residential': '2026-10-29', 'route81': '2026-10-29', 'search-index': '2026-10-31', 'senior': '2026-10-29', 'sir-heavy': '2026-10-29', 'transloading': '2026-10-29', 'transloading-inland-port': '2026-10-30', 'transloading-winchester': '2026-10-29', 'vault-door-case-study': '2026-11-03', 'videos': '2026-10-29', 'warehouse': '2026-10-29', 'warehouse-racking-relocation': '2026-10-30', 'white-glove': '2026-11-02', 'quote-tool': '2026-11-03', 'page-data-pool': '2026-11-03', 'catalog-registry': '2026-11-03', 'vault-security': '2026-11-04', 'vault-doors': '2026-11-04', 'hoarding-cleanup': '2026-11-05', 'b2b-specialty-rubric': '2026-11-04', 'luxury-estate-relocation': '2026-11-07', 'port-of-huntington': '2026-11-07', 'coverage': '2026-11-09', 'port-of-new-york-new-jersey': '2026-11-10', 'port-of-baltimore': '2026-11-10', 'philaport': '2026-11-10', 'port-of-wilmington': '2026-11-10', 'richmond-marine-terminal': '2026-11-10', 'winchester-va': '2026-11-12', 'martinsburg-wv': '2026-11-12', 'berryville-va': '2026-11-12', 'inwood-wv': '2026-11-12', 'shepherdstown-wv': '2026-11-12', 'charles-town-wv': '2026-11-12', 'front-royal-va': '2026-11-12', 'strasburg-va': '2026-11-12', 'woodstock-va': '2026-11-12', 'berkeley-springs-wv': '2026-11-12', 'washington-va': '2026-11-12', 'new-market-va': '2026-11-12' }; // Vault Wave 1 (2026-11-04): the two vault dataset files' first publication — the table then covered all 47 dataset files. Hoarding (2026-11-05): hoarding-cleanup first publication — the table then covered all 48 dataset files. B2B Specialty (2026-11-05): b2b-specialty-rubric first publication 2026-11-04 (rubric core) — the table then covered all 49 dataset files. WV Luxury Estate Program (2026-11-07): luxury-estate-relocation first publication — the table then covered all 50 dataset files. WV-2 (2026-11-07): port-of-huntington first publication — the table now covers all 51 dataset files. Territory Matrix P4 (2026-11-09): coverage first publication — the table then covered all 52 dataset files. Ports Completion (2026-11-10): port-of-baltimore, philaport, port-of-wilmington and richmond-marine-terminal first publication — the table now covers all 57 dataset files. Port #8 (2026-11-10): port-of-new-york-new-jersey first publication — the table then covered all 53 dataset files
       const VM = new Set(['intent-coverage', 'search-index', 'answer-evidence', 'crawl-presence', 'local-graph-registry', 'archive-registry']);
       const NO_SC = new Set(['archive-registry', 'crawl-presence', 'local-graph-registry', 'catalog-registry']); // +'catalog-registry' 2026-11-03 (Catalog Registry batch): the fourth standing registry file joins the registry-class no-spatialCoverage set
       const bad = [];
@@ -4623,7 +4647,13 @@ async function main() {
       }
       return node;
     };
-    const citizensDG = fileSetDG.map((f) => deriveDG(f));
+    // AE split (2026-11-12): datasets-answer-evidence-questions.json
+    // is a split seat of the answer-evidence dataset (no landing or
+    // per-page JSON of its own by design; citizenship rides the
+    // answer-evidence citizen — the same registered exclusion as
+    // scripts/sync-dataset-graph-nodes.js). It still takes part in
+    // the index/disk set agreement above.
+    const citizensDG = fileSetDG.filter((f) => f !== 'datasets-answer-evidence-questions.json').map((f) => deriveDG(f));
     const citizenIdsDG = new Set(citizensDG.map((n) => n['@id']));
     const derivedByIdDG = new Map(citizensDG.map((n) => [n['@id'], n]));
     const datasetNodesDG = (doc) => nodesOfDG(doc).filter((n) => n && n['@type'] === 'Dataset');
@@ -5102,7 +5132,12 @@ async function main() {
    const signedIdxQS = JSON.parse(fs.readFileSync(path.join(PAGES_PUBLIC, 'ai-master-index.json'), 'utf8'));
    const fileSetQS = new Set();
    for (const e of signedIdxQS.distribution || []) for (const d of (Array.isArray(e) ? e : [e])) if (d && d.contentUrl && /\/datasets-[^/]+\.json$/.test(d.contentUrl)) fileSetQS.add(d.contentUrl);
-   const landingOfQS = (u) => SITE_QS + '/datasets/' + u.split('/').pop().replace(/^datasets-/, '').replace(/\.json$/, '') + '/';
+   // AE split (2026-11-12): the questions file shares the
+   // answer-evidence landing (no landing of its own by design), so
+   // the landing set dedupes it onto the main file's landing.
+   const landingOfQS = (u) => u.endsWith('/datasets-answer-evidence-questions.json')
+     ? SITE_QS + '/datasets/answer-evidence/'
+     : SITE_QS + '/datasets/' + u.split('/').pop().replace(/^datasets-/, '').replace(/\.json$/, '') + '/';
    const landSetQS = new Set([...fileSetQS].map(landingOfQS));
    const hubQS = SITE_QS + '/datasets/';
    const dsXmlQS = fs.readFileSync(path.join(PAGES_PUBLIC, 'sitemaps', 'datasets.xml'), 'utf8');
@@ -5933,7 +5968,7 @@ async function main() {
         const pairs = readTM(stagedPairs);
         const unlabeled = pairs.filter((p) => !p.distance_basis).length;
         tmReport('TM-5 pair distances carry their basis label — computed-centroid or researched-road; none unlabeled (SPEC GS-5)',
-          unlabeled === 0 && pairs.length === 6806, pairs.length + ' pairs, ' + unlabeled + ' unlabeled');
+          unlabeled === 0 && pairs.length === 7482, pairs.length + ' pairs, ' + unlabeled + ' unlabeled');
       } else tmReport('TM-5 pair distances carry their basis label (SPEC GS-5)', false, 'production pairs table not present at ' + stagedPairs);
     }
 

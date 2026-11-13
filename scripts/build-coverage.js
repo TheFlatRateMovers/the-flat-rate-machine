@@ -5,7 +5,7 @@
  * production alias map (data/coverage-alias-map.json), and emits the
  * Territory Matrix into the Pages public tree:
  *   datasets-coverage.json            — the coverage dataset file (summary
- *                                       Dataset node + 83 typed Place nodes
+ *                                       Dataset node + 87 typed Place nodes
  *                                       + county/state/country scaffolding)
  *   datasets/coverage/features-table.json
  *   datasets/coverage/coverage-table.json  (feature x service, reconciled)
@@ -321,26 +321,26 @@ wTo(path.join(PUB, 'dataset-coverage.json'), jfFile);
 // ---------- test battery (P1 tests, updated for the TM-1 binding) ----------
 const tests = [];
 const T = (name, pass) => tests.push([name, !!pass]);
-T('T1 features in == features out (83)', features.length === 83 && feats.length === 83);
-T('T2 typed nodes == features (83)', nodes.length === 83);
+T('T1 features in == features out (87)', features.length === 87 && feats.length === 87);
+T('T2 typed nodes == features (87)', nodes.length === 87);
 T('T3 every node carries GeoCoordinates', nodes.every(n => n.geo && n.geo['@type'] === 'GeoCoordinates'));
 T('T4 coverage cells == sum of feature services lists',
   coverage.length === feats.reduce((s, f) => s + (f.properties.services || []).length, 0));
-T('T5 pairs == 83*82 = 6806', pairs.length === 6806);
+T('T5 pairs == 87*86 = 7482', pairs.length === 7482);
 T('T6 every pair distance labeled computed-centroid', pairs.every(p => p.distance_basis === 'computed-centroid'));
 const definedIds = new Set(datasetFile['@graph'].map(n => n['@id']));
 T('T7 GS-4: every containedInPlace ref resolves to a defined node',
   nodes.every(n => n.containedInPlace.every(r => definedIds.has(r['@id']))) &&
   [...stateNodes.values()].every(n => definedIds.has(n.containedInPlace['@id'])));
-T('T8 branch split post-TM-1: Winchester 56 / Martinsburg 48 / both 21 (35 W-only, 27 M-only)',
-  features.filter(x => x.branch === 'winchester' || x.branch === 'both').length === 56 &&
+T('T8 branch split post-TM-1: Winchester 60 / Martinsburg 48 / both 21 (39 W-only, 27 M-only)',
+  features.filter(x => x.branch === 'winchester' || x.branch === 'both').length === 60 &&
   features.filter(x => x.branch === 'martinsburg' || x.branch === 'both').length === 48 &&
   features.filter(x => x.branch === 'both').length === 21);
 T('T9 GS-3: zero unresolved coverage cells (registry + alias map reconcile all)',
   unresolved.length === 0 && coverage.every(c => c.service_registry_id && regIds.has(c.service_registry_id)));
 T('T10 registry is 34 services', registry.length === 34);
 T('T11 every feature has exactly one typed node (id set == feature set)',
-  new Set(nodes.map(n => n['@id'])).size === 83 &&
+  new Set(nodes.map(n => n['@id'])).size === 87 &&
   features.every(f => definedIds.has(`${BASE}/#${f.feature_id}`)));
 T('T12 GS-1 shape: no Dataset/DataDownload id appears in any node seat other than the dataset node itself',
   nodes.every(n => !JSON.stringify(n).includes('#dataset')));

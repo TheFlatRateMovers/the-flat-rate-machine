@@ -158,7 +158,7 @@ const metaKeyByUrl = new Map(Object.entries(pageMeta).filter(([, v]) => v && v.c
 const out = [];
 out.push('# The Flat Rate Movers — Full Text (llms-full.txt)');
 out.push('');
-out.push('> The complete published text of The Flat Rate Movers LLC in one file: company identity, both branches with their own hours and ratings, all ' + services.length + ' services with their full page content, the ' + '83-area footprint, the flat-rate guarantee, the published FAQs, every published article and guide on the blog, the datasets and the search-intent rubric, the certificate and how to verify it, the API, MCP and WebMCP surfaces, the book, and how to cite this estate. Live API: https://api.theflatratemovers.com (MCP server: https://api.theflatratemovers.com/mcp). Generated mechanically from the same published sources as the website itself — every statement here is traceable to already-published estate content.');
+out.push('> The complete published text of The Flat Rate Movers LLC in one file: company identity, both branches with their own hours and ratings, all ' + services.length + ' services with their full page content, the ' + '87-area footprint, the flat-rate guarantee, the published FAQs, every published article and guide on the blog, the datasets and the search-intent rubric, the certificate and how to verify it, the API, MCP and WebMCP surfaces, the book, and how to cite this estate. Live API: https://api.theflatratemovers.com (MCP server: https://api.theflatratemovers.com/mcp). Generated mechanically from the same published sources as the website itself — every statement here is traceable to already-published estate content.');
 out.push('');
 out.push('Canonical short index: https://theflatratemovers.com/llms.txt · Website: https://theflatratemovers.com/');
 out.push('');
@@ -300,7 +300,13 @@ for (const f of dsFiles) {
     if (ppNodes.length !== 1) fail('dataset file carries no Dataset node and its landing per-page JSON yields ' + ppNodes.length + ' summary candidates (expected exactly 1): ' + f);
     main = ppNodes[0];
   }
-  out.push('- **' + (main.name || f) + '** — ' + String(main.description || '').replace(/\s+/g, ' ').trim() + ' Download: https://theflatratemovers.com/' + f + ' · Landing: https://theflatratemovers.com/datasets/' + f.replace(/^datasets-/, '').replace(/\.json$/, '') + '/');
+  // AE split (2026-11-12): datasets-answer-evidence-questions.json
+  // shares the answer-evidence landing — its node's own url is the
+  // landing; the filename-derived landing does not exist for it.
+  const landingFull = f === 'datasets-answer-evidence-questions.json' && main.url
+    ? main.url
+    : 'https://theflatratemovers.com/datasets/' + f.replace(/^datasets-/, '').replace(/\.json$/, '') + '/';
+  out.push('- **' + (main.name || f) + '** — ' + String(main.description || '').replace(/\s+/g, ' ').trim() + ' Download: https://theflatratemovers.com/' + f + ' · Landing: ' + landingFull);
 }
 const intent = JSON.parse(fs.readFileSync(path.join(publicDir, 'datasets-intent-coverage.json'), 'utf8'));
 const rollupNode = (intent['@graph'] || []).find((n) => n && n.outcomeRollup && n.outcomeRollup.rows);
