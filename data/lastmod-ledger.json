@@ -2,7 +2,7 @@
  "description": "Seal-maintained lastmod ledger: for every sitemap URL, the date of the last seal generation in which its own signed distribution changed. Seeded from the 2026-11-02 crawl-demand audit (doc-level digest history across 73 signed generations); maintained by seal.py phase 6b (diff-stamp vs the phase-0 prior index). build-sitemap.js reads this file for every sitemap <lastmod>.",
  "lastSeal": {
   "date": "2026-11-14",
-  "indexSha256": "d90a70e1c563e8c7dfa6506fddd6504906c80511309327237f433e4b4fc45b66"
+  "indexSha256": "3de2aa32ae00595c167d631e94789e99cc1ad6510c17f53da3e10b875a2076f4"
  },
  "seededFrom": "crawl-demand-audit-2026-11-02.csv",
  "urls": {
@@ -107,6 +107,7 @@
   "https://theflatratemovers.com/datasets-moving-and-storage.json": "2026-11-14",
   "https://theflatratemovers.com/datasets-new-market-va.json": "2026-11-14",
   "https://theflatratemovers.com/datasets-ocean-container.json": "2026-11-14",
+  "https://theflatratemovers.com/datasets-office-decommissioning.json": "2026-11-14",
   "https://theflatratemovers.com/datasets-office.json": "2026-11-14",
   "https://theflatratemovers.com/datasets-packing.json": "2026-11-14",
   "https://theflatratemovers.com/datasets-page-data-pool.json": "2026-11-14",
@@ -177,6 +178,7 @@
   "https://theflatratemovers.com/datasets/moving-and-storage/": "2026-11-14",
   "https://theflatratemovers.com/datasets/new-market-va/": "2026-11-14",
   "https://theflatratemovers.com/datasets/ocean-container/": "2026-11-14",
+  "https://theflatratemovers.com/datasets/office-decommissioning/": "2026-11-14",
   "https://theflatratemovers.com/datasets/office/": "2026-11-14",
   "https://theflatratemovers.com/datasets/packing/": "2026-11-14",
   "https://theflatratemovers.com/datasets/page-data-pool/": "2026-11-14",
@@ -325,6 +327,13 @@
   "https://theflatratemovers.com/moving-cost-guide-winchester-va/": "2026-11-14",
   "https://theflatratemovers.com/moving-questions-answers/": "2026-11-14",
   "https://theflatratemovers.com/moving-tips-winchester-va/": "2026-11-14",
+  "https://theflatratemovers.com/office-decommissioning-alexandria-va/": "2026-11-14",
+  "https://theflatratemovers.com/office-decommissioning-bethesda-md/": "2026-11-14",
+  "https://theflatratemovers.com/office-decommissioning-crystal-city-va/": "2026-11-14",
+  "https://theflatratemovers.com/office-decommissioning-reston-va/": "2026-11-14",
+  "https://theflatratemovers.com/office-decommissioning-tysons-va/": "2026-11-14",
+  "https://theflatratemovers.com/office-decommissioning-washington-dc/": "2026-11-14",
+  "https://theflatratemovers.com/office-decommissioning/": "2026-11-14",
   "https://theflatratemovers.com/office-moving-movers-martinsburg-wv/": "2026-11-14",
   "https://theflatratemovers.com/office-moving-movers-winchester-va/": "2026-11-14",
   "https://theflatratemovers.com/office-moving/": "2026-11-14",

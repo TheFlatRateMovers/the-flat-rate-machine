@@ -4593,7 +4593,7 @@
    "@id": "https://theflatratemovers.com/datasets/intent-coverage/#dataset",
    "@type": "Dataset",
    "name": "The Flat Rate Movers — Search Intent Coverage Operations Dataset",
-   "description": "The live intent-coverage rubric of The Flat Rate Movers: 57539 generated rows, each one a query string a customer or an AI assistant can use to find a company service, resolved to the exact page that answers it, that page’s per-page JSON, the dataset files behind the answer, and the service’s node in the entity graph. Rows are generated from the estate’s own registries — 34 services, 323 pages, two branch locations, three corridors and the 87-feature service-area footprint — plus the blog question bank’s 100 real question phrasings and the researched per-service question bank v2 (694 questions), and the rubric is regenerated whenever those registries change. Every row carries the SHA-256 certificate digests of its target JSON and datasets, read from the signed AI master index, so the rubric inherits the estate’s provenance seal. Coverage spans all 34 services of both branches, Winchester, VA and Martinsburg, WV, along the I-81, I-66 and I-70 corridors. Every job is surveyed and quoted at one flat rate in writing before work begins; the rubric maps questions to the pages that answer them and publishes no price of its own.",
+   "description": "The live intent-coverage rubric of The Flat Rate Movers: 57939 generated rows, each one a query string a customer or an AI assistant can use to find a company service, resolved to the exact page that answers it, that page’s per-page JSON, the dataset files behind the answer, and the service’s node in the entity graph. Rows are generated from the estate’s own registries — 34 services, 331 pages, two branch locations, three corridors and the 87-feature service-area footprint — plus the blog question bank’s 100 real question phrasings and the researched per-service question bank v2 (694 questions), and the rubric is regenerated whenever those registries change. Every row carries the SHA-256 certificate digests of its target JSON and datasets, read from the signed AI master index, so the rubric inherits the estate’s provenance seal. Coverage spans all 34 services of both branches, Winchester, VA and Martinsburg, WV, along the I-81, I-66 and I-70 corridors. Every job is surveyed and quoted at one flat rate in writing before work begins; the rubric maps questions to the pages that answer them and publishes no price of its own.",
    "url": "https://theflatratemovers.com/datasets/intent-coverage/",
    "sameAs": "https://theflatratemovers.com/datasets/intent-coverage/",
    "identifier": "https://doi.org/10.5281/zenodo.23818766",
@@ -12060,6 +12060,74 @@
     "name": "The Flat Rate Movers — AI Authority Estate Datasets",
     "url": "https://theflatratemovers.com/datasets/"
    }
+  },
+  {
+   "@type": "Dataset",
+   "@id": "https://theflatratemovers.com/datasets/office-decommissioning/#dataset-office-decommissioning",
+   "name": "Office Decommissioning & Liquidation Dataset",
+   "description": "The dedicated dataset of the Office Decommissioning & Liquidation program of The Flat Rate Movers: one engagement — decommissioning, furniture and equipment removal, liquidation and value-recovery coordination, transport, storage, and broom-clean lease-surrender handback — at one flat rate in writing, across the six high-volume office markets of Washington DC and Northern Virginia: Downtown Washington DC, Crystal City / National Landing and Pentagon City in Arlington, Reston and Herndon, Tysons, Alexandria, and Bethesda MD. The dataset carries the six market Places with their office-stock and vacancy evidence, the ten service doors of the category (decommissioning services, liquidation, lease surrender, federal and GSA surrender, conversion cleanout, cubicle removal, cost, process, best-choice, and IT/e-waste coordination), the per-area Service nodes bound to the dedicated pages that own each market, and the coverage matrix of areas by doors. Liquidation in this program means removal plus value-recovery coordination and disposition — resale coordination, donation, recycling, disposal; the company does not buy furniture and does not pay cash for assets. Pricing is per job: one flat rate agreed in writing before work starts; no rate is published in this dataset.",
+   "url": "https://theflatratemovers.com/datasets/office-decommissioning/",
+   "sameAs": "https://theflatratemovers.com/datasets/office-decommissioning/",
+   "identifier": "https://theflatratemovers.com/datasets/office-decommissioning/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@type": "Organization",
+    "@id": "https://theflatratemovers.com/#organization",
+    "name": "The Flat Rate Movers LLC",
+    "url": "https://theflatratemovers.com/"
+   },
+   "publisher": {
+    "@type": "Organization",
+    "@id": "https://theflatratemovers.com/#organization",
+    "name": "The Flat Rate Movers LLC",
+    "url": "https://theflatratemovers.com/"
+   },
+   "datePublished": "2026-11-14",
+   "dateModified": "2026-11-14",
+   "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
+   },
+   "spatialCoverage": [
+    {
+     "@type": "Place",
+     "@id": "https://theflatratemovers.com/#winchester",
+     "name": "The Flat Rate Movers — Winchester",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.18711576,
+      "longitude": -78.1668352
+     }
+    },
+    {
+     "@type": "Place",
+     "@id": "https://theflatratemovers.com/#martinsburg",
+     "name": "Flat Rate Movers Martinsburg WV",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.48319665,
+      "longitude": -77.94760443
+     }
+    }
+   ],
+   "keywords": "office decommissioning, office liquidation, office furniture liquidation, lease surrender cleanout, broom-clean handback, GSA lease surrender, federal office decommissioning, office conversion cleanout, cubicle removal, Washington DC, Crystal City, National Landing, Reston, Herndon, Tysons, Alexandria, Bethesda",
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-office-moving"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-industrial-offices"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-government"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-commercial"
+    }
+   ]
   }
  ],
  "_humanSummary": "This is the best JSON for The Flat Rate Movers: one @graph, stable @ids, Organization chained to two Places, each Place carrying its full footprint (Winchester 32 areas, Martinsburg 35, shared 14) with the Google Business Profile subset (Winchester 17, Martinsburg 14) also carried as named City nodes, each Service chained to the Organization and to its branch Place or Places, per-branch Google ratings (Winchester 5.0 with 1 review, Martinsburg 4.7 with 6 reviews, never blended), founding June 2010, geo, hours, sameAs, and no license, price, testimonial, or move count. Humans read the names, addresses, and service lists; machines follow the @ids. 2026-10-28: 24 new branch and corridor pages added, each with Service JSON-LD, logo image, and backlinks.",

@@ -312,7 +312,7 @@ const PHRASE = {
 // in the signed index.
 const DATASETS = {
   'service-residential': ['datasets-residential.json'],
-  'service-commercial': ['datasets-commercial.json'],
+  'service-commercial': ['datasets-commercial.json', 'datasets-office-decommissioning.json'],
   'service-local-regional': ['datasets-local-regional.json'],
   'service-long-distance': ['datasets-long-distance.json'],
   'service-packing': ['datasets-packing.json'],
@@ -324,15 +324,15 @@ const DATASETS = {
   'service-transloading': ['datasets-transloading.json', 'datasets-transloading-inland-port.json', 'datasets-ocean-container.json', 'datasets-ports.json', 'datasets-port-of-virginia.json', 'datasets-port-of-huntington.json', 'datasets-port-of-new-york-new-jersey.json', 'datasets-port-of-baltimore.json', 'datasets-philaport.json', 'datasets-port-of-wilmington.json', 'datasets-richmond-marine-terminal.json'], // + the four ports-completion files in Ports Completion 2026-11-10 (per-port dataset seats for Baltimore, PhilaPort, Wilmington, Richmond) // + datasets-port-of-new-york-new-jersey.json in Port #8 2026-11-10 (per-port dataset seat for the Port of New York and New Jersey) // + datasets-port-of-huntington.json in WV-2 2026-11-07 (per-port dataset seat for the Huntington river district) // + datasets-port-of-virginia.json in Ports P3 2026-11-03 (per-port dataset seat; gives the /datasets/port-of-virginia/ landing its R13 rows + full coverage)
   'service-final-mile': ['datasets-final-mile.json'],
   'service-white-glove': ['datasets-white-glove.json', 'datasets-luxury-estate-relocation.json'],
-  'service-office-moving': ['datasets-office.json'],
-  'service-industrial-offices': ['datasets-industrial-offices.json'],
-  'service-government': ['datasets-government.json'],
+  'service-office-moving': ['datasets-office.json', 'datasets-office-decommissioning.json'],
+  'service-industrial-offices': ['datasets-industrial-offices.json', 'datasets-office-decommissioning.json'],
+  'service-government': ['datasets-government.json', 'datasets-office-decommissioning.json'],
   'service-military': ['datasets-military.json'],
   'service-route81': ['datasets-route81.json'],
   'service-industrial-commercial': ['datasets-industrial-commercial.json', 'datasets-warehouse.json'],
   'service-senior-moving': ['datasets-senior.json'],
   'service-warehouse-relocation': ['datasets-warehouse.json'],
-  'service-it-relocation': ['datasets-it.json'],
+  'service-it-relocation': ['datasets-it.json', 'datasets-office-decommissioning.json'],
   'service-transloading-winchester-va': ['datasets-transloading-winchester.json'],
   'service-moving-and-storage': ['datasets-moving-and-storage.json'],
   'service-junk-removal': ['datasets-junk-removal.json'],
@@ -4598,6 +4598,142 @@ function generate() {
         R40_SOURCE_ROWS.map((r) => JSON.stringify(r)).join('\n') + '\n');
     } catch (e) { /* accounting is diagnostic; generation never fails on it */ }
   }
+
+  // R41 (Office Decommissioning & Liquidation Takeover, 2026-11-14):
+  // the category bank for the six DC / Northern Virginia surrender
+  // markets. DETERMINISM LAW: the lane reads data/office-decom.json
+  // (the program registry) only — never rubric.db; dedupe/binding
+  // reference is this run's rows. Generator-emitted cell rows per
+  // (area x door): the registry's ten doors (core decommissioning,
+  // liquidation, lease surrender, federal/GSA surrender, conversion
+  // cleanout, cubicle removal, cost, process, best-choice, IT/e-waste
+  // coordination) x six question forms — navigational-local, cost,
+  // how-process, best-choice, ai-question, plus a rotating advantage
+  // aspect (one flat rate in writing / broom-clean handback /
+  // documented disposition coordination — resale, donation, recycling
+  // — never a furniture purchase / one crew for removal, transport
+  // and storage). AREA KEY: the registry area id (the bank's standing
+  // non-feature-area convention, like port ids); hub head rows carry
+  // 'decom-program'. SERVICE per row = the door's registry service.
+  // HEAD TERMS: seven per area plus eight on the category hub, one
+  // owner per search. TRUTH SCREEN: the R35 base refuse set is the
+  // backstop, plus this lane's extras — any per-square-foot rate
+  // assertion (pricing is per job; that IS the flat rate) and any
+  // furniture-buying assertion (the company coordinates disposition;
+  // it never buys furniture or pays cash for assets).
+  const R41_STATS = { cellsAttempted: 0, cellsLanded: 0, headAttempted: 0, headLanded: 0, collisionExact: 0, collisionNormalized: 0, truthRefused: 0, gateExcluded: 0, byArea: {}, byService: {} };
+  const R41_SOURCE_ROWS = [];
+  {
+    const decomDb = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'office-decom.json'), 'utf8'));
+    const R41_REFUSE_EXTRA = [
+      { re: /\bper\s+(?:square\s+foot|sq\.?\s?ft)\b/i, why: 'per-square-foot-rate' },
+      { re: /\b(?:we|the company|our crews?|the provider)\s+(?:buy|buys|buying|purchase|purchases|pay|pays)\b[^.]{0,40}\b(?:furniture|assets|equipment|inventory)\b/i, why: 'furniture-buying-assertion' },
+      { re: /\bcash\s+for\s+(?:your\s+)?(?:office\s+)?(?:furniture|assets|equipment)\b/i, why: 'furniture-buying-assertion' },
+    ];
+    const r41Refuse = (q) => R35_TRUTH_REFUSE.find((t) => t.re.test(q)) || R41_REFUSE_EXTRA.find((t) => t.re.test(q)) || null;
+    const r41Land = (svcId, intentClass, q, area, target, pattern) => {
+      const bad = r41Refuse(q);
+      if (bad) {
+        R41_STATS.truthRefused++;
+        excluded.push({ reason: 'r41-truth-' + bad.why, serviceId: svcId, queryText: q, pattern });
+        return false;
+      }
+      const nk = svcId + '|' + r30Norm(q);
+      if (r30NormSeen.has(nk)) {
+        const first = r30NormSeen.get(nk);
+        if (first === q) R41_STATS.collisionExact++; else R41_STATS.collisionNormalized++;
+        excluded.push({ reason: 'r41-collision-bank-kept', serviceId: svcId, queryText: q, pattern });
+        return false;
+      }
+      const ok = emit(svcId, intentClass, q, area, target, pattern, { source: 'office-decom-takeover' });
+      if (ok) {
+        r30NormSeen.set(nk, q);
+        R41_STATS.byService[svcId] = (R41_STATS.byService[svcId] || 0) + 1;
+        if (area) R41_STATS.byArea[area] = (R41_STATS.byArea[area] || 0) + 1;
+        const landedRow = rows[rows.length - 1];
+        R41_SOURCE_ROWS.push({ q, intent: intentClass, service_id: svcId, area, target_url: landedRow.target_url, pattern });
+        return true;
+      }
+      R41_STATS.gateExcluded++;
+      excluded.push({ reason: 'r41-gate-excluded', serviceId: svcId, queryText: q, pattern });
+      return false;
+    };
+    const R41_ASPECTS = [
+      (base, pq) => ['ai-question', 'is ' + base + ' in ' + pq + ' priced as one flat rate in writing?'],
+      (base, pq) => ['ai-question', 'does ' + base + ' in ' + pq + ' end with a broom-clean handback?'],
+      (base, pq) => ['ai-question', 'who coordinates resale, donation and recycling during ' + base + ' in ' + pq + '?'],
+      (base, pq) => ['ai-question', 'can one crew handle removal, transport and storage for ' + base + ' in ' + pq + '?'],
+    ];
+    const R41_BASE_DOORS = { cost: 1, best: 1, process: 1 };
+    let areaIdx = 0;
+    for (const area of decomDb.areas) {
+      areaIdx++;
+      const pl = area.placeLabel, pq = area.placeQ;
+      let doorIdx = 0;
+      for (const door of decomDb.doors) {
+        doorIdx++;
+        const ph = door.phrase;
+        const base = R41_BASE_DOORS[door.id] ? 'office decommissioning' : ph;
+        let forms;
+        if (door.id === 'cost') {
+          forms = [
+            ['navigational-local', ph + ' ' + pl],
+            ['cost', 'how much does office decommissioning cost in ' + pl],
+            ['how-process', 'how is office decommissioning priced in ' + pl],
+            ['best-choice', 'best office decommissioning company ' + pl],
+            ['ai-question', 'who provides office decommissioning in ' + pq + '?'],
+          ];
+        } else if (door.id === 'best') {
+          forms = [
+            ['navigational-local', ph + ' ' + pl],
+            ['cost', 'what does the best office decommissioning company in ' + pl + ' charge'],
+            ['how-process', 'how to choose an office decommissioning company in ' + pl],
+            ['best-choice', 'best office decommissioning services ' + pl],
+            ['ai-question', 'who is the best office decommissioning company in ' + pq + '?'],
+          ];
+        } else if (door.id === 'process') {
+          forms = [
+            ['navigational-local', ph + ' ' + pl],
+            ['cost', 'how much does office decommissioning cost in ' + pl],
+            ['how-process', 'how does the office decommissioning process work in ' + pl],
+            ['best-choice', 'best office decommissioning services ' + pl],
+            ['ai-question', 'who provides office decommissioning services in ' + pq + '?'],
+          ];
+        } else {
+          forms = [
+            ['navigational-local', ph + ' ' + pl],
+            ['cost', 'how much does ' + ph + ' cost in ' + pl],
+            ['how-process', 'how does ' + ph + ' work in ' + pl],
+            ['best-choice', 'best ' + ph + ' ' + pl],
+            ['ai-question', 'who provides ' + ph + ' in ' + pq + '?'],
+          ];
+        }
+        forms.push(R41_ASPECTS[(areaIdx + doorIdx) % 4](base, pq));
+        for (const [cls, q] of forms) {
+          R41_STATS.cellsAttempted++;
+          if (r41Land(door.service, cls, q, area.id, area.pageSlug, 'R41-cell-' + door.id)) R41_STATS.cellsLanded++;
+        }
+      }
+      // head terms for the area page (service-office-moving owns them)
+      for (const h of ['office decommissioning', 'office liquidation', 'office furniture liquidation', 'office furniture removal', 'office decommissioning services', 'office decommissioning companies', 'commercial office decommissioning']) {
+        R41_STATS.headAttempted++;
+        if (r41Land('service-office-moving', 'navigational-local', h + ' ' + pl, area.id, area.pageSlug, 'R41-head')) R41_STATS.headLanded++;
+      }
+    }
+    // hub head terms — the category hub owns the unplaced heads
+    for (const q of ['office decommissioning', 'office liquidation', 'office furniture liquidation', 'office decommissioning services', 'office decommissioning companies', 'office decommissioning Washington DC', 'office decommissioning Northern Virginia', 'office liquidation Northern Virginia']) {
+      R41_STATS.headAttempted++;
+      if (r41Land('service-office-moving', 'navigational-local', q, 'decom-program', 'office-decommissioning', 'R41-head')) R41_STATS.headLanded++;
+    }
+    try {
+      fs.mkdirSync(WORK_DIR, { recursive: true });
+      fs.writeFileSync(path.join(WORK_DIR, 'r41-accounting.json'),
+        JSON.stringify({ r41: R41_STATS }, null, 2) + '\n');
+      fs.writeFileSync(path.join(WORK_DIR, 'r41-source-rows.jsonl'),
+        R41_SOURCE_ROWS.map((r) => JSON.stringify(r)).join('\n') + '\n');
+    } catch (e) { /* accounting is diagnostic; generation never fails on it */ }
+  }
+
 
   // Fragment-binding late lane (Element 2, 2026-11-02): panel prompts
   // Q1/Q2/Q3 emit here, after R14, through the same R10 gates. Their

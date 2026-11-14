@@ -1,6 +1,6 @@
 {
  "attestation": "Every URL below was fetched from the live sitemap on 2026-10-28; titles and service links come from pageMeta in the live site source. No URL was hand-typed.",
- "count": 323,
+ "count": 331,
  "dataset": "pages",
  "generated": "2026-10-29",
  "pages": [
@@ -4059,6 +4059,129 @@
    "title": "Container Unloading Labor — Huntington WV",
    "type": "service",
    "url": "https://theflatratemovers.com/container-unloading-labor-huntington-wv/"
+  },
+  {
+   "attested": "2026-11-14",
+   "lastmod": "2026-11-14",
+   "services": [
+    "service-office-moving",
+    "service-industrial-offices",
+    "service-commercial",
+    "service-government"
+   ],
+   "slug": "office-decommissioning-washington-dc",
+   "source": "Office Decommissioning & Liquidation Takeover 2026-11-14 — dedicated market page owning the Washington DC office decommissioning money intent; R41 binding",
+   "status": "live",
+   "title": "Office Decommissioning & Liquidation — Washington DC",
+   "type": "service",
+   "url": "https://theflatratemovers.com/office-decommissioning-washington-dc/"
+  },
+  {
+   "attested": "2026-11-14",
+   "lastmod": "2026-11-14",
+   "services": [
+    "service-office-moving",
+    "service-industrial-offices",
+    "service-commercial",
+    "service-government"
+   ],
+   "slug": "office-decommissioning-crystal-city-va",
+   "source": "Office Decommissioning & Liquidation Takeover 2026-11-14 — dedicated market page owning the Crystal City VA office decommissioning money intent; R41 binding",
+   "status": "live",
+   "title": "Office Decommissioning & Liquidation — Crystal City VA",
+   "type": "service",
+   "url": "https://theflatratemovers.com/office-decommissioning-crystal-city-va/"
+  },
+  {
+   "attested": "2026-11-14",
+   "lastmod": "2026-11-14",
+   "services": [
+    "service-office-moving",
+    "service-industrial-offices",
+    "service-commercial",
+    "service-government"
+   ],
+   "slug": "office-decommissioning-reston-va",
+   "source": "Office Decommissioning & Liquidation Takeover 2026-11-14 — dedicated market page owning the Reston VA office decommissioning money intent; R41 binding",
+   "status": "live",
+   "title": "Office Decommissioning & Liquidation — Reston VA",
+   "type": "service",
+   "url": "https://theflatratemovers.com/office-decommissioning-reston-va/"
+  },
+  {
+   "attested": "2026-11-14",
+   "lastmod": "2026-11-14",
+   "services": [
+    "service-office-moving",
+    "service-industrial-offices",
+    "service-commercial",
+    "service-government"
+   ],
+   "slug": "office-decommissioning-tysons-va",
+   "source": "Office Decommissioning & Liquidation Takeover 2026-11-14 — dedicated market page owning the Tysons VA office decommissioning money intent; R41 binding",
+   "status": "live",
+   "title": "Office Decommissioning & Liquidation — Tysons VA",
+   "type": "service",
+   "url": "https://theflatratemovers.com/office-decommissioning-tysons-va/"
+  },
+  {
+   "attested": "2026-11-14",
+   "lastmod": "2026-11-14",
+   "services": [
+    "service-office-moving",
+    "service-industrial-offices",
+    "service-commercial",
+    "service-government"
+   ],
+   "slug": "office-decommissioning-alexandria-va",
+   "source": "Office Decommissioning & Liquidation Takeover 2026-11-14 — dedicated market page owning the Alexandria VA office decommissioning money intent; R41 binding",
+   "status": "live",
+   "title": "Office Decommissioning & Liquidation — Alexandria VA",
+   "type": "service",
+   "url": "https://theflatratemovers.com/office-decommissioning-alexandria-va/"
+  },
+  {
+   "attested": "2026-11-14",
+   "lastmod": "2026-11-14",
+   "services": [
+    "service-office-moving",
+    "service-industrial-offices",
+    "service-commercial",
+    "service-government"
+   ],
+   "slug": "office-decommissioning-bethesda-md",
+   "source": "Office Decommissioning & Liquidation Takeover 2026-11-14 — dedicated market page owning the Bethesda MD office decommissioning money intent; R41 binding",
+   "status": "live",
+   "title": "Office Decommissioning & Liquidation — Bethesda MD",
+   "type": "service",
+   "url": "https://theflatratemovers.com/office-decommissioning-bethesda-md/"
+  },
+  {
+   "attested": "2026-11-14",
+   "lastmod": "2026-11-14",
+   "services": [
+    "service-office-moving",
+    "service-industrial-offices",
+    "service-commercial",
+    "service-government"
+   ],
+   "slug": "office-decommissioning",
+   "source": "Office Decommissioning & Liquidation Takeover 2026-11-14 — category hub owning the office decommissioning head terms; R41 binding",
+   "status": "live",
+   "title": "Office Decommissioning & Liquidation",
+   "type": "service",
+   "url": "https://theflatratemovers.com/office-decommissioning/"
+  },
+  {
+   "attested": "2026-11-14",
+   "lastmod": "2026-11-14",
+   "services": [],
+   "slug": "datasets/office-decommissioning",
+   "source": "Office Decommissioning & Liquidation Takeover 2026-11-14 — dataset landing for datasets-office-decommissioning.json",
+   "status": "live",
+   "title": "Office Decommissioning & Liquidation Dataset",
+   "type": "page",
+   "url": "https://theflatratemovers.com/datasets/office-decommissioning/"
   }
  ],
  "source": "https://theflatratemovers.com/sitemap.xml joined to pageMeta in ../the-flat-rate-movers-pages/public/index.html",
