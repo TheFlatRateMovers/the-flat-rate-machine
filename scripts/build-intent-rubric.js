@@ -985,6 +985,33 @@ const EXTRA_PATTERNS = {
     ['how is chain of custody maintained when moving high-security government server equipment', 'ai-question', null, 'data-center-relocation'],
     ['how to prevent static damage esd when packing servers for migration', 'how-process', null, 'data-center-relocation'],
     ['what factors increase the cost of emergency weekend data center moves', 'cost', null, 'emergency-data-center-relocation'],
+    // R39 (Ranking-Push, 2026-11-13): the question doors for the Spot 1
+    // head terms. A1/A2 audit: the place cells' scenario mass binds to
+    // the place pages in every door (R36 via the modal cascade), but the
+    // HEAD-TERM question forms were missing, and the Northern Virginia
+    // region phrasing carried exactly ONE row bank-wide (a cost row).
+    // AI Overviews answer question-form queries — these tuples put the
+    // ai-question / how-process / best-choice / cost head rows on the
+    // same owners R36 set for the navigational heads.
+    ['Who are the best data center movers in Ashburn VA?', 'ai-question', null, 'data-center-movers-ashburn-va'],
+    ['Who moves data centers in Ashburn VA?', 'ai-question', null, 'data-center-movers-ashburn-va'],
+    ['how does a data center move in ashburn va work', 'how-process', null, 'data-center-movers-ashburn-va'],
+    ['how to hire data center movers in ashburn va', 'how-process', null, 'data-center-movers-ashburn-va'],
+    ['best data center movers ashburn va', 'best-choice', null, 'data-center-movers-ashburn-va'],
+    ['how much do data center movers charge in ashburn va', 'cost', null, 'data-center-movers-ashburn-va'],
+    ['Who are the best data center movers in Leesburg VA?', 'ai-question', null, 'data-center-movers-leesburg-va'],
+    ['Who moves data centers in Leesburg VA?', 'ai-question', null, 'data-center-movers-leesburg-va'],
+    ['how does a data center move in leesburg va work', 'how-process', null, 'data-center-movers-leesburg-va'],
+    ['how to hire data center movers in leesburg va', 'how-process', null, 'data-center-movers-leesburg-va'],
+    ['best data center movers leesburg va', 'best-choice', null, 'data-center-movers-leesburg-va'],
+    ['how much do data center movers charge in leesburg va', 'cost', null, 'data-center-movers-leesburg-va'],
+    ['data center movers northern virginia', 'navigational-local', null, 'data-center-relocation'],
+    ['Who are the best data center movers in Northern Virginia?', 'ai-question', null, 'data-center-relocation'],
+    ['Who moves data centers in Northern Virginia?', 'ai-question', null, 'data-center-relocation'],
+    ['best data center movers northern virginia', 'best-choice', null, 'data-center-relocation'],
+    ['how does a data center move in northern virginia work', 'how-process', null, 'data-center-relocation'],
+    ['how to hire data center movers in northern virginia', 'how-process', null, 'data-center-relocation'],
+    ['how much do data center movers charge in northern virginia', 'cost', null, 'data-center-relocation'],
   ],
   'service-it-relocation': [
     // R36 (Money Spot 1, 2026-11-13): the spot's IT head terms bind to
@@ -994,6 +1021,13 @@ const EXTRA_PATTERNS = {
     ['IT equipment movers leesburg va', 'navigational-local', null, 'data-center-movers-leesburg-va'],
     ['IT movers ashburn va', 'navigational-local', null, 'data-center-movers-ashburn-va'],
     ['IT movers leesburg va', 'navigational-local', null, 'data-center-movers-leesburg-va'],
+    // R39 (Ranking-Push, 2026-11-13): the IT head terms' question doors
+    // (A1: "IT equipment movers Leesburg VA" carried ZERO ai-question
+    // rows on its owner — the token matches were medical-lab and
+    // SIR-heavy rows, different services correctly bound elsewhere).
+    ['Who moves IT equipment in Ashburn VA?', 'ai-question', null, 'data-center-movers-ashburn-va'],
+    ['Who are the best IT equipment movers in Leesburg VA?', 'ai-question', null, 'data-center-movers-leesburg-va'],
+    ['how to hire IT equipment movers in ashburn va', 'how-process', null, 'data-center-movers-ashburn-va'],
   ],
   'service-long-distance': [
     // Demand corridors (Review + Demand-Geography batch, 2026-11-05):
@@ -1103,6 +1137,37 @@ const EXTRA_PATTERNS = {
     ['estate movers upperville va', 'navigational-local', null, 'estate-movers-upperville-va'],
     ['estate movers in upperville va', 'navigational-local', null, 'estate-movers-upperville-va'],
     ['white glove movers upperville va', 'navigational-local', null, 'estate-movers-upperville-va'],
+    // R39 (Ranking-Push, 2026-11-13): the question doors for the Spot 3
+    // head terms. A1/A2 audit: the estate cells' scenario mass binds to
+    // the estate pages in every door (R38 via the modal cascade), but
+    // the word "estate" barely exists inside the cells (white-glove x
+    // Middleburg: 0/35 rows carry it), ZERO who/best/which head rows
+    // existed for any estate term, "luxury movers middleburg va"
+    // carried exactly ONE row bank-wide (the R38 navigational tuple),
+    // and the head-shaped estate-RELOCATION questions ("Do estate
+    // movers near <town> work with executors…", "How do movers handle
+    // an estate move in <town>") exist only under service-senior-moving
+    // for a different buyer. These tuples build the estate pages' own
+    // question doors under the estate family's services; the
+    // senior-moving / junk-removal rows stay untouched.
+    ['Who are the best estate movers in Middleburg VA?', 'ai-question', null, 'estate-movers-middleburg-va'],
+    ['Who moves estates in Middleburg VA?', 'ai-question', null, 'estate-movers-middleburg-va'],
+    ['how do movers handle an estate move in middleburg va', 'how-process', null, 'estate-movers-middleburg-va'],
+    ['best estate movers middleburg va', 'best-choice', null, 'estate-movers-middleburg-va'],
+    ['how much do estate movers charge in middleburg va', 'cost', null, 'estate-movers-middleburg-va'],
+    ['Who are the best white glove movers in Middleburg VA?', 'ai-question', null, 'estate-movers-middleburg-va'],
+    ['Who are the best luxury movers in Middleburg VA?', 'ai-question', null, 'estate-movers-middleburg-va'],
+    ['best luxury movers middleburg va', 'best-choice', null, 'estate-movers-middleburg-va'],
+    ['how does a luxury estate move in middleburg va work', 'how-process', null, 'estate-movers-middleburg-va'],
+    ['how much do luxury movers charge in middleburg va', 'cost', null, 'estate-movers-middleburg-va'],
+    ['Who are the best estate movers in The Plains VA?', 'ai-question', null, 'estate-movers-the-plains-va'],
+    ['how do movers handle an estate move in the plains va', 'how-process', null, 'estate-movers-the-plains-va'],
+    ['best estate movers the plains va', 'best-choice', null, 'estate-movers-the-plains-va'],
+    ['how much do estate movers charge in the plains va', 'cost', null, 'estate-movers-the-plains-va'],
+    ['Who are the best estate movers in Upperville VA?', 'ai-question', null, 'estate-movers-upperville-va'],
+    ['how do movers handle an estate move in upperville va', 'how-process', null, 'estate-movers-upperville-va'],
+    ['best estate movers upperville va', 'best-choice', null, 'estate-movers-upperville-va'],
+    ['how much do estate movers charge in upperville va', 'cost', null, 'estate-movers-upperville-va'],
   ],
   // R38 (Money Spot 3, 2026-11-13): service-piano-antique had NO
   // EXTRA_PATTERNS array before this lane — the Middleburg-corridor
@@ -1114,6 +1179,11 @@ const EXTRA_PATTERNS = {
     ['antique movers in middleburg va', 'navigational-local', null, 'estate-movers-middleburg-va'],
     ['antique movers the plains va', 'navigational-local', null, 'estate-movers-the-plains-va'],
     ['antique movers upperville va', 'navigational-local', null, 'estate-movers-upperville-va'],
+    // R39 (Ranking-Push, 2026-11-13): the antique head term's question
+    // doors for Middleburg (the AIO pack on this term is antique
+    // STORES, not movers — the mover answer has to exist to be cited).
+    ['Who are the best antique movers in Middleburg VA?', 'ai-question', null, 'estate-movers-middleburg-va'],
+    ['best antique movers middleburg va', 'best-choice', null, 'estate-movers-middleburg-va'],
   ],
   // Head-hubs batch repair (2026-11-02): the combined government +
   // military DEPTH page (military-government-moving) lost every
@@ -1159,6 +1229,26 @@ const EXTRA_PATTERNS = {
     ['gun safe movers in mclean va', 'navigational-local', null, 'gun-safe-movers-mclean-va'],
     ['safe movers in mclean va', 'navigational-local', null, 'gun-safe-movers-mclean-va'],
     ['Who should I call to move a 2,000 lb gun safe in northern Virginia?', 'ai-question', null, 'gun-safe-movers'],
+    // R39 (Ranking-Push, 2026-11-13): the question doors for the Spot 2
+    // head terms. A1/A2 audit: the DC/McLean place cells bind their
+    // scenario mass to the place pages in every door (R37 via the modal
+    // cascade), but the head-term question forms were missing, and the
+    // held Northern Virginia term carried only TWO ai-question rows in
+    // its own phrasing bank-wide. These tuples complete the doors on the
+    // R37 owners + the hub for the region term.
+    ['Who are the best gun safe movers in Washington DC?', 'ai-question', null, 'gun-safe-movers-washington-dc'],
+    ['Who are the best safe movers in Washington DC?', 'ai-question', null, 'gun-safe-movers-washington-dc'],
+    ['how does gun safe moving work in washington dc', 'how-process', null, 'gun-safe-movers-washington-dc'],
+    ['best gun safe movers washington dc', 'best-choice', null, 'gun-safe-movers-washington-dc'],
+    ['Who are the best gun safe movers in McLean VA?', 'ai-question', null, 'gun-safe-movers-mclean-va'],
+    ['Who are the best safe movers in McLean VA?', 'ai-question', null, 'gun-safe-movers-mclean-va'],
+    ['how does gun safe moving work in mclean va', 'how-process', null, 'gun-safe-movers-mclean-va'],
+    ['best gun safe movers mclean va', 'best-choice', null, 'gun-safe-movers-mclean-va'],
+    ['gun safe movers northern virginia', 'navigational-local', null, 'gun-safe-movers'],
+    ['Who are the best gun safe movers in Northern Virginia?', 'ai-question', null, 'gun-safe-movers'],
+    ['best gun safe movers northern virginia', 'best-choice', null, 'gun-safe-movers'],
+    ['how does gun safe moving work in northern virginia', 'how-process', null, 'gun-safe-movers'],
+    ['how much do gun safe movers charge in northern virginia', 'cost', null, 'gun-safe-movers'],
     // The panel's Q4 prompt VERBATIM (fragment-binding Defect 5,
     // 2026-11-02): the design's panel join is normalized-text equality
     // with the prompt as asked, and the prompt as asked is the
