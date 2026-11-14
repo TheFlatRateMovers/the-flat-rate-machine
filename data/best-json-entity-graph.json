@@ -2201,7 +2201,7 @@
    "@type": "Dataset",
    "@id": "https://theflatratemovers.com/datasets/ports/#dataset-ports",
    "name": "Ports & Intermodal Logistics Dataset",
-   "description": "The master dataset of the Ports & Intermodal program of The Flat Rate Movers: the eight ports the company's crews serve with logistics project management, specialized labor, ocean container packing and unpacking, loading and unloading, cross-docking, transloading, 3PL support and freight rework — the Virginia Inland Port at Front Royal, the Port of Virginia at Norfolk (Norfolk International Terminals, Virginia International Gateway, Portsmouth Marine Terminal and Newport News Marine Terminal), Richmond Marine Terminal, the Port of Baltimore, the Port of Wilmington, Delaware, PhilaPort at Philadelphia, the Port of Huntington Tri-State river district, and the Port of New York and New Jersey. Each port is a full entity: authority and operator of record, terminal facts with acreage, berths, depth and capacity where the port authority publishes them, cargo specialties, rail service with on-dock and interchange qualifiers, highway corridors, foreign-trade-zone facts where designated, labeled volume figures with their sources and periods, current status items, and the branch binding that assigns the port to Winchester, VA or Martinsburg, WV by verified road distance. Portsmouth Marine Terminal is recorded as what it is — a heavy-lift and offshore-wind hub, not a container terminal; Virginia International Gateway is recorded as leased, not port-authority-owned; the Port of Wilmington's operator of record is Enstructure. No volume figure is published for the Virginia Inland Port, Richmond Marine Terminal or the Port of Wilmington, because none is verified. The company's crews hold TWIC cards and its contractors hold valid TWIC cards. The offer set does not include drayage: the company does not run port drayage — freight moves on the customer's or carrier's trucks, and the company's crews do the hands-on work at port-adjacent warehouses, receivers' docks, yards, leased space, and on-terminal only by arrangement through the terminal's own processes. Every fact carries its source; the companion coverage-matrix node in this file maps all 64 port-by-service cells.",
+   "description": "The master dataset of the Ports & Intermodal program of The Flat Rate Movers: the eight ports the company's crews serve with logistics project management, specialized labor, ocean container packing and unpacking, loading and unloading, cross-docking, transloading, 3PL support and freight rework — the Virginia Inland Port at Front Royal, the Port of Virginia at Norfolk (Norfolk International Terminals, Virginia International Gateway, Portsmouth Marine Terminal and Newport News Marine Terminal), Richmond Marine Terminal, the Port of Baltimore, the Port of Wilmington, Delaware, PhilaPort at Philadelphia, the Port of Huntington Tri-State river district, and the Port of New York and New Jersey. Each port is a full entity: authority and operator of record, terminal facts with acreage, berths, depth and capacity where the port authority publishes them, cargo specialties, rail service with on-dock and interchange qualifiers, highway corridors, foreign-trade-zone facts where designated, labeled volume figures with their sources and periods, current status items, and the branch binding that assigns the port to Winchester, VA or Martinsburg, WV by verified road distance. Portsmouth Marine Terminal is recorded as what it is — a heavy-lift and offshore-wind hub, not a container terminal; Virginia International Gateway is recorded as leased, not port-authority-owned; the Port of Wilmington's operator of record is Enstructure. No volume figure is published for the Virginia Inland Port, Richmond Marine Terminal or the Port of Wilmington, because none is verified. The company's crews hold TWIC cards and its contractors hold valid TWIC cards. The offer set does not include drayage: the company does not run port drayage — freight moves on the customer's or carrier's trucks, and the company's crews do the hands-on work at port-adjacent warehouses, receivers' docks, yards, leased space, and on-terminal only by arrangement through the terminal's own processes. Every fact carries its source; the companion coverage-matrix node in this file maps all 64 port-by-service cells. Each port’s dedicated labor layer rides this file as typed Service nodes and on the port’s own labor page — TWIC-carded crews, dispatched 24/7, at contract scale up to 1,000 crew.",
    "url": "https://theflatratemovers.com/datasets/ports/",
    "sameAs": "https://theflatratemovers.com/datasets/ports/",
    "identifier": "https://theflatratemovers.com/datasets/ports/",
@@ -2256,6 +2256,15 @@
     },
     {
      "@id": "https://theflatratemovers.com/#service-freight-rework-transloading"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-3pl-support"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-industrial-commercial"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-logistics-project-management"
     }
    ]
   },
@@ -4584,7 +4593,7 @@
    "@id": "https://theflatratemovers.com/datasets/intent-coverage/#dataset",
    "@type": "Dataset",
    "name": "The Flat Rate Movers — Search Intent Coverage Operations Dataset",
-   "description": "The live intent-coverage rubric of The Flat Rate Movers: 56705 generated rows, each one a query string a customer or an AI assistant can use to find a company service, resolved to the exact page that answers it, that page’s per-page JSON, the dataset files behind the answer, and the service’s node in the entity graph. Rows are generated from the estate’s own registries — 34 services, 315 pages, two branch locations, three corridors and the 87-feature service-area footprint — plus the blog question bank’s 100 real question phrasings and the researched per-service question bank v2 (694 questions), and the rubric is regenerated whenever those registries change. Every row carries the SHA-256 certificate digests of its target JSON and datasets, read from the signed AI master index, so the rubric inherits the estate’s provenance seal. Coverage spans all 34 services of both branches, Winchester, VA and Martinsburg, WV, along the I-81, I-66 and I-70 corridors. Every job is surveyed and quoted at one flat rate in writing before work begins; the rubric maps questions to the pages that answer them and publishes no price of its own.",
+   "description": "The live intent-coverage rubric of The Flat Rate Movers: 57539 generated rows, each one a query string a customer or an AI assistant can use to find a company service, resolved to the exact page that answers it, that page’s per-page JSON, the dataset files behind the answer, and the service’s node in the entity graph. Rows are generated from the estate’s own registries — 34 services, 323 pages, two branch locations, three corridors and the 87-feature service-area footprint — plus the blog question bank’s 100 real question phrasings and the researched per-service question bank v2 (694 questions), and the rubric is regenerated whenever those registries change. Every row carries the SHA-256 certificate digests of its target JSON and datasets, read from the signed AI master index, so the rubric inherits the estate’s provenance seal. Coverage spans all 34 services of both branches, Winchester, VA and Martinsburg, WV, along the I-81, I-66 and I-70 corridors. Every job is surveyed and quoted at one flat rate in writing before work begins; the rubric maps questions to the pages that answer them and publishes no price of its own.",
    "url": "https://theflatratemovers.com/datasets/intent-coverage/",
    "sameAs": "https://theflatratemovers.com/datasets/intent-coverage/",
    "identifier": "https://doi.org/10.5281/zenodo.23818766",
@@ -9257,7 +9266,7 @@
    "@type": "Dataset",
    "@id": "https://theflatratemovers.com/datasets/port-of-virginia/#dataset-port-of-virginia",
    "name": "Port of Virginia Logistics Dataset",
-   "description": "The per-port dataset for the Port of Virginia in the Ports & Intermodal program of The Flat Rate Movers: the four Norfolk Harbor terminals — Norfolk International Terminals (NIT) and Virginia International Gateway (VIG), the port’s container terminals; Newport News Marine Terminal (NNMT), its primary RoRo and breakbulk terminal; and Portsmouth Marine Terminal (PMT), recorded as what it is, a deep-water heavy-lift and offshore-wind hub, not a container terminal. Richmond Marine Terminal (RMT), formerly recorded in this file as a covered facility, carries its own per-port dataset (datasets-richmond-marine-terminal.json) and hub page since the ports-completion build (2026-11-10) Virginia International Gateway is recorded as leased, not port-authority-owned. Each entity carries authority and operator of record, terminal facts with their sources, cargo specialties, rail service with on-dock and interchange qualifiers, highway corridors, foreign-trade-zone facts, labeled volume figures with period and source (the Port of Virginia system moved 3,499,639 TEUs in FY2024 and 3,239,638 TEUs in calendar 2025; no standalone volume is published for Richmond Marine Terminal because none is published by the port), current status items, and the branch binding that assigns the port to the Winchester, VA branch by verified road distance (Norfolk about 222 miles). The companion coverage node maps the port's 8 coverage cells. The company’s crews hold TWIC cards and its contractors hold valid TWIC cards. The offer set does not include drayage: freight moves on the customer’s or carrier’s trucks, and the company’s crews do the hands-on work at port-adjacent warehouses, receivers’ docks, yards, leased space, and on-terminal only by arrangement through the terminal’s own processes. Every fact carries its source.",
+   "description": "The per-port dataset for the Port of Virginia in the Ports & Intermodal program of The Flat Rate Movers: the four Norfolk Harbor terminals — Norfolk International Terminals (NIT) and Virginia International Gateway (VIG), the port’s container terminals; Newport News Marine Terminal (NNMT), its primary RoRo and breakbulk terminal; and Portsmouth Marine Terminal (PMT), recorded as what it is, a deep-water heavy-lift and offshore-wind hub, not a container terminal. Richmond Marine Terminal (RMT), formerly recorded in this file as a covered facility, carries its own per-port dataset (datasets-richmond-marine-terminal.json) and hub page since the ports-completion build (2026-11-10) Virginia International Gateway is recorded as leased, not port-authority-owned. Each entity carries authority and operator of record, terminal facts with their sources, cargo specialties, rail service with on-dock and interchange qualifiers, highway corridors, foreign-trade-zone facts, labeled volume figures with period and source (the Port of Virginia system moved 3,499,639 TEUs in FY2024 and 3,239,638 TEUs in calendar 2025; no standalone volume is published for Richmond Marine Terminal because none is published by the port), current status items, and the branch binding that assigns the port to the Winchester, VA branch by verified road distance (Norfolk about 222 miles). The companion coverage node maps the port's 8 coverage cells. The company’s crews hold TWIC cards and its contractors hold valid TWIC cards. The offer set does not include drayage: freight moves on the customer’s or carrier’s trucks, and the company’s crews do the hands-on work at port-adjacent warehouses, receivers’ docks, yards, leased space, and on-terminal only by arrangement through the terminal’s own processes. Every fact carries its source. The dedicated labor layer for this port is published at https://theflatratemovers.com/container-unloading-labor-norfolk-va/ — Container Unloading Labor — Norfolk VA: TWIC-carded crews, dispatched 24/7, at contract scale up to 1,000 crew.",
    "url": "https://theflatratemovers.com/datasets/port-of-virginia/",
    "sameAs": "https://theflatratemovers.com/datasets/port-of-virginia/",
    "identifier": "https://theflatratemovers.com/datasets/port-of-virginia/",
@@ -9276,7 +9285,7 @@
     "url": "https://theflatratemovers.com/"
    },
    "datePublished": "2026-11-03",
-   "dateModified": "2026-11-12",
+   "dateModified": "2026-11-14",
    "includedInDataCatalog": {
     "@type": "DataCatalog",
     "@id": "https://theflatratemovers.com/datasets/#collection",
@@ -9312,6 +9321,15 @@
     },
     {
      "@id": "https://theflatratemovers.com/#service-freight-rework-transloading"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-industrial-commercial"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-logistics-project-management"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-3pl-support"
     }
    ],
    "isPartOf": {
@@ -10353,7 +10371,7 @@
    "@type": "Dataset",
    "@id": "https://theflatratemovers.com/datasets/port-of-huntington/#dataset-port-of-huntington",
    "name": "Port of Huntington Tri-State Logistics Dataset",
-   "description": "The per-port dataset for the Port of Huntington Tri-State in the Ports & Intermodal program of The Flat Rate Movers: the full port record for the inland river port district — a U.S. Port Statistical Area of 199 navigable river miles (Ohio River 100, Kanawha River 90, Big Sandy River 9) across West Virginia, Ohio and Kentucky, overseen by the Huntington District Waterways Association — its anchor points (Huntington and Kenova, WV; Catlettsburg, KY; South Point, OH), its sourced facilities (the Marathon Petroleum Catlettsburg refinery docks; McGinnis Inc. at South Point; 18 active Ohio-side freight docks), cargo specialties (coal, petroleum products, chemicals, limestone and aggregates, steel), Norfolk Southern and CSX rail service, the US-52 / I-64 highway corridors, the USACE CY2023 tonnage on the Port Statistical Area basis (29,699,657 short tons — the district moves tens of millions of tons annually on every published basis), and the branch binding: the district is served from the Winchester, VA branch, about 312.8 road miles away (Martinsburg measures 357.7 to 360.4). The company's eight attached port services are recorded cell by cell in the companion coverage dataset. No port tenancy or port-authority relationship is claimed; the company's crews hold TWIC cards and its contractors hold valid TWIC cards.",
+   "description": "The per-port dataset for the Port of Huntington Tri-State in the Ports & Intermodal program of The Flat Rate Movers: the full port record for the inland river port district — a U.S. Port Statistical Area of 199 navigable river miles (Ohio River 100, Kanawha River 90, Big Sandy River 9) across West Virginia, Ohio and Kentucky, overseen by the Huntington District Waterways Association — its anchor points (Huntington and Kenova, WV; Catlettsburg, KY; South Point, OH), its sourced facilities (the Marathon Petroleum Catlettsburg refinery docks; McGinnis Inc. at South Point; 18 active Ohio-side freight docks), cargo specialties (coal, petroleum products, chemicals, limestone and aggregates, steel), Norfolk Southern and CSX rail service, the US-52 / I-64 highway corridors, the USACE CY2023 tonnage on the Port Statistical Area basis (29,699,657 short tons — the district moves tens of millions of tons annually on every published basis), and the branch binding: the district is served from the Winchester, VA branch, about 312.8 road miles away (Martinsburg measures 357.7 to 360.4). The company's eight attached port services are recorded cell by cell in the companion coverage dataset. No port tenancy or port-authority relationship is claimed; the company's crews hold TWIC cards and its contractors hold valid TWIC cards. The dedicated labor layer for this port is published at https://theflatratemovers.com/container-unloading-labor-huntington-wv/ — Container Unloading Labor — Huntington WV: TWIC-carded crews, dispatched 24/7, at contract scale up to 1,000 crew.",
    "url": "https://theflatratemovers.com/datasets/port-of-huntington/",
    "sameAs": "https://theflatratemovers.com/datasets/port-of-huntington/",
    "identifier": "https://theflatratemovers.com/datasets/port-of-huntington/",
@@ -10372,7 +10390,7 @@
     "url": "https://theflatratemovers.com/"
    },
    "datePublished": "2026-11-07",
-   "dateModified": "2026-11-12",
+   "dateModified": "2026-11-14",
    "includedInDataCatalog": {
     "@type": "DataCatalog",
     "@id": "https://theflatratemovers.com/datasets/#collection",
@@ -10408,6 +10426,15 @@
     },
     {
      "@id": "https://theflatratemovers.com/#service-freight-rework-transloading"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-industrial-commercial"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-logistics-project-management"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-3pl-support"
     }
    ],
    "isPartOf": {
@@ -10423,7 +10450,7 @@
    "identifier": "https://theflatratemovers.com/datasets/coverage/",
    "isAccessibleForFree": true,
    "datePublished": "2026-11-09",
-   "dateModified": "2026-11-12",
+   "dateModified": "2026-11-14",
    "license": "https://creativecommons.org/licenses/by/4.0/",
    "sameAs": "https://theflatratemovers.com/datasets/coverage/",
    "creator": {
@@ -10825,7 +10852,7 @@
    "@type": "Dataset",
    "@id": "https://theflatratemovers.com/datasets/port-of-new-york-new-jersey/#dataset-port-of-new-york-new-jersey",
    "name": "Port of New York and New Jersey Logistics Dataset",
-   "description": "The per-port dataset for the Port of New York and New Jersey in the Ports & Intermodal program of The Flat Rate Movers: the full port record for the largest container port on the U.S. East Coast and the third-largest in the nation — a landlord port owned by The Port Authority of New York and New Jersey (a bi-state authority established in 1921) and run by private terminal operators under long-term leases — its container terminals (Maher Terminals and APM Terminals Elizabeth at Elizabeth–Port Authority Marine Terminal; Port Newark Container Terminal at Port Newark; Port Liberty Bayonne at Port Jersey; Port Liberty New York at Howland Hook, Staten Island; Red Hook Container Terminal in Brooklyn), the Port Newark auto terminal (FAPS), its 50-foot harbor channel, its container volume on the Port Authority's named bases (8,897,531 TEU in CY2025; 8,698,526 TEU in CY2024), ExpressRail service by the two Class I partners CSX and Norfolk Southern with Conrail Shared Assets switching, the I-95 (New Jersey Turnpike), I-78, I-287 and US-1/9 corridors, Foreign-Trade Zone 49, and the branch binding: the port is served from the Martinsburg, WV branch, about 251.1 road miles away (Winchester measures 275.6). The company's eight attached port services are recorded cell by cell in the companion coverage dataset. No port tenancy or port-authority relationship is claimed; the company's crews hold TWIC cards and its contractors hold valid TWIC cards.",
+   "description": "The per-port dataset for the Port of New York and New Jersey in the Ports & Intermodal program of The Flat Rate Movers: the full port record for the largest container port on the U.S. East Coast and the third-largest in the nation — a landlord port owned by The Port Authority of New York and New Jersey (a bi-state authority established in 1921) and run by private terminal operators under long-term leases — its container terminals (Maher Terminals and APM Terminals Elizabeth at Elizabeth–Port Authority Marine Terminal; Port Newark Container Terminal at Port Newark; Port Liberty Bayonne at Port Jersey; Port Liberty New York at Howland Hook, Staten Island; Red Hook Container Terminal in Brooklyn), the Port Newark auto terminal (FAPS), its 50-foot harbor channel, its container volume on the Port Authority's named bases (8,897,531 TEU in CY2025; 8,698,526 TEU in CY2024), ExpressRail service by the two Class I partners CSX and Norfolk Southern with Conrail Shared Assets switching, the I-95 (New Jersey Turnpike), I-78, I-287 and US-1/9 corridors, Foreign-Trade Zone 49, and the branch binding: the port is served from the Martinsburg, WV branch, about 251.1 road miles away (Winchester measures 275.6). The company's eight attached port services are recorded cell by cell in the companion coverage dataset. No port tenancy or port-authority relationship is claimed; the company's crews hold TWIC cards and its contractors hold valid TWIC cards. The dedicated labor layer for this port is published at https://theflatratemovers.com/container-unloading-labor-newark-nj/ — Container Unloading Labor — Newark NJ: TWIC-carded crews, dispatched 24/7, at contract scale up to 1,000 crew.",
    "url": "https://theflatratemovers.com/datasets/port-of-new-york-new-jersey/",
    "sameAs": "https://theflatratemovers.com/datasets/port-of-new-york-new-jersey/",
    "identifier": "https://theflatratemovers.com/datasets/port-of-new-york-new-jersey/",
@@ -10844,7 +10871,7 @@
     "url": "https://theflatratemovers.com/"
    },
    "datePublished": "2026-11-10",
-   "dateModified": "2026-11-12",
+   "dateModified": "2026-11-14",
    "includedInDataCatalog": {
     "@type": "DataCatalog",
     "@id": "https://theflatratemovers.com/datasets/#collection",
@@ -10880,6 +10907,15 @@
     },
     {
      "@id": "https://theflatratemovers.com/#service-freight-rework-transloading"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-industrial-commercial"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-logistics-project-management"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-3pl-support"
     }
    ],
    "isPartOf": {
@@ -10890,7 +10926,7 @@
    "@type": "Dataset",
    "@id": "https://theflatratemovers.com/datasets/philaport/#dataset-philaport",
    "name": "PhilaPort Logistics Dataset",
-   "description": "The per-port dataset for PhilaPort — the Port of Philadelphia — in the Ports & Intermodal program of The Flat Rate Movers: the full port record for the landlord port of the Philadelphia Regional Port Authority (PhilaPort, Commonwealth of Pennsylvania), run by private terminal operators under lease — Packer Avenue Marine Terminal (Greenwich Terminals LLC; 160 acres, 6 berths plus 1 RoRo berth, 45 ft depth, on-dock refrigeration), Tioga Marine Terminal (Delaware River Stevedores; 116 acres) and the Southport Auto Terminal (Glovis America; opened October 2019) — the port's container volume on PhilaPort's named bases (889,268 TEU in CY2025, a port record, up 6 percent and up 39 percent since 2020; 64 percent of containerized imports refrigerated in CY2025; ranked #1 in North America for productivity in the World Bank/S&P Container Port Performance Index, 2024 index), CSX and Norfolk Southern service at every PhilaPort terminal via Conrail Shared Assets switching, the I-95, I-76, I-70 and I-81 corridors, and the branch binding: the port is bound to the Martinsburg, WV branch on drive time (about 3:23), the road distances being effectively tied at about 191 miles from Martinsburg and 193 from Winchester — no mileage advantage is claimed. No port-wide total tonnage is published. The company's eight attached port services are recorded cell by cell in the companion coverage dataset. No port tenancy or port-authority relationship is claimed; the company's crews hold TWIC cards and its contractors hold valid TWIC cards.",
+   "description": "The per-port dataset for PhilaPort — the Port of Philadelphia — in the Ports & Intermodal program of The Flat Rate Movers: the full port record for the landlord port of the Philadelphia Regional Port Authority (PhilaPort, Commonwealth of Pennsylvania), run by private terminal operators under lease — Packer Avenue Marine Terminal (Greenwich Terminals LLC; 160 acres, 6 berths plus 1 RoRo berth, 45 ft depth, on-dock refrigeration), Tioga Marine Terminal (Delaware River Stevedores; 116 acres) and the Southport Auto Terminal (Glovis America; opened October 2019) — the port's container volume on PhilaPort's named bases (889,268 TEU in CY2025, a port record, up 6 percent and up 39 percent since 2020; 64 percent of containerized imports refrigerated in CY2025; ranked #1 in North America for productivity in the World Bank/S&P Container Port Performance Index, 2024 index), CSX and Norfolk Southern service at every PhilaPort terminal via Conrail Shared Assets switching, the I-95, I-76, I-70 and I-81 corridors, and the branch binding: the port is bound to the Martinsburg, WV branch on drive time (about 3:23), the road distances being effectively tied at about 191 miles from Martinsburg and 193 from Winchester — no mileage advantage is claimed. No port-wide total tonnage is published. The company's eight attached port services are recorded cell by cell in the companion coverage dataset. No port tenancy or port-authority relationship is claimed; the company's crews hold TWIC cards and its contractors hold valid TWIC cards. The dedicated labor layer for this port is published at https://theflatratemovers.com/container-unloading-labor-philadelphia-pa/ — Container Unloading Labor — Philadelphia PA: TWIC-carded crews, dispatched 24/7, at contract scale up to 1,000 crew.",
    "url": "https://theflatratemovers.com/datasets/philaport/",
    "sameAs": "https://theflatratemovers.com/datasets/philaport/",
    "identifier": "https://theflatratemovers.com/datasets/philaport/",
@@ -10909,7 +10945,7 @@
     "url": "https://theflatratemovers.com/"
    },
    "datePublished": "2026-11-10",
-   "dateModified": "2026-11-12",
+   "dateModified": "2026-11-14",
    "includedInDataCatalog": {
     "@type": "DataCatalog",
     "@id": "https://theflatratemovers.com/datasets/#collection",
@@ -10945,6 +10981,15 @@
     },
     {
      "@id": "https://theflatratemovers.com/#service-freight-rework-transloading"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-industrial-commercial"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-logistics-project-management"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-3pl-support"
     }
    ],
    "isPartOf": {
@@ -11020,7 +11065,7 @@
    "@type": "Dataset",
    "@id": "https://theflatratemovers.com/datasets/port-of-wilmington/#dataset-port-of-wilmington",
    "name": "Port of Wilmington Logistics Dataset",
-   "description": "The per-port dataset for the Port of Wilmington (Delaware) in the Ports & Intermodal program of The Flat Rate Movers: the full port record for the deepwater port at 1 Hausel Rd, Wilmington, DE — owned by the Diamond State Port Corporation (State of Delaware) and operated by Enstructure since 31 July 2023 under a long-term concession (the former GT USA Wilmington / Gulftainer concession was cancelled) — North America's top port for imports of fresh fruit, bananas and juice concentrate, where Dole and Chiquita together handle more than 1M tons of bananas a year and Citrosuco operates the largest dockside juice terminal in the USA, with refrigerated cargo, breakbulk and project cargo and auto (RoRo) work at the main terminal, Norfolk Southern direct access per the operator (CSX serves the Wilmington area via Wilsmere Yard), the I-495, I-95 and I-295 corridors, the future Edgemoor / Delaware Container Terminal (137 acres, 45-ft depth, 1.2M TEU/yr at full build; groundbreaking 14 September 2026, opening targeted early 2029, litigation live), and the branch binding: the port is served from the Martinsburg, WV branch, about 150 road miles away (Winchester measures 165). No annual volume figure is published for this port — none is verified. The company's eight attached port services are recorded cell by cell in the companion coverage dataset. No port tenancy or port-authority relationship is claimed; the company's crews hold TWIC cards and its contractors hold valid TWIC cards.",
+   "description": "The per-port dataset for the Port of Wilmington (Delaware) in the Ports & Intermodal program of The Flat Rate Movers: the full port record for the deepwater port at 1 Hausel Rd, Wilmington, DE — owned by the Diamond State Port Corporation (State of Delaware) and operated by Enstructure since 31 July 2023 under a long-term concession (the former GT USA Wilmington / Gulftainer concession was cancelled) — North America's top port for imports of fresh fruit, bananas and juice concentrate, where Dole and Chiquita together handle more than 1M tons of bananas a year and Citrosuco operates the largest dockside juice terminal in the USA, with refrigerated cargo, breakbulk and project cargo and auto (RoRo) work at the main terminal, Norfolk Southern direct access per the operator (CSX serves the Wilmington area via Wilsmere Yard), the I-495, I-95 and I-295 corridors, the future Edgemoor / Delaware Container Terminal (137 acres, 45-ft depth, 1.2M TEU/yr at full build; groundbreaking 14 September 2026, opening targeted early 2029, litigation live), and the branch binding: the port is served from the Martinsburg, WV branch, about 150 road miles away (Winchester measures 165). No annual volume figure is published for this port — none is verified. The company's eight attached port services are recorded cell by cell in the companion coverage dataset. No port tenancy or port-authority relationship is claimed; the company's crews hold TWIC cards and its contractors hold valid TWIC cards. The dedicated labor layer for this port is published at https://theflatratemovers.com/container-unloading-labor-wilmington-de/ — Container Unloading Labor — Wilmington DE: TWIC-carded crews, dispatched 24/7, at contract scale up to 1,000 crew.",
    "url": "https://theflatratemovers.com/datasets/port-of-wilmington/",
    "sameAs": "https://theflatratemovers.com/datasets/port-of-wilmington/",
    "identifier": "https://theflatratemovers.com/datasets/port-of-wilmington/",
@@ -11039,7 +11084,7 @@
     "url": "https://theflatratemovers.com/"
    },
    "datePublished": "2026-11-10",
-   "dateModified": "2026-11-12",
+   "dateModified": "2026-11-14",
    "includedInDataCatalog": {
     "@type": "DataCatalog",
     "@id": "https://theflatratemovers.com/datasets/#collection",
@@ -11075,6 +11120,15 @@
     },
     {
      "@id": "https://theflatratemovers.com/#service-freight-rework-transloading"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-industrial-commercial"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-logistics-project-management"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-3pl-support"
     }
    ],
    "isPartOf": {
@@ -11085,7 +11139,7 @@
    "@type": "Dataset",
    "@id": "https://theflatratemovers.com/datasets/richmond-marine-terminal/#dataset-richmond-marine-terminal",
    "name": "Richmond Marine Terminal Logistics Dataset",
-   "description": "The per-port dataset for Richmond Marine Terminal in the Ports & Intermodal program of The Flat Rate Movers: the full port record for the James River barge terminal at 5000 Deepwater Terminal Rd, Richmond, VA — owned by the City of Richmond, leased by the Virginia Port Authority under a 40-year lease signed 2016 (to 2056) and operated by Virginia International Terminals, LLC as part of the Port of Virginia system — 124 acres with 300,000 sq ft of storage, a mobile harbor crane in the 124-ton class, three reefer plugs, a Monday-Friday 0700-1600 gate, on-terminal transload and cross-docking, CSX direct rail with Norfolk Southern via local switch, and the Richmond Express (64 Express) barge service: three barges in rotation, 500 FEU combined capacity, running six days a week with about a 12-hour overnight transit to Norfolk International Terminals, the Virginia International Gateway and Portsmouth Marine Terminal. No standalone annual volume is published for this terminal. The I-95, I-64, I-85 and I-295 corridors, and the branch binding: the terminal is served from the Winchester, VA branch, about 135 road miles away (Martinsburg measures about 158). The company's eight attached port services are recorded cell by cell in the companion coverage dataset. No port tenancy or port-authority relationship is claimed; the company's crews hold TWIC cards and its contractors hold valid TWIC cards.",
+   "description": "The per-port dataset for Richmond Marine Terminal in the Ports & Intermodal program of The Flat Rate Movers: the full port record for the James River barge terminal at 5000 Deepwater Terminal Rd, Richmond, VA — owned by the City of Richmond, leased by the Virginia Port Authority under a 40-year lease signed 2016 (to 2056) and operated by Virginia International Terminals, LLC as part of the Port of Virginia system — 124 acres with 300,000 sq ft of storage, a mobile harbor crane in the 124-ton class, three reefer plugs, a Monday-Friday 0700-1600 gate, on-terminal transload and cross-docking, CSX direct rail with Norfolk Southern via local switch, and the Richmond Express (64 Express) barge service: three barges in rotation, 500 FEU combined capacity, running six days a week with about a 12-hour overnight transit to Norfolk International Terminals, the Virginia International Gateway and Portsmouth Marine Terminal. No standalone annual volume is published for this terminal. The I-95, I-64, I-85 and I-295 corridors, and the branch binding: the terminal is served from the Winchester, VA branch, about 135 road miles away (Martinsburg measures about 158). The company's eight attached port services are recorded cell by cell in the companion coverage dataset. No port tenancy or port-authority relationship is claimed; the company's crews hold TWIC cards and its contractors hold valid TWIC cards. The dedicated labor layer for this port is published at https://theflatratemovers.com/container-unloading-labor-richmond-va/ — Container Unloading Labor — Richmond VA: TWIC-carded crews, dispatched 24/7, at contract scale up to 1,000 crew.",
    "url": "https://theflatratemovers.com/datasets/richmond-marine-terminal/",
    "sameAs": "https://theflatratemovers.com/datasets/richmond-marine-terminal/",
    "identifier": "https://theflatratemovers.com/datasets/richmond-marine-terminal/",
@@ -11104,7 +11158,7 @@
     "url": "https://theflatratemovers.com/"
    },
    "datePublished": "2026-11-10",
-   "dateModified": "2026-11-12",
+   "dateModified": "2026-11-14",
    "includedInDataCatalog": {
     "@type": "DataCatalog",
     "@id": "https://theflatratemovers.com/datasets/#collection",
@@ -11140,6 +11194,15 @@
     },
     {
      "@id": "https://theflatratemovers.com/#service-freight-rework-transloading"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-industrial-commercial"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-logistics-project-management"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-3pl-support"
     }
    ],
    "isPartOf": {

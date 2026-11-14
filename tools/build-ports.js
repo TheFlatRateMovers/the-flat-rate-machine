@@ -245,13 +245,13 @@ function datasetShell(idSuffix, name, description) {
   };
 }
 
-const MASTER_DESC = 'The master dataset of the Ports & Intermodal program of The Flat Rate Movers: the eight ports the company\'s crews serve with logistics project management, specialized labor, ocean container packing and unpacking, loading and unloading, cross-docking, transloading, 3PL support and freight rework — the Virginia Inland Port at Front Royal, the Port of Virginia at Norfolk (Norfolk International Terminals, Virginia International Gateway, Portsmouth Marine Terminal and Newport News Marine Terminal), Richmond Marine Terminal, the Port of Baltimore, the Port of Wilmington, Delaware, PhilaPort at Philadelphia, the Port of Huntington Tri-State river district, and the Port of New York and New Jersey. Each port is a full entity: authority and operator of record, terminal facts with acreage, berths, depth and capacity where the port authority publishes them, cargo specialties, rail service with on-dock and interchange qualifiers, highway corridors, foreign-trade-zone facts where designated, labeled volume figures with their sources and periods, current status items, and the branch binding that assigns the port to Winchester, VA or Martinsburg, WV by verified road distance. Portsmouth Marine Terminal is recorded as what it is — a heavy-lift and offshore-wind hub, not a container terminal; Virginia International Gateway is recorded as leased, not port-authority-owned; the Port of Wilmington\'s operator of record is Enstructure. No volume figure is published for the Virginia Inland Port, Richmond Marine Terminal or the Port of Wilmington, because none is verified. The company\'s crews hold TWIC cards and its contractors hold valid TWIC cards. The offer set does not include drayage: the company does not run port drayage — freight moves on the customer\'s or carrier\'s trucks, and the company\'s crews do the hands-on work at port-adjacent warehouses, receivers\' docks, yards, leased space, and on-terminal only by arrangement through the terminal\'s own processes. Every fact carries its source; the companion coverage-matrix node in this file maps all 64 port-by-service cells.';
+const MASTER_DESC = 'The master dataset of the Ports & Intermodal program of The Flat Rate Movers: the eight ports the company\'s crews serve with logistics project management, specialized labor, ocean container packing and unpacking, loading and unloading, cross-docking, transloading, 3PL support and freight rework — the Virginia Inland Port at Front Royal, the Port of Virginia at Norfolk (Norfolk International Terminals, Virginia International Gateway, Portsmouth Marine Terminal and Newport News Marine Terminal), Richmond Marine Terminal, the Port of Baltimore, the Port of Wilmington, Delaware, PhilaPort at Philadelphia, the Port of Huntington Tri-State river district, and the Port of New York and New Jersey. Each port is a full entity: authority and operator of record, terminal facts with acreage, berths, depth and capacity where the port authority publishes them, cargo specialties, rail service with on-dock and interchange qualifiers, highway corridors, foreign-trade-zone facts where designated, labeled volume figures with their sources and periods, current status items, and the branch binding that assigns the port to Winchester, VA or Martinsburg, WV by verified road distance. Portsmouth Marine Terminal is recorded as what it is — a heavy-lift and offshore-wind hub, not a container terminal; Virginia International Gateway is recorded as leased, not port-authority-owned; the Port of Wilmington\'s operator of record is Enstructure. No volume figure is published for the Virginia Inland Port, Richmond Marine Terminal or the Port of Wilmington, because none is verified. The company\'s crews hold TWIC cards and its contractors hold valid TWIC cards. The offer set does not include drayage: the company does not run port drayage — freight moves on the customer\'s or carrier\'s trucks, and the company\'s crews do the hands-on work at port-adjacent warehouses, receivers\' docks, yards, leased space, and on-terminal only by arrangement through the terminal\'s own processes. Every fact carries its source; the companion coverage-matrix node in this file maps all 64 port-by-service cells. Each port\u2019s dedicated labor layer rides this file as typed Service nodes and on the port\u2019s own labor page \u2014 TWIC-carded crews, dispatched 24/7, at contract scale up to 1,000 crew.';
 
 const MATRIX_DESC = 'The service-coverage matrix of the Ports & Intermodal program: 64 cells — eight ports by the eight attached services (transloading; ocean container packing and unpacking; loading and unloading / container labor; cross-docking; freight rework; specialized workforce; logistics project management; 3PL support services) — each cell recording whether the service is offered at the port, the treatment the program gives it (S, a dedicated spoke page; H, a hub section; D, dataset and hub mention only, the deliberate treatment for the secondary nodes), the delivery points where the work is performed, and the bound branch. Delivery points come from one enum only: port-adjacent warehouse, receiver\'s dock, yard, leased space, and on-terminal by arrangement — on-terminal work happens only by arrangement through the terminal\'s own processes, never as a bare claim. Every cell binds to its port\'s branch: Winchester, VA for the Virginia Inland Port, the Port of Virginia, Richmond Marine Terminal and the Port of Huntington Tri-State (added 2026-11-07, WV-2 — an inland river port district bound on miles, 312.8 mi); Martinsburg, WV for Baltimore, Wilmington and PhilaPort (PhilaPort on drive time — road miles are tied) and the Port of New York and New Jersey (added 2026-11-10, Port #8 — bound on miles, 251.1 mi).';
 
 const master = datasetShell('dataset-ports', 'Ports & Intermodal Logistics Dataset', MASTER_DESC);
 master.keywords = 'ports, intermodal, transloading, container labor, devanning, cross-docking, freight rework, 3PL support, logistics project management, Virginia Inland Port, Port of Virginia, Norfolk, Richmond Marine Terminal, Port of Baltimore, Port of Wilmington, PhilaPort, TWIC card, branch binding';
-master.about = [{ '@id': SITE + '/#service-transloading' }, { '@id': SITE + '/#service-freight-rework-transloading' }];
+master.about = [{ '@id': SITE + '/#service-transloading' }, { '@id': SITE + '/#service-freight-rework-transloading' }, { '@id': SITE + '/#service-3pl-support' }, { '@id': SITE + '/#service-industrial-commercial' }, { '@id': SITE + '/#service-logistics-project-management' }];
 master.distribution = [
   { '@type': 'DataDownload', 'name': 'datasets-ports.json — this file', 'contentUrl': FILE_URL, 'encodingFormat': 'application/json' },
 ];
@@ -269,7 +269,42 @@ matrix.distribution = [
   { '@type': 'DataDownload', 'name': 'datasets-ports.json — this file', 'contentUrl': FILE_URL, 'encodingFormat': 'application/json' },
 ];
 
-const graph = [master, matrix].concat(db.ports.map(portNode));
+// Labor layer (Ports x 3PL Takeover, 2026-11-14): one typed Service
+// node per (port x distinct coverage service) for every port whose
+// coverage cells carry a laborPage — the dedicated per-port labor
+// pages. Derived from db.serviceCoverage in this same pass, so the
+// master file's labor layer can never drift from the matrix it
+// publishes. areaServed is the port's own Place node in this graph
+// (GS-1: typed Place refs only). The per-port dataset files carry
+// the same layer in their own namespaces via
+// scripts/build-port-labor-layer.js; Baltimore has no per-port file,
+// so this master layer is its dataset seat.
+const laborNodes = [];
+for (const p of db.ports) {
+  const cells = (db.serviceCoverage || []).filter((c) => c.port === p.id && c.offered);
+  const laborPage = (cells.find((c) => c.laborPage) || {}).laborPage;
+  if (!laborPage) continue;
+  const byService = new Map();
+  for (const c of cells) {
+    if (!byService.has(c.service)) byService.set(c.service, []);
+    byService.get(c.service).push(c.serviceLabel);
+  }
+  const branch = (db.bindingMap[p.id] || {}).branch === 'martinsburg' ? 'Martinsburg, WV' : 'Winchester, VA';
+  for (const [svc, labels] of [...byService.entries()].sort()) {
+    laborNodes.push({
+      '@type': 'Service',
+      '@id': LANDING + '#labor-' + svc.replace(/^service-/, '') + '-' + p.id,
+      'name': labels[0] + ' at ' + p.name,
+      'serviceType': labels.join('; '),
+      'description': 'Port labor at ' + p.name + ' from The Flat Rate Movers \u2014 ' + labels[0].toLowerCase() + ', performed by TWIC-carded crews: every crew member holds a TWIC card, and the company\u2019s contractors hold valid TWIC cards. Crews are background-checked, escort-ready, and dispatched 24/7 from the ' + branch + ' branch at contract scale up to 1,000 crew; flat rate in writing before work starts. The dedicated labor page for this port is ' + laborPage + '. Labor only: the company does not perform drayage.',
+      'provider': JSON.parse(JSON.stringify(ORG_REF)),
+      'url': laborPage,
+      'areaServed': [{ '@id': LANDING + '#' + p.id }],
+    });
+  }
+}
+
+const graph = [master, matrix].concat(db.ports.map(portNode)).concat(laborNodes);
 const fileDoc = { '@context': 'https://schema.org', '@graph': graph };
 
 // ---------------------------------------------------------------------
@@ -359,4 +394,4 @@ fs.writeFileSync(path.join(PUB, 'datasets-ports.json'), fileBytes);
 fs.writeFileSync(path.join(PUB, 'dataset-ports.json'), landingBytes);
 const sha = crypto.createHash('sha256').update(fileBytes).digest('hex');
 console.log('build-ports: wrote datasets-ports.json (' + fileBytes.length + ' bytes, sha256 ' + sha + ') and dataset-ports.json (' + landingBytes.length + ' bytes)');
-console.log('build-ports: @graph nodes = ' + graph.length + ' (2 Dataset + ' + db.ports.length + ' Place); coverage cells = ' + db.serviceCoverage.length);
+console.log('build-ports: @graph nodes = ' + graph.length + ' (2 Dataset + ' + db.ports.length + ' Place + ' + laborNodes.length + ' labor Service); coverage cells = ' + db.serviceCoverage.length);

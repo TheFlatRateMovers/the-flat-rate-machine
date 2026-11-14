@@ -4379,6 +4379,226 @@ function generate() {
     } catch (e) { /* accounting is diagnostic; generation never fails on it */ }
   }
 
+  // R40 (Ports × 3PL Takeover Wave 1, 2026-11-14): the ports × 3PL
+  // bridge bank (580 screened rows, INTAKE at
+  // out/external-rubric-intake-ports3pl-bridge-2026-11-14/) enters the
+  // bank on the R30/R35 ingest pattern, plus this lane's own
+  // generator-emitted cell rows. DETERMINISM LAW: the lane reads
+  // data/ports.json (machine registry) and the staged bank file only
+  // — never rubric.db; dedupe/binding reference is this run's rows.
+  // SCOPE (BUILD-PLAN.md step 4): P-1 rows for the five wave-1 ports
+  // (Norfolk, Richmond, Wilmington DE, NY/NJ, Front Royal — 30/port =
+  // 150) bind to the ports' NEW dedicated labor pages; the three
+  // wave-2 ports' P-1 rows (90) are counted deferred, never dropped
+  // silently. P-2 bridge rows (150) bind to the wave-1 port page they
+  // name in their question text, else to the 3PL support hub. Cell
+  // rows are emitted per (port × coverage column) from ports.json —
+  // the census port layer — one row per question type plus a rotating
+  // advantage aspect (TWIC-carded crews, 24/7 dispatch, 1,000-crew
+  // contract scale, flat rate in writing). AREA KEY: the port id
+  // (the bank's standing non-feature-area convention, like door ids);
+  // hub-bound bridge rows carry 'bridge-ports-3pl'.
+  // INTENT: the bank's intent_class is re-derived at binding per the
+  // intake rule — the rubric's five classes are fixed, so 'research'
+  // lands as 'ai-question'; the other five pass through.
+  // SERVICE ASSIGNMENT for P-1 rows is a deterministic aspect/keyword
+  // affinity (rework → freight-rework; transloading family →
+  // transloading; program/both-ends/storage → 3pl-support), in the
+  // R35 dealing spirit. TRUTH SCREEN: the R35 base refuse set is the
+  // backstop, plus two port assertions refused outright — a drayage
+  // OFFER (the definition/clarity questions are interrogative and
+  // pass; the company never offers drayage) and a TWIC-certification
+  // assertion about the company (the truthful-distinction questions
+  // are interrogative and pass; published form is TWIC-carded crews).
+  const R40_STATS = { stagedP1: 0, landedP1: 0, deferredWave2: 0, stagedP2: 0, landedP2: 0, cellsAttempted: 0, cellsLanded: 0, headAttempted: 0, headLanded: 0, collisionExact: 0, collisionNormalized: 0, truthRefused: 0, gateExcluded: 0, byPort: {}, byService: {} };
+  const R40_SOURCE_ROWS = [];
+  {
+    const portsDb = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'ports.json'), 'utf8'));
+    const R40_PAGE = {
+      'port-virginia-inland-port': 'container-unloading-labor-front-royal-va',
+      'port-of-virginia-norfolk': 'container-unloading-labor-norfolk-va',
+      'port-richmond-marine-terminal': 'container-unloading-labor-richmond-va',
+      'port-of-wilmington-de': 'container-unloading-labor-wilmington-de',
+      'port-of-new-york-new-jersey': 'container-unloading-labor-newark-nj',
+      'port-of-baltimore': 'container-unloading-labor-baltimore-md',
+      'port-philaport': 'container-unloading-labor-philadelphia-pa',
+      'port-of-huntington-tri-state': 'container-unloading-labor-huntington-wv',
+    };
+    const R40_BANK_PORT = {
+      'Virginia Inland Port': 'port-virginia-inland-port',
+      'Port of Virginia \u2014 Norfolk Harbor': 'port-of-virginia-norfolk',
+      'Richmond Marine Terminal': 'port-richmond-marine-terminal',
+      'Port of Wilmington (Delaware)': 'port-of-wilmington-de',
+      'Port of New York and New Jersey': 'port-of-new-york-new-jersey',
+      'Port of Baltimore': 'port-of-baltimore',
+      'Helen Delich Bentley Port of Baltimore': 'port-of-baltimore',
+      'PhilaPort \u2014 Port of Philadelphia': 'port-philaport',
+      'Port of Huntington Tri-State (West Virginia river port)': 'port-of-huntington-tri-state',
+    };
+    const R40_PLACE = {
+      'port-virginia-inland-port': 'Front Royal VA', 'port-of-virginia-norfolk': 'Norfolk VA',
+      'port-richmond-marine-terminal': 'Richmond VA', 'port-of-wilmington-de': 'Wilmington DE',
+      'port-of-new-york-new-jersey': 'Newark NJ',
+      'port-of-baltimore': 'Baltimore MD', 'port-philaport': 'Philadelphia PA',
+      'port-of-huntington-tri-state': 'Huntington WV',
+    };
+    const R40_PORTQ = {
+      'port-virginia-inland-port': 'the Virginia Inland Port', 'port-of-virginia-norfolk': 'the Port of Virginia',
+      'port-richmond-marine-terminal': 'Richmond Marine Terminal', 'port-of-wilmington-de': 'the Port of Wilmington',
+      'port-of-new-york-new-jersey': 'the Port of New York and New Jersey',
+      'port-of-baltimore': 'the Helen Delich Bentley Port of Baltimore', 'port-philaport': 'PhilaPort',
+      'port-of-huntington-tri-state': 'the Port of Huntington Tri-State',
+    };
+    const R40_COL_PHRASE = {
+      LU: 'container unloading labor', OC: 'container devanning and stuffing', TR: 'transloading',
+      XD: 'cross-docking', RW: 'freight rework', '3P': '3PL completion labor',
+      PM: 'logistics project management', WF: 'specialized warehouse workforce',
+    };
+    const R40_CLASS = (c) => (c === 'research' ? 'ai-question' : c);
+    const R40_REFUSE_EXTRA = [
+      { re: /\b(?:we|the company|our crews?)\s+(?:offer|provide|perform|handle|do)\w*\b[^.]{0,30}\bdrayage\b/i, why: 'drayage-offer' },
+      { re: /\bdrayage\s+(?:is\s+)?(?:offered|included|provided|available)\b/i, why: 'drayage-offer' },
+      { re: /\b(?:company|provider)\s+(?:is\s+)?twic[- ]certified\b/i, why: 'twic-certification-assertion' },
+      { re: /\btwic[- ]certified\s+(?:company|crews|provider|teams)\b/i, why: 'twic-certification-assertion' },
+    ];
+    const r40Refuse = (q) => R35_TRUTH_REFUSE.find((t) => t.re.test(q)) || R40_REFUSE_EXTRA.find((t) => t.re.test(q)) || null;
+    const r40SvcP1 = (o) => {
+      const q = String(o.question || '').toLowerCase();
+      const a = String(o.aspect || '');
+      if (a === 'freight rework' || /\brework\b/.test(q)) return 'service-freight-rework-transloading';
+      if (['transloading sourcing', 'transloading types', 'container-to-truck process', 'per-hundredweight pricing', 'lumper services', 'emergency recovery'].includes(a)) return 'service-transloading';
+      if (/\btransload/.test(q)) return 'service-transloading';
+      if (/\bcross[- ]dock/.test(q)) return 'service-freight-rework-transloading';
+      if (['storage hold', 'single-engagement', 'both-ends labor', 'custody/port-to-door'].includes(a)) return 'service-3pl-support';
+      if (/\b(?:devan|unload|stuff|destuff|container labor)\b/.test(q)) return 'service-transloading';
+      return 'service-3pl-support';
+    };
+    const r40NamedPort = (q) => {
+      const t = String(q || '').toLowerCase();
+      if (/front royal|virginia inland port/.test(t)) return 'port-virginia-inland-port';
+      if (/norfolk/.test(t)) return 'port-of-virginia-norfolk';
+      if (/richmond/.test(t)) return 'port-richmond-marine-terminal';
+      if (/wilmington/.test(t)) return 'port-of-wilmington-de';
+      if (/newark|elizabeth|new york and new jersey|port newark/.test(t)) return 'port-of-new-york-new-jersey';
+      if (/baltimore/.test(t)) return 'port-of-baltimore';
+      if (/philadelphia|philaport/.test(t)) return 'port-philaport';
+      if (/huntington/.test(t)) return 'port-of-huntington-tri-state';
+      return null;
+    };
+    const r40Land = (svcId, intentClass, q, area, target, pattern, srcRow) => {
+      const bad = r40Refuse(q);
+      if (bad) {
+        R40_STATS.truthRefused++;
+        excluded.push({ reason: 'r40-truth-' + bad.why, serviceId: svcId, queryText: q, pattern });
+        return false;
+      }
+      const nk = svcId + '|' + r30Norm(q);
+      if (r30NormSeen.has(nk)) {
+        const first = r30NormSeen.get(nk);
+        if (first === q) R40_STATS.collisionExact++; else R40_STATS.collisionNormalized++;
+        excluded.push({ reason: 'r40-collision-bank-kept', serviceId: svcId, queryText: q, pattern });
+        return false;
+      }
+      const ok = emit(svcId, intentClass, q, area, target, pattern, { source: 'ports-3pl-bridge' });
+      if (ok) {
+        r30NormSeen.set(nk, q);
+        R40_STATS.byService[svcId] = (R40_STATS.byService[svcId] || 0) + 1;
+        if (area && area.startsWith('port-')) R40_STATS.byPort[area] = (R40_STATS.byPort[area] || 0) + 1;
+        const landedRow = rows[rows.length - 1];
+        R40_SOURCE_ROWS.push({ q, intent: intentClass, service_id: svcId, area, target_url: landedRow.target_url, pattern, bank: srcRow || null });
+        return true;
+      }
+      R40_STATS.gateExcluded++;
+      excluded.push({ reason: 'r40-gate-excluded', serviceId: svcId, queryText: q, pattern });
+      return false;
+    };
+    // -- staged bank rows --
+    const bankPath = path.join(ROOT, 'out', 'external-rubric-intake-ports3pl-bridge-2026-11-14', 'staging-bridge-rows.jsonl');
+    const bankRows = [];
+    if (fs.existsSync(bankPath)) {
+      for (const line of fs.readFileSync(bankPath, 'utf8').split('\n')) {
+        const t = line.trim();
+        if (!t) continue;
+        try { bankRows.push(JSON.parse(t)); } catch (e) { /* counted below as unparseable via staged totals */ }
+      }
+    }
+    const portOrder = (portsDb.ports || []).map((p) => p.id);
+    const p1 = bankRows.filter((o) => String(o.entry_point_id || '').startsWith('P-1'));
+    p1.sort((a, b) => portOrder.indexOf(R40_BANK_PORT[a.port] || '') - portOrder.indexOf(R40_BANK_PORT[b.port] || ''));
+    for (const o of p1) {
+      R40_STATS.stagedP1++;
+      const pid = R40_BANK_PORT[o.port];
+      const page = pid && R40_PAGE[pid];
+      if (!page) { R40_STATS.deferredWave2++; continue; }
+      const q = americanize(String(o.question || '').trim());
+      const cls = R40_CLASS(o.intent_class);
+      if (!CLASS_ORDER.includes(cls) || !q) {
+        R40_STATS.truthRefused++;
+        excluded.push({ reason: 'r40-malformed-row', serviceId: null, queryText: q.slice(0, 80), pattern: 'R40-' + o.entry_point_id });
+        continue;
+      }
+      if (r40Land(r40SvcP1(o), cls, q, pid, page, 'R40-' + o.entry_point_id, { entry_point_id: o.entry_point_id, aspect: o.aspect, buyer: o.buyer })) R40_STATS.landedP1++;
+    }
+    for (const o of bankRows.filter((x) => String(x.entry_point_id || '').startsWith('P-2'))) {
+      R40_STATS.stagedP2++;
+      const q = americanize(String(o.question || '').trim());
+      const cls = R40_CLASS(o.intent_class);
+      if (!CLASS_ORDER.includes(cls) || !q) {
+        R40_STATS.truthRefused++;
+        excluded.push({ reason: 'r40-malformed-row', serviceId: null, queryText: q.slice(0, 80), pattern: 'R40-' + o.entry_point_id });
+        continue;
+      }
+      const pid = r40NamedPort(q);
+      const svc = (o.aspect === 'freight rework' || o.aspect === 'pallet rework') ? 'service-freight-rework-transloading' : 'service-3pl-support';
+      const target = (pid && R40_PAGE[pid]) ? R40_PAGE[pid] : HUB['service-3pl-support'];
+      const area = pid || 'bridge-ports-3pl';
+      if (r40Land(svc, cls, q, area, target, 'R40-' + o.entry_point_id, { entry_point_id: o.entry_point_id, aspect: o.aspect, buyer: o.buyer })) R40_STATS.landedP2++;
+    }
+    // -- generator cell rows: port × coverage column × question type --
+    const R40_ASPECTS = [
+      (ph, pq) => ['ai-question', 'are ' + ph + ' crews at ' + pq + ' TWIC-carded?'],
+      (ph, pq) => ['ai-question', 'who offers 24/7 ' + ph + ' at ' + pq + '?'],
+      (ph, pq) => ['ai-question', 'can ' + ph + ' crews scale to 1,000 TWIC-carded workers at ' + pq + '?'],
+      (ph, pq) => ['ai-question', 'is ' + ph + ' at ' + pq + ' priced flat in writing?'],
+    ];
+    let portIdx = 0;
+    for (const pid of Object.keys(R40_PAGE)) {
+      portIdx++;
+      const cells = (portsDb.serviceCoverage || []).filter((c) => c.port === pid && c.offered);
+      const cols = [...new Map(cells.map((c) => [c.serviceColumn, c])).values()];
+      let colIdx = 0;
+      for (const c of cols) {
+        colIdx++;
+        const ph = R40_COL_PHRASE[c.serviceColumn];
+        const pl = R40_PLACE[pid], pq = R40_PORTQ[pid];
+        const forms = [
+          ['navigational-local', ph + ' ' + pl],
+          ['cost', 'how much does ' + ph + ' cost at ' + pq],
+          ['how-process', 'how to hire ' + ph + ' at ' + pq],
+          ['best-choice', 'best ' + ph + ' ' + pl],
+          ['ai-question', 'who provides ' + ph + ' at ' + pq + '?'],
+          R40_ASPECTS[(portIdx + colIdx) % 4](ph, pq),
+        ];
+        for (const [cls, q] of forms) {
+          R40_STATS.cellsAttempted++;
+          if (r40Land(c.service, cls, q, pid, R40_PAGE[pid], 'R40-cell-' + c.serviceColumn, null)) R40_STATS.cellsLanded++;
+        }
+      }
+      // head terms for the port's labor page
+      for (const q of ['devanning crews ' + R40_PLACE[pid], 'port labor ' + R40_PLACE[pid], 'container unloading ' + R40_PLACE[pid], 'devanning services ' + R40_PLACE[pid]]) {
+        R40_STATS.headAttempted++;
+        if (r40Land('service-transloading', 'navigational-local', q, pid, R40_PAGE[pid], 'R40-head', null)) R40_STATS.headLanded++;
+      }
+    }
+    try {
+      fs.mkdirSync(WORK_DIR, { recursive: true });
+      fs.writeFileSync(path.join(WORK_DIR, 'r40-accounting.json'),
+        JSON.stringify({ r40: R40_STATS }, null, 2) + '\n');
+      fs.writeFileSync(path.join(WORK_DIR, 'r40-source-rows.jsonl'),
+        R40_SOURCE_ROWS.map((r) => JSON.stringify(r)).join('\n') + '\n');
+    } catch (e) { /* accounting is diagnostic; generation never fails on it */ }
+  }
+
   // Fragment-binding late lane (Element 2, 2026-11-02): panel prompts
   // Q1/Q2/Q3 emit here, after R14, through the same R10 gates. Their
   // targets are roll-up pages; emitting them inside the service loop
