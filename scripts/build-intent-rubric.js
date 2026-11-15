@@ -5239,6 +5239,198 @@ function generate() {
     } catch (e) { /* accounting is diagnostic; generation never fails on it */ }
   }
 
+  // R44 (Money Top-3 Full-Formula, 2026-11-15): the first three
+  // Tier-1 money pages of the money-page sweep get the new process's
+  // section-6 variant coverage — /gun-safe-movers/ (the SIR flagship
+  // hub), /commercial-movers-winchester-va/ and
+  // /local-regional-movers-winchester-va/ (the Winchester branch
+  // heads). The pre-batch family census (rubric.db, 2026-11-15) read
+  // the same signature as the ports census: radius 0, ZIP 0, relation
+  // 0 on all three pages, proximity-with-place nearly absent — the
+  // pages owned their head forms and starved the variant families.
+  // CELLS are derived from machine data only (determinism law: the
+  // lane reads data/service-area.geojson + data/pages.json, never
+  // rubric.db): a target's cells are the geojson place features
+  // carrying the service's coverage token whose estate binding lands
+  // on the target — the gun-safe hub takes the shared ('both')
+  // branch towns (its proven long-tail role; towns with a dedicated
+  // gun-safe page are excluded by the pages registry), the two
+  // Winchester branch heads take the Winchester-branch places
+  // (including the Winchester branch home feature itself). Per cell
+  // the lane emits the FULL section-6 families in the R42/R43 shapes
+  // — proximity, locality scale, radius (bucket from the binding
+  // branch seat's coordinates, the Territory Matrix centroid
+  // method; the hub's shared towns read from the nearer branch
+  // seat), ZIP forms (the geo record's postal code), relation words
+  // and AI-question forms — plus per-cell question forms and one
+  // rotating service aspect per cell. TRUTH SCREEN: the R35 base set
+  // plus gun-safe extras — no query may imply a locksmith or
+  // safe-opening service (never offered). Gun-safe aspects stay
+  // inside the published fact set: stairs up/down, re-anchoring on
+  // request, the 1,500-3,500 lb SIR band (over-1,500-lb form).
+  const R44_STATS = { cellsAttempted: 0, cellsLanded: 0, variantsAttempted: 0, variantsLanded: 0, byFamily: {}, byPage: {}, collisionExact: 0, collisionNormalized: 0, truthRefused: 0, gateExcluded: 0 };
+  const R44_SOURCE_ROWS = [];
+  {
+    const geo = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'service-area.geojson'), 'utf8'));
+    const featById = {};
+    for (const f of geo.features || []) if (f.properties && f.properties.id) featById[f.properties.id] = f;
+    const pagesDb = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'pages.json'), 'utf8'));
+    const pageSlugs = new Set((pagesDb.pages || []).map((p) => p.slug));
+    const havMi = (lat1, lon1, lat2, lon2) => {
+      const R = 3958.8, t = Math.PI / 180;
+      const dLat = (lat2 - lat1) * t, dLon = (lon2 - lon1) * t;
+      const h = Math.sin(dLat / 2) ** 2 + Math.cos(lat1 * t) * Math.cos(lat2 * t) * Math.sin(dLon / 2) ** 2;
+      return 2 * R * Math.asin(Math.sqrt(h));
+    };
+    const bucket = (mi) => (mi <= 10 ? 10 : mi <= 20 ? 20 : mi <= 35 ? 35 : mi <= 50 ? 50 : 75);
+    const seatCoords = (fid) => {
+      const f = featById[fid];
+      return (f && f.geometry && f.geometry.coordinates) ? f.geometry.coordinates : null;
+    };
+    const winSeat = seatCoords('place-winchester-va');
+    const marSeat = seatCoords('place-martinsburg-wv');
+    const R44_STATE_NAME = { VA: 'Virginia', WV: 'West Virginia', MD: 'Maryland', DC: 'Washington DC', PA: 'Pennsylvania' };
+    const R44_REFUSE_EXTRA = [
+      { re: /\blocksmith\b/i, why: 'locksmith-claim' },
+      { re: /\bsafe cracking\b/i, why: 'safe-cracking-claim' },
+      { re: /\bopen(?:s|ing)? (?:a |the |my )?locked safe\b/i, why: 'safe-opening-claim' },
+    ];
+    const r44Refuse = (q) => R35_TRUTH_REFUSE.find((t) => t.re.test(q)) || R44_REFUSE_EXTRA.find((t) => t.re.test(q)) || null;
+    const r44Land = (svcId, intentClass, q, area, target, pattern) => {
+      const bad = r44Refuse(q);
+      if (bad) {
+        R44_STATS.truthRefused++;
+        excluded.push({ reason: 'r44-truth-' + bad.why, serviceId: svcId, queryText: q, pattern });
+        return false;
+      }
+      const nk = svcId + '|' + r30Norm(q);
+      if (r30NormSeen.has(nk)) {
+        const first = r30NormSeen.get(nk);
+        if (first === q) R44_STATS.collisionExact++; else R44_STATS.collisionNormalized++;
+        excluded.push({ reason: 'r44-collision-bank-kept', serviceId: svcId, queryText: q, pattern });
+        return false;
+      }
+      const ok = emit(svcId, intentClass, q, area, target, pattern, { source: 'money-top3-formula' });
+      if (ok) {
+        r30NormSeen.set(nk, q);
+        R44_STATS.byPage[target] = (R44_STATS.byPage[target] || 0) + 1;
+        const landedRow = rows[rows.length - 1];
+        R44_SOURCE_ROWS.push({ q, intent: intentClass, service_id: svcId, area, target_url: landedRow.target_url, pattern });
+        return true;
+      }
+      R44_STATS.gateExcluded++;
+      excluded.push({ reason: 'r44-gate-excluded', serviceId: svcId, queryText: q, pattern });
+      return false;
+    };
+    const landV = (svcId, cls, q, area, target, family) => {
+      R44_STATS.variantsAttempted++;
+      if (r44Land(svcId, cls, q, area, target, 'R44-variant-' + family)) {
+        R44_STATS.variantsLanded++;
+        R44_STATS.byFamily[family] = (R44_STATS.byFamily[family] || 0) + 1;
+      }
+    };
+    const R44_ASPECTS = {
+      'service-gun-safe': [
+        (pq) => 'can gun safe movers take a safe up or down stairs in ' + pq + '?',
+        (pq) => 'do gun safe movers re-anchor the safe after placing it in ' + pq + '?',
+        (pq) => 'who can move a gun safe over 1,500 pounds in ' + pq + '?',
+      ],
+      'service-commercial': [
+        (pq) => 'can commercial movers work after hours in ' + pq + '?',
+        (pq) => 'who provides commercial moving services in ' + pq + '?',
+        (pq) => 'can commercial movers move an office in phases in ' + pq + '?',
+      ],
+      'service-local-regional': [
+        (pq) => 'do local movers charge a flat rate in ' + pq + '?',
+        (pq) => 'who are the local movers in ' + pq + '?',
+        (pq) => 'can local movers in ' + pq + ' move just a few heavy items?',
+      ],
+    };
+    const R44_TARGETS = [
+      { svc: 'service-gun-safe', token: 'gun-safe', slug: 'gun-safe-movers', phrase: 'gun safe movers', base: 'gun safe moving', rule: 'both' },
+      { svc: 'service-commercial', token: 'commercial-moving', slug: 'commercial-movers-winchester-va', phrase: 'commercial movers', base: 'commercial moving', rule: 'winchester' },
+      { svc: 'service-local-regional', token: 'local-regional', slug: 'local-regional-movers-winchester-va', phrase: 'local movers', base: 'local moving', rule: 'winchester' },
+    ];
+    for (const T of R44_TARGETS) {
+      const cells = [];
+      for (const f of geo.features || []) {
+        const p = f.properties || {};
+        if (!p.id || !p.id.startsWith('place-')) continue;
+        if (!(p.services || []).includes(T.token)) continue;
+        if (T.rule === 'both') {
+          if (p.branch !== 'both') continue;
+          if (pageSlugs.has(T.slug + '-' + p.id.replace('place-', ''))) continue;
+        } else if (p.branch !== 'winchester') continue;
+        cells.push(f);
+      }
+      let cellIdx = 0;
+      for (const f of cells) {
+        cellIdx++;
+        const p = f.properties;
+        const pl = String(p.name || '').replace(/,/g, '');
+        const pq = String(p.name || '');
+        const stateName = R44_STATE_NAME[p.state] || null;
+        const countyTail = String(p.county || '').split('/').pop().trim();
+        const county = /County$/.test(countyTail) ? countyTail : null;
+        const zip = p.postal_code ? String(p.postal_code) : null;
+        let radius = 25;
+        if (f.geometry && f.geometry.coordinates) {
+          const [lo, la] = f.geometry.coordinates;
+          const seats = T.rule === 'both' ? [winSeat, marSeat].filter(Boolean) : [winSeat].filter(Boolean);
+          let best = null;
+          for (const s of seats) { const d = havMi(la, lo, s[1], s[0]); if (best === null || d < best) best = d; }
+          if (best !== null) radius = bucket(best);
+        }
+        const ph = T.phrase, base = T.base, area = p.id, target = T.slug;
+        // cell question forms
+        const cellForms = [
+          ['ai-question', 'who provides ' + ph + ' in ' + pq + '?'],
+          ['ai-question', R44_ASPECTS[T.svc][cellIdx % R44_ASPECTS[T.svc].length](pq)],
+        ];
+        for (const [cls, q] of cellForms) {
+          R44_STATS.cellsAttempted++;
+          if (r44Land(T.svc, cls, q, area, target, 'R44-cell')) R44_STATS.cellsLanded++;
+        }
+        // PROXIMITY
+        landV(T.svc, 'navigational-local', ph + ' near me', area, target, 'proximity');
+        landV(T.svc, 'best-choice', 'best ' + ph + ' near me', area, target, 'proximity');
+        landV(T.svc, 'navigational-local', ph + ' nearby', area, target, 'proximity');
+        landV(T.svc, 'navigational-local', ph + ' near ' + pl, area, target, 'proximity');
+        landV(T.svc, 'navigational-local', ph + ' close to ' + pl, area, target, 'proximity');
+        // LOCALITY SCALE
+        if (!ph.startsWith('local ')) landV(T.svc, 'navigational-local', 'local ' + ph + ' ' + pl, area, target, 'locality');
+        landV(T.svc, 'navigational-local', ph + ' in ' + pl, area, target, 'locality');
+        if (county) landV(T.svc, 'navigational-local', ph + ' in ' + county + ' ' + p.state, area, target, 'locality');
+        if (stateName) landV(T.svc, 'navigational-local', ph + ' in ' + stateName, area, target, 'locality');
+        landV(T.svc, 'navigational-local', ph + ' around ' + pl, area, target, 'locality');
+        landV(T.svc, 'navigational-local', 'regional ' + ph + ' ' + pl, area, target, 'locality');
+        // RADIUS
+        landV(T.svc, 'navigational-local', ph + ' within ' + radius + ' miles of ' + pl, area, target, 'radius');
+        landV(T.svc, 'navigational-local', ph + ' serving the ' + pl + ' area', area, target, 'radius');
+        // ZIP FORMS — the place's geo record postal code
+        if (zip) {
+          landV(T.svc, 'navigational-local', ph + ' ' + zip, area, target, 'zip');
+          landV(T.svc, 'navigational-local', ph + ' near ' + zip, area, target, 'zip');
+        }
+        // RELATION WORDS
+        landV(T.svc, 'navigational-local', ph + ' serving ' + pq, area, target, 'relation');
+        landV(T.svc, 'navigational-local', ph + ' covering ' + pq, area, target, 'relation');
+        landV(T.svc, 'navigational-local', ph + ' available in ' + pl, area, target, 'relation');
+        landV(T.svc, 'navigational-local', ph + ' based in ' + pl, area, target, 'relation');
+        // AI-QUESTION FORMS
+        landV(T.svc, 'ai-question', 'how do i arrange ' + base + ' in ' + pl + '?', area, target, 'ai-question');
+        landV(T.svc, 'ai-question', 'what does ' + base + ' include in ' + pl + '?', area, target, 'ai-question');
+      }
+    }
+    try {
+      fs.mkdirSync(WORK_DIR, { recursive: true });
+      fs.writeFileSync(path.join(WORK_DIR, 'r44-accounting.json'),
+        JSON.stringify({ r44: R44_STATS }, null, 2) + '\n');
+      fs.writeFileSync(path.join(WORK_DIR, 'r44-source-rows.jsonl'),
+        R44_SOURCE_ROWS.map((r) => JSON.stringify(r)).join('\n') + '\n');
+    } catch (e) { /* accounting is diagnostic; generation never fails on it */ }
+  }
+
   // Fragment-binding late lane (Element 2, 2026-11-02): panel prompts
   // Q1/Q2/Q3 emit here, after R14, through the same R10 gates. Their
   // targets are roll-up pages; emitting them inside the service loop
