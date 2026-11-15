@@ -101,7 +101,13 @@ const trimTo = (s, n) => {
   if (t.length <= n) return t;
   const cut = t.slice(0, n);
   const end = Math.max(cut.lastIndexOf('. '), cut.lastIndexOf('? '), cut.lastIndexOf('! '));
-  return (end > n * 0.5 ? cut.slice(0, end + 1) : cut).trim();
+  const out = (end > n * 0.5 ? cut.slice(0, end + 1) : cut).trim();
+  // Surrogate guard (2026-11-15, checklist sweep): a code-unit cut
+  // can split an emoji's surrogate pair and strand the high half at
+  // the end of the fragment — found live as a lone \uD83E closing
+  // the /all-pages/ answer (the pair for U+1F9F3 was cut in half),
+  // which downstream writers render as U+FFFD. Never emit it.
+  return out.replace(/[\uD800-\uDBFF]$/, '');
 };
 const tokens = (s) => new Set(norm(s).split(' ').filter((w) => w.length > 2));
 function overlap(a, b) {
