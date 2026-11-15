@@ -321,7 +321,7 @@ const DATASETS = {
   'service-piano-antique': ['datasets-piano-antique.json'],
   'service-ispm15': ['datasets-ispm15.json'],
   'service-crating': ['datasets-crating.json'],
-  'service-transloading': ['datasets-transloading.json', 'datasets-transloading-inland-port.json', 'datasets-ocean-container.json', 'datasets-ports.json', 'datasets-port-of-virginia.json', 'datasets-port-of-huntington.json', 'datasets-port-of-new-york-new-jersey.json', 'datasets-port-of-baltimore.json', 'datasets-philaport.json', 'datasets-port-of-wilmington.json', 'datasets-richmond-marine-terminal.json'], // + the four ports-completion files in Ports Completion 2026-11-10 (per-port dataset seats for Baltimore, PhilaPort, Wilmington, Richmond) // + datasets-port-of-new-york-new-jersey.json in Port #8 2026-11-10 (per-port dataset seat for the Port of New York and New Jersey) // + datasets-port-of-huntington.json in WV-2 2026-11-07 (per-port dataset seat for the Huntington river district) // + datasets-port-of-virginia.json in Ports P3 2026-11-03 (per-port dataset seat; gives the /datasets/port-of-virginia/ landing its R13 rows + full coverage)
+  'service-transloading': ['datasets-transloading.json', 'datasets-warehouse-racking.json', 'datasets-transloading-inland-port.json', 'datasets-ocean-container.json', 'datasets-ports.json', 'datasets-port-of-virginia.json', 'datasets-port-of-huntington.json', 'datasets-port-of-new-york-new-jersey.json', 'datasets-port-of-baltimore.json', 'datasets-philaport.json', 'datasets-port-of-wilmington.json', 'datasets-richmond-marine-terminal.json'], // + the four ports-completion files in Ports Completion 2026-11-10 (per-port dataset seats for Baltimore, PhilaPort, Wilmington, Richmond) // + datasets-port-of-new-york-new-jersey.json in Port #8 2026-11-10 (per-port dataset seat for the Port of New York and New Jersey) // + datasets-port-of-huntington.json in WV-2 2026-11-07 (per-port dataset seat for the Huntington river district) // + datasets-port-of-virginia.json in Ports P3 2026-11-03 (per-port dataset seat; gives the /datasets/port-of-virginia/ landing its R13 rows + full coverage)
   'service-final-mile': ['datasets-final-mile.json'],
   'service-white-glove': ['datasets-white-glove.json', 'datasets-luxury-estate-relocation.json'],
   'service-office-moving': ['datasets-office.json', 'datasets-office-decommissioning.json'],
@@ -329,20 +329,20 @@ const DATASETS = {
   'service-government': ['datasets-government.json', 'datasets-office-decommissioning.json'],
   'service-military': ['datasets-military.json'],
   'service-route81': ['datasets-route81.json'],
-  'service-industrial-commercial': ['datasets-industrial-commercial.json', 'datasets-warehouse.json'],
+  'service-industrial-commercial': ['datasets-industrial-commercial.json', 'datasets-warehouse.json', 'datasets-warehouse-racking.json'],
   'service-senior-moving': ['datasets-senior.json'],
-  'service-warehouse-relocation': ['datasets-warehouse.json'],
+  'service-warehouse-relocation': ['datasets-warehouse.json', 'datasets-warehouse-racking.json'],
   'service-it-relocation': ['datasets-it.json', 'datasets-office-decommissioning.json'],
   'service-transloading-winchester-va': ['datasets-transloading-winchester.json'],
   'service-moving-and-storage': ['datasets-moving-and-storage.json'],
   'service-junk-removal': ['datasets-junk-removal.json'],
   'service-freight-rework-transloading': ['datasets-freight-rework.json'],
-  'service-warehouse-racking-relocation': ['datasets-warehouse-racking-relocation.json'],
+  'service-warehouse-racking-relocation': ['datasets-warehouse-racking-relocation.json', 'datasets-warehouse-racking.json'],
   'service-ffe-logistics': ['datasets-ffe-logistics.json'],
   'service-data-center-relocation': ['datasets-data-center-relocation.json'],
   'service-medical-lab-relocation': ['datasets-medical-lab-relocation.json'],
   'service-logistics-project-management': ['datasets-ports.json'],
-  'service-3pl-support': ['datasets-ports.json'],
+  'service-3pl-support': ['datasets-ports.json', 'datasets-warehouse-racking.json'],
   'service-vault-door': ['datasets-vault-security.json', 'datasets-vault-doors.json', 'datasets-gun-safe.json'], // Vault V1 2026-11-04
   'service-hoarding-cleanup': ['datasets-hoarding-cleanup.json', 'datasets-junk-removal.json'], // Hoarding V1 2026-11-05
 };
@@ -4731,6 +4731,223 @@ function generate() {
         JSON.stringify({ r41: R41_STATS }, null, 2) + '\n');
       fs.writeFileSync(path.join(WORK_DIR, 'r41-source-rows.jsonl'),
         R41_SOURCE_ROWS.map((r) => JSON.stringify(r)).join('\n') + '\n');
+    } catch (e) { /* accounting is diagnostic; generation never fails on it */ }
+  }
+
+  // R42 (Warehouse Racking + Distribution-Center Decommissioning
+  // Takeover, 2026-11-15): the category bank for the six I-81
+  // corridor distribution markets. DETERMINISM LAW: the lane reads
+  // data/warehouse-racking.json (the program registry) only — never
+  // rubric.db; dedupe/binding reference is this run's rows.
+  // Generator-emitted cell rows per (area x door): the registry's
+  // eleven doors (decommissioning, rack teardown, racking relocation,
+  // reinstallation and re-anchoring, used-rack buyback, lease
+  // handback, inventory relay, transport, cost, process, best-choice)
+  // x six question forms — navigational-local, cost, how-process,
+  // best-choice, ai-question, plus a rotating advantage aspect (one
+  // flat rate in writing / the buyback credit shown as a line item
+  // against the flat-rate total / anchor removal and slab patch for a
+  // landlord-ready handback / one crew for teardown, transport and
+  // reinstallation — the two advantages settled by Henry 2026-11-15
+  // ride the lane, never as filler). AREA KEY: the registry area id
+  // (the bank's standing non-feature-area convention, like port ids);
+  // hub head rows carry 'racking-program'. SERVICE per row = the
+  // door's registry service. HEAD TERMS: seven per area plus eight on
+  // the category hub, one owner per search — 'warehouse racking
+  // relocation' and its Staunton form stay with the pre-existing
+  // warehouse-racking-relocation page that already owns them.
+  // TRUTH SCREEN: the R35 base refuse set is the backstop, plus this
+  // lane's extras — any per-bay / per-beam / per-pallet-position rate
+  // assertion (pricing is per job; that IS the flat rate) and any
+  // resale-benchmark figure (the $175-$200 per-pallet-position
+  // research benchmark is market evidence, internal only, never an
+  // FRM figure).
+  const R42_STATS = { cellsAttempted: 0, cellsLanded: 0, headAttempted: 0, headLanded: 0, collisionExact: 0, collisionNormalized: 0, truthRefused: 0, gateExcluded: 0, byArea: {}, byService: {} };
+  const R42_SOURCE_ROWS = [];
+  {
+    const rackDb = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'warehouse-racking.json'), 'utf8'));
+    const R42_REFUSE_EXTRA = [
+      { re: /\bper\s+(?:bay|beam|pallet\s+position)\b/i, why: 'per-unit-rate' },
+      { re: /\$\s?(?:175|200)\b/, why: 'resale-benchmark-figure' },
+    ];
+    const r42Refuse = (q) => R35_TRUTH_REFUSE.find((t) => t.re.test(q)) || R42_REFUSE_EXTRA.find((t) => t.re.test(q)) || null;
+    const r42Land = (svcId, intentClass, q, area, target, pattern) => {
+      const bad = r42Refuse(q);
+      if (bad) {
+        R42_STATS.truthRefused++;
+        excluded.push({ reason: 'r42-truth-' + bad.why, serviceId: svcId, queryText: q, pattern });
+        return false;
+      }
+      const nk = svcId + '|' + r30Norm(q);
+      if (r30NormSeen.has(nk)) {
+        const first = r30NormSeen.get(nk);
+        if (first === q) R42_STATS.collisionExact++; else R42_STATS.collisionNormalized++;
+        excluded.push({ reason: 'r42-collision-bank-kept', serviceId: svcId, queryText: q, pattern });
+        return false;
+      }
+      const ok = emit(svcId, intentClass, q, area, target, pattern, { source: 'warehouse-racking-takeover' });
+      if (ok) {
+        r30NormSeen.set(nk, q);
+        R42_STATS.byService[svcId] = (R42_STATS.byService[svcId] || 0) + 1;
+        if (area) R42_STATS.byArea[area] = (R42_STATS.byArea[area] || 0) + 1;
+        const landedRow = rows[rows.length - 1];
+        R42_SOURCE_ROWS.push({ q, intent: intentClass, service_id: svcId, area, target_url: landedRow.target_url, pattern });
+        return true;
+      }
+      R42_STATS.gateExcluded++;
+      excluded.push({ reason: 'r42-gate-excluded', serviceId: svcId, queryText: q, pattern });
+      return false;
+    };
+    const R42_ASPECTS = [
+      (base, pq) => ['ai-question', 'is ' + base + ' in ' + pq + ' priced as one flat rate in writing?'],
+      (base, pq) => ['ai-question', 'does the used rack buyback credit show as a line item against the flat rate for ' + base + ' in ' + pq + '?'],
+      (base, pq) => ['ai-question', 'does ' + base + ' in ' + pq + ' include anchor removal and slab patch for a landlord-ready handback?'],
+      (base, pq) => ['ai-question', 'can one crew handle teardown, transport and reinstallation for ' + base + ' in ' + pq + '?'],
+    ];
+    const R42_BASE_DOORS = { cost: 1, best: 1, process: 1 };
+    let areaIdx = 0;
+    for (const area of rackDb.areas) {
+      areaIdx++;
+      const pl = area.placeLabel, pq = area.placeQ;
+      let doorIdx = 0;
+      for (const door of rackDb.doors) {
+        doorIdx++;
+        const ph = door.phrase;
+        const base = R42_BASE_DOORS[door.id] ? 'distribution center decommissioning' : ph;
+        let forms;
+        if (door.id === 'cost') {
+          forms = [
+            ['navigational-local', ph + ' ' + pl],
+            ['cost', 'how much does distribution center decommissioning cost in ' + pl],
+            ['how-process', 'how is distribution center decommissioning priced in ' + pl],
+            ['best-choice', 'best distribution center decommissioning company ' + pl],
+            ['ai-question', 'who provides distribution center decommissioning in ' + pq + '?'],
+          ];
+        } else if (door.id === 'best') {
+          forms = [
+            ['navigational-local', ph + ' ' + pl],
+            ['cost', 'what does the best warehouse decommissioning company in ' + pl + ' charge'],
+            ['how-process', 'how to choose a warehouse decommissioning company in ' + pl],
+            ['best-choice', 'best warehouse decommissioning services ' + pl],
+            ['ai-question', 'who is the best warehouse decommissioning company in ' + pq + '?'],
+          ];
+        } else if (door.id === 'process') {
+          forms = [
+            ['navigational-local', ph + ' ' + pl],
+            ['cost', 'how much does distribution center decommissioning cost in ' + pl],
+            ['how-process', 'how does the warehouse decommissioning process work in ' + pl],
+            ['best-choice', 'best warehouse decommissioning services ' + pl],
+            ['ai-question', 'who provides warehouse decommissioning services in ' + pq + '?'],
+          ];
+        } else {
+          forms = [
+            ['navigational-local', ph + ' ' + pl],
+            ['cost', 'how much does ' + ph + ' cost in ' + pl],
+            ['how-process', 'how does ' + ph + ' work in ' + pl],
+            ['best-choice', 'best ' + ph + ' ' + pl],
+            ['ai-question', 'who provides ' + ph + ' in ' + pq + '?'],
+          ];
+        }
+        forms.push(R42_ASPECTS[(areaIdx + doorIdx) % 4](base, pq));
+        for (const [cls, q] of forms) {
+          R42_STATS.cellsAttempted++;
+          if (r42Land(door.service, cls, q, area.id, area.pageSlug, 'R42-cell-' + door.id)) R42_STATS.cellsLanded++;
+        }
+      }
+      // head terms for the area page (service-warehouse-racking-
+      // relocation owns them; the bare racking-relocation head stays
+      // with the pre-existing racking page that already owns it)
+      const heads = ['distribution center decommissioning', 'warehouse racking relocation', 'pallet rack teardown and removal', 'warehouse racking movers', 'distribution center decommissioning services', 'distribution center decommissioning companies', 'warehouse decommissioning services'];
+      if (area.id === 'racking-staunton') heads[1] = 'warehouse racking relocation services';
+      for (const h of heads) {
+        R42_STATS.headAttempted++;
+        if (r42Land('service-warehouse-racking-relocation', 'navigational-local', h + ' ' + pl, area.id, area.pageSlug, 'R42-head')) R42_STATS.headLanded++;
+      }
+    }
+    // hub head terms — the category hub owns the unplaced heads
+    for (const q of ['distribution center decommissioning', 'pallet rack teardown and removal', 'used pallet rack buyback', 'distribution center decommissioning services', 'distribution center decommissioning companies', 'warehouse decommissioning services', 'warehouse racking relocation services', 'distribution center decommissioning Virginia']) {
+      R42_STATS.headAttempted++;
+      if (r42Land('service-warehouse-racking-relocation', 'navigational-local', q, 'racking-program', 'distribution-center-decommissioning', 'R42-head')) R42_STATS.headLanded++;
+    }
+    // R42 VARIANT COVERAGE (Henry, 2026-11-15; checklist section 6):
+    // every cell (area x door) carries the full phrasing-family set
+    // around its head phrase — proximity, locality scale, radius,
+    // ZIP forms, relation words and AI-question forms. Variants are
+    // GENERATED from machine data only: the registry (areas, doors),
+    // data/service-area.geojson (each area's geo record — postal
+    // codes and coordinates; the dispatch branch's coordinates give
+    // the radius bucket by centroid distance, the Territory Matrix
+    // method) and the registry's own postalCode as the second ZIP
+    // source where the geo record's differs (Martinsburg 25404 geo /
+    // 25401 market). Never hand-listed; determinism law holds.
+    {
+      const geo = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'service-area.geojson'), 'utf8'));
+      const featById = {};
+      for (const f of geo.features || []) if (f.properties && f.properties.id) featById[f.properties.id] = f;
+      const havMi = (lat1, lon1, lat2, lon2) => {
+        const R = 3958.8, t = Math.PI / 180;
+        const dLat = (lat2 - lat1) * t, dLon = (lon2 - lon1) * t;
+        const h = Math.sin(dLat / 2) ** 2 + Math.cos(lat1 * t) * Math.cos(lat2 * t) * Math.sin(dLon / 2) ** 2;
+        return 2 * R * Math.asin(Math.sqrt(h));
+      };
+      const bucket = (mi) => (mi <= 10 ? 10 : mi <= 20 ? 20 : mi <= 35 ? 35 : mi <= 50 ? 50 : 75);
+      R42_STATS.variantsAttempted = 0; R42_STATS.variantsLanded = 0; R42_STATS.byFamily = {};
+      const landV = (svcId, cls, q, area, target, family) => {
+        R42_STATS.variantsAttempted++;
+        if (r42Land(svcId, cls, q, area, target, 'R42-variant-' + family)) {
+          R42_STATS.variantsLanded++;
+          R42_STATS.byFamily[family] = (R42_STATS.byFamily[family] || 0) + 1;
+        }
+      };
+      for (const area of rackDb.areas) {
+        const pl = area.placeLabel, pq = area.placeQ;
+        const feat = featById[area.geoFeature];
+        const zips = [...new Set([area.postalCode, feat && feat.properties && feat.properties.postal_code].filter(Boolean))];
+        const branchFeat = featById['place-' + area.branch + '-' + (area.branch === 'winchester' ? 'va' : 'wv')];
+        let radius = 25;
+        if (feat && branchFeat && feat.geometry && branchFeat.geometry) {
+          const [lo1, la1] = feat.geometry.coordinates, [lo2, la2] = branchFeat.geometry.coordinates;
+          radius = bucket(havMi(la1, lo1, la2, lo2));
+        }
+        for (const door of rackDb.doors) {
+          const ph = door.phrase;
+          const base = R42_BASE_DOORS[door.id] ? 'distribution center decommissioning' : ph;
+          // PROXIMITY
+          landV(door.service, 'navigational-local', ph + ' near me', area.id, area.pageSlug, 'proximity');
+          landV(door.service, 'best-choice', 'best ' + ph + ' near me', area.id, area.pageSlug, 'proximity');
+          landV(door.service, 'navigational-local', ph + ' nearby', area.id, area.pageSlug, 'proximity');
+          landV(door.service, 'navigational-local', ph + ' near ' + pl, area.id, area.pageSlug, 'proximity');
+          landV(door.service, 'navigational-local', ph + ' close to ' + pl, area.id, area.pageSlug, 'proximity');
+          // LOCALITY SCALE
+          landV(door.service, 'navigational-local', 'local ' + ph + ' ' + pl, area.id, area.pageSlug, 'locality');
+          landV(door.service, 'navigational-local', ph + ' in ' + pl, area.id, area.pageSlug, 'locality');
+          landV(door.service, 'navigational-local', ph + ' in ' + area.county + ' ' + area.state, area.id, area.pageSlug, 'locality');
+          landV(door.service, 'navigational-local', ph + ' around ' + pl, area.id, area.pageSlug, 'locality');
+          landV(door.service, 'navigational-local', 'regional ' + ph + ' ' + pl, area.id, area.pageSlug, 'locality');
+          // RADIUS
+          landV(door.service, 'navigational-local', ph + ' within ' + radius + ' miles of ' + pl, area.id, area.pageSlug, 'radius');
+          landV(door.service, 'navigational-local', ph + ' serving the ' + pl + ' area', area.id, area.pageSlug, 'radius');
+          // ZIP FORMS — every ZIP in the area's geo record (+ registry ZIP where it differs)
+          for (const z of zips) {
+            landV(door.service, 'navigational-local', ph + ' ' + z, area.id, area.pageSlug, 'zip');
+            landV(door.service, 'navigational-local', ph + ' near ' + z, area.id, area.pageSlug, 'zip');
+          }
+          // RELATION WORDS
+          landV(door.service, 'navigational-local', ph + ' serving ' + pq, area.id, area.pageSlug, 'relation');
+          landV(door.service, 'navigational-local', ph + ' available in ' + pl, area.id, area.pageSlug, 'relation');
+          landV(door.service, 'navigational-local', ph + ' based in ' + pl, area.id, area.pageSlug, 'relation');
+          // AI-QUESTION FORMS
+          landV(door.service, 'ai-question', 'how do i arrange ' + base + ' in ' + pl + '?', area.id, area.pageSlug, 'ai-question');
+          landV(door.service, 'ai-question', 'what does ' + base + ' include in ' + pl + '?', area.id, area.pageSlug, 'ai-question');
+        }
+      }
+    }
+    try {
+      fs.mkdirSync(WORK_DIR, { recursive: true });
+      fs.writeFileSync(path.join(WORK_DIR, 'r42-accounting.json'),
+        JSON.stringify({ r42: R42_STATS }, null, 2) + '\n');
+      fs.writeFileSync(path.join(WORK_DIR, 'r42-source-rows.jsonl'),
+        R42_SOURCE_ROWS.map((r) => JSON.stringify(r)).join('\n') + '\n');
     } catch (e) { /* accounting is diagnostic; generation never fails on it */ }
   }
 
