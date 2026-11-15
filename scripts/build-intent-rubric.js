@@ -4951,6 +4951,293 @@ function generate() {
     } catch (e) { /* accounting is diagnostic; generation never fails on it */ }
   }
 
+  // R43 (Ports Full-Formula, 2026-11-15): the ports lane goes from
+  // HEAD-ONLY to FULL. Two staged external banks (1,320 rows, in
+  // out/batch-ports-full-2026-11-15/) enter as the question-content
+  // layer for the port cells — BIND 1,260 rows land; the 60
+  // returns-processing rows are DEMAND-ONLY by their staged flag and
+  // are counted, never landed (Henry's standing rule: no returns
+  // program, ever). Registry-port rows bind to the ports' dedicated
+  // hub pages (the pages this batch builds up); Charleston, Savannah
+  // and Wilmington NC rows — real ports under Henry's any-port
+  // contract rule with no registry page — bind to the /port-logistics/
+  // program hub, as do the generic 'near the port' rows; the 440 3PL
+  // corridor rows (40 x 11 cities) bind to the 3PL support hub. On
+  // top of the bank, the lane emits the FULL section-6 variant
+  // families per port cell (port x labor phrase), generated from
+  // machine data only: data/ports.json (port name, city, the ZIP the
+  // registry carries, binding-branch road miles for the radius
+  // bucket — the R42 Territory Matrix method) — proximity, locality
+  // scale, radius, ZIP forms, relation words, AI-question forms —
+  // plus hub head terms and hub-bound cell question forms.
+  // DETERMINISM LAW: the lane reads data/ports.json and the two
+  // staged bank files only — never rubric.db; dedupe/binding
+  // reference is this run's rows (the R40 lane ran earlier and keeps
+  // its labor-page rows: one owner per search, collisions are
+  // bank-kept and counted). INTENT: the banks' class vocabulary maps
+  // onto the rubric's five classes deterministically (cost->cost,
+  // process->how-process, choice->best-choice,
+  // availability/pain/compliance->ai-question). SERVICE:
+  // deterministic affinity in the R40 spirit (unloading / devanning /
+  // transloading support / TWIC labor -> transloading; cross-dock /
+  // pallet work -> freight-rework; labeling / sorting / cycle counts
+  // / kitting -> 3pl-support). TRUTH SCREEN: the R35 base set plus
+  // the R40 port extras (a drayage OFFER and a TWIC-certification
+  // assertion are refused outright; the interrogative forms pass).
+  // TWIC ANSWER RULE (Henry, 2026-11-15): answers to credential
+  // questions state that every individual sent onsite holds their
+  // own TWIC card and proper ID — the rows here are questions; the
+  // answer layer carries the rule.
+  const R43_STATS = { stagedTotal: 0, stagedBind: 0, landedBank: 0, demandOnly: 0, demandOther: 0, unmappedPlace: 0, cellsAttempted: 0, cellsLanded: 0, headAttempted: 0, headLanded: 0, variantsAttempted: 0, variantsLanded: 0, byFamily: {}, collisionExact: 0, collisionNormalized: 0, truthRefused: 0, gateExcluded: 0, byPort: {}, byService: {} };
+  const R43_SOURCE_ROWS = [];
+  {
+    const portsDb = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'ports.json'), 'utf8'));
+    const R43_HUB = {
+      'port-virginia-inland-port': 'virginia-inland-port-transloading',
+      'port-of-virginia-norfolk': 'port-of-virginia-logistics',
+      'port-richmond-marine-terminal': 'richmond-marine-terminal-logistics',
+      'port-of-baltimore': 'port-of-baltimore-logistics',
+      'port-of-wilmington-de': 'port-of-wilmington-logistics',
+      'port-philaport': 'philaport-logistics',
+      'port-of-huntington-tri-state': 'port-of-huntington-logistics',
+      'port-of-new-york-new-jersey': 'port-of-new-york-new-jersey-logistics',
+    };
+    const R43_PROGRAM = 'port-logistics';
+    const R43_3PL = '3pl-support-services';
+    const R43_PLACE = {
+      'port-virginia-inland-port': 'Front Royal VA', 'port-of-virginia-norfolk': 'Norfolk VA',
+      'port-richmond-marine-terminal': 'Richmond VA', 'port-of-baltimore': 'Baltimore MD',
+      'port-of-wilmington-de': 'Wilmington DE', 'port-philaport': 'Philadelphia PA',
+      'port-of-huntington-tri-state': 'Huntington WV', 'port-of-new-york-new-jersey': 'Newark NJ',
+    };
+    const R43_PORTQ = {
+      'port-virginia-inland-port': 'the Virginia Inland Port', 'port-of-virginia-norfolk': 'the Port of Virginia',
+      'port-richmond-marine-terminal': 'Richmond Marine Terminal', 'port-of-wilmington-de': 'the Port of Wilmington',
+      'port-philaport': 'PhilaPort', 'port-of-baltimore': 'the Helen Delich Bentley Port of Baltimore',
+      'port-of-huntington-tri-state': 'the Port of Huntington Tri-State',
+      'port-of-new-york-new-jersey': 'the Port of New York and New Jersey',
+    };
+    const R43_STATE = {
+      'port-virginia-inland-port': 'Virginia', 'port-of-virginia-norfolk': 'Virginia',
+      'port-richmond-marine-terminal': 'Virginia', 'port-of-baltimore': 'Maryland',
+      'port-of-wilmington-de': 'Delaware', 'port-philaport': 'Pennsylvania',
+      'port-of-huntington-tri-state': 'West Virginia', 'port-of-new-york-new-jersey': 'New Jersey',
+    };
+    const R43_BANK_PORT = {
+      'Virginia Inland Port (Front Royal VA)': 'port-virginia-inland-port',
+      'Port of Virginia (Norfolk)': 'port-of-virginia-norfolk',
+      'Richmond Marine Terminal (Richmond VA)': 'port-richmond-marine-terminal',
+      'Port of Baltimore': 'port-of-baltimore',
+      'PhilaPort (Philadelphia)': 'port-philaport',
+      'Port of Huntington Tri-State (Huntington WV)': 'port-of-huntington-tri-state',
+      'Port of New York & New Jersey': 'port-of-new-york-new-jersey',
+    };
+    const R43_BANK_PROGRAM = {
+      'Port of Wilmington NC': 'port-of-wilmington-nc',
+      'Port of Charleston': 'port-of-charleston',
+      'Port of Savannah': 'port-of-savannah',
+      'near the port': 'port-program',
+    };
+    const R43_CORRIDOR = {
+      'Winchester VA': 'winchester-va', 'Martinsburg WV': 'martinsburg-wv',
+      'Hagerstown MD': 'hagerstown-md', 'Front Royal VA': 'front-royal-va',
+      'Harrisonburg VA': 'harrisonburg-va', 'Staunton VA': 'staunton-va',
+      'Richmond VA': 'richmond-va', 'Norfolk VA': 'norfolk-va',
+      'Virginia Beach VA': 'virginia-beach-va', 'Baltimore MD': 'baltimore-md',
+      'Philadelphia PA': 'philadelphia-pa',
+    };
+    const R43_SVC = {
+      'container unloading crews': 'service-transloading',
+      'devanning': 'service-transloading',
+      'transloading support': 'service-transloading',
+      'TWIC-carded port labor': 'service-transloading',
+      'cross-dock labor': 'service-freight-rework-transloading',
+      'pallet breakdown and rebuild': 'service-freight-rework-transloading',
+      'shrink-wrap and palletizing': 'service-freight-rework-transloading',
+      'labeling': 'service-3pl-support',
+      'sorting': 'service-3pl-support',
+      'inventory counts': 'service-3pl-support',
+      'kitting and co-packing': 'service-3pl-support',
+      '3PL warehouse labor': 'service-3pl-support',
+    };
+    const R43_CLASS = (c) => ({ cost: 'cost', process: 'how-process', choice: 'best-choice', availability: 'ai-question', pain: 'ai-question', compliance: 'ai-question' }[c] || null);
+    const R43_REFUSE_EXTRA = [
+      { re: /\b(?:we|the company|our crews?)\s+(?:offer|provide|perform|handle|do)\w*\b[^.]{0,30}\bdrayage\b/i, why: 'drayage-offer' },
+      { re: /\bdrayage\s+(?:is\s+)?(?:offered|included|provided|available)\b/i, why: 'drayage-offer' },
+      { re: /\b(?:company|provider)\s+(?:is\s+)?twic[- ]certified\b/i, why: 'twic-certification-assertion' },
+      { re: /\btwic[- ]certified\s+(?:company|crews|provider|teams)\b/i, why: 'twic-certification-assertion' },
+    ];
+    const r43Refuse = (q) => R35_TRUTH_REFUSE.find((t) => t.re.test(q)) || R43_REFUSE_EXTRA.find((t) => t.re.test(q)) || null;
+    const r43Land = (svcId, intentClass, q, area, target, pattern, srcRow) => {
+      const bad = r43Refuse(q);
+      if (bad) {
+        R43_STATS.truthRefused++;
+        excluded.push({ reason: 'r43-truth-' + bad.why, serviceId: svcId, queryText: q, pattern });
+        return false;
+      }
+      const nk = svcId + '|' + r30Norm(q);
+      if (r30NormSeen.has(nk)) {
+        const first = r30NormSeen.get(nk);
+        if (first === q) R43_STATS.collisionExact++; else R43_STATS.collisionNormalized++;
+        excluded.push({ reason: 'r43-collision-bank-kept', serviceId: svcId, queryText: q, pattern });
+        return false;
+      }
+      const ok = emit(svcId, intentClass, q, area, target, pattern, { source: 'ports-full-formula' });
+      if (ok) {
+        r30NormSeen.set(nk, q);
+        R43_STATS.byService[svcId] = (R43_STATS.byService[svcId] || 0) + 1;
+        if (area) R43_STATS.byPort[area] = (R43_STATS.byPort[area] || 0) + 1;
+        const landedRow = rows[rows.length - 1];
+        R43_SOURCE_ROWS.push({ q, intent: intentClass, service_id: svcId, area, target_url: landedRow.target_url, pattern, bank: srcRow || null });
+        return true;
+      }
+      R43_STATS.gateExcluded++;
+      excluded.push({ reason: 'r43-gate-excluded', serviceId: svcId, queryText: q, pattern });
+      return false;
+    };
+    // -- staged bank ingest (bind rows only; demand-only counted) --
+    const bankFiles = ['external-bank-staged.jsonl', 'external-bank-staged-2.jsonl'];
+    for (const bf of bankFiles) {
+      const bp = path.join(ROOT, 'out', 'batch-ports-full-2026-11-15', bf);
+      if (!fs.existsSync(bp)) { console.error('R43 FAIL — staged bank missing: ' + bp); process.exit(1); }
+      for (const line of fs.readFileSync(bp, 'utf8').split('\n')) {
+        const t = line.trim();
+        if (!t) continue;
+        const o = JSON.parse(t);
+        R43_STATS.stagedTotal++;
+        if (o.truth_flag !== 'bind') {
+          if (o.service === 'returns processing') R43_STATS.demandOnly++; else R43_STATS.demandOther++;
+          excluded.push({ reason: 'r43-demand-only-never-binds', serviceId: null, queryText: String(o.q || '').slice(0, 80), pattern: 'R43-bank' });
+          continue;
+        }
+        R43_STATS.stagedBind++;
+        const q = americanize(String(o.q || '').trim());
+        const cls = R43_CLASS(o.class);
+        const svc = R43_SVC[o.service];
+        let area = null, target = null;
+        if (R43_BANK_PORT[o.place]) { area = R43_BANK_PORT[o.place]; target = R43_HUB[area]; }
+        else if (R43_BANK_PROGRAM[o.place]) { area = R43_BANK_PROGRAM[o.place]; target = R43_PROGRAM; }
+        else if (R43_CORRIDOR[o.place]) { area = 'corridor-' + R43_CORRIDOR[o.place]; target = R43_3PL; }
+        if (!cls || !svc || !target || !q) {
+          R43_STATS.unmappedPlace++;
+          excluded.push({ reason: 'r43-unmapped-row', serviceId: svc || null, queryText: q.slice(0, 80), pattern: 'R43-bank' });
+          continue;
+        }
+        if (r43Land(svc, cls, q, area, target, 'R43-bank', { service: o.service, place: o.place, class: o.class })) R43_STATS.landedBank++;
+      }
+    }
+    // -- hub cell question forms + heads + full variant families --
+    const R43_PHRASES = [
+      ['container unloading crews', 'service-transloading'],
+      ['devanning', 'service-transloading'],
+      ['transloading support', 'service-transloading'],
+      ['TWIC-carded port labor', 'service-transloading'],
+      ['cross-dock labor', 'service-freight-rework-transloading'],
+      ['pallet breakdown and rebuild', 'service-freight-rework-transloading'],
+      ['shrink-wrap and palletizing', 'service-freight-rework-transloading'],
+      ['labeling services', 'service-3pl-support'],
+      ['freight sorting crews', 'service-3pl-support'],
+      ['cycle count labor', 'service-3pl-support'],
+      ['kitting and co-packing', 'service-3pl-support'],
+      ['logistics project management', 'service-logistics-project-management'],
+      ['specialized warehouse workforce', 'service-industrial-commercial'],
+    ];
+    const R43_ASPECTS = [
+      (ph, pq) => 'who offers 24/7 ' + ph + ' at ' + pq + '?',
+      (ph, pq) => 'is ' + ph + ' at ' + pq + ' priced flat in writing?',
+      (ph, pq) => 'can ' + ph + ' scale to 1,000 TWIC-carded workers at ' + pq + '?',
+    ];
+    const R43_HEAD_EXTRA = {
+      'port-richmond-marine-terminal': ['james river barge container labor', 'richmond express barge freight labor', 'barge container unloading richmond va'],
+      'port-of-huntington-tri-state': ['river port labor huntington wv', 'ohio river freight labor'],
+      'port-of-virginia-norfolk': ['norfolk harbor container labor'],
+      'port-virginia-inland-port': ['inland port labor front royal va'],
+      'port-of-baltimore': ['baltimore port labor services'],
+      'port-of-wilmington-de': ['wilmington de port labor services'],
+      'port-philaport': ['philaport container labor services'],
+      'port-of-new-york-new-jersey': ['port newark container labor', 'newark port labor services'],
+    };
+    const bucket = (mi) => (mi <= 10 ? 10 : mi <= 20 ? 20 : mi <= 35 ? 35 : mi <= 50 ? 50 : 75);
+    const landV = (svcId, cls, q, area, target, family) => {
+      R43_STATS.variantsAttempted++;
+      if (r43Land(svcId, cls, q, area, target, 'R43-variant-' + family)) {
+        R43_STATS.variantsLanded++;
+        R43_STATS.byFamily[family] = (R43_STATS.byFamily[family] || 0) + 1;
+      }
+    };
+    let portIdx = 0;
+    for (const pid of Object.keys(R43_HUB)) {
+      portIdx++;
+      const port = (portsDb.ports || []).find((p) => p.id === pid);
+      const pl = R43_PLACE[pid], pq = R43_PORTQ[pid], target = R43_HUB[pid];
+      const zip = port && port.address ? port.address.postalCode : null;
+      const bm = portsDb.bindingMap[pid] || {};
+      const milesRaw = bm.branch === 'martinsburg' ? bm.milesFromMartinsburg : bm.milesFromWinchester;
+      const miles = parseFloat(String(milesRaw).split('-')[0]) || 75;
+      const radius = bucket(miles);
+      const nameLow = String(port.name || '').toLowerCase();
+      let phraseIdx = 0;
+      for (const [ph, svcId] of R43_PHRASES) {
+        phraseIdx++;
+        // cell question forms (hub-bound; the plain head forms stay
+        // with the R40 labor pages — one owner per search)
+        const cellForms = [
+          ['ai-question', 'who provides ' + ph + ' at ' + pq + '?'],
+          ['ai-question', R43_ASPECTS[(portIdx + phraseIdx) % 3](ph, pq)],
+        ];
+        for (const [cls, q] of cellForms) {
+          R43_STATS.cellsAttempted++;
+          if (r43Land(svcId, cls, q, pid, target, 'R43-cell')) R43_STATS.cellsLanded++;
+        }
+        // PROXIMITY
+        landV(svcId, 'navigational-local', ph + ' near me', pid, target, 'proximity');
+        landV(svcId, 'best-choice', 'best ' + ph + ' near me', pid, target, 'proximity');
+        landV(svcId, 'navigational-local', ph + ' nearby', pid, target, 'proximity');
+        landV(svcId, 'navigational-local', ph + ' near ' + pl, pid, target, 'proximity');
+        landV(svcId, 'navigational-local', ph + ' close to ' + pl, pid, target, 'proximity');
+        // LOCALITY SCALE
+        landV(svcId, 'navigational-local', 'local ' + ph + ' ' + pl, pid, target, 'locality');
+        landV(svcId, 'navigational-local', ph + ' in ' + pl, pid, target, 'locality');
+        landV(svcId, 'navigational-local', ph + ' in ' + R43_STATE[pid], pid, target, 'locality');
+        landV(svcId, 'navigational-local', ph + ' around ' + pl, pid, target, 'locality');
+        landV(svcId, 'navigational-local', 'regional ' + ph + ' ' + pl, pid, target, 'locality');
+        // RADIUS (bucket from the binding branch's measured road miles)
+        landV(svcId, 'navigational-local', ph + ' within ' + radius + ' miles of ' + pl, pid, target, 'radius');
+        landV(svcId, 'navigational-local', ph + ' serving the ' + pl + ' area', pid, target, 'radius');
+        // ZIP FORMS (only where the port registry carries a ZIP)
+        if (zip) {
+          landV(svcId, 'navigational-local', ph + ' ' + zip, pid, target, 'zip');
+          landV(svcId, 'navigational-local', ph + ' near ' + zip, pid, target, 'zip');
+        }
+        // RELATION WORDS
+        landV(svcId, 'navigational-local', ph + ' serving ' + pq, pid, target, 'relation');
+        landV(svcId, 'navigational-local', ph + ' available in ' + pl, pid, target, 'relation');
+        landV(svcId, 'navigational-local', ph + ' based in ' + pl, pid, target, 'relation');
+        // AI-QUESTION FORMS
+        landV(svcId, 'ai-question', 'how do i arrange ' + ph + ' in ' + pl + '?', pid, target, 'ai-question');
+        landV(svcId, 'ai-question', 'what does ' + ph + ' include at ' + pq + '?', pid, target, 'ai-question');
+      }
+      // head terms for the port's hub page
+      const heads = [nameLow + ' logistics', nameLow + ' container labor', nameLow + ' transloading', 'port labor ' + pl, 'container unloading ' + pl].concat(R43_HEAD_EXTRA[pid] || []);
+      for (const h of heads) {
+        R43_STATS.headAttempted++;
+        if (r43Land('service-transloading', 'navigational-local', h, pid, target, 'R43-head')) R43_STATS.headLanded++;
+      }
+    }
+    // program hub heads (the any-port layer: Charleston, Savannah,
+    // Wilmington NC and the generic port demand land here)
+    for (const h of ['port labor services', 'port container labor services', 'container unloading labor services', 'port labor company', 'port labor charleston sc', 'container unloading crews charleston sc', 'port labor savannah ga', 'container unloading crews savannah ga', 'port labor wilmington nc', 'container unloading crews wilmington nc']) {
+      R43_STATS.headAttempted++;
+      if (r43Land('service-transloading', 'navigational-local', h, 'port-program', R43_PROGRAM, 'R43-head')) R43_STATS.headLanded++;
+    }
+    try {
+      fs.mkdirSync(WORK_DIR, { recursive: true });
+      fs.writeFileSync(path.join(WORK_DIR, 'r43-accounting.json'),
+        JSON.stringify({ r43: R43_STATS }, null, 2) + '\n');
+      fs.writeFileSync(path.join(WORK_DIR, 'r43-source-rows.jsonl'),
+        R43_SOURCE_ROWS.map((r) => JSON.stringify(r)).join('\n') + '\n');
+    } catch (e) { /* accounting is diagnostic; generation never fails on it */ }
+  }
 
   // Fragment-binding late lane (Element 2, 2026-11-02): panel prompts
   // Q1/Q2/Q3 emit here, after R14, through the same R10 gates. Their
