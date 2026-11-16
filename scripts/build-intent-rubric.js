@@ -6616,6 +6616,242 @@ function generate() {
         R50_SOURCE_ROWS.map((r) => JSON.stringify(r)).join('\n') + '\n');
     } catch (e) { /* accounting is diagnostic; generation never fails on it */ }
   }
+  // R51 (Money Trio-7 Full-Formula + Domination Rule, 2026-11-16):
+  // pages 19-21 of the Tier-1 money-page sweep get the same
+  // section-6 variant coverage as R44-R50 —
+  // /medical-lab-equipment-relocation/ (W13), /ffe-logistics/ (W27)
+  // and /piano-antique-white-glove-moving/ (W19), picked by fresh
+  // measure on the sealed cb882a98 bank (80,935 rows): 1,353 /
+  // 1,325 / 1,117 rows bound — the three largest remaining Tier-1
+  // banks, all hubs. The pre-build family census read the identical
+  // signature on all three: radius 0, ZIP 0, relation 0, proximity
+  // thin (8 / 9 / 15). NEW this trio (Henry's domination rule,
+  // 2026-11-16): the build is fed by a competitor attack run BEFORE
+  // building (out/batch-money-trio7-2026-11-16/rival-reads.md) —
+  // RapidMed Logistics and JK Moving hold the medical/lab terms,
+  // JK and Olympia hold FF&E in DC while the Winchester FF&E term
+  // is unheld, moveBuddha lists and Whitesel hold piano in
+  // Winchester while no mover holds antique Middleburg. No rival in
+  // any set publishes a flat rate in writing; the lane's aspects and
+  // the pages' answer blocks are built on that gap. The Henry-fed
+  // buyer-question banks (medical / ffe / piano-antique, 224 each,
+  // out/answer-format-2026-11-16/) drive the pages' buyer-voice FAQ
+  // through the jf seats. CELLS are derived from machine data only
+  // (determinism law: data/service-area.geojson + data/pages.json,
+  // never rubric.db): each hub takes every place carrying its
+  // token (the R45/R49 flagship rule): medical-lab 68 cells,
+  // ffe-logistics 68 cells, piano-antique 80 cells (postal-coded
+  // cells emit ZIP forms only where the geo record carries a code).
+  // The piano hub carries TWO head phrases — piano movers and
+  // antique movers — its two ledger families. Radius buckets read
+  // the nearer branch seat's coordinates, the Territory Matrix
+  // centroid method, as in R44-R50. TRUTH SCREEN: the R35 base set
+  // plus the R49/R50 extras (authority-number, discount, ITAD
+  // destruction / certificate, drayage, transportation-management,
+  // locksmith, storage-in-transit, climate-controlled-transit,
+  // hazardous-waste screens), plus a HIPAA screen (no HIPAA
+  // compliance or certification is ever claimed — the crews move
+  // equipment, never patient data), a decontamination-certificate
+  // screen (decontamination is the facility's / vendor's layer and
+  // is never certified by the mover), a specimen / biological /
+  // refrigerated-transport screen (the service moves EQUIPMENT
+  // ONLY — specimens, biological material, chemicals and cryogenic
+  // contents never move; cryogenic equipment moves empty, emptied
+  // and prepared by the client's team), a recommissioning /
+  // requalification screen (calibration, certification,
+  // commissioning and requalification belong to the manufacturer's
+  // technicians — never the mover's claim) and an appraisal screen
+  // (pieces are assessed for the move; the company does not
+  // appraise or value them). Aspects stay inside the published fact
+  // set: medical and lab equipment surveyed unit by unit with
+  // weights, dimensions and route measurements, custody documented
+  // at each hand-off, heavy imaging-class devices planned under
+  // SIR in the 1,500 to 3,500 lb band with the floor checked to
+  // L/360, the OEM boundary stated plainly; FF&E received from many
+  // vendors with a formal inspection report, held in leased space,
+  // delivered by floor and room sequence, installed with packaging
+  // removal, outgoing hotel FF&E routed to liquidation value
+  // recovery, procurement and design never claimed; pianos and
+  // antiques assessed piece by piece, a grand moved with legs and
+  // pedal lyre removed and wrapped separately and the body on its
+  // long side, stairs carried not rolled, custom crating when the
+  // piece requires it, high-mass pieces under SIR and KIM-GS.
+  const R51_STATS = { cellsAttempted: 0, cellsLanded: 0, variantsAttempted: 0, variantsLanded: 0, byFamily: {}, byPage: {}, collisionExact: 0, collisionNormalized: 0, truthRefused: 0, gateExcluded: 0 };
+  const R51_SOURCE_ROWS = [];
+  {
+    const geo = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'service-area.geojson'), 'utf8'));
+    const featById = {};
+    for (const f of geo.features || []) if (f.properties && f.properties.id) featById[f.properties.id] = f;
+    const pagesDb = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'pages.json'), 'utf8'));
+    const pageSlugs = new Set((pagesDb.pages || []).map((p) => p.slug));
+    const havMi = (lat1, lon1, lat2, lon2) => {
+      const R = 3958.8, t = Math.PI / 180;
+      const dLat = (lat2 - lat1) * t, dLon = (lon2 - lon1) * t;
+      const h = Math.sin(dLat / 2) ** 2 + Math.cos(lat1 * t) * Math.cos(lat2 * t) * Math.sin(dLon / 2) ** 2;
+      return 2 * R * Math.asin(Math.sqrt(h));
+    };
+    const bucket = (mi) => (mi <= 10 ? 10 : mi <= 20 ? 20 : mi <= 35 ? 35 : mi <= 50 ? 50 : 75);
+    const seatCoords = (fid) => {
+      const f = featById[fid];
+      return (f && f.geometry && f.geometry.coordinates) ? f.geometry.coordinates : null;
+    };
+    const winSeat = seatCoords('place-winchester-va');
+    const marSeat = seatCoords('place-martinsburg-wv');
+    const R51_STATE_NAME = { VA: 'Virginia', WV: 'West Virginia', MD: 'Maryland', DC: 'Washington DC', PA: 'Pennsylvania' };
+    const R51_REFUSE_EXTRA = [
+      { re: /\b(?:usdot|dot|mc)\s*(?:#|number|no\.?)\b/i, why: 'authority-number-claim' },
+      { re: /\bdiscount\b/i, why: 'discount-claim' },
+      { re: /\bdata destruction\b/i, why: 'itad-destruction-claim' },
+      { re: /\bcertificates? of destruction\b/i, why: 'itad-certificate-claim' },
+      { re: /\bdrayage\b/i, why: 'drayage-claim' },
+      { re: /\btransportation management\b/i, why: 'transportation-management-claim' },
+      { re: /\blocksmith\b/i, why: 'locksmith-claim' },
+      { re: /\bstorage in transit\b/i, why: 'sit-claim' },
+      { re: /\bclimate[- ]controlled (?:truck|transport|transit|moving|van|trailer)\b/i, why: 'climate-transit-claim' },
+      { re: /\bhazardous\b/i, why: 'hazardous-waste-claim' },
+      { re: /\bhipaa\b/i, why: 'hipaa-claim' },
+      { re: /\bdecontamination certificates?\b/i, why: 'decontamination-certificate-claim' },
+      { re: /\bspecimens?\b/i, why: 'specimen-transport-claim' },
+      { re: /\bbiological\b/i, why: 'biological-transport-claim' },
+      { re: /\brefrigerated\b/i, why: 'refrigerated-transport-claim' },
+      { re: /\brecommission/i, why: 'recommissioning-claim' },
+      { re: /\brequalif/i, why: 'requalification-claim' },
+      { re: /\bapprais(?:al|e|ers?)\b/i, why: 'appraisal-claim' },
+    ];
+    const r51Refuse = (q) => R35_TRUTH_REFUSE.find((t) => t.re.test(q)) || R51_REFUSE_EXTRA.find((t) => t.re.test(q)) || null;
+    const r51Land = (svcId, intentClass, q, area, target, pattern) => {
+      const bad = r51Refuse(q);
+      if (bad) {
+        R51_STATS.truthRefused++;
+        excluded.push({ reason: 'r51-truth-' + bad.why, serviceId: svcId, queryText: q, pattern });
+        return false;
+      }
+      const nk = svcId + '|' + r30Norm(q);
+      if (r30NormSeen.has(nk)) {
+        const first = r30NormSeen.get(nk);
+        if (first === q) R51_STATS.collisionExact++; else R51_STATS.collisionNormalized++;
+        excluded.push({ reason: 'r51-collision-bank-kept', serviceId: svcId, queryText: q, pattern });
+        return false;
+      }
+      const ok = emit(svcId, intentClass, q, area, target, pattern, { source: 'money-trio7-formula' });
+      if (ok) {
+        r30NormSeen.set(nk, q);
+        R51_STATS.byPage[target] = (R51_STATS.byPage[target] || 0) + 1;
+        const landedRow = rows[rows.length - 1];
+        R51_SOURCE_ROWS.push({ q, intent: intentClass, service_id: svcId, area, target_url: landedRow.target_url, pattern });
+        return true;
+      }
+      R51_STATS.gateExcluded++;
+      excluded.push({ reason: 'r51-gate-excluded', serviceId: svcId, queryText: q, pattern });
+      return false;
+    };
+    const landV = (svcId, cls, q, area, target, family) => {
+      R51_STATS.variantsAttempted++;
+      if (r51Land(svcId, cls, q, area, target, 'R51-variant-' + family)) {
+        R51_STATS.variantsLanded++;
+        R51_STATS.byFamily[family] = (R51_STATS.byFamily[family] || 0) + 1;
+      }
+    };
+    const R51_ASPECTS = {
+      'service-medical-lab-relocation': [
+        (pq) => 'does a medical equipment move start with a survey of weights, dimensions and the route in ' + pq + '?',
+        (pq) => 'are heavy medical devices planned under sir in the 1,500 to 3,500 lb band in ' + pq + '?',
+        (pq) => 'does the crew document custody at each hand-off during a lab move in ' + pq + '?',
+      ],
+      'service-ffe-logistics': [
+        (pq) => 'does ff&e logistics include receiving, inspection and warehousing before installation in ' + pq + '?',
+        (pq) => 'is ff&e delivered by floor and room sequence during an installation in ' + pq + '?',
+        (pq) => 'is an ff&e project quoted at one flat rate in writing in ' + pq + '?',
+      ],
+      'service-piano-antique': [
+        (pq) => 'are pianos and antiques assessed piece by piece before a move in ' + pq + '?',
+        (pq) => 'does a grand piano move with its legs and pedal lyre removed and wrapped separately in ' + pq + '?',
+        (pq) => 'are heavy pianos and antiques floor-checked to l/360 under sir in ' + pq + '?',
+      ],
+    };
+    const R51_TARGETS = [
+      { svc: 'service-medical-lab-relocation', token: 'medical-lab', slug: 'medical-lab-equipment-relocation', phrases: [{ phrase: 'medical equipment movers', base: 'medical equipment moving' }] },
+      { svc: 'service-ffe-logistics', token: 'ffe-logistics', slug: 'ffe-logistics', phrases: [{ phrase: 'ff&e logistics', base: 'ff&e logistics' }] },
+      { svc: 'service-piano-antique', token: 'piano-antique', slug: 'piano-antique-white-glove-moving', phrases: [{ phrase: 'piano movers', base: 'piano moving' }, { phrase: 'antique movers', base: 'antique moving' }] },
+    ];
+    for (const T of R51_TARGETS) {
+      const cells = [];
+      for (const f of geo.features || []) {
+        const p = f.properties || {};
+        if (!p.id || !p.id.startsWith('place-')) continue;
+        if (!(p.services || []).includes(T.token)) continue;
+        cells.push(f);
+      }
+      let cellIdx = 0;
+      for (const f of cells) {
+        cellIdx++;
+        const p = f.properties;
+        const pl = String(p.name || '').replace(/,/g, '');
+        const pq = String(p.name || '');
+        const stateName = R51_STATE_NAME[p.state] || null;
+        const countyTail = String(p.county || '').split('/').pop().trim();
+        const county = /County$/.test(countyTail) ? countyTail : null;
+        const zip = p.postal_code ? String(p.postal_code) : null;
+        let radius = 25;
+        if (f.geometry && f.geometry.coordinates) {
+          const [lo, la] = f.geometry.coordinates;
+          const seats = [winSeat, marSeat].filter(Boolean);
+          let best = null;
+          for (const s of seats) { const d = havMi(la, lo, s[1], s[0]); if (best === null || d < best) best = d; }
+          if (best !== null) radius = bucket(best);
+        }
+        const area = p.id, target = T.slug;
+        for (const PH of T.phrases) {
+          const ph = PH.phrase, base = PH.base;
+          // cell question forms
+          const cellForms = [
+            ['ai-question', 'who provides ' + ph + ' in ' + pq + '?'],
+            ['ai-question', R51_ASPECTS[T.svc][cellIdx % R51_ASPECTS[T.svc].length](pq)],
+          ];
+          for (const [cls, q] of cellForms) {
+            R51_STATS.cellsAttempted++;
+            if (r51Land(T.svc, cls, q, area, target, 'R51-cell')) R51_STATS.cellsLanded++;
+          }
+          // PROXIMITY
+          landV(T.svc, 'navigational-local', ph + ' near me', area, target, 'proximity');
+          landV(T.svc, 'best-choice', 'best ' + ph + ' near me', area, target, 'proximity');
+          landV(T.svc, 'navigational-local', ph + ' nearby', area, target, 'proximity');
+          landV(T.svc, 'navigational-local', ph + ' near ' + pl, area, target, 'proximity');
+          landV(T.svc, 'navigational-local', ph + ' close to ' + pl, area, target, 'proximity');
+          // LOCALITY SCALE
+          if (!ph.startsWith('local ')) landV(T.svc, 'navigational-local', 'local ' + ph + ' ' + pl, area, target, 'locality');
+          landV(T.svc, 'navigational-local', ph + ' in ' + pl, area, target, 'locality');
+          if (county) landV(T.svc, 'navigational-local', ph + ' in ' + county + ' ' + p.state, area, target, 'locality');
+          if (stateName) landV(T.svc, 'navigational-local', ph + ' in ' + stateName, area, target, 'locality');
+          landV(T.svc, 'navigational-local', ph + ' around ' + pl, area, target, 'locality');
+          landV(T.svc, 'navigational-local', 'regional ' + ph + ' ' + pl, area, target, 'locality');
+          // RADIUS
+          landV(T.svc, 'navigational-local', ph + ' within ' + radius + ' miles of ' + pl, area, target, 'radius');
+          landV(T.svc, 'navigational-local', ph + ' serving the ' + pl + ' area', area, target, 'radius');
+          // ZIP FORMS — the place's geo record postal code
+          if (zip) {
+            landV(T.svc, 'navigational-local', ph + ' ' + zip, area, target, 'zip');
+            landV(T.svc, 'navigational-local', ph + ' near ' + zip, area, target, 'zip');
+          }
+          // RELATION WORDS
+          landV(T.svc, 'navigational-local', ph + ' serving ' + pq, area, target, 'relation');
+          landV(T.svc, 'navigational-local', ph + ' covering ' + pq, area, target, 'relation');
+          landV(T.svc, 'navigational-local', ph + ' available in ' + pl, area, target, 'relation');
+          landV(T.svc, 'navigational-local', ph + ' based in ' + pl, area, target, 'relation');
+          // AI-QUESTION FORMS
+          landV(T.svc, 'ai-question', 'how do i arrange ' + base + ' in ' + pl + '?', area, target, 'ai-question');
+          landV(T.svc, 'ai-question', 'what does ' + base + ' include in ' + pl + '?', area, target, 'ai-question');
+        }
+      }
+    }
+    try {
+      fs.mkdirSync(WORK_DIR, { recursive: true });
+      fs.writeFileSync(path.join(WORK_DIR, 'r51-accounting.json'),
+        JSON.stringify({ r51: R51_STATS }, null, 2) + '\n');
+      fs.writeFileSync(path.join(WORK_DIR, 'r51-source-rows.jsonl'),
+        R51_SOURCE_ROWS.map((r) => JSON.stringify(r)).join('\n') + '\n');
+    } catch (e) { /* accounting is diagnostic; generation never fails on it */ }
+  }
   // Fragment-binding late lane (Element 2, 2026-11-02): panel prompts
   // Q1/Q2/Q3 emit here, after R14, through the same R10 gates. Their
   // targets are roll-up pages; emitting them inside the service loop
