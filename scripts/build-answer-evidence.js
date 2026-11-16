@@ -12,7 +12,21 @@
 // datasets-answer-evidence-questions.json carries the questions node
 // (same @id) with the full questions array. The single-file form
 // crossed the 25 MiB Cloudflare Pages per-file limit as the rubric
-// grew (25.2 MB at 39,258 rows, with ~17k more rows queued). Question
+// grew (25.2 MB at 39,258 rows, with ~17k more rows queued).
+// SECOND SPLIT (2026-11-16, Money Trio-6 re-seal): the generator now
+// emits THREE files. The questions file itself crossed the 25 MiB
+// limit again at 80,935 rows (26,730,430 bytes — its emit was already
+// the compact form the WV-3 batch gave the main file, so no
+// serialization headroom remained), and the questions array is split
+// in rubric order at the byte-median row across TWO companion files:
+// datasets-answer-evidence-questions.json (part 1) and
+// datasets-answer-evidence-questions-2.json (part 2), each carrying
+// the questions node at the same @id with its half of the array. The
+// union of the two files' arrays, in file order, is the full array
+// (verify.js AE-1 reads both). Part 2's first publication is
+// 2026-11-16 (verify.js CV-6 DATES); it shares the answer-evidence
+// landing and rides the answer-evidence dataset's citizenship,
+// exactly as part 1 does. Question
 // rows are emitted on a bounded field diet in BOTH files' generation
 // path: a field at its default value is omitted — panelState when
 // 'not a panel question.', panelMember when false, owningFragmentId
@@ -134,6 +148,8 @@ const LANDING = SITE + '/datasets/answer-evidence/';
 const FILE_URL = SITE + '/datasets-answer-evidence.json';
 const QUESTIONS_FILE_URL = SITE + '/datasets-answer-evidence-questions.json';
 const QUESTIONS_FILE_DATE_PUBLISHED = '2026-11-12'; // the split file's first publication (verify.js CV-6 DATES)
+const QUESTIONS2_FILE_URL = SITE + '/datasets-answer-evidence-questions-2.json';
+const QUESTIONS2_FILE_DATE_PUBLISHED = '2026-11-16'; // the part-2 file's first publication (verify.js CV-6 DATES)
 const API_ROUTE = 'https://api.theflatratemovers.com/v1/answer-evidence';
 const LICENSE = 'https://creativecommons.org/licenses/by/4.0/';
 const CREATOR = {
@@ -241,6 +257,7 @@ function arg(name) {
 const CHECK = process.argv.includes('--check');
 const outPath = arg('out') || path.join(PUB, 'datasets-answer-evidence.json');
 const questionsOutPath = path.join(path.dirname(outPath), 'datasets-answer-evidence-questions.json');
+const questions2OutPath = path.join(path.dirname(outPath), 'datasets-answer-evidence-questions-2.json');
 
 function sql(q) {
   const out = execFileSync('sqlite3', ['-json', DB, q], { maxBuffer: 256 * 1024 * 1024 }).toString();
@@ -1027,6 +1044,19 @@ const FILE_DM_Q = (() => {
     return (ledger.urls && ledger.urls[QUESTIONS_FILE_URL]) || DATE_MOD;
   } catch (_) { return DATE_MOD; }
 })();
+/* The part-2 file's own FILE_DM, same wiring as FILE_DM_Q. */
+const FILE_DM_Q2 = (() => {
+  if (process.env.FB3_STAMPS) {
+    const m = JSON.parse(fs.readFileSync(process.env.FB3_STAMPS, 'utf8'));
+    const v = m.files && m.files[QUESTIONS2_FILE_URL];
+    if (v) return v;
+  }
+  try {
+    const ledger = JSON.parse(fs.readFileSync(
+      path.join(__dirname, '..', 'data', 'lastmod-ledger.json'), 'utf8'));
+    return (ledger.urls && ledger.urls[QUESTIONS2_FILE_URL]) || DATE_MOD;
+  } catch (_) { return DATE_MOD; }
+})();
 const totals = {
   questions: questions.length,
   fragments: fragments.length,
@@ -1133,10 +1163,11 @@ const graph = [
   },
   {
     ...baseNode(SITE + '/#dataset-answer-evidence-questions', 'Dataset', 'Answer-Evidence Questions',
-      'Every question of the buyer-intent rubric — ' + totals.questions + ' rows generated from the rubric database, never hand-kept — with its intent class, service, geo scope, target page, money weight, Answer Panel membership state, and its fragment-binding state: bound exactly to the fragment that should answer it, covered at page level, or carrying no fragment on its target page yet. The full question rows are published in the companion file datasets-answer-evidence-questions.json (this node in that file, at the same @id, carries the array); this file carries the counts and the reference, so neither file crosses the hosting per-file size limit as the rubric grows.'),
+      'Every question of the buyer-intent rubric — ' + totals.questions + ' rows generated from the rubric database, never hand-kept — with its intent class, service, geo scope, target page, money weight, Answer Panel membership state, and its fragment-binding state: bound exactly to the fragment that should answer it, covered at page level, or carrying no fragment on its target page yet. The full question rows are published in the companion files datasets-answer-evidence-questions.json and datasets-answer-evidence-questions-2.json (this node in those files, at the same @id, carries the array, split in rubric order at the byte-median row); this file carries the counts and the references, so no file crosses the hosting per-file size limit as the rubric grows.'),
     distribution: [
       { '@type': 'DataDownload', contentUrl: FILE_URL, encodingFormat: 'application/json' },
       { '@type': 'DataDownload', contentUrl: QUESTIONS_FILE_URL, encodingFormat: 'application/json' },
+      { '@type': 'DataDownload', contentUrl: QUESTIONS2_FILE_URL, encodingFormat: 'application/json' },
       { '@type': 'DataDownload', contentUrl: SITE + '/ai-master-index.json', encodingFormat: 'application/json' },
     ],
     questions: {
@@ -1148,6 +1179,7 @@ const graph = [
       },
       panelMembers: questions.filter((q) => q.panelMember).length,
       fullQuestionsFile: QUESTIONS_FILE_URL,
+      fullQuestionsFiles: [QUESTIONS_FILE_URL, QUESTIONS2_FILE_URL],
       fieldDefaults: {
         panelState: 'not a panel question.',
         panelMember: false,
@@ -1157,6 +1189,7 @@ const graph = [
       },
       distribution: [
         { '@type': 'DataDownload', contentUrl: QUESTIONS_FILE_URL, encodingFormat: 'application/json' },
+        { '@type': 'DataDownload', contentUrl: QUESTIONS2_FILE_URL, encodingFormat: 'application/json' },
       ],
     },
   },
@@ -1272,42 +1305,63 @@ function dietQuestion(q) {
   return out;
 }
 const dietedQuestions = questions.map(dietQuestion);
-// The questions file: a single-node graph carrying the questions node
-// at its standing @id with the full (dieted) array, built to the
-// estate's dataset-file standards — @context, the node's DataDownload
+// The questions files: single-node graphs carrying the questions node
+// at its standing @id with the (dieted) array, built to the estate's
+// dataset-file standards — @context, the node's DataDownload
 // self-seat (no sha256: a file cannot carry its own digest; it lives
 // in ai-master-index.json), includedInDataCatalog (inherited from the
 // enriched main node), isAccessibleForFree, identifier = url = the
-// answer-evidence landing (the split file shares the main file's
-// landing; it has no landing of its own). Its datePublished is the
-// split file's first publication and it carries no variableMeasured
-// (verify.js CV-6 holds that field to exactly the six measurement
-// files, whose seat is the main file).
+// answer-evidence landing (the split files share the main file's
+// landing; they have no landing of their own). Each file's
+// datePublished is its own first publication and neither carries
+// variableMeasured (verify.js CV-6 holds that field to exactly the
+// six measurement files, whose seat is the main file).
+// Second split (2026-11-16): the array is divided in rubric order at
+// the byte-median row — part 1 keeps the standing filename, part 2 is
+// datasets-answer-evidence-questions-2.json; the split point is a pure
+// function of the rows, so regeneration is byte-stable.
 const mainQuestionsNode = graph.find((n) => n['@id'] === SITE + '/#dataset-answer-evidence-questions');
-const questionsNodeFull = JSON.parse(JSON.stringify(mainQuestionsNode));
-questionsNodeFull.description = mainQuestionsNode.description
-  + ' Rows omit a field whose value is the default: panelState defaults to “not a panel question.”, panelMember to false, owningFragmentId to null and moneyWeight to “standard”; non-default values are carried verbatim.';
-questionsNodeFull.dateModified = FILE_DM_Q;
-questionsNodeFull.datePublished = QUESTIONS_FILE_DATE_PUBLISHED;
-delete questionsNodeFull.variableMeasured;
-questionsNodeFull.distribution = [
-  { '@type': 'DataDownload', contentUrl: QUESTIONS_FILE_URL, encodingFormat: 'application/json' },
-  { '@type': 'DataDownload', contentUrl: SITE + '/ai-master-index.json', encodingFormat: 'application/json' },
-];
-questionsNodeFull.questions = dietedQuestions;
+const ROWS_DEFAULTS_NOTE = ' Rows omit a field whose value is the default: panelState defaults to “not a panel question.”, panelMember to false, owningFragmentId to null and moneyWeight to “standard”; non-default values are carried verbatim.';
+const rowBytesQ = dietedQuestions.map((q) => JSON.stringify(q).length + 1);
+const totalRowBytesQ = rowBytesQ.reduce((a, b) => a + b, 0);
+let splitAtQ = 0, accBytesQ = 0;
+while (splitAtQ < dietedQuestions.length && accBytesQ < totalRowBytesQ / 2) { accBytesQ += rowBytesQ[splitAtQ]; splitAtQ++; }
+function questionsFileNode(partRows, partNo, firstRow, lastRow, dm, dp, selfUrl) {
+  const n = JSON.parse(JSON.stringify(mainQuestionsNode));
+  n.description = mainQuestionsNode.description
+    + ' This file carries part ' + partNo + ' of 2 of the array — rows ' + firstRow + '–' + lastRow + ' of ' + dietedQuestions.length + ' in rubric order; the two parts in file order are the full array.'
+    + ROWS_DEFAULTS_NOTE;
+  n.dateModified = dm;
+  n.datePublished = dp;
+  delete n.variableMeasured;
+  n.distribution = [
+    { '@type': 'DataDownload', contentUrl: selfUrl, encodingFormat: 'application/json' },
+    { '@type': 'DataDownload', contentUrl: SITE + '/ai-master-index.json', encodingFormat: 'application/json' },
+  ];
+  n.questions = partRows;
+  return n;
+}
+const questionsNodeFull = questionsFileNode(dietedQuestions.slice(0, splitAtQ), 1, 1, splitAtQ, FILE_DM_Q, QUESTIONS_FILE_DATE_PUBLISHED, QUESTIONS_FILE_URL);
+const questions2NodeFull = questionsFileNode(dietedQuestions.slice(splitAtQ), 2, splitAtQ + 1, dietedQuestions.length, FILE_DM_Q2, QUESTIONS2_FILE_DATE_PUBLISHED, QUESTIONS2_FILE_URL);
+questions2NodeFull.name = 'Answer-Evidence Questions (Part 2)';
 const questionsDoc = { '@context': 'https://schema.org', '@graph': [questionsNodeFull] };
 const questionsBytes = JSON.stringify(questionsDoc) + '\n';
 if (!CHECK) fs.writeFileSync(questionsOutPath, questionsBytes);
-// In-band digests last: the main questions node's DataDownload seat
-// for the questions file takes that file's digest from the bytes this
-// run just wrote (in --check mode, from the on-disk file the check
-// below proves byte-identical, so the digest is the same).
+const questions2Doc = { '@context': 'https://schema.org', '@graph': [questions2NodeFull] };
+const questions2Bytes = JSON.stringify(questions2Doc) + '\n';
+if (!CHECK) fs.writeFileSync(questions2OutPath, questions2Bytes);
+// In-band digests last: the main questions node's DataDownload seats
+// for the questions files take those files' digests from the bytes
+// this run just wrote (in --check mode, from the on-disk files the
+// check below proves byte-identical, so the digests are the same).
 shaDistributions(graph, FILE_URL);
 // The summary's own nested DataDownload reference carries the same
 // digest (verify.js DC-2 sweeps nested distributions too): stamp it
 // from the questions file's final bytes, exactly like the node seat.
 mainQuestionsNode.questions.distribution[0].sha256 =
   sha256(fs.readFileSync(questionsOutPath));
+mainQuestionsNode.questions.distribution[1].sha256 =
+  sha256(fs.readFileSync(questions2OutPath));
 const doc = { '@context': 'https://schema.org', '@graph': graph };
 const bytes = JSON.stringify(doc) + '\n'; // compact emit (2026-11-07): pretty emit crossed the 25 MiB Pages per-file limit at 30,209 rows
 if (CHECK) {
@@ -1315,11 +1369,15 @@ if (CHECK) {
   if (cur !== bytes) { console.error('CHECK FAIL: ' + outPath + ' differs from regeneration'); process.exit(1); }
   const curQ = fs.readFileSync(questionsOutPath, 'utf8');
   if (curQ !== questionsBytes) { console.error('CHECK FAIL: ' + questionsOutPath + ' differs from regeneration'); process.exit(1); }
+  const curQ2 = fs.readFileSync(questions2OutPath, 'utf8');
+  if (curQ2 !== questions2Bytes) { console.error('CHECK FAIL: ' + questions2OutPath + ' differs from regeneration'); process.exit(1); }
   console.log('CHECK OK: datasets-answer-evidence.json regenerates byte-identical (' + bytes.length + ' bytes)');
   console.log('CHECK OK: datasets-answer-evidence-questions.json regenerates byte-identical (' + questionsBytes.length + ' bytes)');
+  console.log('CHECK OK: datasets-answer-evidence-questions-2.json regenerates byte-identical (' + questions2Bytes.length + ' bytes)');
 } else {
   fs.writeFileSync(outPath, bytes);
   console.log('WROTE ' + outPath + ' (' + bytes.length + ' bytes)');
   console.log('WROTE ' + questionsOutPath + ' (' + questionsBytes.length + ' bytes)');
+  console.log('WROTE ' + questions2OutPath + ' (' + questions2Bytes.length + ' bytes)');
   console.log('totals: ' + JSON.stringify(totals));
 }

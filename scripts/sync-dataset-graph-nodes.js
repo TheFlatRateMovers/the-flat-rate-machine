@@ -49,6 +49,7 @@ const EXCLUDE = new Set(exclArg >= 0 ? process.argv[exclArg + 1].split(',') : []
  * landing that does not exist by design. */
 const REGISTERED_EXCLUDED = {
   'answer-evidence-questions': 'AE split seat (2026-11-12): questions half of the answer-evidence dataset; citizenship rides the answer-evidence citizen; no landing or per-page JSON of its own by design',
+  'answer-evidence-questions-2': 'AE second split seat (2026-11-16): part 2 of the answer-evidence questions array; citizenship rides the answer-evidence citizen; no landing or per-page JSON of its own by design',
 };
 for (const stem of Object.keys(REGISTERED_EXCLUDED)) EXCLUDE.add(stem);
 

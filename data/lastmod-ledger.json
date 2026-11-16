@@ -2,7 +2,7 @@
  "description": "Seal-maintained lastmod ledger: for every sitemap URL, the date of the last seal generation in which its own signed distribution changed. Seeded from the 2026-11-02 crawl-demand audit (doc-level digest history across 73 signed generations); maintained by seal.py phase 6b (diff-stamp vs the phase-0 prior index). build-sitemap.js reads this file for every sitemap <lastmod>.",
  "lastSeal": {
   "date": "2026-11-16",
-  "indexSha256": "98a8649b102b1cd45032e3f51d6acc24814a0d4085bea8917361839164652def"
+  "indexSha256": "42e5061493dc07bfd0d252a91dbad31625ab6bb76cdd0b00139c9cdb6a4d352b"
  },
  "seededFrom": "crawl-demand-audit-2026-11-02.csv",
  "urls": {
@@ -70,6 +70,7 @@
   "https://theflatratemovers.com/data-center-movers-martinsburg-wv/": "2026-11-16",
   "https://theflatratemovers.com/data-center-movers-winchester-va/": "2026-11-16",
   "https://theflatratemovers.com/data-center-relocation/": "2026-11-16",
+  "https://theflatratemovers.com/datasets-answer-evidence-questions-2.json": "2026-11-16",
   "https://theflatratemovers.com/datasets-answer-evidence-questions.json": "2026-11-16",
   "https://theflatratemovers.com/datasets-answer-evidence.json": "2026-11-16",
   "https://theflatratemovers.com/datasets-archive-registry.json": "2026-11-12",
@@ -99,6 +100,7 @@
   "https://theflatratemovers.com/datasets-junk-removal.json": "2026-11-16",
   "https://theflatratemovers.com/datasets-local-graph-registry.json": "2026-11-12",
   "https://theflatratemovers.com/datasets-local-regional.json": "2026-11-16",
+  "https://theflatratemovers.com/datasets-logistics-project-management.json": "2026-11-16",
   "https://theflatratemovers.com/datasets-long-distance.json": "2026-11-16",
   "https://theflatratemovers.com/datasets-luxury-estate-relocation.json": "2026-11-16",
   "https://theflatratemovers.com/datasets-martinsburg-wv.json": "2026-11-16",
@@ -171,6 +173,7 @@
   "https://theflatratemovers.com/datasets/junk-removal/": "2026-11-16",
   "https://theflatratemovers.com/datasets/local-graph-registry/": "2026-11-16",
   "https://theflatratemovers.com/datasets/local-regional/": "2026-11-16",
+  "https://theflatratemovers.com/datasets/logistics-project-management/": "2026-11-16",
   "https://theflatratemovers.com/datasets/long-distance/": "2026-11-16",
   "https://theflatratemovers.com/datasets/luxury-estate-relocation/": "2026-11-16",
   "https://theflatratemovers.com/datasets/martinsburg-wv/": "2026-11-16",

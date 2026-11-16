@@ -303,7 +303,8 @@ for (const f of dsFiles) {
   // AE split (2026-11-12): datasets-answer-evidence-questions.json
   // shares the answer-evidence landing — its node's own url is the
   // landing; the filename-derived landing does not exist for it.
-  const landingFull = f === 'datasets-answer-evidence-questions.json' && main.url
+  // Second split (2026-11-16): the part-2 file rides the same rule.
+  const landingFull = (f === 'datasets-answer-evidence-questions.json' || f === 'datasets-answer-evidence-questions-2.json') && main.url
     ? main.url
     : 'https://theflatratemovers.com/datasets/' + f.replace(/^datasets-/, '').replace(/\.json$/, '') + '/';
   out.push('- **' + (main.name || f) + '** — ' + String(main.description || '').replace(/\s+/g, ' ').trim() + ' Download: https://theflatratemovers.com/' + f + ' · Landing: ' + landingFull);
