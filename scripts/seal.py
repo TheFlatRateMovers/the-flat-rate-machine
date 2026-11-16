@@ -448,6 +448,12 @@ def main():
     # generator-owned dataset file (FB-3 stamps consumed the same way).
     run(["node", "scripts/build-coverage.js"],
         env_extra={"FB3_STAMPS": os.path.join(WORK, "stamps.json")})
+    # Money Trio-6 (2026-11-16): build-logistics-dataset.js runs HERE
+    # too — the logistics dataset file backs intent-rubric rows (the
+    # category rows bind it), so it precedes phase 1 like ports; it
+    # derives from data/ports.json + data/services.json and takes its
+    # dates from the lastmod ledger (no stamps input).
+    run(["node", "scripts/build-logistics-dataset.js"])
     # W30 Machine repair (2026-11-10): the shell's inline router script
     # is a hand-kept reduced copy of the router; its data literals
     # (pages / redirects / pageMeta) drifted from repo-dir/main.js

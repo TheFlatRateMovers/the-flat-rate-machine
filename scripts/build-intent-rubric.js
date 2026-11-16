@@ -341,7 +341,7 @@ const DATASETS = {
   'service-ffe-logistics': ['datasets-ffe-logistics.json'],
   'service-data-center-relocation': ['datasets-data-center-relocation.json'],
   'service-medical-lab-relocation': ['datasets-medical-lab-relocation.json'],
-  'service-logistics-project-management': ['datasets-ports.json'],
+  'service-logistics-project-management': ['datasets-logistics-project-management.json'],
   'service-3pl-support': ['datasets-ports.json', 'datasets-warehouse-racking.json'],
   'service-vault-door': ['datasets-vault-security.json', 'datasets-vault-doors.json', 'datasets-gun-safe.json'], // Vault V1 2026-11-04
   'service-hoarding-cleanup': ['datasets-hoarding-cleanup.json', 'datasets-junk-removal.json'], // Hoarding V1 2026-11-05
@@ -6223,6 +6223,399 @@ function generate() {
     } catch (e) { /* accounting is diagnostic; generation never fails on it */ }
   }
 
+  // R49 (Money Trio-6 Full-Formula, 2026-11-16): pages 16-18 of
+  // the Tier-1 money-page sweep get the same section-6 variant
+  // coverage as R44/R45/R46/R47/R48 — /vault-doors/ (W14),
+  // /moving-and-storage/ (W11) and /junk-removal/ (W17), picked by
+  // fresh measure on the sealed 98a8649b bank (74,096 rows):
+  // 1,417 / 1,360 / 1,359 rows bound — the three largest remaining
+  // Tier-1 banks, all hubs (no branch-head or town pages in these
+  // families). The pre-build family census read the identical
+  // signature: radius 0 and ZIP 0 on all three pages, relation
+  // 0 / 8 / 0, proximity thin (16 / 6 / 6). CELLS are derived from
+  // machine data only (determinism law: data/service-area.geojson
+  // + data/pages.json, never rubric.db): each hub takes every
+  // place carrying its token (the R45 flagship rule — no dedicated
+  // place pages exist in the registry for any of the three
+  // families): vault-door 68 cells (every cell carrying a postal
+  // code), moving-and-storage 80 cells and junk-removal 80 cells
+  // (68 of each carrying a postal code; ZIP forms emit only where
+  // the geo record carries one). Radius buckets read the nearer
+  // branch seat's coordinates, the Territory Matrix centroid
+  // method, as in R44-R48. TRUTH SCREEN: the R35 base set plus the
+  // R47 extras (authority-number, discount, ITAD destruction /
+  // certificate screens) plus the R48 drayage and
+  // transportation-management screens, plus a locksmith screen
+  // (no locksmith claim is ever published), a storage-in-transit
+  // screen (SIT qualification is never claimed), a
+  // climate-controlled-transit screen (climate-controlled SPACE
+  // may be offered; climate-controlled transit never is) and a
+  // hazardous-waste screen (hazardous and regulated waste is not
+  // taken). Aspects stay inside the published fact set: vault
+  // doors delivered, relocated and installed at any size,
+  // specified from the door's own standards (UL 608, GSA Class 5
+  // under AA-D-600D) and its verified weight, contents emptied
+  // first; moves with a storage interval in leased storage for
+  // any type of items, 30-day minimum stay, customer access while
+  // stored, storage quoted per job, monthly, or by volume; junk
+  // removal surveyed in advance and quoted at one flat rate in
+  // writing, never by the hour, loads sorted after pickup toward
+  // donation, recycling and lawful disposal.
+  const R49_STATS = { cellsAttempted: 0, cellsLanded: 0, variantsAttempted: 0, variantsLanded: 0, byFamily: {}, byPage: {}, collisionExact: 0, collisionNormalized: 0, truthRefused: 0, gateExcluded: 0 };
+  const R49_SOURCE_ROWS = [];
+  {
+    const geo = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'service-area.geojson'), 'utf8'));
+    const featById = {};
+    for (const f of geo.features || []) if (f.properties && f.properties.id) featById[f.properties.id] = f;
+    const pagesDb = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'pages.json'), 'utf8'));
+    const pageSlugs = new Set((pagesDb.pages || []).map((p) => p.slug));
+    const havMi = (lat1, lon1, lat2, lon2) => {
+      const R = 3958.8, t = Math.PI / 180;
+      const dLat = (lat2 - lat1) * t, dLon = (lon2 - lon1) * t;
+      const h = Math.sin(dLat / 2) ** 2 + Math.cos(lat1 * t) * Math.cos(lat2 * t) * Math.sin(dLon / 2) ** 2;
+      return 2 * R * Math.asin(Math.sqrt(h));
+    };
+    const bucket = (mi) => (mi <= 10 ? 10 : mi <= 20 ? 20 : mi <= 35 ? 35 : mi <= 50 ? 50 : 75);
+    const seatCoords = (fid) => {
+      const f = featById[fid];
+      return (f && f.geometry && f.geometry.coordinates) ? f.geometry.coordinates : null;
+    };
+    const winSeat = seatCoords('place-winchester-va');
+    const marSeat = seatCoords('place-martinsburg-wv');
+    const R49_STATE_NAME = { VA: 'Virginia', WV: 'West Virginia', MD: 'Maryland', DC: 'Washington DC', PA: 'Pennsylvania' };
+    const R49_REFUSE_EXTRA = [
+      { re: /\b(?:usdot|dot|mc)\s*(?:#|number|no\.?)\b/i, why: 'authority-number-claim' },
+      { re: /\bdiscount\b/i, why: 'discount-claim' },
+      { re: /\bdata destruction\b/i, why: 'itad-destruction-claim' },
+      { re: /\bcertificates? of destruction\b/i, why: 'itad-certificate-claim' },
+      { re: /\bdrayage\b/i, why: 'drayage-claim' },
+      { re: /\btransportation management\b/i, why: 'transportation-management-claim' },
+      { re: /\blocksmith\b/i, why: 'locksmith-claim' },
+      { re: /\bstorage in transit\b/i, why: 'sit-claim' },
+      { re: /\bclimate[- ]controlled (?:truck|transport|transit|moving|van|trailer)\b/i, why: 'climate-transit-claim' },
+      { re: /\bhazardous\b/i, why: 'hazardous-waste-claim' },
+    ];
+    const r49Refuse = (q) => R35_TRUTH_REFUSE.find((t) => t.re.test(q)) || R49_REFUSE_EXTRA.find((t) => t.re.test(q)) || null;
+    const r49Land = (svcId, intentClass, q, area, target, pattern) => {
+      const bad = r49Refuse(q);
+      if (bad) {
+        R49_STATS.truthRefused++;
+        excluded.push({ reason: 'r49-truth-' + bad.why, serviceId: svcId, queryText: q, pattern });
+        return false;
+      }
+      const nk = svcId + '|' + r30Norm(q);
+      if (r30NormSeen.has(nk)) {
+        const first = r30NormSeen.get(nk);
+        if (first === q) R49_STATS.collisionExact++; else R49_STATS.collisionNormalized++;
+        excluded.push({ reason: 'r49-collision-bank-kept', serviceId: svcId, queryText: q, pattern });
+        return false;
+      }
+      const ok = emit(svcId, intentClass, q, area, target, pattern, { source: 'money-trio6-formula' });
+      if (ok) {
+        r30NormSeen.set(nk, q);
+        R49_STATS.byPage[target] = (R49_STATS.byPage[target] || 0) + 1;
+        const landedRow = rows[rows.length - 1];
+        R49_SOURCE_ROWS.push({ q, intent: intentClass, service_id: svcId, area, target_url: landedRow.target_url, pattern });
+        return true;
+      }
+      R49_STATS.gateExcluded++;
+      excluded.push({ reason: 'r49-gate-excluded', serviceId: svcId, queryText: q, pattern });
+      return false;
+    };
+    const landV = (svcId, cls, q, area, target, family) => {
+      R49_STATS.variantsAttempted++;
+      if (r49Land(svcId, cls, q, area, target, 'R49-variant-' + family)) {
+        R49_STATS.variantsLanded++;
+        R49_STATS.byFamily[family] = (R49_STATS.byFamily[family] || 0) + 1;
+      }
+    };
+    const R49_ASPECTS = {
+      'service-vault-door': [
+        (pq) => 'does vault door installation cover doors of any size in ' + pq + '?',
+        (pq) => 'are vault doors specified from their own standards, ul 608 and gsa class 5, in ' + pq + '?',
+        (pq) => 'is a vault door move quoted at one flat rate in writing in ' + pq + '?',
+      ],
+      'service-moving-and-storage': [
+        (pq) => 'does moving and storage cover a storage interval between move-out and move-in in ' + pq + '?',
+        (pq) => 'can customers access their stored items during a storage stay in ' + pq + '?',
+        (pq) => 'is storage quoted per job, monthly, or by volume in ' + pq + '?',
+      ],
+      'service-junk-removal': [
+        (pq) => 'does junk removal include whole-property cleanouts in ' + pq + '?',
+        (pq) => 'is junk removal surveyed and quoted at one flat rate before work begins in ' + pq + '?',
+        (pq) => 'are usable goods sorted for donation and recyclables for recycling after a junk removal pickup in ' + pq + '?',
+      ],
+    };
+    const R49_TARGETS = [
+      { svc: 'service-vault-door', token: 'vault-door', slug: 'vault-doors', phrase: 'vault door movers', base: 'vault door moving', rule: 'all' },
+      { svc: 'service-moving-and-storage', token: 'moving-and-storage', slug: 'moving-and-storage', phrase: 'moving and storage', base: 'moving and storage', rule: 'all' },
+      { svc: 'service-junk-removal', token: 'junk-removal', slug: 'junk-removal', phrase: 'junk removal services', base: 'junk removal', rule: 'all' },
+    ];
+    for (const T of R49_TARGETS) {
+      const cells = [];
+      for (const f of geo.features || []) {
+        const p = f.properties || {};
+        if (!p.id || !p.id.startsWith('place-')) continue;
+        if (!(p.services || []).includes(T.token)) continue;
+        cells.push(f);
+      }
+      let cellIdx = 0;
+      for (const f of cells) {
+        cellIdx++;
+        const p = f.properties;
+        const pl = String(p.name || '').replace(/,/g, '');
+        const pq = String(p.name || '');
+        const stateName = R49_STATE_NAME[p.state] || null;
+        const countyTail = String(p.county || '').split('/').pop().trim();
+        const county = /County$/.test(countyTail) ? countyTail : null;
+        const zip = p.postal_code ? String(p.postal_code) : null;
+        let radius = 25;
+        if (f.geometry && f.geometry.coordinates) {
+          const [lo, la] = f.geometry.coordinates;
+          const seats = [winSeat, marSeat].filter(Boolean);
+          let best = null;
+          for (const s of seats) { const d = havMi(la, lo, s[1], s[0]); if (best === null || d < best) best = d; }
+          if (best !== null) radius = bucket(best);
+        }
+        const ph = T.phrase, base = T.base, area = p.id, target = T.slug;
+        // cell question forms
+        const cellForms = [
+          ['ai-question', 'who provides ' + ph + ' in ' + pq + '?'],
+          ['ai-question', R49_ASPECTS[T.svc][cellIdx % R49_ASPECTS[T.svc].length](pq)],
+        ];
+        for (const [cls, q] of cellForms) {
+          R49_STATS.cellsAttempted++;
+          if (r49Land(T.svc, cls, q, area, target, 'R49-cell')) R49_STATS.cellsLanded++;
+        }
+        // PROXIMITY
+        landV(T.svc, 'navigational-local', ph + ' near me', area, target, 'proximity');
+        landV(T.svc, 'best-choice', 'best ' + ph + ' near me', area, target, 'proximity');
+        landV(T.svc, 'navigational-local', ph + ' nearby', area, target, 'proximity');
+        landV(T.svc, 'navigational-local', ph + ' near ' + pl, area, target, 'proximity');
+        landV(T.svc, 'navigational-local', ph + ' close to ' + pl, area, target, 'proximity');
+        // LOCALITY SCALE
+        if (!ph.startsWith('local ')) landV(T.svc, 'navigational-local', 'local ' + ph + ' ' + pl, area, target, 'locality');
+        landV(T.svc, 'navigational-local', ph + ' in ' + pl, area, target, 'locality');
+        if (county) landV(T.svc, 'navigational-local', ph + ' in ' + county + ' ' + p.state, area, target, 'locality');
+        if (stateName) landV(T.svc, 'navigational-local', ph + ' in ' + stateName, area, target, 'locality');
+        landV(T.svc, 'navigational-local', ph + ' around ' + pl, area, target, 'locality');
+        landV(T.svc, 'navigational-local', 'regional ' + ph + ' ' + pl, area, target, 'locality');
+        // RADIUS
+        landV(T.svc, 'navigational-local', ph + ' within ' + radius + ' miles of ' + pl, area, target, 'radius');
+        landV(T.svc, 'navigational-local', ph + ' serving the ' + pl + ' area', area, target, 'radius');
+        // ZIP FORMS — the place's geo record postal code
+        if (zip) {
+          landV(T.svc, 'navigational-local', ph + ' ' + zip, area, target, 'zip');
+          landV(T.svc, 'navigational-local', ph + ' near ' + zip, area, target, 'zip');
+        }
+        // RELATION WORDS
+        landV(T.svc, 'navigational-local', ph + ' serving ' + pq, area, target, 'relation');
+        landV(T.svc, 'navigational-local', ph + ' covering ' + pq, area, target, 'relation');
+        landV(T.svc, 'navigational-local', ph + ' available in ' + pl, area, target, 'relation');
+        landV(T.svc, 'navigational-local', ph + ' based in ' + pl, area, target, 'relation');
+        // AI-QUESTION FORMS
+        landV(T.svc, 'ai-question', 'how do i arrange ' + base + ' in ' + pl + '?', area, target, 'ai-question');
+        landV(T.svc, 'ai-question', 'what does ' + base + ' include in ' + pl + '?', area, target, 'ai-question');
+      }
+    }
+    try {
+      fs.mkdirSync(WORK_DIR, { recursive: true });
+      fs.writeFileSync(path.join(WORK_DIR, 'r49-accounting.json'),
+        JSON.stringify({ r49: R49_STATS }, null, 2) + '\n');
+      fs.writeFileSync(path.join(WORK_DIR, 'r49-source-rows.jsonl'),
+        R49_SOURCE_ROWS.map((r) => JSON.stringify(r)).join('\n') + '\n');
+    } catch (e) { /* accounting is diagnostic; generation never fails on it */ }
+  }
+  // R50 (Money Trio-6 Logistics Dataset addition, 2026-11-16):
+  // the dedicated dataset for /logistics-project-management/
+  // (datasets-logistics-project-management.json) lands in this
+  // batch, and with it the buyer-term census the trio-5 record
+  // deferred. Census (out/batch-money-trio6-2026-11-16/
+  // logistics-dataset-research.md): the category's 2,951 base
+  // rows saturate the service-name permutations ('logistics
+  // project' 2,523 rows) but the vocabulary buyers and the
+  // industry actually use is absent — 'project logistics' 0
+  // (the industry's own category name), 'turnkey' 0, 'milestone'
+  // 0, 'program management' 1, 'port logistics' 1, 'container
+  // program' 1, 'surge' 1, 'staging' 1, 'single point of
+  // contact' 2, 'end to end' 1. R50 closes those families
+  // across the hub's cells, bound to the new dataset file (the
+  // DATASETS map rebinds the whole service in this same batch).
+  // CELLS are derived from machine data only (determinism law:
+  // data/service-area.geojson + data/ports.json +
+  // data/pages.json, never rubric.db): the 68 place features
+  // carrying the logistics-project-management token, plus the
+  // 8 registry ports as port cells (area = the ports.json port
+  // id, the same area form the base rows carry). Radius buckets
+  // read the nearer branch seat's coordinates, the Territory
+  // Matrix centroid method, as in R44-R49. TRUTH SCREEN: the
+  // R35 base set plus the R49 extras (authority-number,
+  // discount, ITAD, drayage, transportation-management,
+  // locksmith, SIT, climate-transit, hazardous screens) plus
+  // the registry's own exclusion set — brokerage, customs
+  // brokerage, freight forwarding and project-cargo transport
+  // (scoped project execution only; the company does not sell
+  // transportation management, brokerage or drayage). Aspects
+  // stay inside the published fact set: survey, full scope,
+  // crew and sequence planning, supervised execution and
+  // closeout; one flat rate in writing; a single point of
+  // contact at the bound branch; container programs, warehouse
+  // load-outs and resets, surge programs, freight-rework
+  // campaigns and port-adjacent staging; TWIC-carded crews at
+  // the ports, dispatched 24/7.
+  const R50_STATS = { cellsAttempted: 0, cellsLanded: 0, variantsAttempted: 0, variantsLanded: 0, byFamily: {}, byPage: {}, collisionExact: 0, collisionNormalized: 0, truthRefused: 0, gateExcluded: 0 };
+  const R50_SOURCE_ROWS = [];
+  {
+    const geo = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'service-area.geojson'), 'utf8'));
+    const featById = {};
+    for (const f of geo.features || []) if (f.properties && f.properties.id) featById[f.properties.id] = f;
+    const portsDb = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'ports.json'), 'utf8'));
+    const havMi = (lat1, lon1, lat2, lon2) => {
+      const R = 3958.8, t = Math.PI / 180;
+      const dLat = (lat2 - lat1) * t, dLon = (lon2 - lon1) * t;
+      const h = Math.sin(dLat / 2) ** 2 + Math.cos(lat1 * t) * Math.cos(lat2 * t) * Math.sin(dLon / 2) ** 2;
+      return 2 * R * Math.asin(Math.sqrt(h));
+    };
+    const bucket = (mi) => (mi <= 10 ? 10 : mi <= 20 ? 20 : mi <= 35 ? 35 : mi <= 50 ? 50 : 75);
+    const seatCoords = (fid) => {
+      const f = featById[fid];
+      return (f && f.geometry && f.geometry.coordinates) ? f.geometry.coordinates : null;
+    };
+    const winSeat = seatCoords('place-winchester-va');
+    const marSeat = seatCoords('place-martinsburg-wv');
+    const R50_REFUSE_EXTRA = [
+      { re: /\b(?:usdot|dot|mc)\s*(?:#|number|no\.?)\b/i, why: 'authority-number-claim' },
+      { re: /\bdiscount\b/i, why: 'discount-claim' },
+      { re: /\bdata destruction\b/i, why: 'itad-destruction-claim' },
+      { re: /\bcertificates? of destruction\b/i, why: 'itad-certificate-claim' },
+      { re: /\bdrayage\b/i, why: 'drayage-claim' },
+      { re: /\btransportation management\b/i, why: 'transportation-management-claim' },
+      { re: /\blocksmith\b/i, why: 'locksmith-claim' },
+      { re: /\bstorage in transit\b/i, why: 'sit-claim' },
+      { re: /\bclimate[- ]controlled (?:truck|transport|transit|moving|van|trailer)\b/i, why: 'climate-transit-claim' },
+      { re: /\bhazardous\b/i, why: 'hazardous-waste-claim' },
+      { re: /\bbrokerage\b/i, why: 'brokerage-claim' },
+      { re: /\bcustoms\b/i, why: 'customs-claim' },
+      { re: /\bfreight forwarding\b/i, why: 'freight-forwarding-claim' },
+      { re: /\bproject cargo\b/i, why: 'project-cargo-transport-claim' },
+    ];
+    const r50Refuse = (q) => R35_TRUTH_REFUSE.find((t) => t.re.test(q)) || R50_REFUSE_EXTRA.find((t) => t.re.test(q)) || null;
+    const r50Land = (svcId, intentClass, q, area, target, pattern) => {
+      const bad = r50Refuse(q);
+      if (bad) {
+        R50_STATS.truthRefused++;
+        excluded.push({ reason: 'r50-truth-' + bad.why, serviceId: svcId, queryText: q, pattern });
+        return false;
+      }
+      const nk = svcId + '|' + r30Norm(q);
+      if (r30NormSeen.has(nk)) {
+        const first = r30NormSeen.get(nk);
+        if (first === q) R50_STATS.collisionExact++; else R50_STATS.collisionNormalized++;
+        excluded.push({ reason: 'r50-collision-bank-kept', serviceId: svcId, queryText: q, pattern });
+        return false;
+      }
+      const ok = emit(svcId, intentClass, q, area, target, pattern, { source: 'money-trio6-logistics-dataset' });
+      if (ok) {
+        r30NormSeen.set(nk, q);
+        R50_STATS.byPage[target] = (R50_STATS.byPage[target] || 0) + 1;
+        const landedRow = rows[rows.length - 1];
+        R50_SOURCE_ROWS.push({ q, intent: intentClass, service_id: svcId, area, target_url: landedRow.target_url, pattern });
+        return true;
+      }
+      R50_STATS.gateExcluded++;
+      excluded.push({ reason: 'r50-gate-excluded', serviceId: svcId, queryText: q, pattern });
+      return false;
+    };
+    const landV = (svcId, cls, q, area, target, family) => {
+      R50_STATS.variantsAttempted++;
+      if (r50Land(svcId, cls, q, area, target, 'R50-variant-' + family)) {
+        R50_STATS.variantsLanded++;
+        R50_STATS.byFamily[family] = (R50_STATS.byFamily[family] || 0) + 1;
+      }
+    };
+    const SVC = 'service-logistics-project-management';
+    const SLUG = 'logistics-project-management';
+    const R50_ASPECTS = [
+      (pq) => 'does a logistics project come with a single point of contact in ' + pq + '?',
+      (pq) => 'is a logistics project run to a milestone plan in ' + pq + '?',
+      (pq) => 'does logistics project management cover a container program end to end in ' + pq + '?',
+      (pq) => 'can a warehouse surge program be run under one logistics project plan in ' + pq + '?',
+      (pq) => 'is port-adjacent staging included in a logistics project in ' + pq + '?',
+      (pq) => 'is a logistics project quoted at one flat rate in writing in ' + pq + '?',
+    ];
+    const R50_PHRASES = ['project logistics', 'project logistics services', 'logistics program management', 'port project logistics', 'turnkey project logistics'];
+    const cells = [];
+    for (const f of geo.features || []) {
+      const p = f.properties || {};
+      if (!p.id || !p.id.startsWith('place-')) continue;
+      if (!(p.services || []).includes('logistics-project-management')) continue;
+      cells.push(f);
+    }
+    let cellIdx = 0;
+    for (const f of cells) {
+      cellIdx++;
+      const p = f.properties;
+      const pl = String(p.name || '').replace(/,/g, '');
+      const pq = String(p.name || '');
+      const zip = p.postal_code ? String(p.postal_code) : null;
+      let radius = 25;
+      if (f.geometry && f.geometry.coordinates) {
+        const [lo, la] = f.geometry.coordinates;
+        const seats = [winSeat, marSeat].filter(Boolean);
+        let best = null;
+        for (const s of seats) { const d = havMi(la, lo, s[1], s[0]); if (best === null || d < best) best = d; }
+        if (best !== null) radius = bucket(best);
+      }
+      const area = p.id, target = SLUG;
+      // rotating census-concept aspect, one per cell
+      R50_STATS.cellsAttempted++;
+      if (r50Land(SVC, 'ai-question', R50_ASPECTS[cellIdx % R50_ASPECTS.length](pq), area, target, 'R50-cell')) R50_STATS.cellsLanded++;
+      for (const ph of R50_PHRASES) {
+        // CELL + AI-QUESTION FORMS
+        R50_STATS.cellsAttempted++;
+        if (r50Land(SVC, 'ai-question', 'who provides ' + ph + ' in ' + pq + '?', area, target, 'R50-cell')) R50_STATS.cellsLanded++;
+        landV(SVC, 'ai-question', 'how do i arrange ' + ph + ' in ' + pl + '?', area, target, 'ai-question');
+        landV(SVC, 'ai-question', 'what does ' + ph + ' include in ' + pl + '?', area, target, 'ai-question');
+        // PROXIMITY
+        landV(SVC, 'navigational-local', ph + ' near me', area, target, 'proximity');
+        landV(SVC, 'best-choice', 'best ' + ph + ' near me', area, target, 'proximity');
+        // LOCALITY SCALE
+        landV(SVC, 'navigational-local', ph + ' in ' + pl, area, target, 'locality');
+        // RADIUS
+        landV(SVC, 'navigational-local', ph + ' within ' + radius + ' miles of ' + pl, area, target, 'radius');
+        // ZIP FORMS
+        if (zip) {
+          landV(SVC, 'navigational-local', ph + ' ' + zip, area, target, 'zip');
+          landV(SVC, 'navigational-local', ph + ' near ' + zip, area, target, 'zip');
+        }
+        // RELATION WORDS
+        landV(SVC, 'navigational-local', ph + ' serving ' + pq, area, target, 'relation');
+        landV(SVC, 'navigational-local', ph + ' available in ' + pl, area, target, 'relation');
+      }
+    }
+    // PORT CELLS — the 8 registry ports, area = the ports.json id
+    for (const port of portsDb.ports || []) {
+      const area = port.id, target = SLUG;
+      const nm = port.name;
+      const short = port.shortName || port.name;
+      R50_STATS.cellsAttempted++;
+      if (r50Land(SVC, 'ai-question', 'who provides project logistics at ' + nm + '?', area, target, 'R50-cell')) R50_STATS.cellsLanded++;
+      R50_STATS.cellsAttempted++;
+      if (r50Land(SVC, 'ai-question', 'who manages logistics projects at ' + nm + '?', area, target, 'R50-cell')) R50_STATS.cellsLanded++;
+      landV(SVC, 'navigational-local', 'project logistics at ' + short, area, target, 'locality');
+      landV(SVC, 'navigational-local', 'logistics program management at ' + short, area, target, 'locality');
+      landV(SVC, 'navigational-local', 'port project logistics ' + port.address.addressLocality + ' ' + port.address.addressRegion, area, target, 'locality');
+      landV(SVC, 'ai-question', 'does logistics project management cover container programs at ' + nm + '?', area, target, 'ai-question');
+      landV(SVC, 'ai-question', 'are twic-carded crews dispatched for logistics projects at ' + nm + '?', area, target, 'ai-question');
+    }
+    try {
+      fs.mkdirSync(WORK_DIR, { recursive: true });
+      fs.writeFileSync(path.join(WORK_DIR, 'r50-accounting.json'),
+        JSON.stringify({ r50: R50_STATS }, null, 2) + '\n');
+      fs.writeFileSync(path.join(WORK_DIR, 'r50-source-rows.jsonl'),
+        R50_SOURCE_ROWS.map((r) => JSON.stringify(r)).join('\n') + '\n');
+    } catch (e) { /* accounting is diagnostic; generation never fails on it */ }
+  }
   // Fragment-binding late lane (Element 2, 2026-11-02): panel prompts
   // Q1/Q2/Q3 emit here, after R14, through the same R10 gates. Their
   // targets are roll-up pages; emitting them inside the service loop

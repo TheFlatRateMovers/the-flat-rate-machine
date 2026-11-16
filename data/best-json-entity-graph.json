@@ -4593,7 +4593,7 @@
    "@id": "https://theflatratemovers.com/datasets/intent-coverage/#dataset",
    "@type": "Dataset",
    "name": "The Flat Rate Movers — Search Intent Coverage Operations Dataset",
-   "description": "The live intent-coverage rubric of The Flat Rate Movers: 74096 generated rows, each one a query string a customer or an AI assistant can use to find a company service, resolved to the exact page that answers it, that page’s per-page JSON, the dataset files behind the answer, and the service’s node in the entity graph. Rows are generated from the estate’s own registries — 34 services, 339 pages, two branch locations, three corridors and the 87-feature service-area footprint — plus the blog question bank’s 100 real question phrasings and the researched per-service question bank v2 (694 questions), and the rubric is regenerated whenever those registries change. Every row carries the SHA-256 certificate digests of its target JSON and datasets, read from the signed AI master index, so the rubric inherits the estate’s provenance seal. Coverage spans all 34 services of both branches, Winchester, VA and Martinsburg, WV, along the I-81, I-66 and I-70 corridors. Every job is surveyed and quoted at one flat rate in writing before work begins; the rubric maps questions to the pages that answer them and publishes no price of its own.",
+   "description": "The live intent-coverage rubric of The Flat Rate Movers: 80935 generated rows, each one a query string a customer or an AI assistant can use to find a company service, resolved to the exact page that answers it, that page’s per-page JSON, the dataset files behind the answer, and the service’s node in the entity graph. Rows are generated from the estate’s own registries — 34 services, 340 pages, two branch locations, three corridors and the 87-feature service-area footprint — plus the blog question bank’s 100 real question phrasings and the researched per-service question bank v2 (694 questions), and the rubric is regenerated whenever those registries change. Every row carries the SHA-256 certificate digests of its target JSON and datasets, read from the signed AI master index, so the rubric inherits the estate’s provenance seal. Coverage spans all 34 services of both branches, Winchester, VA and Martinsburg, WV, along the I-81, I-66 and I-70 corridors. Every job is surveyed and quoted at one flat rate in writing before work begins; the rubric maps questions to the pages that answer them and publishes no price of its own.",
    "url": "https://theflatratemovers.com/datasets/intent-coverage/",
    "sameAs": "https://theflatratemovers.com/datasets/intent-coverage/",
    "identifier": "https://doi.org/10.5281/zenodo.23818766",
@@ -12185,6 +12185,77 @@
     },
     {
      "@id": "https://theflatratemovers.com/#service-transloading"
+    }
+   ]
+  },
+  {
+   "@type": "Dataset",
+   "@id": "https://theflatratemovers.com/datasets/logistics-project-management/#dataset-logistics-project-management",
+   "name": "Logistics Project Management Dataset",
+   "description": "The dedicated dataset of the Logistics Project Management program of The Flat Rate Movers: scoped project execution for port, warehouse and industrial projects — survey, full scope, crew and sequence planning, supervised execution and closeout — at one flat rate in writing, with a single point of contact at the branch each project binds to. The dataset carries the eight ports of the company's port registry as typed Places with their bound branches and road bindings, the per-port Logistics Project Management Service nodes bound to the program hub, the bridge services the program runs on (transloading and container services, freight rework and cross-docking, specialized workforce, and 3PL support), and the 64-cell coverage matrix of ports by service columns generated from data/ports.json. Project types: container programs, warehouse load-outs and resets, surge programs, freight-rework campaigns and port-adjacent staging. Port work runs on TWIC-carded crews — every individual sent onsite holds their own TWIC card and proper ID — dispatched 24/7 at contract scale. Scoped project execution only: the company does not sell transportation management, brokerage or drayage, and no rate is published in this dataset; pricing is per job, one flat rate agreed in writing before work starts.",
+   "url": "https://theflatratemovers.com/datasets/logistics-project-management/",
+   "sameAs": "https://theflatratemovers.com/datasets/logistics-project-management/",
+   "identifier": "https://theflatratemovers.com/datasets/logistics-project-management/",
+   "isAccessibleForFree": true,
+   "license": "https://creativecommons.org/licenses/by/4.0/",
+   "creator": {
+    "@type": "Organization",
+    "@id": "https://theflatratemovers.com/#organization",
+    "name": "The Flat Rate Movers LLC",
+    "url": "https://theflatratemovers.com/"
+   },
+   "publisher": {
+    "@type": "Organization",
+    "@id": "https://theflatratemovers.com/#organization",
+    "name": "The Flat Rate Movers LLC",
+    "url": "https://theflatratemovers.com/"
+   },
+   "datePublished": "2026-11-16",
+   "dateModified": "2026-11-16",
+   "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "@id": "https://theflatratemovers.com/datasets/#collection",
+    "name": "The Flat Rate Movers — AI Authority Estate Datasets",
+    "url": "https://theflatratemovers.com/datasets/"
+   },
+   "spatialCoverage": [
+    {
+     "@type": "Place",
+     "@id": "https://theflatratemovers.com/#winchester",
+     "name": "The Flat Rate Movers — Winchester",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.18711576,
+      "longitude": -78.1668352
+     }
+    },
+    {
+     "@type": "Place",
+     "@id": "https://theflatratemovers.com/#martinsburg",
+     "name": "Flat Rate Movers Martinsburg WV",
+     "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.48319665,
+      "longitude": -77.94760443
+     }
+    }
+   ],
+   "keywords": "project logistics, logistics project management, logistics program management, turnkey project logistics, port project logistics, container programs, warehouse load-outs, warehouse resets, surge programs, freight-rework campaigns, port-adjacent staging, single point of contact, transloading, cross-docking, 3PL support, TWIC-carded labor, Winchester VA, Martinsburg WV, Port of Virginia, Virginia Inland Port",
+   "about": [
+    {
+     "@id": "https://theflatratemovers.com/#service-logistics-project-management"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-transloading"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-freight-rework-transloading"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-3pl-support"
+    },
+    {
+     "@id": "https://theflatratemovers.com/#service-industrial-commercial"
     }
    ]
   }
