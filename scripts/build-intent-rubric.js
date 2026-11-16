@@ -5619,6 +5619,209 @@ function generate() {
     } catch (e) { /* accounting is diagnostic; generation never fails on it */ }
   }
 
+  // R46 (Money Trio-3 Full-Formula, 2026-11-16): pages 7-9 of the
+  // Tier-1 money-page sweep get the same section-6 variant coverage
+  // as R44/R45 — /local-regional-moving/ (the local/regional hub),
+  // /commercial-moving/ (the commercial hub) and
+  // /gun-safe-movers-winchester-va/ (the Winchester branch head for
+  // gun safe). The pre-build family census on the sealed 91edfd3d
+  // bank (rubric.db, 2026-11-16) read the identical signature:
+  // radius 0 and ZIP 0 on all three pages, relation 10 / 1 / 0,
+  // proximity 92 / 5 / 8. CELLS are derived from machine data only
+  // (determinism law: data/service-area.geojson + data/pages.json,
+  // never rubric.db): the local/regional hub takes the shared
+  // ('both') branch towns (11 cells — both branch heads already own
+  // their branch towns, R44/R45; the same hub rule as R44's gun-safe
+  // hub), the commercial hub takes its complement — the
+  // Martinsburg-branch places plus the shared towns (33 cells;
+  // Winchester-branch places are owned by
+  // /commercial-movers-winchester-va/, R44) — and the Winchester
+  // gun-safe head takes the Winchester-branch places minus the two
+  // towns carrying dedicated gun-safe pages in the registry
+  // (Washington DC and McLean, the Spot-2 pages), for 33 cells.
+  // Radius buckets read the binding branch seat's coordinates (the
+  // hubs' shared towns read the nearer seat), the Territory Matrix
+  // centroid method, as in R44/R45. TRUTH SCREEN: the R35 base set
+  // plus gun-safe extras — no query may imply a locksmith or
+  // safe-opening service (never offered) — plus the authority-number
+  // screen (no USDOT / DOT / MC number is published; interstate
+  // authority sits with the carriers the company engages). Aspects
+  // stay inside the published fact set: flat rate in writing,
+  // stairs up/down, re-anchoring on request, the 1,500-3,500 lb SIR
+  // band (over-1,500-lb form), after-hours and phased commercial
+  // work, a few heavy items on a local booking.
+  const R46_STATS = { cellsAttempted: 0, cellsLanded: 0, variantsAttempted: 0, variantsLanded: 0, byFamily: {}, byPage: {}, collisionExact: 0, collisionNormalized: 0, truthRefused: 0, gateExcluded: 0 };
+  const R46_SOURCE_ROWS = [];
+  {
+    const geo = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'service-area.geojson'), 'utf8'));
+    const featById = {};
+    for (const f of geo.features || []) if (f.properties && f.properties.id) featById[f.properties.id] = f;
+    const pagesDb = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'pages.json'), 'utf8'));
+    const pageSlugs = new Set((pagesDb.pages || []).map((p) => p.slug));
+    const havMi = (lat1, lon1, lat2, lon2) => {
+      const R = 3958.8, t = Math.PI / 180;
+      const dLat = (lat2 - lat1) * t, dLon = (lon2 - lon1) * t;
+      const h = Math.sin(dLat / 2) ** 2 + Math.cos(lat1 * t) * Math.cos(lat2 * t) * Math.sin(dLon / 2) ** 2;
+      return 2 * R * Math.asin(Math.sqrt(h));
+    };
+    const bucket = (mi) => (mi <= 10 ? 10 : mi <= 20 ? 20 : mi <= 35 ? 35 : mi <= 50 ? 50 : 75);
+    const seatCoords = (fid) => {
+      const f = featById[fid];
+      return (f && f.geometry && f.geometry.coordinates) ? f.geometry.coordinates : null;
+    };
+    const winSeat = seatCoords('place-winchester-va');
+    const marSeat = seatCoords('place-martinsburg-wv');
+    const R46_STATE_NAME = { VA: 'Virginia', WV: 'West Virginia', MD: 'Maryland', DC: 'Washington DC', PA: 'Pennsylvania' };
+    const R46_REFUSE_EXTRA = [
+      { re: /\blocksmith\b/i, why: 'locksmith-claim' },
+      { re: /\bsafe cracking\b/i, why: 'safe-cracking-claim' },
+      { re: /\bopen(?:s|ing)? (?:a |the |my )?locked safe\b/i, why: 'safe-opening-claim' },
+      { re: /\b(?:usdot|dot|mc)\s*(?:#|number|no\.?)\b/i, why: 'authority-number-claim' },
+    ];
+    const r46Refuse = (q) => R35_TRUTH_REFUSE.find((t) => t.re.test(q)) || R46_REFUSE_EXTRA.find((t) => t.re.test(q)) || null;
+    const r46Land = (svcId, intentClass, q, area, target, pattern) => {
+      const bad = r46Refuse(q);
+      if (bad) {
+        R46_STATS.truthRefused++;
+        excluded.push({ reason: 'r46-truth-' + bad.why, serviceId: svcId, queryText: q, pattern });
+        return false;
+      }
+      const nk = svcId + '|' + r30Norm(q);
+      if (r30NormSeen.has(nk)) {
+        const first = r30NormSeen.get(nk);
+        if (first === q) R46_STATS.collisionExact++; else R46_STATS.collisionNormalized++;
+        excluded.push({ reason: 'r46-collision-bank-kept', serviceId: svcId, queryText: q, pattern });
+        return false;
+      }
+      const ok = emit(svcId, intentClass, q, area, target, pattern, { source: 'money-trio3-formula' });
+      if (ok) {
+        r30NormSeen.set(nk, q);
+        R46_STATS.byPage[target] = (R46_STATS.byPage[target] || 0) + 1;
+        const landedRow = rows[rows.length - 1];
+        R46_SOURCE_ROWS.push({ q, intent: intentClass, service_id: svcId, area, target_url: landedRow.target_url, pattern });
+        return true;
+      }
+      R46_STATS.gateExcluded++;
+      excluded.push({ reason: 'r46-gate-excluded', serviceId: svcId, queryText: q, pattern });
+      return false;
+    };
+    const landV = (svcId, cls, q, area, target, family) => {
+      R46_STATS.variantsAttempted++;
+      if (r46Land(svcId, cls, q, area, target, 'R46-variant-' + family)) {
+        R46_STATS.variantsLanded++;
+        R46_STATS.byFamily[family] = (R46_STATS.byFamily[family] || 0) + 1;
+      }
+    };
+    const R46_ASPECTS = {
+      'service-local-regional': [
+        (pq) => 'do local movers charge a flat rate in ' + pq + '?',
+        (pq) => 'who are the local movers in ' + pq + '?',
+        (pq) => 'can local movers in ' + pq + ' move just a few heavy items?',
+      ],
+      'service-commercial': [
+        (pq) => 'can commercial movers work after hours in ' + pq + '?',
+        (pq) => 'who provides commercial moving services in ' + pq + '?',
+        (pq) => 'can commercial movers move an office in phases in ' + pq + '?',
+      ],
+      'service-gun-safe': [
+        (pq) => 'can gun safe movers take a safe up or down stairs in ' + pq + '?',
+        (pq) => 'do gun safe movers re-anchor the safe after placing it in ' + pq + '?',
+        (pq) => 'who can move a gun safe over 1,500 pounds in ' + pq + '?',
+      ],
+    };
+    const R46_TARGETS = [
+      { svc: 'service-local-regional', token: 'local-regional', slug: 'local-regional-moving', phrase: 'local movers', base: 'local moving', rule: 'both' },
+      { svc: 'service-commercial', token: 'commercial-moving', slug: 'commercial-moving', phrase: 'commercial movers', base: 'commercial moving', rule: 'hub-complement' },
+      { svc: 'service-gun-safe', token: 'gun-safe', slug: 'gun-safe-movers-winchester-va', phrase: 'gun safe movers', base: 'gun safe moving', rule: 'winchester-own' },
+    ];
+    for (const T of R46_TARGETS) {
+      const cells = [];
+      for (const f of geo.features || []) {
+        const p = f.properties || {};
+        if (!p.id || !p.id.startsWith('place-')) continue;
+        if (!(p.services || []).includes(T.token)) continue;
+        if (T.rule === 'both') {
+          if (p.branch !== 'both') continue;
+        } else if (T.rule === 'hub-complement') {
+          if (p.branch === 'winchester') continue;
+        } else if (T.rule === 'winchester-own') {
+          if (p.branch !== 'winchester') continue;
+          const stemPage = 'gun-safe-movers-' + p.id.replace('place-', '');
+          if (pageSlugs.has(stemPage) && stemPage !== T.slug) continue;
+        }
+        cells.push(f);
+      }
+      let cellIdx = 0;
+      for (const f of cells) {
+        cellIdx++;
+        const p = f.properties;
+        const pl = String(p.name || '').replace(/,/g, '');
+        const pq = String(p.name || '');
+        const stateName = R46_STATE_NAME[p.state] || null;
+        const countyTail = String(p.county || '').split('/').pop().trim();
+        const county = /County$/.test(countyTail) ? countyTail : null;
+        const zip = p.postal_code ? String(p.postal_code) : null;
+        let radius = 25;
+        if (f.geometry && f.geometry.coordinates) {
+          const [lo, la] = f.geometry.coordinates;
+          let seats;
+          if (T.rule === 'winchester-own') seats = [winSeat].filter(Boolean);
+          else if (T.rule === 'hub-complement' && p.branch === 'martinsburg') seats = [marSeat].filter(Boolean);
+          else seats = [winSeat, marSeat].filter(Boolean);
+          let best = null;
+          for (const s of seats) { const d = havMi(la, lo, s[1], s[0]); if (best === null || d < best) best = d; }
+          if (best !== null) radius = bucket(best);
+        }
+        const ph = T.phrase, base = T.base, area = p.id, target = T.slug;
+        // cell question forms
+        const cellForms = [
+          ['ai-question', 'who provides ' + ph + ' in ' + pq + '?'],
+          ['ai-question', R46_ASPECTS[T.svc][cellIdx % R46_ASPECTS[T.svc].length](pq)],
+        ];
+        for (const [cls, q] of cellForms) {
+          R46_STATS.cellsAttempted++;
+          if (r46Land(T.svc, cls, q, area, target, 'R46-cell')) R46_STATS.cellsLanded++;
+        }
+        // PROXIMITY
+        landV(T.svc, 'navigational-local', ph + ' near me', area, target, 'proximity');
+        landV(T.svc, 'best-choice', 'best ' + ph + ' near me', area, target, 'proximity');
+        landV(T.svc, 'navigational-local', ph + ' nearby', area, target, 'proximity');
+        landV(T.svc, 'navigational-local', ph + ' near ' + pl, area, target, 'proximity');
+        landV(T.svc, 'navigational-local', ph + ' close to ' + pl, area, target, 'proximity');
+        // LOCALITY SCALE
+        if (!ph.startsWith('local ')) landV(T.svc, 'navigational-local', 'local ' + ph + ' ' + pl, area, target, 'locality');
+        landV(T.svc, 'navigational-local', ph + ' in ' + pl, area, target, 'locality');
+        if (county) landV(T.svc, 'navigational-local', ph + ' in ' + county + ' ' + p.state, area, target, 'locality');
+        if (stateName) landV(T.svc, 'navigational-local', ph + ' in ' + stateName, area, target, 'locality');
+        landV(T.svc, 'navigational-local', ph + ' around ' + pl, area, target, 'locality');
+        landV(T.svc, 'navigational-local', 'regional ' + ph + ' ' + pl, area, target, 'locality');
+        // RADIUS
+        landV(T.svc, 'navigational-local', ph + ' within ' + radius + ' miles of ' + pl, area, target, 'radius');
+        landV(T.svc, 'navigational-local', ph + ' serving the ' + pl + ' area', area, target, 'radius');
+        // ZIP FORMS — the place's geo record postal code
+        if (zip) {
+          landV(T.svc, 'navigational-local', ph + ' ' + zip, area, target, 'zip');
+          landV(T.svc, 'navigational-local', ph + ' near ' + zip, area, target, 'zip');
+        }
+        // RELATION WORDS
+        landV(T.svc, 'navigational-local', ph + ' serving ' + pq, area, target, 'relation');
+        landV(T.svc, 'navigational-local', ph + ' covering ' + pq, area, target, 'relation');
+        landV(T.svc, 'navigational-local', ph + ' available in ' + pl, area, target, 'relation');
+        landV(T.svc, 'navigational-local', ph + ' based in ' + pl, area, target, 'relation');
+        // AI-QUESTION FORMS
+        landV(T.svc, 'ai-question', 'how do i arrange ' + base + ' in ' + pl + '?', area, target, 'ai-question');
+        landV(T.svc, 'ai-question', 'what does ' + base + ' include in ' + pl + '?', area, target, 'ai-question');
+      }
+    }
+    try {
+      fs.mkdirSync(WORK_DIR, { recursive: true });
+      fs.writeFileSync(path.join(WORK_DIR, 'r46-accounting.json'),
+        JSON.stringify({ r46: R46_STATS }, null, 2) + '\n');
+      fs.writeFileSync(path.join(WORK_DIR, 'r46-source-rows.jsonl'),
+        R46_SOURCE_ROWS.map((r) => JSON.stringify(r)).join('\n') + '\n');
+    } catch (e) { /* accounting is diagnostic; generation never fails on it */ }
+  }
+
   // Fragment-binding late lane (Element 2, 2026-11-02): panel prompts
   // Q1/Q2/Q3 emit here, after R14, through the same R10 gates. Their
   // targets are roll-up pages; emitting them inside the service loop
