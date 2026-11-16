@@ -28,12 +28,12 @@
   "port-richmond-marine-terminal": {
    "branch": "winchester",
    "bindingBasis": "miles",
-   "milesFromWinchester": 135,
-   "timeFromWinchester": "about 2:39",
-   "milesFromMartinsburg": 158,
-   "timeFromMartinsburg": "about 3:00",
+   "milesFromWinchester": 143.1,
+   "timeFromWinchester": "about 3:14",
+   "milesFromMartinsburg": 167.6,
+   "timeFromMartinsburg": "about 3:41",
    "routeFromBindingBranch": "I-81 S to I-64 E to I-95 S, Richmond",
-   "marginNote": "about 23 mi / about 20 min closer from Winchester; secondary node (section of the Port of Virginia hub, no dedicated hub page or dataset file in wave 1)"
+   "marginNote": "about 24.5 mi / about 27 min closer from Winchester; dedicated hub page /richmond-marine-terminal-logistics/ and per-port dataset file (datasets-richmond-marine-terminal.json) since the ports-completion build (2026-11-10); 304 rows bound by the ports-full lane 2026-11-15 (332 bound rows total); binds to Winchester at 143.1 mi by OSRM road measure (Martinsburg 167.6 mi)"
   },
   "port-of-baltimore": {
    "branch": "martinsburg",
@@ -557,12 +557,12 @@
    "branchBinding": {
     "branch": "winchester",
     "bindingBasis": "miles",
-    "milesFromWinchester": 135,
-    "timeFromWinchester": "about 2:39",
-    "milesFromMartinsburg": 158,
-    "timeFromMartinsburg": "about 3:00",
+    "milesFromWinchester": 143.1,
+    "timeFromWinchester": "about 3:14",
+    "milesFromMartinsburg": 167.6,
+    "timeFromMartinsburg": "about 3:41",
     "routeFromBindingBranch": "I-81 S to I-64 E to I-95 S, Richmond",
-    "marginNote": "about 23 mi / about 20 min closer from Winchester; dedicated hub page and per-port dataset file since the ports-completion build (2026-11-10)",
+    "marginNote": "about 24.5 mi / about 27 min closer from Winchester; dedicated hub page /richmond-marine-terminal-logistics/ and per-port dataset file (datasets-richmond-marine-terminal.json) since the ports-completion build (2026-11-10); 304 rows bound by the ports-full lane 2026-11-15 (332 bound rows total); binds to Winchester at 143.1 mi by OSRM road measure (Martinsburg 167.6 mi)",
     "branchPageUrl": "https://theflatratemovers.com/locations/winchester-va/"
    },
    "volumes": [],

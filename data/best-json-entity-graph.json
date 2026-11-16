@@ -2447,7 +2447,7 @@
    "@id": "https://theflatratemovers.com/datasets/ports/#port-richmond-marine-terminal",
    "name": "Richmond Marine Terminal",
    "alternateName": "RMT",
-   "description": "Richmond Marine Terminal (Richmond, VA) — river barge terminal (inland port). Authority: Virginia Port Authority (operator under lease). Operator: Virginia International Terminals, LLC — the City of Richmond owns the terminal; the Virginia Port Authority leases it under a 40-year lease signed 2016 (to 2056). Cargo: barge containers on the Richmond Express (64 Express) James River barge service linking Richmond with NIT, VIG and PMT; breakbulk. Rail: CSX — direct; Norfolk Southern — via local switch. Highway corridors: I-95, I-64, I-85, I-295. Branch binding: this port is served from the Winchester, VA branch of The Flat Rate Movers — about 135 road miles from Winchester and 158 from Martinsburg; bound to Winchester on miles. about 23 mi / about 20 min closer from Winchester; secondary node (section of the Port of Virginia hub, no dedicated hub page or dataset file in wave 1).",
+   "description": "Richmond Marine Terminal (Richmond, VA) — river barge terminal (inland port). Authority: Virginia Port Authority (operator under lease). Operator: Virginia International Terminals, LLC — the City of Richmond owns the terminal; the Virginia Port Authority leases it under a 40-year lease signed 2016 (to 2056). Cargo: barge containers on the Richmond Express (64 Express) James River barge service linking Richmond with NIT, VIG and PMT; breakbulk. Rail: CSX — direct; Norfolk Southern — via local switch. Highway corridors: I-95, I-64, I-85, I-295. Branch binding: this port is served from the Winchester, VA branch of The Flat Rate Movers — about 143.1 road miles from Winchester and 167.6 from Martinsburg; bound to Winchester on miles. about 24.5 mi / about 27 min closer from Winchester; dedicated hub page /richmond-marine-terminal-logistics/ and per-port dataset file (datasets-richmond-marine-terminal.json) since the ports-completion build (2026-11-10); 304 rows bound by the ports-full lane 2026-11-15 (332 bound rows total); binds to Winchester at 143.1 mi by OSRM road measure (Martinsburg 167.6 mi).",
    "address": {
     "@type": "PostalAddress",
     "streetAddress": "5000 Deepwater Terminal Rd",
@@ -2505,7 +2505,7 @@
     {
      "@type": "PropertyValue",
      "name": "branchBinding",
-     "value": "{\"branch\": \"winchester\", \"bindingBasis\": \"miles\", \"milesFromWinchester\": 135, \"timeFromWinchester\": \"about 2:39\", \"milesFromMartinsburg\": 158, \"timeFromMartinsburg\": \"about 3:00\", \"routeFromBindingBranch\": \"I-81 S to I-64 E to I-95 S, Richmond\", \"marginNote\": \"about 23 mi / about 20 min closer from Winchester; secondary node (section of the Port of Virginia hub, no dedicated hub page or dataset file in wave 1)\", \"branchPageUrl\": \"https://theflatratemovers.com/locations/winchester-va/\"}"
+     "value": "{\"branch\":\"winchester\",\"bindingBasis\":\"miles\",\"milesFromWinchester\":143.1,\"timeFromWinchester\":\"about 3:14\",\"milesFromMartinsburg\":167.6,\"timeFromMartinsburg\":\"about 3:41\",\"routeFromBindingBranch\":\"I-81 S to I-64 E to I-95 S, Richmond\",\"marginNote\":\"about 24.5 mi / about 27 min closer from Winchester; dedicated hub page /richmond-marine-terminal-logistics/ and per-port dataset file (datasets-richmond-marine-terminal.json) since the ports-completion build (2026-11-10); 304 rows bound by the ports-full lane 2026-11-15 (332 bound rows total); binds to Winchester at 143.1 mi by OSRM road measure (Martinsburg 167.6 mi)\",\"branchPageUrl\":\"https://theflatratemovers.com/locations/winchester-va/\"}"
     },
     {
      "@type": "PropertyValue",
@@ -4593,7 +4593,7 @@
    "@id": "https://theflatratemovers.com/datasets/intent-coverage/#dataset",
    "@type": "Dataset",
    "name": "The Flat Rate Movers — Search Intent Coverage Operations Dataset",
-   "description": "The live intent-coverage rubric of The Flat Rate Movers: 63995 generated rows, each one a query string a customer or an AI assistant can use to find a company service, resolved to the exact page that answers it, that page’s per-page JSON, the dataset files behind the answer, and the service’s node in the entity graph. Rows are generated from the estate’s own registries — 34 services, 339 pages, two branch locations, three corridors and the 87-feature service-area footprint — plus the blog question bank’s 100 real question phrasings and the researched per-service question bank v2 (694 questions), and the rubric is regenerated whenever those registries change. Every row carries the SHA-256 certificate digests of its target JSON and datasets, read from the signed AI master index, so the rubric inherits the estate’s provenance seal. Coverage spans all 34 services of both branches, Winchester, VA and Martinsburg, WV, along the I-81, I-66 and I-70 corridors. Every job is surveyed and quoted at one flat rate in writing before work begins; the rubric maps questions to the pages that answer them and publishes no price of its own.",
+   "description": "The live intent-coverage rubric of The Flat Rate Movers: 66210 generated rows, each one a query string a customer or an AI assistant can use to find a company service, resolved to the exact page that answers it, that page’s per-page JSON, the dataset files behind the answer, and the service’s node in the entity graph. Rows are generated from the estate’s own registries — 34 services, 339 pages, two branch locations, three corridors and the 87-feature service-area footprint — plus the blog question bank’s 100 real question phrasings and the researched per-service question bank v2 (694 questions), and the rubric is regenerated whenever those registries change. Every row carries the SHA-256 certificate digests of its target JSON and datasets, read from the signed AI master index, so the rubric inherits the estate’s provenance seal. Coverage spans all 34 services of both branches, Winchester, VA and Martinsburg, WV, along the I-81, I-66 and I-70 corridors. Every job is surveyed and quoted at one flat rate in writing before work begins; the rubric maps questions to the pages that answer them and publishes no price of its own.",
    "url": "https://theflatratemovers.com/datasets/intent-coverage/",
    "sameAs": "https://theflatratemovers.com/datasets/intent-coverage/",
    "identifier": "https://doi.org/10.5281/zenodo.23818766",
@@ -11139,7 +11139,7 @@
    "@type": "Dataset",
    "@id": "https://theflatratemovers.com/datasets/richmond-marine-terminal/#dataset-richmond-marine-terminal",
    "name": "Richmond Marine Terminal Logistics Dataset",
-   "description": "The per-port dataset for Richmond Marine Terminal in the Ports & Intermodal program of The Flat Rate Movers: the full port record for the James River barge terminal at 5000 Deepwater Terminal Rd, Richmond, VA — owned by the City of Richmond, leased by the Virginia Port Authority under a 40-year lease signed 2016 (to 2056) and operated by Virginia International Terminals, LLC as part of the Port of Virginia system — 124 acres with 300,000 sq ft of storage, a mobile harbor crane in the 124-ton class, three reefer plugs, a Monday-Friday 0700-1600 gate, on-terminal transload and cross-docking, CSX direct rail with Norfolk Southern via local switch, and the Richmond Express (64 Express) barge service: three barges in rotation, 500 FEU combined capacity, running six days a week with about a 12-hour overnight transit to Norfolk International Terminals, the Virginia International Gateway and Portsmouth Marine Terminal. No standalone annual volume is published for this terminal. The I-95, I-64, I-85 and I-295 corridors, and the branch binding: the terminal is served from the Winchester, VA branch, about 135 road miles away (Martinsburg measures about 158). The company's eight attached port services are recorded cell by cell in the companion coverage dataset. No port tenancy or port-authority relationship is claimed; the company's crews hold TWIC cards and its contractors hold valid TWIC cards. The dedicated labor layer for this port is published at https://theflatratemovers.com/container-unloading-labor-richmond-va/ — Container Unloading Labor — Richmond VA: TWIC-carded crews, dispatched 24/7, at contract scale up to 1,000 crew.",
+   "description": "The per-port dataset for Richmond Marine Terminal in the Ports & Intermodal program of The Flat Rate Movers: the full port record for the James River barge terminal at 5000 Deepwater Terminal Rd, Richmond, VA — owned by the City of Richmond, leased by the Virginia Port Authority under a 40-year lease signed 2016 (to 2056) and operated by Virginia International Terminals, LLC as part of the Port of Virginia system — 124 acres with 300,000 sq ft of storage, a mobile harbor crane in the 124-ton class, three reefer plugs, a Monday-Friday 0700-1600 gate, on-terminal transload and cross-docking, CSX direct rail with Norfolk Southern via local switch, and the Richmond Express (64 Express) barge service: three barges in rotation, 500 FEU combined capacity, running six days a week with about a 12-hour overnight transit to Norfolk International Terminals, the Virginia International Gateway and Portsmouth Marine Terminal. No standalone annual volume is published for this terminal. The I-95, I-64, I-85 and I-295 corridors, and the branch binding: the terminal is served from the Winchester, VA branch, about 143.1 road miles away (Martinsburg measures about 167.6). The company's eight attached port services are recorded cell by cell in the companion coverage dataset. No port tenancy or port-authority relationship is claimed; the company's crews hold TWIC cards and its contractors hold valid TWIC cards.",
    "url": "https://theflatratemovers.com/datasets/richmond-marine-terminal/",
    "sameAs": "https://theflatratemovers.com/datasets/richmond-marine-terminal/",
    "identifier": "https://theflatratemovers.com/datasets/richmond-marine-terminal/",
@@ -11158,7 +11158,7 @@
     "url": "https://theflatratemovers.com/"
    },
    "datePublished": "2026-11-10",
-   "dateModified": "2026-11-14",
+   "dateModified": "2026-11-15",
    "includedInDataCatalog": {
     "@type": "DataCatalog",
     "@id": "https://theflatratemovers.com/datasets/#collection",
@@ -11194,15 +11194,6 @@
     },
     {
      "@id": "https://theflatratemovers.com/#service-freight-rework-transloading"
-    },
-    {
-     "@id": "https://theflatratemovers.com/#service-industrial-commercial"
-    },
-    {
-     "@id": "https://theflatratemovers.com/#service-logistics-project-management"
-    },
-    {
-     "@id": "https://theflatratemovers.com/#service-3pl-support"
     }
    ],
    "isPartOf": {
