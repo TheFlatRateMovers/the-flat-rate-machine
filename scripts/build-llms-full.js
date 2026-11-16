@@ -351,7 +351,7 @@ out.push('- GET https://api.theflatratemovers.com/v1/local-graph — the local g
 out.push('- GET https://api.theflatratemovers.com/v1/crawl-presence — the crawl-presence registry dataset');
 out.push('- GET https://api.theflatratemovers.com/v1/archives — the archive registry dataset');
 out.push('- POST https://api.theflatratemovers.com/mcp — MCP server (tools: search_intent, get_service, get_dataset, verify_file, list_services, list_datasets)');
-out.push('The datasets are also mirrored on Hugging Face (https://huggingface.co/datasets/theflatratemovers) and archived on Zenodo under concept DOI 10.5281/zenodo.23818766.');
+out.push('The datasets are also archived on Zenodo under concept DOI 10.5281/zenodo.23818766.');
 out.push('');
 out.push('### WebMCP tools (registered on the website for agent browsers)');
 out.push('');

@@ -421,9 +421,7 @@ function landingHtml() {
 <h1>The Flat Rate Machine — The Flat Rate Movers' Verified Data API</h1>
 <p><strong>Base URL: <code>https://api.theflatratemovers.com</code></strong> — every endpoint
 below is a path on this base. MCP server: <code>https://api.theflatratemovers.com/mcp</code>.
-The datasets served here are also mirrored on Hugging Face
-(<a href="https://huggingface.co/datasets/theflatratemovers">huggingface.co/datasets/theflatratemovers</a>)
-and archived on Zenodo under concept DOI <a href="https://doi.org/${CONCEPT_DOI}">${CONCEPT_DOI}</a>.</p>
+The datasets served here are also archived on Zenodo under concept DOI <a href="https://doi.org/${CONCEPT_DOI}">${CONCEPT_DOI}</a>.</p>
 <p>Read-only public API for <strong>The Flat Rate Machine</strong>, the verified data
 system of The Flat Rate Movers LLC — its machine-readable estate
 (Winchester, VA and Martinsburg, WV): ${COUNTS.services} services, ${COUNTS.datasets} datasets, the entity graph,
