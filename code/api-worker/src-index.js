@@ -805,12 +805,25 @@ export default {
       // questions node at the same @id with the full array); the main
       // file carries a summary node instead. Both files are served
       // fetch-through (datasetRemote) like the main file before them.
+      // Second split (2026-11-16, Money Trio-6 size fix): the questions
+      // file itself is split at the byte-median row across a companion
+      // file (datasets-answer-evidence-questions-2.json, rows 40,470+,
+      // the same questions node at the same @id). The endpoint unions
+      // both parts in rubric order so it always returns the full table.
       if (table === 'questions') {
         const rawQ = await dsText('datasets-answer-evidence-questions.json');
         if (rawQ === undefined) return errorJson('dataset unavailable', 502);
         const docQ = JSON.parse(rawQ);
         const nodeQ = (docQ['@graph'] || []).find((n) => String(n['@id']).endsWith('#dataset-answer-evidence-questions'));
         if (!nodeQ) return errorJson('table not found: questions', 404);
+        if (hasDataset('datasets-answer-evidence-questions-2.json')) {
+          const rawQ2 = await dsText('datasets-answer-evidence-questions-2.json');
+          if (rawQ2 === undefined) return errorJson('dataset unavailable', 502);
+          const docQ2 = JSON.parse(rawQ2);
+          const nodeQ2 = (docQ2['@graph'] || []).find((n) => String(n['@id']).endsWith('#dataset-answer-evidence-questions'));
+          if (!nodeQ2) return errorJson('table not found: questions', 404);
+          nodeQ.questions = [...(nodeQ.questions || []), ...(nodeQ2.questions || [])];
+        }
         return jsonResponse(nodeQ);
       }
       const rawDoc = await dsText('datasets-answer-evidence.json');
