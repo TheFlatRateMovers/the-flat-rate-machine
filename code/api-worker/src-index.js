@@ -4,8 +4,10 @@
 // graph, signed master index, search-intent rows) as a versioned JSON API,
 // plus an MCP (Model Context Protocol) JSON-RPC endpoint at /mcp exposing
 // the same reads as tools. All data is public and bundled at refresh time
-// by scripts/refresh-bundle.py; dataset payloads are served byte-identical
-// to the files live at https://theflatratemovers.com/.
+// by scripts/refresh-bundle.py; embedded dataset payloads are served as
+// compact re-serializations — semantically identical JSON to the files
+// live at https://theflatratemovers.com/, whose signed bytes never change
+// (contract change 2026-11-16, Henry's ruling, trio-4 API recovery).
 //
 // Provenance: every estate file is listed in the signed master index
 // (ai-master-index.json, Ed25519, kid theflatratemovers-2026-10-29-1).
@@ -342,7 +344,7 @@ async function callTool(name, args) {
     case 'get_dataset': {
       const file = normalizeDatasetName(args.name);
       if (!file) throw new Error(`unknown dataset: ${args.name}`);
-      return await dsText(file); // raw text content, byte-identical
+      return await dsText(file); // dataset JSON text (compact re-serialization, semantically identical)
     }
     case 'search_intent': {
       const params = new URLSearchParams();
