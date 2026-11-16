@@ -5822,6 +5822,214 @@ function generate() {
     } catch (e) { /* accounting is diagnostic; generation never fails on it */ }
   }
 
+  // R47 (Money Trio-4 Full-Formula, 2026-11-16): pages 10-12 of
+  // the Tier-1 money-page sweep get the same section-6 variant
+  // coverage as R44/R45/R46 — /long-distance-moving/ (the
+  // long-distance hub), /data-center-relocation/ (the data-center
+  // hub) and /senior-moving/ (the senior hub). The pre-build family
+  // census on the sealed 04e866d6 bank (rubric.db, 2026-11-16) read
+  // the identical signature: radius 0, ZIP 0 and relation 0 on all
+  // three pages, proximity 4 / 11 / 14. CELLS are derived from
+  // machine data only (determinism law: data/service-area.geojson +
+  // data/pages.json, never rubric.db): the long-distance hub takes
+  // its complement — the places carrying the long-distance token
+  // whose branch is not winchester (the Winchester head owns its
+  // branch towns, R45; the same hub rule as R46's commercial hub) —
+  // minus the Martinsburg home cell, which carries a dedicated head
+  // page in the registry (/long-distance-movers-martinsburg-wv/;
+  // the R44 hub dedicated-page protection), for 40 cells; the
+  // data-center hub takes every place carrying the
+  // data-center-relocation token minus the four towns with
+  // dedicated data-center pages in the registry (Leesburg, the
+  // Spot-1 page, Winchester, Martinsburg and Ashburn), for 64
+  // cells; the senior hub takes every place carrying the
+  // senior-moving token (the R45 residential flagship rule; no
+  // dedicated senior place pages exist), for 80 cells. Radius
+  // buckets read the nearer branch seat's coordinates (a
+  // Martinsburg-branch cell on the long-distance hub reads the
+  // Martinsburg seat), the Territory Matrix centroid method, as in
+  // R44/R45/R46. TRUTH SCREEN: the R35 base set plus the
+  // authority-number screen (no USDOT / DOT / MC number is
+  // published; interstate authority sits with the carriers the
+  // company engages), a discount screen (no senior discount or any
+  // discount is published — the senior page states it plainly) and
+  // the ITAD screens (data destruction and certificates of
+  // destruction belong to the engaged certified ITAD partner, never
+  // to this company). Aspects stay inside the published fact set:
+  // flat rate in writing, safes and pianos long-distance under SIR,
+  // site screening and escort rules, de-rack / re-rack / power-up,
+  // 24/7 emergency availability, packing for fragile items and
+  // keepsakes, the video-walkthrough survey.
+  const R47_STATS = { cellsAttempted: 0, cellsLanded: 0, variantsAttempted: 0, variantsLanded: 0, byFamily: {}, byPage: {}, collisionExact: 0, collisionNormalized: 0, truthRefused: 0, gateExcluded: 0 };
+  const R47_SOURCE_ROWS = [];
+  {
+    const geo = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'service-area.geojson'), 'utf8'));
+    const featById = {};
+    for (const f of geo.features || []) if (f.properties && f.properties.id) featById[f.properties.id] = f;
+    const pagesDb = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'pages.json'), 'utf8'));
+    const pageSlugs = new Set((pagesDb.pages || []).map((p) => p.slug));
+    const havMi = (lat1, lon1, lat2, lon2) => {
+      const R = 3958.8, t = Math.PI / 180;
+      const dLat = (lat2 - lat1) * t, dLon = (lon2 - lon1) * t;
+      const h = Math.sin(dLat / 2) ** 2 + Math.cos(lat1 * t) * Math.cos(lat2 * t) * Math.sin(dLon / 2) ** 2;
+      return 2 * R * Math.asin(Math.sqrt(h));
+    };
+    const bucket = (mi) => (mi <= 10 ? 10 : mi <= 20 ? 20 : mi <= 35 ? 35 : mi <= 50 ? 50 : 75);
+    const seatCoords = (fid) => {
+      const f = featById[fid];
+      return (f && f.geometry && f.geometry.coordinates) ? f.geometry.coordinates : null;
+    };
+    const winSeat = seatCoords('place-winchester-va');
+    const marSeat = seatCoords('place-martinsburg-wv');
+    const R47_STATE_NAME = { VA: 'Virginia', WV: 'West Virginia', MD: 'Maryland', DC: 'Washington DC', PA: 'Pennsylvania' };
+    const R47_REFUSE_EXTRA = [
+      { re: /\b(?:usdot|dot|mc)\s*(?:#|number|no\.?)\b/i, why: 'authority-number-claim' },
+      { re: /\bdiscount\b/i, why: 'discount-claim' },
+      { re: /\bdata destruction\b/i, why: 'itad-destruction-claim' },
+      { re: /\bcertificates? of destruction\b/i, why: 'itad-certificate-claim' },
+    ];
+    const r47Refuse = (q) => R35_TRUTH_REFUSE.find((t) => t.re.test(q)) || R47_REFUSE_EXTRA.find((t) => t.re.test(q)) || null;
+    const r47Land = (svcId, intentClass, q, area, target, pattern) => {
+      const bad = r47Refuse(q);
+      if (bad) {
+        R47_STATS.truthRefused++;
+        excluded.push({ reason: 'r47-truth-' + bad.why, serviceId: svcId, queryText: q, pattern });
+        return false;
+      }
+      const nk = svcId + '|' + r30Norm(q);
+      if (r30NormSeen.has(nk)) {
+        const first = r30NormSeen.get(nk);
+        if (first === q) R47_STATS.collisionExact++; else R47_STATS.collisionNormalized++;
+        excluded.push({ reason: 'r47-collision-bank-kept', serviceId: svcId, queryText: q, pattern });
+        return false;
+      }
+      const ok = emit(svcId, intentClass, q, area, target, pattern, { source: 'money-trio4-formula' });
+      if (ok) {
+        r30NormSeen.set(nk, q);
+        R47_STATS.byPage[target] = (R47_STATS.byPage[target] || 0) + 1;
+        const landedRow = rows[rows.length - 1];
+        R47_SOURCE_ROWS.push({ q, intent: intentClass, service_id: svcId, area, target_url: landedRow.target_url, pattern });
+        return true;
+      }
+      R47_STATS.gateExcluded++;
+      excluded.push({ reason: 'r47-gate-excluded', serviceId: svcId, queryText: q, pattern });
+      return false;
+    };
+    const landV = (svcId, cls, q, area, target, family) => {
+      R47_STATS.variantsAttempted++;
+      if (r47Land(svcId, cls, q, area, target, 'R47-variant-' + family)) {
+        R47_STATS.variantsLanded++;
+        R47_STATS.byFamily[family] = (R47_STATS.byFamily[family] || 0) + 1;
+      }
+    };
+    const R47_ASPECTS = {
+      'service-long-distance': [
+        (pq) => 'do long distance movers charge a flat rate in ' + pq + '?',
+        (pq) => 'can long distance movers move a safe or piano from ' + pq + '?',
+        (pq) => 'how far in advance should i book a long distance move from ' + pq + '?',
+      ],
+      'service-data-center-relocation': [
+        (pq) => 'can data center movers pass site screening and escort rules in ' + pq + '?',
+        (pq) => 'can data center movers de-rack, re-rack and power up servers in ' + pq + '?',
+        (pq) => 'are data center movers available 24/7 for an emergency relocation in ' + pq + '?',
+      ],
+      'service-senior-moving': [
+        (pq) => 'do senior movers charge a flat rate in ' + pq + '?',
+        (pq) => 'can senior movers pack fragile items and keepsakes in ' + pq + '?',
+        (pq) => 'can a senior move be surveyed by video walkthrough in ' + pq + '?',
+      ],
+    };
+    const R47_TARGETS = [
+      { svc: 'service-long-distance', token: 'long-distance', slug: 'long-distance-moving', phrase: 'long distance movers', base: 'long distance moving', rule: 'hub-complement-dedicated', headStem: 'long-distance-movers-' },
+      { svc: 'service-data-center-relocation', token: 'data-center-relocation', slug: 'data-center-relocation', phrase: 'data center movers', base: 'data center moving', rule: 'all-dedicated', headStem: 'data-center-movers-' },
+      { svc: 'service-senior-moving', token: 'senior-moving', slug: 'senior-moving', phrase: 'senior movers', base: 'senior moving', rule: 'all' },
+    ];
+    for (const T of R47_TARGETS) {
+      const cells = [];
+      for (const f of geo.features || []) {
+        const p = f.properties || {};
+        if (!p.id || !p.id.startsWith('place-')) continue;
+        if (!(p.services || []).includes(T.token)) continue;
+        if (T.rule === 'hub-complement-dedicated') {
+          if (p.branch === 'winchester') continue;
+          const stemPage = T.headStem + p.id.replace('place-', '');
+          if (pageSlugs.has(stemPage) && stemPage !== T.slug) continue;
+        } else if (T.rule === 'all-dedicated') {
+          const stemPage = T.headStem + p.id.replace('place-', '');
+          if (pageSlugs.has(stemPage) && stemPage !== T.slug) continue;
+        }
+        cells.push(f);
+      }
+      let cellIdx = 0;
+      for (const f of cells) {
+        cellIdx++;
+        const p = f.properties;
+        const pl = String(p.name || '').replace(/,/g, '');
+        const pq = String(p.name || '');
+        const stateName = R47_STATE_NAME[p.state] || null;
+        const countyTail = String(p.county || '').split('/').pop().trim();
+        const county = /County$/.test(countyTail) ? countyTail : null;
+        const zip = p.postal_code ? String(p.postal_code) : null;
+        let radius = 25;
+        if (f.geometry && f.geometry.coordinates) {
+          const [lo, la] = f.geometry.coordinates;
+          let seats;
+          if (T.rule === 'hub-complement-dedicated' && p.branch === 'martinsburg') seats = [marSeat].filter(Boolean);
+          else seats = [winSeat, marSeat].filter(Boolean);
+          let best = null;
+          for (const s of seats) { const d = havMi(la, lo, s[1], s[0]); if (best === null || d < best) best = d; }
+          if (best !== null) radius = bucket(best);
+        }
+        const ph = T.phrase, base = T.base, area = p.id, target = T.slug;
+        // cell question forms
+        const cellForms = [
+          ['ai-question', 'who provides ' + ph + ' in ' + pq + '?'],
+          ['ai-question', R47_ASPECTS[T.svc][cellIdx % R47_ASPECTS[T.svc].length](pq)],
+        ];
+        for (const [cls, q] of cellForms) {
+          R47_STATS.cellsAttempted++;
+          if (r47Land(T.svc, cls, q, area, target, 'R47-cell')) R47_STATS.cellsLanded++;
+        }
+        // PROXIMITY
+        landV(T.svc, 'navigational-local', ph + ' near me', area, target, 'proximity');
+        landV(T.svc, 'best-choice', 'best ' + ph + ' near me', area, target, 'proximity');
+        landV(T.svc, 'navigational-local', ph + ' nearby', area, target, 'proximity');
+        landV(T.svc, 'navigational-local', ph + ' near ' + pl, area, target, 'proximity');
+        landV(T.svc, 'navigational-local', ph + ' close to ' + pl, area, target, 'proximity');
+        // LOCALITY SCALE
+        if (!ph.startsWith('local ')) landV(T.svc, 'navigational-local', 'local ' + ph + ' ' + pl, area, target, 'locality');
+        landV(T.svc, 'navigational-local', ph + ' in ' + pl, area, target, 'locality');
+        if (county) landV(T.svc, 'navigational-local', ph + ' in ' + county + ' ' + p.state, area, target, 'locality');
+        if (stateName) landV(T.svc, 'navigational-local', ph + ' in ' + stateName, area, target, 'locality');
+        landV(T.svc, 'navigational-local', ph + ' around ' + pl, area, target, 'locality');
+        landV(T.svc, 'navigational-local', 'regional ' + ph + ' ' + pl, area, target, 'locality');
+        // RADIUS
+        landV(T.svc, 'navigational-local', ph + ' within ' + radius + ' miles of ' + pl, area, target, 'radius');
+        landV(T.svc, 'navigational-local', ph + ' serving the ' + pl + ' area', area, target, 'radius');
+        // ZIP FORMS — the place's geo record postal code
+        if (zip) {
+          landV(T.svc, 'navigational-local', ph + ' ' + zip, area, target, 'zip');
+          landV(T.svc, 'navigational-local', ph + ' near ' + zip, area, target, 'zip');
+        }
+        // RELATION WORDS
+        landV(T.svc, 'navigational-local', ph + ' serving ' + pq, area, target, 'relation');
+        landV(T.svc, 'navigational-local', ph + ' covering ' + pq, area, target, 'relation');
+        landV(T.svc, 'navigational-local', ph + ' available in ' + pl, area, target, 'relation');
+        landV(T.svc, 'navigational-local', ph + ' based in ' + pl, area, target, 'relation');
+        // AI-QUESTION FORMS
+        landV(T.svc, 'ai-question', 'how do i arrange ' + base + ' in ' + pl + '?', area, target, 'ai-question');
+        landV(T.svc, 'ai-question', 'what does ' + base + ' include in ' + pl + '?', area, target, 'ai-question');
+      }
+    }
+    try {
+      fs.mkdirSync(WORK_DIR, { recursive: true });
+      fs.writeFileSync(path.join(WORK_DIR, 'r47-accounting.json'),
+        JSON.stringify({ r47: R47_STATS }, null, 2) + '\n');
+      fs.writeFileSync(path.join(WORK_DIR, 'r47-source-rows.jsonl'),
+        R47_SOURCE_ROWS.map((r) => JSON.stringify(r)).join('\n') + '\n');
+    } catch (e) { /* accounting is diagnostic; generation never fails on it */ }
+  }
+
   // Fragment-binding late lane (Element 2, 2026-11-02): panel prompts
   // Q1/Q2/Q3 emit here, after R14, through the same R10 gates. Their
   // targets are roll-up pages; emitting them inside the service loop
