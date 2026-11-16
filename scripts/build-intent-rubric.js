@@ -6030,6 +6030,199 @@ function generate() {
     } catch (e) { /* accounting is diagnostic; generation never fails on it */ }
   }
 
+  // R48 (Money Trio-5 Full-Formula, 2026-11-16): pages 13-15 of
+  // the Tier-1 money-page sweep get the same section-6 variant
+  // coverage as R44/R45/R46/R47 — /freight-rework-transloading/
+  // (W29), /warehouse-relocation/ (W26) and
+  // /logistics-project-management/ (W28), picked by fresh measure
+  // on the sealed a30e1f51 bank (70,516 rows): 1,461 / 1,459 /
+  // 1,443 rows bound — the three largest remaining Tier-1 banks,
+  // all hubs (no branch-head or town pages in these families). The
+  // pre-build family census read the identical signature: radius 0
+  // and ZIP 0 on all three pages, relation 7 / 13 / 6, proximity
+  // thin on logistics (13). CELLS are derived from machine data
+  // only (determinism law: data/service-area.geojson +
+  // data/pages.json, never rubric.db): each hub takes every place
+  // carrying its token (the R45 residential flagship / R47 senior
+  // rule — no dedicated place pages exist in the registry for any
+  // of the three families), 68 place cells per target, every cell
+  // carrying a postal code. Radius buckets read the nearer branch
+  // seat's coordinates, the Territory Matrix centroid method, as in
+  // R44-R47. TRUTH SCREEN: the R35 base set plus the R47 extras
+  // (authority-number, discount, ITAD destruction / certificate
+  // screens) plus a drayage screen (the company never offers
+  // drayage) and a transportation-management screen (the logistics
+  // service is scoped project execution only — not transportation
+  // management, brokerage or drayage, as its registry description
+  // states). Aspects stay inside the published fact set: loads
+  // refused at a receiver dock, shifted / overweight loads rebuilt
+  // and re-secured, emergency and after-hours rework, warehouse
+  // moves phased to avoid a full shutdown, load-outs and inbound
+  // unloads, one flat rate quoted in writing before work begins,
+  // survey and scope planning, warehouse load-outs and resets run
+  // as managed projects, supervised execution and closeout.
+  const R48_STATS = { cellsAttempted: 0, cellsLanded: 0, variantsAttempted: 0, variantsLanded: 0, byFamily: {}, byPage: {}, collisionExact: 0, collisionNormalized: 0, truthRefused: 0, gateExcluded: 0 };
+  const R48_SOURCE_ROWS = [];
+  {
+    const geo = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'service-area.geojson'), 'utf8'));
+    const featById = {};
+    for (const f of geo.features || []) if (f.properties && f.properties.id) featById[f.properties.id] = f;
+    const pagesDb = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'pages.json'), 'utf8'));
+    const pageSlugs = new Set((pagesDb.pages || []).map((p) => p.slug));
+    const havMi = (lat1, lon1, lat2, lon2) => {
+      const R = 3958.8, t = Math.PI / 180;
+      const dLat = (lat2 - lat1) * t, dLon = (lon2 - lon1) * t;
+      const h = Math.sin(dLat / 2) ** 2 + Math.cos(lat1 * t) * Math.cos(lat2 * t) * Math.sin(dLon / 2) ** 2;
+      return 2 * R * Math.asin(Math.sqrt(h));
+    };
+    const bucket = (mi) => (mi <= 10 ? 10 : mi <= 20 ? 20 : mi <= 35 ? 35 : mi <= 50 ? 50 : 75);
+    const seatCoords = (fid) => {
+      const f = featById[fid];
+      return (f && f.geometry && f.geometry.coordinates) ? f.geometry.coordinates : null;
+    };
+    const winSeat = seatCoords('place-winchester-va');
+    const marSeat = seatCoords('place-martinsburg-wv');
+    const R48_STATE_NAME = { VA: 'Virginia', WV: 'West Virginia', MD: 'Maryland', DC: 'Washington DC', PA: 'Pennsylvania' };
+    const R48_REFUSE_EXTRA = [
+      { re: /\b(?:usdot|dot|mc)\s*(?:#|number|no\.?)\b/i, why: 'authority-number-claim' },
+      { re: /\bdiscount\b/i, why: 'discount-claim' },
+      { re: /\bdata destruction\b/i, why: 'itad-destruction-claim' },
+      { re: /\bcertificates? of destruction\b/i, why: 'itad-certificate-claim' },
+      { re: /\bdrayage\b/i, why: 'drayage-claim' },
+      { re: /\btransportation management\b/i, why: 'transportation-management-claim' },
+    ];
+    const r48Refuse = (q) => R35_TRUTH_REFUSE.find((t) => t.re.test(q)) || R48_REFUSE_EXTRA.find((t) => t.re.test(q)) || null;
+    const r48Land = (svcId, intentClass, q, area, target, pattern) => {
+      const bad = r48Refuse(q);
+      if (bad) {
+        R48_STATS.truthRefused++;
+        excluded.push({ reason: 'r48-truth-' + bad.why, serviceId: svcId, queryText: q, pattern });
+        return false;
+      }
+      const nk = svcId + '|' + r30Norm(q);
+      if (r30NormSeen.has(nk)) {
+        const first = r30NormSeen.get(nk);
+        if (first === q) R48_STATS.collisionExact++; else R48_STATS.collisionNormalized++;
+        excluded.push({ reason: 'r48-collision-bank-kept', serviceId: svcId, queryText: q, pattern });
+        return false;
+      }
+      const ok = emit(svcId, intentClass, q, area, target, pattern, { source: 'money-trio5-formula' });
+      if (ok) {
+        r30NormSeen.set(nk, q);
+        R48_STATS.byPage[target] = (R48_STATS.byPage[target] || 0) + 1;
+        const landedRow = rows[rows.length - 1];
+        R48_SOURCE_ROWS.push({ q, intent: intentClass, service_id: svcId, area, target_url: landedRow.target_url, pattern });
+        return true;
+      }
+      R48_STATS.gateExcluded++;
+      excluded.push({ reason: 'r48-gate-excluded', serviceId: svcId, queryText: q, pattern });
+      return false;
+    };
+    const landV = (svcId, cls, q, area, target, family) => {
+      R48_STATS.variantsAttempted++;
+      if (r48Land(svcId, cls, q, area, target, 'R48-variant-' + family)) {
+        R48_STATS.variantsLanded++;
+        R48_STATS.byFamily[family] = (R48_STATS.byFamily[family] || 0) + 1;
+      }
+    };
+    const R48_ASPECTS = {
+      'service-freight-rework-transloading': [
+        (pq) => 'does freight rework cover loads refused at a receiver dock in ' + pq + '?',
+        (pq) => 'can a shifted or overweight load be rebuilt and re-secured in ' + pq + '?',
+        (pq) => 'is emergency freight rework available after hours in ' + pq + '?',
+      ],
+      'service-warehouse-relocation': [
+        (pq) => 'can a warehouse move be phased to avoid a full shutdown in ' + pq + '?',
+        (pq) => 'do warehouse relocation services include load-outs and inbound unloads in ' + pq + '?',
+        (pq) => 'is a warehouse relocation quoted at one flat rate in ' + pq + '?',
+      ],
+      'service-logistics-project-management': [
+        (pq) => 'does logistics project management include survey and scope planning in ' + pq + '?',
+        (pq) => 'can a warehouse load-out or reset be run as a managed project in ' + pq + '?',
+        (pq) => 'does logistics project management include supervised execution and closeout in ' + pq + '?',
+      ],
+    };
+    const R48_TARGETS = [
+      { svc: 'service-freight-rework-transloading', token: 'freight-rework', slug: 'freight-rework-transloading', phrase: 'freight rework', base: 'freight rework', rule: 'all' },
+      { svc: 'service-warehouse-relocation', token: 'warehouse-relocation', slug: 'warehouse-relocation', phrase: 'warehouse relocation services', base: 'warehouse relocation', rule: 'all' },
+      { svc: 'service-logistics-project-management', token: 'logistics-project-management', slug: 'logistics-project-management', phrase: 'logistics project management', base: 'logistics project management', rule: 'all' },
+    ];
+    for (const T of R48_TARGETS) {
+      const cells = [];
+      for (const f of geo.features || []) {
+        const p = f.properties || {};
+        if (!p.id || !p.id.startsWith('place-')) continue;
+        if (!(p.services || []).includes(T.token)) continue;
+        cells.push(f);
+      }
+      let cellIdx = 0;
+      for (const f of cells) {
+        cellIdx++;
+        const p = f.properties;
+        const pl = String(p.name || '').replace(/,/g, '');
+        const pq = String(p.name || '');
+        const stateName = R48_STATE_NAME[p.state] || null;
+        const countyTail = String(p.county || '').split('/').pop().trim();
+        const county = /County$/.test(countyTail) ? countyTail : null;
+        const zip = p.postal_code ? String(p.postal_code) : null;
+        let radius = 25;
+        if (f.geometry && f.geometry.coordinates) {
+          const [lo, la] = f.geometry.coordinates;
+          const seats = [winSeat, marSeat].filter(Boolean);
+          let best = null;
+          for (const s of seats) { const d = havMi(la, lo, s[1], s[0]); if (best === null || d < best) best = d; }
+          if (best !== null) radius = bucket(best);
+        }
+        const ph = T.phrase, base = T.base, area = p.id, target = T.slug;
+        // cell question forms
+        const cellForms = [
+          ['ai-question', 'who provides ' + ph + ' in ' + pq + '?'],
+          ['ai-question', R48_ASPECTS[T.svc][cellIdx % R48_ASPECTS[T.svc].length](pq)],
+        ];
+        for (const [cls, q] of cellForms) {
+          R48_STATS.cellsAttempted++;
+          if (r48Land(T.svc, cls, q, area, target, 'R48-cell')) R48_STATS.cellsLanded++;
+        }
+        // PROXIMITY
+        landV(T.svc, 'navigational-local', ph + ' near me', area, target, 'proximity');
+        landV(T.svc, 'best-choice', 'best ' + ph + ' near me', area, target, 'proximity');
+        landV(T.svc, 'navigational-local', ph + ' nearby', area, target, 'proximity');
+        landV(T.svc, 'navigational-local', ph + ' near ' + pl, area, target, 'proximity');
+        landV(T.svc, 'navigational-local', ph + ' close to ' + pl, area, target, 'proximity');
+        // LOCALITY SCALE
+        if (!ph.startsWith('local ')) landV(T.svc, 'navigational-local', 'local ' + ph + ' ' + pl, area, target, 'locality');
+        landV(T.svc, 'navigational-local', ph + ' in ' + pl, area, target, 'locality');
+        if (county) landV(T.svc, 'navigational-local', ph + ' in ' + county + ' ' + p.state, area, target, 'locality');
+        if (stateName) landV(T.svc, 'navigational-local', ph + ' in ' + stateName, area, target, 'locality');
+        landV(T.svc, 'navigational-local', ph + ' around ' + pl, area, target, 'locality');
+        landV(T.svc, 'navigational-local', 'regional ' + ph + ' ' + pl, area, target, 'locality');
+        // RADIUS
+        landV(T.svc, 'navigational-local', ph + ' within ' + radius + ' miles of ' + pl, area, target, 'radius');
+        landV(T.svc, 'navigational-local', ph + ' serving the ' + pl + ' area', area, target, 'radius');
+        // ZIP FORMS — the place's geo record postal code
+        if (zip) {
+          landV(T.svc, 'navigational-local', ph + ' ' + zip, area, target, 'zip');
+          landV(T.svc, 'navigational-local', ph + ' near ' + zip, area, target, 'zip');
+        }
+        // RELATION WORDS
+        landV(T.svc, 'navigational-local', ph + ' serving ' + pq, area, target, 'relation');
+        landV(T.svc, 'navigational-local', ph + ' covering ' + pq, area, target, 'relation');
+        landV(T.svc, 'navigational-local', ph + ' available in ' + pl, area, target, 'relation');
+        landV(T.svc, 'navigational-local', ph + ' based in ' + pl, area, target, 'relation');
+        // AI-QUESTION FORMS
+        landV(T.svc, 'ai-question', 'how do i arrange ' + base + ' in ' + pl + '?', area, target, 'ai-question');
+        landV(T.svc, 'ai-question', 'what does ' + base + ' include in ' + pl + '?', area, target, 'ai-question');
+      }
+    }
+    try {
+      fs.mkdirSync(WORK_DIR, { recursive: true });
+      fs.writeFileSync(path.join(WORK_DIR, 'r48-accounting.json'),
+        JSON.stringify({ r48: R48_STATS }, null, 2) + '\n');
+      fs.writeFileSync(path.join(WORK_DIR, 'r48-source-rows.jsonl'),
+        R48_SOURCE_ROWS.map((r) => JSON.stringify(r)).join('\n') + '\n');
+    } catch (e) { /* accounting is diagnostic; generation never fails on it */ }
+  }
+
   // Fragment-binding late lane (Element 2, 2026-11-02): panel prompts
   // Q1/Q2/Q3 emit here, after R14, through the same R10 gates. Their
   // targets are roll-up pages; emitting them inside the service loop
@@ -6651,8 +6844,13 @@ ${gateCols},
 }
 
 function checkAgainstDb(gen) {
+  // maxBuffer 256 MB (raised 2026-11-16, Money Trio-5): the full-table
+  // -json dump crossed the old 64 MB buffer at 74,096 rows (68,218,044
+  // bytes) and --check died ENOBUFS — the seal read the unreadable
+  // check as "one generation behind" and failed the phase-1 fixpoint
+  // on a healthy bank. The buffer must stay ahead of bank growth.
   const out = execFileSync('sqlite3', ['-json', DB_PATH,
-    'SELECT query_text, intent_class, service_id, area, target_url, target_json, dataset_ids, graph_node, cert_target_json_sha256, cert_dataset_digests, gate_page_in_registry, gate_target_in_signed_index, gate_datasets_in_signed_index, source, observation_ids FROM intent_query ORDER BY id;'], { maxBuffer: 64 * 1024 * 1024 }).toString();
+    'SELECT query_text, intent_class, service_id, area, target_url, target_json, dataset_ids, graph_node, cert_target_json_sha256, cert_dataset_digests, gate_page_in_registry, gate_target_in_signed_index, gate_datasets_in_signed_index, source, observation_ids FROM intent_query ORDER BY id;'], { maxBuffer: 256 * 1024 * 1024 }).toString();
   const dbRows = JSON.parse(out || '[]').map((r) => ({
     query_text: r.query_text, intent_class: r.intent_class, service_id: r.service_id, area: r.area,
     target_url: r.target_url, target_json: r.target_json,
