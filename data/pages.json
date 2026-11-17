@@ -1,17 +1,17 @@
 {
  "attestation": "Every URL below was fetched from the live sitemap on 2026-10-28; titles and service links come from pageMeta in the live site source. No URL was hand-typed.",
- "count": 340,
+ "count": 342,
  "dataset": "pages",
  "generated": "2026-10-29",
  "pages": [
   {
    "attested": "2026-11-03",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-gun-safe"
    ],
    "slug": "1475-lb-vault-door-freight-recovery-manassas-va",
-   "source": "Vault Security program case study VC-1 2026-11-03 \u2014 full-stack job story from owner-supplied job documents (supplier delivery notification 2026-09-21; carrier bill of lading, estimated delivery 2026-09-24); anonymized under the company privacy rule (no person, seller or client named); byline Henry Pitts Jr., reviewer Henry Pitts",
+   "source": "Vault Security program case study VC-1 2026-11-03 — full-stack job story from owner-supplied job documents (supplier delivery notification 2026-09-21; carrier bill of lading, estimated delivery 2026-09-24); anonymized under the company privacy rule (no person, seller or client named); byline Henry Pitts Jr., reviewer Henry Pitts",
    "status": "live",
    "title": "A 1,475 lb vault door, recovered from a freight terminal and delivered in Manassas",
    "type": "page",
@@ -19,25 +19,25 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-gun-safe"
    ],
    "slug": "1600-lb-gun-safe-moving-winchester-va-to-las-vegas-nv",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "1,600 lb Gun Safe Moving \u2014 Winchester VA to Las Vegas NV",
+   "title": "1,600 lb Gun Safe Moving — Winchester VA to Las Vegas NV",
    "type": "service",
    "url": "https://theflatratemovers.com/1600-lb-gun-safe-moving-winchester-va-to-las-vegas-nv/"
   },
   {
    "attested": "2026-10-31",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-gun-safe"
    ],
    "slug": "1650-lb-gun-safe-delivered-and-installed-moorefield-wv",
-   "source": "Blog JOB1 live batch 2026-10-31 (job story \u2014 the blog program's first; owner-supplied photographs and job facts 2026-10-31; text as drafted in the JOB1 packet, byline Henry Pitts Jr., reviewer Henry Pitts; published 2026-10-31)",
+   "source": "Blog JOB1 live batch 2026-10-31 (job story — the blog program's first; owner-supplied photographs and job facts 2026-10-31; text as drafted in the JOB1 packet, byline Henry Pitts Jr., reviewer Henry Pitts; published 2026-10-31)",
    "status": "live",
    "title": "A 1,650 lb gun safe, delivered and installed in a Moorefield basement",
    "type": "page",
@@ -45,14 +45,14 @@
   },
   {
    "attested": "2026-11-03",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-3pl-support",
     "service-industrial-commercial",
     "service-transloading"
    ],
    "slug": "3pl-support-services",
-   "source": "Ports & Intermodal Takeover Program batch P4 2026-11-03 \u2014 service #32 hub (dossier \u00a72.3): 3PL support services \u2014 support, not operator",
+   "source": "Ports & Intermodal Takeover Program batch P4 2026-11-03 — service #32 hub (dossier §2.3): 3PL support services — support, not operator",
    "status": "live",
    "title": "3PL Support Services",
    "type": "service",
@@ -60,12 +60,12 @@
   },
   {
    "attested": "2026-11-10",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-white-glove"
    ],
    "slug": "540-lb-dining-table-freight-terminal-delivery-martinsburg-wv",
-   "source": "White-Glove Wave 1 (2026-11-10) \u2014 News Formula story lane: case record wg-002 from data/white-glove-research.json (owner-supplied case register, 2026-11-05): a solid-wood double-pedestal dining table, two crated pieces, 540 lb total, collected at a freight carrier terminal in Greencastle, PA in May 2026 \u2014 visible carton damage noted on the carrier\u2019s delivery ticket at pickup, photographs sent to the brand immediately \u2014 and delivered and placed in a residence in Martinsburg, WV. City-level facts only; the brand and the customer are not named. Byline Henry Pitts Jr., reviewer Henry Pitts; image owner-photo-needed.",
+   "source": "White-Glove Wave 1 (2026-11-10) — News Formula story lane: case record wg-002 from data/white-glove-research.json (owner-supplied case register, 2026-11-05): a solid-wood double-pedestal dining table, two crated pieces, 540 lb total, collected at a freight carrier terminal in Greencastle, PA in May 2026 — visible carton damage noted on the carrier’s delivery ticket at pickup, photographs sent to the brand immediately — and delivered and placed in a residence in Martinsburg, WV. City-level facts only; the brand and the customer are not named. Byline Henry Pitts Jr., reviewer Henry Pitts; image owner-photo-needed.",
    "status": "live",
    "title": "A 540 lb dining table, picked up at a freight terminal in Greencastle and placed in a Martinsburg home",
    "type": "page",
@@ -73,18 +73,18 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "ai-license",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "AI License \u2014 Use of Published Data",
+   "title": "AI License — Use of Published Data",
    "type": "page",
    "url": "https://theflatratemovers.com/ai-license/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "all-pages",
    "source": "live sitemap.xml + pageMeta in live site source",
@@ -95,7 +95,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "areas-served",
    "source": "live sitemap.xml + pageMeta in live site source",
@@ -106,40 +106,40 @@
   },
   {
    "attested": "2026-11-02",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "author/henry-pitts-jr",
-   "source": "News Formula batch 2026-11-02 (Google News dossier gate N-4): author profile page for Henry Pitts Jr., owner and byline of the estate\u2019s articles",
+   "source": "News Formula batch 2026-11-02 (Google News dossier gate N-4): author profile page for Henry Pitts Jr., owner and byline of the estate’s articles",
    "status": "live",
-   "title": "Henry Pitts Jr. \u2014 Author",
+   "title": "Henry Pitts Jr. — Author",
    "type": "page",
    "url": "https://theflatratemovers.com/author/henry-pitts-jr/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "author/ratemoversgmail-com",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Author \u2014 The Flat Rate Movers",
+   "title": "Author — The Flat Rate Movers",
    "type": "page",
    "url": "https://theflatratemovers.com/author/ratemoversgmail-com/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "blog",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Blog \u2014 Articles & Guides",
+   "title": "Blog — Articles & Guides",
    "type": "page",
    "url": "https://theflatratemovers.com/blog/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-sir-heavy"
    ],
@@ -152,70 +152,70 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-gun-safe"
    ],
    "slug": "case-study-3500lb-safe-moving-winchester-va",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Case Study \u2014 3,500 lb Safe Moving, Winchester VA",
+   "title": "Case Study — 3,500 lb Safe Moving, Winchester VA",
    "type": "service",
    "url": "https://theflatratemovers.com/case-study-3500lb-safe-moving-winchester-va/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-transloading"
    ],
    "slug": "category/freight-services",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Category \u2014 Freight Services",
+   "title": "Category — Freight Services",
    "type": "service",
    "url": "https://theflatratemovers.com/category/freight-services/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "category/logistics",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Category \u2014 Logistics",
+   "title": "Category — Logistics",
    "type": "page",
    "url": "https://theflatratemovers.com/category/logistics/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-long-distance"
    ],
    "slug": "category/long-distance-moving",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Category \u2014 Long-Distance Moving",
+   "title": "Category — Long-Distance Moving",
    "type": "service",
    "url": "https://theflatratemovers.com/category/long-distance-moving/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-ispm15"
    ],
    "slug": "category/maritime-shipping",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Category \u2014 Maritime Shipping",
+   "title": "Category — Maritime Shipping",
    "type": "service",
    "url": "https://theflatratemovers.com/category/maritime-shipping/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-government",
     "service-military"
@@ -223,233 +223,233 @@
    "slug": "category/military-government-moving",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Category \u2014 Military & Government Moving",
+   "title": "Category — Military & Government Moving",
    "type": "service",
    "url": "https://theflatratemovers.com/category/military-government-moving/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-commercial"
    ],
    "slug": "category/office-commercial-moving",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Category \u2014 Office & Commercial Moving",
+   "title": "Category — Office & Commercial Moving",
    "type": "service",
    "url": "https://theflatratemovers.com/category/office-commercial-moving/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-transloading"
    ],
    "slug": "category/port-logistics",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Category \u2014 Port Logistics",
+   "title": "Category — Port Logistics",
    "type": "service",
    "url": "https://theflatratemovers.com/category/port-logistics/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-sir-heavy"
    ],
    "slug": "category/rigging-sir-2026",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Category \u2014 Rigging & SIR 2026",
+   "title": "Category — Rigging & SIR 2026",
    "type": "service",
    "url": "https://theflatratemovers.com/category/rigging-sir-2026/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-sir-heavy"
    ],
    "slug": "category/rigging-sir-2026/high-value-rigging",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Category \u2014 High-Value Rigging",
+   "title": "Category — High-Value Rigging",
    "type": "service",
    "url": "https://theflatratemovers.com/category/rigging-sir-2026/high-value-rigging/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "category/shenandoah-valley-logistics",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Category \u2014 Shenandoah Valley Logistics",
+   "title": "Category — Shenandoah Valley Logistics",
    "type": "page",
    "url": "https://theflatratemovers.com/category/shenandoah-valley-logistics/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-gun-safe"
    ],
    "slug": "category/vault-moving",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Category \u2014 Vault Moving",
+   "title": "Category — Vault Moving",
    "type": "service",
    "url": "https://theflatratemovers.com/category/vault-moving/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "category/winchester-va",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Category \u2014 Winchester VA",
+   "title": "Category — Winchester VA",
    "type": "page",
    "url": "https://theflatratemovers.com/category/winchester-va/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-residential"
    ],
    "slug": "category/winchester-va/residential-logistics",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Category \u2014 Residential Logistics",
+   "title": "Category — Residential Logistics",
    "type": "service",
    "url": "https://theflatratemovers.com/category/winchester-va/residential-logistics/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "category/winchester-va/residential-logistics/relocation-services",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Category \u2014 Relocation Services",
+   "title": "Category — Relocation Services",
    "type": "page",
    "url": "https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-residential"
    ],
    "slug": "category/winchester-va/residential-logistics/relocation-services/moving",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Category \u2014 Moving (Relocation Services)",
+   "title": "Category — Moving (Relocation Services)",
    "type": "service",
    "url": "https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/moving/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-residential"
    ],
    "slug": "category/winchester-va/residential-logistics/relocation-services/moving/eastern-panhandle-moving",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Category \u2014 Eastern Panhandle Moving",
+   "title": "Category — Eastern Panhandle Moving",
    "type": "service",
    "url": "https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/moving/eastern-panhandle-moving/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-packing"
    ],
    "slug": "category/winchester-va/residential-logistics/relocation-services/moving/estate-relocation",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Category \u2014 Estate Relocation",
+   "title": "Category — Estate Relocation",
    "type": "service",
    "url": "https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/moving/estate-relocation/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-long-distance"
    ],
    "slug": "category/winchester-va/residential-logistics/relocation-services/moving/long-distance",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Category \u2014 Long-Distance (Winchester VA)",
+   "title": "Category — Long-Distance (Winchester VA)",
    "type": "service",
    "url": "https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/moving/long-distance/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-piano-antique"
    ],
    "slug": "category/winchester-va/residential-logistics/relocation-services/moving/museum-logistics",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Category \u2014 Museum Logistics",
+   "title": "Category — Museum Logistics",
    "type": "service",
    "url": "https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/moving/museum-logistics/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-transloading"
    ],
    "slug": "category/winchester-va/residential-logistics/relocation-services/moving/museum-logistics/logistics-transportation",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Category \u2014 Logistics Transportation",
+   "title": "Category — Logistics Transportation",
    "type": "service",
    "url": "https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/moving/museum-logistics/logistics-transportation/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-packing"
    ],
    "slug": "category/winchester-va/residential-logistics/relocation-services/paper-padding",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Category \u2014 Paper & Padding (Packing Materials)",
+   "title": "Category — Paper & Padding (Packing Materials)",
    "type": "service",
    "url": "https://theflatratemovers.com/category/winchester-va/residential-logistics/relocation-services/paper-padding/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-residential"
    ],
    "slug": "category/winchester-va/top-rated-movers-winchester-va",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Category \u2014 Movers in Winchester VA",
+   "title": "Category — Movers in Winchester VA",
    "type": "service",
    "url": "https://theflatratemovers.com/category/winchester-va/top-rated-movers-winchester-va/"
   },
   {
    "attested": "2026-11-05",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-medical-lab-relocation"
    ],
    "slug": "centrifuge-and-analyzer-moving",
-   "source": "B2B Specialty B2B-2 2026-11-05 \u2014 Centrifuge & Analyzer Moving",
+   "source": "B2B Specialty B2B-2 2026-11-05 — Centrifuge & Analyzer Moving",
    "status": "live",
    "title": "Centrifuge & Analyzer Moving",
    "type": "service",
@@ -457,12 +457,12 @@
   },
   {
    "attested": "2026-11-05",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-medical-lab-relocation"
    ],
    "slug": "cleanroom-relocation",
-   "source": "B2B Specialty B2B-2 2026-11-05 \u2014 Cleanroom Relocation",
+   "source": "B2B Specialty B2B-2 2026-11-05 — Cleanroom Relocation",
    "status": "live",
    "title": "Cleanroom Relocation",
    "type": "service",
@@ -470,7 +470,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-transloading",
     "service-final-mile"
@@ -484,7 +484,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-transloading",
     "service-final-mile",
@@ -499,20 +499,20 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-commercial"
    ],
    "slug": "commercial-movers-winchester-va",
    "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
    "status": "live",
-   "title": "Commercial and Office Movers \u2014 Winchester VA",
+   "title": "Commercial and Office Movers — Winchester VA",
    "type": "service",
    "url": "https://theflatratemovers.com/commercial-movers-winchester-va/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-commercial"
    ],
@@ -525,7 +525,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-office-moving"
    ],
@@ -538,46 +538,46 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-transloading"
    ],
    "slug": "container-deconsolidation-cross-docking-transloading-services-virginia",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Container Deconsolidation, Cross-Docking & Transloading \u2014 Virginia",
+   "title": "Container Deconsolidation, Cross-Docking & Transloading — Virginia",
    "type": "service",
    "url": "https://theflatratemovers.com/container-deconsolidation-cross-docking-transloading-services-virginia/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-transloading"
    ],
    "slug": "container-deconsolidation-services-virginia-mid-atlantic",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Container Deconsolidation Services \u2014 Virginia & Mid-Atlantic",
+   "title": "Container Deconsolidation Services — Virginia & Mid-Atlantic",
    "type": "service",
    "url": "https://theflatratemovers.com/container-deconsolidation-services-virginia-mid-atlantic/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-transloading"
    ],
    "slug": "container-loading-unloading-services-port-transload-virginia",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Container Loading & Unloading \u2014 Port Transload, Virginia",
+   "title": "Container Loading & Unloading — Port Transload, Virginia",
    "type": "service",
    "url": "https://theflatratemovers.com/container-loading-unloading-services-port-transload-virginia/"
   },
   {
    "attested": "2026-11-14",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-transloading",
     "service-freight-rework-transloading",
@@ -585,15 +585,15 @@
     "service-industrial-commercial"
    ],
    "slug": "container-unloading-labor-baltimore-md",
-   "source": "Ports \u00d7 3PL Takeover Wave 1 2026-11-14 \u2014 Container Unloading Labor \u2014 Baltimore MD (dedicated port-labor page owning the Baltimore MD container-labor money intent; R40 binding)",
+   "source": "Ports × 3PL Takeover Wave 1 2026-11-14 — Container Unloading Labor — Baltimore MD (dedicated port-labor page owning the Baltimore MD container-labor money intent; R40 binding)",
    "status": "live",
-   "title": "Container Unloading Labor \u2014 Baltimore MD",
+   "title": "Container Unloading Labor — Baltimore MD",
    "type": "service",
    "url": "https://theflatratemovers.com/container-unloading-labor-baltimore-md/"
   },
   {
    "attested": "2026-11-14",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-transloading",
     "service-freight-rework-transloading",
@@ -601,15 +601,15 @@
     "service-industrial-commercial"
    ],
    "slug": "container-unloading-labor-front-royal-va",
-   "source": "Ports \u00d7 3PL Takeover Wave 1 2026-11-14 \u2014 Container Unloading Labor \u2014 Front Royal VA (dedicated port-labor page owning the Front Royal VA container-labor money intent; R40 binding)",
+   "source": "Ports × 3PL Takeover Wave 1 2026-11-14 — Container Unloading Labor — Front Royal VA (dedicated port-labor page owning the Front Royal VA container-labor money intent; R40 binding)",
    "status": "live",
-   "title": "Container Unloading Labor \u2014 Front Royal VA",
+   "title": "Container Unloading Labor — Front Royal VA",
    "type": "service",
    "url": "https://theflatratemovers.com/container-unloading-labor-front-royal-va/"
   },
   {
    "attested": "2026-11-14",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-transloading",
     "service-freight-rework-transloading",
@@ -617,15 +617,15 @@
     "service-industrial-commercial"
    ],
    "slug": "container-unloading-labor-huntington-wv",
-   "source": "Ports \u00d7 3PL Takeover Wave 1 2026-11-14 \u2014 Container Unloading Labor \u2014 Huntington WV (dedicated port-labor page owning the Huntington WV container-labor money intent; R40 binding)",
+   "source": "Ports × 3PL Takeover Wave 1 2026-11-14 — Container Unloading Labor — Huntington WV (dedicated port-labor page owning the Huntington WV container-labor money intent; R40 binding)",
    "status": "live",
-   "title": "Container Unloading Labor \u2014 Huntington WV",
+   "title": "Container Unloading Labor — Huntington WV",
    "type": "service",
    "url": "https://theflatratemovers.com/container-unloading-labor-huntington-wv/"
   },
   {
    "attested": "2026-11-14",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-transloading",
     "service-freight-rework-transloading",
@@ -633,15 +633,15 @@
     "service-industrial-commercial"
    ],
    "slug": "container-unloading-labor-newark-nj",
-   "source": "Ports \u00d7 3PL Takeover Wave 1 2026-11-14 \u2014 Container Unloading Labor \u2014 Newark NJ (dedicated port-labor page owning the Newark NJ container-labor money intent; R40 binding)",
+   "source": "Ports × 3PL Takeover Wave 1 2026-11-14 — Container Unloading Labor — Newark NJ (dedicated port-labor page owning the Newark NJ container-labor money intent; R40 binding)",
    "status": "live",
-   "title": "Container Unloading Labor \u2014 Newark NJ",
+   "title": "Container Unloading Labor — Newark NJ",
    "type": "service",
    "url": "https://theflatratemovers.com/container-unloading-labor-newark-nj/"
   },
   {
    "attested": "2026-11-14",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-transloading",
     "service-freight-rework-transloading",
@@ -649,15 +649,15 @@
     "service-industrial-commercial"
    ],
    "slug": "container-unloading-labor-norfolk-va",
-   "source": "Ports \u00d7 3PL Takeover Wave 1 2026-11-14 \u2014 Container Unloading Labor \u2014 Norfolk VA (dedicated port-labor page owning the Norfolk VA container-labor money intent; R40 binding)",
+   "source": "Ports × 3PL Takeover Wave 1 2026-11-14 — Container Unloading Labor — Norfolk VA (dedicated port-labor page owning the Norfolk VA container-labor money intent; R40 binding)",
    "status": "live",
-   "title": "Container Unloading Labor \u2014 Norfolk VA",
+   "title": "Container Unloading Labor — Norfolk VA",
    "type": "service",
    "url": "https://theflatratemovers.com/container-unloading-labor-norfolk-va/"
   },
   {
    "attested": "2026-11-14",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-transloading",
     "service-freight-rework-transloading",
@@ -665,15 +665,15 @@
     "service-industrial-commercial"
    ],
    "slug": "container-unloading-labor-philadelphia-pa",
-   "source": "Ports \u00d7 3PL Takeover Wave 1 2026-11-14 \u2014 Container Unloading Labor \u2014 Philadelphia PA (dedicated port-labor page owning the Philadelphia PA container-labor money intent; R40 binding)",
+   "source": "Ports × 3PL Takeover Wave 1 2026-11-14 — Container Unloading Labor — Philadelphia PA (dedicated port-labor page owning the Philadelphia PA container-labor money intent; R40 binding)",
    "status": "live",
-   "title": "Container Unloading Labor \u2014 Philadelphia PA",
+   "title": "Container Unloading Labor — Philadelphia PA",
    "type": "service",
    "url": "https://theflatratemovers.com/container-unloading-labor-philadelphia-pa/"
   },
   {
    "attested": "2026-11-14",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-transloading",
     "service-freight-rework-transloading",
@@ -681,15 +681,15 @@
     "service-industrial-commercial"
    ],
    "slug": "container-unloading-labor-richmond-va",
-   "source": "Ports \u00d7 3PL Takeover Wave 1 2026-11-14 \u2014 Container Unloading Labor \u2014 Richmond VA (dedicated port-labor page owning the Richmond VA container-labor money intent; R40 binding)",
+   "source": "Ports × 3PL Takeover Wave 1 2026-11-14 — Container Unloading Labor — Richmond VA (dedicated port-labor page owning the Richmond VA container-labor money intent; R40 binding)",
    "status": "live",
-   "title": "Container Unloading Labor \u2014 Richmond VA",
+   "title": "Container Unloading Labor — Richmond VA",
    "type": "service",
    "url": "https://theflatratemovers.com/container-unloading-labor-richmond-va/"
   },
   {
    "attested": "2026-11-14",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-transloading",
     "service-freight-rework-transloading",
@@ -697,34 +697,34 @@
     "service-industrial-commercial"
    ],
    "slug": "container-unloading-labor-wilmington-de",
-   "source": "Ports \u00d7 3PL Takeover Wave 1 2026-11-14 \u2014 Container Unloading Labor \u2014 Wilmington DE (dedicated port-labor page owning the Wilmington DE container-labor money intent; R40 binding)",
+   "source": "Ports × 3PL Takeover Wave 1 2026-11-14 — Container Unloading Labor — Wilmington DE (dedicated port-labor page owning the Wilmington DE container-labor money intent; R40 binding)",
    "status": "live",
-   "title": "Container Unloading Labor \u2014 Wilmington DE",
+   "title": "Container Unloading Labor — Wilmington DE",
    "type": "service",
    "url": "https://theflatratemovers.com/container-unloading-labor-wilmington-de/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-crating"
    ],
    "slug": "crating-movers-martinsburg-wv",
    "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
    "status": "live",
-   "title": "Custom Crating \u2014 Martinsburg WV",
+   "title": "Custom Crating — Martinsburg WV",
    "type": "service",
    "url": "https://theflatratemovers.com/crating-movers-martinsburg-wv/"
   },
   {
    "attested": "2026-11-03",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-transloading",
     "service-freight-rework-transloading"
    ],
    "slug": "cross-docking-services",
-   "source": "Ports & Intermodal Takeover Program batch P4 2026-11-03 \u2014 cross-docking hub riding the Transloading registration (dossier \u00a72.3); no own dataset file \u2014 rides the master ports dataset XD column",
+   "source": "Ports & Intermodal Takeover Program batch P4 2026-11-03 — cross-docking hub riding the Transloading registration (dossier §2.3); no own dataset file — rides the master ports dataset XD column",
    "status": "live",
    "title": "Cross-Docking Services",
    "type": "service",
@@ -732,7 +732,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-final-mile",
     "service-white-glove"
@@ -746,25 +746,25 @@
   },
   {
    "attested": "2026-11-02",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-crating"
    ],
    "slug": "custom-crating",
    "source": "Head-Hub Programme batch 2026-11-02 (owner finding 2026-11-02: /transloading/ 404; parent audit: 10 services without a dedicated head hub) + AIO transloading-gap diagnostic F5",
    "status": "live",
-   "title": "Custom Crating \u2014 Winchester VA & Martinsburg WV",
+   "title": "Custom Crating — Winchester VA & Martinsburg WV",
    "type": "service",
    "url": "https://theflatratemovers.com/custom-crating/"
   },
   {
    "attested": "2026-11-05",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-data-center-relocation"
    ],
    "slug": "data-center-decommissioning",
-   "source": "B2B Specialty B2B-2 2026-11-05 \u2014 Data Center Decommissioning",
+   "source": "B2B Specialty B2B-2 2026-11-05 — Data Center Decommissioning",
    "status": "live",
    "title": "Data Center Decommissioning",
    "type": "service",
@@ -772,61 +772,61 @@
   },
   {
    "attested": "2026-11-13",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-data-center-relocation",
     "service-it-relocation"
    ],
    "slug": "data-center-movers-ashburn-va",
-   "source": "Money Spot 1 Category Takeover 2026-11-13 \u2014 Data Center Movers \u2014 Ashburn VA (place page owning the Ashburn money intent; Wave 1 money cells, R36 binding)",
+   "source": "Money Spot 1 Category Takeover 2026-11-13 — Data Center Movers — Ashburn VA (place page owning the Ashburn money intent; Wave 1 money cells, R36 binding)",
    "status": "live",
-   "title": "Data Center Movers \u2014 Ashburn VA",
+   "title": "Data Center Movers — Ashburn VA",
    "type": "service",
    "url": "https://theflatratemovers.com/data-center-movers-ashburn-va/"
   },
   {
    "attested": "2026-11-13",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-data-center-relocation",
     "service-it-relocation"
    ],
    "slug": "data-center-movers-leesburg-va",
-   "source": "Money Spot 1 Category Takeover 2026-11-13 \u2014 Data Center Movers \u2014 Leesburg VA (place page owning the Leesburg money intent; Wave 1 money cells, R36 binding)",
+   "source": "Money Spot 1 Category Takeover 2026-11-13 — Data Center Movers — Leesburg VA (place page owning the Leesburg money intent; Wave 1 money cells, R36 binding)",
    "status": "live",
-   "title": "Data Center Movers \u2014 Leesburg VA",
+   "title": "Data Center Movers — Leesburg VA",
    "type": "service",
    "url": "https://theflatratemovers.com/data-center-movers-leesburg-va/"
   },
   {
    "attested": "2026-11-05",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-data-center-relocation"
    ],
    "slug": "data-center-movers-martinsburg-wv",
-   "source": "B2B Specialty B2B-2 2026-11-05 \u2014 Data Center Movers \u2014 Martinsburg WV",
+   "source": "B2B Specialty B2B-2 2026-11-05 — Data Center Movers — Martinsburg WV",
    "status": "live",
-   "title": "Data Center Movers \u2014 Martinsburg WV",
+   "title": "Data Center Movers — Martinsburg WV",
    "type": "service",
    "url": "https://theflatratemovers.com/data-center-movers-martinsburg-wv/"
   },
   {
    "attested": "2026-11-05",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-data-center-relocation"
    ],
    "slug": "data-center-movers-winchester-va",
-   "source": "B2B Specialty B2B-2 2026-11-05 \u2014 Data Center Movers \u2014 Winchester VA",
+   "source": "B2B Specialty B2B-2 2026-11-05 — Data Center Movers — Winchester VA",
    "status": "live",
-   "title": "Data Center Movers \u2014 Winchester VA",
+   "title": "Data Center Movers — Winchester VA",
    "type": "service",
    "url": "https://theflatratemovers.com/data-center-movers-winchester-va/"
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-data-center-relocation"
    ],
@@ -839,7 +839,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -850,7 +850,7 @@
   },
   {
    "attested": "2026-10-31",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/answer-evidence",
    "source": "Retrieval Machine build B2 2026-10-31 (Dossier 02 answer-engine evidence dataset design; generator scripts/build-answer-evidence.js)",
@@ -861,7 +861,7 @@
   },
   {
    "attested": "2026-11-01",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/archive-registry",
    "source": "Retrieval Machine build E6-B1 2026-11-01 (Dossier 06 archives registry design; generator scripts/build-archive-registry.js)",
@@ -872,10 +872,10 @@
   },
   {
    "attested": "2026-11-05",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/b2b-specialty-rubric",
-   "source": "B2B Specialty build 2026-11-05 (frontier C2; rubric core 2026-11-04) \u2014 dataset landing for datasets-b2b-specialty-rubric.json",
+   "source": "B2B Specialty build 2026-11-05 (frontier C2; rubric core 2026-11-04) — dataset landing for datasets-b2b-specialty-rubric.json",
    "status": "live",
    "title": "B2B Specialty Moving Rubric",
    "type": "page",
@@ -883,10 +883,10 @@
   },
   {
    "attested": "2026-11-12",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/berkeley-springs-wv",
-   "source": "Town Datasets batch 2026-11-12 \u2014 dataset landing for datasets-berkeley-springs-wv.json",
+   "source": "Town Datasets batch 2026-11-12 — dataset landing for datasets-berkeley-springs-wv.json",
    "status": "live",
    "title": "Berkeley Springs, WV Moving Datasets",
    "type": "page",
@@ -894,10 +894,10 @@
   },
   {
    "attested": "2026-11-12",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/berryville-va",
-   "source": "Town Datasets batch 2026-11-12 \u2014 dataset landing for datasets-berryville-va.json",
+   "source": "Town Datasets batch 2026-11-12 — dataset landing for datasets-berryville-va.json",
    "status": "live",
    "title": "Berryville, VA Moving Datasets",
    "type": "page",
@@ -905,10 +905,10 @@
   },
   {
    "attested": "2026-11-03",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/catalog-registry",
-   "source": "Catalog registry batch 2026-11-03 (Dossier 04 \u00a75 catalog registry design; generator scripts/build-catalog-registry.js)",
+   "source": "Catalog registry batch 2026-11-03 (Dossier 04 §5 catalog registry design; generator scripts/build-catalog-registry.js)",
    "status": "live",
    "title": "Catalog Registry Dataset",
    "type": "page",
@@ -916,10 +916,10 @@
   },
   {
    "attested": "2026-11-12",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/charles-town-wv",
-   "source": "Town Datasets batch 2026-11-12 \u2014 dataset landing for datasets-charles-town-wv.json",
+   "source": "Town Datasets batch 2026-11-12 — dataset landing for datasets-charles-town-wv.json",
    "status": "live",
    "title": "Charles Town, WV Moving Datasets",
    "type": "page",
@@ -927,7 +927,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/commercial",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -938,18 +938,18 @@
   },
   {
    "attested": "2026-11-09",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/coverage",
-   "source": "Territory Matrix P4 live batch 2026-11-09 \u2014 dataset landing for datasets-coverage.json",
+   "source": "Territory Matrix P4 live batch 2026-11-09 — dataset landing for datasets-coverage.json",
    "status": "live",
-   "title": "Territory Matrix \u2014 Service Coverage by Place",
+   "title": "Territory Matrix — Service Coverage by Place",
    "type": "page",
    "url": "https://theflatratemovers.com/datasets/coverage/"
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/crating",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -960,7 +960,7 @@
   },
   {
    "attested": "2026-10-31",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/crawl-presence",
    "source": "Retrieval Machine build E5-B1 2026-10-31 (Dossier 05 corpora registry design; generator scripts/build-crawl-presence.js)",
@@ -971,7 +971,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/data-center-relocation",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -982,7 +982,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/ffe-logistics",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -993,7 +993,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/final-mile",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1004,10 +1004,10 @@
   },
   {
    "attested": "2026-11-01",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/freight-rework",
-   "source": "Freight Rework & Transloading category batch 2026-11-01 \u2014 dataset landing for datasets-freight-rework.json",
+   "source": "Freight Rework & Transloading category batch 2026-11-01 — dataset landing for datasets-freight-rework.json",
    "status": "live",
    "title": "Freight Rework Datasets",
    "type": "page",
@@ -1015,10 +1015,10 @@
   },
   {
    "attested": "2026-11-12",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/front-royal-va",
-   "source": "Town Datasets batch 2026-11-12 \u2014 dataset landing for datasets-front-royal-va.json",
+   "source": "Town Datasets batch 2026-11-12 — dataset landing for datasets-front-royal-va.json",
    "status": "live",
    "title": "Front Royal, VA Moving Datasets",
    "type": "page",
@@ -1026,7 +1026,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/government",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1037,7 +1037,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/gun-safe",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1048,10 +1048,10 @@
   },
   {
    "attested": "2026-11-05",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/hoarding-cleanup",
-   "source": "Hoarding Cleanout category takeover 2026-11-05 \u2014 dataset landing for datasets-hoarding-cleanup.json",
+   "source": "Hoarding Cleanout category takeover 2026-11-05 — dataset landing for datasets-hoarding-cleanup.json",
    "status": "live",
    "title": "Hoarding Cleanup Dataset",
    "type": "page",
@@ -1059,7 +1059,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/industrial-commercial",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1070,7 +1070,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/industrial-offices",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1081,7 +1081,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/intent-coverage",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1092,10 +1092,10 @@
   },
   {
    "attested": "2026-11-12",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/inwood-wv",
-   "source": "Town Datasets batch 2026-11-12 \u2014 dataset landing for datasets-inwood-wv.json",
+   "source": "Town Datasets batch 2026-11-12 — dataset landing for datasets-inwood-wv.json",
    "status": "live",
    "title": "Inwood, WV Moving Datasets",
    "type": "page",
@@ -1103,7 +1103,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/ispm15",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1114,7 +1114,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/it",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1125,7 +1125,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/junk-removal",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1136,7 +1136,7 @@
   },
   {
    "attested": "2026-10-31",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/local-graph-registry",
    "source": "Retrieval Machine build B3 2026-10-31 (Dossier 03 local-business graph dataset design; generator scripts/build-local-graph.js)",
@@ -1147,7 +1147,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/local-regional",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1158,10 +1158,10 @@
   },
   {
    "attested": "2026-11-16",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/logistics-project-management",
-   "source": "Money Trio-6 scope addition 2026-11-16 \u2014 dataset landing for datasets-logistics-project-management.json",
+   "source": "Money Trio-6 scope addition 2026-11-16 — dataset landing for datasets-logistics-project-management.json",
    "status": "live",
    "title": "Logistics Project Management Dataset",
    "type": "page",
@@ -1169,7 +1169,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/long-distance",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1180,7 +1180,7 @@
   },
   {
    "attested": "2026-11-07",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-white-glove",
     "service-long-distance",
@@ -1189,7 +1189,7 @@
     "service-crating"
    ],
    "slug": "datasets/luxury-estate-relocation",
-   "source": "WV Luxury Estate Program 2026-11-07 \u2014 dataset landing for datasets-luxury-estate-relocation.json",
+   "source": "WV Luxury Estate Program 2026-11-07 — dataset landing for datasets-luxury-estate-relocation.json",
    "status": "live",
    "title": "Luxury Estate Relocation Datasets",
    "type": "page",
@@ -1197,10 +1197,10 @@
   },
   {
    "attested": "2026-11-12",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/martinsburg-wv",
-   "source": "Town Datasets batch 2026-11-12 \u2014 dataset landing for datasets-martinsburg-wv.json",
+   "source": "Town Datasets batch 2026-11-12 — dataset landing for datasets-martinsburg-wv.json",
    "status": "live",
    "title": "Martinsburg, WV Moving Datasets",
    "type": "page",
@@ -1208,7 +1208,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/medical-lab-relocation",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1219,7 +1219,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/military",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1230,7 +1230,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/moving-and-storage",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1241,10 +1241,10 @@
   },
   {
    "attested": "2026-11-12",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/new-market-va",
-   "source": "Town Datasets batch 2026-11-12 \u2014 dataset landing for datasets-new-market-va.json",
+   "source": "Town Datasets batch 2026-11-12 — dataset landing for datasets-new-market-va.json",
    "status": "live",
    "title": "New Market, VA Moving Datasets",
    "type": "page",
@@ -1252,7 +1252,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/ocean-container",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1263,7 +1263,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/office",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1274,10 +1274,10 @@
   },
   {
    "attested": "2026-11-14",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/office-decommissioning",
-   "source": "Office Decommissioning & Liquidation Takeover 2026-11-14 \u2014 dataset landing for datasets-office-decommissioning.json",
+   "source": "Office Decommissioning & Liquidation Takeover 2026-11-14 — dataset landing for datasets-office-decommissioning.json",
    "status": "live",
    "title": "Office Decommissioning & Liquidation Dataset",
    "type": "page",
@@ -1285,7 +1285,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/packing",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1296,10 +1296,10 @@
   },
   {
    "attested": "2026-11-03",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/page-data-pool",
-   "source": "Page Data Pool batch 2026-11-03: the master pool database as a first-class dataset citizen \u2014 Layer 1 estate data (rubric, registries, matrices, standards, footprint, corpus) + Layer 2 researched domain layer; the generator source for every page's Page Data slice at the rollout.",
+   "source": "Page Data Pool batch 2026-11-03: the master pool database as a first-class dataset citizen — Layer 1 estate data (rubric, registries, matrices, standards, footprint, corpus) + Layer 2 researched domain layer; the generator source for every page's Page Data slice at the rollout.",
    "status": "live",
    "title": "Page Data Pool Datasets",
    "type": "page",
@@ -1307,10 +1307,10 @@
   },
   {
    "attested": "2026-11-10",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/philaport",
-   "source": "Ports Completion 2026-11-10 \u2014 per-port dataset landing (Ports & Intermodal program completion)",
+   "source": "Ports Completion 2026-11-10 — per-port dataset landing (Ports & Intermodal program completion)",
    "status": "live",
    "title": "PhilaPort Logistics Dataset",
    "type": "page",
@@ -1318,7 +1318,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/piano-antique",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1329,10 +1329,10 @@
   },
   {
    "attested": "2026-11-10",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/port-of-baltimore",
-   "source": "Ports Completion 2026-11-10 \u2014 per-port dataset landing (Ports & Intermodal program completion)",
+   "source": "Ports Completion 2026-11-10 — per-port dataset landing (Ports & Intermodal program completion)",
    "status": "live",
    "title": "Port of Baltimore Logistics Dataset",
    "type": "page",
@@ -1340,10 +1340,10 @@
   },
   {
    "attested": "2026-11-07",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/port-of-huntington",
-   "source": "WV-2 2026-11-07 \u2014 per-port dataset landing for the Port of Huntington Tri-State",
+   "source": "WV-2 2026-11-07 — per-port dataset landing for the Port of Huntington Tri-State",
    "status": "live",
    "title": "Port of Huntington Tri-State Logistics Dataset",
    "type": "page",
@@ -1351,10 +1351,10 @@
   },
   {
    "attested": "2026-11-10",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/port-of-new-york-new-jersey",
-   "source": "Port #8 2026-11-10 \u2014 per-port dataset landing for the Port of New York and New Jersey",
+   "source": "Port #8 2026-11-10 — per-port dataset landing for the Port of New York and New Jersey",
    "status": "live",
    "title": "Port of New York and New Jersey Logistics Dataset",
    "type": "page",
@@ -1362,10 +1362,10 @@
   },
   {
    "attested": "2026-11-03",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/port-of-virginia",
-   "source": "Ports & Intermodal Takeover Program batch P3 2026-11-03 \u2014 dataset landing for datasets-port-of-virginia.json (per-port dataset: Norfolk Harbor terminals + Richmond Marine Terminal covered facility, 16-cell coverage matrix, Winchester binding)",
+   "source": "Ports & Intermodal Takeover Program batch P3 2026-11-03 — dataset landing for datasets-port-of-virginia.json (per-port dataset: Norfolk Harbor terminals + Richmond Marine Terminal covered facility, 16-cell coverage matrix, Winchester binding)",
    "status": "live",
    "title": "Port of Virginia Logistics Dataset",
    "type": "page",
@@ -1373,10 +1373,10 @@
   },
   {
    "attested": "2026-11-10",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/port-of-wilmington",
-   "source": "Ports Completion 2026-11-10 \u2014 per-port dataset landing (Ports & Intermodal program completion)",
+   "source": "Ports Completion 2026-11-10 — per-port dataset landing (Ports & Intermodal program completion)",
    "status": "live",
    "title": "Port of Wilmington Logistics Dataset",
    "type": "page",
@@ -1384,10 +1384,10 @@
   },
   {
    "attested": "2026-11-02",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/ports",
-   "source": "Ports & Intermodal Takeover Program batch P1 2026-11-02 \u2014 dataset landing for datasets-ports.json",
+   "source": "Ports & Intermodal Takeover Program batch P1 2026-11-02 — dataset landing for datasets-ports.json",
    "status": "live",
    "title": "Ports & Intermodal Logistics Datasets",
    "type": "page",
@@ -1395,10 +1395,10 @@
   },
   {
    "attested": "2026-11-03",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/quote-tool",
-   "source": "Quote Tool batch 2026-11-03 \u2014 dataset landing for datasets-quote-tool.json (form inventory + the eight-check coverage rubric with measured results + the 20-audience guide)",
+   "source": "Quote Tool batch 2026-11-03 — dataset landing for datasets-quote-tool.json (form inventory + the eight-check coverage rubric with measured results + the 20-audience guide)",
    "status": "live",
    "title": "Quote Tool Coverage Datasets",
    "type": "page",
@@ -1406,7 +1406,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/residential",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1417,10 +1417,10 @@
   },
   {
    "attested": "2026-11-10",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/richmond-marine-terminal",
-   "source": "Ports Completion 2026-11-10 \u2014 per-port dataset landing (Ports & Intermodal program completion)",
+   "source": "Ports Completion 2026-11-10 — per-port dataset landing (Ports & Intermodal program completion)",
    "status": "live",
    "title": "Richmond Marine Terminal Logistics Dataset",
    "type": "page",
@@ -1428,7 +1428,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/route81",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1439,7 +1439,7 @@
   },
   {
    "attested": "2026-10-31",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/search-index",
    "source": "Retrieval Machine build B1 2026-10-31 (Dossier 01 search-index dataset design; generator scripts/build-search-index.js)",
@@ -1450,7 +1450,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/senior",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1461,10 +1461,10 @@
   },
   {
    "attested": "2026-11-12",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/shepherdstown-wv",
-   "source": "Town Datasets batch 2026-11-12 \u2014 dataset landing for datasets-shepherdstown-wv.json",
+   "source": "Town Datasets batch 2026-11-12 — dataset landing for datasets-shepherdstown-wv.json",
    "status": "live",
    "title": "Shepherdstown, WV Moving Datasets",
    "type": "page",
@@ -1472,7 +1472,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/sir-heavy",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1483,10 +1483,10 @@
   },
   {
    "attested": "2026-11-12",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/strasburg-va",
-   "source": "Town Datasets batch 2026-11-12 \u2014 dataset landing for datasets-strasburg-va.json",
+   "source": "Town Datasets batch 2026-11-12 — dataset landing for datasets-strasburg-va.json",
    "status": "live",
    "title": "Strasburg, VA Moving Datasets",
    "type": "page",
@@ -1494,7 +1494,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/transloading",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1505,7 +1505,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/transloading-inland-port",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1516,7 +1516,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/transloading-winchester",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1527,10 +1527,10 @@
   },
   {
    "attested": "2026-11-03",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/vault-door-case-study",
-   "source": "Vault Security program case study VC-1 2026-11-03 \u2014 dataset landing for datasets-vault-door-case-study.json",
+   "source": "Vault Security program case study VC-1 2026-11-03 — dataset landing for datasets-vault-door-case-study.json",
    "status": "live",
    "title": "Vault Door Case Study Datasets",
    "type": "page",
@@ -1538,10 +1538,10 @@
   },
   {
    "attested": "2026-11-04",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/vault-doors",
-   "source": "Vault Security takeover Wave 1 batch V1 2026-11-04 \u2014 door-model dataset landing (dossier \u00a73.2)",
+   "source": "Vault Security takeover Wave 1 batch V1 2026-11-04 — door-model dataset landing (dossier §3.2)",
    "status": "live",
    "title": "Vault Door Models Dataset",
    "type": "page",
@@ -1549,10 +1549,10 @@
   },
   {
    "attested": "2026-11-04",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/vault-security",
-   "source": "Vault Security takeover Wave 1 batch V1 2026-11-04 \u2014 standards registry dataset landing (dossier \u00a73.1)",
+   "source": "Vault Security takeover Wave 1 batch V1 2026-11-04 — standards registry dataset landing (dossier §3.1)",
    "status": "live",
    "title": "Vault Security Standards Registry Dataset",
    "type": "page",
@@ -1560,7 +1560,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/videos",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1571,7 +1571,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/warehouse",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1582,10 +1582,10 @@
   },
   {
    "attested": "2026-11-15",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/warehouse-racking",
-   "source": "Warehouse Racking + Distribution-Center Decommissioning Takeover 2026-11-15 \u2014 dataset landing for datasets-warehouse-racking.json",
+   "source": "Warehouse Racking + Distribution-Center Decommissioning Takeover 2026-11-15 — dataset landing for datasets-warehouse-racking.json",
    "status": "live",
    "title": "Warehouse Racking & Distribution-Center Decommissioning Dataset",
    "type": "page",
@@ -1593,7 +1593,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/warehouse-racking-relocation",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1604,10 +1604,10 @@
   },
   {
    "attested": "2026-11-12",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/washington-va",
-   "source": "Town Datasets batch 2026-11-12 \u2014 dataset landing for datasets-washington-va.json",
+   "source": "Town Datasets batch 2026-11-12 — dataset landing for datasets-washington-va.json",
    "status": "live",
    "title": "Washington, VA Moving Datasets",
    "type": "page",
@@ -1615,10 +1615,10 @@
   },
   {
    "attested": "2026-11-02",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/white-glove",
-   "source": "White-Glove Delivery first-class service batch 2026-11-02 (owner decision 2026-11-02: white-glove made a first-class service, 30th, with its own dataset) \u2014 dataset landing for datasets-white-glove.json",
+   "source": "White-Glove Delivery first-class service batch 2026-11-02 (owner decision 2026-11-02: white-glove made a first-class service, 30th, with its own dataset) — dataset landing for datasets-white-glove.json",
    "status": "live",
    "title": "White-Glove Delivery Datasets",
    "type": "page",
@@ -1626,10 +1626,10 @@
   },
   {
    "attested": "2026-11-12",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/winchester-va",
-   "source": "Town Datasets batch 2026-11-12 \u2014 dataset landing for datasets-winchester-va.json",
+   "source": "Town Datasets batch 2026-11-12 — dataset landing for datasets-winchester-va.json",
    "status": "live",
    "title": "Winchester, VA Moving Datasets",
    "type": "page",
@@ -1637,10 +1637,10 @@
   },
   {
    "attested": "2026-11-12",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "datasets/woodstock-va",
-   "source": "Town Datasets batch 2026-11-12 \u2014 dataset landing for datasets-woodstock-va.json",
+   "source": "Town Datasets batch 2026-11-12 — dataset landing for datasets-woodstock-va.json",
    "status": "live",
    "title": "Woodstock, VA Moving Datasets",
    "type": "page",
@@ -1648,7 +1648,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "developer",
    "source": "live sitemap.xml + pageMeta in live site source",
@@ -1659,7 +1659,7 @@
   },
   {
    "attested": "2026-11-15",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-warehouse-racking-relocation",
     "service-warehouse-relocation",
@@ -1667,7 +1667,7 @@
     "service-transloading"
    ],
    "slug": "distribution-center-decommissioning",
-   "source": "Warehouse Racking + Distribution-Center Decommissioning Takeover 2026-11-15 \u2014 category hub owning the distribution center decommissioning head terms; R42 binding",
+   "source": "Warehouse Racking + Distribution-Center Decommissioning Takeover 2026-11-15 — category hub owning the distribution center decommissioning head terms; R42 binding",
    "status": "live",
    "title": "Distribution-Center Decommissioning & Warehouse Racking",
    "type": "service",
@@ -1675,7 +1675,7 @@
   },
   {
    "attested": "2026-11-15",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-warehouse-racking-relocation",
     "service-warehouse-relocation",
@@ -1683,15 +1683,15 @@
     "service-transloading"
    ],
    "slug": "distribution-center-decommissioning-front-royal-va",
-   "source": "Warehouse Racking + Distribution-Center Decommissioning Takeover 2026-11-15 \u2014 dedicated market page owning the Front Royal VA distribution center decommissioning money intent; R42 binding",
+   "source": "Warehouse Racking + Distribution-Center Decommissioning Takeover 2026-11-15 — dedicated market page owning the Front Royal VA distribution center decommissioning money intent; R42 binding",
    "status": "live",
-   "title": "Distribution-Center Decommissioning & Warehouse Racking \u2014 Front Royal VA",
+   "title": "Distribution-Center Decommissioning & Warehouse Racking — Front Royal VA",
    "type": "service",
    "url": "https://theflatratemovers.com/distribution-center-decommissioning-front-royal-va/"
   },
   {
    "attested": "2026-11-15",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-warehouse-racking-relocation",
     "service-warehouse-relocation",
@@ -1699,15 +1699,15 @@
     "service-transloading"
    ],
    "slug": "distribution-center-decommissioning-hagerstown-md",
-   "source": "Warehouse Racking + Distribution-Center Decommissioning Takeover 2026-11-15 \u2014 dedicated market page owning the Hagerstown MD distribution center decommissioning money intent; R42 binding",
+   "source": "Warehouse Racking + Distribution-Center Decommissioning Takeover 2026-11-15 — dedicated market page owning the Hagerstown MD distribution center decommissioning money intent; R42 binding",
    "status": "live",
-   "title": "Distribution-Center Decommissioning & Warehouse Racking \u2014 Hagerstown MD",
+   "title": "Distribution-Center Decommissioning & Warehouse Racking — Hagerstown MD",
    "type": "service",
    "url": "https://theflatratemovers.com/distribution-center-decommissioning-hagerstown-md/"
   },
   {
    "attested": "2026-11-15",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-warehouse-racking-relocation",
     "service-warehouse-relocation",
@@ -1715,15 +1715,15 @@
     "service-transloading"
    ],
    "slug": "distribution-center-decommissioning-harrisonburg-va",
-   "source": "Warehouse Racking + Distribution-Center Decommissioning Takeover 2026-11-15 \u2014 dedicated market page owning the Harrisonburg VA distribution center decommissioning money intent; R42 binding",
+   "source": "Warehouse Racking + Distribution-Center Decommissioning Takeover 2026-11-15 — dedicated market page owning the Harrisonburg VA distribution center decommissioning money intent; R42 binding",
    "status": "live",
-   "title": "Distribution-Center Decommissioning & Warehouse Racking \u2014 Harrisonburg VA",
+   "title": "Distribution-Center Decommissioning & Warehouse Racking — Harrisonburg VA",
    "type": "service",
    "url": "https://theflatratemovers.com/distribution-center-decommissioning-harrisonburg-va/"
   },
   {
    "attested": "2026-11-15",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-warehouse-racking-relocation",
     "service-warehouse-relocation",
@@ -1731,15 +1731,15 @@
     "service-transloading"
    ],
    "slug": "distribution-center-decommissioning-martinsburg-wv",
-   "source": "Warehouse Racking + Distribution-Center Decommissioning Takeover 2026-11-15 \u2014 dedicated market page owning the Martinsburg WV distribution center decommissioning money intent; R42 binding",
+   "source": "Warehouse Racking + Distribution-Center Decommissioning Takeover 2026-11-15 — dedicated market page owning the Martinsburg WV distribution center decommissioning money intent; R42 binding",
    "status": "live",
-   "title": "Distribution-Center Decommissioning & Warehouse Racking \u2014 Martinsburg WV",
+   "title": "Distribution-Center Decommissioning & Warehouse Racking — Martinsburg WV",
    "type": "service",
    "url": "https://theflatratemovers.com/distribution-center-decommissioning-martinsburg-wv/"
   },
   {
    "attested": "2026-11-15",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-warehouse-racking-relocation",
     "service-warehouse-relocation",
@@ -1747,15 +1747,15 @@
     "service-transloading"
    ],
    "slug": "distribution-center-decommissioning-staunton-va",
-   "source": "Warehouse Racking + Distribution-Center Decommissioning Takeover 2026-11-15 \u2014 dedicated market page owning the Staunton VA distribution center decommissioning money intent; R42 binding",
+   "source": "Warehouse Racking + Distribution-Center Decommissioning Takeover 2026-11-15 — dedicated market page owning the Staunton VA distribution center decommissioning money intent; R42 binding",
    "status": "live",
-   "title": "Distribution-Center Decommissioning & Warehouse Racking \u2014 Staunton VA",
+   "title": "Distribution-Center Decommissioning & Warehouse Racking — Staunton VA",
    "type": "service",
    "url": "https://theflatratemovers.com/distribution-center-decommissioning-staunton-va/"
   },
   {
    "attested": "2026-11-15",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-warehouse-racking-relocation",
     "service-warehouse-relocation",
@@ -1763,15 +1763,15 @@
     "service-transloading"
    ],
    "slug": "distribution-center-decommissioning-winchester-va",
-   "source": "Warehouse Racking + Distribution-Center Decommissioning Takeover 2026-11-15 \u2014 dedicated market page owning the Winchester VA distribution center decommissioning money intent; R42 binding",
+   "source": "Warehouse Racking + Distribution-Center Decommissioning Takeover 2026-11-15 — dedicated market page owning the Winchester VA distribution center decommissioning money intent; R42 binding",
    "status": "live",
-   "title": "Distribution-Center Decommissioning & Warehouse Racking \u2014 Winchester VA",
+   "title": "Distribution-Center Decommissioning & Warehouse Racking — Winchester VA",
    "type": "service",
    "url": "https://theflatratemovers.com/distribution-center-decommissioning-winchester-va/"
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-packing"
    ],
@@ -1784,84 +1784,84 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "docs",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Docs \u2014 Reference Library",
+   "title": "Docs — Reference Library",
    "type": "page",
    "url": "https://theflatratemovers.com/docs/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-transloading"
    ],
    "slug": "docs/container-deconsolidation",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Docs \u2014 Container Deconsolidation",
+   "title": "Docs — Container Deconsolidation",
    "type": "service",
    "url": "https://theflatratemovers.com/docs/container-deconsolidation/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-commercial"
    ],
    "slug": "docs/data-center-logistics",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Docs \u2014 Data Center Logistics",
+   "title": "Docs — Data Center Logistics",
    "type": "service",
    "url": "https://theflatratemovers.com/docs/data-center-logistics/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "docs/logistics-event-protocol",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Docs \u2014 Logistics Event Protocol",
+   "title": "Docs — Logistics Event Protocol",
    "type": "page",
    "url": "https://theflatratemovers.com/docs/logistics-event-protocol/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "docs/logistics-ontology",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Docs \u2014 Logistics Ontology",
+   "title": "Docs — Logistics Ontology",
    "type": "page",
    "url": "https://theflatratemovers.com/docs/logistics-ontology/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-piano-antique"
    ],
    "slug": "elite-asset-transition-white-glove-discreet-logistics",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Elite Asset Transition \u2014 White-Glove, Discreet Logistics",
+   "title": "Elite Asset Transition — White-Glove, Discreet Logistics",
    "type": "service",
    "url": "https://theflatratemovers.com/elite-asset-transition-white-glove-discreet-logistics/"
   },
   {
    "attested": "2026-11-05",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-data-center-relocation"
    ],
    "slug": "emergency-data-center-relocation",
-   "source": "B2B Specialty B2B-2 2026-11-05 \u2014 Emergency Data Center Relocation",
+   "source": "B2B Specialty B2B-2 2026-11-05 — Emergency Data Center Relocation",
    "status": "live",
    "title": "Emergency Data Center Relocation",
    "type": "service",
@@ -1869,31 +1869,31 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-transloading"
    ],
    "slug": "emergency-port-container-recovery-twic-labor-virginia",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Emergency Port Container Recovery \u2014 Virginia",
+   "title": "Emergency Port Container Recovery — Virginia",
    "type": "service",
    "url": "https://theflatratemovers.com/emergency-port-container-recovery-twic-labor-virginia/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "entities",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Entities \u2014 Index",
+   "title": "Entities — Index",
    "type": "page",
    "url": "https://theflatratemovers.com/entities/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "entity-authority-layer",
    "source": "live sitemap.xml + pageMeta in live site source",
@@ -1904,52 +1904,52 @@
   },
   {
    "attested": "2026-11-13",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-white-glove",
     "service-piano-antique",
     "service-crating"
    ],
    "slug": "estate-movers-middleburg-va",
-   "source": "Money Spot 3 estate takeover 2026-11-13 (Category Takeover) \u2014 estate moving place page for Middleburg VA (Loudoun County, Winchester branch, geojson place-middleburg-va); dedicated place page binding service-white-glove + service-piano-antique + service-crating under the estate family (root Service #service-luxury-estate-relocation); rubric lane R38 in build-intent-rubric.js.",
+   "source": "Money Spot 3 estate takeover 2026-11-13 (Category Takeover) — estate moving place page for Middleburg VA (Loudoun County, Winchester branch, geojson place-middleburg-va); dedicated place page binding service-white-glove + service-piano-antique + service-crating under the estate family (root Service #service-luxury-estate-relocation); rubric lane R38 in build-intent-rubric.js.",
    "status": "live",
-   "title": "Estate Movers \u2014 Middleburg VA",
+   "title": "Estate Movers — Middleburg VA",
    "type": "service",
    "url": "https://theflatratemovers.com/estate-movers-middleburg-va/"
   },
   {
    "attested": "2026-11-13",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-white-glove",
     "service-piano-antique",
     "service-crating"
    ],
    "slug": "estate-movers-the-plains-va",
-   "source": "Money Spot 3 estate takeover 2026-11-13 (Category Takeover) \u2014 estate moving place page for The Plains VA (Fauquier County, Winchester branch, geojson place-the-plains-va); dedicated place page binding service-white-glove + service-piano-antique + service-crating under the estate family (root Service #service-luxury-estate-relocation); rubric lane R38 in build-intent-rubric.js.",
+   "source": "Money Spot 3 estate takeover 2026-11-13 (Category Takeover) — estate moving place page for The Plains VA (Fauquier County, Winchester branch, geojson place-the-plains-va); dedicated place page binding service-white-glove + service-piano-antique + service-crating under the estate family (root Service #service-luxury-estate-relocation); rubric lane R38 in build-intent-rubric.js.",
    "status": "live",
-   "title": "Estate Movers \u2014 The Plains VA",
+   "title": "Estate Movers — The Plains VA",
    "type": "service",
    "url": "https://theflatratemovers.com/estate-movers-the-plains-va/"
   },
   {
    "attested": "2026-11-13",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-white-glove",
     "service-piano-antique",
     "service-crating"
    ],
    "slug": "estate-movers-upperville-va",
-   "source": "Money Spot 3 estate takeover 2026-11-13 (Category Takeover) \u2014 estate moving place page for Upperville VA (Fauquier County, Winchester branch, geojson place-upperville-va); dedicated place page binding service-white-glove + service-piano-antique + service-crating under the estate family (root Service #service-luxury-estate-relocation); rubric lane R38 in build-intent-rubric.js.",
+   "source": "Money Spot 3 estate takeover 2026-11-13 (Category Takeover) — estate moving place page for Upperville VA (Fauquier County, Winchester branch, geojson place-upperville-va); dedicated place page binding service-white-glove + service-piano-antique + service-crating under the estate family (root Service #service-luxury-estate-relocation); rubric lane R38 in build-intent-rubric.js.",
    "status": "live",
-   "title": "Estate Movers \u2014 Upperville VA",
+   "title": "Estate Movers — Upperville VA",
    "type": "service",
    "url": "https://theflatratemovers.com/estate-movers-upperville-va/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-ispm15"
    ],
@@ -1962,73 +1962,73 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "faq",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "FAQ \u2014 Questions, Answered",
+   "title": "FAQ — Questions, Answered",
    "type": "page",
    "url": "https://theflatratemovers.com/faq/"
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-ffe-logistics"
    ],
    "slug": "ffe-logistics",
    "source": "FF&E Logistics batch 2026-10-30 (Henry order 2026-10-30: work the five takeover categories) + category research 2026-10-30",
    "status": "live",
-   "title": "FF&E Logistics \u2014 Winchester VA & Martinsburg WV",
+   "title": "FF&E Logistics — Winchester VA & Martinsburg WV",
    "type": "service",
    "url": "https://theflatratemovers.com/ffe-logistics/"
   },
   {
    "attested": "2026-11-02",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-final-mile"
    ],
    "slug": "final-mile-delivery",
    "source": "Head-Hub Programme batch 2026-11-02 (owner finding 2026-11-02: /transloading/ 404; parent audit: 10 services without a dedicated head hub) + AIO transloading-gap diagnostic F5",
    "status": "live",
-   "title": "Final-Mile Delivery \u2014 Winchester VA & Martinsburg WV",
+   "title": "Final-Mile Delivery — Winchester VA & Martinsburg WV",
    "type": "service",
    "url": "https://theflatratemovers.com/final-mile-delivery/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-final-mile"
    ],
    "slug": "final-mile-movers-martinsburg-wv",
    "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
    "status": "live",
-   "title": "Final-Mile Delivery \u2014 Martinsburg WV",
+   "title": "Final-Mile Delivery — Martinsburg WV",
    "type": "service",
    "url": "https://theflatratemovers.com/final-mile-movers-martinsburg-wv/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "find-us",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Find Us \u2014 Winchester VA & Martinsburg WV",
+   "title": "Find Us — Winchester VA & Martinsburg WV",
    "type": "page",
    "url": "https://theflatratemovers.com/find-us/"
   },
   {
    "attested": "2026-11-10",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-white-glove"
    ],
    "slug": "fire-safe-white-glove-delivery-haslet-tx",
-   "source": "White-Glove Wave 1 (2026-11-10) \u2014 News Formula story lane: case record wg-001 from data/white-glove-research.json (owner-supplied case register, 2026-11-05): a large residential fire safe delivered white-glove to a residence in Haslet, TX, December 2025, one of several orders for the same brand that week; three-stage photo rule (arrival in packaging, after unboxing, in final location); battery keys and accessories handed directly to the customer; all boxing materials and pallets removed. City-level facts only; the brand and the customer are not named. Byline Henry Pitts Jr., reviewer Henry Pitts; image owner-photo-needed.",
+   "source": "White-Glove Wave 1 (2026-11-10) — News Formula story lane: case record wg-001 from data/white-glove-research.json (owner-supplied case register, 2026-11-05): a large residential fire safe delivered white-glove to a residence in Haslet, TX, December 2025, one of several orders for the same brand that week; three-stage photo rule (arrival in packaging, after unboxing, in final location); battery keys and accessories handed directly to the customer; all boxing materials and pallets removed. City-level facts only; the brand and the customer are not named. Byline Henry Pitts Jr., reviewer Henry Pitts; image owner-photo-needed.",
    "status": "live",
    "title": "A fire safe, delivered white-glove in Haslet, Texas",
    "type": "page",
@@ -2036,7 +2036,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "flat-rate-guarantee",
    "source": "Blog foundation batch 2026-10-30 (Henry order 2026-10-30: create the blog; guarantee terms from Henry's stated terms 2026-10-29 + the estate's published copy)",
@@ -2047,10 +2047,10 @@
   },
   {
    "attested": "2026-11-03",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "flat-rate-movers-dataset-estate-citable-doi",
-   "source": "Spec C announcement story (News Formula story lane), Launch Protocol 2026-11-03 \u2014 announces the 2026-11-02 open-record publications: Zenodo dataset deposit (concept DOI 10.5281/zenodo.23879048), Wikidata items Q141969215 / Q141969268 / Q141969285, OpenStreetMap branch nodes 14340286372 / 14340286373, Hugging Face mirror re-sync, Google Publisher Center publication; byline Henry Pitts Jr., reviewer Henry Pitts",
+   "source": "Spec C announcement story (News Formula story lane), Launch Protocol 2026-11-03 — announces the 2026-11-02 open-record publications: Zenodo dataset deposit (concept DOI 10.5281/zenodo.23879048), Wikidata items Q141969215 / Q141969268 / Q141969285, OpenStreetMap branch nodes 14340286372 / 14340286373, Hugging Face mirror re-sync, Google Publisher Center publication; byline Henry Pitts Jr., reviewer Henry Pitts",
    "status": "live",
    "title": "The Flat Rate Movers publish their dataset estate with a citable DOI",
    "type": "page",
@@ -2058,18 +2058,18 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "flat-rate-moving-quote-winchester",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Flat Rate Moving Quote \u2014 Winchester",
+   "title": "Flat Rate Moving Quote — Winchester",
    "type": "page",
    "url": "https://theflatratemovers.com/flat-rate-moving-quote-winchester/"
   },
   {
    "attested": "2026-11-01",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-freight-rework-transloading"
    ],
@@ -2082,59 +2082,59 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-packing"
    ],
    "slug": "full-service-packing-unpacking-systematic-asset-encapsulation",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Full-Service Packing & Unpacking \u2014 Systematic Asset Encapsulation",
+   "title": "Full-Service Packing & Unpacking — Systematic Asset Encapsulation",
    "type": "service",
    "url": "https://theflatratemovers.com/full-service-packing-unpacking-systematic-asset-encapsulation/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-government"
    ],
    "slug": "government-movers-martinsburg-wv",
    "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
    "status": "live",
-   "title": "Government Movers \u2014 Martinsburg WV",
+   "title": "Government Movers — Martinsburg WV",
    "type": "service",
    "url": "https://theflatratemovers.com/government-movers-martinsburg-wv/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-government"
    ],
    "slug": "government-movers-winchester-va",
    "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
    "status": "live",
-   "title": "Government Movers \u2014 Winchester VA",
+   "title": "Government Movers — Winchester VA",
    "type": "service",
    "url": "https://theflatratemovers.com/government-movers-winchester-va/"
   },
   {
    "attested": "2026-11-02",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-government"
    ],
    "slug": "government-moving",
    "source": "Head-Hub Programme batch 2026-11-02 (owner finding 2026-11-02: /transloading/ 404; parent audit: 10 services without a dedicated head hub) + AIO transloading-gap diagnostic F5",
    "status": "live",
-   "title": "Government Moving \u2014 Winchester VA & Martinsburg WV",
+   "title": "Government Moving — Winchester VA & Martinsburg WV",
    "type": "service",
    "url": "https://theflatratemovers.com/government-moving/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-gun-safe"
    ],
@@ -2147,59 +2147,85 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-gun-safe"
    ],
    "slug": "gun-safe-movers-martinsburg-wv",
    "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
    "status": "live",
-   "title": "Gun Safe Movers \u2014 Martinsburg WV",
+   "title": "Gun Safe Movers — Martinsburg WV",
    "type": "service",
    "url": "https://theflatratemovers.com/gun-safe-movers-martinsburg-wv/"
   },
   {
    "attested": "2026-11-13",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-gun-safe"
    ],
    "slug": "gun-safe-movers-mclean-va",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Gun Safe Movers \u2014 McLean VA",
+   "title": "Gun Safe Movers — McLean VA",
    "type": "service",
    "url": "https://theflatratemovers.com/gun-safe-movers-mclean-va/"
   },
   {
+   "attested": "2026-11-17",
+   "lastmod": "2026-11-17",
+   "services": [
+    "service-gun-safe"
+   ],
+   "slug": "gun-safe-movers-norfolk-va",
+   "source": "Virginia Beach Gun-Safe Takeover 2026-11-17 — dedicated market page owning the Norfolk VA gun safe moving money intent; R53 binding",
+   "status": "live",
+   "title": "Gun Safe Movers — Norfolk VA",
+   "type": "service",
+   "url": "https://theflatratemovers.com/gun-safe-movers-norfolk-va/"
+  },
+  {
+   "attested": "2026-11-17",
+   "lastmod": "2026-11-17",
+   "services": [
+    "service-gun-safe"
+   ],
+   "slug": "gun-safe-movers-virginia-beach-va",
+   "source": "Virginia Beach Gun-Safe Takeover 2026-11-17 — dedicated market page owning the Virginia Beach VA gun safe moving money intent; R53 binding",
+   "status": "live",
+   "title": "Gun Safe Movers — Virginia Beach VA",
+   "type": "service",
+   "url": "https://theflatratemovers.com/gun-safe-movers-virginia-beach-va/"
+  },
+  {
    "attested": "2026-11-13",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-gun-safe"
    ],
    "slug": "gun-safe-movers-washington-dc",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Gun Safe Movers \u2014 Washington DC",
+   "title": "Gun Safe Movers — Washington DC",
    "type": "service",
    "url": "https://theflatratemovers.com/gun-safe-movers-washington-dc/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-gun-safe"
    ],
    "slug": "gun-safe-movers-winchester-va",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Gun Safe Movers \u2014 Winchester VA",
+   "title": "Gun Safe Movers — Winchester VA",
    "type": "service",
    "url": "https://theflatratemovers.com/gun-safe-movers-winchester-va/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-sir-heavy"
    ],
@@ -2212,25 +2238,25 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-sir-heavy"
    ],
    "slug": "high-mass-logistics-long-distance-moving-winchester-va",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "High-Mass Logistics \u2014 Long-Distance Moving, Winchester VA",
+   "title": "High-Mass Logistics — Long-Distance Moving, Winchester VA",
    "type": "service",
    "url": "https://theflatratemovers.com/high-mass-logistics-long-distance-moving-winchester-va/"
   },
   {
    "attested": "2026-11-05",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-hoarding-cleanup"
    ],
    "slug": "hoarding-cleanup",
-   "source": "Hoarding Cleanout category takeover 2026-11-05 \u2014 service #34 hub",
+   "source": "Hoarding Cleanout category takeover 2026-11-05 — service #34 hub",
    "status": "live",
    "title": "Hoarding Cleanup & Cleanout",
    "type": "service",
@@ -2238,33 +2264,33 @@
   },
   {
    "attested": "2026-11-05",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-hoarding-cleanup"
    ],
    "slug": "hoarding-cleanup-martinsburg-wv",
-   "source": "Hoarding Cleanout category takeover 2026-11-05 \u2014 Martinsburg branch page",
+   "source": "Hoarding Cleanout category takeover 2026-11-05 — Martinsburg branch page",
    "status": "live",
-   "title": "Hoarding Cleanup \u2014 Martinsburg WV",
+   "title": "Hoarding Cleanup — Martinsburg WV",
    "type": "service",
    "url": "https://theflatratemovers.com/hoarding-cleanup-martinsburg-wv/"
   },
   {
    "attested": "2026-11-05",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-hoarding-cleanup"
    ],
    "slug": "hoarding-cleanup-winchester-va",
-   "source": "Hoarding Cleanout category takeover 2026-11-05 \u2014 Winchester branch page",
+   "source": "Hoarding Cleanout category takeover 2026-11-05 — Winchester branch page",
    "status": "live",
-   "title": "Hoarding Cleanup \u2014 Winchester VA",
+   "title": "Hoarding Cleanup — Winchester VA",
    "type": "service",
    "url": "https://theflatratemovers.com/hoarding-cleanup-winchester-va/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "home",
    "source": "live sitemap.xml + pageMeta in live site source",
@@ -2275,12 +2301,12 @@
   },
   {
    "attested": "2026-11-05",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-medical-lab-relocation"
    ],
    "slug": "hospital-equipment-moving-rfq-guide",
-   "source": "B2B Specialty B2B-2 2026-11-05 \u2014 Hospital Equipment Moving RFQ Guide",
+   "source": "B2B Specialty B2B-2 2026-11-05 — Hospital Equipment Moving RFQ Guide",
    "status": "live",
    "title": "Hospital Equipment Moving RFQ Guide",
    "type": "page",
@@ -2288,12 +2314,12 @@
   },
   {
    "attested": "2026-11-10",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-commercial"
    ],
    "slug": "how-a-commercial-move-is-planned",
-   "source": "Blog Wave 1 Day 4 AM flagship (News Formula guide lane), Launch Protocol 2026-11-10 \u2014 commercial moving planned around your hours: a business move is not a household move under the FMCSA household-goods framework; the building packet (Certificate of Insurance wording, confirmed freight-elevator reservation, dock window, after-hours security access, the whole packet reconfirmed 48 to 72 hours before move day); the eight-step operation (survey, quote, phased plan, pack and label, sequenced move, install and place, verify, close-out); the asset classes; IOMI building-protection and anti-static electronics standards; the retiring stream under the EPA universal-waste framework; heavy pieces of 1,500 to 3,500 lb under SIR and the KIM-GS Protocol with L/360 floor-deflection analysis; built from the live commercial moving hub and its dataset; byline Henry Pitts Jr., reviewer Henry Pitts",
+   "source": "Blog Wave 1 Day 4 AM flagship (News Formula guide lane), Launch Protocol 2026-11-10 — commercial moving planned around your hours: a business move is not a household move under the FMCSA household-goods framework; the building packet (Certificate of Insurance wording, confirmed freight-elevator reservation, dock window, after-hours security access, the whole packet reconfirmed 48 to 72 hours before move day); the eight-step operation (survey, quote, phased plan, pack and label, sequenced move, install and place, verify, close-out); the asset classes; IOMI building-protection and anti-static electronics standards; the retiring stream under the EPA universal-waste framework; heavy pieces of 1,500 to 3,500 lb under SIR and the KIM-GS Protocol with L/360 floor-deflection analysis; built from the live commercial moving hub and its dataset; byline Henry Pitts Jr., reviewer Henry Pitts",
    "status": "live",
    "title": "Commercial moving: how a business relocation is planned around your hours",
    "type": "page",
@@ -2301,25 +2327,25 @@
   },
   {
    "attested": "2026-11-03",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-gun-safe"
    ],
    "slug": "how-a-gun-safe-is-moved",
-   "source": "Blog Wave 1 Day 2 AM flagship (News Formula guide lane), Launch Protocol 2026-11-03 \u2014 how a 1,500\u20133,500 lb gun safe is moved: survey, emptied-first, L/360 floor check, stairs, SIR + KIM-GS, placement verified, one flat rate in writing; built from the live gun-safe hub, the Moorefield job story and the vault-door case study; byline Henry Pitts Jr., reviewer Henry Pitts",
+   "source": "Blog Wave 1 Day 2 AM flagship (News Formula guide lane), Launch Protocol 2026-11-03 — how a 1,500–3,500 lb gun safe is moved: survey, emptied-first, L/360 floor check, stairs, SIR + KIM-GS, placement verified, one flat rate in writing; built from the live gun-safe hub, the Moorefield job story and the vault-door case study; byline Henry Pitts Jr., reviewer Henry Pitts",
    "status": "live",
-   "title": "How a 1,500\u20133,500 lb gun safe is moved: stairs, floors, and the SIR protocol",
+   "title": "How a 1,500–3,500 lb gun safe is moved: stairs, floors, and the SIR protocol",
    "type": "page",
    "url": "https://theflatratemovers.com/how-a-gun-safe-is-moved/"
   },
   {
    "attested": "2026-11-03",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-piano-antique"
    ],
    "slug": "how-a-piano-is-moved",
-   "source": "Blog Wave 1 Day 2 PM flagship (News Formula guide lane), Launch Protocol 2026-11-03 \u2014 piano moving, uprights to grands: the piece-by-piece survey and assessment, an upright secured on a dolly or skid, a grand dismantled onto a padded skid board, the published weight taxonomy, stairs and floors, crating and long-distance planning, settling and tuning boundaries, antiques and museum pieces under the same discipline; built from the live piano, antique and white-glove hub and its dataset; byline Henry Pitts Jr., reviewer Henry Pitts",
+   "source": "Blog Wave 1 Day 2 PM flagship (News Formula guide lane), Launch Protocol 2026-11-03 — piano moving, uprights to grands: the piece-by-piece survey and assessment, an upright secured on a dolly or skid, a grand dismantled onto a padded skid board, the published weight taxonomy, stairs and floors, crating and long-distance planning, settling and tuning boundaries, antiques and museum pieces under the same discipline; built from the live piano, antique and white-glove hub and its dataset; byline Henry Pitts Jr., reviewer Henry Pitts",
    "status": "live",
    "title": "Piano moving, uprights to grands: how the move is planned and protected",
    "type": "page",
@@ -2327,12 +2353,12 @@
   },
   {
    "attested": "2026-11-10",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-office-moving"
    ],
    "slug": "how-an-office-move-is-sequenced",
-   "source": "Blog Wave 1 Day 4 PM flagship (News Formula guide lane), Launch Protocol 2026-11-10 \u2014 office moving as a sequence: the plan spine (what moves first, what moves last, what works on day one); the ten-step operation (survey, quote, plan order, label, pack, stage, sequenced move, place, systems check, walkthrough); workstations disassembled in a fixed order on a circuit de-energized by the customer\u2019s or building\u2019s qualified person, hardware bagged and labeled per station; color-coded destination labeling; files kept in shelf order on rolling book carts; electronics wrapped in anti-static bubble wrap; warehouse staging when the dates do not line up; built from the live office moving hub and its dataset; byline Henry Pitts Jr., reviewer Henry Pitts",
+   "source": "Blog Wave 1 Day 4 PM flagship (News Formula guide lane), Launch Protocol 2026-11-10 — office moving as a sequence: the plan spine (what moves first, what moves last, what works on day one); the ten-step operation (survey, quote, plan order, label, pack, stage, sequenced move, place, systems check, walkthrough); workstations disassembled in a fixed order on a circuit de-energized by the customer’s or building’s qualified person, hardware bagged and labeled per station; color-coded destination labeling; files kept in shelf order on rolling book carts; electronics wrapped in anti-static bubble wrap; warehouse staging when the dates do not line up; built from the live office moving hub and its dataset; byline Henry Pitts Jr., reviewer Henry Pitts",
    "status": "live",
    "title": "Office moving: how workstations, files, and equipment are sequenced",
    "type": "page",
@@ -2340,20 +2366,20 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-transloading"
    ],
    "slug": "how-container-deconsolidation-cross-docking-transloading-supports-virginia-freight-networks",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Container Deconsolidation, Cross-Docking & Transloading \u2014 Virginia Freight Networks",
+   "title": "Container Deconsolidation, Cross-Docking & Transloading — Virginia Freight Networks",
    "type": "service",
    "url": "https://theflatratemovers.com/how-container-deconsolidation-cross-docking-transloading-supports-virginia-freight-networks/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-transloading"
    ],
@@ -2366,7 +2392,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-ispm15",
     "service-crating"
@@ -2380,7 +2406,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-transloading",
     "service-route81"
@@ -2394,7 +2420,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-packing"
    ],
@@ -2407,7 +2433,7 @@
   },
   {
    "attested": "2026-10-31",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-route81"
    ],
@@ -2420,33 +2446,33 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-industrial-commercial"
    ],
    "slug": "industrial-commercial-movers-martinsburg-wv",
    "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
    "status": "live",
-   "title": "Industrial & Commercial Services \u2014 Martinsburg WV",
+   "title": "Industrial & Commercial Services — Martinsburg WV",
    "type": "service",
    "url": "https://theflatratemovers.com/industrial-commercial-movers-martinsburg-wv/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-industrial-commercial"
    ],
    "slug": "industrial-commercial-movers-winchester-va",
    "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
    "status": "live",
-   "title": "Industrial & Commercial Services \u2014 Winchester VA",
+   "title": "Industrial & Commercial Services — Winchester VA",
    "type": "service",
    "url": "https://theflatratemovers.com/industrial-commercial-movers-winchester-va/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-industrial-commercial"
    ],
@@ -2459,33 +2485,33 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-industrial-offices"
    ],
    "slug": "industrial-offices-movers-martinsburg-wv",
    "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
    "status": "live",
-   "title": "Industrial Offices Moving \u2014 Martinsburg WV",
+   "title": "Industrial Offices Moving — Martinsburg WV",
    "type": "service",
    "url": "https://theflatratemovers.com/industrial-offices-movers-martinsburg-wv/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-industrial-offices"
    ],
    "slug": "industrial-offices-movers-winchester-va",
    "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
    "status": "live",
-   "title": "Industrial Offices Moving \u2014 Winchester VA",
+   "title": "Industrial Offices Moving — Winchester VA",
    "type": "service",
    "url": "https://theflatratemovers.com/industrial-offices-movers-winchester-va/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-industrial-offices"
    ],
@@ -2498,20 +2524,20 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-sir-heavy"
    ],
    "slug": "industrial-rigging-high-mass-logistics-hub-winchester-va",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Industrial Rigging & High-Mass Logistics Hub \u2014 Winchester VA",
+   "title": "Industrial Rigging & High-Mass Logistics Hub — Winchester VA",
    "type": "service",
    "url": "https://theflatratemovers.com/industrial-rigging-high-mass-logistics-hub-winchester-va/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-ispm15",
     "service-crating"
@@ -2525,7 +2551,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-route81"
    ],
@@ -2538,7 +2564,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-route81"
    ],
@@ -2551,20 +2577,20 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-long-distance"
    ],
    "slug": "interstate-moving-guide-winchester-va",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Interstate Moving Guide \u2014 Winchester VA",
+   "title": "Interstate Moving Guide — Winchester VA",
    "type": "service",
    "url": "https://theflatratemovers.com/interstate-moving-guide-winchester-va/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-long-distance"
    ],
@@ -2577,33 +2603,33 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-long-distance"
    ],
    "slug": "interstate-moving-winchester-va",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Interstate Moving \u2014 Winchester VA",
+   "title": "Interstate Moving — Winchester VA",
    "type": "service",
    "url": "https://theflatratemovers.com/interstate-moving-winchester-va/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-ispm15"
    ],
    "slug": "ispm15-movers-martinsburg-wv",
    "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
    "status": "live",
-   "title": "ISPM 15 Export Packing \u2014 Martinsburg WV",
+   "title": "ISPM 15 Export Packing — Martinsburg WV",
    "type": "service",
    "url": "https://theflatratemovers.com/ispm15-movers-martinsburg-wv/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-commercial",
     "service-it-relocation"
@@ -2611,107 +2637,107 @@
    "slug": "it-equipment-moving-data-center-logistics-services-virginia",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "IT Equipment Moving & Data Center Logistics \u2014 Virginia",
+   "title": "IT Equipment Moving & Data Center Logistics — Virginia",
    "type": "service",
    "url": "https://theflatratemovers.com/it-equipment-moving-data-center-logistics-services-virginia/"
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-junk-removal"
    ],
    "slug": "junk-removal",
    "source": "Junk removal batch 2026-10-30 (Henry ruling 2026-10-30: full page, full package treatment) + category research 2026-10-30",
    "status": "live",
-   "title": "Junk Removal \u2014 Winchester VA & Martinsburg WV",
+   "title": "Junk Removal — Winchester VA & Martinsburg WV",
    "type": "service",
    "url": "https://theflatratemovers.com/junk-removal/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "knowledge-entities",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Knowledge \u2014 Entities",
+   "title": "Knowledge — Entities",
    "type": "page",
    "url": "https://theflatratemovers.com/knowledge-entities/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "knowledge-equipment",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Knowledge \u2014 Equipment",
+   "title": "Knowledge — Equipment",
    "type": "page",
    "url": "https://theflatratemovers.com/knowledge-equipment/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "knowledge-events",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Knowledge \u2014 Events",
+   "title": "Knowledge — Events",
    "type": "page",
    "url": "https://theflatratemovers.com/knowledge-events/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "knowledge-locations",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Knowledge \u2014 Locations",
+   "title": "Knowledge — Locations",
    "type": "page",
    "url": "https://theflatratemovers.com/knowledge-locations/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "knowledge-services",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Knowledge \u2014 Services",
+   "title": "Knowledge — Services",
    "type": "page",
    "url": "https://theflatratemovers.com/knowledge-services/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-local-regional"
    ],
    "slug": "local-regional-movers-martinsburg-wv",
    "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
    "status": "live",
-   "title": "Local & Regional Movers \u2014 Martinsburg WV",
+   "title": "Local & Regional Movers — Martinsburg WV",
    "type": "service",
    "url": "https://theflatratemovers.com/local-regional-movers-martinsburg-wv/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-local-regional"
    ],
    "slug": "local-regional-movers-winchester-va",
    "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
    "status": "live",
-   "title": "Local & Regional Movers \u2014 Winchester VA",
+   "title": "Local & Regional Movers — Winchester VA",
    "type": "service",
    "url": "https://theflatratemovers.com/local-regional-movers-winchester-va/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-local-regional"
    ],
@@ -2724,7 +2750,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "logistics-data-engineering-center",
    "source": "live sitemap.xml + pageMeta in live site source",
@@ -2735,14 +2761,14 @@
   },
   {
    "attested": "2026-11-03",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-logistics-project-management",
     "service-transloading",
     "service-freight-rework-transloading"
    ],
    "slug": "logistics-project-management",
-   "source": "Ports & Intermodal Takeover Program batch P4 2026-11-03 \u2014 service #31 hub (dossier \u00a72.3): logistics project management scoped to port, warehouse and industrial project execution",
+   "source": "Ports & Intermodal Takeover Program batch P4 2026-11-03 — service #31 hub (dossier §2.3): logistics project management scoped to port, warehouse and industrial project execution",
    "status": "live",
    "title": "Logistics Project Management",
    "type": "service",
@@ -2750,7 +2776,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-long-distance"
    ],
@@ -2763,85 +2789,85 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-gun-safe"
    ],
    "slug": "long-distance-gun-safe-moving-winchester-va-to-las-vegas-nv",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Long-Distance Gun Safe Moving \u2014 Winchester VA to Las Vegas NV",
+   "title": "Long-Distance Gun Safe Moving — Winchester VA to Las Vegas NV",
    "type": "service",
    "url": "https://theflatratemovers.com/long-distance-gun-safe-moving-winchester-va-to-las-vegas-nv/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-long-distance"
    ],
    "slug": "long-distance-movers-martinsburg-wv",
    "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
    "status": "live",
-   "title": "Long-Distance Movers \u2014 Martinsburg WV",
+   "title": "Long-Distance Movers — Martinsburg WV",
    "type": "service",
    "url": "https://theflatratemovers.com/long-distance-movers-martinsburg-wv/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-long-distance"
    ],
    "slug": "long-distance-movers-miami",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Long-Distance Movers \u2014 Miami",
+   "title": "Long-Distance Movers — Miami",
    "type": "service",
    "url": "https://theflatratemovers.com/long-distance-movers-miami/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-long-distance"
    ],
    "slug": "long-distance-movers-winchester-va",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Long-Distance Movers \u2014 Winchester, VA",
+   "title": "Long-Distance Movers — Winchester, VA",
    "type": "service",
    "url": "https://theflatratemovers.com/long-distance-movers-winchester-va/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-long-distance"
    ],
    "slug": "long-distance-movers-winchester-va-guide",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Long-Distance Movers \u2014 Winchester VA Guide",
+   "title": "Long-Distance Movers — Winchester VA Guide",
    "type": "service",
    "url": "https://theflatratemovers.com/long-distance-movers-winchester-va-guide/"
   },
   {
    "attested": "2026-11-02",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-long-distance"
    ],
    "slug": "long-distance-moving",
    "source": "Head-Hub Programme batch 2026-11-02 (owner finding 2026-11-02: /transloading/ 404; parent audit: 10 services without a dedicated head hub) + AIO transloading-gap diagnostic F5",
    "status": "live",
-   "title": "Long-Distance Moving \u2014 Winchester VA & Martinsburg WV",
+   "title": "Long-Distance Moving — Winchester VA & Martinsburg WV",
    "type": "service",
    "url": "https://theflatratemovers.com/long-distance-moving/"
   },
   {
    "attested": "2026-11-02",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-long-distance"
    ],
@@ -2854,20 +2880,20 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-residential"
    ],
    "slug": "looking-for-the-best-movers-near-me-your-guide-to-stress-free-moving-in-winchester-and-martinsburg",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Best Movers Near Me \u2014 Guide for Winchester & Martinsburg",
+   "title": "Best Movers Near Me — Guide for Winchester & Martinsburg",
    "type": "service",
    "url": "https://theflatratemovers.com/looking-for-the-best-movers-near-me-your-guide-to-stress-free-moving-in-winchester-and-martinsburg/"
   },
   {
    "attested": "2026-11-07",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-white-glove",
     "service-long-distance",
@@ -2876,15 +2902,15 @@
     "service-crating"
    ],
    "slug": "luxury-estate-relocation-west-virginia",
-   "source": "WV Luxury Estate Program (owner directive 2026-11-06; expansion brief 2026-11-07) \u2014 destination page for three gated WV communities + the LERSI index; research database wv-luxury-program/wv-luxury-database.json (2026-11-06). Communities are destinations, not service areas.",
+   "source": "WV Luxury Estate Program (owner directive 2026-11-06; expansion brief 2026-11-07) — destination page for three gated WV communities + the LERSI index; research database wv-luxury-program/wv-luxury-database.json (2026-11-06). Communities are destinations, not service areas.",
    "status": "live",
-   "title": "Luxury Estate Relocation \u2014 West Virginia",
+   "title": "Luxury Estate Relocation — West Virginia",
    "type": "page",
    "url": "https://theflatratemovers.com/luxury-estate-relocation-west-virginia/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-residential",
     "service-commercial"
@@ -2892,39 +2918,39 @@
    "slug": "martinsburg-wv-movers-full-service-guide",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Martinsburg WV Movers \u2014 Full-Service Guide",
+   "title": "Martinsburg WV Movers — Full-Service Guide",
    "type": "service",
    "url": "https://theflatratemovers.com/martinsburg-wv-movers-full-service-guide/"
   },
   {
    "attested": "2026-11-05",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-medical-lab-relocation"
    ],
    "slug": "medical-equipment-movers-martinsburg-wv",
-   "source": "B2B Specialty B2B-2 2026-11-05 \u2014 Medical Equipment Movers \u2014 Martinsburg WV",
+   "source": "B2B Specialty B2B-2 2026-11-05 — Medical Equipment Movers — Martinsburg WV",
    "status": "live",
-   "title": "Medical Equipment Movers \u2014 Martinsburg WV",
+   "title": "Medical Equipment Movers — Martinsburg WV",
    "type": "service",
    "url": "https://theflatratemovers.com/medical-equipment-movers-martinsburg-wv/"
   },
   {
    "attested": "2026-11-05",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-medical-lab-relocation"
    ],
    "slug": "medical-equipment-movers-winchester-va",
-   "source": "B2B Specialty B2B-2 2026-11-05 \u2014 Medical Equipment Movers \u2014 Winchester VA",
+   "source": "B2B Specialty B2B-2 2026-11-05 — Medical Equipment Movers — Winchester VA",
    "status": "live",
-   "title": "Medical Equipment Movers \u2014 Winchester VA",
+   "title": "Medical Equipment Movers — Winchester VA",
    "type": "service",
    "url": "https://theflatratemovers.com/medical-equipment-movers-winchester-va/"
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-medical-lab-relocation"
    ],
@@ -2937,7 +2963,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-government",
     "service-military"
@@ -2945,13 +2971,13 @@
    "slug": "military-government-hhg-moving-requirements-contractors",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Military & Government HHG Moving \u2014 Requirements & Contractors",
+   "title": "Military & Government HHG Moving — Requirements & Contractors",
    "type": "service",
    "url": "https://theflatratemovers.com/military-government-hhg-moving-requirements-contractors/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-government",
     "service-military"
@@ -2965,51 +2991,51 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-military"
    ],
    "slug": "military-movers-martinsburg-wv",
    "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
    "status": "live",
-   "title": "Military Movers \u2014 Martinsburg WV",
+   "title": "Military Movers — Martinsburg WV",
    "type": "service",
    "url": "https://theflatratemovers.com/military-movers-martinsburg-wv/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-military"
    ],
    "slug": "military-movers-winchester-va",
    "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
    "status": "live",
-   "title": "Military Movers \u2014 Winchester VA",
+   "title": "Military Movers — Winchester VA",
    "type": "service",
    "url": "https://theflatratemovers.com/military-movers-winchester-va/"
   },
   {
    "attested": "2026-11-02",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-military"
    ],
    "slug": "military-moving",
    "source": "Head-Hub Programme batch 2026-11-02 (owner finding 2026-11-02: /transloading/ 404; parent audit: 10 services without a dedicated head hub) + AIO transloading-gap diagnostic F5",
    "status": "live",
-   "title": "Military Moving \u2014 Winchester VA & Martinsburg WV",
+   "title": "Military Moving — Winchester VA & Martinsburg WV",
    "type": "service",
    "url": "https://theflatratemovers.com/military-moving/"
   },
   {
    "attested": "2026-11-10",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-local-regional"
    ],
    "slug": "movers-in-berryville-va",
-   "source": "Pack Claim batch (2026-11-10) \u2014 new town landing page for the scouted map-pack target \"movers in berryville, va\" (owner order 2026-11-10: all ten packs). Branch facts from the verified branch record; town and county from the published service-area data (service-area.geojson); FAQ 7, visible and schema byte-equal; the exact pack phrasing family is bound to this page by the R23 block of build-intent-rubric.js.",
+   "source": "Pack Claim batch (2026-11-10) — new town landing page for the scouted map-pack target \"movers in berryville, va\" (owner order 2026-11-10: all ten packs). Branch facts from the verified branch record; town and county from the published service-area data (service-area.geojson); FAQ 7, visible and schema byte-equal; the exact pack phrasing family is bound to this page by the R23 block of build-intent-rubric.js.",
    "status": "live",
    "title": "Movers in Berryville, VA",
    "type": "service",
@@ -3017,12 +3043,12 @@
   },
   {
    "attested": "2026-11-12",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-local-regional"
    ],
    "slug": "movers-in-front-royal-va",
-   "source": "Three-Town Authority batch (2026-11-12) \u2014 new town landing page for Front Royal, the pack target whose movers front was never built in the 2026-11-10 pack-claim batch (only its white-glove page was) (owner order 2026-11-12). Branch facts from the verified branch record; town and county from the published service-area data (service-area.geojson \u2014 a both-branch place served from the Winchester branch); FAQ 7, visible and schema byte-equal; the exact pack phrasing family is bound to this page by the R23 block of build-intent-rubric.js.",
+   "source": "Three-Town Authority batch (2026-11-12) — new town landing page for Front Royal, the pack target whose movers front was never built in the 2026-11-10 pack-claim batch (only its white-glove page was) (owner order 2026-11-12). Branch facts from the verified branch record; town and county from the published service-area data (service-area.geojson — a both-branch place served from the Winchester branch); FAQ 7, visible and schema byte-equal; the exact pack phrasing family is bound to this page by the R23 block of build-intent-rubric.js.",
    "status": "live",
    "title": "Movers in Front Royal, VA",
    "type": "service",
@@ -3030,12 +3056,12 @@
   },
   {
    "attested": "2026-11-10",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-local-regional"
    ],
    "slug": "movers-in-new-market-va",
-   "source": "Pack Claim batch (2026-11-10) \u2014 new town landing page for the scouted map-pack target \"movers in new market, va\" (owner order 2026-11-10: all ten packs). Branch facts from the verified branch record; town and county from the published service-area data; the town joined the published footprint 2026-11-12 as place-new-market-va, Winchester branch, with the full build (geo + matrix + rubric) in batch-six-town-follow-on-2026-11-12; FAQ 7, visible and schema byte-equal; the exact pack phrasing family is bound to this page by the R23 block of build-intent-rubric.js.",
+   "source": "Pack Claim batch (2026-11-10) — new town landing page for the scouted map-pack target \"movers in new market, va\" (owner order 2026-11-10: all ten packs). Branch facts from the verified branch record; town and county from the published service-area data; the town joined the published footprint 2026-11-12 as place-new-market-va, Winchester branch, with the full build (geo + matrix + rubric) in batch-six-town-follow-on-2026-11-12; FAQ 7, visible and schema byte-equal; the exact pack phrasing family is bound to this page by the R23 block of build-intent-rubric.js.",
    "status": "live",
    "title": "Movers in New Market, VA",
    "type": "service",
@@ -3043,12 +3069,12 @@
   },
   {
    "attested": "2026-11-10",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-local-regional"
    ],
    "slug": "movers-in-shepherdstown-wv",
-   "source": "Pack Claim batch (2026-11-10) \u2014 new town landing page for the scouted map-pack target \"movers in shepherdstown, wv\" (owner order 2026-11-10: all ten packs). Branch facts from the verified branch record; town and county from the published service-area data (service-area.geojson); FAQ 7, visible and schema byte-equal; the exact pack phrasing family is bound to this page by the R23 block of build-intent-rubric.js.",
+   "source": "Pack Claim batch (2026-11-10) — new town landing page for the scouted map-pack target \"movers in shepherdstown, wv\" (owner order 2026-11-10: all ten packs). Branch facts from the verified branch record; town and county from the published service-area data (service-area.geojson); FAQ 7, visible and schema byte-equal; the exact pack phrasing family is bound to this page by the R23 block of build-intent-rubric.js.",
    "status": "live",
    "title": "Movers in Shepherdstown, WV",
    "type": "service",
@@ -3056,12 +3082,12 @@
   },
   {
    "attested": "2026-11-10",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-local-regional"
    ],
    "slug": "movers-in-strasburg-va",
-   "source": "Pack Claim batch (2026-11-10) \u2014 new town landing page for the scouted map-pack target \"movers in strasburg, va\" (owner order 2026-11-10: all ten packs). Branch facts from the verified branch record; town and county from the published service-area data (service-area.geojson); FAQ 7, visible and schema byte-equal; the exact pack phrasing family is bound to this page by the R23 block of build-intent-rubric.js.",
+   "source": "Pack Claim batch (2026-11-10) — new town landing page for the scouted map-pack target \"movers in strasburg, va\" (owner order 2026-11-10: all ten packs). Branch facts from the verified branch record; town and county from the published service-area data (service-area.geojson); FAQ 7, visible and schema byte-equal; the exact pack phrasing family is bound to this page by the R23 block of build-intent-rubric.js.",
    "status": "live",
    "title": "Movers in Strasburg, VA",
    "type": "service",
@@ -3069,12 +3095,12 @@
   },
   {
    "attested": "2026-11-10",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-local-regional"
    ],
    "slug": "movers-in-washington-va",
-   "source": "Washington VA Seize batch (2026-11-10) \u2014 new town landing page for Washington, VA and Rappahannock County (owner order 2026-11-10, after the competitive audit of the same day: 7 empty and 14 weak categories of 24, FRM present in 1). Branch facts from the verified Winchester branch record; the town joined the published footprint 2026-11-12 as place-washington-va, Winchester branch, with the full build (geo + matrix + rubric) in batch-washington-va-full-build-2026-11-12. FAQ 7, visible and schema byte-equal; the seized phrasing families are bound to this page by the R24 block of build-intent-rubric.js.",
+   "source": "Washington VA Seize batch (2026-11-10) — new town landing page for Washington, VA and Rappahannock County (owner order 2026-11-10, after the competitive audit of the same day: 7 empty and 14 weak categories of 24, FRM present in 1). Branch facts from the verified Winchester branch record; the town joined the published footprint 2026-11-12 as place-washington-va, Winchester branch, with the full build (geo + matrix + rubric) in batch-washington-va-full-build-2026-11-12. FAQ 7, visible and schema byte-equal; the seized phrasing families are bound to this page by the R24 block of build-intent-rubric.js.",
    "status": "live",
    "title": "Movers in Washington, VA",
    "type": "service",
@@ -3082,12 +3108,12 @@
   },
   {
    "attested": "2026-11-10",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-local-regional"
    ],
    "slug": "movers-in-woodstock-va",
-   "source": "Pack Claim batch (2026-11-10) \u2014 new town landing page for the scouted map-pack target \"movers in woodstock, va\" (owner order 2026-11-10: all ten packs). Branch facts from the verified branch record; town and county from the published service-area data (service-area.geojson); FAQ 7, visible and schema byte-equal; the exact pack phrasing family is bound to this page by the R23 block of build-intent-rubric.js.",
+   "source": "Pack Claim batch (2026-11-10) — new town landing page for the scouted map-pack target \"movers in woodstock, va\" (owner order 2026-11-10: all ten packs). Branch facts from the verified branch record; town and county from the published service-area data (service-area.geojson); FAQ 7, visible and schema byte-equal; the exact pack phrasing family is bound to this page by the R23 block of build-intent-rubric.js.",
    "status": "live",
    "title": "Movers in Woodstock, VA",
    "type": "service",
@@ -3095,7 +3121,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-piano-antique"
    ],
@@ -3108,7 +3134,7 @@
   },
   {
    "attested": "2026-10-31",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-industrial-offices"
    ],
@@ -3121,25 +3147,25 @@
   },
   {
    "attested": "2026-10-29",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-moving-and-storage"
    ],
    "slug": "moving-and-storage",
    "source": "Moving-and-storage activation package 2026-10-29 + owner-confirmed storage terms 2026-10-29 (leased; any item type + examples)",
    "status": "live",
-   "title": "Moving and Storage \u2014 Winchester VA & Martinsburg WV",
+   "title": "Moving and Storage — Winchester VA & Martinsburg WV",
    "type": "service",
    "url": "https://theflatratemovers.com/moving-and-storage/"
   },
   {
    "attested": "2026-11-04",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-piano-antique"
    ],
    "slug": "moving-antiques-and-museum-pieces",
-   "source": "Blog Wave 1 Day 3 AM flagship (News Formula guide lane), Launch Protocol 2026-11-04 \u2014 moving antiques and museum pieces: the piece-by-piece survey and assessment (weight, fragile points, finish, condition, value at risk), packing in layers, custom crating built around the piece and ISPM 15 export packing, heavy antiques in the 1,500-3,500 lb band under SIR and the KIM-GS Protocol with L/360 floor-deflection analysis, the five-step job, risks and controls on National Park Service, Canadian Conservation Institute and Smithsonian guidance; built from the live piano, antique and white-glove hub and its dataset; byline Henry Pitts Jr., reviewer Henry Pitts",
+   "source": "Blog Wave 1 Day 3 AM flagship (News Formula guide lane), Launch Protocol 2026-11-04 — moving antiques and museum pieces: the piece-by-piece survey and assessment (weight, fragile points, finish, condition, value at risk), packing in layers, custom crating built around the piece and ISPM 15 export packing, heavy antiques in the 1,500-3,500 lb band under SIR and the KIM-GS Protocol with L/360 floor-deflection analysis, the five-step job, risks and controls on National Park Service, Canadian Conservation Institute and Smithsonian guidance; built from the live piano, antique and white-glove hub and its dataset; byline Henry Pitts Jr., reviewer Henry Pitts",
    "status": "live",
    "title": "Moving antiques and museum pieces: packing, crating, and careful transport",
    "type": "page",
@@ -3147,12 +3173,12 @@
   },
   {
    "attested": "2026-11-10",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-local-regional"
    ],
    "slug": "moving-company-berkeley-springs-wv",
-   "source": "Pack Claim batch (2026-11-10) \u2014 new town landing page for the scouted map-pack target \"moving company in berkeley springs, wv\" (owner order 2026-11-10: all ten packs). Branch facts from the verified branch record; town and county from the published service-area data (service-area.geojson); FAQ 7, visible and schema byte-equal; the exact pack phrasing family is bound to this page by the R23 block of build-intent-rubric.js.",
+   "source": "Pack Claim batch (2026-11-10) — new town landing page for the scouted map-pack target \"moving company in berkeley springs, wv\" (owner order 2026-11-10: all ten packs). Branch facts from the verified branch record; town and county from the published service-area data (service-area.geojson); FAQ 7, visible and schema byte-equal; the exact pack phrasing family is bound to this page by the R23 block of build-intent-rubric.js.",
    "status": "live",
    "title": "Moving Company in Berkeley Springs, WV",
    "type": "service",
@@ -3160,12 +3186,12 @@
   },
   {
    "attested": "2026-11-10",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-local-regional"
    ],
    "slug": "moving-company-charles-town-wv",
-   "source": "Pack Claim batch (2026-11-10) \u2014 new town landing page for the scouted map-pack target \"moving company in charles town, wv\" (owner order 2026-11-10: all ten packs). Branch facts from the verified branch record; town and county from the published service-area data (service-area.geojson); FAQ 7, visible and schema byte-equal; the exact pack phrasing family is bound to this page by the R23 block of build-intent-rubric.js.",
+   "source": "Pack Claim batch (2026-11-10) — new town landing page for the scouted map-pack target \"moving company in charles town, wv\" (owner order 2026-11-10: all ten packs). Branch facts from the verified branch record; town and county from the published service-area data (service-area.geojson); FAQ 7, visible and schema byte-equal; the exact pack phrasing family is bound to this page by the R23 block of build-intent-rubric.js.",
    "status": "live",
    "title": "Moving Company in Charles Town, WV",
    "type": "service",
@@ -3173,12 +3199,12 @@
   },
   {
    "attested": "2026-11-10",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-local-regional"
    ],
    "slug": "moving-company-inwood-wv",
-   "source": "Pack Claim batch (2026-11-10) \u2014 new town landing page for the scouted map-pack target \"moving company in inwood, wv\" (owner order 2026-11-10: all ten packs). Branch facts from the verified branch record; town and county from the published service-area data (service-area.geojson); FAQ 7, visible and schema byte-equal; the exact pack phrasing family is bound to this page by the R23 block of build-intent-rubric.js.",
+   "source": "Pack Claim batch (2026-11-10) — new town landing page for the scouted map-pack target \"moving company in inwood, wv\" (owner order 2026-11-10: all ten packs). Branch facts from the verified branch record; town and county from the published service-area data (service-area.geojson); FAQ 7, visible and schema byte-equal; the exact pack phrasing family is bound to this page by the R23 block of build-intent-rubric.js.",
    "status": "live",
    "title": "Moving Company in Inwood, WV",
    "type": "service",
@@ -3186,40 +3212,40 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "moving-company-martinsburg-wv",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Moving Company \u2014 Martinsburg, WV",
+   "title": "Moving Company — Martinsburg, WV",
    "type": "location",
    "url": "https://theflatratemovers.com/moving-company-martinsburg-wv/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "moving-company-winchester-va",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Moving Company \u2014 Winchester, VA",
+   "title": "Moving Company — Winchester, VA",
    "type": "location",
    "url": "https://theflatratemovers.com/moving-company-winchester-va/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "moving-cost-guide-winchester-va",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Moving Cost Guide \u2014 Winchester VA",
+   "title": "Moving Cost Guide — Winchester VA",
    "type": "page",
    "url": "https://theflatratemovers.com/moving-cost-guide-winchester-va/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "moving-questions-answers",
    "source": "live sitemap.xml + pageMeta in live site source",
@@ -3230,20 +3256,20 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-residential"
    ],
    "slug": "moving-tips-winchester-va",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Moving Tips \u2014 Winchester VA",
+   "title": "Moving Tips — Winchester VA",
    "type": "service",
    "url": "https://theflatratemovers.com/moving-tips-winchester-va/"
   },
   {
    "attested": "2026-11-14",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-office-moving",
     "service-industrial-offices",
@@ -3251,7 +3277,7 @@
     "service-government"
    ],
    "slug": "office-decommissioning",
-   "source": "Office Decommissioning & Liquidation Takeover 2026-11-14 \u2014 category hub owning the office decommissioning head terms; R41 binding",
+   "source": "Office Decommissioning & Liquidation Takeover 2026-11-14 — category hub owning the office decommissioning head terms; R41 binding",
    "status": "live",
    "title": "Office Decommissioning & Liquidation",
    "type": "service",
@@ -3259,7 +3285,7 @@
   },
   {
    "attested": "2026-11-14",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-office-moving",
     "service-industrial-offices",
@@ -3267,15 +3293,15 @@
     "service-government"
    ],
    "slug": "office-decommissioning-alexandria-va",
-   "source": "Office Decommissioning & Liquidation Takeover 2026-11-14 \u2014 dedicated market page owning the Alexandria VA office decommissioning money intent; R41 binding",
+   "source": "Office Decommissioning & Liquidation Takeover 2026-11-14 — dedicated market page owning the Alexandria VA office decommissioning money intent; R41 binding",
    "status": "live",
-   "title": "Office Decommissioning & Liquidation \u2014 Alexandria VA",
+   "title": "Office Decommissioning & Liquidation — Alexandria VA",
    "type": "service",
    "url": "https://theflatratemovers.com/office-decommissioning-alexandria-va/"
   },
   {
    "attested": "2026-11-14",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-office-moving",
     "service-industrial-offices",
@@ -3283,15 +3309,15 @@
     "service-government"
    ],
    "slug": "office-decommissioning-bethesda-md",
-   "source": "Office Decommissioning & Liquidation Takeover 2026-11-14 \u2014 dedicated market page owning the Bethesda MD office decommissioning money intent; R41 binding",
+   "source": "Office Decommissioning & Liquidation Takeover 2026-11-14 — dedicated market page owning the Bethesda MD office decommissioning money intent; R41 binding",
    "status": "live",
-   "title": "Office Decommissioning & Liquidation \u2014 Bethesda MD",
+   "title": "Office Decommissioning & Liquidation — Bethesda MD",
    "type": "service",
    "url": "https://theflatratemovers.com/office-decommissioning-bethesda-md/"
   },
   {
    "attested": "2026-11-14",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-office-moving",
     "service-industrial-offices",
@@ -3299,15 +3325,15 @@
     "service-government"
    ],
    "slug": "office-decommissioning-crystal-city-va",
-   "source": "Office Decommissioning & Liquidation Takeover 2026-11-14 \u2014 dedicated market page owning the Crystal City VA office decommissioning money intent; R41 binding",
+   "source": "Office Decommissioning & Liquidation Takeover 2026-11-14 — dedicated market page owning the Crystal City VA office decommissioning money intent; R41 binding",
    "status": "live",
-   "title": "Office Decommissioning & Liquidation \u2014 Crystal City VA",
+   "title": "Office Decommissioning & Liquidation — Crystal City VA",
    "type": "service",
    "url": "https://theflatratemovers.com/office-decommissioning-crystal-city-va/"
   },
   {
    "attested": "2026-11-14",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-office-moving",
     "service-industrial-offices",
@@ -3315,15 +3341,15 @@
     "service-government"
    ],
    "slug": "office-decommissioning-reston-va",
-   "source": "Office Decommissioning & Liquidation Takeover 2026-11-14 \u2014 dedicated market page owning the Reston VA office decommissioning money intent; R41 binding",
+   "source": "Office Decommissioning & Liquidation Takeover 2026-11-14 — dedicated market page owning the Reston VA office decommissioning money intent; R41 binding",
    "status": "live",
-   "title": "Office Decommissioning & Liquidation \u2014 Reston VA",
+   "title": "Office Decommissioning & Liquidation — Reston VA",
    "type": "service",
    "url": "https://theflatratemovers.com/office-decommissioning-reston-va/"
   },
   {
    "attested": "2026-11-14",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-office-moving",
     "service-industrial-offices",
@@ -3331,15 +3357,15 @@
     "service-government"
    ],
    "slug": "office-decommissioning-tysons-va",
-   "source": "Office Decommissioning & Liquidation Takeover 2026-11-14 \u2014 dedicated market page owning the Tysons VA office decommissioning money intent; R41 binding",
+   "source": "Office Decommissioning & Liquidation Takeover 2026-11-14 — dedicated market page owning the Tysons VA office decommissioning money intent; R41 binding",
    "status": "live",
-   "title": "Office Decommissioning & Liquidation \u2014 Tysons VA",
+   "title": "Office Decommissioning & Liquidation — Tysons VA",
    "type": "service",
    "url": "https://theflatratemovers.com/office-decommissioning-tysons-va/"
   },
   {
    "attested": "2026-11-14",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-office-moving",
     "service-industrial-offices",
@@ -3347,54 +3373,54 @@
     "service-government"
    ],
    "slug": "office-decommissioning-washington-dc",
-   "source": "Office Decommissioning & Liquidation Takeover 2026-11-14 \u2014 dedicated market page owning the Washington DC office decommissioning money intent; R41 binding",
+   "source": "Office Decommissioning & Liquidation Takeover 2026-11-14 — dedicated market page owning the Washington DC office decommissioning money intent; R41 binding",
    "status": "live",
-   "title": "Office Decommissioning & Liquidation \u2014 Washington DC",
+   "title": "Office Decommissioning & Liquidation — Washington DC",
    "type": "service",
    "url": "https://theflatratemovers.com/office-decommissioning-washington-dc/"
   },
   {
    "attested": "2026-11-02",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-office-moving"
    ],
    "slug": "office-moving",
    "source": "Head-Hub Programme batch 2026-11-02 (owner finding 2026-11-02: /transloading/ 404; parent audit: 10 services without a dedicated head hub) + AIO transloading-gap diagnostic F5",
    "status": "live",
-   "title": "Office Moving \u2014 Winchester VA & Martinsburg WV",
+   "title": "Office Moving — Winchester VA & Martinsburg WV",
    "type": "service",
    "url": "https://theflatratemovers.com/office-moving/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-office-moving"
    ],
    "slug": "office-moving-movers-martinsburg-wv",
    "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
    "status": "live",
-   "title": "Office Moving \u2014 Martinsburg WV",
+   "title": "Office Moving — Martinsburg WV",
    "type": "service",
    "url": "https://theflatratemovers.com/office-moving-movers-martinsburg-wv/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-office-moving"
    ],
    "slug": "office-moving-movers-winchester-va",
    "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
    "status": "live",
-   "title": "Office Moving \u2014 Winchester VA",
+   "title": "Office Moving — Winchester VA",
    "type": "service",
    "url": "https://theflatratemovers.com/office-moving-movers-winchester-va/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "online-estimate",
    "source": "live sitemap.xml + pageMeta in live site source",
@@ -3405,59 +3431,59 @@
   },
   {
    "attested": "2026-11-02",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-packing"
    ],
    "slug": "packing",
    "source": "Head-Hub Programme batch 2026-11-02 (owner finding 2026-11-02: /transloading/ 404; parent audit: 10 services without a dedicated head hub) + AIO transloading-gap diagnostic F5",
    "status": "live",
-   "title": "Packing & Unpacking \u2014 Winchester VA & Martinsburg WV",
+   "title": "Packing & Unpacking — Winchester VA & Martinsburg WV",
    "type": "service",
    "url": "https://theflatratemovers.com/packing/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-packing"
    ],
    "slug": "packing-cost-winchester-va",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Packing Cost \u2014 Winchester VA",
+   "title": "Packing Cost — Winchester VA",
    "type": "service",
    "url": "https://theflatratemovers.com/packing-cost-winchester-va/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-packing"
    ],
    "slug": "packing-movers-martinsburg-wv",
    "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
    "status": "live",
-   "title": "Packing Movers \u2014 Martinsburg WV",
+   "title": "Packing Movers — Martinsburg WV",
    "type": "service",
    "url": "https://theflatratemovers.com/packing-movers-martinsburg-wv/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-packing"
    ],
    "slug": "packing-services-winchester-va",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Packing Services \u2014 Winchester VA",
+   "title": "Packing Services — Winchester VA",
    "type": "service",
    "url": "https://theflatratemovers.com/packing-services-winchester-va/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-packing"
    ],
@@ -3470,12 +3496,12 @@
   },
   {
    "attested": "2026-11-11",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-white-glove"
    ],
    "slug": "pad-wrap-blanket-wrap-shipping",
-   "source": "White-Glove Wave 2 \u2014 Freight batch (2026-11-11) \u2014 new freight-facing category page for the pad-wrap / blanket-wrap terminology family, from the owner research package of 2026-11-10 (queries Q11-Q16, Q18; the Q17 air-ride form is quarantined \u2014 never bound, never answered). Audience: shippers, brokers and freight professionals. Scope is strictly the owner-confirmed white-glove record (2026-11-05): receiving, formal receiving inspection report, storage, carrier-terminal pickup, install-day room-of-choice delivery, full assembly, haul-away, packaging removal, three-stage photo documentation, per-job flat rate in writing. No vendor pricing, no equipment specs, no climate-controlled transit claim. FAQ 9, visible and schema byte-equal; the phrasing family is bound to this page by the R25 block of build-intent-rubric.js.",
+   "source": "White-Glove Wave 2 — Freight batch (2026-11-11) — new freight-facing category page for the pad-wrap / blanket-wrap terminology family, from the owner research package of 2026-11-10 (queries Q11-Q16, Q18; the Q17 air-ride form is quarantined — never bound, never answered). Audience: shippers, brokers and freight professionals. Scope is strictly the owner-confirmed white-glove record (2026-11-05): receiving, formal receiving inspection report, storage, carrier-terminal pickup, install-day room-of-choice delivery, full assembly, haul-away, packaging removal, three-stage photo documentation, per-job flat rate in writing. No vendor pricing, no equipment specs, no climate-controlled transit claim. FAQ 9, visible and schema byte-equal; the phrasing family is bound to this page by the R25 block of build-intent-rubric.js.",
    "status": "live",
    "title": "Pad Wrap & Blanket Wrap Shipping",
    "type": "service",
@@ -3483,14 +3509,14 @@
   },
   {
    "attested": "2026-11-10",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-transloading",
     "service-freight-rework-transloading",
     "service-industrial-commercial"
    ],
    "slug": "philaport-logistics",
-   "source": "Ports Completion 2026-11-10 \u2014 per-port hub (Ports & Intermodal program completion; audit out/batch-ports-completion-2026-11-10/AUDIT.md) \u2014 PhilaPort binds Martinsburg on drive time (miles tied)",
+   "source": "Ports Completion 2026-11-10 — per-port hub (Ports & Intermodal program completion; audit out/batch-ports-completion-2026-11-10/AUDIT.md) — PhilaPort binds Martinsburg on drive time (miles tied)",
    "status": "live",
    "title": "PhilaPort Logistics",
    "type": "service",
@@ -3498,33 +3524,33 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-piano-antique"
    ],
    "slug": "piano-antique-movers-martinsburg-wv",
    "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
    "status": "live",
-   "title": "Piano, Antique & White-Glove Movers \u2014 Martinsburg WV",
+   "title": "Piano, Antique & White-Glove Movers — Martinsburg WV",
    "type": "service",
    "url": "https://theflatratemovers.com/piano-antique-movers-martinsburg-wv/"
   },
   {
    "attested": "2026-11-02",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-piano-antique"
    ],
    "slug": "piano-antique-white-glove-moving",
    "source": "Head-Hub Programme batch 2026-11-02 (owner finding 2026-11-02: /transloading/ 404; parent audit: 10 services without a dedicated head hub) + AIO transloading-gap diagnostic F5",
    "status": "live",
-   "title": "Piano, Antique & White-Glove Moving \u2014 Winchester VA & Martinsburg WV",
+   "title": "Piano, Antique & White-Glove Moving — Winchester VA & Martinsburg WV",
    "type": "service",
    "url": "https://theflatratemovers.com/piano-antique-white-glove-moving/"
   },
   {
    "attested": "2026-11-03",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-transloading",
     "service-freight-rework-transloading",
@@ -3533,7 +3559,7 @@
     "service-3pl-support"
    ],
    "slug": "port-logistics",
-   "source": "Ports & Intermodal Takeover Program batch P4 2026-11-03 \u2014 program hub: the six-port binding map and eight-service matrix (dossier \u00a71.7, \u00a74); Baltimore/Wilmington/PhilaPort sections link to the ports dataset landing until their hubs land in P5/P6",
+   "source": "Ports & Intermodal Takeover Program batch P4 2026-11-03 — program hub: the six-port binding map and eight-service matrix (dossier §1.7, §4); Baltimore/Wilmington/PhilaPort sections link to the ports dataset landing until their hubs land in P5/P6",
    "status": "live",
    "title": "Port & Intermodal Logistics Services",
    "type": "service",
@@ -3541,14 +3567,14 @@
   },
   {
    "attested": "2026-11-10",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-transloading",
     "service-freight-rework-transloading",
     "service-industrial-commercial"
    ],
    "slug": "port-of-baltimore-logistics",
-   "source": "Ports Completion 2026-11-10 \u2014 per-port hub (Ports & Intermodal program completion; audit out/batch-ports-completion-2026-11-10/AUDIT.md) \u2014 Baltimore binds Martinsburg (91-96 mi vs 106-116 from Winchester)",
+   "source": "Ports Completion 2026-11-10 — per-port hub (Ports & Intermodal program completion; audit out/batch-ports-completion-2026-11-10/AUDIT.md) — Baltimore binds Martinsburg (91-96 mi vs 106-116 from Winchester)",
    "status": "live",
    "title": "Port of Baltimore Logistics",
    "type": "service",
@@ -3556,14 +3582,14 @@
   },
   {
    "attested": "2026-11-07",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-transloading",
     "service-freight-rework-transloading",
     "service-industrial-commercial"
    ],
    "slug": "port-of-huntington-logistics",
-   "source": "WV-2 2026-11-07 \u2014 Port of Huntington Tri-State hub (WV expansion of the Ports & Intermodal program); the river district binds Winchester (312.8 mi vs 357.7-360.4 from Martinsburg, RESEARCH-VERIFY-2026-11-07)",
+   "source": "WV-2 2026-11-07 — Port of Huntington Tri-State hub (WV expansion of the Ports & Intermodal program); the river district binds Winchester (312.8 mi vs 357.7-360.4 from Martinsburg, RESEARCH-VERIFY-2026-11-07)",
    "status": "live",
    "title": "Port of Huntington Tri-State Logistics",
    "type": "service",
@@ -3571,14 +3597,14 @@
   },
   {
    "attested": "2026-11-10",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-transloading",
     "service-freight-rework-transloading",
     "service-industrial-commercial"
    ],
    "slug": "port-of-new-york-new-jersey-logistics",
-   "source": "Port #8 2026-11-10 \u2014 Port of New York and New Jersey hub (Ports & Intermodal program); the port binds Martinsburg on miles (251.1 mi vs 275.6 from Winchester, OSRM road routing measured 2026-11-10, AUDIT.md in out/batch-port-nynj-2026-11-10)",
+   "source": "Port #8 2026-11-10 — Port of New York and New Jersey hub (Ports & Intermodal program); the port binds Martinsburg on miles (251.1 mi vs 275.6 from Winchester, OSRM road routing measured 2026-11-10, AUDIT.md in out/batch-port-nynj-2026-11-10)",
    "status": "live",
    "title": "Port of New York and New Jersey Logistics",
    "type": "service",
@@ -3586,27 +3612,27 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-transloading"
    ],
    "slug": "port-of-virginia-container-loading-unloading-logistics-services",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Port of Virginia \u2014 Container & Logistics Services",
+   "title": "Port of Virginia — Container & Logistics Services",
    "type": "service",
    "url": "https://theflatratemovers.com/port-of-virginia-container-loading-unloading-logistics-services/"
   },
   {
    "attested": "2026-11-03",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-transloading",
     "service-freight-rework-transloading",
     "service-industrial-commercial"
    ],
    "slug": "port-of-virginia-logistics",
-   "source": "Ports & Intermodal Takeover Program batch P3 2026-11-03 \u2014 Port of Virginia (Norfolk Harbor) hub; Norfolk + Richmond Marine Terminal bind Winchester (dossier \u00a71.7 measured road distance)",
+   "source": "Ports & Intermodal Takeover Program batch P3 2026-11-03 — Port of Virginia (Norfolk Harbor) hub; Norfolk + Richmond Marine Terminal bind Winchester (dossier §1.7 measured road distance)",
    "status": "live",
    "title": "Port of Virginia Logistics",
    "type": "service",
@@ -3614,14 +3640,14 @@
   },
   {
    "attested": "2026-11-10",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-transloading",
     "service-freight-rework-transloading",
     "service-industrial-commercial"
    ],
    "slug": "port-of-wilmington-logistics",
-   "source": "Ports Completion 2026-11-10 \u2014 per-port hub (Ports & Intermodal program completion; audit out/batch-ports-completion-2026-11-10/AUDIT.md) \u2014 Wilmington binds Martinsburg (150 mi vs 165 from Winchester)",
+   "source": "Ports Completion 2026-11-10 — per-port hub (Ports & Intermodal program completion; audit out/batch-ports-completion-2026-11-10/AUDIT.md) — Wilmington binds Martinsburg (150 mi vs 165 from Winchester)",
    "status": "live",
    "title": "Port of Wilmington Logistics",
    "type": "service",
@@ -3629,7 +3655,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "privacy-policy",
    "source": "live sitemap.xml + pageMeta in live site source",
@@ -3640,7 +3666,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-packing"
    ],
@@ -3653,7 +3679,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "quote",
    "source": "live sitemap.xml + pageMeta in live site source",
@@ -3664,18 +3690,18 @@
   },
   {
    "attested": "2026-11-03",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "quote-tool",
-   "source": "Quote Tool batch 2026-11-03 \u2014 the guide to the flat rate quote tool: Short/Detailed modes, the five required fields, all 20 project types with preparation guidance, the video walkthrough (Survey Room) route, and how a request becomes one flat rate in writing; form inventory measured from the live form source (44 field controls, 33 pick chips, 77 visitor-value controls); the form itself unchanged",
+   "source": "Quote Tool batch 2026-11-03 — the guide to the flat rate quote tool: Short/Detailed modes, the five required fields, all 20 project types with preparation guidance, the video walkthrough (Survey Room) route, and how a request becomes one flat rate in writing; form inventory measured from the live form source (44 field controls, 33 pick chips, 77 visitor-value controls); the form itself unchanged",
    "status": "live",
-   "title": "The Quote Tool \u2014 how the flat rate quote form works",
+   "title": "The Quote Tool — how the flat rate quote form works",
    "type": "page",
    "url": "https://theflatratemovers.com/quote-tool/"
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-ispm15"
    ],
@@ -3688,7 +3714,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "recursive-indexing-layer",
    "source": "live sitemap.xml + pageMeta in live site source",
@@ -3699,7 +3725,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-residential"
    ],
@@ -3712,7 +3738,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-sir-heavy"
    ],
@@ -3725,7 +3751,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-sir-heavy"
    ],
@@ -3738,7 +3764,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-residential"
    ],
@@ -3751,14 +3777,14 @@
   },
   {
    "attested": "2026-11-10",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-transloading",
     "service-freight-rework-transloading",
     "service-industrial-commercial"
    ],
    "slug": "richmond-marine-terminal-logistics",
-   "source": "Ports Completion 2026-11-10 \u2014 per-port hub (Ports & Intermodal program completion; audit out/batch-ports-completion-2026-11-10/AUDIT.md) \u2014 Richmond binds Winchester (135 mi vs ~158 from Martinsburg); retired from the Port of Virginia file in this batch",
+   "source": "Ports Completion 2026-11-10 — per-port hub (Ports & Intermodal program completion; audit out/batch-ports-completion-2026-11-10/AUDIT.md) — Richmond binds Winchester (135 mi vs ~158 from Martinsburg); retired from the Port of Virginia file in this batch",
    "status": "live",
    "title": "Richmond Marine Terminal Logistics",
    "type": "service",
@@ -3766,7 +3792,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-route81"
    ],
@@ -3779,7 +3805,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-gun-safe"
    ],
@@ -3792,31 +3818,31 @@
   },
   {
    "attested": "2026-10-29",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-senior-moving"
    ],
    "slug": "senior-moving",
    "source": "Phase B senior-moving package 2026-10-29 + deploy batch 2026-10-29",
    "status": "live",
-   "title": "Senior Moving \u2014 Winchester VA & Martinsburg WV",
+   "title": "Senior Moving — Winchester VA & Martinsburg WV",
    "type": "service",
    "url": "https://theflatratemovers.com/senior-moving/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "service-areas-moving-company",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Service Areas \u2014 Moving Company",
+   "title": "Service Areas — Moving Company",
    "type": "page",
    "url": "https://theflatratemovers.com/service-areas-moving-company/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "services",
    "source": "live sitemap.xml + pageMeta in live site source",
@@ -3827,57 +3853,57 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-sir-heavy"
    ],
    "slug": "sir-2026-protocol",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "SIR 2026 Protocol \u2014 The Steps",
+   "title": "SIR 2026 Protocol — The Steps",
    "type": "service",
    "url": "https://theflatratemovers.com/sir-2026-protocol/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-sir-heavy"
    ],
    "slug": "sir-2026-structural-integrity-relocation-protocol",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "SIR 2026 \u2014 Structural Integrity Relocation Protocol",
+   "title": "SIR 2026 — Structural Integrity Relocation Protocol",
    "type": "service",
    "url": "https://theflatratemovers.com/sir-2026-structural-integrity-relocation-protocol/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-sir-heavy"
    ],
    "slug": "sir-heavy-movers-martinsburg-wv",
    "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
    "status": "live",
-   "title": "SIR Heavy Movers \u2014 Martinsburg WV",
+   "title": "SIR Heavy Movers — Martinsburg WV",
    "type": "service",
    "url": "https://theflatratemovers.com/sir-heavy-movers-martinsburg-wv/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "sitemap",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Sitemap \u2014 All Pages & Redirects",
+   "title": "Sitemap — All Pages & Redirects",
    "type": "page",
    "url": "https://theflatratemovers.com/sitemap/"
   },
   {
    "attested": "2026-10-29",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-industrial-commercial"
    ],
@@ -3890,7 +3916,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-gun-safe",
     "service-sir-heavy"
@@ -3898,13 +3924,13 @@
    "slug": "technical-rigging-high-security-gun-safe-vault-relocation",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Technical Rigging \u2014 High-Security Gun Safe & Vault Relocation",
+   "title": "Technical Rigging — High-Security Gun Safe & Vault Relocation",
    "type": "service",
    "url": "https://theflatratemovers.com/technical-rigging-high-security-gun-safe-vault-relocation/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-sir-heavy"
    ],
@@ -3917,20 +3943,20 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-long-distance"
    ],
    "slug": "the-data-science-of-displacement-how-predictive-analytics-is-redefining-the-mid-atlantic-relocation-path",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "The Data Science of Displacement \u2014 Planning the Mid-Atlantic Relocation Path",
+   "title": "The Data Science of Displacement — Planning the Mid-Atlantic Relocation Path",
    "type": "service",
    "url": "https://theflatratemovers.com/the-data-science-of-displacement-how-predictive-analytics-is-redefining-the-mid-atlantic-relocation-path/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "the-flat-rate-logistics-data-hub",
    "source": "live sitemap.xml + pageMeta in live site source",
@@ -3941,7 +3967,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-sir-heavy"
    ],
@@ -3954,7 +3980,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-long-distance"
    ],
@@ -3967,7 +3993,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-residential"
    ],
@@ -3980,7 +4006,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-residential"
    ],
@@ -3993,20 +4019,20 @@
   },
   {
    "attested": "2026-11-02",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-transloading"
    ],
    "slug": "transloading",
    "source": "Head-Hub Programme batch 2026-11-02 (owner finding 2026-11-02: /transloading/ 404; parent audit: 10 services without a dedicated head hub) + AIO transloading-gap diagnostic F5",
    "status": "live",
-   "title": "Transloading Services \u2014 Winchester VA & Martinsburg WV",
+   "title": "Transloading Services — Winchester VA & Martinsburg WV",
    "type": "service",
    "url": "https://theflatratemovers.com/transloading/"
   },
   {
    "attested": "2026-11-02",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-transloading"
    ],
@@ -4019,20 +4045,20 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-transloading"
    ],
    "slug": "transloading-movers-martinsburg-wv",
    "source": "Phase 3 full build + go-live 2026-10-28 (live sitemap.xml + pageMeta)",
    "status": "live",
-   "title": "Loading, Transloading & Container Services \u2014 Martinsburg WV",
+   "title": "Loading, Transloading & Container Services — Martinsburg WV",
    "type": "service",
    "url": "https://theflatratemovers.com/transloading-movers-martinsburg-wv/"
   },
   {
    "attested": "2026-10-31",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-transloading"
    ],
@@ -4045,7 +4071,7 @@
   },
   {
    "attested": "2026-10-29",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-transloading-winchester-va",
     "service-transloading"
@@ -4053,18 +4079,18 @@
    "slug": "transloading-winchester-va",
    "source": "Phase C transloading-winchester-va package 2026-10-29 + deploy batch 2026-10-29",
    "status": "live",
-   "title": "Transloading Services \u2014 Winchester VA",
+   "title": "Transloading Services — Winchester VA",
    "type": "service",
    "url": "https://theflatratemovers.com/transloading-winchester-va/"
   },
   {
    "attested": "2026-11-04",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-vault-door"
    ],
    "slug": "vault-door-classes-ul-608-gsa-class-5-v-explained",
-   "source": "Vault Security takeover Wave 1 flagship article 2026-11-04 (dossier \u00a75; News Formula guide lane)",
+   "source": "Vault Security takeover Wave 1 flagship article 2026-11-04 (dossier §5; News Formula guide lane)",
    "status": "live",
    "title": "Vault Door Classes, Decoded: UL 608, GSA Class 5-V and the Lock Ratings",
    "type": "page",
@@ -4072,12 +4098,12 @@
   },
   {
    "attested": "2026-11-04",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-vault-door"
    ],
    "slug": "vault-doors",
-   "source": "Vault Security takeover Wave 1 batch V1 2026-11-04 \u2014 service #33 hub (dossier \u00a74.1)",
+   "source": "Vault Security takeover Wave 1 batch V1 2026-11-04 — service #33 hub (dossier §4.1)",
    "status": "live",
    "title": "Vault Door Relocation & Installation",
    "type": "service",
@@ -4085,44 +4111,44 @@
   },
   {
    "attested": "2026-10-29",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [],
    "slug": "videos",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Videos \u2014 Moving & Heavy-Asset Work on Video",
+   "title": "Videos — Moving & Heavy-Asset Work on Video",
    "type": "page",
    "url": "https://theflatratemovers.com/videos/"
   },
   {
    "attested": "2026-11-02",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-transloading"
    ],
    "slug": "virginia-inland-port-3pl-project-support",
    "source": "Ports & Intermodal Takeover Program batch P2 2026-11-02 (dossier section 2.4 spoke; Virginia Inland Port binds Winchester)",
    "status": "live",
-   "title": "3PL & Project Support \u2014 Virginia Inland Port",
+   "title": "3PL & Project Support — Virginia Inland Port",
    "type": "service",
    "url": "https://theflatratemovers.com/virginia-inland-port-3pl-project-support/"
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-transloading"
    ],
    "slug": "virginia-inland-port-freight-transloading-operations",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "Virginia Inland Port \u2014 Freight & Transloading Operations",
+   "title": "Virginia Inland Port — Freight & Transloading Operations",
    "type": "service",
    "url": "https://theflatratemovers.com/virginia-inland-port-freight-transloading-operations/"
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-transloading"
    ],
@@ -4135,7 +4161,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-long-distance"
    ],
@@ -4148,7 +4174,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-long-distance"
    ],
@@ -4161,7 +4187,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-long-distance"
    ],
@@ -4174,7 +4200,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-long-distance"
    ],
@@ -4187,7 +4213,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-long-distance"
    ],
@@ -4200,33 +4226,33 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-warehouse-racking-relocation"
    ],
    "slug": "warehouse-racking-relocation",
    "source": "Warehouse racking relocation batch 2026-10-30 (Henry order 2026-10-30: work the five takeover categories) + category research 2026-10-30",
    "status": "live",
-   "title": "Warehouse Racking Relocation \u2014 Winchester VA & Martinsburg WV",
+   "title": "Warehouse Racking Relocation — Winchester VA & Martinsburg WV",
    "type": "service",
    "url": "https://theflatratemovers.com/warehouse-racking-relocation/"
   },
   {
    "attested": "2026-10-29",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-warehouse-relocation"
    ],
    "slug": "warehouse-relocation",
    "source": "Phase C warehouse-relocation lock package 2026-10-29 + deploy batch 2026-10-29",
    "status": "live",
-   "title": "Warehouse Relocation \u2014 Winchester VA & Martinsburg WV",
+   "title": "Warehouse Relocation — Winchester VA & Martinsburg WV",
    "type": "service",
    "url": "https://theflatratemovers.com/warehouse-relocation/"
   },
   {
    "attested": "2026-10-31",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-crating"
    ],
@@ -4239,51 +4265,51 @@
   },
   {
    "attested": "2026-11-02",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-white-glove"
    ],
    "slug": "white-glove-delivery",
-   "source": "Head-Hub Programme batch 2026-11-02 (owner finding 2026-11-02: /transloading/ 404; parent audit: 10 services without a dedicated head hub) + AIO transloading-gap diagnostic F5 White-glove made a first-class service (30th) + full-footprint areas \u2014 owner decision 2026-11-02.",
+   "source": "Head-Hub Programme batch 2026-11-02 (owner finding 2026-11-02: /transloading/ 404; parent audit: 10 services without a dedicated head hub) + AIO transloading-gap diagnostic F5 White-glove made a first-class service (30th) + full-footprint areas — owner decision 2026-11-02.",
    "status": "live",
-   "title": "White-Glove Delivery \u2014 Winchester VA & Martinsburg WV",
+   "title": "White-Glove Delivery — Winchester VA & Martinsburg WV",
    "type": "service",
    "url": "https://theflatratemovers.com/white-glove-delivery/"
   },
   {
    "attested": "2026-11-10",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-white-glove"
    ],
    "slug": "white-glove-delivery-front-royal-va",
-   "source": "Pack Claim batch (2026-11-10) \u2014 new town landing page for the scouted map-pack target \"white-glove delivery \u2014 front royal va\" (owner order 2026-11-10: all ten packs). Branch facts from the verified branch record; town and county from the published service-area data (service-area.geojson); FAQ 7, visible and schema byte-equal; the exact pack phrasing family is bound to this page by the R23 block of build-intent-rubric.js.",
+   "source": "Pack Claim batch (2026-11-10) — new town landing page for the scouted map-pack target \"white-glove delivery — front royal va\" (owner order 2026-11-10: all ten packs). Branch facts from the verified branch record; town and county from the published service-area data (service-area.geojson); FAQ 7, visible and schema byte-equal; the exact pack phrasing family is bound to this page by the R23 block of build-intent-rubric.js.",
    "status": "live",
-   "title": "White-Glove Delivery \u2014 Front Royal VA",
+   "title": "White-Glove Delivery — Front Royal VA",
    "type": "service",
    "url": "https://theflatratemovers.com/white-glove-delivery-front-royal-va/"
   },
   {
    "attested": "2026-11-10",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-white-glove"
    ],
    "slug": "white-glove-delivery-martinsburg-wv",
-   "source": "White-Glove Wave 1 (2026-11-10) \u2014 new Martinsburg branch service page for white-glove delivery, closing the audit gap: no Martinsburg white-glove page existed while the hub and the Winchester branch page were live. Branch facts from the verified branch record (Flat Rate Movers Martinsburg WV, 736 Williamsport Pike Suite 2, Martinsburg WV 25404; hours Mon-Fri 9-6, Sat 9-4, Sun 9-4; Google 4.7 with 6 reviews); scope from the owner-confirmed white-glove scope of 2026-11-05; 48 branch areas from service-area.geojson branch properties (Territory Matrix 2026-11-09); FAQ 7, visible and schema byte-equal.",
+   "source": "White-Glove Wave 1 (2026-11-10) — new Martinsburg branch service page for white-glove delivery, closing the audit gap: no Martinsburg white-glove page existed while the hub and the Winchester branch page were live. Branch facts from the verified branch record (Flat Rate Movers Martinsburg WV, 736 Williamsport Pike Suite 2, Martinsburg WV 25404; hours Mon-Fri 9-6, Sat 9-4, Sun 9-4; Google 4.7 with 6 reviews); scope from the owner-confirmed white-glove scope of 2026-11-05; 48 branch areas from service-area.geojson branch properties (Territory Matrix 2026-11-09); FAQ 7, visible and schema byte-equal.",
    "status": "live",
-   "title": "White-Glove Delivery \u2014 Martinsburg WV",
+   "title": "White-Glove Delivery — Martinsburg WV",
    "type": "service",
    "url": "https://theflatratemovers.com/white-glove-delivery-martinsburg-wv/"
   },
   {
    "attested": "2026-11-04",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-white-glove"
    ],
    "slug": "white-glove-delivery-step-by-step",
-   "source": "Blog Wave 1 Day 3 PM flagship (News Formula guide lane), Launch Protocol 2026-11-04 \u2014 white-glove delivery step by step: the published chain from naming and assessing the pieces, protection matched to each piece (padded blankets and clear stretch wrap, or a custom crate), freight received, counted and staged, the route protected on arrival, carry-in to the room of choice and final placement, unpacking, removal of the delivered item's own packaging, and placement and condition verified with the recipient; heavy deliveries of 1,500 to 3,500 lbs surveyed and floor-checked to L/360 under SIR and the KIM-GS Protocol; the boundaries stated plainly (assembly and installation are not part of the published scope; haul-away is not part of the service); built from the live white-glove delivery hub and its dataset; byline Henry Pitts Jr., reviewer Henry Pitts",
+   "source": "Blog Wave 1 Day 3 PM flagship (News Formula guide lane), Launch Protocol 2026-11-04 — white-glove delivery step by step: the published chain from naming and assessing the pieces, protection matched to each piece (padded blankets and clear stretch wrap, or a custom crate), freight received, counted and staged, the route protected on arrival, carry-in to the room of choice and final placement, unpacking, removal of the delivered item's own packaging, and placement and condition verified with the recipient; heavy deliveries of 1,500 to 3,500 lbs surveyed and floor-checked to L/360 under SIR and the KIM-GS Protocol; the boundaries stated plainly (assembly and installation are not part of the published scope; haul-away is not part of the service); built from the live white-glove delivery hub and its dataset; byline Henry Pitts Jr., reviewer Henry Pitts",
    "status": "live",
    "title": "White-glove delivery, step by step: what is included beyond the threshold",
    "type": "page",
@@ -4291,7 +4317,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-piano-antique",
     "service-final-mile",
@@ -4300,18 +4326,18 @@
    "slug": "white-glove-delivery-winchester-va",
    "source": "live sitemap.xml + pageMeta in live site source",
    "status": "live",
-   "title": "White-Glove Delivery \u2014 Winchester VA",
+   "title": "White-Glove Delivery — Winchester VA",
    "type": "service",
    "url": "https://theflatratemovers.com/white-glove-delivery-winchester-va/"
   },
   {
    "attested": "2026-11-02",
-   "lastmod": "2026-11-16",
+   "lastmod": "2026-11-17",
    "services": [
     "service-transloading"
    ],
    "slug": "who-unloads-containers-at-the-virginia-inland-port",
-   "source": "Ports & Intermodal Takeover Program article A1 2026-11-02 (dossier \u00a76; lands with Batch P2)",
+   "source": "Ports & Intermodal Takeover Program article A1 2026-11-02 (dossier §6; lands with Batch P2)",
    "status": "live",
    "title": "Transloading at the Virginia Inland Port: the support layer behind the rail ramps",
    "type": "page",
