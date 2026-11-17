@@ -6852,6 +6852,266 @@ function generate() {
         R51_SOURCE_ROWS.map((r) => JSON.stringify(r)).join('\n') + '\n');
     } catch (e) { /* accounting is diagnostic; generation never fails on it */ }
   }
+  // R52 (Data-Center Re-Attack + Answer Standard, 2026-11-16):
+  // the data-center category gets the section-6 variant coverage
+  // its Spot-1 place pages never had. The pre-build family census
+  // (rubric.db, 2026-11-16) read the thin signature on every target:
+  // /data-center-movers-ashburn-va/ 181 rows — radius 0, ZIP 0,
+  // relation 0, locality 1; /data-center-movers-leesburg-va/ 180
+  // rows — radius 0, ZIP 0, relation 0, locality 2;
+  // /data-center-movers-winchester-va/ and
+  // /data-center-movers-martinsburg-wv/ 2 rows each, every family 0;
+  // and the IT hub /it-equipment-moving-data-center-logistics-
+  // services-virginia/ carried radius 0, ZIP 0, relation 0 across
+  // all 136 of its bound areas (the data-center hub itself is full
+  // from R44/money-trio4 and is NOT re-laned). The build is fed by
+  // the competitor attack run BEFORE building (out/batch-
+  // datacenter-reattack-2026-11-16/rival-reads.md): the DCR family
+  // (datacentersrelocation.com / Data Center Relocation Experts)
+  // holds #1 organic on 4 of 5 Spot-1 terms with a pre-cut answer
+  // shape and a downtime GUARANTEE; A Few Good Men Moving holds the
+  // Leesburg terms in this run's captures with soft generalist
+  // prose. No rival in the set publishes a flat rate in writing or
+  // a dated, documented engagement. The Henry-fed DC buyer bank
+  // (216 questions: finder / cost / downtime / method / security /
+  // timing / equipment / adjacent, out/answer-format-2026-11-16/
+  // dc-buyer-questions.json) drives the pages' buyer-voice FAQ
+  // through the jf seats. CELLS are derived from machine data only
+  // (determinism law: data/service-area.geojson + data/pages.json,
+  // never rubric.db): the place targets are the four places with
+  // dedicated data-center pages, each asserted in-run against its
+  // pages.json service registration; the IT footprint pass takes
+  // every remaining place carrying the it-relocation token (66
+  // cells) to the IT hub. Radius buckets read the nearer branch
+  // seat's coordinates, the Territory Matrix centroid method, as in
+  // R44-R51. TRUTH SCREEN: the R35 base set plus the R49/R50 extras
+  // (authority-number, discount, ITAD destruction / certificate,
+  // drayage, transportation-management, locksmith, storage-in-
+  // transit, climate-controlled-transit, hazardous-waste screens)
+  // plus a HIPAA screen (no HIPAA compliance or certification is
+  // ever claimed), plus the data-center screens: a downtime-
+  // guarantee screen and a zero-downtime-claim screen (zero
+  // downtime is a METHOD — rack-by-rack phasing inside 2-to-4-hour
+  // maintenance windows — never a guarantee or an outcome claim),
+  // an invented-percentage screen (no uptime / on-time percentages
+  // are ever published), and the logical-layer screens (workload
+  // migration, data / cloud migration, dependency mapping, DNS and
+  // backup verification are the client's IT layer, never the
+  // mover's claim). Aspects stay inside the published fact set:
+  // crews disconnect, de-rack, label every cable to the port,
+  // transport sealed, re-rack, re-cable and power up; background
+  // checks and escort rules are confirmed scope; heavy racks and
+  // cabinets in the 1,500 to 3,500 lb band are surveyed under SIR
+  // with the floor checked to L/360; the documented record is the
+  // eight-site, 33-rack engagement of June 2024 (dc-001, city-level
+  // only); retired equipment is handed to the engaged certified
+  // ITAD partner, whose sanitization and certification are never
+  // claimed as the company's.
+  const R52_STATS = { cellsAttempted: 0, cellsLanded: 0, variantsAttempted: 0, variantsLanded: 0, byFamily: {}, byPage: {}, collisionExact: 0, collisionNormalized: 0, truthRefused: 0, gateExcluded: 0 };
+  const R52_SOURCE_ROWS = [];
+  {
+    const geo = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'service-area.geojson'), 'utf8'));
+    const featById = {};
+    for (const f of geo.features || []) if (f.properties && f.properties.id) featById[f.properties.id] = f;
+    const pagesDb = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'pages.json'), 'utf8'));
+    const pageBySlugR52 = {};
+    for (const p of pagesDb.pages || []) pageBySlugR52[p.slug] = p;
+    const havMi = (lat1, lon1, lat2, lon2) => {
+      const R = 3958.8, t = Math.PI / 180;
+      const dLat = (lat2 - lat1) * t, dLon = (lon2 - lon1) * t;
+      const h = Math.sin(dLat / 2) ** 2 + Math.cos(lat1 * t) * Math.cos(lat2 * t) * Math.sin(dLon / 2) ** 2;
+      return 2 * R * Math.asin(Math.sqrt(h));
+    };
+    const bucket = (mi) => (mi <= 10 ? 10 : mi <= 20 ? 20 : mi <= 35 ? 35 : mi <= 50 ? 50 : 75);
+    const seatCoords = (fid) => {
+      const f = featById[fid];
+      return (f && f.geometry && f.geometry.coordinates) ? f.geometry.coordinates : null;
+    };
+    const winSeat = seatCoords('place-winchester-va');
+    const marSeat = seatCoords('place-martinsburg-wv');
+    const R52_STATE_NAME = { VA: 'Virginia', WV: 'West Virginia', MD: 'Maryland', DC: 'Washington DC', PA: 'Pennsylvania' };
+    const R52_REFUSE_EXTRA = [
+      { re: /\b(?:usdot|dot|mc)\s*(?:#|number|no\.?)\b/i, why: 'authority-number-claim' },
+      { re: /\bdiscount\b/i, why: 'discount-claim' },
+      { re: /\bdata destruction\b/i, why: 'itad-destruction-claim' },
+      { re: /\bcertificates? of destruction\b/i, why: 'itad-certificate-claim' },
+      { re: /\bdrayage\b/i, why: 'drayage-claim' },
+      { re: /\btransportation management\b/i, why: 'transportation-management-claim' },
+      { re: /\blocksmith\b/i, why: 'locksmith-claim' },
+      { re: /\bstorage in transit\b/i, why: 'sit-claim' },
+      { re: /\bclimate[- ]controlled (?:truck|transport|transit|moving|van|trailer)\b/i, why: 'climate-transit-claim' },
+      { re: /\bhazardous\b/i, why: 'hazardous-waste-claim' },
+      { re: /\bhipaa\b/i, why: 'hipaa-claim' },
+      { re: /\bdowntime guarantee\b/i, why: 'downtime-guarantee-claim' },
+      { re: /\bguarantee[ds]?\b[^?]*\b(?:downtime|uptime)\b/i, why: 'downtime-guarantee-claim' },
+      { re: /\bzero downtime\b/i, why: 'zero-downtime-claim' },
+      { re: /\b\d+(?:\.\d+)?\s?%\s*(?:uptime|on-time|downtime)\b/i, why: 'invented-percentage-claim' },
+      { re: /\bworkload migration\b/i, why: 'logical-layer-claim' },
+      { re: /\bdata migration\b/i, why: 'logical-layer-claim' },
+      { re: /\bcloud migration\b/i, why: 'logical-layer-claim' },
+      { re: /\bdependency mapping\b/i, why: 'logical-layer-claim' },
+      { re: /\bdns\b/i, why: 'logical-layer-claim' },
+      { re: /\bbackup verification\b/i, why: 'logical-layer-claim' },
+    ];
+    const r52Refuse = (q) => R35_TRUTH_REFUSE.find((t) => t.re.test(q)) || R52_REFUSE_EXTRA.find((t) => t.re.test(q)) || null;
+    const r52Land = (svcId, intentClass, q, area, target, pattern) => {
+      const bad = r52Refuse(q);
+      if (bad) {
+        R52_STATS.truthRefused++;
+        excluded.push({ reason: 'r52-truth-' + bad.why, serviceId: svcId, queryText: q, pattern });
+        return false;
+      }
+      const nk = svcId + '|' + r30Norm(q);
+      if (r30NormSeen.has(nk)) {
+        const first = r30NormSeen.get(nk);
+        if (first === q) R52_STATS.collisionExact++; else R52_STATS.collisionNormalized++;
+        excluded.push({ reason: 'r52-collision-bank-kept', serviceId: svcId, queryText: q, pattern });
+        return false;
+      }
+      const ok = emit(svcId, intentClass, q, area, target, pattern, { source: 'datacenter-reattack-formula' });
+      if (ok) {
+        r30NormSeen.set(nk, q);
+        R52_STATS.byPage[target] = (R52_STATS.byPage[target] || 0) + 1;
+        const landedRow = rows[rows.length - 1];
+        R52_SOURCE_ROWS.push({ q, intent: intentClass, service_id: svcId, area, target_url: landedRow.target_url, pattern });
+        return true;
+      }
+      R52_STATS.gateExcluded++;
+      excluded.push({ reason: 'r52-gate-excluded', serviceId: svcId, queryText: q, pattern });
+      return false;
+    };
+    const landV = (svcId, cls, q, area, target, family) => {
+      R52_STATS.variantsAttempted++;
+      if (r52Land(svcId, cls, q, area, target, 'R52-variant-' + family)) {
+        R52_STATS.variantsLanded++;
+        R52_STATS.byFamily[family] = (R52_STATS.byFamily[family] || 0) + 1;
+      }
+    };
+    const R52_ASPECTS = {
+      'service-data-center-relocation': [
+        (pq) => 'does a data center move in ' + pq + ' run rack by rack so the rest of the room stays live?',
+        (pq) => 'do the crews disconnect, de-rack, re-rack, re-cable and power up racks in ' + pq + '?',
+        (pq) => 'are data center moving crews background checked and escort ready in ' + pq + '?',
+      ],
+      'service-it-relocation': [
+        (pq) => 'does an IT equipment move in ' + pq + ' label every cable to its port before disconnect?',
+        (pq) => 'are servers transported sealed and re-racked in the same order in ' + pq + '?',
+        (pq) => 'is IT equipment moving quoted at one flat rate in writing in ' + pq + '?',
+      ],
+    };
+    const cellOf = (f) => {
+      const p = f.properties;
+      const pl = String(p.name || '').replace(/,/g, '');
+      const pq = String(p.name || '');
+      const stateName = R52_STATE_NAME[p.state] || null;
+      const countyTail = String(p.county || '').split('/').pop().trim();
+      const county = /County$/.test(countyTail) ? countyTail : null;
+      const zip = p.postal_code ? String(p.postal_code) : null;
+      let radius = 25;
+      if (f.geometry && f.geometry.coordinates) {
+        const [lo, la] = f.geometry.coordinates;
+        const seats = [winSeat, marSeat].filter(Boolean);
+        let best = null;
+        for (const s of seats) { const d = havMi(la, lo, s[1], s[0]); if (best === null || d < best) best = d; }
+        if (best !== null) radius = bucket(best);
+      }
+      return { p, pl, pq, stateName, county, zip, radius, area: p.id };
+    };
+    const emitCell = (svc, target, C, phrases, cellIdx) => {
+      const { pl, pq, stateName, county, zip, radius, area } = C;
+      for (const PH of phrases) {
+        const ph = PH.phrase, base = PH.base;
+        const cellForms = [
+          ['ai-question', 'who provides ' + ph + ' in ' + pq + '?'],
+          ['ai-question', R52_ASPECTS[svc][cellIdx % R52_ASPECTS[svc].length](pq)],
+        ];
+        for (const [cls, q] of cellForms) {
+          R52_STATS.cellsAttempted++;
+          if (r52Land(svc, cls, q, area, target, 'R52-cell')) R52_STATS.cellsLanded++;
+        }
+        // PROXIMITY
+        landV(svc, 'navigational-local', ph + ' near me', area, target, 'proximity');
+        landV(svc, 'best-choice', 'best ' + ph + ' near me', area, target, 'proximity');
+        landV(svc, 'navigational-local', ph + ' nearby', area, target, 'proximity');
+        landV(svc, 'navigational-local', ph + ' near ' + pl, area, target, 'proximity');
+        landV(svc, 'navigational-local', ph + ' close to ' + pl, area, target, 'proximity');
+        // LOCALITY SCALE
+        if (!ph.startsWith('local ')) landV(svc, 'navigational-local', 'local ' + ph + ' ' + pl, area, target, 'locality');
+        landV(svc, 'navigational-local', ph + ' in ' + pl, area, target, 'locality');
+        if (county) landV(svc, 'navigational-local', ph + ' in ' + county + ' ' + C.p.state, area, target, 'locality');
+        if (stateName) landV(svc, 'navigational-local', ph + ' in ' + stateName, area, target, 'locality');
+        landV(svc, 'navigational-local', ph + ' around ' + pl, area, target, 'locality');
+        landV(svc, 'navigational-local', 'regional ' + ph + ' ' + pl, area, target, 'locality');
+        // RADIUS
+        landV(svc, 'navigational-local', ph + ' within ' + radius + ' miles of ' + pl, area, target, 'radius');
+        landV(svc, 'navigational-local', ph + ' serving the ' + pl + ' area', area, target, 'radius');
+        // ZIP FORMS — the place's geo record postal code
+        if (zip) {
+          landV(svc, 'navigational-local', ph + ' ' + zip, area, target, 'zip');
+          landV(svc, 'navigational-local', ph + ' near ' + zip, area, target, 'zip');
+        }
+        // RELATION WORDS
+        landV(svc, 'navigational-local', ph + ' serving ' + pq, area, target, 'relation');
+        landV(svc, 'navigational-local', ph + ' covering ' + pq, area, target, 'relation');
+        landV(svc, 'navigational-local', ph + ' available in ' + pl, area, target, 'relation');
+        landV(svc, 'navigational-local', ph + ' based in ' + pl, area, target, 'relation');
+        // AI-QUESTION FORMS
+        landV(svc, 'ai-question', 'how do i arrange ' + base + ' in ' + pl + '?', area, target, 'ai-question');
+        landV(svc, 'ai-question', 'what does ' + base + ' include in ' + pl + '?', area, target, 'ai-question');
+      }
+    };
+    const DC_PHRASES = [
+      { phrase: 'data center movers', base: 'data center moving' },
+      { phrase: 'data center relocation', base: 'data center relocation' },
+      { phrase: 'server movers', base: 'server moving' },
+    ];
+    const IT_PHRASES = [
+      { phrase: 'IT equipment movers', base: 'IT equipment moving' },
+      { phrase: 'IT movers', base: 'IT moving' },
+    ];
+    // PLACE CELLS — the four places with dedicated data-center pages.
+    // Each target is asserted against its pages.json registration:
+    // the page must exist and carry the service in its services list.
+    const R52_PLACE_TARGETS = [
+      { svc: 'service-data-center-relocation', place: 'place-ashburn-va', target: 'data-center-movers-ashburn-va', phrases: DC_PHRASES },
+      { svc: 'service-it-relocation', place: 'place-ashburn-va', target: 'data-center-movers-ashburn-va', phrases: IT_PHRASES },
+      { svc: 'service-data-center-relocation', place: 'place-leesburg-va', target: 'data-center-movers-leesburg-va', phrases: DC_PHRASES },
+      { svc: 'service-it-relocation', place: 'place-leesburg-va', target: 'data-center-movers-leesburg-va', phrases: IT_PHRASES },
+      { svc: 'service-data-center-relocation', place: 'place-winchester-va', target: 'data-center-movers-winchester-va', phrases: DC_PHRASES },
+      { svc: 'service-data-center-relocation', place: 'place-martinsburg-wv', target: 'data-center-movers-martinsburg-wv', phrases: DC_PHRASES },
+    ];
+    let cellIdx = 0;
+    for (const T of R52_PLACE_TARGETS) {
+      const reg = pageBySlugR52[T.target];
+      if (!reg) throw new Error('R52: target not in pages.json: ' + T.target);
+      if (!(reg.services || []).includes(T.svc)) throw new Error('R52: ' + T.target + ' not registered for ' + T.svc);
+      const f = featById[T.place];
+      if (!f) throw new Error('R52: place not in geojson: ' + T.place);
+      cellIdx++;
+      emitCell(T.svc, T.target, cellOf(f), T.phrases, cellIdx);
+    }
+    // IT FOOTPRINT — every remaining place carrying the it-relocation
+    // token binds to the IT hub (the data-center hub is already full
+    // from R44; the IT hub carried radius / ZIP / relation 0).
+    const IT_HUB = 'it-equipment-moving-data-center-logistics-services-virginia';
+    if (!pageBySlugR52[IT_HUB]) throw new Error('R52: IT hub not in pages.json');
+    const placePaged = new Set(['place-ashburn-va', 'place-leesburg-va']);
+    for (const f of geo.features || []) {
+      const p = f.properties || {};
+      if (!p.id || !p.id.startsWith('place-')) continue;
+      if (!(p.services || []).includes('it-relocation')) continue;
+      if (placePaged.has(p.id)) continue;
+      cellIdx++;
+      emitCell('service-it-relocation', IT_HUB, cellOf(f), IT_PHRASES, cellIdx);
+    }
+    try {
+      fs.mkdirSync(WORK_DIR, { recursive: true });
+      fs.writeFileSync(path.join(WORK_DIR, 'r52-accounting.json'),
+        JSON.stringify({ r52: R52_STATS }, null, 2) + '\n');
+      fs.writeFileSync(path.join(WORK_DIR, 'r52-source-rows.jsonl'),
+        R52_SOURCE_ROWS.map((r) => JSON.stringify(r)).join('\n') + '\n');
+    } catch (e) { /* accounting is diagnostic; generation never fails on it */ }
+  }
   // Fragment-binding late lane (Element 2, 2026-11-02): panel prompts
   // Q1/Q2/Q3 emit here, after R14, through the same R10 gates. Their
   // targets are roll-up pages; emitting them inside the service loop
