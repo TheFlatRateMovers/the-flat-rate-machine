@@ -7112,6 +7112,218 @@ function generate() {
         R52_SOURCE_ROWS.map((r) => JSON.stringify(r)).join('\n') + '\n');
     } catch (e) { /* accounting is diagnostic; generation never fails on it */ }
   }
+  // R53 (Virginia Beach Gun-Safe Takeover, 2026-11-17): the
+  // Hampton Roads gun-safe market enters the bank through the
+  // R24/R28 stub-place mechanism. The five cities — Virginia Beach,
+  // Norfolk, Chesapeake, Hampton, Newport News — have NO
+  // service-area.geojson feature (the footprint stays 87 features;
+  // no coverage-matrix cell is claimed for them, GS-3) and no
+  // footprint lane can reach them. They bind instead through the
+  // national performed-work layer (data/national-scope.json: VA
+  // cities Virginia Beach / Norfolk / Chesapeake / Newport News,
+  // VA services_performed includes 'gun safe moving'). Hampton is
+  // NOT in the published national city set: it emits rows bound to
+  // the Virginia Beach page as a coverage/FAQ cell only — no
+  // Hampton page, no standalone Hampton work claim.
+  // MEASURED DEMAND (phase-1 baseline, BUILD-PLAN.md): 4,000 GSC
+  // impressions / 0 clicks across 15 Hampton Roads safe queries
+  // (window 2025-07-20 -> 2026-11-14), served today by a legacy
+  // page, a Wix blog post and a tag page. RIVAL CEILINGS (rival-
+  // reads.md): every Hampton Roads holder publishes a 1,500 lb
+  // ceiling or lower — Southside ~1,500, JBR 500-1,500 (explicit),
+  // Movers Chesapeake 500-1,500 (explicit), STAR priced to 1,200,
+  // Hank's examples <=900. The 1,500-3,500 lb SIR band is unheld in
+  // all five SERPs; nobody publishes vault-door / installation /
+  // re-anchoring scope. COPY LAW: flat-rate-in-writing is PARTIALLY
+  // held in this market (JBR's 'Flat Written Rate' badge, Movers
+  // Chesapeake's flat written rate, Hank's binding written
+  // estimate) — no row and no page copy may claim flat-rate
+  // exclusivity; the wedge is the band + vault/install scope + the
+  // guarantee form + 16 years. BRANCH BINDING: Winchester, OSRM-
+  // measured in this batch (the estate's binding method): Virginia
+  // Beach 234.1 mi / 301 min from Winchester vs 258.5 / 328 from
+  // Martinsburg; Norfolk 222.0 / 285 vs 246.5 / 312 — Winchester
+  // nearer on every pair, all five cities. Framing: crews travel
+  // from the Winchester branch — never a local office or address.
+  // EMITS, per stub place: the gun-safe template families the
+  // footprint lanes would have emitted (the R2 place form + the
+  // R16 cost/best/how forms + the service's question-bank-v2 local
+  // ai-questions instantiated with the place name, R28's method)
+  // PLUS the section-6 variant families (proximity / locality
+  // scale / radius / ZIP forms / relation words / AI-question
+  // forms) generated from the stub records, R52's emitCell shapes.
+  // Stub ZIP = the geocoder postal code of the city's sourced
+  // point (the geo-record postal code, one per place, as in the
+  // geojson); stub radius = R52's bucket() applied to the nearer
+  // branch seat's computed centroid distance (BUILD-PLAN section
+  // 2; every Hampton Roads city is >50 mi out, so the bucket is
+  // 75 throughout). BINDING: Virginia Beach rows -> the Virginia
+  // Beach page; Norfolk rows -> the Norfolk page; Chesapeake /
+  // Hampton / Newport News rows -> the Virginia Beach page
+  // (single-headed per place family, R24 doctrine). PLACEMENT
+  // (the late-lane laws): after R52 and every roll-up lane, before
+  // the panel/news late rows; global first-wins dedupe resolves
+  // collisions bank-kept, counted below. TRUTH SCREEN: the R35
+  // base set plus the extras below (locksmith, authority-number,
+  // discount, climate-transit, storage-in-transit screens) —
+  // customers empty the safe first; safes under 1,500 lb are
+  // handled the same careful way; the up-to-25,000 lb class is
+  // contractor-delivered scope only, never the company's own
+  // capacity; no invented prices, reviews, or local presence.
+  const R53_STATS = { cellsAttempted: 0, cellsLanded: 0, variantsAttempted: 0, variantsLanded: 0, templateLanded: 0, byFamily: {}, byPage: {}, collisionExact: 0, collisionNormalized: 0, truthRefused: 0, gateExcluded: 0 };
+  const R53_SOURCE_ROWS = [];
+  {
+    const pagesDbR53 = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'pages.json'), 'utf8'));
+    const pageBySlugR53 = {};
+    for (const p of pagesDbR53.pages || []) pageBySlugR53[p.slug] = p;
+    const R53_REFUSE_EXTRA = [
+      { re: /\blocksmith\b/i, why: 'locksmith-claim' },
+      { re: /\b(?:usdot|dot|mc)\s*(?:#|number|no\.?)\b/i, why: 'authority-number-claim' },
+      { re: /\bdiscount\b/i, why: 'discount-claim' },
+      { re: /\bclimate[- ]controlled (?:truck|transport|transit|moving|van|trailer)\b/i, why: 'climate-transit-claim' },
+      { re: /\bstorage in transit\b/i, why: 'sit-claim' },
+    ];
+    const r53Refuse = (q) => R35_TRUTH_REFUSE.find((t) => t.re.test(q)) || R53_REFUSE_EXTRA.find((t) => t.re.test(q)) || null;
+    const r53Land = (svcId, intentClass, q, area, target, pattern) => {
+      const bad = r53Refuse(q);
+      if (bad) {
+        R53_STATS.truthRefused++;
+        excluded.push({ reason: 'r53-truth-' + bad.why, serviceId: svcId, queryText: q, pattern });
+        return false;
+      }
+      const nk = svcId + '|' + r30Norm(q);
+      if (r30NormSeen.has(nk)) {
+        const first = r30NormSeen.get(nk);
+        if (first === q) R53_STATS.collisionExact++; else R53_STATS.collisionNormalized++;
+        excluded.push({ reason: 'r53-collision-bank-kept', serviceId: svcId, queryText: q, pattern });
+        return false;
+      }
+      const ok = emit(svcId, intentClass, q, area, target, pattern, { source: 'virginia-beach-gunsafe-formula' });
+      if (ok) {
+        r30NormSeen.set(nk, q);
+        R53_STATS.byPage[target] = (R53_STATS.byPage[target] || 0) + 1;
+        const landedRow = rows[rows.length - 1];
+        R53_SOURCE_ROWS.push({ q, intent: intentClass, service_id: svcId, area, target_url: landedRow.target_url, pattern });
+        return true;
+      }
+      R53_STATS.gateExcluded++;
+      excluded.push({ reason: 'r53-gate-excluded', serviceId: svcId, queryText: q, pattern });
+      return false;
+    };
+    const landV53 = (svcId, cls, q, area, target, family) => {
+      R53_STATS.variantsAttempted++;
+      if (r53Land(svcId, cls, q, area, target, 'R53-variant-' + family)) {
+        R53_STATS.variantsLanded++;
+        R53_STATS.byFamily[family] = (R53_STATS.byFamily[family] || 0) + 1;
+      }
+    };
+    const qb2PathR53 = path.join(DATA_ROOT, 'question-bank-v2.json');
+    const qb2R53 = fs.existsSync(qb2PathR53) ? JSON.parse(fs.readFileSync(qb2PathR53, 'utf8')) : {};
+    const localQs53 = (qb2R53['service-gun-safe'] || [])
+      .filter((q) => q && q.local && String(q.text || '').includes('{area}'))
+      .map((q) => americanize(String(q.text || '').trim()))
+      .filter(Boolean);
+    const bucket53 = (mi) => (mi <= 10 ? 10 : mi <= 20 ? 20 : mi <= 35 ? 35 : mi <= 50 ? 50 : 75);
+    const GS_PHRASES = [
+      { phrase: 'gun safe movers', base: 'gun safe moving' },
+      { phrase: 'safe movers', base: 'safe moving' },
+      { phrase: 'gun safe relocation', base: 'gun safe relocation' },
+    ];
+    const R53_ASPECTS = [
+      (pq) => 'who moves gun safes of 1,500 to 3,500 lb in ' + pq + '?',
+      (pq) => 'do gun safe movers move safes up and down stairs in ' + pq + '?',
+      (pq) => 'can a gun safe be re-anchored after placement in ' + pq + '?',
+      (pq) => 'do gun safe movers deliver and install a safe bought from a dealer in ' + pq + '?',
+    ];
+    // Stub place records (R28 shape + the geo-record fields the
+    // section-6 families read: zip + nearer-branch centroid miles).
+    // mi = the nearer (Winchester) seat's computed centroid
+    // distance, BUILD-PLAN section 2; zip = the geocoder postal
+    // code of the city's sourced point, measured in this batch.
+    const R53_STUBS = [
+      { id: 'place-virginia-beach-va', name: 'Virginia Beach, VA', kind: 'city', zip: '23456', mi: 200, target: 'gun-safe-movers-virginia-beach-va' },
+      { id: 'place-norfolk-va', name: 'Norfolk, VA', kind: 'city', zip: '23510', mi: 191, target: 'gun-safe-movers-norfolk-va' },
+      { id: 'place-chesapeake-va', name: 'Chesapeake, VA', kind: 'city', zip: '23323', mi: 196, target: 'gun-safe-movers-virginia-beach-va' },
+      { id: 'place-hampton-va', name: 'Hampton, VA', kind: 'city', zip: '23669', mi: 179, target: 'gun-safe-movers-virginia-beach-va' },
+      { id: 'place-newport-news-va', name: 'Newport News, VA', kind: 'city', zip: '23606', mi: 172, target: 'gun-safe-movers-virginia-beach-va' },
+    ];
+    const SVC53 = 'service-gun-safe';
+    const [phrase53, plural53] = PHRASE[SVC53];
+    for (const TGT of ['gun-safe-movers-virginia-beach-va', 'gun-safe-movers-norfolk-va']) {
+      const reg = pageBySlugR53[TGT];
+      if (!reg) throw new Error('R53: target not in pages.json: ' + TGT);
+      if (!(reg.services || []).includes(SVC53)) throw new Error('R53: ' + TGT + ' not registered for ' + SVC53);
+    }
+    let stubIdx = 0;
+    for (const st of R53_STUBS) {
+      stubIdx++;
+      const T = st.target;
+      // Template families — R2 place form + R16 forms + qb2 local
+      // ai-questions, R28's method, gun-safe service only.
+      if (r53Land(SVC53, 'navigational-local', phrase53 + ' ' + st.name, st.id, T, 'R53-stub-place')) R53_STATS.templateLanded++;
+      if (r53Land(SVC53, 'cost', 'how much ' + (plural53 ? 'do' : 'does') + ' ' + phrase53 + ' cost in ' + st.name, st.id, T, 'R53-stub-cost')) R53_STATS.templateLanded++;
+      if (r53Land(SVC53, 'cost', phrase53 + ' cost in ' + st.name, st.id, T, 'R53-stub-cost')) R53_STATS.templateLanded++;
+      if (r53Land(SVC53, 'best-choice', 'best ' + phrase53 + ' in ' + st.name, st.id, T, 'R53-stub-best')) R53_STATS.templateLanded++;
+      if (r53Land(SVC53, 'best-choice', 'top rated ' + phrase53 + ' in ' + st.name, st.id, T, 'R53-stub-best')) R53_STATS.templateLanded++;
+      if (r53Land(SVC53, 'how-process', 'how to hire ' + phrase53 + ' in ' + st.name, st.id, T, 'R53-stub-how')) R53_STATS.templateLanded++;
+      for (const q of localQs53) {
+        if (r53Land(SVC53, 'ai-question', q.split('{area}').join(st.name), st.id, T, 'R53-stub-ai')) R53_STATS.templateLanded++;
+      }
+      // Section-6 cell + variant families, R52's emitCell shapes.
+      const pl = st.name.replace(/,/g, '');
+      const pq = st.name;
+      const stateName = 'Virginia';
+      const zip = st.zip;
+      const radius = bucket53(st.mi);
+      for (const PH of GS_PHRASES) {
+        const ph = PH.phrase, base = PH.base;
+        const cellForms = [
+          ['ai-question', 'who provides ' + ph + ' in ' + pq + '?'],
+          ['ai-question', R53_ASPECTS[stubIdx % R53_ASPECTS.length](pq)],
+        ];
+        for (const [cls, q] of cellForms) {
+          R53_STATS.cellsAttempted++;
+          if (r53Land(SVC53, cls, q, st.id, T, 'R53-cell')) R53_STATS.cellsLanded++;
+        }
+        // PROXIMITY
+        landV53(SVC53, 'navigational-local', ph + ' near me', st.id, T, 'proximity');
+        landV53(SVC53, 'best-choice', 'best ' + ph + ' near me', st.id, T, 'proximity');
+        landV53(SVC53, 'navigational-local', ph + ' nearby', st.id, T, 'proximity');
+        landV53(SVC53, 'navigational-local', ph + ' near ' + pl, st.id, T, 'proximity');
+        landV53(SVC53, 'navigational-local', ph + ' close to ' + pl, st.id, T, 'proximity');
+        // LOCALITY SCALE
+        if (!ph.startsWith('local ')) landV53(SVC53, 'navigational-local', 'local ' + ph + ' ' + pl, st.id, T, 'locality');
+        landV53(SVC53, 'navigational-local', ph + ' in ' + pl, st.id, T, 'locality');
+        landV53(SVC53, 'navigational-local', ph + ' in ' + stateName, st.id, T, 'locality');
+        landV53(SVC53, 'navigational-local', ph + ' around ' + pl, st.id, T, 'locality');
+        landV53(SVC53, 'navigational-local', 'regional ' + ph + ' ' + pl, st.id, T, 'locality');
+        // RADIUS
+        landV53(SVC53, 'navigational-local', ph + ' within ' + radius + ' miles of ' + pl, st.id, T, 'radius');
+        landV53(SVC53, 'navigational-local', ph + ' serving the ' + pl + ' area', st.id, T, 'radius');
+        // ZIP FORMS — the stub's geo-record postal code
+        if (zip) {
+          landV53(SVC53, 'navigational-local', ph + ' ' + zip, st.id, T, 'zip');
+          landV53(SVC53, 'navigational-local', ph + ' near ' + zip, st.id, T, 'zip');
+        }
+        // RELATION WORDS
+        landV53(SVC53, 'navigational-local', ph + ' serving ' + pq, st.id, T, 'relation');
+        landV53(SVC53, 'navigational-local', ph + ' covering ' + pq, st.id, T, 'relation');
+        landV53(SVC53, 'navigational-local', ph + ' available in ' + pl, st.id, T, 'relation');
+        landV53(SVC53, 'navigational-local', ph + ' based in ' + pl, st.id, T, 'relation');
+        // AI-QUESTION FORMS
+        landV53(SVC53, 'ai-question', 'how do i arrange ' + base + ' in ' + pl + '?', st.id, T, 'ai-question');
+        landV53(SVC53, 'ai-question', 'what does ' + base + ' include in ' + pl + '?', st.id, T, 'ai-question');
+      }
+    }
+    try {
+      fs.mkdirSync(WORK_DIR, { recursive: true });
+      fs.writeFileSync(path.join(WORK_DIR, 'r53-accounting.json'),
+        JSON.stringify({ r53: R53_STATS }, null, 2) + '\n');
+      fs.writeFileSync(path.join(WORK_DIR, 'r53-source-rows.jsonl'),
+        R53_SOURCE_ROWS.map((r) => JSON.stringify(r)).join('\n') + '\n');
+    } catch (e) { /* accounting is diagnostic; generation never fails on it */ }
+  }
+
   // Fragment-binding late lane (Element 2, 2026-11-02): panel prompts
   // Q1/Q2/Q3 emit here, after R14, through the same R10 gates. Their
   // targets are roll-up pages; emitting them inside the service loop
