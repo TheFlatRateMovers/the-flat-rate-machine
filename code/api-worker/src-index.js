@@ -19,7 +19,9 @@ import {
   services,
   datasetsInventory,
   pageDataInventory,
-  intentRows,
+  intentRowCount,
+  intentFilterIndices,
+  intentRowAt,
   coverageData,
   bundleManifest,
   datasetRemote,
@@ -94,7 +96,7 @@ const indexDistributions = masterIndex.distribution || [];
 const COUNTS = {
   services: services.length,
   datasets: datasetsInventory.length,
-  intentRows: intentRows.length,
+  intentRows: intentRowCount,
   // Pages = the site's HTML documents carried in the signed index: the
   // per-route documents plus the dataset landing pages, counted from
   // the index rather than restated as prose.
@@ -182,19 +184,17 @@ function normalizeDatasetName(name) {
 
 // ------------------------------------------------------------------ intent
 function filterIntent(params) {
-  const service = params.get('service');
-  const area = params.get('area');
-  const intentClass = params.get('intent_class');
-  const q = params.get('q');
-  let out = intentRows;
-  if (service) out = out.filter((r) => r.service_id === service);
-  if (area) out = out.filter((r) => (r.area || '') === area);
-  if (intentClass) out = out.filter((r) => r.intent_class === intentClass);
-  if (q) {
-    const needle = q.toLowerCase();
-    out = out.filter((r) => r.query_text.toLowerCase().includes(needle));
-  }
-  return out;
+  // Columnar bundle (2026-11-17): the rubric ships as columns and is
+  // scanned in that form; only matching rows are materialized, in
+  // paginate() below. Filter semantics are the pre-columnar ones,
+  // unchanged: service / area / intent_class equality (area compared
+  // with the '' fallback) and a case-insensitive query_text substring.
+  return intentFilterIndices({
+    service: params.get('service'),
+    area: params.get('area'),
+    intentClass: params.get('intent_class'),
+    q: params.get('q'),
+  });
 }
 
 function paginate(rows, params) {
@@ -207,7 +207,9 @@ function paginate(rows, params) {
     total: rows.length,
     limit,
     offset,
-    results: rows.slice(offset, offset + limit),
+    // rows are intent-row indices (see filterIntent): materialize
+    // only the served page.
+    results: rows.slice(offset, offset + limit).map((i) => intentRowAt(i)),
   };
 }
 
