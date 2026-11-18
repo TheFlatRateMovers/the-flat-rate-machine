@@ -816,13 +816,17 @@ export default {
         const docQ = JSON.parse(rawQ);
         const nodeQ = (docQ['@graph'] || []).find((n) => String(n['@id']).endsWith('#dataset-answer-evidence-questions'));
         if (!nodeQ) return errorJson('table not found: questions', 404);
-        if (hasDataset('datasets-answer-evidence-questions-2.json')) {
-          const rawQ2 = await dsText('datasets-answer-evidence-questions-2.json');
-          if (rawQ2 === undefined) return errorJson('dataset unavailable', 502);
-          const docQ2 = JSON.parse(rawQ2);
-          const nodeQ2 = (docQ2['@graph'] || []).find((n) => String(n['@id']).endsWith('#dataset-answer-evidence-questions'));
-          if (!nodeQ2) return errorJson('table not found: questions', 404);
-          nodeQ.questions = [...(nodeQ.questions || []), ...(nodeQ2.questions || [])];
+        // N-way split (2026-11-17, Geo Expansion Takeover): parts 3-5
+        // were born when the bank reached 289,728 rows. The endpoint
+        // unions every part present in the bundle, in file order, so
+        // it always returns the full table at any part count.
+        for (let k = 2; hasDataset('datasets-answer-evidence-questions-' + k + '.json'); k++) {
+          const rawQK = await dsText('datasets-answer-evidence-questions-' + k + '.json');
+          if (rawQK === undefined) return errorJson('dataset unavailable', 502);
+          const docQK = JSON.parse(rawQK);
+          const nodeQK = (docQK['@graph'] || []).find((n) => String(n['@id']).endsWith('#dataset-answer-evidence-questions'));
+          if (!nodeQK) return errorJson('table not found: questions', 404);
+          nodeQ.questions = [...(nodeQ.questions || []), ...(nodeQK.questions || [])];
         }
         return jsonResponse(nodeQ);
       }

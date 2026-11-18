@@ -805,6 +805,45 @@ const graph = [
     about: [{ '@id': SITE + '/#organization' }],
   },
 ];
+// --- Clusters split (2026-11-17, Geo Expansion Takeover) -----------
+// At 289,728 rubric rows the queryClusters table (69,066 clusters,
+// ~47.7 MB compact) carried this file to 65.2 MB — past the 25 MiB
+// Cloudflare Pages per-file limit (publish preflight stopped the
+// close on it). The table now ships in byte-balanced companion files
+// under a 20 MiB cap — the answer-evidence N-way split pattern: each
+// part carries the clusters node at the same @id with its slice of
+// the array; the main file's node carries queryClustersCount +
+// queryClustersFiles and a DataDownload entry per part; verify SI-1
+// unions the parts. Below the cap the table stays inline (one file).
+const SI_PART_CAP = 20 * 1024 * 1024;
+const SI_PART_DATE = { 1: '2026-10-31', 2: '2026-11-17', 3: '2026-11-17' };
+const siClustersNode = graph.find((n) => n && n['@id'] === SITE + '/#dataset-search-index-clusters');
+const siAllClusters = siClustersNode.queryClusters;
+const siClusterBytes = siAllClusters.map((c) => Buffer.byteLength(JSON.stringify(c)) + 1);
+const siTotalClusterBytes = siClusterBytes.reduce((a, b) => a + b, 0);
+const SI_PARTS = [];
+if (siTotalClusterBytes > SI_PART_CAP) {
+  const nParts = Math.ceil(siTotalClusterBytes / SI_PART_CAP);
+  const partTarget = Math.ceil(siTotalClusterBytes / nParts);
+  let cur = [], curBytes = 0;
+  siAllClusters.forEach((c, i) => {
+    if (cur.length && curBytes + siClusterBytes[i] > partTarget && SI_PARTS.length < nParts - 1) {
+      SI_PARTS.push(cur); cur = []; curBytes = 0;
+    }
+    cur.push(c); curBytes += siClusterBytes[i];
+  });
+  if (cur.length) SI_PARTS.push(cur);
+  SI_PARTS.forEach((slice, i) => {
+    const k = i + 1;
+    slice.partName = k === 1 ? 'datasets-search-index-clusters.json' : 'datasets-search-index-clusters-' + k + '.json';
+    slice.partDate = SI_PART_DATE[k] || FILE_DM;
+  });
+  siClustersNode.queryClustersFiles = SI_PARTS.map((s) => SITE + '/' + s.partName);
+  siClustersNode.queryClustersCount = siAllClusters.length;
+  siClustersNode.distribution = [...siClustersNode.distribution,
+    ...SI_PARTS.map((s) => ({ '@type': 'DataDownload', contentUrl: SITE + '/' + s.partName, encodingFormat: 'application/json' }))];
+  delete siClustersNode.queryClusters;
+}
 shaDistributions(graph, FILE_URL);
 
 // --- Consolidated Visibility Batch 2026-11-02: dataset enrichment ---
@@ -834,12 +873,47 @@ function enrichDatasetNodes(nodes, datePublished, variableMeasured, strengthenSC
 enrichDatasetNodes(graph, '2026-10-31', ["standingObservations (ourPosition, aiOverviewPresent, localPackPresent, observedAbsent; per engine/date)", "engineWindows (impressions, clicks, ctr, avgPosition)", "urlSupply (wordCount, internalInlinks, indexation state, perPageJson)", "queryClusters (cluster counts by intentClass / moneyWeight)"], true);
 const doc = { '@context': 'https://schema.org', '@graph': graph };
 const bytes = JSON.stringify(doc, null, 2) + '\n';
+// Companion part files (clusters split, 2026-11-17): each carries the
+// enriched clusters node with its slice; compact serialization.
+const siPartFiles = SI_PARTS.map((slice) => {
+  const node = JSON.parse(JSON.stringify(siClustersNode));
+  node.queryClusters = slice;
+  node.datePublished = slice.partDate;
+  // Part nodes carry only [self + index], bare — the AE part pattern:
+  // a part never embeds digests of the part files (its own included),
+  // so part bytes are stable from the first generation and the main
+  // file's sha-stamped part entries converge in the seal's settles.
+  node.distribution = [
+    { '@type': 'DataDownload', contentUrl: SITE + '/' + slice.partName, encodingFormat: 'application/json' },
+    { '@type': 'DataDownload', contentUrl: SITE + '/ai-master-index.json', encodingFormat: 'application/json' },
+  ];
+  // CV-6: variableMeasured belongs to exactly the six measurement FILES;
+  // a split part is not one of them (the main file's node keeps it).
+  delete node.variableMeasured;
+  const pdoc = { '@context': 'https://schema.org', '@graph': [node] };
+  return { name: slice.partName, path: path.join(PUB, slice.partName), bytes: JSON.stringify(pdoc) + '\n' };
+});
+const siPartOnDisk = fs.readdirSync(PUB).filter((f) => /^datasets-search-index-clusters(-\d+)?\.json$/.test(f)).sort();
 if (CHECK) {
   const cur = fs.readFileSync(outPath, 'utf8');
   if (cur !== bytes) { console.error('CHECK FAIL: ' + outPath + ' differs from regeneration'); process.exit(1); }
   console.log('CHECK OK: datasets-search-index.json regenerates byte-identical (' + bytes.length + ' bytes)');
+  const want = siPartFiles.map((f) => f.name).sort();
+  if (JSON.stringify(siPartOnDisk) !== JSON.stringify(want)) { console.error('CHECK FAIL: search-index part set on disk ' + JSON.stringify(siPartOnDisk) + ' != regenerated ' + JSON.stringify(want)); process.exit(1); }
+  for (const f of siPartFiles) {
+    const curP = fs.readFileSync(f.path, 'utf8');
+    if (curP !== f.bytes) { console.error('CHECK FAIL: ' + f.path + ' differs from regeneration'); process.exit(1); }
+    console.log('CHECK OK: ' + f.name + ' regenerates byte-identical (' + f.bytes.length + ' bytes)');
+  }
 } else {
   fs.writeFileSync(outPath, bytes);
   console.log('WROTE ' + outPath + ' (' + bytes.length + ' bytes)');
+  for (const f of siPartFiles) {
+    fs.writeFileSync(f.path, f.bytes);
+    console.log('WROTE ' + f.path + ' (' + f.bytes.length + ' bytes)');
+  }
+  for (const stale of siPartOnDisk) {
+    if (!siPartFiles.some((f) => f.name === stale)) { fs.unlinkSync(path.join(PUB, stale)); console.log('REMOVED stale part ' + stale); }
+  }
   console.log('totals: ' + JSON.stringify(totals));
 }

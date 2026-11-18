@@ -2,7 +2,7 @@
  "description": "Seal-maintained lastmod ledger: for every sitemap URL, the date of the last seal generation in which its own signed distribution changed. Seeded from the 2026-11-02 crawl-demand audit (doc-level digest history across 73 signed generations); maintained by seal.py phase 6b (diff-stamp vs the phase-0 prior index). build-sitemap.js reads this file for every sitemap <lastmod>.",
  "lastSeal": {
   "date": "2026-11-17",
-  "indexSha256": "d8dd271900f16d68cae12bd5f1c1c45fe801a7177aa0df307483b7b0ca4de4b0"
+  "indexSha256": "f3ec97f627a92973159605e00c23ee09950e4532c260498ce52bdae94cf580c9"
  },
  "seededFrom": "crawl-demand-audit-2026-11-02.csv",
  "urls": {
@@ -71,6 +71,9 @@
   "https://theflatratemovers.com/data-center-movers-winchester-va/": "2026-11-17",
   "https://theflatratemovers.com/data-center-relocation/": "2026-11-17",
   "https://theflatratemovers.com/datasets-answer-evidence-questions-2.json": "2026-11-17",
+  "https://theflatratemovers.com/datasets-answer-evidence-questions-3.json": "2026-11-17",
+  "https://theflatratemovers.com/datasets-answer-evidence-questions-4.json": "2026-11-17",
+  "https://theflatratemovers.com/datasets-answer-evidence-questions-5.json": "2026-11-17",
   "https://theflatratemovers.com/datasets-answer-evidence-questions.json": "2026-11-17",
   "https://theflatratemovers.com/datasets-answer-evidence.json": "2026-11-17",
   "https://theflatratemovers.com/datasets-archive-registry.json": "2026-11-12",
@@ -80,7 +83,7 @@
   "https://theflatratemovers.com/datasets-catalog-registry.json": "2026-11-17",
   "https://theflatratemovers.com/datasets-charles-town-wv.json": "2026-11-17",
   "https://theflatratemovers.com/datasets-commercial.json": "2026-11-17",
-  "https://theflatratemovers.com/datasets-coverage.json": "2026-11-14",
+  "https://theflatratemovers.com/datasets-coverage.json": "2026-11-17",
   "https://theflatratemovers.com/datasets-crating.json": "2026-11-17",
   "https://theflatratemovers.com/datasets-crawl-presence.json": "2026-11-12",
   "https://theflatratemovers.com/datasets-data-center-relocation.json": "2026-11-17",
@@ -98,7 +101,7 @@
   "https://theflatratemovers.com/datasets-ispm15.json": "2026-11-17",
   "https://theflatratemovers.com/datasets-it.json": "2026-11-17",
   "https://theflatratemovers.com/datasets-junk-removal.json": "2026-11-17",
-  "https://theflatratemovers.com/datasets-local-graph-registry.json": "2026-11-12",
+  "https://theflatratemovers.com/datasets-local-graph-registry.json": "2026-11-17",
   "https://theflatratemovers.com/datasets-local-regional.json": "2026-11-17",
   "https://theflatratemovers.com/datasets-logistics-project-management.json": "2026-11-16",
   "https://theflatratemovers.com/datasets-long-distance.json": "2026-11-17",
@@ -125,6 +128,9 @@
   "https://theflatratemovers.com/datasets-residential.json": "2026-11-17",
   "https://theflatratemovers.com/datasets-richmond-marine-terminal.json": "2026-11-15",
   "https://theflatratemovers.com/datasets-route81.json": "2026-11-17",
+  "https://theflatratemovers.com/datasets-search-index-clusters-2.json": "2026-11-17",
+  "https://theflatratemovers.com/datasets-search-index-clusters-3.json": "2026-11-17",
+  "https://theflatratemovers.com/datasets-search-index-clusters.json": "2026-11-17",
   "https://theflatratemovers.com/datasets-search-index.json": "2026-11-17",
   "https://theflatratemovers.com/datasets-senior.json": "2026-11-17",
   "https://theflatratemovers.com/datasets-shepherdstown-wv.json": "2026-11-17",

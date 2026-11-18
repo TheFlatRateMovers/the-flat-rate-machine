@@ -52,6 +52,12 @@ const REGISTERED_EXCLUDED = {
   'answer-evidence-questions-2': 'AE second split seat (2026-11-16): part 2 of the answer-evidence questions array; citizenship rides the answer-evidence citizen; no landing or per-page JSON of its own by design',
 };
 for (const stem of Object.keys(REGISTERED_EXCLUDED)) EXCLUDE.add(stem);
+/* AE split family (2026-11-17, Geo Expansion Takeover): the questions
+ * array is split N-ways (5 parts at 289,728 rows); every part rides the
+ * answer-evidence citizen by the same rule as parts 1-2, so the whole
+ * family is excluded by pattern — a future part never breaks the
+ * resync again. */
+const AE_SPLIT_STEM = /^(answer-evidence-questions|search-index-clusters)(-\d+)?$/; // SI clusters family added 2026-11-17 (same split pattern)
 
 function sortKeys(o) {
   if (Array.isArray(o)) return o.map(sortKeys);
@@ -76,7 +82,7 @@ function deriveAll() {
   const out = [];
   for (const f of files) {
     const stem = f.replace(/^datasets-/, '').replace(/\.json$/, '');
-    if (EXCLUDE.has(stem)) { out.push({ stem, excluded: true }); continue; }
+    if (EXCLUDE.has(stem) || AE_SPLIT_STEM.test(stem)) { out.push({ stem, excluded: true }); continue; }
     const landing = SITE + '/datasets/' + stem + '/';
     const candIds = new Set([landing + '#dataset', landing + '#dataset-' + stem, SITE + '/' + f + '#dataset']);
     const ppDoc = JSON.parse(fs.readFileSync(path.join(PUB, 'dataset-' + stem + '.json'), 'utf8'));

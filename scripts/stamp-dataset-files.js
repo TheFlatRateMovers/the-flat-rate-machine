@@ -52,7 +52,7 @@ function main() {
   let changed = 0, fields = 0;
   const notes = [];
   for (const name of names) {
-    if (GENERATOR_OWNED.has(name)) continue;
+    if (GENERATOR_OWNED.has(name) || /^datasets-(answer-evidence-questions|search-index-clusters)(-\d+)?\.json$/.test(name)) continue; // split families ride the pattern (AE N-way split + SI clusters split, 2026-11-17)
     const url = SITE + '/' + name;
     const want = files[url];
     if (!want) throw new Error('stamps.files lacks ' + url + ' — phase 0 must cover every dataset file (Q124)');

@@ -304,7 +304,9 @@ for (const f of dsFiles) {
   // shares the answer-evidence landing — its node's own url is the
   // landing; the filename-derived landing does not exist for it.
   // Second split (2026-11-16): the part-2 file rides the same rule.
-  const landingFull = (f === 'datasets-answer-evidence-questions.json' || f === 'datasets-answer-evidence-questions-2.json') && main.url
+  // N-way split (2026-11-17): parts 3-5 ride it too — pattern form,
+  // so any future part is covered.
+  const landingFull = /^datasets-(answer-evidence-questions|search-index-clusters)(-\d+)?\.json$/.test(f) && main.url
     ? main.url
     : 'https://theflatratemovers.com/datasets/' + f.replace(/^datasets-/, '').replace(/\.json$/, '') + '/';
   out.push('- **' + (main.name || f) + '** — ' + String(main.description || '').replace(/\s+/g, ' ').trim() + ' Download: https://theflatratemovers.com/' + f + ' · Landing: ' + landingFull);

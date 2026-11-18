@@ -7541,12 +7541,25 @@ const CERT_BLOCK = {
 // itself (the index carries no self-digest by design; its integrity is
 // the detached JWS).
 const INDEX_URL = SITE + '/ai-master-index.json';
+const _pubFileDigestCache = new Map();
 function pubFileDigest(url) {
-  if (!url || !url.startsWith(SITE + '/')) return null;
-  const rel = url.slice(SITE.length + 1);
-  let p = path.join(PUB, rel);
-  if (rel === '' || rel.endsWith('/')) p = path.join(p, 'index.html');
-  try { return crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex'); } catch (_) { return null; }
+  // Memoized per process (2026-11-17, Geo Expansion): emit() calls this
+  // per row (~290k calls over ~421 distinct files at the 335-place
+  // bank); the uncached read+sha256 of the same files dominated the
+  // build (~135s of ~287s profiled). Values are still computed from the
+  // files' own bytes (the S2 rule) — PUB files never change during a
+  // generator run (the generator writes only its work dir + rubric.db),
+  // and each new process re-reads fresh.
+  if (_pubFileDigestCache.has(url)) return _pubFileDigestCache.get(url);
+  let digest = null;
+  if (url && url.startsWith(SITE + '/')) {
+    const rel = url.slice(SITE.length + 1);
+    let p = path.join(PUB, rel);
+    if (rel === '' || rel.endsWith('/')) p = path.join(p, 'index.html');
+    try { digest = crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex'); } catch (_) { digest = null; }
+  }
+  _pubFileDigestCache.set(url, digest);
+  return digest;
 }
 function shaDistributions(nodes, selfUrl) {
   for (const n of nodes) {
@@ -7773,7 +7786,7 @@ function enrichDatasetNodes(nodes, datePublished, variableMeasured, strengthenSC
 }
 
 // --- Database write (sqlite3 CLI, the same tool verify.js uses) ---
-const { execFileSync } = require('child_process');
+const { execFileSync, spawnSync } = require('child_process');
 function sqlEsc(v) {
   if (v === null || v === undefined) return 'NULL';
   if (typeof v === 'number') return String(v);
@@ -7939,19 +7952,34 @@ ${gateCols},
   }
   lines.push('COMMIT;');
   const sqlPath = path.join(workDir, 'intent-rubric.sql');
-  fs.writeFileSync(sqlPath, lines.join('\n') + '\n');
-  execFileSync('sqlite3', [DB_PATH], { input: fs.readFileSync(sqlPath) });
+  // Streamed write + streamed sqlite3 load (2026-11-17, Geo Expansion):
+  // the one-shot lines.join() crossed V8's max string length once the
+  // bank grew past the 87-place footprint (RangeError at 335 places).
+  // Chunked writes produce byte-identical file content.
+  const fd = fs.openSync(sqlPath, 'w');
+  const CHUNK = 8192;
+  for (let i = 0; i < lines.length; i += CHUNK) {
+    fs.writeSync(fd, lines.slice(i, i + CHUNK).join('\n') + '\n');
+  }
+  fs.closeSync(fd);
+  const fdIn = fs.openSync(sqlPath, 'r');
+  const load = spawnSync('sqlite3', [DB_PATH], { stdio: [fdIn, 'pipe', 'pipe'] });
+  fs.closeSync(fdIn);
+  if (load.status !== 0) {
+    throw new Error('sqlite3 load of intent-rubric.sql failed: ' + (load.stderr || '').toString());
+  }
   return sqlPath;
 }
 
 function checkAgainstDb(gen) {
-  // maxBuffer 256 MB (raised 2026-11-16, Money Trio-5): the full-table
+  // maxBuffer 512 MB (raised 2026-11-17, Geo Expansion; was 256 MB
+  // from 2026-11-16, Money Trio-5): the full-table
   // -json dump crossed the old 64 MB buffer at 74,096 rows (68,218,044
   // bytes) and --check died ENOBUFS — the seal read the unreadable
   // check as "one generation behind" and failed the phase-1 fixpoint
   // on a healthy bank. The buffer must stay ahead of bank growth.
   const out = execFileSync('sqlite3', ['-json', DB_PATH,
-    'SELECT query_text, intent_class, service_id, area, target_url, target_json, dataset_ids, graph_node, cert_target_json_sha256, cert_dataset_digests, gate_page_in_registry, gate_target_in_signed_index, gate_datasets_in_signed_index, source, observation_ids FROM intent_query ORDER BY id;'], { maxBuffer: 256 * 1024 * 1024 }).toString();
+    'SELECT query_text, intent_class, service_id, area, target_url, target_json, dataset_ids, graph_node, cert_target_json_sha256, cert_dataset_digests, gate_page_in_registry, gate_target_in_signed_index, gate_datasets_in_signed_index, source, observation_ids FROM intent_query ORDER BY id;'], { maxBuffer: 512 * 1024 * 1024 }).toString();
   const dbRows = JSON.parse(out || '[]').map((r) => ({
     query_text: r.query_text, intent_class: r.intent_class, service_id: r.service_id, area: r.area,
     target_url: r.target_url, target_json: r.target_json,
@@ -7991,7 +8019,21 @@ function main() {
   const datasetPath = path.join(workDir, 'datasets-intent-coverage.json');
   fs.writeFileSync(datasetPath, JSON.stringify(dataset, null, 2) + '\n');
   const rowsPath = path.join(workDir, 'intent-rows.json');
-  fs.writeFileSync(rowsPath, JSON.stringify(gen.rows, null, 1) + '\n');
+  { // stream the rows file (2026-11-17): one JSON.stringify of 289k rows
+    // spiked ~1 GB and OOM'd the seal's phase-1 build; per-row writes are
+    // byte-identical to JSON.stringify(rows, null, 1) + '\n' (proven).
+    const fd = fs.openSync(rowsPath, 'w');
+    if (!gen.rows.length) { fs.writeSync(fd, '[]\n'); }
+    else {
+      fs.writeSync(fd, '[');
+      gen.rows.forEach((r, i) => {
+        const s = JSON.stringify(r, null, 1).split('\n').map(l => ' ' + l).join('\n');
+        fs.writeSync(fd, (i ? ',\n' : '\n') + s);
+      });
+      fs.writeSync(fd, '\n]\n');
+    }
+    fs.closeSync(fd);
+  }
   const summary = {
     generator: GENERATOR + ' v' + GENERATOR_VERSION,
     generated_at: RUBRIC_DATE,
