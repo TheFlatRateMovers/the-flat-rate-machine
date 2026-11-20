@@ -1,7 +1,9 @@
 {
- "proof": "A3 fingerprint build+select over tracked tree content (git archive of HEAD)",
- "fingerprint_build_seconds": 0,
- "fingerprint_select_seconds": 0,
+ "proof": "A3 fingerprint build+select over the machine repo's tracked content, staged as the the-flat-rate-machine workspace subtree (git archive of HEAD)",
+ "files_fingerprinted": 658,
+ "blocks_fingerprinted": 1929,
+ "fingerprint_build_seconds": 1,
+ "fingerprint_select_seconds": 1,
  "total_seconds": 2,
  "exit_codes": {
   "fingerprint_build": 0,
