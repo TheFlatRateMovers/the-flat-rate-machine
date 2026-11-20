@@ -1,0 +1,13 @@
+{
+ "proof": "A3 fingerprint build+select over tracked tree content (git archive of HEAD)",
+ "fingerprint_build_seconds": 0,
+ "fingerprint_select_seconds": 0,
+ "total_seconds": 2,
+ "exit_codes": {
+  "fingerprint_build": 0,
+  "fingerprint_select_baseline": 0,
+  "node_check_verify_js": 0,
+  "node_check_check_twins_js": 0
+ },
+ "green": true
+}

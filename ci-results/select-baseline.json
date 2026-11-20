@@ -1,0 +1,19 @@
+{
+ "format": "a3-changed-slice/1",
+ "root_name": "tree",
+ "store_created_utc": "2026-11-20T18:30:40Z",
+ "summary": {
+  "added": 0,
+  "removed": 0,
+  "changed": 0,
+  "dirs_added": 0,
+  "dirs_removed": 0,
+  "blocks_changed": 0
+ },
+ "added": [],
+ "removed": [],
+ "changed": [],
+ "dirs_added": [],
+ "dirs_removed": [],
+ "select_seconds": 0.0
+}

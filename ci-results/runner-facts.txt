@@ -1,0 +1,9 @@
+utc: 2026-11-20T18:30:40Z
+nproc: 4
+model name	: AMD EPYC 9V74 80-Core Processor
+               total        used        free      shared  buff/cache   available
+Mem:           15983         998       14344          41         966       14984
+node: v24.22.3
+python: Python 3.14.4
+files_in_tree: 652
+tree_bytes: 41568138

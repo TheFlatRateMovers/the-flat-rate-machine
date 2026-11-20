@@ -1,0 +1,14 @@
+{
+ "build_seconds": 0.0,
+ "created_utc": "2026-11-20T18:30:40Z",
+ "dirs": [],
+ "files": {},
+ "format": "a3-fingerprint-store/1",
+ "root_name": "tree",
+ "subtrees": [
+  "the-flat-rate-machine",
+  "the-flat-rate-movers-pages",
+  "the-flat-rate-movers-worker",
+  "theflatratemovers"
+ ]
+}
