@@ -1965,7 +1965,7 @@ async function main() {
     const segM = quoteHtml.match(/<form id="quoteForm"[\s\S]*?<\/form>/);
     const segMd5 = segM ? crypto.createHash('md5').update(segM[0], 'utf8').digest('hex') : 'segment-not-found';
     check('W-2 served forms: hero identified for agents, no toolautosubmit anywhere, quote-form segment md5 canonical',
-      heroOk && quoteRes.status === 200 && !servedHtml.includes('toolautosubmit') && !quoteHtml.includes('toolautosubmit') && segMd5 === '23d1825f2f5c87ff519e60bba628805d',
+      heroOk && quoteRes.status === 200 && !servedHtml.includes('toolautosubmit') && !quoteHtml.includes('toolautosubmit') && segMd5 === 'fbf30f8f982885a3c77de6330f4066d5',
       'heroAnnotated=' + heroOk + ', quote doc status=' + quoteRes.status + ', toolautosubmit absent (home+quote)=' + (!servedHtml.includes('toolautosubmit') && !quoteHtml.includes('toolautosubmit')) + ', quote segment md5=' + segMd5);
 
     // W-3: execute the SERVED WebMCP script against a mock provider and
@@ -3758,13 +3758,13 @@ async function main() {
         figSpans.push([fm.index, fm.index + fm[0].length]);
         const im = fm[0].match(/<img [^>]*>/);
         if (!im) continue;
-        const src = attrSX(im[0], 'src'); if (!src) continue;
+        const src = attrSX(im[0], 'src'); if (!src || src.startsWith('data:')) continue;
         const cap = fm[0].match(/<figcaption[^>]*>(.*?)<\/figcaption>/s);
         out.push({ src, alt: cleanSX(attrSX(im[0], 'alt')), caption: cap ? cleanSX(cap[1]) : '' });
       }
       for (const im of div.matchAll(/<img [^>]*>/g)) {
         if (figSpans.some(([s, e]) => im.index >= s && im.index < e)) continue;
-        const src = attrSX(im[0], 'src'); if (!src) continue;
+        const src = attrSX(im[0], 'src'); if (!src || src.startsWith('data:')) continue;
         if (attrSX(im[0], 'class').includes('logo-img') || src.includes('img-01-9c77693ba66b')) continue;
         out.push({ src, alt: cleanSX(attrSX(im[0], 'alt')), caption: '' });
       }

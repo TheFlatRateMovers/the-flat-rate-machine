@@ -592,8 +592,62 @@ function normalizeRouteDoc(doc, routeSlug) {
 /* ------------------------------------------------------------------ */
 fs.mkdirSync(outDir, { recursive: true });
 const manifest = [];
-const QUOTE_MD5 = '23d1825f2f5c87ff519e60bba628805d';
-// Pin re-expressed 2026-11-01 (Batch Quote-Form Fixes): the form markup changed — hero heavy group added, project types expanded to 20, five conditional per-type sections added. Same property, new canonical segment. Record: out/verify-fix-2026-11-01-quote-form-fixes.md.
+const QUOTE_MD5 = 'fbf30f8f982885a3c77de6330f4066d5';
+// Pin re-expressed 2026-11-20 (JK Family-1 conversion): the six heavy-pick
+// button labels in the canonical segment (and their heroQuote twins) are
+// words only — the emoji were removed under Henry's words-only ruling for
+// form picks (2026-11-20). Same property, new canonical segment. Prior pin
+// 23d1825f2f5c87ff519e60bba628805d (re-expressed 2026-11-01, Batch
+// Quote-Form Fixes). Record: out/jk-family1-2026-11-20/BATCH-RECORD.md.
+// JK Family-1 (2026-11-20): the estimate form rides ONE chrome seat,
+// rendered between </main> and the footer of every route document — the
+// canonical segment (form + note + result block) extracted from the
+// shell's quote div at build time, so the segment stays singular in the
+// shell and byte-identical on every route. The quote route's own div
+// carries the form, so its seat renders the empty card and the router
+// moves the one bound form into place (route-assets/main.js placeForm).
+function extractFormSegment(src) {
+  const start = src.indexOf('<form id="quoteForm"');
+  if (start < 0) fail('canonical quote form not found in shell');
+  const formEnd = src.indexOf('</form>', start) + '</form>'.length;
+  const resStart = src.indexOf('<div id="qResult"', formEnd);
+  if (resStart < 0) fail('quote result block not found in shell');
+  let depth = 0, i = resStart;
+  while (i < src.length) {
+    const open = src.indexOf('<div', i), close = src.indexOf('</div>', i);
+    if (close < 0) fail('unbalanced quote result block in shell');
+    if (open >= 0 && open < close) { depth++; i = open + 4; }
+    else { depth--; i = close + 6; if (depth === 0) return src.slice(start, i); }
+  }
+  fail('unbalanced quote result block in shell');
+}
+const FORM_SEGMENT = extractFormSegment(shell);
+const FORM_ASIDE = `<aside class="aside">
+    <div class="gpanel">
+      <div class="gicon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
+      <h3>Guaranteed Flat Rate or Your Move is Free!</h3>
+      <p>One written price before moving day. No hourly meter, no starting-rate calendar, no day-of surprises. Hourly pricing is available when a client asks for it.</p>
+    </div>
+    <div class="card2">
+      <h3>Prefer to talk?</h3>
+      <a class="big-phone" href="tel:+15404222153">(540) 422-2153</a>
+      <p style="font-size:15px">Or email <a href="mailto:ratemovers@gmail.com" style="font-weight:600">ratemovers@gmail.com</a><br>Two home bases — Winchester, VA &amp; Martinsburg, WV.</p>
+    </div>
+    <div class="card2">
+      <h3>Rated by customers</h3>
+      <div class="rate-row"><span><b>Winchester, VA</b><br><span style="color:var(--muted);font-size:13.5px">Google reviews</span></span><span style="text-align:right"><span class="stars">★★★★★</span><br><b>5.0</b> <span style="color:var(--muted)">/ 2 reviews</span></span></div>
+      <div class="rate-row"><span><b>Martinsburg, WV</b><br><span style="color:var(--muted);font-size:13.5px">Google reviews</span></span><span style="text-align:right"><span class="stars">★★★★★</span><br><b>4.7</b> <span style="color:var(--muted)">/ 6 reviews</span></span></div>
+    </div>
+    <div class="mini-stats">
+      <div class="mini-stat"><b>16+</b><span>Years in business</span></div>
+      <div class="mini-stat"><b>34</b><span>Services, one standard</span></div>
+      <div class="mini-stat"><b>49</b><span>States worked</span></div>
+      <div class="mini-stat"><b>1</b><span>Flat rate, in writing</span></div>
+    </div>
+  </aside>`;
+function formSeat(routeSlug) {
+  return '<section class="jk" id="estimate">\n  <div class="wrap">\n    <div class="sec-head center">\n      <span class="eyebrow">Flat rate in writing</span>\n      <h2 style="margin-top:14px">Get your flat rate quote</h2>\n      <p class="lede">The short form by default — the detailed project form is one toggle away, and everything you type stays put.</p>\n    </div>\n  </div>\n  <div class="wrap quote-layout" id="chromeQuoteLayout">\n  <div class="form-card" id="chromeFormCard">\n' + (routeSlug === 'quote' ? '' : FORM_SEGMENT + '\n') + '  </div>\n' + FORM_ASIDE + '\n</div>\n</section>\n';
+}
 let d2Instances = 0;
 
 for (const p of pages) {
@@ -625,7 +679,7 @@ for (const p of pages) {
   if (!div) fail('div missing for pageMeta key ' + routeSlug);
   const divShow = injectPrintedHashes(injectEmbedHashes(div.text.replace('<div class="page" id=', '<div class="page show" id='), p.url), p.url);
   const banner = banners.get(routeSlug);
-  const doc = normalizeRouteDoc(headFull + prefix + (banner ? banner + '\n' : '') + divShow + '\n</main>\n' + footerTemplate, routeSlug);
+  const doc = normalizeRouteDoc(headFull + prefix + (banner ? banner + '\n' : '') + divShow + '\n</main>\n' + formSeat(routeSlug) + footerTemplate, routeSlug);
 
   /* Per-document assertions. */
   if (!doc.includes('<title>' + escText(entry.t) + '</title>')) fail(routeSlug + ': baked title mismatch');

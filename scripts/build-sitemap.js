@@ -181,13 +181,13 @@ function imagesInDiv(div) {
     figSpans.push([fm.index, fm.index + fm[0].length]);
     const im = fm[0].match(/<img [^>]*>/);
     if (!im) continue;
-    const src = attrOf(im[0], 'src'); if (!src) continue;
+    const src = attrOf(im[0], 'src'); if (!src || src.startsWith('data:')) continue;
     const cap = fm[0].match(/<figcaption[^>]*>(.*?)<\/figcaption>/s);
     out.push({ src, alt: cleanText(attrOf(im[0], 'alt')), caption: cap ? cleanText(cap[1]) : '' });
   }
   for (const im of div.matchAll(/<img [^>]*>/g)) {
     if (figSpans.some(([s, e]) => im.index >= s && im.index < e)) continue;
-    const src = attrOf(im[0], 'src'); if (!src) continue;
+    const src = attrOf(im[0], 'src'); if (!src || src.startsWith('data:')) continue;
     if (attrOf(im[0], 'class').includes('logo-img') || src.includes('img-01-9c77693ba66b')) continue;
     out.push({ src, alt: cleanText(attrOf(im[0], 'alt')), caption: '' });
   }

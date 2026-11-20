@@ -216,7 +216,7 @@
     'datasets-piano-antique':{name:'Piano, Antique & White-Glove Datasets', svc:null, canonical:'https://theflatratemovers.com/datasets/piano-antique/', desc:'Piano, Antique & White-Glove Datasets — the published datasets-piano-antique.json dataset from The Flat Rate Movers (CC BY 4.0): Piano, antique and white-glove operations from The Flat Rate Movers. Company scope (published): white-glove handling of pianos, antiques and high-value items — surveyed, protected, and… Canonical landing page with the full node inventory, the download and the signed SHA-256 certificate.'},
     'datasets-residential':{name:'Residential Moving Datasets', svc:null, canonical:'https://theflatratemovers.com/datasets/residential/', desc:'Residential Moving Datasets — the published datasets-residential.json dataset from The Flat Rate Movers (CC BY 4.0): Household move operations from The Flat Rate Movers: survey and written quote (Short Quick Quote by default, Detailed Project toggle preserving From, To, and What’s moving; film-only… Canonical landing page with the full node inventory, the download and the signed SHA-256 certificate.'},
     'datasets-route81':{name:'Route 81 Corridor Datasets', svc:null, canonical:'https://theflatratemovers.com/datasets/route81/', desc:'Route 81 Corridor Datasets — the published datasets-route81.json dataset from The Flat Rate Movers (CC BY 4.0): Route 81 corridor operations from The Flat Rate Movers — moving and logistics dispatch along Interstate 81, I-66 and I-70, run from two dispatch branches that sit on the corridor itself:… Canonical landing page with the full node inventory, the download and the signed SHA-256 certificate.'},
-'datasets-search-index':{name:'Search Index Supply & Standing Dataset', svc:null, canonical:'https://theflatratemovers.com/datasets/search-index/', desc:'Search Index Supply & Standing Dataset — the standing search-index dataset of The Flat Rate Movers (CC BY 4.0), built by the Retrieval Machine: query clusters grouping the buyer-intent rubric of the estate by service, intent class, geo scope and target page; a generated supply row for every one of the 246 pages with schema types, word count, internal inlinks, per-page JSON digest and indexation state; standing observations recorded only from evidence on file, each with method, era and source; the era-tagged pre-rebuild Search Console window; competitor supply observed in the same sampling under a schema bar; the third-party records registry; and the named gaps with their designed solutions — sealed in the signed AI master index.'},'datasets-answer-evidence':{name:'Answer-Engine Evidence Dataset', svc:null, canonical:'https://theflatratemovers.com/datasets/answer-evidence/', desc:'Answer-Engine Evidence Dataset — the answer-engine evidence base of The Flat Rate Movers (CC BY 4.0), built by the Retrieval Machine: 292,287 rubric questions with fragment bindings, 5,607 answer fragments with SHA-256 text hashes and sealed evidence links, the documented pipelines of the four answer engines with contested and unknown fields recorded as such, the citation observations on file — all search-surface method, with standing on the actual answer-engine interfaces stated as unmeasured — review evidence as distribution and arithmetic only, and the named gaps with their designed solutions — sealed in the signed AI master index.'},
+'datasets-search-index':{name:'Search Index Supply & Standing Dataset', svc:null, canonical:'https://theflatratemovers.com/datasets/search-index/', desc:'Search Index Supply & Standing Dataset — the standing search-index dataset of The Flat Rate Movers (CC BY 4.0), built by the Retrieval Machine: query clusters grouping the buyer-intent rubric of the estate by service, intent class, geo scope and target page; a generated supply row for every one of the 246 pages with schema types, word count, internal inlinks, per-page JSON digest and indexation state; standing observations recorded only from evidence on file, each with method, era and source; the era-tagged pre-rebuild Search Console window; competitor supply observed in the same sampling under a schema bar; the third-party records registry; and the named gaps with their designed solutions — sealed in the signed AI master index.'},'datasets-answer-evidence':{name:'Answer-Engine Evidence Dataset', svc:null, canonical:'https://theflatratemovers.com/datasets/answer-evidence/', desc:'Answer-Engine Evidence Dataset — the answer-engine evidence base of The Flat Rate Movers (CC BY 4.0), built by the Retrieval Machine: 292,287 rubric questions with fragment bindings, 5,961 answer fragments with SHA-256 text hashes and sealed evidence links, the documented pipelines of the four answer engines with contested and unknown fields recorded as such, the citation observations on file — all search-surface method, with standing on the actual answer-engine interfaces stated as unmeasured — review evidence as distribution and arithmetic only, and the named gaps with their designed solutions — sealed in the signed AI master index.'},
 'datasets-local-graph-registry':{name:'Local Graph Registry Dataset', svc:null, canonical:'https://theflatratemovers.com/datasets/local-graph-registry/', desc:'Local Graph Registry Dataset — the local-business graph registry of The Flat Rate Movers (CC BY 4.0), built by the Retrieval Machine: 112 third-party record rows across 44 sources with observed values, correct values traced to the canonical branch entities, statuses, verification dates, methods and crawl ages; the 88-cell source-by-branch coverage matrix; per-platform review-distribution snapshots; the DO-NOT-TOUCH name-collision class; gaps L1–L11 each with its designed solution; and the consolidated owner-step list generated from the rows it blocks — sealed in the signed AI master index.'},
 'datasets-crawl-presence':{name:'Crawl Presence Registry Dataset', svc:null, canonical:'https://theflatratemovers.com/datasets/crawl-presence/', desc:'Crawl Presence Registry Dataset — the training/research-corpora registry of The Flat Rate Movers (CC BY 4.0), built by the Retrieval Machine: 129 Common Crawl collections each with its recorded query state and method; 16,197 capture rows classified by URL class and content era — the current estate present in zero collections, every capture on file describing predecessor sites; the robots posture recorded as the owner’s decision of 2026-10-31 (Option 1, open training) with the served-vs-source drift gate; the signed signal-observation log; filter-inspection and corpus-release-check tables standing empty or not-checked by design; gaps P1–P6 each with its designed solution; and the pinned mechanism facts — sealed in the signed AI master index.'},'datasets-catalog-registry':{name:'Catalog Registry Dataset', svc:null, canonical:'https://theflatratemovers.com/datasets/catalog-registry/', desc:'Catalog Registry Dataset — the dataset-catalog registry of The Flat Rate Movers (CC BY 4.0), built by the Retrieval Machine: one computed join of every dataset file the company publishes (45 files) across the seven catalog seats that carry it — the company website, the estate API, the GitHub AI repository, two Hugging Face dataset repositories, the Zenodo DOI deposit, and Google Dataset Search — 315 join rows with presence states backed by dated observations and version-sync states computed from digest comparisons, never asserted; two further channels (Kaggle, data.gov) recorded not pursued by design with their re-entry conditions; the ordered Dataset Search diagnostic (T2 eliminated, firm, on a 2026-11-03 re-validation from primary sources); gaps C1–C6 and CR-G1/CR-G2 each with its designed solution; and the channel observation log — sealed in the signed AI master index.'},
 'datasets-archive-registry':{name:'Archive Registry Dataset', svc:null, canonical:'https://theflatratemovers.com/datasets/archive-registry/', desc:'Archive Registry Dataset — the archives registry of The Flat Rate Movers (CC BY 4.0), built by the Retrieval Machine: 260 tracked preservation targets with computed capture states (104 current-era — the per-route estate, archived by the 2026-11-01 re-snapshot wave; 3 old-era, 5 recorded captures no longer served by the Archive, all re-captured in the wave; 1 preservation-by-DOI; 152 never-captured); 141 Wayback captures verified against the CDX index on 2026-11-01, each with digest, record length, byte-era and fixity state; both Zenodo deposits (v1.1.0 + v1.2.0) verified per file (293 files) against the checksums Zenodo serves and both signed indexes; both GitHub repos at their recorded HEADs; the local BagIt 1.0 (RFC 8493) archive of all 486 sealed distributions (125,430,624 payload bytes, fixity-validated); the signed verification reports of 2026-11-01 (E6-B1 with its 16 classified exceptions; E6-B2, the re-snapshot wave execution); snapshot runs with failure records kept permanently; gaps A1–A6 each with its designed solution — sealed in the signed AI master index.'},
@@ -298,6 +298,7 @@
        writes pick state onto an already-live page, where a late
        write can only read as a swallowed first tap. */
     if(h==='quote' && pendingPrefill){ pendingPrefill=false; applyPrefill(); }
+    placeForm(h);
     document.getElementById('app').classList.add('routed');
     pages.forEach(function(p){ var el=document.getElementById('page-'+p); if(el) el.classList.toggle('show', p===h); });
     document.querySelectorAll('[data-nav]').forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-nav')===h); });
@@ -696,8 +697,65 @@
   var inited={};
   function initPage(h){
     if(inited[h]) return; inited[h]=1;
-    var f=PAGE_INITS[h]; if(f) f();
+    /* JK Family-1 (2026-11-20): the estimate form rides one chrome seat
+       on every route (build-routes formSeat). The first form-bearing
+       init binds that one form via the unchanged initQuote and marks it
+       data-bound; on the quote route the PAGE_INITS dispatch already ran
+       initQuote on the div's own form, so it is only marked. The quote
+       div's static copy is never bound while a bound form exists —
+       placeForm (finishRoute) moves the bound form into its place. */
+    var boundForm=document.querySelector('#quoteForm[data-bound="1"]');
+    var f=PAGE_INITS[h];
+    if(f && !(h==='quote' && boundForm)) f();
+    var qf=document.getElementById('quoteForm');
+    if(qf && !document.querySelector('#quoteForm[data-bound="1"]')){
+      if(h!=='quote') initQuote();
+      qf.setAttribute('data-bound','1');
+    }
   }
+  /* JK Family-1 (2026-11-20): the one bound quote form (with its note
+     and result block, which travel as a group) lives in the chrome seat
+     card on every route; on the quote route it moves into the quote
+     div's form card, replacing that div's static copy, and moves back
+     when the visitor leaves — entries the visitor typed ride along. */
+  function formGroupOf(formEl){
+    var nodes=[formEl]; var n=formEl.nextElementSibling;
+    while(n && (n.classList.contains('form-note') || n.id==='qResult')){ nodes.push(n); n=n.nextElementSibling; }
+    return nodes;
+  }
+  function placeForm(h){
+    var bound=document.querySelector('#quoteForm[data-bound="1"]');
+    if(!bound) return;
+    if(h==='quote'){
+      var pageEl=document.getElementById('page-quote'); if(!pageEl) return;
+      var local=pageEl.querySelector('#quoteForm');
+      if(local===bound) return;
+      var dest=local?local.parentNode:pageEl.querySelector('.form-card');
+      if(!dest) return;
+      if(local) formGroupOf(local).forEach(function(n){ n.remove(); });
+      formGroupOf(bound).forEach(function(n){ dest.appendChild(n); });
+    } else {
+      var seat=document.getElementById('chromeFormCard');
+      if(seat && !seat.contains(bound)) formGroupOf(bound).forEach(function(n){ seat.appendChild(n); });
+    }
+  }
+  /* JK design glue (2026-11-20): interactions for the designed (.jk)
+     blocks — FAQ accordions, the hero teaser card's chips and submit,
+     and in-page links to the on-page estimate form. Delegated, so they
+     work on every route and survive SPA swaps. The quote form's own
+     wiring is initQuote, untouched. */
+  document.addEventListener('click', function(e){
+    if(!e.target.closest) return;
+    var fq=e.target.closest('.jk .faq-q');
+    if(fq){ var item=fq.closest('.faq-item'); var open=item.classList.toggle('open'); fq.setAttribute('aria-expanded', open?'true':'false'); return; }
+    var chip=e.target.closest('#quote-card .chip');
+    if(chip){ chip.closest('.chips').querySelectorAll('.chip').forEach(function(c){ c.setAttribute('aria-pressed','false'); }); chip.setAttribute('aria-pressed','true'); return; }
+    var a=e.target.closest('a[href="#estimate"]');
+    if(a){ var seatEl=document.getElementById('estimate'); if(seatEl){ e.preventDefault(); seatEl.scrollIntoView({behavior:'smooth'}); } }
+  });
+  document.addEventListener('submit', function(e){
+    if(e.target && e.target.id==='quote-card'){ e.preventDefault(); var seatEl2=document.getElementById('estimate'); if(seatEl2) seatEl2.scrollIntoView({behavior:'smooth'}); var note=document.getElementById('qnote'); if(note) note.classList.add('show'); }
+  });
 
   route();
 })();

@@ -943,6 +943,53 @@ def main():
           f"backfilled {backfilled}, pruned {pruned}; "
           f"registry mirrored {mirrored}")
 
+    phase("6c. sitemap rebuild from the stamped ledger (S-4 fix)")
+    # JK Family-1 batch (2026-11-20), S-4 rider: phase 2b built the
+    # sitemaps from the ledger as of seal start; 6b has since stamped
+    # this seal's changed URLs to RUBRIC_DATE, so the shipped sitemaps
+    # lagged the ledger by one pass for exactly the files changed
+    # in-seal (verify S-4: datasets-search-index-clusters.json, -2, -3
+    # at the Potomac tail close). Rebuild the sitemaps from the stamped
+    # ledger and re-run the digest pass BEFORE signing, so the signed
+    # index, the shipped sitemaps and the ledger agree in one pass.
+    run(["node", "scripts/build-sitemap.js"])
+    run([VENV_PY, os.path.join(REPO, "digest-index.py"),
+         "--index", index_path, "--public-dir", PUB,
+         "--repo-dir", REPO, "--out", digested,
+         "--audit", os.path.join(WORK, "digest-audit-6c.json"),
+         "--hash-cache", os.path.join(WORK, "hash-cache.json")])
+    with open(os.path.join(WORK, "digest-audit-6c.json"),
+              encoding="utf-8") as f:
+        audit6c = json.load(f)
+    totals6c = audit6c["totals"]
+    if totals6c.get("gaps") != 0 or \
+            totals6c.get("distributions") != count:
+        fail(f"6c re-digest audit: {totals6c}")
+    frozen = {}
+    for e in audit6c.get("entries", []):
+        d = e.get("digest") or {}
+        if not d.get("value"):
+            continue
+        frozen[e.get("contentUrl", "")] = {
+            "sha256": d.get("value"),
+            "gitBlobSha1": e.get("gitBlobSha1"),
+            "pagesBlake3": e.get("pagesBlake3"),
+            "byteSize": d.get("byteSize"),
+            "resolved": e.get("resolved"),
+        }
+    with open(os.path.join(WORK, "frozen-digest-map.json"), "w",
+              encoding="utf-8") as f:
+        json.dump(frozen, f, indent=1, sort_keys=True)
+        f.write("\n")
+    # The ledger's seal anchor must name the index that ships.
+    ledger["lastSeal"] = {"date": RUBRIC_DATE,
+                          "indexSha256": sha(digested)}
+    with open(ledger_path, "w", encoding="utf-8") as f:
+        json.dump(ledger, f, indent=1, ensure_ascii=False, sort_keys=True)
+        f.write("\n")
+    print(f"    6c: sitemaps rebuilt post-stamp; re-digest totals "
+          f"{totals6c}; ledger anchor updated")
+
     phase("7. sign + install")
     jws_out = os.path.join(WORK, "ai-master-index.jws")
     run([VENV_PY, os.path.join(REPO, "sign-index.py"),
@@ -2495,6 +2542,54 @@ def main_incr():
     print(f"    ledger: {len(urls)} URLs; stamped {stamped}, "
           f"backfilled {backfilled}, pruned {pruned}; "
           f"registry mirrored {mirrored}")
+
+    phase("6c. sitemap rebuild from the stamped ledger (S-4 fix)")
+    # JK Family-1 batch (2026-11-20), S-4 rider: phase 2b built the
+    # sitemaps from the ledger as of seal start; 6b has since stamped
+    # this seal's changed URLs to RUBRIC_DATE, so the shipped sitemaps
+    # lagged the ledger by one pass for exactly the files changed
+    # in-seal (verify S-4: datasets-search-index-clusters.json, -2, -3
+    # at the Potomac tail close). Rebuild the sitemaps from the stamped
+    # ledger and re-run the digest pass BEFORE signing, so the signed
+    # index, the shipped sitemaps and the ledger agree in one pass.
+    run(["node", "scripts/build-sitemap.js"])
+    run([VENV_PY, os.path.join(REPO, "digest-index.py"),
+         "--index", index_path, "--public-dir", PUB,
+         "--repo-dir", REPO, "--out", digested,
+         "--audit", os.path.join(WORK, "digest-audit-6c.json"),
+         "--hash-cache", os.path.join(WORK, "hash-cache.json")])
+    with open(os.path.join(WORK, "digest-audit-6c.json"),
+              encoding="utf-8") as f:
+        audit6c = json.load(f)
+    totals6c = audit6c["totals"]
+    if totals6c.get("gaps") != 0 or \
+            totals6c.get("distributions") != count:
+        fail(f"6c re-digest audit: {totals6c}")
+    frozen = {}
+    for e in audit6c.get("entries", []):
+        d = e.get("digest") or {}
+        if not d.get("value"):
+            continue
+        frozen[e.get("contentUrl", "")] = {
+            "sha256": d.get("value"),
+            "gitBlobSha1": e.get("gitBlobSha1"),
+            "pagesBlake3": e.get("pagesBlake3"),
+            "byteSize": d.get("byteSize"),
+            "resolved": e.get("resolved"),
+        }
+    with open(os.path.join(WORK, "frozen-digest-map.json"), "w",
+              encoding="utf-8") as f:
+        json.dump(frozen, f, indent=1, sort_keys=True)
+        f.write("\n")
+    ix.ss_frozen(frozen)
+    # The ledger's seal anchor must name the index that ships.
+    ledger["lastSeal"] = {"date": RUBRIC_DATE,
+                          "indexSha256": sha(digested)}
+    with open(ledger_path, "w", encoding="utf-8") as f:
+        json.dump(ledger, f, indent=1, ensure_ascii=False, sort_keys=True)
+        f.write("\n")
+    print(f"    6c: sitemaps rebuilt post-stamp; re-digest totals "
+          f"{totals6c}; ledger anchor updated")
 
     phase("7. sign + install")
     jws_out = os.path.join(WORK, "ai-master-index.jws")
