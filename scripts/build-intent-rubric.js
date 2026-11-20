@@ -1631,6 +1631,39 @@ const PLACE_SERVICE_PAGE = {
   'service-crating|place-middleburg-va': 'estate-movers-middleburg-va',
   'service-crating|place-the-plains-va': 'estate-movers-the-plains-va',
   'service-crating|place-upperville-va': 'estate-movers-upperville-va',
+  // R54 (Potomac Flagship Attack, 2026-11-19): the 26 Potomac
+  // town pages own their (service, place-potomac-md) cells
+  // outright — the flagship hub owns the local-regional cell,
+  // the office page also owns the commercial cell, and the
+  // industrial page also owns the industrial-commercial cell.
+  'service-vault-door|place-potomac-md': 'vault-door-movers-potomac-md',
+  'service-sir-heavy|place-potomac-md': 'sir-heavy-movers-potomac-md',
+  'service-data-center-relocation|place-potomac-md': 'data-center-movers-potomac-md',
+  'service-ispm15|place-potomac-md': 'ispm15-movers-potomac-md',
+  'service-crating|place-potomac-md': 'crating-movers-potomac-md',
+  'service-warehouse-racking-relocation|place-potomac-md': 'warehouse-racking-relocation-potomac-md',
+  'service-warehouse-relocation|place-potomac-md': 'warehouse-relocation-potomac-md',
+  'service-it-relocation|place-potomac-md': 'it-equipment-movers-potomac-md',
+  'service-ffe-logistics|place-potomac-md': 'ffe-logistics-potomac-md',
+  'service-final-mile|place-potomac-md': 'final-mile-movers-potomac-md',
+  'service-local-regional|place-potomac-md': 'movers-potomac-md',
+  'service-residential|place-potomac-md': 'estate-movers-potomac-md',
+  'service-gun-safe|place-potomac-md': 'gun-safe-movers-potomac-md',
+  'service-white-glove|place-potomac-md': 'white-glove-delivery-potomac-md',
+  'service-piano-antique|place-potomac-md': 'piano-antique-movers-potomac-md',
+  'service-senior-moving|place-potomac-md': 'senior-moving-potomac-md',
+  'service-packing|place-potomac-md': 'packing-movers-potomac-md',
+  'service-moving-and-storage|place-potomac-md': 'moving-and-storage-potomac-md',
+  'service-junk-removal|place-potomac-md': 'junk-removal-potomac-md',
+  'service-long-distance|place-potomac-md': 'long-distance-movers-potomac-md',
+  'service-office-moving|place-potomac-md': 'office-moving-movers-potomac-md',
+  'service-commercial|place-potomac-md': 'office-moving-movers-potomac-md',
+  'service-industrial-offices|place-potomac-md': 'industrial-offices-movers-potomac-md',
+  'service-industrial-commercial|place-potomac-md': 'industrial-offices-movers-potomac-md',
+  'service-medical-lab-relocation|place-potomac-md': 'medical-equipment-movers-potomac-md',
+  'service-military|place-potomac-md': 'military-movers-potomac-md',
+  'service-government|place-potomac-md': 'government-movers-potomac-md',
+  'service-hoarding-cleanup|place-potomac-md': 'hoarding-cleanup-potomac-md',
 };
 function placeServicePage(V, serviceId, placeId) {
   const slug = PLACE_SERVICE_PAGE[serviceId + '|' + placeId];

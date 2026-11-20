@@ -56,7 +56,12 @@ for (const [pid, [file, landingSlug]] of Object.entries(FILES)) {
   if (!laborPage) { console.error('FAIL — no laborPage cell for ' + pid); process.exit(1); }
   const LANDING = SITE + '/datasets/' + landingSlug + '/';
   const fileUrl = SITE + '/' + file;
-  const dm = (ledger.urls && ledger.urls[fileUrl]) || '2026-11-14';
+  // Date authority (fixed 2026-11-19, generator-date rule): env ->
+  // this file's lastmod-ledger entry -> today. Never a hardcoded date:
+  // the old '2026-11-14' fallback silently re-dated sealed nodes on an
+  // out-of-seal run (the build-intent-rubric.js 2026-11-13 lesson).
+  const dm = process.env.PORT_LABOR_DATE || (ledger.urls && ledger.urls[fileUrl]) ||
+    new Date().toISOString().slice(0, 10);
   const fp = path.join(PUB, file);
   const doc = JSON.parse(fs.readFileSync(fp, 'utf8'));
   const graph = doc['@graph'];

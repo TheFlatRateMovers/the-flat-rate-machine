@@ -11,7 +11,12 @@ batch the rest of the way, in this order:
      in the Day-3 drift fix, 2026-11-04): the twin-identity gate
      (scripts/check-twins.js) + the full local verification
      (verify.js --local) + a live probe of both GitHub push routes
-     (git ls-remote through each clone). The Page Data Pool close
+     (git ls-remote through each clone). Audit Layer Phase 2
+     (2026-11-19): the estate pre-flight registry
+     (scripts/audit-preflight.py — the 13 permanent checks of
+     DESIGN.md piece 2) runs FIRST inside step 0, the tree-state
+     stamp (piece 4) is refreshed, and a verify failure here emits
+     a diagnosis pack (piece 3) per failed check class. The Page Data Pool close
      discovered a stale twin and a dead push route only AFTER
      deploying, and the Day-3 close deployed a figure-drifted tree
      that only the post-deploy verify caught; preflight stops the
@@ -91,15 +96,42 @@ CLONES = {"ai": os.path.expanduser("~/workspace/git-mirrors/ai"),
           "machine": os.path.expanduser("~/workspace/git-mirrors/machine")}
 
 
-def preflight(probe_push=True):
+def preflight(probe_push=True, batch_dir=None):
     """Step 0 (Reconciliation batch, 2026-11-03; local verify added
-    2026-11-04): prove, BEFORE any deploy, that (a) every duplicated
-    file in the estate agrees with its twin, (b) the sealed local
-    estate passes the full local verification, and (c) both GitHub
-    push routes answer. Any failure stops the close here — nothing
-    deployed, nothing pushed — with the reason in plain words."""
-    print("--- 0. preflight (twin identity + local verify + "
-          "GitHub push route)", flush=True)
+    2026-11-04; Audit Layer Phase 2 wired 2026-11-19): prove,
+    BEFORE any deploy, that (a) the estate audit pre-flight
+    registry (13 permanent checks) is green, (b) every duplicated
+    file in the estate agrees with its twin, (c) the sealed local
+    estate passes the full local verification, and (d) both
+    GitHub push routes answer. Any failure stops the close here —
+    nothing deployed, nothing pushed — with the reason in plain
+    words."""
+    batch_dir = batch_dir or WORK
+    print("--- 0. preflight (audit registry + twin identity + "
+          "local verify + GitHub push route)", flush=True)
+    # Audit Layer piece 2: the 13 permanent checks run first. A
+    # red check stops the close before the twin gate, the verify
+    # and any deploy — with a diagnosis pack per red class in the
+    # batch folder (piece 3, emitted by the pre-flight itself).
+    rc, out, _ = run([sys.executable, os.path.join(
+        ROOT, "scripts", "audit-preflight.py"),
+        "--batch-dir", batch_dir], label="audit-preflight (13 checks)")
+    print("\n".join(out.strip().splitlines()[-16:]))
+    if rc != 0:
+        fail("preflight: the estate audit pre-flight is red (the "
+             "failing checks are named above, and a diagnosis "
+             "pack for each red class is in the batch folder). "
+             "Nothing was deployed or pushed. Fix the class at "
+             "its source, re-seal, and publish again.")
+    # Audit Layer piece 4: refresh the tree-state stamp so its
+    # consumers (the GSC ingest guard, coordinators) read current
+    # state. Metadata only — a stamp failure never stops a close.
+    rc, out, _ = run([sys.executable, os.path.join(
+        ROOT, "scripts", "audit-stamp.py"), "--quiet"],
+        label="audit-stamp refresh")
+    if rc != 0:
+        print("    WARNING: tree-stamp refresh failed (metadata "
+              "only; the close continues)")
     rc, out, _ = run(["node", os.path.join(ROOT, "scripts",
                                            "check-twins.js")],
                      label="check-twins")
@@ -142,11 +174,27 @@ def preflight(probe_push=True):
     # can run against the local sealed tree now gates the close at
     # this step; the post-deploy live verify remains the closing
     # gate for the live-only evidence.
+    verdicts_path = os.path.join(WORK, "verdicts-preflight.json")
     rc, out, _ = run(["node", os.path.join(ROOT, "verify.js"),
-                      "--local"], label="verify --local")
+                      "--local", "--verdicts-out", verdicts_path],
+                     label="verify --local")
     print("\n".join(out.strip().splitlines()[-2:]))
     if rc != 0:
         print(out[-4000:])
+        # Audit Layer piece 3: one diagnosis pack per failed check
+        # class (last-good state + the full class sweep + the
+        # standing fix), so the failure arrives diagnosed instead
+        # of sending a human into the logs. The close stops either
+        # way; a pack failure is a warning, never a second failure.
+        try:
+            _rc, out3, _ = run([sys.executable, os.path.join(
+                ROOT, "scripts", "audit-diagnose.py"),
+                "--from-verdicts", verdicts_path,
+                "--batch-dir", batch_dir], label="audit-diagnose")
+            print("\n".join(out3.strip().splitlines()[-4:]))
+        except Exception as e:
+            print(f"    WARNING: diagnosis pack generation failed "
+                  f"({e})")
         fail("preflight: the sealed local estate fails "
              "verification (the failing checks are named above). "
              "Nothing was deployed or pushed. Fix the data at its "
@@ -195,6 +243,10 @@ def main():
     ap.add_argument("--skip-api", action="store_true")
     ap.add_argument("--skip-sitemaps", action="store_true")
     ap.add_argument("--skip-pulse", action="store_true")
+    ap.add_argument("--batch-dir", default=None,
+                    help="batch folder for the audit pre-flight "
+                         "report + diagnosis packs (default: "
+                         "out/seal-work)")
     ap.add_argument("--pulse-prior", default=None,
                     help="index JSON to diff Pulse against (default: "
                          "the seal's phase-0 snapshot)")
@@ -210,13 +262,15 @@ def main():
 
     # 0. preflight (Reconciliation batch, 2026-11-03)
     if args.preflight_only:
-        preflight(probe_push=not args.skip_push)
+        preflight(probe_push=not args.skip_push,
+                  batch_dir=args.batch_dir)
         print("\nPREFLIGHT ONLY — OK; no deploy performed.")
         return 0
     if args.skip_preflight:
         print("--- 0. preflight SKIPPED")
     else:
-        preflight(probe_push=not args.skip_push)
+        preflight(probe_push=not args.skip_push,
+                  batch_dir=args.batch_dir)
 
     # 1. deploy + push in parallel
     results = {}

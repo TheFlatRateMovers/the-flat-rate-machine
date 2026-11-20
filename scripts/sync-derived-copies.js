@@ -199,6 +199,14 @@ const rootJsons = fs.readdirSync(PUB).filter((f) => f.endsWith('.json'));
 const canon = new Map();
 for (const pass of [0, 1]) {
   for (const f of rootJsons) {
+    /* The entity graphs are DERIVED mirrors (sync-dataset-graph-nodes
+     * FB-2 derives their Dataset nodes FROM the per-page JSONs), so a
+     * graph must never be the canonical date source: for an @id its
+     * dataset file does not carry in file-URL form (answer-evidence),
+     * graph-as-canon made the jf seat chase its own downstream copy
+     * and the cluster never converged (seal-6, 2026-11-19). Sources
+     * only: dataset files, then the per-page JSONs themselves. */
+    if (f === 'entity-graph.json' || f === 'best-json-entity-graph.json') continue;
     const isDs = f.startsWith('datasets-');
     if ((pass === 0) !== isDs) continue;
     let doc; try { doc = readJ(path.join(PUB, f)); } catch (e) { continue; }

@@ -2127,8 +2127,8 @@ const nodes = [
 // datasets only, per the enrichment table) and spatialCoverage
 // strengthening (bare Place @id refs -> full Place objects with geo).
 const ENRICH_PLACES = {
-  'https://theflatratemovers.com/#winchester': { '@type': 'Place', '@id': 'https://theflatratemovers.com/#winchester', name: 'The Flat Rate Movers \u2014 Winchester', geo: { '@type': 'GeoCoordinates', latitude: 39.18711576, longitude: -78.1668352 } },
-  'https://theflatratemovers.com/#martinsburg': { '@type': 'Place', '@id': 'https://theflatratemovers.com/#martinsburg', name: 'Flat Rate Movers Martinsburg WV', geo: { '@type': 'GeoCoordinates', latitude: 39.48319665, longitude: -77.94760443 } },
+  'https://theflatratemovers.com/#winchester': { '@type': 'Place', '@id': 'https://theflatratemovers.com/#winchester', name: 'The Flat Rate Movers \u2014 Winchester', hasMap: 'https://www.google.com/maps/place/The+Flat+Rate+Movers/data=!4m2!3m1!1s0x0:0x8c22a1ade42613b0', geo: { '@type': 'GeoCoordinates', latitude: 39.18711576, longitude: -78.1668352 } },
+  'https://theflatratemovers.com/#martinsburg': { '@type': 'Place', '@id': 'https://theflatratemovers.com/#martinsburg', name: 'Flat Rate Movers Martinsburg WV', hasMap: 'https://www.google.com/maps/place/Flat+Rate+Movers+Martinsburg+WV/@39.483194,-77.9476095,17z/data=!3m1!4b1!4m6!3m5!1s0x89ca0332e77cbbc1:0xd2c09b12100029f5!8m2!3d39.483194!4d-77.9476095!16s%2Fg%2F11l5ssn0bk', geo: { '@type': 'GeoCoordinates', latitude: 39.48319665, longitude: -77.94760443 } },
 };
 function enrichDatasetNodes(nodes, datePublished, variableMeasured, strengthenSC) {
   for (const n of nodes) {

@@ -76,19 +76,10 @@ if (process.argv.includes('--update-middleware')) {
   process.exit(0);
 }
 
-/* Cloudflare Web Analytics beacon, baked in (2026-10-31, Solution A):
-   Cloudflare's automatic injection appends this tag to served HTML, so
-   the served bytes could never equal the sealed bytes. Baking the site's
-   own beacon into every route document makes Cloudflare skip the
-   automatic injection (documented behavior: an existing beacon
-   suppresses it), so served bytes are exactly the sealed bytes and
-   analytics keep working. Captured verbatim from the live injection on
-   the pre-A shell, 2026-10-31; the token is the site's public Web
-   Analytics token (it ships in every served page; not a credential).
-   The zone's Email Address Obfuscation was turned OFF the same day for
-   the same reason (it rewrote mailto links with a randomized
-   per-response token) — see the batch record. */
-const CF_BEACON = '<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon=\'{"version":"2024.11.0","token":"818067e2ff964e189467472592beacef","r":1,"spa":2}\' crossorigin="anonymous"></script>';
+/* Cloudflare Web Analytics: NO baked beacon (removed 2026-11-19,
+   Potomac batch, Henry's rider). The zone's automatic injection
+   (auto_install, same token) carries analytics on served pages;
+   route documents ship without the tag. */
 
 /* ------------------------------------------------------------------ */
 /* transformHead — ported line-for-line from functions/_middleware.js  */
@@ -378,9 +369,8 @@ let footerTemplate;
     footerSeg.slice(spans[1][1], spans[2][0]) + '<script>' + webmcpAsset + '</script>' +
     footerSeg.slice(spans[2][1]);
   const bodyClose = footerTemplate.lastIndexOf('</body>');
-  footerTemplate = footerTemplate.slice(0, bodyClose) + CF_BEACON + '\n' + footerTemplate.slice(bodyClose);
   if (!footerTemplate.includes('</footer>') || !footerTemplate.includes('</body>')) fail('footer template incomplete');
-  if ((footerTemplate.match(/cloudflareinsights/g) || []).length !== 1) fail('footer template must carry exactly one baked Web Analytics beacon');
+  if ((footerTemplate.match(/cloudflareinsights/g) || []).length !== 0) fail('footer template must carry no baked Web Analytics beacon (edge injection only, 2026-11-19)');
   if (!footerTemplate.includes('id="toast"')) fail('footer template lacks the toast element (chrome)');
 }
 
