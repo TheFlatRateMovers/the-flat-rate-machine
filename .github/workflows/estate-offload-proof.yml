@@ -1,0 +1,53 @@
+# Estate offload — PROOF workflow (test branch only).
+#
+# Henry ordered the GitHub offload 2026-11-20. This workflow proves
+# the mechanism on GitHub's runners: checkout -> run the proven A3
+# fingerprint component -> results return BOTH as an Actions
+# artifact and as a commit back to this branch (readable over the
+# estate's deploy-key git transport, no API token required).
+# It touches no production branch and no publish step. The design
+# and adoption path live in out/github-offload-2026-11-20/
+# OFFLOAD-DESIGN.md in the machine workspace.
+name: estate-offload-proof
+
+on:
+  push:
+    branches: [offload-proof]
+    paths-ignore:
+      - "ci-results/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  proof:
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out the proof branch
+        uses: actions/checkout@v4
+
+      - name: Run the A3 fingerprint proof
+        run: bash ci/run-proof.sh
+
+      - name: Upload results as an artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: offload-proof-results
+          path: ci-results/
+
+      - name: Commit results back to the proof branch
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add ci-results
+          if git diff --cached --quiet; then
+            echo "no results to commit"
+            exit 0
+          fi
+          git commit -m "offload proof results [skip ci]"
+          git push origin HEAD:offload-proof
