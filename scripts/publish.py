@@ -16,7 +16,12 @@ batch the rest of the way, in this order:
      (scripts/audit-preflight.py — the 13 permanent checks of
      DESIGN.md piece 2) runs FIRST inside step 0, the tree-state
      stamp (piece 4) is refreshed, and a verify failure here emits
-     a diagnosis pack (piece 3) per failed check class. The Page Data Pool close
+     a diagnosis pack (piece 3) per failed check class. Suite A1
+     (installed 2026-11-21): the prediction pass
+     (scripts/predict.py) also runs inside step 0, as the batch
+     step-0 gate's enforcement backstop — it re-proves the sealed
+     tree against the batch folder's declared delta/spec before
+     anything ships. The Page Data Pool close
      discovered a stale twin and a dead push route only AFTER
      deploying, and the Day-3 close deployed a figure-drifted tree
      that only the post-deploy verify caught; preflight stops the
@@ -123,6 +128,41 @@ def preflight(probe_push=True, batch_dir=None):
              "pack for each red class is in the batch folder). "
              "Nothing was deployed or pushed. Fix the class at "
              "its source, re-seal, and publish again.")
+    # A1 prediction pass (Machine Software Suite Component A1):
+    # the batch step-0 gate's enforcement backstop. predict.py
+    # imports this same audit registry as its base layer and adds
+    # the A1 classes (census pins swept whole, ledger dates on
+    # the batch's declared change set, graph embeds swept whole,
+    # beacon / P-3 prediction) against the tree being closed,
+    # reading the batch folder's expected-delta.json (predict's
+    # default delta seat) and batch-spec.json when present; a
+    # batch_date in the spec pins A1.2's expectation to the
+    # seal's date across a midnight straddle. A red prediction
+    # stops the close here, before any deploy.
+    predict_args = [sys.executable, os.path.join(
+        ROOT, "scripts", "predict.py"),
+        "--batch-dir", batch_dir,
+        "--batch", os.path.basename(os.path.normpath(batch_dir))]
+    _spec_path = os.path.join(batch_dir, "batch-spec.json")
+    if os.path.exists(_spec_path):
+        predict_args += ["--spec", _spec_path]
+        try:
+            _spec_doc = json.load(open(_spec_path,
+                                       encoding="utf-8"))
+        except Exception:
+            _spec_doc = {}
+        if _spec_doc.get("batch_date"):
+            predict_args += ["--batch-date",
+                             str(_spec_doc["batch_date"])]
+    rc, out, _ = run(predict_args,
+                     label="predict (A1 prediction pass)")
+    print("\n".join(out.strip().splitlines()[-8:]))
+    if rc != 0:
+        fail("preflight: the A1 prediction pass is red (the "
+             "failing classes are named above and in the batch "
+             "folder's prediction report). Nothing was deployed "
+             "or pushed. Fix the class at its source, re-seal, "
+             "and publish again.")
     # Audit Layer piece 4: refresh the tree-state stamp so its
     # consumers (the GSC ingest guard, coordinators) read current
     # state. Metadata only — a stamp failure never stops a close.
