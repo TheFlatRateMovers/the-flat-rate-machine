@@ -10,7 +10,7 @@
  *
  * Outputs (into the Pages public tree):
  *   datasets-ports.json  — the master ports dataset file: the master
- *                          Dataset node, the 48-cell service-coverage
+ *                          Dataset node, the 64-cell service-coverage
  *                          matrix Dataset node, and one Place node per
  *                          port, generated from the database.
  *   dataset-ports.json   — the /datasets/ports/ landing per-page JSON.

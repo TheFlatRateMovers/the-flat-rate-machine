@@ -176,7 +176,7 @@ const GENERATOR = 'build-intent-rubric.js';
 // for datasets-intent-coverage.json, and every Dataset-typed node
 // carrying url + sameAs = the dataset's canonical landing page
 // (https://theflatratemovers.com/datasets/intent-coverage/), an
-// identifier (the estate's Zenodo concept DOI 10.5281/zenodo.23818766
+// identifier (the estate's Zenodo concept DOI 10.5281/zenodo.23879048
 // as a PropertyValue on the four collection nodes; the landing URL on
 // the per-service coverage nodes) and isAccessibleForFree. Rows are
 // unaffected (the row set and gates do not change).
@@ -7766,7 +7766,7 @@ function buildDataset(gen) {
   // Dataset-typed node carries the discoverability fields — url +
   // sameAs = this dataset's canonical landing page, isAccessibleForFree,
   // and an identifier: the estate's Zenodo concept DOI as a
-  // URL-form DOI identifier (https://doi.org/10.5281/zenodo.23818766)
+  // URL-form DOI identifier (https://doi.org/10.5281/zenodo.23879048)
   // on the four collection nodes (scope, taxonomy, resolution, totals)
   // — the checker-held concept-DOI holders inside this file — and the
   // landing URL on the per-service coverage nodes. The D1 operations
@@ -7774,7 +7774,7 @@ function buildDataset(gen) {
   // sameAs + identifier pointing at the landing page. The row set is
   // untouched by this block.
   const LANDING = SITE + '/datasets/intent-coverage/';
-  const DOI_URL = 'https://doi.org/10.5281/zenodo.23818766';
+  const DOI_URL = 'https://doi.org/10.5281/zenodo.23879048';
   const COLLECTION_IDS = ['#dataset-intent-coverage-scope', '#dataset-intent-coverage-taxonomy', '#dataset-intent-coverage-resolution', '#dataset-intent-coverage-totals'];
   const graph = [d1, d2, d3, d4, d5, d6, d7, d8, ...coverageNodes];
   for (const n of graph) {

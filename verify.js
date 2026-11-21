@@ -1734,11 +1734,11 @@ async function main() {
   // an identifier, isAccessibleForFree, fully typed distributions and
   // a self-referencing DataDownload; the intent-coverage collection
   // and the signed master index carry the estate's Zenodo concept DOI
-  // (10.5281/zenodo.23818766) as identifier. These checks assert the
+  // (10.5281/zenodo.23879048) as identifier. These checks assert the
   // invariants so a silent regression fails the suite.
   try {
     const SITE_D = 'https://theflatratemovers.com';
-    const DOI_D = '10.5281/zenodo.23818766';
+    const DOI_D = '10.5281/zenodo.23879048';
     const dsFilesD = DATASET_FILES.slice().sort();
     // AE split (2026-11-12): datasets-answer-evidence-questions.json is
     // the questions half of the answer-evidence dataset — it shares
@@ -2626,7 +2626,7 @@ async function main() {
   // out/verify-fix-2026-10-31-catalog-checks.md.
   try {
     const SITE_C = 'https://theflatratemovers.com';
-    const DOI_URL_C = 'https://doi.org/10.5281/zenodo.23818766';
+    const DOI_URL_C = 'https://doi.org/10.5281/zenodo.23879048';
     const ORG_ID_C = SITE_C + '/#organization';
     const INDEX_URL_C = SITE_C + '/ai-master-index.json';
     const idxC = JSON.parse(fs.readFileSync(path.join(PAGES_PUBLIC, 'ai-master-index.json'), 'utf8'));
@@ -2796,10 +2796,10 @@ async function main() {
         if (n.identifier !== DOI_URL_C) bad5.push(label + ' ' + n['@id'] + ' holder instance identifier is not the DOI URL');
         continue;
       }
-      if (JSON.stringify(n.identifier || '').includes('23818766')) bad5.push(label + ' ' + (n['@id'] || '?') + ' carries the concept DOI');
+      if (JSON.stringify(n.identifier || '').includes('23879048')) bad5.push(label + ' ' + (n['@id'] || '?') + ' carries the concept DOI');
       if (n.identifier && typeof n.identifier === 'object' && n.identifier.propertyID === 'DOI') bad5.push(label + ' ' + (n['@id'] || '?') + ' carries a PropertyValue DOI');
     }
-    check('DC-5 the Zenodo concept DOI appears in URL form (https://doi.org/10.5281/zenodo.23818766) on exactly its holder nodes and nowhere else',
+    check('DC-5 the Zenodo concept DOI appears in URL form (https://doi.org/10.5281/zenodo.23879048) on exactly its holder nodes and nowhere else',
       bad5.length === 0,
       'holders: 4 intent collection nodes + intent landing node + master-index root, ' + holderInstancesC + ' holder instances incl. route copies' + (bad5.length ? ', bad: ' + bad5.slice(0, 4).join('; ') : ''));
   } catch (e) {
@@ -4193,12 +4193,12 @@ async function main() {
         });
       }
       const expectedDoi = new Set([
-        '10.5281/zenodo.23818766|ai-master-index.json|https://github.com/TheFlatRateMovers/theflatratemovers-ai#master-index',
-        '10.5281/zenodo.23818766|dataset-intent-coverage.json|https://theflatratemovers.com/datasets/intent-coverage/#dataset',
-        '10.5281/zenodo.23818766|datasets-intent-coverage.json|https://theflatratemovers.com/#dataset-intent-coverage-scope',
-        '10.5281/zenodo.23818766|datasets-intent-coverage.json|https://theflatratemovers.com/#dataset-intent-coverage-taxonomy',
-        '10.5281/zenodo.23818766|datasets-intent-coverage.json|https://theflatratemovers.com/#dataset-intent-coverage-resolution',
-        '10.5281/zenodo.23818766|datasets-intent-coverage.json|https://theflatratemovers.com/#dataset-intent-coverage-totals',
+        '10.5281/zenodo.23879048|ai-master-index.json|https://github.com/TheFlatRateMovers/theflatratemovers-ai#master-index',
+        '10.5281/zenodo.23879048|dataset-intent-coverage.json|https://theflatratemovers.com/datasets/intent-coverage/#dataset',
+        '10.5281/zenodo.23879048|datasets-intent-coverage.json|https://theflatratemovers.com/#dataset-intent-coverage-scope',
+        '10.5281/zenodo.23879048|datasets-intent-coverage.json|https://theflatratemovers.com/#dataset-intent-coverage-taxonomy',
+        '10.5281/zenodo.23879048|datasets-intent-coverage.json|https://theflatratemovers.com/#dataset-intent-coverage-resolution',
+        '10.5281/zenodo.23879048|datasets-intent-coverage.json|https://theflatratemovers.com/#dataset-intent-coverage-totals',
         '10.5281/zenodo.23879048|entity-graph.json|https://theflatratemovers.com/datasets/#collection',
         '10.5281/zenodo.23879048|best-json-entity-graph.json|https://theflatratemovers.com/datasets/#collection',
         // Batch FB-2 (2026-11-03): the intent-coverage Dataset node is
@@ -4206,8 +4206,8 @@ async function main() {
         // identifier travels with the node (the DC-5 holder rule: every
         // instance of a holder @id carries the DOI URL). The two graph
         // seats are therefore lawful and enumerated here — 8 -> 10.
-        '10.5281/zenodo.23818766|entity-graph.json|https://theflatratemovers.com/datasets/intent-coverage/#dataset',
-        '10.5281/zenodo.23818766|best-json-entity-graph.json|https://theflatratemovers.com/datasets/intent-coverage/#dataset',
+        '10.5281/zenodo.23879048|entity-graph.json|https://theflatratemovers.com/datasets/intent-coverage/#dataset',
+        '10.5281/zenodo.23879048|best-json-entity-graph.json|https://theflatratemovers.com/datasets/intent-coverage/#dataset',
       ]);
       const extra = doiHits.filter((h) => !expectedDoi.has(h));
       const missing = [...expectedDoi].filter((h) => !doiHits.includes(h));

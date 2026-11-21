@@ -2108,6 +2108,34 @@ export async function onRequest(context) {
   if (p.length > 1 && p.endsWith('/')) p = p.slice(0, -1);
   const entry = HEAD[p === '' ? '/' : p];
   if (entry) return context.next();
+  // Legacy redirect map (binding-fix batch, 2026-11-20): the pre-2025
+  // URLs Bing still crawls (98 dead-ends in the crawl-issues inventory).
+  // Stay-404 exceptions are matched FIRST — those services have no
+  // current equivalent and a redirect would misrepresent them.
+  if (request.method === 'GET' || request.method === 'HEAD') {
+    const STAY404 = ['/demolition', '/interior-demolition', '/debris-removal', '/leaf-snow-removal',
+      '/moving-blog/categories/demolition-services-near-me-winches', '/moving-blog/categories/interior-demolition'];
+    const LEGACY_EXACT = {
+      '/junk-hauling': '/junk-removal/', '/same-day-junk-hauling': '/junk-removal/',
+      '/office-movers': '/commercial-office-moving-2/', '/office-and-warehouse-relocation': '/commercial-office-moving-2/',
+      '/free-quote-online': '/quote/', '/online-estimate-form': '/online-estimate/',
+      '/cross-country-moving-and-storage': '/long-distance-cross-country-moving/',
+      '/expert-gun-safe-and-piano-movers': '/gun-safe-movers/', '/gun-safe-piano': '/gun-safe-movers/',
+      '/gun-safe-movers-northern-virginia': '/gun-safe-movers/',
+      '/storage-solutions': '/moving-and-storage/',
+      '/about': '/', '/the-flat-rate-movers.html': '/', '/online-business-card': '/', '/apps/blog': '/blog/'
+    };
+    if (!STAY404.includes(p)) {
+      let target = LEGACY_EXACT[p] || null;
+      if (!target && p.startsWith('/apps/blog/')) target = '/blog/';
+      if (!target && p.startsWith('/post/')) target = '/blog/';
+      if (!target && p.startsWith('/moving-blog/')) target = '/blog/';
+      if (!target && p.startsWith('/bookings-checkout/')) target = '/quote/';
+      if (!target && p.startsWith('/profile/')) target = '/';
+      if (!target && p.endsWith('.aspx')) target = '/blog/';
+      if (target) return Response.redirect('https://theflatratemovers.com' + target, 301);
+    }
+  }
   // Genuine 404 for unknown paths (blog foundation, 2026-10-30). Known
   // static files, the API and platform paths pass through untouched,
   // and non-GET/HEAD traffic (the quote POST) is never intercepted.

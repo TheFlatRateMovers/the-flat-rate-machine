@@ -29,7 +29,7 @@ import {
 
 const BASE = 'https://theflatratemovers.com/';
 const KID = 'theflatratemovers-2026-10-29-1';
-const CONCEPT_DOI = '10.5281/zenodo.23818766';
+const CONCEPT_DOI = '10.5281/zenodo.23879048';
 const API_VERSION = '1.0.0';
 const MCP_PROTOCOL = '2025-03-26';
 
