@@ -392,7 +392,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [
     "service-piano-antique"
    ],
@@ -484,7 +484,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [
     "service-transloading",
     "service-final-mile",
@@ -512,7 +512,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [
     "service-commercial"
    ],
@@ -525,7 +525,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [
     "service-office-moving"
    ],
@@ -538,7 +538,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [
     "service-transloading"
    ],
@@ -826,7 +826,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [
     "service-data-center-relocation"
    ],
@@ -850,7 +850,7 @@
   },
   {
    "attested": "2026-10-31",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/answer-evidence",
    "source": "Retrieval Machine build B2 2026-10-31 (Dossier 02 answer-engine evidence dataset design; generator scripts/build-answer-evidence.js)",
@@ -861,7 +861,7 @@
   },
   {
    "attested": "2026-11-01",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/archive-registry",
    "source": "Retrieval Machine build E6-B1 2026-11-01 (Dossier 06 archives registry design; generator scripts/build-archive-registry.js)",
@@ -883,7 +883,7 @@
   },
   {
    "attested": "2026-11-12",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/berkeley-springs-wv",
    "source": "Town Datasets batch 2026-11-12 — dataset landing for datasets-berkeley-springs-wv.json",
@@ -894,7 +894,7 @@
   },
   {
    "attested": "2026-11-12",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/berryville-va",
    "source": "Town Datasets batch 2026-11-12 — dataset landing for datasets-berryville-va.json",
@@ -916,7 +916,7 @@
   },
   {
    "attested": "2026-11-12",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/charles-town-wv",
    "source": "Town Datasets batch 2026-11-12 — dataset landing for datasets-charles-town-wv.json",
@@ -927,7 +927,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/commercial",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -949,7 +949,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/crating",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -971,7 +971,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/data-center-relocation",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -982,7 +982,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/ffe-logistics",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -993,7 +993,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/final-mile",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1004,7 +1004,7 @@
   },
   {
    "attested": "2026-11-01",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/freight-rework",
    "source": "Freight Rework & Transloading category batch 2026-11-01 — dataset landing for datasets-freight-rework.json",
@@ -1015,7 +1015,7 @@
   },
   {
    "attested": "2026-11-12",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/front-royal-va",
    "source": "Town Datasets batch 2026-11-12 — dataset landing for datasets-front-royal-va.json",
@@ -1026,7 +1026,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/government",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1037,7 +1037,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/gun-safe",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1048,7 +1048,7 @@
   },
   {
    "attested": "2026-11-05",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/hoarding-cleanup",
    "source": "Hoarding Cleanout category takeover 2026-11-05 — dataset landing for datasets-hoarding-cleanup.json",
@@ -1059,7 +1059,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/industrial-commercial",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1070,7 +1070,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/industrial-offices",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1081,7 +1081,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/intent-coverage",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1092,7 +1092,7 @@
   },
   {
    "attested": "2026-11-12",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/inwood-wv",
    "source": "Town Datasets batch 2026-11-12 — dataset landing for datasets-inwood-wv.json",
@@ -1103,7 +1103,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/ispm15",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1114,7 +1114,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/it",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1125,7 +1125,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/junk-removal",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1147,7 +1147,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/local-regional",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1169,7 +1169,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/long-distance",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1180,7 +1180,7 @@
   },
   {
    "attested": "2026-11-07",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [
     "service-white-glove",
     "service-long-distance",
@@ -1197,7 +1197,7 @@
   },
   {
    "attested": "2026-11-12",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/martinsburg-wv",
    "source": "Town Datasets batch 2026-11-12 — dataset landing for datasets-martinsburg-wv.json",
@@ -1208,7 +1208,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/medical-lab-relocation",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1219,7 +1219,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/military",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1230,7 +1230,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/moving-and-storage",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1241,7 +1241,7 @@
   },
   {
    "attested": "2026-11-12",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/new-market-va",
    "source": "Town Datasets batch 2026-11-12 — dataset landing for datasets-new-market-va.json",
@@ -1252,7 +1252,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/ocean-container",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1263,7 +1263,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/office",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1285,7 +1285,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/packing",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1296,7 +1296,7 @@
   },
   {
    "attested": "2026-11-03",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/page-data-pool",
    "source": "Page Data Pool batch 2026-11-03: the master pool database as a first-class dataset citizen — Layer 1 estate data (rubric, registries, matrices, standards, footprint, corpus) + Layer 2 researched domain layer; the generator source for every page's Page Data slice at the rollout.",
@@ -1318,7 +1318,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/piano-antique",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1384,7 +1384,7 @@
   },
   {
    "attested": "2026-11-02",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/ports",
    "source": "Ports & Intermodal Takeover Program batch P1 2026-11-02 — dataset landing for datasets-ports.json",
@@ -1406,7 +1406,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/residential",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1428,7 +1428,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/route81",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1439,7 +1439,7 @@
   },
   {
    "attested": "2026-10-31",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/search-index",
    "source": "Retrieval Machine build B1 2026-10-31 (Dossier 01 search-index dataset design; generator scripts/build-search-index.js)",
@@ -1450,7 +1450,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/senior",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1461,7 +1461,7 @@
   },
   {
    "attested": "2026-11-12",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/shepherdstown-wv",
    "source": "Town Datasets batch 2026-11-12 — dataset landing for datasets-shepherdstown-wv.json",
@@ -1472,7 +1472,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/sir-heavy",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1483,7 +1483,7 @@
   },
   {
    "attested": "2026-11-12",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/strasburg-va",
    "source": "Town Datasets batch 2026-11-12 — dataset landing for datasets-strasburg-va.json",
@@ -1494,7 +1494,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/transloading",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1505,7 +1505,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/transloading-inland-port",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1516,7 +1516,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/transloading-winchester",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1538,7 +1538,7 @@
   },
   {
    "attested": "2026-11-04",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/vault-doors",
    "source": "Vault Security takeover Wave 1 batch V1 2026-11-04 — door-model dataset landing (dossier §3.2)",
@@ -1549,7 +1549,7 @@
   },
   {
    "attested": "2026-11-04",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/vault-security",
    "source": "Vault Security takeover Wave 1 batch V1 2026-11-04 — standards registry dataset landing (dossier §3.1)",
@@ -1571,7 +1571,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/warehouse",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1593,7 +1593,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/warehouse-racking-relocation",
    "source": "Dataset discoverability batch 2026-10-30 (Dataset Search audit 2026-10-30 + Zenodo DOI 10.5281/zenodo.23818766)",
@@ -1604,7 +1604,7 @@
   },
   {
    "attested": "2026-11-12",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/washington-va",
    "source": "Town Datasets batch 2026-11-12 — dataset landing for datasets-washington-va.json",
@@ -1615,7 +1615,7 @@
   },
   {
    "attested": "2026-11-02",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/white-glove",
    "source": "White-Glove Delivery first-class service batch 2026-11-02 (owner decision 2026-11-02: white-glove made a first-class service, 30th, with its own dataset) — dataset landing for datasets-white-glove.json",
@@ -1626,7 +1626,7 @@
   },
   {
    "attested": "2026-11-12",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/winchester-va",
    "source": "Town Datasets batch 2026-11-12 — dataset landing for datasets-winchester-va.json",
@@ -1637,7 +1637,7 @@
   },
   {
    "attested": "2026-11-12",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/woodstock-va",
    "source": "Town Datasets batch 2026-11-12 — dataset landing for datasets-woodstock-va.json",
@@ -1843,7 +1843,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [
     "service-piano-antique"
    ],
@@ -1949,7 +1949,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [
     "service-ispm15"
    ],
@@ -1973,7 +1973,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [
     "service-ffe-logistics"
    ],
@@ -2069,7 +2069,7 @@
   },
   {
    "attested": "2026-11-01",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [
     "service-freight-rework-transloading"
    ],
@@ -2134,7 +2134,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [
     "service-gun-safe"
    ],
@@ -2225,7 +2225,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [
     "service-sir-heavy"
    ],
@@ -2392,7 +2392,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [
     "service-ispm15",
     "service-crating"
@@ -2472,7 +2472,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [
     "service-industrial-commercial"
    ],
@@ -2511,7 +2511,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [
     "service-industrial-offices"
    ],
@@ -2537,7 +2537,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [
     "service-ispm15",
     "service-crating"
@@ -2551,7 +2551,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [
     "service-route81"
    ],
@@ -2564,7 +2564,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [
     "service-route81"
    ],
@@ -2629,7 +2629,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [
     "service-commercial",
     "service-it-relocation"
@@ -2643,7 +2643,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [
     "service-junk-removal"
    ],
@@ -2737,7 +2737,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [
     "service-local-regional"
    ],
@@ -2828,7 +2828,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [
     "service-long-distance"
    ],
@@ -2893,7 +2893,7 @@
   },
   {
    "attested": "2026-11-07",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [
     "service-white-glove",
     "service-long-distance",
@@ -2950,7 +2950,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [
     "service-medical-lab-relocation"
    ],
@@ -2963,7 +2963,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [
     "service-government",
     "service-military"
@@ -2977,7 +2977,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [
     "service-government",
     "service-military"
@@ -3030,7 +3030,7 @@
   },
   {
    "attested": "2026-11-10",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [
     "service-local-regional"
    ],
@@ -3043,7 +3043,7 @@
   },
   {
    "attested": "2026-11-12",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [
     "service-local-regional"
    ],
@@ -3056,7 +3056,7 @@
   },
   {
    "attested": "2026-11-10",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [
     "service-local-regional"
    ],
@@ -3069,7 +3069,7 @@
   },
   {
    "attested": "2026-11-10",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [
     "service-local-regional"
    ],
@@ -3082,7 +3082,7 @@
   },
   {
    "attested": "2026-11-10",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [
     "service-local-regional"
    ],
@@ -3095,7 +3095,7 @@
   },
   {
    "attested": "2026-11-10",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [
     "service-local-regional"
    ],
@@ -3108,7 +3108,7 @@
   },
   {
    "attested": "2026-11-10",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [
     "service-local-regional"
    ],
@@ -3147,7 +3147,7 @@
   },
   {
    "attested": "2026-10-29",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [
     "service-moving-and-storage"
    ],
@@ -3173,7 +3173,7 @@
   },
   {
    "attested": "2026-11-10",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [
     "service-local-regional"
    ],
@@ -3186,7 +3186,7 @@
   },
   {
    "attested": "2026-11-10",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [
     "service-local-regional"
    ],
@@ -3199,7 +3199,7 @@
   },
   {
    "attested": "2026-11-10",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [
     "service-local-regional"
    ],
@@ -3212,7 +3212,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "moving-company-martinsburg-wv",
    "source": "live sitemap.xml + pageMeta in live site source",
@@ -3223,7 +3223,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "moving-company-winchester-va",
    "source": "live sitemap.xml + pageMeta in live site source",
@@ -3483,7 +3483,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [
     "service-packing"
    ],
@@ -3764,7 +3764,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [
     "service-residential"
    ],
@@ -3792,7 +3792,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [
     "service-route81"
    ],
@@ -3818,7 +3818,7 @@
   },
   {
    "attested": "2026-10-29",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [
     "service-senior-moving"
    ],
@@ -4019,7 +4019,7 @@
   },
   {
    "attested": "2026-11-02",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [
     "service-transloading"
    ],
@@ -4071,7 +4071,7 @@
   },
   {
    "attested": "2026-10-29",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [
     "service-transloading-winchester-va",
     "service-transloading"
@@ -4148,7 +4148,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [
     "service-transloading"
    ],
@@ -4226,7 +4226,7 @@
   },
   {
    "attested": "2026-10-30",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [
     "service-warehouse-racking-relocation"
    ],
@@ -4239,7 +4239,7 @@
   },
   {
    "attested": "2026-10-29",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [
     "service-warehouse-relocation"
    ],
@@ -4317,7 +4317,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [
     "service-piano-antique",
     "service-final-mile",

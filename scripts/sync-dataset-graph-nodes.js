@@ -57,7 +57,7 @@ for (const stem of Object.keys(REGISTERED_EXCLUDED)) EXCLUDE.add(stem);
  * answer-evidence citizen by the same rule as parts 1-2, so the whole
  * family is excluded by pattern — a future part never breaks the
  * resync again. */
-const AE_SPLIT_STEM = /^(answer-evidence-questions|search-index-clusters)(-\d+)?$/; // SI clusters family added 2026-11-17 (same split pattern)
+const AE_SPLIT_STEM = /^(answer-evidence-questions|search-index-clusters|intent-rows)(-\d+)?$/; // SI clusters family added 2026-11-17 (same split pattern); intent-rows family added 2026-11-21 (Geo Rubric Territory Upgrade): the rubric's packed rows split N-ways for the estate API — every part rides the intent-coverage citizen (its landing is /datasets/intent-coverage/); no landing or per-page JSON of its own by design
 
 function sortKeys(o) {
   if (Array.isArray(o)) return o.map(sortKeys);

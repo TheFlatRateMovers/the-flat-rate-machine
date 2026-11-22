@@ -306,7 +306,7 @@ for (const f of dsFiles) {
   // Second split (2026-11-16): the part-2 file rides the same rule.
   // N-way split (2026-11-17): parts 3-5 ride it too — pattern form,
   // so any future part is covered.
-  const landingFull = /^datasets-(answer-evidence-questions|search-index-clusters)(-\d+)?\.json$/.test(f) && main.url
+  const landingFull = /^datasets-(answer-evidence-questions|search-index-clusters|intent-rows)(-\d+)?\.json$/.test(f) && main.url // intent-rows parts ride the same rule (2026-11-21, Geo Rubric Territory Upgrade): the packed rubric rows share the intent-coverage landing
     ? main.url
     : 'https://theflatratemovers.com/datasets/' + f.replace(/^datasets-/, '').replace(/\.json$/, '') + '/';
   out.push('- **' + (main.name || f) + '** — ' + String(main.description || '').replace(/\s+/g, ' ').trim() + ' Download: https://theflatratemovers.com/' + f + ' · Landing: ' + landingFull);

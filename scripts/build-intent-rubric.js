@@ -227,7 +227,16 @@ const GENERATOR = 'build-intent-rubric.js';
 // GeoJSON footprint features, zeros published. Generator version
 // stays 2.0.0 (schema 2); the additions are recorded in intent_meta
 // (rollup_rows, rollup_pages, target_pages_covered/total).
-const GENERATOR_VERSION = '3.1.2';
+// 2026-11-21 (Geo Batch, v3.2.0): the geo pass (the estate's 335
+// places read from data/geo-enriched.json — verified ZIP sets,
+// radius rings, neighbors, route pairs — emitting the proximity /
+// locality / radius / ZIP / relation / ai-question / neighbor /
+// route-pair families estate-wide), the depth-bank ingest (4,326
+// screened buyer-language rows; depth-1 parent links resolved into
+// intent_row_lineage), and the intent-rows part files
+// (scripts/pack-intent-parts.py, spawned after writeDb) that take
+// the packed intent columns out of the API bundle.
+const GENERATOR_VERSION = '3.2.0';
 const KID = 'theflatratemovers-2026-10-29-1';
 
 // --- Generator configuration (validated against the registries) ---
@@ -1881,6 +1890,29 @@ function generate() {
     for (const c of f.properties.services || []) corridorCaps.add(c);
   }
   const corridorServices = new Set([...corridorCaps].map((c) => GEO_MAP[c]).filter(Boolean));
+
+  // ── GEO RECORD — the generator's canonical geo input (Geo
+  // Batch 2026-11-21, GEO-BATCH-SPEC step 3): ONE loader reads
+  // data/geo-enriched.json and every ZIP lane below takes its
+  // ZIPs from the record's verified zip_set — never from the
+  // geojson postal_code or a registry mirror. Six record ZIPs
+  // were corrected in the 2026-11-21 screen (Capon Springs
+  // 26823→26808, Arkansas 26755→26801, Lost River 26801→26810,
+  // Peru 26836→26838, Rawley Springs 22802→22831, Parkins Mills
+  // 22602→22663); the mirrors still carry the old values by
+  // design, and lanes reading them minted stale ZIP rows — the
+  // defect this loader removes at source.
+  const GEO_REC = (() => {
+    const gp = path.join(DATA_ROOT, 'geo-enriched.json');
+    if (!fs.existsSync(gp)) throw new Error('geo record: data/geo-enriched.json missing — the geo record is the generator canonical input (Geo Batch 2026-11-21)');
+    return JSON.parse(fs.readFileSync(gp, 'utf8'));
+  })();
+  const GEO_BY_ID = new Map((GEO_REC.features || []).map((f) => [f.id, f]));
+  const geoZipSet = (placeId) => {
+    const rec = GEO_BY_ID.get(placeId);
+    return rec && Array.isArray(rec.zip_set) ? rec.zip_set.map((z) => z.zip) : [];
+  };
+  const geoZipPrimary = (placeId) => geoZipSet(placeId)[0] || null;
   corridorServices.add('service-route81');
   corridorServices.add('service-long-distance');
   corridorServices.add('service-local-regional');
@@ -4935,7 +4967,7 @@ function generate() {
       for (const area of rackDb.areas) {
         const pl = area.placeLabel, pq = area.placeQ;
         const feat = featById[area.geoFeature];
-        const zips = [...new Set([area.postalCode, feat && feat.properties && feat.properties.postal_code].filter(Boolean))];
+        const zips = geoZipSet(area.geoFeature);
         const branchFeat = featById['place-' + area.branch + '-' + (area.branch === 'winchester' ? 'va' : 'wv')];
         let radius = 25;
         if (feat && branchFeat && feat.geometry && branchFeat.geometry) {
@@ -5405,7 +5437,7 @@ function generate() {
         const stateName = R44_STATE_NAME[p.state] || null;
         const countyTail = String(p.county || '').split('/').pop().trim();
         const county = /County$/.test(countyTail) ? countyTail : null;
-        const zip = p.postal_code ? String(p.postal_code) : null;
+        const zip = geoZipPrimary(p.id);
         let radius = 25;
         if (f.geometry && f.geometry.coordinates) {
           const [lo, la] = f.geometry.coordinates;
@@ -5593,7 +5625,7 @@ function generate() {
         const stateName = R45_STATE_NAME[p.state] || null;
         const countyTail = String(p.county || '').split('/').pop().trim();
         const county = /County$/.test(countyTail) ? countyTail : null;
-        const zip = p.postal_code ? String(p.postal_code) : null;
+        const zip = geoZipPrimary(p.id);
         let radius = 25;
         if (f.geometry && f.geometry.coordinates) {
           const [lo, la] = f.geometry.coordinates;
@@ -5793,7 +5825,7 @@ function generate() {
         const stateName = R46_STATE_NAME[p.state] || null;
         const countyTail = String(p.county || '').split('/').pop().trim();
         const county = /County$/.test(countyTail) ? countyTail : null;
-        const zip = p.postal_code ? String(p.postal_code) : null;
+        const zip = geoZipPrimary(p.id);
         let radius = 25;
         if (f.geometry && f.geometry.coordinates) {
           const [lo, la] = f.geometry.coordinates;
@@ -6002,7 +6034,7 @@ function generate() {
         const stateName = R47_STATE_NAME[p.state] || null;
         const countyTail = String(p.county || '').split('/').pop().trim();
         const county = /County$/.test(countyTail) ? countyTail : null;
-        const zip = p.postal_code ? String(p.postal_code) : null;
+        const zip = geoZipPrimary(p.id);
         let radius = 25;
         if (f.geometry && f.geometry.coordinates) {
           const [lo, la] = f.geometry.coordinates;
@@ -6197,7 +6229,7 @@ function generate() {
         const stateName = R48_STATE_NAME[p.state] || null;
         const countyTail = String(p.county || '').split('/').pop().trim();
         const county = /County$/.test(countyTail) ? countyTail : null;
-        const zip = p.postal_code ? String(p.postal_code) : null;
+        const zip = geoZipPrimary(p.id);
         let radius = 25;
         if (f.geometry && f.geometry.coordinates) {
           const [lo, la] = f.geometry.coordinates;
@@ -6401,7 +6433,7 @@ function generate() {
         const stateName = R49_STATE_NAME[p.state] || null;
         const countyTail = String(p.county || '').split('/').pop().trim();
         const county = /County$/.test(countyTail) ? countyTail : null;
-        const zip = p.postal_code ? String(p.postal_code) : null;
+        const zip = geoZipPrimary(p.id);
         let radius = 25;
         if (f.geometry && f.geometry.coordinates) {
           const [lo, la] = f.geometry.coordinates;
@@ -6590,7 +6622,7 @@ function generate() {
       const p = f.properties;
       const pl = String(p.name || '').replace(/,/g, '');
       const pq = String(p.name || '');
-      const zip = p.postal_code ? String(p.postal_code) : null;
+      const zip = geoZipPrimary(p.id);
       let radius = 25;
       if (f.geometry && f.geometry.coordinates) {
         const [lo, la] = f.geometry.coordinates;
@@ -6824,7 +6856,7 @@ function generate() {
         const stateName = R51_STATE_NAME[p.state] || null;
         const countyTail = String(p.county || '').split('/').pop().trim();
         const county = /County$/.test(countyTail) ? countyTail : null;
-        const zip = p.postal_code ? String(p.postal_code) : null;
+        const zip = geoZipPrimary(p.id);
         let radius = 25;
         if (f.geometry && f.geometry.coordinates) {
           const [lo, la] = f.geometry.coordinates;
@@ -7039,7 +7071,7 @@ function generate() {
       const stateName = R52_STATE_NAME[p.state] || null;
       const countyTail = String(p.county || '').split('/').pop().trim();
       const county = /County$/.test(countyTail) ? countyTail : null;
-      const zip = p.postal_code ? String(p.postal_code) : null;
+      const zip = geoZipPrimary(p.id);
       let radius = 25;
       if (f.geometry && f.geometry.coordinates) {
         const [lo, la] = f.geometry.coordinates;
@@ -7380,6 +7412,130 @@ function generate() {
   // the export that no longer resolve are counted as stale; queries
   // with no matching row stay unattached evidence — they create
   // nothing and exclude nothing.
+  // ── GEO PASS (2026-11-21, Geo Batch) ─────────────────────────
+  // The estate's 335 places live in data/geo-enriched.json — the
+  // generator's canonical geo input: verified ZIP sets per place
+  // (Census relationship files + screened recovery + owner
+  // rulings; provenance rides every value), radius rings from
+  // measured branch distances, nearest neighbors, binding branch
+  // seats. The pass emits the place families the per-service lanes
+  // under-reached — proximity, locality, radius, ZIP, relation,
+  // ai-question, neighbor, route-pair — for every (service,
+  // footprint place) cell, through the same emit() gates (R10
+  // existence, R11 dedupe). First wins: rows the earlier lanes
+  // already emitted stand. An r30Norm normalized-collision guard
+  // keeps the pass from minting case/punctuation twins of live
+  // rows. The ZIP family reads the record's zip_set ONLY — never
+  // the geojson postal_code or the record's estate_postal_code
+  // mirror (six record ZIPs were corrected in the 2026-11-21
+  // screen; the mirrors still carry the old values by design).
+  const GEO_STATS = { attempted: 0, landed: 0, normSkipped: 0, byFamily: {}, refused: [] };
+  // GEO_BY_ID + geoZipSet come from the shared geo-record loader
+  // at the top of generate() — the one loader every ZIP lane reads.
+  const geoNormSeen = new Map();
+  for (const r of rows) geoNormSeen.set(r.service_id + '|' + r30Norm(r.query_text), r.query_text);
+  const geoTarget = (sid, area) => r30ModalSlug(sid, area) || HUB[sid];
+  const geoEmit = (family, sid, cls, text, area, target) => {
+    const st = (GEO_STATS.byFamily[family] = GEO_STATS.byFamily[family] || { attempted: 0, landed: 0 });
+    st.attempted++; GEO_STATS.attempted++;
+    const nk = sid + '|' + r30Norm(text);
+    if (geoNormSeen.has(nk)) { GEO_STATS.normSkipped++; return; }
+    if (emit(sid, cls, text, area, target, 'GEO-' + family, { source: 'geo-pass' })) {
+      st.landed++; GEO_STATS.landed++; geoNormSeen.set(nk, text);
+    }
+  };
+  const geoPl = (name) => String(name || '').replace(/, /, ' ');
+  for (const svc of R.services.services) {
+    const sid = svc.id;
+    const [phrase] = PHRASE[sid];
+    for (const f of footprint.get(sid) || []) {
+      const rec = GEO_BY_ID.get(f.id);
+      if (!rec) { GEO_STATS.refused.push('no enriched record for ' + f.id); continue; }
+      const pl = geoPl(rec.name);
+      const area = f.id;
+      const target = geoTarget(sid, area);
+      geoEmit('proximity', sid, 'navigational-local', phrase + ' near ' + pl, area, target);
+      geoEmit('proximity', sid, 'navigational-local', phrase + ' close to ' + pl, area, target);
+      geoEmit('locality', sid, 'navigational-local', 'local ' + phrase + ' ' + pl, area, target);
+      geoEmit('locality', sid, 'navigational-local', phrase + ' in ' + pl, area, target);
+      geoEmit('locality', sid, 'navigational-local', phrase + ' around ' + pl, area, target);
+      geoEmit('locality', sid, 'navigational-local', 'regional ' + phrase + ' ' + pl, area, target);
+      for (const r of (rec.radius && rec.radius.rings_mi) || []) {
+        geoEmit('radius', sid, 'navigational-local', phrase + ' within ' + r + ' miles of ' + pl, area, target);
+      }
+      geoEmit('radius', sid, 'navigational-local', phrase + ' serving the ' + pl + ' area', area, target);
+      for (const z of rec.zip_set || []) {
+        geoEmit('zip', sid, 'navigational-local', phrase + ' ' + z.zip, area, target);
+        geoEmit('zip', sid, 'navigational-local', phrase + ' near ' + z.zip, area, target);
+        // The bare ZIP texts bind once per service estate-wide
+        // (UNIQUE(query_text, service_id)) to the first place that
+        // claims them — for a ZIP shared by several places (22663:
+        // White Post, Parkins Mills, Stone Bridge) the other places
+        // would carry no ZIP rows at all. The place-qualified form
+        // binds per place, so every place carries rows for every
+        // ZIP in its verified set (the batch proof gate).
+        geoEmit('zip', sid, 'navigational-local', phrase + ' ' + pl + ' ' + z.zip, area, target);
+      }
+      geoEmit('relation', sid, 'navigational-local', phrase + ' serving ' + pl, area, target);
+      geoEmit('relation', sid, 'navigational-local', phrase + ' available in ' + pl, area, target);
+      geoEmit('relation', sid, 'navigational-local', phrase + ' based in ' + pl, area, target);
+      geoEmit('ai-question', sid, 'ai-question', 'how do i arrange ' + phrase + ' in ' + pl + '?', area, target);
+      geoEmit('ai-question', sid, 'ai-question', 'what does ' + phrase + ' include in ' + pl + '?', area, target);
+      for (const n of (rec.neighbors_within_30mi || []).slice(0, 3)) {
+        const npl = geoPl(n.name);
+        geoEmit('neighbor', sid, 'navigational-local', phrase + ' near ' + npl, area, target);
+        geoEmit('neighbor', sid, 'navigational-local', phrase + ' serving ' + pl + ' and ' + npl, area, target);
+      }
+      // Route pairs ride fully lowercase, per the R15 literal
+      // precedent ('movers from winchester va to martinsburg wv').
+      const bindSeat = rec.radius && rec.radius.binding_branch_seat;
+      const partnerId = (f.id === 'place-winchester-va' || f.id === 'place-martinsburg-wv')
+        ? (bindSeat === 'place-winchester-va' ? 'place-martinsburg-wv' : 'place-winchester-va')
+        : bindSeat;
+      const partner = partnerId && GEO_BY_ID.get(partnerId);
+      if (partner) {
+        const pnl = geoPl(partner.name).toLowerCase();
+        const pll = pl.toLowerCase();
+        geoEmit('route-pair', sid, 'navigational-local', phrase + ' from ' + pnl + ' to ' + pll, area, target);
+        geoEmit('route-pair', sid, 'navigational-local', phrase + ' from ' + pll + ' to ' + pnl, area, target);
+      }
+    }
+  }
+
+  // ── DEPTH-BANK INGEST (2026-11-21, Geo Batch) ────────────────
+  // External buyer-language bank (screened 2026-11-21: schema
+  // exact, zero price/phone hits, zero internal duplicates, zero
+  // collisions with the live rubric): 4,326 rows over 6 corridor
+  // places — depth-0 buyer questions plus depth-1 follow-ups.
+  // Rows ingest as QUESTIONS ONLY; answers are never taken from a
+  // bank file — the answer-evidence layer binds estate fragments
+  // mechanically. Leaf services map onto registry services in the
+  // staged rows (registry_service_id). The R35 truth screen
+  // applies on top of the ingest screen. Depth-1 parent links
+  // resolve after the sort (below) into intent_row_lineage; an
+  // unresolvable parent stops the build.
+  const BANK_STATS = { read: 0, landed: 0, refused: [], normSkipped: 0, byService: {}, lineageResolved: 0, childNotLanded: 0 };
+  const BANK_ROWS = [];
+  const bankPath = path.join(ROOT, 'out', 'rubric-depth-bank-2026-11-21', 'staged-offered.jsonl');
+  if (!fs.existsSync(bankPath)) throw new Error('depth-bank ingest: staged-offered.jsonl missing (Geo Batch 2026-11-21)');
+  for (const line of fs.readFileSync(bankPath, 'utf8').split('\n')) {
+    if (!line.trim()) continue;
+    const r = JSON.parse(line);
+    BANK_ROWS.push(r); BANK_STATS.read++;
+    const sid = r.registry_service_id;
+    if (!svcById.has(sid)) { BANK_STATS.refused.push(r.id + ': unmapped service ' + sid); continue; }
+    const bad = R35_TRUTH_REFUSE.find((t) => t.re.test(r.question));
+    if (bad) { BANK_STATS.refused.push(r.id + ': ' + bad.why); continue; }
+    const cls = r.family === 'ai-question' ? 'ai-question' : 'navigational-local';
+    const nk = sid + '|' + r30Norm(r.question);
+    if (geoNormSeen.has(nk)) { BANK_STATS.normSkipped++; continue; }
+    if (emit(sid, cls, r.question, r.area, geoTarget(sid, r.area), 'DEPTHBANK-' + r.family, { source: 'depth-bank-2026-11-21' })) {
+      BANK_STATS.landed++;
+      BANK_STATS.byService[sid] = (BANK_STATS.byService[sid] || 0) + 1;
+      geoNormSeen.set(nk, r.question);
+    }
+  }
+
   const evidenceStats = { queriesImported: 0, queriesAttached: 0, rowsEnriched: 0, queriesUnattached: 0, pagesImported: 0, pagesStillLive: 0, pagesStale: 0, windowStart: null, windowEnd: null, era: null };
   const observationLinks = [];
   const observationResolutions = [];
@@ -7438,6 +7594,35 @@ function generate() {
     (CLASS_ORDER.indexOf(a.intent_class) - CLASS_ORDER.indexOf(b.intent_class)) ||
     (a.query_text < b.query_text ? -1 : a.query_text > b.query_text ? 1 : 0));
   rows.forEach((r, i) => { r.row_no = i + 1; });
+
+  // Depth-bank lineage (Geo Batch 2026-11-21): resolve every
+  // depth-1 row's parent link against the final row set. The
+  // parent is the row carrying the parent bank row's question for
+  // the same registry service — the bank's own depth-0 row when it
+  // landed, or the live row it deduped onto. A landed child whose
+  // parent does not resolve stops the build (BATCH-PLAN hard
+  // requirement: 1,560/1,560 links resolve).
+  const lineage = [];
+  {
+    const byNorm = new Map();
+    for (const r of rows) {
+      const k = r.service_id + '|' + r30Norm(r.query_text);
+      if (!byNorm.has(k)) byNorm.set(k, r.row_no);
+    }
+    const bankById = new Map(BANK_ROWS.map((r) => [r.id, r]));
+    for (const r of BANK_ROWS) {
+      if (!r.parent_row) continue;
+      const parent = bankById.get(r.parent_row);
+      if (!parent) throw new Error('depth-bank lineage: bank row ' + r.id + ' names unknown parent ' + r.parent_row);
+      const childNo = byNorm.get(r.registry_service_id + '|' + r30Norm(r.question));
+      if (childNo === undefined) { BANK_STATS.childNotLanded++; continue; }
+      const parentNo = byNorm.get(parent.registry_service_id + '|' + r30Norm(parent.question));
+      if (parentNo === undefined) throw new Error('depth-bank lineage: parent of ' + r.id + ' (' + parent.id + ') does not resolve to a live row — batch stops');
+      lineage.push({ row_no: childNo, parent_row_no: parentNo, bank_row_id: r.id, parent_bank_row_id: parent.id });
+    }
+    BANK_STATS.lineageResolved = lineage.length;
+  }
+
 
   // v2 outcome state: carry prior summaries forward by row key;
   // default unknown. The generator never writes a non-unknown state.
@@ -7520,7 +7705,7 @@ function generate() {
     patternByService[r.service_id][fam]++;
   }
   return { R, rows, excluded, byClass, byService, digest, outcomeDigest, qbParsed, qbTotal: qb.length, qb2Count, qb2Local, footprint, corridorServices,
-    evidenceStats, pageDerivedStats, rollupStats, targetCoverage, patternByService, evidenceLogCount, observationLinks, observationResolutions, bySource, outcomeGlobal, outcomeByService, existedInWindow };
+    evidenceStats, pageDerivedStats, rollupStats, targetCoverage, patternByService, evidenceLogCount, observationLinks, observationResolutions, bySource, outcomeGlobal, outcomeByService, existedInWindow, geoStats: GEO_STATS, bankStats: BANK_STATS, lineage };
 }
 
 // Canonical serialization for the rows digest: fixed field order,
@@ -7836,6 +8021,14 @@ function writeDb(gen, workDir) {
   // like the other derived tables — with INSERT OR IGNORE over a persisting
   // table, era/window corrections from eraForWindow would never land.
   lines.push('DROP TABLE IF EXISTS intent_row_gsc_evidence;');
+  lines.push('DROP TABLE IF EXISTS intent_row_lineage;');
+  lines.push(`CREATE TABLE intent_row_lineage (
+  row_no INTEGER PRIMARY KEY,
+  parent_row_no INTEGER NOT NULL,
+  bank_row_id TEXT NOT NULL,
+  parent_bank_row_id TEXT NOT NULL,
+  source TEXT NOT NULL DEFAULT 'depth-bank-2026-11-21'
+);`);
   lines.push(`CREATE TABLE intent_query (
   id INTEGER PRIMARY KEY,
   query_text TEXT NOT NULL,
@@ -7914,6 +8107,10 @@ ${gateCols},
   for (const l of gen.observationLinks || []) {
     lines.push('INSERT OR IGNORE INTO gsc_observation_links (observation_id, service_id, query_text, link_type, exclusion_reason, created_at) VALUES (' +
       [l.observation_id, sqlEsc(l.service_id), sqlEsc(l.query_text), sqlEsc(l.link_type), sqlEsc(l.exclusion_reason || null), sqlEsc(RUBRIC_DATE)].join(', ') + ');');
+  }
+  for (const l of gen.lineage || []) {
+    lines.push('INSERT INTO intent_row_lineage (row_no, parent_row_no, bank_row_id, parent_bank_row_id) VALUES (' +
+      [l.row_no, l.parent_row_no, sqlEsc(l.bank_row_id), sqlEsc(l.parent_bank_row_id)].join(', ') + ');');
   }
   lines.push(`CREATE TABLE IF NOT EXISTS intent_row_gsc_evidence (
   id INTEGER PRIMARY KEY,
@@ -8048,6 +8245,19 @@ function main() {
   const workDir = WORK_DIR;
   fs.mkdirSync(workDir, { recursive: true });
   const sqlPath = writeDb(gen, workDir);
+  // Intent row parts (Geo Batch 2026-11-21): the API bundle no
+  // longer embeds the packed intent columns — at ~500k rows the
+  // packed block alone breaches the 60 MiB bundle gate. The packer
+  // reads the DB just written and emits the columns as sealed
+  // dataset part files (datasets-intent-rows*.json, AE-part shape)
+  // in the public tree; the worker fetches them through the
+  // datasetRemote path at runtime. Deterministic: unchanged rows
+  // re-emit byte-identical parts.
+  {
+    const pk = spawnSync('python3', [path.join(ROOT, 'scripts', 'pack-intent-parts.py'),
+      '--db', DB_PATH, '--out-dir', PUB, '--rubric-date', RUBRIC_DATE], { stdio: 'inherit' });
+    if (pk.status !== 0) throw new Error('pack-intent-parts.py failed with status ' + pk.status);
+  }
   const dataset = buildDataset(gen);
   const datasetPath = path.join(workDir, 'datasets-intent-coverage.json');
   fs.writeFileSync(datasetPath, JSON.stringify(dataset, null, 2) + '\n');
@@ -8075,6 +8285,8 @@ function main() {
     evidence: gen.evidenceStats,
     pageDerived: gen.pageDerivedStats,
     rollup: gen.rollupStats,
+    geoPass: gen.geoStats,
+    depthBank: gen.bankStats,
     targetCoverage: gen.targetCoverage,
     patternByService: gen.patternByService,
     outcome: gen.outcomeGlobal,

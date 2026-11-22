@@ -163,7 +163,7 @@ const QUESTIONS2_FILE_DATE_PUBLISHED = '2026-11-16'; // the part-2 file's first 
  * unlisted part falls back to DATE_MOD, which at its birth seal is
  * its first publication date. */
 const PART_CAP_BYTES = 20 * 1024 * 1024;
-const PART_DATE_PUBLISHED = { 1: QUESTIONS_FILE_DATE_PUBLISHED, 2: QUESTIONS2_FILE_DATE_PUBLISHED, 3: '2026-11-17', 4: '2026-11-17', 5: '2026-11-17', 6: '2026-11-17' };
+const PART_DATE_PUBLISHED = { 1: QUESTIONS_FILE_DATE_PUBLISHED, 2: QUESTIONS2_FILE_DATE_PUBLISHED, 3: '2026-11-17', 4: '2026-11-17', 5: '2026-11-17', 6: '2026-11-21', 7: '2026-11-21', 8: '2026-11-21', 9: '2026-11-21' }; // parts 6-9 born in the Geo Rubric Territory Upgrade batch 2026-11-21 (bank 292,287 -> 518,217 rows): part 6's '2026-11-17' entry was a pre-registration from the N-way split build — the sealed index carried no questions-6 entry, so the part never published until this batch and its first publication is 2026-11-21
 const questionsPartUrl = (k) => (k === 1 ? QUESTIONS_FILE_URL : SITE + '/datasets-answer-evidence-questions-' + k + '.json');
 const questionsPartName = (k) => (k === 1 ? 'datasets-answer-evidence-questions.json' : 'datasets-answer-evidence-questions-' + k + '.json');
 /* A questions part file's own FILE_DM: FB3_STAMPS entry for its own

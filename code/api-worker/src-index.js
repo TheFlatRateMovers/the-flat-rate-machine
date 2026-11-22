@@ -20,8 +20,7 @@ import {
   datasetsInventory,
   pageDataInventory,
   intentRowCount,
-  intentFilterIndices,
-  intentRowAt,
+  intentParts,
   coverageData,
   bundleManifest,
   datasetRemote,
@@ -183,13 +182,61 @@ function normalizeDatasetName(name) {
 }
 
 // ------------------------------------------------------------------ intent
-function filterIntent(params) {
-  // Columnar bundle (2026-11-17): the rubric ships as columns and is
-  // scanned in that form; only matching rows are materialized, in
-  // paginate() below. Filter semantics are the pre-columnar ones,
-  // unchanged: service / area / intent_class equality (area compared
-  // with the '' fallback) and a case-insensitive query_text substring.
-  return intentFilterIndices({
+// Intent rows (Geo Batch, 2026-11-21): the packed columns ship as
+// sealed dataset files (datasets-intent-rows*.json) and load lazily
+// through the same fetch-through path as the other remote datasets;
+// the bundle carries only the row count and the part names. Filter
+// semantics are the pre-columnar ones, unchanged: service / area /
+// intent_class equality (area compared with the '' fallback) and a
+// case-insensitive query_text substring; only matching rows are
+// materialized, and only the served page of them.
+let _intent = null;
+async function intentData() {
+  if (_intent) return _intent;
+  let keyOrder = null;
+  let tables = null;
+  const columns = {};
+  for (const name of intentParts) {
+    const text = await dsText(name);
+    if (text === undefined) throw new Error('intent part unavailable: ' + name);
+    const doc = JSON.parse(text);
+    const node = (doc['@graph'] || []).find((n) => n && n['@id'] === BASE.slice(0, -1) + '/#dataset-intent-rows');
+    if (!node || !node.intentColumns) throw new Error('intent part carries no intentColumns: ' + name);
+    const part = node.intentColumns;
+    if (!keyOrder) {
+      keyOrder = part.keyOrder;
+      tables = part.tables;
+      for (const k of keyOrder) columns[k] = [];
+    }
+    for (const k of keyOrder) columns[k] = columns[k].concat(part.columns[k]);
+  }
+  const rowAt = (i) => {
+    const r = {};
+    for (const k of keyOrder) r[k] = columns[k][i];
+    for (const f of Object.keys(tables)) {
+      if (typeof r[f] === 'number') r[f] = tables[f][r[f]];
+    }
+    return r;
+  };
+  const filterIndices = (f) => {
+    const out = [];
+    const q = f.q ? String(f.q).toLowerCase() : null;
+    for (let i = 0; i < intentRowCount; i++) {
+      if (f.service && tables.service_id[columns.service_id[i]] !== f.service) continue;
+      if (f.area && (tables.area[columns.area[i]] || '') !== f.area) continue;
+      if (f.intentClass && tables.intent_class[columns.intent_class[i]] !== f.intentClass) continue;
+      if (q !== null && !columns.query_text[i].toLowerCase().includes(q)) continue;
+      out.push(i);
+    }
+    return out;
+  };
+  _intent = { rowAt, filterIndices };
+  return _intent;
+}
+
+async function filterIntent(params) {
+  const { filterIndices } = await intentData();
+  return filterIndices({
     service: params.get('service'),
     area: params.get('area'),
     intentClass: params.get('intent_class'),
@@ -197,7 +244,8 @@ function filterIntent(params) {
   });
 }
 
-function paginate(rows, params) {
+async function paginate(rows, params) {
+  const { rowAt } = await intentData();
   let limit = parseInt(params.get('limit') || '50', 10);
   if (Number.isNaN(limit) || limit < 1) limit = 50;
   limit = Math.min(limit, 200);
@@ -209,7 +257,7 @@ function paginate(rows, params) {
     offset,
     // rows are intent-row indices (see filterIntent): materialize
     // only the served page.
-    results: rows.slice(offset, offset + limit).map((i) => intentRowAt(i)),
+    results: rows.slice(offset, offset + limit).map((i) => rowAt(i)),
   };
 }
 
@@ -353,7 +401,7 @@ async function callTool(name, args) {
       for (const k of ['service', 'area', 'intent_class', 'q', 'limit', 'offset']) {
         if (args[k] !== undefined && args[k] !== null) params.set(k, String(args[k]));
       }
-      return paginate(filterIntent(params), params);
+      return await paginate(await filterIntent(params), params);
     }
     case 'verify_file':
       return verifyFile(args.file);
@@ -798,7 +846,7 @@ export default {
       return textResponse(rawDataset, 'application/json; charset=utf-8');
     }
     if (path === '/v1/intent') {
-      return jsonResponse(paginate(filterIntent(url.searchParams), url.searchParams));
+      return jsonResponse(await paginate(await filterIntent(url.searchParams), url.searchParams));
     }
     if (path === '/v1/answer-evidence') {
       const table = url.searchParams.get('table');
