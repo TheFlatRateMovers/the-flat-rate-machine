@@ -938,7 +938,7 @@
   },
   {
    "attested": "2026-11-09",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/coverage",
    "source": "Territory Matrix P4 live batch 2026-11-09 — dataset landing for datasets-coverage.json",
@@ -1158,7 +1158,7 @@
   },
   {
    "attested": "2026-11-16",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "datasets/logistics-project-management",
    "source": "Money Trio-6 scope addition 2026-11-16 — dataset landing for datasets-logistics-project-management.json",
@@ -2290,7 +2290,7 @@
   },
   {
    "attested": "2026-10-28",
-   "lastmod": "2026-11-21",
+   "lastmod": "2026-11-22",
    "services": [],
    "slug": "home",
    "source": "live sitemap.xml + pageMeta in live site source",

@@ -1287,16 +1287,43 @@ class Incr:
         except OSError:
             return None
 
-    def _sqlite_dump_fp(self, tables):
-        key = ("dump", tuple(tables), self._db_stat_key())
+    def _sqlite_dump_fp_hex(self, tables):
+        """A5 hex-stream fingerprint (installed 2026-11-22, A5
+        adoption batch; A5-DESIGN §8.5): the table dump rides
+        sqlite3 -list with per-value hex encoding instead of the
+        -json escaper (quadratic in value length). Per value:
+        NULL -> char(30); a REAL -> hex(printf('%!.20g', c)) — the
+        rendering sqlite itself uses for -json (CAST AS TEXT loses
+        float precision, which would blind the fingerprint to
+        real-valued cell changes); else hex(CAST(c AS TEXT)).
+        Fields joined by char(31). The fingerprint's contract is
+        determinism + sensitivity, not a specific byte value: the
+        fp values differ from the -json era by design, so the
+        first post-install seal re-runs the DB-gated steps once.
+        Proven at install: gate §2.3 — determinism x2 on all three
+        fp sets; a text plant and a float-epsilon plant (invisible
+        to CAST AS TEXT) both move the fp."""
+        key = ("dump-hex", tuple(tables), self._db_stat_key())
         if key in self._db_fp_cache:
             return self._db_fp_cache[key]
         h = hashlib.sha256()
         for t in tables:
             h.update(f"TABLE {t}\n".encode())
+            out = subprocess.run(
+                ["sqlite3", "-readonly", "-list", "-noheader", DB_PATH,
+                 f"PRAGMA table_info({t});"],
+                capture_output=True, text=True)
+            if out.returncode != 0:
+                fail(f"incr: sqlite pragma failed for table {t}")
+            cols = [line.split("|")[1]
+                    for line in out.stdout.strip().split("\n") if line]
+            fields = " || char(31) || ".join(
+                f"CASE WHEN {c} IS NULL THEN char(30) "
+                f"WHEN typeof({c}) = 'real' THEN hex(printf('%!.20g', {c})) "
+                f"ELSE hex(CAST({c} AS TEXT)) END" for c in cols)
             proc = subprocess.Popen(
-                ["sqlite3", "-readonly", "-json", DB_PATH,
-                 f"SELECT * FROM {t} ORDER BY rowid;"],
+                ["sqlite3", "-readonly", "-list", "-noheader", DB_PATH,
+                 f"SELECT {fields} FROM {t} ORDER BY rowid;"],
                 stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
             while True:
                 chunk = proc.stdout.read(1 << 20)
@@ -1305,7 +1332,7 @@ class Incr:
                 h.update(chunk)
             proc.wait()
             if proc.returncode != 0:
-                fail(f"incr: sqlite dump failed for table {t}")
+                fail(f"incr: sqlite hex dump failed for table {t}")
             h.update(b"\n")
         val = h.hexdigest()
         self._db_fp_cache[key] = val
@@ -1330,7 +1357,7 @@ class Incr:
         if key in self._db_fp_cache:
             return self._db_fp_cache[key]
         val = "|".join([
-            self._sqlite_dump_fp(
+            self._sqlite_dump_fp_hex(
                 ["gsc_observed_queries", "gsc_observed_pages",
                  "intent_row_outcome"]),
             "evidence_count=" + self._sqlite_scalar(
@@ -1349,7 +1376,7 @@ class Incr:
         if key in self._db_fp_cache:
             return self._db_fp_cache[key]
         val = "|".join([
-            self._sqlite_dump_fp(["intent_meta"]),
+            self._sqlite_dump_fp_hex(["intent_meta"]),
             "intent_query_count=" + self._sqlite_scalar(
                 "SELECT COUNT(*) FROM intent_query;"),
         ])
@@ -1357,7 +1384,7 @@ class Incr:
         return val
 
     def db_fp_gsc(self):
-        return self._sqlite_dump_fp(["gsc_observed_queries"])
+        return self._sqlite_dump_fp_hex(["gsc_observed_queries"])
 
     # ---- the step runner --------------------------------------
     def env_fp(self, extra=""):

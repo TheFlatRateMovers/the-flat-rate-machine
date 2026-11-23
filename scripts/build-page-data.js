@@ -151,9 +151,86 @@ const DOMAIN = items('domain-layer').map((e) => ({
 }));
 const DATASETS = items('datasets');
 
-const rows = JSON.parse(execFileSync('sqlite3', ['-json', REG.rubric_db,
-  'SELECT query_text, intent_class, service_id, target_url FROM intent_query ORDER BY id'],
-  { maxBuffer: 256 * 1024 * 1024 }).toString());
+// --- A5 hex transport (installed 2026-11-22, A5 adoption batch;
+// A5-DESIGN §8.5): bulk reads never ride the sqlite3 CLI's -json
+// escaper (quadratic in value length, and its output string can
+// exceed V8's max string length at the 518k-row census). Values
+// ride hex through -list mode: NULL -> char(30); a REAL value ->
+// hex(printf('%!.20g', c)) — the rendering sqlite itself uses for
+// -json (CAST AS TEXT loses float precision: 0.024399999999999998
+// renders as 0.0244); anything else -> hex(CAST(c AS TEXT)).
+// Fields are joined by char(31); hex output is [0-9A-F] only, so
+// the control-char separators can never collide with data.
+// Decoded rows are the same objects JSON.parse(-json output)
+// returns (numbers restored per declared column affinity).
+// Proven equivalent to the -json path on every production read
+// (proof/proof-reads.mjs, 13/13 cases, 2026-11-22). Returns null
+// when the query is not a simple single-table SELECT — aggregates
+// and joins keep the caller's existing path.
+const _sqlHexInfo = new Map();
+function _sqlHexTableInfo(dbPath, table) {
+  if (!_sqlHexInfo.has(table)) {
+    const out = execFileSync('sqlite3', ['-list', '-noheader', dbPath, 'PRAGMA table_info(' + table + ');']).toString();
+    const m = new Map();
+    for (const line of out.trim().split('\n')) {
+      if (!line) continue;
+      const p = line.split('|');
+      m.set(p[1], (p[2] || '').toUpperCase());
+    }
+    _sqlHexInfo.set(table, m);
+  }
+  return _sqlHexInfo.get(table);
+}
+function sqlHex(dbPath, sql) {
+  const m = /^\s*SELECT\s+(.+?)\s+FROM\s+([A-Za-z_][A-Za-z0-9_]*)\s*(.*?)\s*;?\s*$/is.exec(sql);
+  if (!m) return null;
+  const listRaw = m[1], table = m[2], tail = m[3];
+  if (listRaw.indexOf('(') >= 0) return null;
+  const info = _sqlHexTableInfo(dbPath, table);
+  const items = [];
+  for (const part of listRaw.split(',')) {
+    const p = part.trim();
+    if (p === '*') {
+      for (const name of info.keys()) items.push({ col: name, key: name });
+      continue;
+    }
+    const im = /^([A-Za-z_][A-Za-z0-9_]*)(?:\s+(?:AS\s+)?([A-Za-z_][A-Za-z0-9_]*))?$/i.exec(p);
+    if (!im) return null;
+    items.push({ col: im[1], key: im[2] || im[1] });
+  }
+  if (!items.length) return null;
+  const fields = items.map((it) =>
+    'CASE WHEN ' + it.col + ' IS NULL THEN char(30) WHEN typeof(' + it.col + ") = 'real' THEN hex(printf('%!.20g', " + it.col + ')) ELSE hex(CAST(' + it.col + ' AS TEXT)) END'
+  ).join(' || char(31) || ');
+  const buf = execFileSync('sqlite3', ['-list', '-noheader', dbPath,
+    'SELECT ' + fields + ' FROM ' + table + (tail ? ' ' + tail : '') + ';'],
+    { maxBuffer: 1536 * 1024 * 1024 });
+  // Buffer-native line split: a full-table hex payload exceeds
+  // V8's max string length, so lines are sliced as bytes and each
+  // field decoded from hex directly.
+  const rows = [];
+  const decodeLine = (line) => {
+    const f = line.split('\x1f');
+    const o = {};
+    items.forEach((it, i) => {
+      const v = f[i];
+      if (v === '\x1e' || v === undefined) { o[it.key] = null; return; }
+      const s = Buffer.from(v, 'hex').toString('utf8');
+      const t = info.get(it.col) || '';
+      if (/INT/.test(t) || /REAL|FLOA|DOUB/.test(t)) o[it.key] = s === '' ? null : Number(s);
+      else o[it.key] = s;
+    });
+    rows.push(o);
+  };
+  let start = 0;
+  for (let i = 0; i < buf.length; i++) {
+    if (buf[i] === 0x0a) { decodeLine(buf.toString('latin1', start, i)); start = i + 1; }
+  }
+  if (start < buf.length) decodeLine(buf.toString('latin1', start));
+  return rows;
+}
+const rows = sqlHex(REG.rubric_db,
+  'SELECT query_text, intent_class, service_id, target_url FROM intent_query ORDER BY id');
 const rowsByTarget = new Map();
 const rowsByCluster = new Map(); // `${intent_class}|${service_id}` -> [query_text]
 for (const r of rows) {

@@ -127,6 +127,31 @@ def load_registry():
 REGISTRY = load_registry()
 
 
+def maintain_store():
+    """A5 hook (A5-DESIGN.md section 3): after an ingest commits,
+    refresh the living evidence store (rubric.db tables ae_slice /
+    ae_store_meta) so the seal's answer-evidence step stays a pure
+    export. Env-gated (AE_STORE_MAINTAIN=1) until the A5 adoption
+    batch flips the default. Failure is LOUD but never rolls back
+    evidence: the append-only log is already ledgered, and a stale
+    store fails the export's freshness gate rather than emitting
+    silently from old bindings."""
+    if os.environ.get("AE_STORE_MAINTAIN") != "1":
+        return
+    env = dict(os.environ, AE_MAINTAINED_FROM="ingest-hook")
+    r = subprocess.run(["node", os.path.join(ROOT, "scripts",
+                        "build-answer-evidence-store.js"),
+                        "--maintain-only"],
+                       cwd=ROOT, capture_output=True, text=True, env=env)
+    tail = (r.stdout.strip().splitlines() or [""])[-1]
+    print(f"A5 store maintenance: {tail}")
+    if r.returncode != 0:
+        print("WARNING: A5 store maintenance FAILED - evidence stands; "
+              "the store is stale and the next export gate will refuse "
+              "until the maintainer runs clean.\n"
+              + (r.stderr or "")[-800:], file=sys.stderr)
+
+
 def cfg(key, cli_value=None, env_name=None):
     """Resolve one estate path: CLI flag > env > registry > hard error."""
     if cli_value:
@@ -363,6 +388,7 @@ def main():
             print("  -", u)
 
     if args.no_chain:
+        maintain_store()
         print("(--no-chain: DB writes only; no republish performed.)")
         return 0
 
@@ -373,6 +399,7 @@ def main():
     if gen.returncode != 0:
         print(gen.stderr[-1500:], file=sys.stderr)
         return 1
+    maintain_store()
     work_ds = os.path.join(work_dir, "datasets-intent-coverage.json")
     pub_ds = os.path.join(public_dir, "datasets-intent-coverage.json")
     with open(work_ds, "rb") as f:

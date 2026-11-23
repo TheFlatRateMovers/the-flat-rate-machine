@@ -10448,7 +10448,7 @@
    "identifier": "https://theflatratemovers.com/datasets/coverage/",
    "isAccessibleForFree": true,
    "datePublished": "2026-11-09",
-   "dateModified": "2026-11-21",
+   "dateModified": "2026-11-22",
    "license": "https://creativecommons.org/licenses/by/4.0/",
    "sameAs": "https://theflatratemovers.com/datasets/coverage/",
    "creator": {
@@ -12182,7 +12182,7 @@
     "url": "https://theflatratemovers.com/"
    },
    "datePublished": "2026-11-16",
-   "dateModified": "2026-11-21",
+   "dateModified": "2026-11-22",
    "includedInDataCatalog": {
     "@type": "DataCatalog",
     "@id": "https://theflatratemovers.com/datasets/#collection",

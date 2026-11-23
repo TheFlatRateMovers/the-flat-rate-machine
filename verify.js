@@ -47,6 +47,85 @@ function skipLive(name) {
 function load(rel) {
   return JSON.parse(fs.readFileSync(path.join(ROOT, rel), 'utf8'));
 }
+// --- A5 hex transport (installed 2026-11-22, A5 adoption batch;
+// A5-DESIGN §8.5): bulk reads never ride the sqlite3 CLI's -json
+// escaper (quadratic in value length, and its output string can
+// exceed V8's max string length at the 518k-row census). Values
+// ride hex through -list mode: NULL -> char(30); a REAL value ->
+// hex(printf('%!.20g', c)) — the rendering sqlite itself uses for
+// -json (CAST AS TEXT loses float precision: 0.024399999999999998
+// renders as 0.0244); anything else -> hex(CAST(c AS TEXT)).
+// Fields are joined by char(31); hex output is [0-9A-F] only, so
+// the control-char separators can never collide with data.
+// Decoded rows are the same objects JSON.parse(-json output)
+// returns (numbers restored per declared column affinity).
+// Proven equivalent to the -json path on every production read
+// (proof/proof-reads.mjs, 13/13 cases, 2026-11-22). Returns null
+// when the query is not a simple single-table SELECT — aggregates
+// and joins keep the caller's existing path.
+const { execFileSync: _sqlHexExec } = require('child_process');
+const _sqlHexInfo = new Map();
+function _sqlHexTableInfo(dbPath, table) {
+  if (!_sqlHexInfo.has(table)) {
+    const out = _sqlHexExec('sqlite3', ['-list', '-noheader', dbPath, 'PRAGMA table_info(' + table + ');']).toString();
+    const m = new Map();
+    for (const line of out.trim().split('\n')) {
+      if (!line) continue;
+      const p = line.split('|');
+      m.set(p[1], (p[2] || '').toUpperCase());
+    }
+    _sqlHexInfo.set(table, m);
+  }
+  return _sqlHexInfo.get(table);
+}
+function sqlHex(dbPath, sql) {
+  const m = /^\s*SELECT\s+(.+?)\s+FROM\s+([A-Za-z_][A-Za-z0-9_]*)\s*(.*?)\s*;?\s*$/is.exec(sql);
+  if (!m) return null;
+  const listRaw = m[1], table = m[2], tail = m[3];
+  if (listRaw.indexOf('(') >= 0) return null;
+  const info = _sqlHexTableInfo(dbPath, table);
+  const items = [];
+  for (const part of listRaw.split(',')) {
+    const p = part.trim();
+    if (p === '*') {
+      for (const name of info.keys()) items.push({ col: name, key: name });
+      continue;
+    }
+    const im = /^([A-Za-z_][A-Za-z0-9_]*)(?:\s+(?:AS\s+)?([A-Za-z_][A-Za-z0-9_]*))?$/i.exec(p);
+    if (!im) return null;
+    items.push({ col: im[1], key: im[2] || im[1] });
+  }
+  if (!items.length) return null;
+  const fields = items.map((it) =>
+    'CASE WHEN ' + it.col + ' IS NULL THEN char(30) WHEN typeof(' + it.col + ") = 'real' THEN hex(printf('%!.20g', " + it.col + ')) ELSE hex(CAST(' + it.col + ' AS TEXT)) END'
+  ).join(' || char(31) || ');
+  const buf = _sqlHexExec('sqlite3', ['-list', '-noheader', dbPath,
+    'SELECT ' + fields + ' FROM ' + table + (tail ? ' ' + tail : '') + ';'],
+    { maxBuffer: 1536 * 1024 * 1024 });
+  // Buffer-native line split: a full-table hex payload exceeds
+  // V8's max string length, so lines are sliced as bytes and each
+  // field decoded from hex directly.
+  const rows = [];
+  const decodeLine = (line) => {
+    const f = line.split('\x1f');
+    const o = {};
+    items.forEach((it, i) => {
+      const v = f[i];
+      if (v === '\x1e' || v === undefined) { o[it.key] = null; return; }
+      const s = Buffer.from(v, 'hex').toString('utf8');
+      const t = info.get(it.col) || '';
+      if (/INT/.test(t) || /REAL|FLOA|DOUB/.test(t)) o[it.key] = s === '' ? null : Number(s);
+      else o[it.key] = s;
+    });
+    rows.push(o);
+  };
+  let start = 0;
+  for (let i = 0; i < buf.length; i++) {
+    if (buf[i] === 0x0a) { decodeLine(buf.toString('latin1', start, i)); start = i + 1; }
+  }
+  if (start < buf.length) decodeLine(buf.toString('latin1', start));
+  return rows;
+}
 // ------------------------------------------------------------------
 // Speed S3 verifier transport (2026-11-03; spec:
 // out/speed-batch-s3-spec-2026-11-03.md, correction 4). TRANSPORT
@@ -1456,7 +1535,7 @@ async function main() {
   try {
     const { execFileSync } = require('child_process');
     const dbPathI = path.resolve(ROOT, '..', 'theflatratemovers', 'rubric.db');
-    const qI = (sql) => execFileSync('sqlite3', ['-json', dbPathI, sql], { maxBuffer: 512 * 1024 * 1024 }).toString(); // maxBuffer raised 2026-11-02 (Ports P2): the 3,373-row intent table outgrew the 1 MB default (spawnSync ENOBUFS); raised again 2026-11-17 (geo expansion): the 289,728-row table outgrew 64 MB
+    const qI = (sql) => { const r = sqlHex(dbPathI, sql); return r ? JSON.stringify(r) : execFileSync('sqlite3', ['-json', dbPathI, sql], { maxBuffer: 512 * 1024 * 1024 }).toString(); }; // A5 hex transport 2026-11-22: simple selects ride sqlHex (decoded rows re-serialized to the string this seat's callers JSON.parse); aggregates/joins keep the -json call (maxBuffer raised 2026-11-02 (Ports P2): the 3,373-row intent table outgrew the 1 MB default (spawnSync ENOBUFS); raised again 2026-11-17 (geo expansion): the 289,728-row table outgrew 64 MB)
     // S3 transport: shared fetchRaw adapter — same {status, ct, buf} shape.
     const fetchFullI = async (url) => {
       const r = await fetchRaw(url);
@@ -1567,7 +1646,7 @@ async function main() {
   try {
     const { execFileSync } = require('child_process');
     const dbPathV = path.resolve(ROOT, '..', 'theflatratemovers', 'rubric.db');
-    const qV = (sql) => execFileSync('sqlite3', ['-json', dbPathV, sql], { maxBuffer: 512 * 1024 * 1024 }).toString(); // 512 MB since 2026-11-17 (geo expansion bank 289,728 rows; see qI note)
+    const qV = (sql) => { const r = sqlHex(dbPathV, sql); return r ? JSON.stringify(r) : execFileSync('sqlite3', ['-json', dbPathV, sql], { maxBuffer: 512 * 1024 * 1024 }).toString(); }; // A5 hex transport 2026-11-22: simple selects ride sqlHex (see qI note); aggregates/joins keep the -json call (512 MB since 2026-11-17, geo expansion bank 289,728 rows)
     const rowsOfV = (sql) => JSON.parse(qV(sql) || '[]');
     const oneV = (sql) => rowsOfV(sql)[0] || {};
     const sum0 = (v) => (v === null || v === undefined ? 0 : v);
@@ -5778,8 +5857,14 @@ async function main() {
         const { execSync } = require('child_process');
         const dbPath = path.resolve(ROOT, '..', 'theflatratemovers', 'rubric.db');
         const vsSql = "SELECT target_url, dataset_ids FROM intent_query WHERE service_id = 'service-vault-door';";
-        const out = execSync('sqlite3 -json "' + dbPath + '" "' + vsSql + '"', { maxBuffer: 512 * 1024 * 1024 }).toString(); // maxBuffer 2026-11-17: the vault family is 2,810 rows — its -json dump outgrew the 1 MB default (spawnSync ENOBUFS read as family rows: 0)
-        rows = JSON.parse(out).map((r) => ({ targetPage: r.target_url, datasetIds: JSON.parse(r.dataset_ids || '[]') }));
+        // A5 hex transport 2026-11-22: sqlHex returns the row objects
+        // directly; the execSync -json call remains as the fallback
+        // (maxBuffer 2026-11-17: the vault family is 2,810 rows — its
+        // -json dump outgrew the 1 MB default (spawnSync ENOBUFS read
+        // as family rows: 0)).
+        const hexRows = sqlHex(dbPath, vsSql);
+        const parsed = hexRows || JSON.parse(execSync('sqlite3 -json "' + dbPath + '" "' + vsSql + '"', { maxBuffer: 512 * 1024 * 1024 }).toString());
+        rows = parsed.map((r) => ({ targetPage: r.target_url, datasetIds: JSON.parse(r.dataset_ids || '[]') }));
       } catch (_) { rows = []; }
       const pagesReg = readJV(path.join(ROOT, 'data', 'pages.json'));
       const slugs = new Set((pagesReg.pages || pagesReg).map((p) => p.slug));

@@ -1796,8 +1796,91 @@ function defaultOutcome() {
   for (const g of OUTCOME_GATES) { o[g + '_state'] = 'unknown'; o[g + '_checked_at'] = null; o[g + '_evidence_source'] = null; }
   return o;
 }
+// --- A5 hex transport (installed 2026-11-22, A5 adoption batch;
+// A5-DESIGN §8.5): bulk reads never ride the sqlite3 CLI's -json
+// escaper (quadratic in value length, and its output string can
+// exceed V8's max string length at the 518k-row census). Values
+// ride hex through -list mode: NULL -> char(30); a REAL value ->
+// hex(printf('%!.20g', c)) — the rendering sqlite itself uses for
+// -json (CAST AS TEXT loses float precision: 0.024399999999999998
+// renders as 0.0244); anything else -> hex(CAST(c AS TEXT)).
+// Fields are joined by char(31); hex output is [0-9A-F] only, so
+// the control-char separators can never collide with data.
+// Decoded rows are the same objects JSON.parse(-json output)
+// returns (numbers restored per declared column affinity).
+// Proven equivalent to the -json path on every production read
+// (proof/proof-reads.mjs, 13/13 cases, 2026-11-22). Returns null
+// when the query is not a simple single-table SELECT — aggregates
+// and joins keep the caller's existing path.
+const _sqlHexInfo = new Map();
+function _sqlHexTableInfo(dbPath, table) {
+  if (!_sqlHexInfo.has(table)) {
+    const out = execFileSync('sqlite3', ['-list', '-noheader', dbPath, 'PRAGMA table_info(' + table + ');']).toString();
+    const m = new Map();
+    for (const line of out.trim().split('\n')) {
+      if (!line) continue;
+      const p = line.split('|');
+      m.set(p[1], (p[2] || '').toUpperCase());
+    }
+    _sqlHexInfo.set(table, m);
+  }
+  return _sqlHexInfo.get(table);
+}
+function sqlHex(dbPath, sql) {
+  const m = /^\s*SELECT\s+(.+?)\s+FROM\s+([A-Za-z_][A-Za-z0-9_]*)\s*(.*?)\s*;?\s*$/is.exec(sql);
+  if (!m) return null;
+  const listRaw = m[1], table = m[2], tail = m[3];
+  if (listRaw.indexOf('(') >= 0) return null;
+  const info = _sqlHexTableInfo(dbPath, table);
+  const items = [];
+  for (const part of listRaw.split(',')) {
+    const p = part.trim();
+    if (p === '*') {
+      for (const name of info.keys()) items.push({ col: name, key: name });
+      continue;
+    }
+    const im = /^([A-Za-z_][A-Za-z0-9_]*)(?:\s+(?:AS\s+)?([A-Za-z_][A-Za-z0-9_]*))?$/i.exec(p);
+    if (!im) return null;
+    items.push({ col: im[1], key: im[2] || im[1] });
+  }
+  if (!items.length) return null;
+  const fields = items.map((it) =>
+    'CASE WHEN ' + it.col + ' IS NULL THEN char(30) WHEN typeof(' + it.col + ") = 'real' THEN hex(printf('%!.20g', " + it.col + ')) ELSE hex(CAST(' + it.col + ' AS TEXT)) END'
+  ).join(' || char(31) || ');
+  const buf = execFileSync('sqlite3', ['-list', '-noheader', dbPath,
+    'SELECT ' + fields + ' FROM ' + table + (tail ? ' ' + tail : '') + ';'],
+    { maxBuffer: 1536 * 1024 * 1024 });
+  // Buffer-native line split: a full-table hex payload exceeds
+  // V8's max string length, so lines are sliced as bytes and each
+  // field decoded from hex directly.
+  const rows = [];
+  const decodeLine = (line) => {
+    const f = line.split('\x1f');
+    const o = {};
+    items.forEach((it, i) => {
+      const v = f[i];
+      if (v === '\x1e' || v === undefined) { o[it.key] = null; return; }
+      const s = Buffer.from(v, 'hex').toString('utf8');
+      const t = info.get(it.col) || '';
+      if (/INT/.test(t) || /REAL|FLOA|DOUB/.test(t)) o[it.key] = s === '' ? null : Number(s);
+      else o[it.key] = s;
+    });
+    rows.push(o);
+  };
+  let start = 0;
+  for (let i = 0; i < buf.length; i++) {
+    if (buf[i] === 0x0a) { decodeLine(buf.toString('latin1', start, i)); start = i + 1; }
+  }
+  if (start < buf.length) decodeLine(buf.toString('latin1', start));
+  return rows;
+}
 function sqliteJson(sql) {
   try {
+    // A5: simple single-table selects ride the hex transport; the
+    // -json path remains for aggregates (COUNT) and anything the
+    // hex parser declines.
+    const hexRows = sqlHex(DB_PATH, sql);
+    if (hexRows) return hexRows;
     // maxBuffer raised for v2: the 1,651-row intent_query JSON exceeds
     // the 1 MB execFileSync default (the v1.3.2 row set sat just under
     // it; the v2 dry run's --check hit ENOBUFS without this).
@@ -7685,11 +7768,12 @@ function generate() {
     byClass[r.intent_class] = (byClass[r.intent_class] || 0) + 1;
     byService[r.service_id] = (byService[r.service_id] || 0) + 1;
   }
-  const canonical = canonicalRows(rows);
-  const digest = crypto.createHash('sha256').update(canonical).digest('hex');
-  const outcomeCanonical = JSON.stringify(rows.map((r) => [r.query_text, r.service_id,
-    OUTCOME_GATES.map((g) => r.outcome[g + '_state']), r.outcome.highest_gate_passed, r.outcome.outcome_status]));
-  const outcomeDigest = crypto.createHash('sha256').update(outcomeCanonical).digest('hex');
+  // Windowed emit (A5 install batch, 2026-11-22): both digests are
+  // hashed by streaming per-row updates — byte-identical to hashing
+  // canonicalRows(rows) / the outcome canonical string, without
+  // materializing either whole-set string.
+  const digest = canonicalDigest(rows);
+  const outcomeDigest = outcomeCanonicalDigest(rows);
   // v2 deploy: end-state target coverage + per-service pattern split
   // (the completion bar is proven from these, not from totals alone).
   const targetedUrls = new Set(rows.map((r) => r.target_url));
@@ -7710,6 +7794,32 @@ function generate() {
 
 // Canonical serialization for the rows digest: fixed field order,
 // generated_at / generator version excluded (they are run metadata).
+function canonicalDigest(rows) {
+  const h = crypto.createHash('sha256');
+  h.update('[');
+  rows.forEach((r, i) => {
+    if (i) h.update(',');
+    h.update(JSON.stringify([
+      r.query_text, r.intent_class, r.service_id, r.area, r.target_url, r.target_json,
+      r.dataset_ids, r.graph_node, r.cert_target_json_sha256, r.cert_dataset_digests,
+      r.gate_page_in_registry, r.gate_target_in_signed_index, r.gate_datasets_in_signed_index,
+      r.source || 'generated', r.observation_ids || [],
+    ]));
+  });
+  h.update(']');
+  return h.digest('hex');
+}
+function outcomeCanonicalDigest(rows) {
+  const h = crypto.createHash('sha256');
+  h.update('[');
+  rows.forEach((r, i) => {
+    if (i) h.update(',');
+    h.update(JSON.stringify([r.query_text, r.service_id,
+      OUTCOME_GATES.map((g) => r.outcome[g + '_state']), r.outcome.highest_gate_passed, r.outcome.outcome_status]));
+  });
+  h.update(']');
+  return h.digest('hex');
+}
 function canonicalRows(rows) {
   return JSON.stringify(rows.map((r) => [
     r.query_text, r.intent_class, r.service_id, r.area, r.target_url, r.target_json,
@@ -7800,9 +7910,45 @@ function baseNode(id, type, name, description, keywords, about) {
   };
 }
 
+// Windowed aggregates for buildDataset (A5 install batch,
+// 2026-11-22): one pass over the intent_query table just written,
+// in ORDER BY id windows of 25,000 rows through the hex transport.
+// Produces exactly the per-service counts / per-class counts /
+// source counts / enriched counts / first graph_node and the
+// per-area row counts that buildDataset used to derive by
+// filtering the in-memory row set, in the same first-occurrence
+// key order (rows are scanned in id order = generation order).
+function datasetAggregates() {
+  const WIN = 25000;
+  const perService = {};
+  const areaRows = {};
+  let total = 0;
+  let lastId = 0;
+  for (;;) {
+    const rows = sqlHex(DB_PATH,
+      'SELECT id, service_id, intent_class, area, graph_node, source, observation_ids FROM intent_query WHERE id > ' + lastId + ' ORDER BY id LIMIT ' + WIN + ';');
+    if (rows === null) throw new Error('datasetAggregates: window read fell back (null)');
+    if (!rows.length) break;
+    for (const r of rows) {
+      total++;
+      let sa = perService[r.service_id];
+      if (!sa) sa = perService[r.service_id] = { count: 0, perClass: {}, gscObserved: 0, enriched: 0, graphNode: r.graph_node };
+      sa.count++;
+      sa.perClass[r.intent_class] = (sa.perClass[r.intent_class] || 0) + 1;
+      if (r.source === 'gsc-observed') sa.gscObserved++;
+      else if ((JSON.parse(r.observation_ids || '[]')).length) sa.enriched++;
+      if (r.area) areaRows[r.area] = (areaRows[r.area] || 0) + 1;
+      lastId = r.id;
+    }
+    if (rows.length < WIN) break;
+  }
+  return { total, perService, areaRows };
+}
+
 function buildDataset(gen) {
-  const { R, rows, excluded, byClass, byService, digest } = gen;
-  const total = rows.length;
+  const { R, excluded, byClass, byService, digest } = gen;
+  const agg = gen.dsAgg;
+  const total = agg.total;
   const svcById = new Map(R.services.services.map((s) => [s.id, s]));
   const classList = CLASS_ORDER.map((c) => c + ' (' + (byClass[c] || 0) + ')').join(', ');
   const exclByReason = {};
@@ -7819,27 +7965,26 @@ function buildDataset(gen) {
   const coverageNodes = R.services.services.map((svc) => {
     const suffix = svc.id.replace(/^service-/, '');
     const hubPage = R.pages.pages.find((p) => p.slug === HUB[svc.id]);
-    const svcRows = rows.filter((r) => r.service_id === svc.id);
-    const perClass = {};
-    for (const r of svcRows) perClass[r.intent_class] = (perClass[r.intent_class] || 0) + 1;
+    const sa = agg.perService[svc.id] || { count: 0, perClass: {}, gscObserved: 0, enriched: 0, graphNode: null };
+    const perClass = sa.perClass;
     const node = baseNode(
       SITE + '/#intent-coverage-' + suffix, 'Dataset',
       'Intent Coverage — ' + svc.name,
-      'Generated intent coverage for ' + svc.name + ': ' + svcRows.length + ' query rows, each resolving to the page that answers it, that page\u2019s per-page JSON and the backing dataset file(s) named in this node\u2019s distribution, with the certificate digests of those files read from the signed AI master index. The service\u2019s entity-graph node is ' + svcRows[0].graph_node + '.',
+      'Generated intent coverage for ' + svc.name + ': ' + sa.count + ' query rows, each resolving to the page that answers it, that page\u2019s per-page JSON and the backing dataset file(s) named in this node\u2019s distribution, with the certificate digests of those files read from the signed AI master index. The service\u2019s entity-graph node is ' + sa.graphNode + '.',
       [svc.name.toLowerCase() + ' questions', PHRASE[svc.id][0]],
-      [{ '@id': svcRows[0].graph_node }]);
+      [{ '@id': sa.graphNode }]);
     node.url = hubPage.url;
     node.distribution = [
       { '@type': 'DataDownload', contentUrl: SITE + '/datasets-intent-coverage.json', encodingFormat: 'application/json' },
       { '@type': 'DataDownload', contentUrl: SITE + '/' + resolveJsonFile(hubPage), encodingFormat: 'application/json' },
       ...DATASETS[svc.id].map((f) => ({ '@type': 'DataDownload', contentUrl: SITE + '/' + f, encodingFormat: 'application/json' })),
     ];
-    node.graphNode = svcRows[0].graph_node;
-    node.queryRows = svcRows.length;
+    node.graphNode = sa.graphNode;
+    node.queryRows = sa.count;
     node.queryRowsByIntentClass = perClass;
-    const svcObs = svcRows.filter((r) => r.source === 'gsc-observed').length;
-    node.queryRowsBySource = { generated: svcRows.length - svcObs, gscObserved: svcObs };
-    node.generatedRowsEnrichedByGsc = svcRows.filter((r) => r.source !== 'gsc-observed' && (r.observation_ids || []).length).length;
+    const svcObs = sa.gscObserved;
+    node.queryRowsBySource = { generated: sa.count - svcObs, gscObserved: svcObs };
+    node.generatedRowsEnrichedByGsc = sa.enriched;
     node.outcomeRollup = gen.outcomeByService[svc.id];
     return node;
   });
@@ -7930,8 +8075,7 @@ function buildDataset(gen) {
   // averaged away. Rows whose area is a corridor id or a scope id are
   // not GeoJSON features and are counted in rowsByNonFeatureArea.
   {
-    const areaRows = {};
-    for (const r of rows) if (r.area) areaRows[r.area] = (areaRows[r.area] || 0) + 1;
+    const areaRows = agg.areaRows;
     const featureIds = new Set((R.geo.features || []).map((f) => f.properties.id));
     d8.rowsByArea = (R.geo.features || []).map((f) => ({
       area: f.properties.id, name: f.properties.name, type: f.properties.type,
@@ -8012,24 +8156,36 @@ function sqlEsc(v) {
 }
 function writeDb(gen, workDir) {
   const { rows, excluded, digest } = gen;
-  const lines = [];
-  lines.push('DROP TABLE IF EXISTS intent_query;');
-  lines.push('DROP TABLE IF EXISTS intent_meta;');
-  lines.push('DROP TABLE IF EXISTS intent_row_outcome;');
-  lines.push('DROP TABLE IF EXISTS gsc_observation_links;');
+  // Windowed emit (A5 install batch, 2026-11-22): statements stream
+  // through emit() in bounded 8192-statement chunks. The previous
+  // form materialized every statement (~1M strings at 518,217 rows)
+  // in a lines array that stayed resident beside the row set; the
+  // .sql bytes written are identical either way (each chunk is its
+  // lines joined by '\n' plus a trailing '\n', in order).
+  const sqlPath = path.join(workDir, 'intent-rubric.sql');
+  const sqlFd = fs.openSync(sqlPath, 'w');
+  let sqlBuf = [];
+  const emit = (stmt) => {
+    sqlBuf.push(stmt);
+    if (sqlBuf.length >= 8192) { fs.writeSync(sqlFd, sqlBuf.join('\n') + '\n'); sqlBuf = []; }
+  };
+  emit('DROP TABLE IF EXISTS intent_query;');
+  emit('DROP TABLE IF EXISTS intent_meta;');
+  emit('DROP TABLE IF EXISTS intent_row_outcome;');
+  emit('DROP TABLE IF EXISTS gsc_observation_links;');
   // 2026-11-02 (Ports P2): the evidence projection is dropped and rebuilt
   // like the other derived tables — with INSERT OR IGNORE over a persisting
   // table, era/window corrections from eraForWindow would never land.
-  lines.push('DROP TABLE IF EXISTS intent_row_gsc_evidence;');
-  lines.push('DROP TABLE IF EXISTS intent_row_lineage;');
-  lines.push(`CREATE TABLE intent_row_lineage (
+  emit('DROP TABLE IF EXISTS intent_row_gsc_evidence;');
+  emit('DROP TABLE IF EXISTS intent_row_lineage;');
+  emit(`CREATE TABLE intent_row_lineage (
   row_no INTEGER PRIMARY KEY,
   parent_row_no INTEGER NOT NULL,
   bank_row_id TEXT NOT NULL,
   parent_bank_row_id TEXT NOT NULL,
   source TEXT NOT NULL DEFAULT 'depth-bank-2026-11-21'
 );`);
-  lines.push(`CREATE TABLE intent_query (
+  emit(`CREATE TABLE intent_query (
   id INTEGER PRIMARY KEY,
   query_text TEXT NOT NULL,
   intent_class TEXT NOT NULL,
@@ -8050,12 +8206,12 @@ function writeDb(gen, workDir) {
   observation_ids TEXT NOT NULL DEFAULT '[]',
   UNIQUE(query_text, service_id)
 );`);
-  lines.push('CREATE INDEX idx_intent_service ON intent_query(service_id);');
-  lines.push('CREATE INDEX idx_intent_class ON intent_query(intent_class);');
-  lines.push('CREATE INDEX idx_intent_source ON intent_query(source);');
+  emit('CREATE INDEX idx_intent_service ON intent_query(service_id);');
+  emit('CREATE INDEX idx_intent_class ON intent_query(intent_class);');
+  emit('CREATE INDEX idx_intent_source ON intent_query(source);');
   const gateCols = OUTCOME_GATES.map((g) =>
     `  ${g}_state TEXT NOT NULL DEFAULT 'unknown',\n  ${g}_checked_at TEXT,\n  ${g}_evidence_source TEXT`).join(',\n');
-  lines.push(`CREATE TABLE intent_row_outcome (
+  emit(`CREATE TABLE intent_row_outcome (
   intent_query_id INTEGER PRIMARY KEY,
   query_text TEXT NOT NULL,
   service_id TEXT NOT NULL,
@@ -8066,8 +8222,8 @@ ${gateCols},
   updated_at TEXT NOT NULL,
   UNIQUE(query_text, service_id)
 );`);
-  lines.push('CREATE INDEX idx_outcome_service ON intent_row_outcome(service_id);');
-  lines.push(`CREATE TABLE IF NOT EXISTS intent_outcome_evidence (
+  emit('CREATE INDEX idx_outcome_service ON intent_row_outcome(service_id);');
+  emit(`CREATE TABLE IF NOT EXISTS intent_outcome_evidence (
   id INTEGER PRIMARY KEY,
   query_text TEXT NOT NULL,
   service_id TEXT NOT NULL,
@@ -8079,7 +8235,7 @@ ${gateCols},
   observed_at TEXT NOT NULL,
   recorded_at TEXT NOT NULL
 );`);
-  lines.push(`CREATE TABLE IF NOT EXISTS gsc_observation_links (
+  emit(`CREATE TABLE IF NOT EXISTS gsc_observation_links (
   observation_id INTEGER NOT NULL,
   service_id TEXT NOT NULL,
   query_text TEXT NOT NULL,
@@ -8088,10 +8244,10 @@ ${gateCols},
   created_at TEXT NOT NULL,
   PRIMARY KEY(observation_id, service_id, query_text, link_type)
 );`);
-  lines.push('CREATE TABLE intent_meta (key TEXT PRIMARY KEY, value TEXT);');
-  lines.push('BEGIN TRANSACTION;');
+  emit('CREATE TABLE intent_meta (key TEXT PRIMARY KEY, value TEXT);');
+  emit('BEGIN TRANSACTION;');
   for (const r of rows) {
-    lines.push('INSERT INTO intent_query (id, query_text, intent_class, service_id, area, target_url, target_json, dataset_ids, graph_node, cert_target_json_sha256, cert_dataset_digests, gate_page_in_registry, gate_target_in_signed_index, gate_datasets_in_signed_index, generated_at, generator_version, source, observation_ids) VALUES (' +
+    emit('INSERT INTO intent_query (id, query_text, intent_class, service_id, area, target_url, target_json, dataset_ids, graph_node, cert_target_json_sha256, cert_dataset_digests, gate_page_in_registry, gate_target_in_signed_index, gate_datasets_in_signed_index, generated_at, generator_version, source, observation_ids) VALUES (' +
       [r.row_no, sqlEsc(r.query_text), sqlEsc(r.intent_class), sqlEsc(r.service_id), sqlEsc(r.area),
        sqlEsc(r.target_url), sqlEsc(r.target_json), sqlEsc(JSON.stringify(r.dataset_ids)), sqlEsc(r.graph_node),
        sqlEsc(r.cert_target_json_sha256), sqlEsc(JSON.stringify(r.cert_dataset_digests)),
@@ -8102,17 +8258,17 @@ ${gateCols},
     const vals = [r.row_no, sqlEsc(r.query_text), sqlEsc(r.service_id)];
     for (const g of OUTCOME_GATES) vals.push(sqlEsc(o[g + '_state']), sqlEsc(o[g + '_checked_at']), sqlEsc(o[g + '_evidence_source']));
     vals.push(sqlEsc(o.highest_gate_passed), sqlEsc(o.outcome_status), sqlEsc(o.outcome_basis || null), sqlEsc(o.updated_at));
-    lines.push(`INSERT INTO intent_row_outcome (intent_query_id, query_text, service_id, ${OUTCOME_GATES.map((g) => `${g}_state, ${g}_checked_at, ${g}_evidence_source`).join(', ')}, highest_gate_passed, outcome_status, outcome_basis, updated_at) VALUES (${vals.join(', ')});`);
+    emit(`INSERT INTO intent_row_outcome (intent_query_id, query_text, service_id, ${OUTCOME_GATES.map((g) => `${g}_state, ${g}_checked_at, ${g}_evidence_source`).join(', ')}, highest_gate_passed, outcome_status, outcome_basis, updated_at) VALUES (${vals.join(', ')});`);
   }
   for (const l of gen.observationLinks || []) {
-    lines.push('INSERT OR IGNORE INTO gsc_observation_links (observation_id, service_id, query_text, link_type, exclusion_reason, created_at) VALUES (' +
+    emit('INSERT OR IGNORE INTO gsc_observation_links (observation_id, service_id, query_text, link_type, exclusion_reason, created_at) VALUES (' +
       [l.observation_id, sqlEsc(l.service_id), sqlEsc(l.query_text), sqlEsc(l.link_type), sqlEsc(l.exclusion_reason || null), sqlEsc(RUBRIC_DATE)].join(', ') + ');');
   }
   for (const l of gen.lineage || []) {
-    lines.push('INSERT INTO intent_row_lineage (row_no, parent_row_no, bank_row_id, parent_bank_row_id) VALUES (' +
+    emit('INSERT INTO intent_row_lineage (row_no, parent_row_no, bank_row_id, parent_bank_row_id) VALUES (' +
       [l.row_no, l.parent_row_no, sqlEsc(l.bank_row_id), sqlEsc(l.parent_bank_row_id)].join(', ') + ');');
   }
-  lines.push(`CREATE TABLE IF NOT EXISTS intent_row_gsc_evidence (
+  emit(`CREATE TABLE IF NOT EXISTS intent_row_gsc_evidence (
   id INTEGER PRIMARY KEY,
   query_text TEXT NOT NULL,
   service_id TEXT NOT NULL,
@@ -8135,7 +8291,7 @@ ${gateCols},
       for (const oid of r.observation_ids || []) {
         const o = obsById.get(oid);
         if (!o) continue;
-        lines.push('INSERT OR IGNORE INTO intent_row_gsc_evidence (query_text, service_id, observation_id, clicks, impressions, ctr, avg_position, window_start, window_end, era, basis, attached_at) VALUES (' +
+        emit('INSERT OR IGNORE INTO intent_row_gsc_evidence (query_text, service_id, observation_id, clicks, impressions, ctr, avg_position, window_start, window_end, era, basis, attached_at) VALUES (' +
           [sqlEsc(r.query_text), sqlEsc(r.service_id), oid, o.clicks || 0, o.impressions || 0, o.ctr || 0, o.avg_position || 0,
            sqlEsc(o.window_start || null), sqlEsc(o.window_end || null), sqlEsc(eraForWindow(o.window_start, o.window_end)),
            sqlEsc('query-text match; target page present in the export Pages aggregate (existed in window) and live in the current registry; metrics are historical evidence, era-tagged ' + eraForWindow(o.window_start, o.window_end) + ' from the import window against the 2026-10-29 rebuild cutover'),
@@ -8144,7 +8300,7 @@ ${gateCols},
     }
   }
   for (const res of gen.observationResolutions || []) {
-    lines.push(`UPDATE gsc_observed_queries SET resolution_status = ${sqlEsc(res.status)}, resolution_reason = ${sqlEsc(res.reason || null)}, resolved_service_id = ${sqlEsc(res.service_id || null)}, resolved_target_url = ${sqlEsc(res.target_url || null)} WHERE id = ${res.id};`);
+    emit(`UPDATE gsc_observed_queries SET resolution_status = ${sqlEsc(res.status)}, resolution_reason = ${sqlEsc(res.reason || null)}, resolved_service_id = ${sqlEsc(res.service_id || null)}, resolved_target_url = ${sqlEsc(res.target_url || null)} WHERE id = ${res.id};`);
   }
   const meta = {
     rows_digest: digest,
@@ -8178,20 +8334,11 @@ ${gateCols},
     signing_kid: KID,
   };
   for (const [k, v] of Object.entries(meta)) {
-    lines.push('INSERT INTO intent_meta (key, value) VALUES (' + sqlEsc(k) + ', ' + sqlEsc(v) + ');');
+    emit('INSERT INTO intent_meta (key, value) VALUES (' + sqlEsc(k) + ', ' + sqlEsc(v) + ');');
   }
-  lines.push('COMMIT;');
-  const sqlPath = path.join(workDir, 'intent-rubric.sql');
-  // Streamed write + streamed sqlite3 load (2026-11-17, Geo Expansion):
-  // the one-shot lines.join() crossed V8's max string length once the
-  // bank grew past the 87-place footprint (RangeError at 335 places).
-  // Chunked writes produce byte-identical file content.
-  const fd = fs.openSync(sqlPath, 'w');
-  const CHUNK = 8192;
-  for (let i = 0; i < lines.length; i += CHUNK) {
-    fs.writeSync(fd, lines.slice(i, i + CHUNK).join('\n') + '\n');
-  }
-  fs.closeSync(fd);
+  emit('COMMIT;');
+  if (sqlBuf.length) { fs.writeSync(sqlFd, sqlBuf.join('\n') + '\n'); sqlBuf = []; }
+  fs.closeSync(sqlFd);
   const fdIn = fs.openSync(sqlPath, 'r');
   const load = spawnSync('sqlite3', [DB_PATH], { stdio: [fdIn, 'pipe', 'pipe'] });
   fs.closeSync(fdIn);
@@ -8208,9 +8355,11 @@ function checkAgainstDb(gen) {
   // bytes) and --check died ENOBUFS — the seal read the unreadable
   // check as "one generation behind" and failed the phase-1 fixpoint
   // on a healthy bank. The buffer must stay ahead of bank growth.
-  const out = execFileSync('sqlite3', ['-json', DB_PATH,
-    'SELECT query_text, intent_class, service_id, area, target_url, target_json, dataset_ids, graph_node, cert_target_json_sha256, cert_dataset_digests, gate_page_in_registry, gate_target_in_signed_index, gate_datasets_in_signed_index, source, observation_ids FROM intent_query ORDER BY id;'], { maxBuffer: 512 * 1024 * 1024 }).toString();
-  const dbRows = JSON.parse(out || '[]').map((r) => ({
+  // A5 hex transport (2026-11-22): this 518k-row read's -json dump
+  // also sat one growth step from V8's max string length; sqlHex
+  // returns the same row objects the -json parse returned.
+  const dbRows = sqlHex(DB_PATH,
+    'SELECT query_text, intent_class, service_id, area, target_url, target_json, dataset_ids, graph_node, cert_target_json_sha256, cert_dataset_digests, gate_page_in_registry, gate_target_in_signed_index, gate_datasets_in_signed_index, source, observation_ids FROM intent_query ORDER BY id;').map((r) => ({
     query_text: r.query_text, intent_class: r.intent_class, service_id: r.service_id, area: r.area,
     target_url: r.target_url, target_json: r.target_json,
     dataset_ids: JSON.parse(r.dataset_ids), graph_node: r.graph_node,
@@ -8223,9 +8372,8 @@ function checkAgainstDb(gen) {
   }));
   const dbCanonical = canonicalRows(dbRows);
   const dbDigest = crypto.createHash('sha256').update(dbCanonical).digest('hex');
-  const metaOut = execFileSync('sqlite3', ['-json', DB_PATH, 'SELECT key, value FROM intent_meta;'], { maxBuffer: 64 * 1024 * 1024 }).toString();
   const meta = {};
-  for (const m of JSON.parse(metaOut || '[]')) meta[m.key] = m.value;
+  for (const m of sqlHex(DB_PATH, 'SELECT key, value FROM intent_meta;')) meta[m.key] = m.value;
   const ok = dbCanonical === canonicalRows(gen.rows) && dbDigest === gen.digest && meta.rows_digest === gen.digest &&
     dbRows.length === gen.rows.length;
   return { ok, dbDigest, dbCount: dbRows.length, meta };
@@ -8258,9 +8406,6 @@ function main() {
       '--db', DB_PATH, '--out-dir', PUB, '--rubric-date', RUBRIC_DATE], { stdio: 'inherit' });
     if (pk.status !== 0) throw new Error('pack-intent-parts.py failed with status ' + pk.status);
   }
-  const dataset = buildDataset(gen);
-  const datasetPath = path.join(workDir, 'datasets-intent-coverage.json');
-  fs.writeFileSync(datasetPath, JSON.stringify(dataset, null, 2) + '\n');
   const rowsPath = path.join(workDir, 'intent-rows.json');
   { // stream the rows file (2026-11-17): one JSON.stringify of 289k rows
     // spiked ~1 GB and OOM'd the seal's phase-1 build; per-row writes are
@@ -8277,10 +8422,22 @@ function main() {
     }
     fs.closeSync(fd);
   }
+  // Windowed emit (A5 install batch, 2026-11-22): the row set has
+  // been fully consumed (DB written, parts packed, rows file
+  // streamed). Compute the dataset aggregates by window reads over
+  // the table just written, then release the rows before building
+  // the dataset document — the emit's peak no longer stacks the
+  // whole row set under the dataset build.
+  gen.dsAgg = datasetAggregates();
+  const rowTotal = gen.rows.length;
+  gen.rows = null;
+  const dataset = buildDataset(gen);
+  const datasetPath = path.join(workDir, 'datasets-intent-coverage.json');
+  fs.writeFileSync(datasetPath, JSON.stringify(dataset, null, 2) + '\n');
   const summary = {
     generator: GENERATOR + ' v' + GENERATOR_VERSION,
     generated_at: RUBRIC_DATE,
-    rows: gen.rows.length,
+    rows: rowTotal,
     bySource: gen.bySource,
     evidence: gen.evidenceStats,
     pageDerived: gen.pageDerivedStats,
