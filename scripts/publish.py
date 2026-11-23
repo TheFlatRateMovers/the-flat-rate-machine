@@ -40,6 +40,18 @@ batch the rest of the way, in this order:
      WARN-ONLY: a Google-side failure prints loudly and is named,
      but never fails the close — the deploy is already verified
      live by this point in the sequence.
+  4b. WebSub publish ping (AI-to-AI signal batch, 2026-11-23):
+     scripts/ping-websub.py announces the changed estate feeds to
+     the WebSub hub (https://pubsubhubbub.appspot.com/, declared by
+     both feeds via <atom:link rel="hub">) so subscribers fetch the
+     new feed immediately. Runs beside step 4, AFTER step 2 has
+     proven the changed feeds live (ping-websub.py's standing
+     fire-order rule). Only feeds whose signed-index distribution
+     digest changed in this batch are pinged (prior index = the
+     --pulse-prior index, else the seal's phase-0 snapshot; an
+     indeterminate changed-set pings BOTH feeds). WARN-ONLY, same
+     contract as step 4: a hub failure prints loudly and never
+     fails the close.
   5. Pulse seal mode (IndexNow from the signed-index diff; the prior
      is the seal's own phase-0 snapshot, out/seal-work/prior-index.json).
 
@@ -52,10 +64,11 @@ git push over the SSH deploy-key route since 2026-11-03, the
 connector one-shot only as a reported fallback when git fails).
 Timings print per step. Steps can be skipped individually for repair
 runs (--skip-deploy/--skip-push/--skip-verify/--skip-api/
---skip-sitemaps/--skip-pulse);
+--skip-sitemaps/--skip-websub/--skip-pulse);
 a skipped step is printed as SKIPPED, never silently.
 """
 import argparse
+import hashlib
 import json
 import os
 import re
@@ -63,6 +76,7 @@ import subprocess
 import sys
 import threading
 import time
+import urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 with open(os.path.join(ROOT, "paths.json"), encoding="utf-8") as f:
@@ -72,6 +86,8 @@ PAGES = REG["pages_dir"]
 API_DIR = REG["api_worker_dir"]
 WORK = os.path.join(ROOT, "out", "seal-work")
 sys.path.insert(0, "/opt/muse/skills/custom-connector-setup/bin")
+sys.path.insert(0, os.path.join(ROOT, "scripts"))
+import close_state  # VF6 gate: shared close-state + lane-lock
 
 
 def cf_env():
@@ -93,8 +109,181 @@ def run(cmd, cwd=ROOT, env=None, label=""):
 
 
 def fail(msg):
+    CLOSE_CTX["reason"] = msg
+    write_close_state("FAILED-CLOSED")
     print(f"PUBLISH FAILED: {msg}")
     sys.exit(1)
+
+
+# --- VF6 permanent gate (2026-11-23; design:
+# out/vf6-divergence-fix-2026-11-23/BATCH-RECORD.md §3) ---------
+# G-1 step-2 verify settle + re-run once; G-2 close-state on every
+# exit; G-3 lane-lock at entry; G-4 mirror proof between push and
+# deploy. The close-state writer + lane-lock live in the shared
+# module scripts/close_state.py (one seat; close-batch.py and
+# seal.py use the same code).
+
+CLOSE_CTX = {
+    "armed": False, "batch": None, "batch_dir": None,
+    "message": None, "step": "init", "reason": None,
+    "failed_checks": [], "verify_transients": [],
+    "superseded": None, "deployment_url": None, "written": False,
+}
+
+
+def _index_fingerprint():
+    try:
+        with open(os.path.join(PUB, "ai-master-index.json"),
+                  "rb") as f:
+            return hashlib.sha256(f.read()).hexdigest()
+    except Exception:
+        return None
+
+
+def _failed_checks(verdicts_path):
+    try:
+        with open(verdicts_path, encoding="utf-8") as f:
+            d = json.load(f)
+        return [c.get("name", "?") for c in d
+                if isinstance(c, dict) and c.get("ok") is False]
+    except Exception:
+        return []
+
+
+def write_close_state(state):
+    if CLOSE_CTX["written"] or not CLOSE_CTX["armed"]:
+        return
+    CLOSE_CTX["written"] = True
+    close_state.write(
+        state, batch=CLOSE_CTX["batch"],
+        batch_dir=CLOSE_CTX["batch_dir"], step=CLOSE_CTX["step"],
+        reason=CLOSE_CTX["reason"],
+        failed_checks=CLOSE_CTX["failed_checks"],
+        verify_transients=CLOSE_CTX["verify_transients"],
+        superseded=CLOSE_CTX["superseded"],
+        deployment_url=CLOSE_CTX["deployment_url"],
+        message=CLOSE_CTX["message"],
+        index_sha256=_index_fingerprint(),
+        tool="publish.py")
+
+
+def verify_gate(cmd, label, verdicts_name, step_label):
+    """One live-verify gate with the settle + re-run the VF6
+    close lacked: a failed live verify is re-run ONCE after a
+    settle wait (default 240 s; PUBLISH_VERIFY_SETTLE_S) before
+    it may fail the publish — the estate's P-3 propagation
+    protocol, generalized to every live-fetch check. A pass on
+    the re-run records the first run's failed checks as
+    transients in the close-state; a second failure fails the
+    publish on the re-run's verdicts."""
+    verdicts_path = os.path.join(WORK, verdicts_name)
+    rc, out, dt = run(cmd, label=label)
+    print("\n".join(out.strip().splitlines()[-4:]))
+    if rc == 0:
+        return dt
+    first_failed = _failed_checks(verdicts_path)
+    settle = int(os.environ.get("PUBLISH_VERIFY_SETTLE_S", "240"))
+    print(f"    {step_label}: live verify failed "
+          f"({', '.join(first_failed) or 'no verdicts file'}) — "
+          f"settling {settle}s, then re-running the SAME verify "
+          f"once (edge-propagation protocol; VF6 gate G-1)",
+          flush=True)
+    if settle > 0:
+        time.sleep(settle)
+    retry_path = os.path.join(
+        WORK, verdicts_name.replace(".json", "-retry.json"))
+    cmd2 = [retry_path if c == verdicts_path else c for c in cmd]
+    rc2, out2, dt2 = run(cmd2, label=label + " (settle re-run)")
+    print("\n".join(out2.strip().splitlines()[-4:]))
+    if rc2 == 0:
+        CLOSE_CTX["verify_transients"].append(
+            {"gate": step_label, "first_run_failed": first_failed})
+        print(f"    {step_label}: re-run PASSED — first-run "
+              f"failures recorded as propagation transients: "
+              f"{', '.join(first_failed)}")
+        return dt + dt2
+    CLOSE_CTX["failed_checks"] = _failed_checks(retry_path)
+    fail(f"{step_label} failed after the settle re-run "
+         f"(failed: {', '.join(CLOSE_CTX['failed_checks'])})")
+
+
+def mirror_proof():
+    """Step 1b (VF6 gate G-4): after push-mirrors, BEFORE the
+    Pages deploy, prove the GitHub seats carry the sealed bytes:
+    every GitHub-seat distribution in the sealed index must exist
+    in its clone's NEW committed tree with matching SHA-256 +
+    byteSize, and the commit-pinned raw.githubusercontent bytes
+    must match the index. A miss fails the publish HERE, naming
+    the files — the untracked-file / unpushed-commit divergence
+    can never again surface as a post-deploy verify failure."""
+    print("--- 1b. mirror proof (sealed index vs committed + "
+          "served bytes)", flush=True)
+    with open(os.path.join(PUB, "ai-master-index.json"),
+              encoding="utf-8") as f:
+        idx = json.load(f)
+    heads, problems, checked = {}, [], 0
+    for repo, clone in CLONES.items():
+        rc, out, _ = run(["git", "-C", clone, "rev-parse", "HEAD"],
+                         label=f"git HEAD {repo}")
+        if rc != 0:
+            fail(f"mirror proof: cannot read {repo} clone HEAD")
+        heads[repo] = out.strip()
+    for e in idx.get("distribution") or []:
+        url = e.get("contentUrl") or ""
+        if "raw.githubusercontent.com" not in url:
+            continue
+        checked += 1
+        parts = url.split("raw.githubusercontent.com/", 1)[1] \
+            .split("/")
+        owner_repo, path = parts[1], "/".join(parts[3:])
+        repo = "ai" if owner_repo == "theflatratemovers-ai" \
+            else "machine"
+        dig = e.get("digest") or {}
+        want_sha, want_size = dig.get("value"), dig.get("byteSize")
+        # Byte-exact read of the committed blob (binary pipe —
+        # the text-mode run() helper could translate newlines).
+        gp = subprocess.run(
+            ["git", "-C", CLONES[repo], "show", f"HEAD:{path}"],
+            stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        if gp.returncode != 0:
+            problems.append(f"{repo}:{path} MISSING from the "
+                            f"committed tree")
+            continue
+        raw = gp.stdout
+        got_sha = hashlib.sha256(raw).hexdigest()
+        if got_sha != want_sha or len(raw) != want_size:
+            problems.append(
+                f"{repo}:{path} committed bytes diverge "
+                f"(sha {got_sha[:12]}… vs sealed "
+                f"{str(want_sha)[:12]}…, {len(raw)}B vs "
+                f"{want_size}B)")
+            continue
+        pin = (f"https://raw.githubusercontent.com/"
+               f"{parts[0]}/{owner_repo}/{heads[repo]}/{path}")
+        try:
+            req = urllib.request.Request(pin, headers={
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; "
+                "Win64; x64) AppleWebKit/537.36 (KHTML, like "
+                "Gecko) Chrome/126.0 Safari/537.36"})
+            with urllib.request.urlopen(req, timeout=60) as r:
+                served = r.read()
+            if hashlib.sha256(served).hexdigest() != want_sha \
+                    or len(served) != want_size:
+                problems.append(
+                    f"{repo}:{path} served bytes diverge from "
+                    f"the sealed index")
+        except Exception as ex:
+            problems.append(f"{repo}:{path} served-bytes fetch "
+                            f"failed: {ex}")
+    if problems:
+        fail("mirror proof failed — the GitHub seats do not "
+             "carry the sealed bytes; nothing deployed. "
+             + "; ".join(problems[:10])
+             + (f" (+{len(problems) - 10} more)"
+                if len(problems) > 10 else ""))
+    print(f"    mirror proof OK — {checked} GitHub-seat "
+          f"distributions match the sealed index (committed + "
+          f"served)")
 
 
 CLONES = {"ai": os.path.expanduser("~/workspace/git-mirrors/ai"),
@@ -270,6 +459,41 @@ def preflight(probe_push=True, batch_dir=None):
     print("    preflight OK", flush=True)
 
 
+FEED_URLS = ["https://theflatratemovers.com/feed.xml",
+             "https://theflatratemovers.com/updates.xml"]
+
+
+def _feed_digests(index_path):
+    """{feed_url: digest value} from a signed index's distribution
+    list, or None when the index cannot be read/parsed. The feeds
+    are DataDownload entries keyed by contentUrl, digest at
+    digest.value (SHA-256; see ai-master-index.json)."""
+    try:
+        with open(index_path, encoding="utf-8") as f:
+            doc = json.load(f)
+        out = {}
+        for entry in doc.get("distribution", []):
+            url = entry.get("contentUrl", "")
+            if url in FEED_URLS:
+                out[url] = (entry.get("digest") or {}).get("value")
+        return out or None
+    except Exception:
+        return None
+
+
+def changed_feeds(prior_path, new_path):
+    """Feeds whose distribution digest changed prior -> new.
+    Returns None when the changed-set is indeterminate (either
+    index unreadable, or a feed missing from either index) — the
+    caller then pings BOTH feeds, per the step spec."""
+    prior, new = _feed_digests(prior_path), _feed_digests(new_path)
+    if prior is None or new is None:
+        return None
+    if any(u not in prior or u not in new for u in FEED_URLS):
+        return None
+    return [u for u in FEED_URLS if prior[u] != new[u]]
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--message", required=True)
@@ -282,6 +506,7 @@ def main():
     ap.add_argument("--skip-verify", action="store_true")
     ap.add_argument("--skip-api", action="store_true")
     ap.add_argument("--skip-sitemaps", action="store_true")
+    ap.add_argument("--skip-websub", action="store_true")
     ap.add_argument("--skip-pulse", action="store_true")
     ap.add_argument("--batch-dir", default=None,
                     help="batch folder for the audit pre-flight "
@@ -306,6 +531,16 @@ def main():
                   batch_dir=args.batch_dir)
         print("\nPREFLIGHT ONLY — OK; no deploy performed.")
         return 0
+    # VF6 gate G-2/G-3: arm the close-state (never for
+    # --preflight-only, which returned above) and take the lane.
+    CLOSE_CTX.update(
+        armed=True,
+        batch=(os.path.basename(os.path.normpath(args.batch_dir))
+               if args.batch_dir else None),
+        batch_dir=args.batch_dir, message=args.message,
+        step="0 preflight")
+    CLOSE_CTX["superseded"] = close_state.lane_lock(
+        args.batch_dir, tool="publish")
     if args.skip_preflight:
         print("--- 0. preflight SKIPPED")
     else:
@@ -347,22 +582,35 @@ def main():
         results["push"] = (0 if all(r == 0 for r in rcs) else 1,
                            "\n".join(outs), time.time() - t, None)
 
-    print("--- 1. Pages deploy + GitHub push (parallel)", flush=True)
-    threads = [threading.Thread(target=do_deploy),
-               threading.Thread(target=do_push)]
-    for th in threads:
-        th.start()
-    for th in threads:
-        th.join()
-    for name in ("deploy", "push"):
-        rc, out, dt, extra = results[name]
-        timings[name] = dt
-        print(f"    {name}: exit {rc}"
-              + (f", deployment {extra}" if extra else ""))
-        if rc != 0:
-            print(out[-3000:])
-            fail(f"step 1 {name} failed")
+    # VF6 gate G-4: step 1 runs SEQUENTIALLY — push, then the
+    # mirror proof, then deploy — so a mirror divergence stops
+    # the close BEFORE the deploy, not after it. (The parallel
+    # form could not hold the proof between push and deploy.)
+    print("--- 1. GitHub push -> mirror proof -> Pages deploy",
+          flush=True)
+    deployment_url = None
+    CLOSE_CTX["step"] = "1 push"
+    do_push()
+    rc, out, dt, _ = results["push"]
+    timings["push"] = dt
+    print(f"    push: exit {rc}")
+    if rc != 0:
+        print(out[-3000:])
+        fail("step 1 push failed")
+    if not args.skip_push:
+        CLOSE_CTX["step"] = "1 mirror proof"
+        mirror_proof()
+    CLOSE_CTX["step"] = "1 deploy"
+    do_deploy()
+    rc, out, dt, extra = results["deploy"]
+    timings["deploy"] = dt
+    print(f"    deploy: exit {rc}"
+          + (f", deployment {extra}" if extra else ""))
+    if rc != 0:
+        print(out[-3000:])
+        fail("step 1 deploy failed")
     deployment_url = results["deploy"][3]
+    CLOSE_CTX["deployment_url"] = deployment_url
 
     # 2. verify: deployment-unique URL first, alias closing gate last
     if args.skip_verify:
@@ -371,28 +619,27 @@ def main():
         print("--- 2. live verify (deployment URL first, alias last)",
               flush=True)
         if deployment_url:
-            rc, out, dt = run(
+            CLOSE_CTX["step"] = "2 verify (deployment)"
+            timings["verify-deployment"] = verify_gate(
                 ["node", "verify.js", "--base-url", deployment_url,
                  "--verdicts-out", os.path.join(
                      WORK, "verdicts-deployment.json")],
-                label="verify vs deployment URL")
-            timings["verify-deployment"] = dt
-            print("\n".join(out.strip().splitlines()[-4:]))
-            if rc != 0:
-                fail("deployment-URL verify failed")
+                "verify vs deployment URL",
+                "verdicts-deployment.json",
+                "deployment-URL verify")
         else:
             print("    no deployment URL captured (deploy skipped?) — "
                   "alias run is the only gate")
-        rc, out, dt = run(
+        CLOSE_CTX["step"] = "2 verify (alias)"
+        timings["verify-alias"] = verify_gate(
             ["node", "verify.js", "--verdicts-out",
              os.path.join(WORK, "verdicts-alias.json")],
-            label="verify vs production alias (closing gate)")
-        timings["verify-alias"] = dt
-        print("\n".join(out.strip().splitlines()[-4:]))
-        if rc != 0:
-            fail("alias verify failed (closing gate)")
+            "verify vs production alias (closing gate)",
+            "verdicts-alias.json",
+            "alias verify (closing gate)")
 
     # 3. API refresh: bundle -> tests -> deploy
+    CLOSE_CTX["step"] = "3 API"
     if args.skip_api:
         print("--- 3. API refresh SKIPPED")
     else:
@@ -422,6 +669,7 @@ def main():
     # allowed to fail a close — a failure prints loudly here, the
     # close completes, and scripts/submit-sitemaps.py re-runs by
     # hand once Google answers again.
+    CLOSE_CTX["step"] = "4 sitemaps"
     if args.skip_sitemaps:
         print("--- 4. sitemap re-submission SKIPPED")
     else:
@@ -438,10 +686,53 @@ def main():
                   "close continues; re-run "
                   "scripts/submit-sitemaps.py by hand to retry.")
 
+    # 4b. WebSub publish ping (AI-to-AI signal batch, 2026-11-23):
+    # both feeds declare the hub, step 2 has just proven the deployed
+    # feeds live, and ping-websub.py's fire-order rule is therefore
+    # satisfied. Ping ONLY the feeds whose signed distribution
+    # digest changed in this batch (prior = --pulse-prior when
+    # given, else the seal's phase-0 snapshot — the same prior
+    # step 5 diffs against); an indeterminate changed-set pings
+    # both. WARN-ONLY, step 4's contract: the hub being unreachable
+    # cannot fail a verified close — failure prints loudly, the
+    # close continues, and ping-websub.py re-runs by hand.
+    CLOSE_CTX["step"] = "4b websub"
+    if args.skip_websub:
+        print("--- 4b. WebSub publish ping SKIPPED")
+    else:
+        print("--- 4b. WebSub publish ping (WebSub hub)", flush=True)
+        ws_prior = args.pulse_prior or os.path.join(
+            WORK, "prior-index.json")
+        feeds = changed_feeds(ws_prior, os.path.join(
+            PUB, "ai-master-index.json"))
+        if feeds is None:
+            print("    changed-feed set indeterminate (prior or "
+                  "new signed index unreadable, or a feed entry "
+                  "missing) — pinging BOTH feeds")
+            feeds = list(FEED_URLS)
+        if not feeds:
+            print("    no feed digest changed in this batch — "
+                  "nothing to ping")
+            timings["websub"] = 0.0
+        else:
+            ws_log = os.path.join(ROOT, "out", "websub-publish.log")
+            os.makedirs(os.path.dirname(ws_log), exist_ok=True)
+            rc, out, dt = run([sys.executable, os.path.join(
+                ROOT, "scripts", "ping-websub.py"), ws_log] + feeds,
+                label="ping-websub")
+            timings["websub"] = dt
+            print("\n".join(out.strip().splitlines()))
+            if rc != 0:
+                print("    WARNING: WebSub publish ping FAILED "
+                      "(feeds named above did not all return 204) "
+                      "— the close continues; re-run "
+                      "scripts/ping-websub.py by hand to retry.")
+
     # 5. Pulse (seal mode; prior defaults to the seal's phase-0
     # snapshot — a batch that sealed more than once passes the
     # PRE-BATCH index via --pulse-prior, since the last seal's
     # snapshot is its own predecessor, not the batch's baseline)
+    CLOSE_CTX["step"] = "5 pulse"
     if args.skip_pulse:
         print("--- 5. Pulse SKIPPED")
     else:
@@ -477,8 +768,21 @@ def main():
           ", ".join(f"{k} {v:.1f}s" for k, v in timings.items()))
     if deployment_url:
         print(f"  deployment: {deployment_url}")
+    CLOSE_CTX["step"] = "done"
+    write_close_state("CLOSED")
     return 0
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    try:
+        sys.exit(main())
+    except KeyboardInterrupt:
+        CLOSE_CTX["reason"] = "interrupted (KeyboardInterrupt)"
+        write_close_state("FAILED-CLOSED")
+        raise
+    except SystemExit:
+        raise
+    except Exception:
+        CLOSE_CTX["reason"] = "unexpected exception (see traceback)"
+        write_close_state("FAILED-CLOSED")
+        raise

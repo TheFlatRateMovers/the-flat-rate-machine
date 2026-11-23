@@ -170,6 +170,7 @@ const STATIC_FILES = new Set([
   "/case-study-3500lb-safe-moving-winchester-va/data.json",
   "/case-study-3500lb-safe-moving-winchester-va/data.txt",
   "/case-study-3500lb-safe-moving-winchester-va/index.html",
+  "/catalog.json",
   "/category-logistics.json",
   "/category-long-distance-moving.json",
   "/category-maritime-shipping.json",

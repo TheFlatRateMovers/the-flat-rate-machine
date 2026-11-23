@@ -236,6 +236,32 @@ def settle_intent(tag):
          f"generations — inputs are still moving inside the seal")
 
 
+def discovery_args(index_p):
+    """argv for scripts/build-discovery.js (AI-to-AI signal batch,
+    2026-11-23). The generator derives every discovery fact from
+    these inputs at run time: index membership + dataset digests,
+    the API worker source (MCP tools, KID, OpenAPI version), the
+    geojson feature count, the service registry, the intent totals
+    node, the page registry (DCAT landing verification) and the
+    signing-keys seat (kid + fingerprint, cross-checked)."""
+    return ["node", "scripts/build-discovery.js",
+            "--index", index_p,
+            "--worker", os.path.join(REPO, "src-index.js"),
+            "--geojson", os.path.join(PUB, "service-area.geojson"),
+            "--services", os.path.join(ROOT, "data", "services.json"),
+            "--pages", os.path.join(ROOT, "data", "pages.json"),
+            "--intent", os.path.join(PUB, "datasets-intent-coverage.json"),
+            "--signing-keys", os.path.join(PUB, ".well-known",
+                                           "signing-keys.json"),
+            "--out", PUB,
+            "--mirror-root", REPO]
+
+
+def run_discovery(index_p, tag):
+    run(discovery_args(index_p))
+    print(f"    discovery files regenerated ({tag})")
+
+
 def settle_consumers(tag):
     """Settle the intent rubric AND its in-seal consumers
     (Copy-Integrity batch, 2026-11-04). Two couplings make a bare
@@ -261,6 +287,7 @@ def settle_consumers(tag):
         os.path.join(PUB, "datasets-answer-evidence.json"),
         os.path.join(PUB, "datasets-intent-coverage.json"),
         os.path.join(PUB, "datasets-page-data-pool.json"),
+        os.path.join(PUB, "catalog.json"),
     ]
     chk_env = {**os.environ, "RUBRIC_DATE": RUBRIC_DATE}
     for rnd in range(1, 11):
@@ -285,6 +312,16 @@ def settle_consumers(tag):
         # from live bytes inside the round, so the settle's
         # byte-stability check covers the pool too.
         run(["node", "scripts/refresh-pool-digests.js"])
+        # Discovery settle (AI-to-AI signal batch, 2026-11-23): the
+        # same class as the pool fix, one seat over — catalog.json
+        # embeds every dataset file's signed digest, and the resyncs
+        # and consumer generators above can rewrite dataset files
+        # inside the round. Regenerate the discovery files inside
+        # the round so the settle's byte-stability check covers
+        # catalog.json too; the phase-5.5 re-run (from index-pre)
+        # is what guarantees the FINAL digests — see the 5.5 seat.
+        run_discovery(os.path.join(PUB, "ai-master-index.json"),
+                      f"{tag} round {rnd}")
         # Answer-evidence landing reconciliation (Outside-Copies
         # micro-batch, 2026-11-11): the same class, one seat over —
         # the AE landing embed + pageMeta figures + singular jf date
@@ -767,6 +804,42 @@ def main():
             f"rubric target")
         _t = _re.sub(r"every one of the \d+ pages",
                      f"every one of the {_pages_total} pages", _t)
+        # AI-to-AI batch (2026-11-23), companion: the figure sync
+        # now also owns the API bullet's discovery seats — the
+        # dataset-file label, the MCP tool parenthetical
+        # (regenerated from the worker source's own TOOLS order),
+        # the OpenAPI mention, and the agent-catalog resource
+        # count (derived from the ai-catalog.json installed in
+        # PUB, never a literal). Every rewrite is seat-scoped and
+        # idempotent: a second seal over synced bytes changes
+        # nothing, and no other byte of llms.txt is touched.
+        # predict.py A1.6 gates all four seats at batch step 0.
+        _t = _re.sub(r"\[the \d+ dataset files\]",
+                     f"[the {_ds_count} dataset files]", _t)
+        _tools = []
+        _src = os.path.join(REPO, "src-index.js")
+        if os.path.isfile(_src):
+            _st = open(_src, encoding="utf-8").read()
+            _tb = _st[_st.index("const TOOLS = ["):]
+            _tb = _tb[:_tb.index("];")]
+            _tools = _re.findall(r"name:\s*'([a-z_]+)'", _tb)
+        if _tools:
+            _t = _re.sub(r"\(tools: [^)]*\)",
+                         "(tools: " + ", ".join(_tools) + ")", _t,
+                         count=1)
+        if "https://api.theflatratemovers.com/openapi.json" not in _t:
+            _t = _t.replace(
+                "and an MCP server at "
+                "https://api.theflatratemovers.com/mcp",
+                "[the OpenAPI spec](https://api.theflatratemovers.com"
+                "/openapi.json), and an MCP server at "
+                "https://api.theflatratemovers.com/mcp", 1)
+        _cat = os.path.join(PUB, "ai-catalog.json")
+        if os.path.isfile(_cat):
+            _ncat = len(json.load(open(_cat, encoding="utf-8"))
+                        .get("entries", []))
+            _t = _re.sub(r"\d+ real data resources",
+                         f"{_ncat} real data resources", _t)
         with open(_seat, "w", encoding="utf-8") as f:
             f.write(_t)
         print(f"    llms.txt figures synced ({os.path.basename(_seat)}"
@@ -788,6 +861,19 @@ def main():
                    os.path.join(WORK, "prior-index.json"),
                    "AI_CARD_DATE": RUBRIC_DATE})
     print("    ai ingestion card regenerated (prior-seal stamped)")
+
+    # AI discovery files (AI-to-AI signal batch, 2026-11-23): the
+    # same seat as the AI card — after page-data registration and
+    # the llms figure sync, so the membership the generator reads
+    # is this seal's final membership, and before routes/digest,
+    # so phase 5's middleware manifest picks catalog.json up as a
+    # static seat and phase 6 digests the signed seats' final
+    # bytes. The phase-5.5 re-run below re-derives catalog.json
+    # from index-pre (fresh digests from live bytes), which is
+    # what guarantees its embedded dataset digests are this
+    # seal's final digests. A discovery failure fails the seal
+    # loud, like every other generator.
+    run_discovery(index_path, "ai-card seat — final membership")
 
     phase("5. routes (shell -> public/index.html, route docs, middleware)")
     shutil.copyfile(os.path.join(REPO, "index.html"),
@@ -831,6 +917,18 @@ def main():
         feed_args += ["--existing", prior_upd]
     run(feed_args)
     print(f"    update feed rebuilt (pre-index sha: {pre_sha})")
+
+    # Discovery settle re-run (AI-to-AI signal batch, 2026-11-23):
+    # index-pre carries digest-index's fresh digests, computed
+    # from live bytes in this same phase — the first moment in
+    # the seal when every dataset digest is final (nothing after
+    # this point rewrites a dataset file; phase 6 only digests).
+    # Rebuilding catalog.json from it makes its embedded SHA-256
+    # set this seal's signed set. Following the refresh-pool-
+    # digests pattern: the refresher re-runs at the last point
+    # where its inputs can still move, so the embeds converge to
+    # the same seal's final digests instead of the prior seal's.
+    run_discovery(pre, "phase 5.5 settle — index-pre digests")
 
     phase("6. digest-index (the single digest pass)")
     digested = os.path.join(WORK, "index-digested.json")
@@ -2009,6 +2107,29 @@ def _incr_cluster(ix, tag, catalog_mode, check_gate=False):
             lambda: run(["node", "scripts/refresh-pool-digests.js"]),
             embedding=True)
         gated += ix.step(
+            "discovery-digests",
+            _S("build-discovery.js")
+            + [("f", os.path.join(PUB, "ai-master-index.json")),
+               ("f", os.path.join(REPO, "src-index.js")),
+               ("f", os.path.join(PUB, "service-area.geojson")),
+               ("f", os.path.join(ROOT, "data", "services.json")),
+               ("f", os.path.join(ROOT, "data", "pages.json")),
+               ("f", os.path.join(PUB,
+                                  "datasets-intent-coverage.json")),
+               ("f", os.path.join(PUB, ".well-known",
+                                  "signing-keys.json")),
+               ("g", os.path.join(PUB, "datasets-*.json"))],
+            [("f", os.path.join(PUB, ".well-known",
+                                "ai-catalog.json")),
+             ("f", os.path.join(PUB, ".well-known", "ard.json")),
+             ("f", os.path.join(PUB, "ai-catalog.json")),
+             ("f", os.path.join(REPO, "ai-catalog.json")),
+             ("f", os.path.join(PUB, "catalog.json"))],
+            lambda: run_discovery(
+                os.path.join(PUB, "ai-master-index.json"),
+                f"incr {tag} pass {p}"),
+            embedding=True)
+        gated += ix.step(
             "ae-landing",
             _S("sync-ae-landing.js") + _LIBS
             + [("f", os.path.join(PUB, "datasets-answer-evidence.json"))],
@@ -2383,6 +2504,42 @@ def main_incr():
             f"rubric target")
         _t = _re.sub(r"every one of the \d+ pages",
                      f"every one of the {_pages_total} pages", _t)
+        # AI-to-AI batch (2026-11-23), companion: the figure sync
+        # now also owns the API bullet's discovery seats — the
+        # dataset-file label, the MCP tool parenthetical
+        # (regenerated from the worker source's own TOOLS order),
+        # the OpenAPI mention, and the agent-catalog resource
+        # count (derived from the ai-catalog.json installed in
+        # PUB, never a literal). Every rewrite is seat-scoped and
+        # idempotent: a second seal over synced bytes changes
+        # nothing, and no other byte of llms.txt is touched.
+        # predict.py A1.6 gates all four seats at batch step 0.
+        _t = _re.sub(r"\[the \d+ dataset files\]",
+                     f"[the {_ds_count} dataset files]", _t)
+        _tools = []
+        _src = os.path.join(REPO, "src-index.js")
+        if os.path.isfile(_src):
+            _st = open(_src, encoding="utf-8").read()
+            _tb = _st[_st.index("const TOOLS = ["):]
+            _tb = _tb[:_tb.index("];")]
+            _tools = _re.findall(r"name:\s*'([a-z_]+)'", _tb)
+        if _tools:
+            _t = _re.sub(r"\(tools: [^)]*\)",
+                         "(tools: " + ", ".join(_tools) + ")", _t,
+                         count=1)
+        if "https://api.theflatratemovers.com/openapi.json" not in _t:
+            _t = _t.replace(
+                "and an MCP server at "
+                "https://api.theflatratemovers.com/mcp",
+                "[the OpenAPI spec](https://api.theflatratemovers.com"
+                "/openapi.json), and an MCP server at "
+                "https://api.theflatratemovers.com/mcp", 1)
+        _cat = os.path.join(PUB, "ai-catalog.json")
+        if os.path.isfile(_cat):
+            _ncat = len(json.load(open(_cat, encoding="utf-8"))
+                        .get("entries", []))
+            _t = _re.sub(r"\d+ real data resources",
+                         f"{_ncat} real data resources", _t)
         with open(_seat, "w", encoding="utf-8") as f:
             f.write(_t)
         print(f"    llms.txt figures synced ({os.path.basename(_seat)}"
@@ -2400,6 +2557,34 @@ def main_incr():
                                    os.path.join(WORK, "prior-index.json"),
                                    "AI_CARD_DATE": RUBRIC_DATE}))
     print("    ai ingestion card regenerated (prior-seal stamped)")
+
+    # AI discovery files (AI-to-AI signal batch, 2026-11-23): the
+    # ai-card seat — after page-data registration + the llms figure
+    # sync (final membership), before routes/digest. Fingerprint
+    # inputs are the generator's full input set; outputs are the
+    # four PUB seats plus the root seat's repo-dir mirror. The
+    # phase-5.5 step below re-runs it from index-pre for the
+    # final-digest guarantee (see the legacy seat's comment).
+    ix.step("discovery",
+            _S("build-discovery.js")
+            + [("f", index_path),
+               ("f", os.path.join(REPO, "src-index.js")),
+               ("f", os.path.join(PUB, "service-area.geojson")),
+               ("f", os.path.join(ROOT, "data", "services.json")),
+               ("f", os.path.join(ROOT, "data", "pages.json")),
+               ("f", os.path.join(PUB,
+                                  "datasets-intent-coverage.json")),
+               ("f", os.path.join(PUB, ".well-known",
+                                  "signing-keys.json"))],
+            [("f", os.path.join(PUB, ".well-known",
+                                "ai-catalog.json")),
+             ("f", os.path.join(PUB, ".well-known", "ard.json")),
+             ("f", os.path.join(PUB, "ai-catalog.json")),
+             ("f", os.path.join(REPO, "ai-catalog.json")),
+             ("f", os.path.join(PUB, "catalog.json"))],
+            lambda: run_discovery(index_path,
+                                  "ai-card seat — final membership"))
+    print("    ai discovery files regenerated (final membership)")
 
     phase("5. routes (shell -> public/index.html, route docs, middleware)")
     def _routes():
@@ -2466,6 +2651,31 @@ def main_incr():
             [("f", os.path.join(PUB, "updates.xml"))],
             lambda: run(feed_args))
     print(f"    update feed rebuilt (pre-index sha: {pre_sha})")
+
+    # Discovery settle re-run (AI-to-AI signal batch, 2026-11-23):
+    # from index-pre, whose digests digest-index computed from
+    # live bytes in this phase — the guarantee seat for
+    # catalog.json's embedded dataset digests (see legacy 5.5).
+    ix.step("discovery-settle",
+            _S("build-discovery.js")
+            + [("f", pre),
+               ("f", os.path.join(REPO, "src-index.js")),
+               ("f", os.path.join(PUB, "service-area.geojson")),
+               ("f", os.path.join(ROOT, "data", "services.json")),
+               ("f", os.path.join(ROOT, "data", "pages.json")),
+               ("f", os.path.join(PUB,
+                                  "datasets-intent-coverage.json")),
+               ("f", os.path.join(PUB, ".well-known",
+                                  "signing-keys.json"))],
+            [("f", os.path.join(PUB, ".well-known",
+                                "ai-catalog.json")),
+             ("f", os.path.join(PUB, ".well-known", "ard.json")),
+             ("f", os.path.join(PUB, "ai-catalog.json")),
+             ("f", os.path.join(REPO, "ai-catalog.json")),
+             ("f", os.path.join(PUB, "catalog.json"))],
+            lambda: run_discovery(pre,
+                                  "phase 5.5 settle — index-pre digests"))
+    print("    ai discovery files settled (index-pre digests)")
 
     phase("6. digest-index (the single digest pass)")
     digested = os.path.join(WORK, "index-digested.json")
@@ -2729,4 +2939,8 @@ def main_incr():
 
 
 if __name__ == "__main__":
+    # VF6 gate G-3 lane-lock (2026-11-23): never seal over a
+    # FAILED-CLOSED batch. Shared module: scripts/close_state.py.
+    import close_state as _close_state
+    _close_state.lane_lock(None, tool="SEAL")
     sys.exit(main_incr() if INCR else main())

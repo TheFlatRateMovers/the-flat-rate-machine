@@ -38,6 +38,15 @@ paid for (A-DESIGN §1):
                        to a governed builder is RED here, before a
                        seal is spent — never discovered as an OOM
                        mid-seal (A5 install batch, 2026-11-22).
+  A1.6 discovery     — the discovery seats (ai-catalog.json in
+                       every seat, catalog.json) and llms.txt's
+                       headline discovery figures agree with the
+                       installed index + the on-disk surface files
+                       (service-area.geojson, src-index.js TOOLS):
+                       catalog surface set + embedded counts, the
+                       DCAT catalog's set/digests/sizes, the API
+                       bullet's dataset figure, the MCP tool list,
+                       the catalog resource count, the OpenAPI URL.
 
 Production seat (per A-DESIGN §1): scripts/predict.py, single seat.
 This rig build takes --root explicitly and loads audit-preflight.py
@@ -444,6 +453,269 @@ def check_windowed_builds(root):
 
 
 # ------------------------------------------------------------------
+# A1.6 — discovery freshness: the discovery seats (the ai-catalog
+# files in every seat, the DCAT catalog.json) and llms.txt's
+# headline discovery figures must agree with the INSTALLED index
+# (PUB/ai-master-index.json) + the on-disk surface files
+# (PUB/service-area.geojson, repo-dir/src-index.js). Post-seal this
+# holds by construction — the seal syncs llms.txt (seal.py's figure
+# sync, extended by the AI-to-AI batch) and the batch installs the
+# catalogs — so a RED here means a hand edit drifted a seat or a
+# source fix was missed, caught at step 0 before a seal is spent.
+# The llms.txt certificate-paragraph distribution figure is NOT
+# gated here: the seal's existing figure sync + verify.js CV-3 own
+# it, and it legitimately changes during a seal.
+# ------------------------------------------------------------------
+
+OPENAPI_URL = "https://api.theflatratemovers.com/openapi.json"
+# The estate's declared discovery surface (AI-to-AI batch,
+# 2026-11-23; DISCOVERY-AUDIT §4): the identifier suffixes every
+# ai-catalog seat must carry. A new discovery surface is added
+# here, in the same pass that adds its catalog entry — the same
+# re-expression discipline as the A1.1 census pins.
+REQUIRED_CATALOG_IDS = [
+    "ai-sitemap", "service-area-geojson", "entity-graph",
+    "best-json-entity-graph", "llms", "rest-api", "openapi-spec",
+    "mcp-server", "signed-master-index", "index-signature",
+    "signing-keys", "datasets-catalog", "dcat-catalog",
+    "catalog-registry-dataset", "catalog-registry-api",
+    "updates-feed", "article-feed", "coverage-dataset",
+    "answer-evidence-dataset",
+]
+
+
+def _mcp_tool_names(repo):
+    """The MCP tool names in the worker source's own order
+    (repo-dir/src-index.js, the TOOLS array)."""
+    src_path = os.path.join(repo, "src-index.js")
+    text = open(src_path, encoding="utf-8", errors="replace").read()
+    block = text[text.index("const TOOLS = ["):]
+    block = block[:block.index("];")]
+    return re.findall(r"name:\s*'([a-z_]+)'", block)
+
+
+def check_discovery_freshness(root, pub, repo):
+    failing = []
+
+    def fail(msg):
+        failing.append(msg)
+
+    # Derived truth: the installed index + the surface files.
+    index_path = os.path.join(pub, "ai-master-index.json")
+    if not os.path.exists(index_path):
+        return ("fail", "installed index missing "
+                "(PUB/ai-master-index.json) — discovery truth cannot "
+                "be derived", [f"ai-master-index.json: seat missing "
+                                f"({index_path})"])
+    index = json.load(open(index_path, encoding="utf-8"))
+    dist = index.get("distribution", [])
+    index_by_url = {e.get("contentUrl"): e for e in dist}
+    ds_urls = {u for u in index_by_url
+               if u and re.search(r"/datasets-[^/]+\.json$", u)}
+    ds_count = len(ds_urls)
+    geo_path = os.path.join(pub, "service-area.geojson")
+    if not os.path.exists(geo_path):
+        return ("fail", "service-area.geojson missing — discovery "
+                "truth cannot be derived",
+                [f"service-area.geojson: seat missing ({geo_path})"])
+    geo_count = len(json.load(open(geo_path, encoding="utf-8"))
+                    .get("features", []))
+    try:
+        tools = _mcp_tool_names(repo)
+    except Exception as e:
+        return ("fail", f"MCP tool list cannot be parsed from "
+                f"repo-dir/src-index.js: {e!r}",
+                [f"repo-dir/src-index.js: TOOLS parse failed ({e})"])
+    if not tools:
+        fail("repo-dir/src-index.js: TOOLS array parsed to zero "
+             "tool names — the llms.txt tool gate has no truth")
+
+    # (a) ai-catalog seats: present, parseable, the .well-known
+    # pair byte-identical, the root seats' content equal to the
+    # .well-known content, the required surface set present, and
+    # every description-embedded geo / dataset-file count true.
+    cat_seats = [
+        ("PUB/.well-known/ai-catalog.json",
+         os.path.join(pub, ".well-known", "ai-catalog.json")),
+        ("PUB/.well-known/ard.json",
+         os.path.join(pub, ".well-known", "ard.json")),
+        ("PUB/ai-catalog.json", os.path.join(pub, "ai-catalog.json")),
+        ("repo-dir/ai-catalog.json",
+         os.path.join(repo, "ai-catalog.json")),
+    ]
+    docs = {}
+    raws = {}
+    for label, path in cat_seats:
+        if not os.path.exists(path):
+            fail(f"{label}: ai-catalog seat missing ({path})")
+            continue
+        raws[label] = open(path, "rb").read()
+        try:
+            docs[label] = json.loads(raws[label].decode("utf-8"))
+        except Exception as e:
+            fail(f"{label}: ai-catalog does not parse as JSON ({e})")
+    wk_a, wk_b = ("PUB/.well-known/ai-catalog.json",
+                  "PUB/.well-known/ard.json")
+    if wk_a in raws and wk_b in raws and raws[wk_a] != raws[wk_b]:
+        fail(f"{wk_b}: .well-known pair not byte-identical — "
+             f"ard.json sha256 "
+             f"{hashlib.sha256(raws[wk_b]).hexdigest()[:12]}… != "
+             f"ai-catalog.json sha256 "
+             f"{hashlib.sha256(raws[wk_a]).hexdigest()[:12]}…")
+    wk_doc = docs.get(wk_a)
+    if wk_doc is not None:
+        for label in ("PUB/ai-catalog.json", "repo-dir/ai-catalog.json"):
+            if label in docs and docs[label] != wk_doc:
+                fail(f"{label}: root ai-catalog content differs from "
+                     f"the .well-known ai-catalog content "
+                     f"({len(docs[label].get('entries', []))} entries "
+                     f"vs {len(wk_doc.get('entries', []))})")
+    for label, doc in docs.items():
+        ids = [(e.get("identifier") or "").rsplit(":", 1)[-1]
+               for e in doc.get("entries", [])]
+        missing = [s for s in REQUIRED_CATALOG_IDS if s not in ids]
+        if missing:
+            fail(f"{label}: ai-catalog is missing required discovery "
+                 f"surface entr{'y' if len(missing) == 1 else 'ies'}: "
+                 f"{', '.join(missing)} (catalog carries "
+                 f"{len(ids)} entries, the declared surface has "
+                 f"{len(REQUIRED_CATALOG_IDS)})")
+        for e in doc.get("entries", []):
+            desc = e.get("description") or ""
+            eid = (e.get("identifier") or "?").rsplit(":", 1)[-1]
+            for m in re.finditer(r"(\d[\d,]*) features\b", desc):
+                got = int(m.group(1).replace(",", ""))
+                if got != geo_count:
+                    fail(f"{label}: entry {eid} description says "
+                         f"{got} features, expected {geo_count} "
+                         f"(service-area.geojson features[])")
+            for m in re.finditer(r"(\d[\d,]*) dataset files\b", desc):
+                got = int(m.group(1).replace(",", ""))
+                if got != ds_count:
+                    fail(f"{label}: entry {eid} description says "
+                         f"{got} dataset files, expected {ds_count} "
+                         f"(index datasets-*.json contentUrls)")
+            for m in re.finditer(
+                    r"per published dataset file \((\d[\d,]*)\)", desc):
+                got = int(m.group(1).replace(",", ""))
+                if got != ds_count:
+                    fail(f"{label}: entry {eid} description says "
+                         f"({got}) per published dataset file, "
+                         f"expected ({ds_count})")
+
+    # (b) catalog.json (DCAT): the dataset set is exactly the
+    # index's datasets-*.json contentUrl set, and every entry's
+    # SHA-256 + byte size equals the index entry's digest + size.
+    for label, path in [("PUB/catalog.json",
+                         os.path.join(pub, "catalog.json")),
+                        ("repo-dir/catalog.json",
+                         os.path.join(repo, "catalog.json"))]:
+        if not os.path.exists(path):
+            fail(f"{label}: catalog.json seat missing ({path}) — "
+                 f"the DCAT catalog created by the AI-to-AI batch "
+                 f"must exist in both seats")
+            continue
+        try:
+            cat = json.load(open(path, encoding="utf-8"))
+        except Exception as e:
+            fail(f"{label}: catalog.json does not parse as JSON ({e})")
+            continue
+        entries = cat.get("dataset", [])
+        urls = [e.get("identifier") for e in entries]
+        if set(urls) != ds_urls:
+            extra = sorted(set(urls) - ds_urls)
+            absent = sorted(ds_urls - set(urls))
+            fail(f"{label}: catalog dataset set != the index "
+                 f"datasets-*.json set ({len(urls)} entries vs "
+                 f"{ds_count} expected)"
+                 + (f"; not in the index: {', '.join(extra[:5])}"
+                    if extra else "")
+                 + (f"; missing from the catalog: "
+                    f"{', '.join(absent[:5])}" if absent else ""))
+        if len(urls) != len(set(urls)):
+            fail(f"{label}: catalog carries duplicate dataset "
+                 f"identifiers ({len(urls)} entries, "
+                 f"{len(set(urls))} distinct)")
+        for e in entries:
+            url = e.get("identifier")
+            idx = index_by_url.get(url)
+            if idx is None:
+                continue
+            d0 = (e.get("distribution") or [{}])[0]
+            chk = ((d0.get("spdx:checksum") or {})
+                   .get("spdx:checksumValue"))
+            size = d0.get("dcat:byteSize")
+            dig = idx.get("digest") or {}
+            if chk != dig.get("value"):
+                fail(f"{label}: entry {url.rsplit('/', 1)[-1]} "
+                     f"sha256 is {str(chk)[:12]}…, expected "
+                     f"{str(dig.get('value'))[:12]}… (index digest)")
+            if size != dig.get("byteSize"):
+                fail(f"{label}: entry {url.rsplit('/', 1)[-1]} "
+                     f"byteSize is {size}, expected "
+                     f"{dig.get('byteSize')} (index digest)")
+
+    # (c) llms.txt, both seats: the API bullet's dataset-file
+    # figure, the MCP tool list (every worker tool named), the
+    # agent-catalog resource count, and the OpenAPI URL.
+    cat_truth = len(REQUIRED_CATALOG_IDS)
+    if wk_doc is not None:
+        cat_truth = max(cat_truth, len(wk_doc.get("entries", [])))
+    for label, path in [("PUB/llms.txt",
+                         os.path.join(pub, "llms.txt")),
+                        ("out/phase-a/llms.txt",
+                         os.path.join(root, "out", "phase-a",
+                                      "llms.txt"))]:
+        if not os.path.exists(path):
+            fail(f"{label}: llms.txt seat missing ({path})")
+            continue
+        text = open(path, encoding="utf-8", errors="replace").read()
+        m = re.search(r"\[the (\d+) dataset files\]", text)
+        if m is None:
+            fail(f"{label}: llms.txt API bullet carries no "
+                 f"'[the N dataset files]' label to gate")
+        elif int(m.group(1)) != ds_count:
+            fail(f"{label}: llms.txt API bullet says the "
+                 f"{m.group(1)} dataset files, expected "
+                 f"{ds_count} (index datasets-*.json contentUrls)")
+        m = re.search(r"\(tools: ([^)]*)\)", text)
+        if m is None:
+            fail(f"{label}: llms.txt carries no MCP '(tools: …)' "
+                 f"list to gate")
+        else:
+            listed = [t.strip() for t in m.group(1).split(",")]
+            for t in tools:
+                if t not in listed:
+                    fail(f"{label}: llms.txt MCP tool list is "
+                         f"missing {t} (worker TOOLS in "
+                         f"repo-dir/src-index.js: "
+                         f"{', '.join(tools)})")
+        m = re.search(r"(\d+) real data resources", text)
+        if m is None:
+            fail(f"{label}: llms.txt agent-catalog line carries no "
+                 f"'N real data resources' figure to gate")
+        elif int(m.group(1)) != cat_truth:
+            fail(f"{label}: llms.txt agent-catalog line says "
+                 f"{m.group(1)} real data resources, expected "
+                 f"{cat_truth} (ai-catalog entry count)")
+        if OPENAPI_URL not in text:
+            fail(f"{label}: llms.txt does not name the OpenAPI "
+                 f"spec — {OPENAPI_URL} is absent")
+
+    if failing:
+        shown, total = cap(failing)
+        return ("fail", f"{total} discovery-freshness violation(s) "
+                f"— a discovery seat or llms.txt headline figure "
+                f"disagrees with the installed index + surface "
+                f"files; fix at the source seat (the seal syncs "
+                f"llms.txt; the batch installs the catalogs), "
+                f"never by hand-waving the gate", shown)
+    return ("pass", f"discovery seats + llms.txt agree with the "
+            f"installed index + surfaces ({ds_count} dataset "
+            f"files, {geo_count} geo features, {len(tools)} MCP "
+            f"tools, {cat_truth} catalog entries, OpenAPI named)",
+            [])
+# ------------------------------------------------------------------
 
 def main():
     ap = argparse.ArgumentParser(
@@ -536,6 +808,10 @@ def main():
     run("windowed-builds",
         "A1.5 Windowed builds (A6) — governed builders proven + gated",
         lambda: check_windowed_builds(root))
+    run("discovery-freshness",
+        "A1.6 Discovery freshness — catalogs + llms.txt vs the "
+        "installed index + surface files",
+        lambda: check_discovery_freshness(root, pub, repo))
 
     report = {
         "tool": "predict.py (Machine Software Suite, Component A1)",
