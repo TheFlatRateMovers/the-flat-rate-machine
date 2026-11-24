@@ -241,7 +241,7 @@
           '4. The quote goes directly to the company (ratemovers@gmail.com) with no third-party form service. A person reviews every request and replies.',
           '',
           'An AI agent can fill in the on-page quote form for the person, but it cannot submit it — submission is always the person\'s own click.',
-          'Prefer to talk? Call +1-540-422-2153. Winchester, VA: Mon–Fri 8–6, Sat 8–4, Sun 9–4. Martinsburg, WV: Mon–Fri 9–6, Sat 9–4, Sun 9–4.'
+          'Prefer to talk? Call +1-540-422-2153. Winchester, VA: Mon–Fri 8–6, Sat 9–4, Sun 9–4. Martinsburg, WV: Mon–Fri 9–6, Sat 9–4, Sun 9–4.'
         ].join('\n');
       }
     }

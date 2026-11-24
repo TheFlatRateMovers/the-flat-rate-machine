@@ -71,7 +71,7 @@ function main() {
   const win = locations.branches.find((b) => b.id === 'winchester');
   const mar = locations.branches.find((b) => b.id === 'martinsburg');
   if (!win || win.name !== 'The Flat Rate Movers') fail('winchester name mismatch');
-  if (win.hoursDisplay !== 'Mon-Fri 8-6, Sat 8-4, Sun 9-4') fail('winchester hours mismatch');
+  if (win.hoursDisplay !== 'Mon-Fri 8-6, Sat 9-4, Sun 9-4') fail('winchester hours mismatch');
   if (win.googleRating.ratingValue !== 5.0 || win.googleRating.reviewCount !== 1) fail('winchester rating mismatch');
   if (win.serviceArea.length !== 16) fail('winchester area count mismatch');
   if (!mar || mar.name !== 'Flat Rate Movers Martinsburg WV') fail('martinsburg name mismatch');
@@ -214,7 +214,7 @@ function main() {
       content.includes('No exits, stops, or turn-by-turn path are claimed on this page');
     const ratingExact = guardText.includes('"ratingValue":5') && guardText.includes('"ratingValue":4.7') &&
       content.includes('5.0 with 2 reviews') && content.includes('4.7 with 6 reviews');
-    const hoursExact = content.includes('Mon-Fri 8-6, Sat 8-4, Sun 9-4') && content.includes('Mon-Fri 9-6, Sat 9-4, Sun 9-4');
+    const hoursExact = content.includes('Mon-Fri 8-6, Sat 9-4, Sun 9-4') && content.includes('Mon-Fri 9-6, Sat 9-4, Sun 9-4');
     const visibleMatchesSchema = JSON.stringify(schema).includes(win.street) && JSON.stringify(schema).includes(mar.street) &&
       content.includes(win.street) && content.includes(mar.street) &&
       content.includes(win.serviceArea.join(', ')) && content.includes(mar.serviceArea.join(', '));

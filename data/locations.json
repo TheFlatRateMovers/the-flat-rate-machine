@@ -40,7 +40,7 @@
     },
     {
      "days": "Sat",
-     "opens": "08:00",
+     "opens": "09:00",
      "closes": "16:00"
     },
     {
@@ -49,11 +49,11 @@
      "closes": "16:00"
     }
    ],
-   "hoursDisplay": "Mon-Fri 8-6, Sat 8-4, Sun 9-4",
+   "hoursDisplay": "Mon-Fri 8-6, Sat 9-4, Sun 9-4",
    "googleRating": {
     "ratingValue": 5,
-    "reviewCount": 2,
-    "breakdown": "2 at 5 stars"
+    "reviewCount": 3,
+    "breakdown": "3 at 5 stars"
    },
    "serviceArea": [
     "Bristow",
@@ -74,8 +74,8 @@
     "Purcellville 20132",
     "South Riding 20152"
    ],
-   "source": "Google Business Profile check 2026-10-28 (rating) + GBP Business information screenshots supplied by owner 2026-10-27 (service area) + Places verification 2026-10-27 (address, geo) Bristow, VA: published as a Winchester Google Business Profile service area 2026-10-30 (GBP Manager verification 2026-10-30).",
-   "attested": "2026-10-28",
+   "source": "Google Business Profile check 2026-11-23 (rating) + GBP Business information screenshots supplied by owner 2026-10-27 (service area) + Places verification 2026-10-27 (address, geo) Bristow, VA: published as a Winchester Google Business Profile service area 2026-10-30 (GBP Manager verification 2026-10-30).",
+   "attested": "2026-11-23",
    "serviceAreaFull": [
     "Berryville, VA",
     "Bristow, VA",

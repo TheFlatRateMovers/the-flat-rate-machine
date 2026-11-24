@@ -3104,7 +3104,24 @@ function generate() {
       m.set(r.target_url, (m.get(r.target_url) || 0) + 1);
     }
   }
+  // R55 (Ranking-Fix Batch, 2026-11-23): page-ownership override.
+  // Ownership beats the modal tally for cells with a dedicated page:
+  // R53's five Hampton Roads cities bind to their R53 gun-safe
+  // targets, and Leesburg local-regional binds to /movers-leesburg-va/
+  // (built in the same batch). Without this, the tally amplifies the
+  // early lanes' branch fallback and splits each family across two
+  // target pages.
+  const R55_OWNER = new Map([
+    ['service-gun-safe|place-virginia-beach-va', 'gun-safe-movers-virginia-beach-va'],
+    ['service-gun-safe|place-norfolk-va', 'gun-safe-movers-norfolk-va'],
+    ['service-gun-safe|place-chesapeake-va', 'gun-safe-movers-virginia-beach-va'],
+    ['service-gun-safe|place-hampton-va', 'gun-safe-movers-virginia-beach-va'],
+    ['service-gun-safe|place-newport-news-va', 'gun-safe-movers-virginia-beach-va'],
+    ['service-local-regional|place-leesburg-va', 'movers-leesburg-va'],
+  ]);
   const r30ModalSlug = (serviceId, area) => {
+    const own = R55_OWNER.get(serviceId + '|' + area);
+    if (own) return own;
     const m = r30Bind.get(serviceId + '|' + area);
     if (!m) return null;
     let best = null, bestN = -1;

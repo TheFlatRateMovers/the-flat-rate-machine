@@ -717,6 +717,184 @@ def check_discovery_freshness(root, pub, repo):
             [])
 # ------------------------------------------------------------------
 
+# ------------------------------------------------------------------
+# A1.7 — splice-seat freshness: the seats no generator rebuilds
+# (llms.txt, ai-sitemap.json, the intent landing body, and every
+# shell div's duplicate-@id dates) must already carry the current
+# census before the first seal. Mirrors verify.js's staged llms /
+# ai-sitemap checks, PS-4, CV-5 and S-7e against the PRE-SEAL
+# source seats (phase-a + PUB discovery files, the shell divs), so
+# a batch that adds a page or moves a total fails here — while a
+# splice still costs minutes — instead of at publish, after the
+# seal. (Ranking-fix batch, 2026-11-24: the +1 page / +2 rows
+# delta missed exactly these seats and cost a full re-seal cycle
+# plus a failed publish; this class is gated here permanently.)
+# ------------------------------------------------------------------
+
+def check_splice_seats(ctx, root, pub, repo):
+    failing = []
+    pages = json.load(open(os.path.join(root, "data", "pages.json"),
+                           encoding="utf-8"))["pages"]
+    page_urls = [p["url"] for p in pages]
+    n_pages = len(pages)
+    # 1. ai-sitemap seats (PUB + phase-a staging)
+    for seat in [os.path.join(pub, "ai-sitemap.json"),
+                 os.path.join(root, "out", "phase-a",
+                              "ai-sitemap.json")]:
+        rel = os.path.relpath(seat, root)
+        try:
+            ai = json.load(open(seat, encoding="utf-8"))
+        except Exception as e:
+            failing.append(f"{rel}: unreadable ({e})")
+            continue
+        arr = ai.get("pages") or []
+        if len(arr) != n_pages:
+            failing.append(f"{rel}: ai-sitemap pages {len(arr)} "
+                           f"!= pages.json {n_pages}")
+        have = {p.get("url") for p in arr if isinstance(p, dict)}
+        for u in page_urls:
+            if u not in have:
+                failing.append(f"{rel}: ai-sitemap missing page {u}")
+        m = re.search(r"(\d+) clean canonical URLs",
+                      ai.get("description", ""))
+        if m and int(m.group(1)) != n_pages:
+            failing.append(f"{rel}: ai-sitemap description states "
+                           f"{m.group(1)} clean canonical URLs, "
+                           f"expected {n_pages}")
+    # 2. llms.txt seats (PUB + phase-a staging)
+    for seat in [os.path.join(pub, "llms.txt"),
+                 os.path.join(root, "out", "phase-a", "llms.txt")]:
+        rel = os.path.relpath(seat, root)
+        try:
+            txt = open(seat, encoding="utf-8").read()
+        except Exception as e:
+            failing.append(f"{rel}: unreadable ({e})")
+            continue
+        m = re.search(r"(\d+) clean canonical URLs", txt)
+        if not m:
+            failing.append(f"{rel}: llms.txt states no clean "
+                           f"canonical URL total")
+        elif int(m.group(1)) != n_pages:
+            failing.append(f"{rel}: llms.txt states {m.group(1)} "
+                           f"clean canonical URLs, expected "
+                           f"{n_pages}")
+        for u in page_urls:
+            if u not in txt:
+                failing.append(f"{rel}: llms.txt does not "
+                               f"represent {u}")
+    # 3 + 4 read the shell once
+    shell = open(os.path.join(repo, "index.html"),
+                 encoding="utf-8").read()
+    # 3. intent landing body figures vs the dataset file totals
+    intent = json.load(open(os.path.join(
+        pub, "datasets-intent-coverage.json"), encoding="utf-8"))
+    graph = intent.get("@graph") or []
+    totals = next((n for n in graph if (n.get("@id") or "")
+                   .endswith("#dataset-intent-coverage-totals")),
+                  None)
+    if totals is None:
+        failing.append("datasets-intent-coverage.json: no totals "
+                       "node")
+    else:
+        i0 = shell.find('id="page-datasets-intent-coverage"')
+        i1 = shell.find('id="page-', i0 + 10) if i0 >= 0 else -1
+        seg = shell[i0:i1] if i0 >= 0 else ""
+        if not seg:
+            failing.append("shell: page-datasets-intent-coverage "
+                           "div not found")
+        else:
+            want = {
+                "Rubric rows":
+                    totals["rowSources"]["estateGenerated"],
+                "Services covered": len([n for n in graph
+                    if (n.get("name") or "").startswith(
+                        "Intent Coverage —")]),
+                "Registry pages":
+                    totals["pageCoverage"]["pagesTotal"],
+                "Pages targeted":
+                    totals["pageCoverage"]["pagesTargeted"],
+                "Nodes in this file": len(graph),
+            }
+            for label, v in want.items():
+                m = re.search(r"<b>" + re.escape(label) +
+                              r"</b></td><td>([\d,]+)</td>", seg)
+                got = int(m.group(1).replace(",", "")) if m else None
+                if got != v:
+                    failing.append(f"intent landing body: {label} "
+                                   f"{got} != dataset file {v}")
+            m = re.search(r"(\d[\d,]*) generated rows", seg)
+            got = int(m.group(1).replace(",", "")) if m else None
+            if got != want["Rubric rows"]:
+                failing.append(f"intent landing hero: {got} "
+                               f"generated rows != dataset file "
+                               f"{want['Rubric rows']}")
+    # 4. dataset landing embeds: where a shell div's embed carries
+    #    the dataset file's MAIN Dataset node, its dates must equal
+    #    the file's — the route doc also embeds the file's node, so
+    #    a stale embed date is exactly verify.js's S-7e divergence,
+    #    caught here at the source seat. (Sub-node embeds are dated
+    #    snapshots by design and are not gated.)
+    for divm in re.finditer(r'id="page-datasets-([a-z0-9-]+)"',
+                            shell):
+        slug = divm.group(1)
+        fpath = os.path.join(pub, f"datasets-{slug}.json")
+        if not os.path.exists(fpath):
+            continue
+        fdoc = json.load(open(fpath, encoding="utf-8"))
+        landing = SITE + f"/datasets/{slug}/"
+        main_ids = {landing + "#dataset-" + slug,
+                    landing + "#dataset"}
+        fmain = {}
+        stack = [fdoc]
+        while stack:
+            n = stack.pop()
+            if isinstance(n, dict):
+                if n.get("@id") in main_ids and \
+                        n.get("@type") == "Dataset":
+                    fmain[n["@id"]] = n
+                stack.extend(n.values())
+            elif isinstance(n, list):
+                stack.extend(n)
+        if not fmain:
+            continue
+        seg_end = shell.find('id="page-', divm.start() + 10)
+        seg = shell[divm.start():seg_end if seg_end > 0
+                    else divm.start() + 500000]
+        for lm in re.finditer(
+                r'<script type="application/ld\+json">(.*?)</script>',
+                seg, re.S):
+            try:
+                doc = json.loads(lm.group(1))
+            except Exception:
+                continue
+            stack = [doc]
+            while stack:
+                n = stack.pop()
+                if isinstance(n, dict):
+                    fn = fmain.get(n.get("@id"))
+                    if fn is not None and len(n) > 1:
+                        for f in ("dateModified", "datePublished"):
+                            if f in n and f in fn and \
+                                    n[f] != fn[f]:
+                                failing.append(
+                                    f"shell embed {slug}: "
+                                    f"{n['@id']} {f} {n[f]} != "
+                                    f"dataset file {fn[f]} "
+                                    f"(S-7e class)")
+                    stack.extend(n.values())
+                elif isinstance(n, list):
+                    stack.extend(n)
+    if failing:
+        shown, total = cap(failing)
+        return ("fail", f"{total} splice-seat staleness item(s) — "
+                f"discovery files, the intent landing or shell div "
+                f"dates lag the registries", shown)
+    return ("pass", f"llms + ai-sitemap carry all {n_pages} "
+            f"pages, intent landing figures equal the dataset "
+            f"file, every landing embed's main-node dates equal "
+            f"its dataset file", [])
+
+
 def main():
     ap = argparse.ArgumentParser(
         description="A1 pre-seal prediction pass (Component A)")
@@ -812,6 +990,10 @@ def main():
         "A1.6 Discovery freshness — catalogs + llms.txt vs the "
         "installed index + surface files",
         lambda: check_discovery_freshness(root, pub, repo))
+    run("splice-seats",
+        "A1.7 Splice-seat freshness — llms/ai-sitemap census, "
+        "intent landing figures, shell div duplicate-@id dates",
+        lambda: check_splice_seats(ctx, root, pub, repo))
 
     report = {
         "tool": "predict.py (Machine Software Suite, Component A1)",
