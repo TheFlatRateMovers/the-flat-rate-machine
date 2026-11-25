@@ -2255,7 +2255,7 @@
     "url": "https://theflatratemovers.com/"
    },
    "datePublished": "2026-11-02",
-   "dateModified": "2026-11-24",
+   "dateModified": "2026-11-25",
    "includedInDataCatalog": {
     "@type": "DataCatalog",
     "@id": "https://theflatratemovers.com/datasets/#collection",
@@ -3731,7 +3731,7 @@
    "url": "https://theflatratemovers.com/datasets/answer-evidence/",
    "identifier": "https://theflatratemovers.com/datasets/answer-evidence/",
    "license": "https://creativecommons.org/licenses/by/4.0/",
-   "dateModified": "2026-11-24",
+   "dateModified": "2026-11-25",
    "creator": {
     "@id": "https://theflatratemovers.com/#organization",
     "@type": "Organization",
@@ -4662,7 +4662,7 @@
      "https://medium.com/@ratemovers"
     ]
    },
-   "dateModified": "2026-11-24",
+   "dateModified": "2026-11-25",
    "temporalCoverage": "2010/2026",
    "spatialCoverage": [
     {
@@ -7333,7 +7333,7 @@
   {
    "@type": "WebPage",
    "@id": "https://theflatratemovers.com/commercial-freight-handling-white-glove-final-mile-services/",
-   "dateModified": "2026-11-24",
+   "dateModified": "2026-11-25",
    "url": "https://theflatratemovers.com/commercial-freight-handling-white-glove-final-mile-services/",
    "name": "Commercial Freight Handling, White-Glove & Final Mile Services",
    "mainEntity": {
@@ -7395,7 +7395,7 @@
   {
    "@type": "WebPage",
    "@id": "https://theflatratemovers.com/container-deconsolidation-cross-docking-transloading-services-virginia/",
-   "dateModified": "2026-11-24",
+   "dateModified": "2026-11-25",
    "url": "https://theflatratemovers.com/container-deconsolidation-cross-docking-transloading-services-virginia/",
    "name": "Container Deconsolidation, Cross-Docking & Transloading — Virginia",
    "mainEntity": {
@@ -7707,7 +7707,7 @@
   {
    "@type": "WebPage",
    "@id": "https://theflatratemovers.com/interstate-66-corridor/",
-   "dateModified": "2026-11-24",
+   "dateModified": "2026-11-25",
    "url": "https://theflatratemovers.com/interstate-66-corridor/",
    "name": "Interstate 66 Corridor Moving",
    "image": {
@@ -7724,7 +7724,7 @@
   {
    "@type": "WebPage",
    "@id": "https://theflatratemovers.com/interstate-70-corridor/",
-   "dateModified": "2026-11-24",
+   "dateModified": "2026-11-25",
    "url": "https://theflatratemovers.com/interstate-70-corridor/",
    "name": "Interstate 70 Corridor Moving",
    "image": {
@@ -7919,7 +7919,7 @@
   {
    "@type": "WebPage",
    "@id": "https://theflatratemovers.com/military-government-moving/",
-   "dateModified": "2026-11-24",
+   "dateModified": "2026-11-25",
    "url": "https://theflatratemovers.com/military-government-moving/",
    "name": "Military & Government Moving",
    "description": "Moves for military households and government offices across the Shenandoah Valley and the Eastern Panhandle — planned in advance around orders, deadlines and operating hours, and quoted at one flat rate in writing. The company performs moves for the FBI, the DEA and other federal agencies, for the U.S. military, and for private-sector clients.",
@@ -8088,7 +8088,7 @@
     "url": "https://theflatratemovers.com/assets/img-15-6ff0065cf230.webp",
     "caption": "Sofas padded in moving blankets and fully sealed in clear stretch wrap, staged cleanly in the living room before loading. · Reference photo."
    },
-   "dateModified": "2026-11-24",
+   "dateModified": "2026-11-25",
    "hasPart": [
     {
      "@type": "WebPageElement",
@@ -9179,7 +9179,7 @@
     "url": "https://theflatratemovers.com/datasets/"
    },
    "datePublished": "2026-11-03",
-   "dateModified": "2026-11-24",
+   "dateModified": "2026-11-25",
    "spatialCoverage": [
     {
      "@type": "Place",
@@ -10251,7 +10251,7 @@
    ],
    "temporalCoverage": "2026",
    "datePublished": "2026-11-07",
-   "dateModified": "2026-11-24",
+   "dateModified": "2026-11-25",
    "creator": {
     "@id": "https://theflatratemovers.com/#organization",
     "@type": "Organization",
@@ -12457,5 +12457,5 @@
   "howToUse": "Paste this whole script as application/ld+json in the <head> of every rebuilt page, changing only the WebPage name/url, Breadcrumb, and the main Service for that page. Keep Organization, Places, and Catalog identical on every page.",
   "rubric": "See rubric-database-query-model.md: every node must chain by @id, every fact must carry a named source and date, no unverified field may appear."
  },
- "dateModified": "2026-11-24"
+ "dateModified": "2026-11-25"
 }
