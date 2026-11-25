@@ -44,26 +44,26 @@
     "bound": 3.0,
     "control_unwindowed_measured": 3.88,
     "convention": "GB as recorded by the A5 batch sampler (peak RSS KB / 1e6); bound sits below the un-windowed peak and leaves headroom under the box's ~6 GB shared limit",
-    "windowed_measured": 2.58
+    "windowed_measured": 2.62
    },
    "proof": {
-    "builder_sha256": "569c894fb1740c3b6a21dd7070d12952820ffc47394283f9cabaf1f661c47940",
-    "control_builder_sha256": "11727bb85ca4bf09c5caf8314373918e53d0b991259297cc1fc754bdde1f539f",
-    "control_seat": "out/a5-install-batch-2026-11-22/pre-window/build-intent-rubric.js.control",
-    "date": "2026-11-22",
+    "builder_sha256": "1fc86efc85ced24b90872ca3bd3f6de6585c2e2a9b6ad2126bfd774c9ff269e6",
+    "classic_sha256": "569c894fb1740c3b6a21dd7070d12952820ffc47394283f9cabaf1f661c47940",
+    "control_builder_sha256": "569c894fb1740c3b6a21dd7070d12952820ffc47394283f9cabaf1f661c47940",
+    "control_seat": "scripts/build-intent-rubric-classic.js",
+    "date": "2026-11-24",
     "db_meta_equal": {
-     "outcome_digest": "10104febc0e269dc71680f5c77457d1407a7ca39e20e5a5777340649003721da",
-     "row_count": 518217,
-     "rows_digest": "98779c6ad81bb531e615065387baaff3a19687983b6a7043e2b949bab0af28f2"
+     "outcome_digest": "96c8f5ef9905de8dbc358231880748e774282a23f582bab4e109280deb7f7535",
+     "row_count": 518203,
+     "rows_digest": "eac69c6b293825a06d9666cd4848e26065d8152a1a60561f330a4c450529571f"
     },
     "outputs_byte_identical": {
-     "datasets-intent-coverage.json": "d7067da30e4c968af545b00db3d10908d61e698361f46b86c577ebc17ffb9379",
-     "intent-rows.json": "2f0767cf162435e502600a7ac3f70bcb0b814f1f955d65972b5f401363790205",
-     "intent-rubric.sql": "7f009080d64ba48f368c7a68cac478b734f4d17cbfcdb688610fb6f0f04521c8"
+     "datasets-intent-coverage.json": "b44599b327e433f0a8ad4af4675cc20b11f363fa5f94fbe193c7ed3a3e3cf4b9",
+     "intent-rows.json": "2ec2658aa408b13b023fb43a968728c64f5d63e5c20f07f7c47a6605a9f52f13",
+     "intent-rubric.sql": "f95e5db4be0eec6bcac1d6d19a8b6d4f9488bc7d294e194354cb15f75b44a425"
     },
-    "record": "out/ranking-fix-2026-11-23/BATCH-RECORD.md",
-    "rig": "rig3 \u2014 suite-adopt/a5-install/rig3 (control vs windowed on identical tree + pristine DB snapshot)",
-    "proven": "2026-11-23"
+    "record": "out/a4-gates-2026-11-23/A15-REPROOF.md",
+    "rig": "A4 install rig copy \u2014 suite-adopt/a4-slices/install-rig (oracle vs A4_CLASSIC=1 vs sliced-cold on identical tree + pristine DB snapshot restored before every arm; sql/rows/parts/coverage byte-identical, DB meta equal, peaks 2.62/2.58 GB under the 3.0 GB bound)"
    },
    "seats": [
     "scripts/build-intent-rubric.js",

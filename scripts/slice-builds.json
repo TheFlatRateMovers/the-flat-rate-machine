@@ -1,0 +1,176 @@
+{
+ "actions": {
+  "classic_fallback": "every governed step keeps its classic driver as the fallback oracle and the A4_CLASSIC=1 opt-out re-points the seal at it; rollback = remove the seal markers or run with A4_CLASSIC=1",
+  "fail_loud": "a changed input claimed by no slice, an owned input claimed by two slices of one generator, or drift differing from the declared set stops the run BEFORE any output byte is written",
+  "generated_drivers": "sliced drivers are GENERATED from the then-current classic by a4-make-driver.py (anchors asserted) \u2014 never hand-copied; a classic that moved since the last derivation regenerates or the batch stops",
+  "slice_fingerprint": "each slice carries a fingerprint over its owned + shared inputs including the driver code hash; the fingerprint is the skip/rebuild authority \u2014 a slice rebuilds only when its fingerprint moved",
+  "splice_from_cache": "unchanged slices' pre-serialized values splice into the prior output through the classic assembly code, unchanged; no cached value is re-serialized at merge time"
+ },
+ "builders": [
+  {
+   "classic_fallback": {
+    "driver": "build-answer-evidence.js",
+    "opt_out_env": "A4_CLASSIC=1",
+    "seats": [
+     "scripts/build-answer-evidence.js",
+     "repo-dir/build-answer-evidence.js"
+    ],
+    "sha256": "f7fb58954622999a734e57f9be6d78a453e02083890ff914a71d0c84123c7fba"
+   },
+   "driver": "build-answer-evidence-sliced.js",
+   "governs": "the phase-2 answer-evidence emit (datasets-answer-evidence.json + question splits): slices keyed by target page URL; owned per slice = the page's rubric rows in rubric order, its jf file, its shell div span; shared = panel questions designating the page + panel-present flag, cited dataset digests, llms-full probe results, driver code hash (the rig2 A4 block's five-input definition, unchanged)",
+   "id": "build-answer-evidence",
+   "proof": {
+    "date": "2026-11-24",
+    "driver_sha256": "0f13286b25f4556f96fe663dd68366c2ba7bdbba7cb49f52e1abdaca4e23097c",
+    "outputs_byte_identical": {
+     "datasets-answer-evidence.json": "b4ef43cd766c292469835e849eb126f70d1b4288c0850cd74e2a92e1e262d291"
+    },
+    "record": "out/a4-gates-2026-11-23/GATES-REPORT.md",
+    "rig": "A4 install rig copy \u2014 suite-adopt/a4-slices/install-rig, INSTALL-BRIEF section 5 gates 2-4 (fix cycle 2026-11-24/25). cold sliced == classic on all 10 outputs (gate 2, re-fire + fix-cycle baseline); jf plant rebuilt=1, dataset plant rebuilt=54, sliced==classic on both planted trees (gate 3)"
+   },
+   "seal_markers": {
+    "markers": [
+     "AE_DRIVER = \"build-answer-evidence.js\" if A4_CLASSIC else \"build-answer-evidence-sliced.js\"",
+     "_S(AE_DRIVER)",
+     "\"scripts/\" + AE_DRIVER"
+    ],
+    "seal_file": "scripts/seal.py"
+   },
+   "seal_step": "phase 2 derived loop + incr cluster answer-evidence step + settle_consumers loops",
+   "seats": [
+    "scripts/build-answer-evidence-sliced.js",
+    "repo-dir/build-answer-evidence-sliced.js"
+   ]
+  },
+  {
+   "classic_fallback": {
+    "driver": "build-search-index.js",
+    "opt_out_env": "A4_CLASSIC=1",
+    "seats": [
+     "scripts/build-search-index.js",
+     "repo-dir/build-search-index.js"
+    ],
+    "sha256": "78f7fd4dbcef2a0fc0b875fed2b7dd3d2b720088b30d743586b5d7dba7c87411"
+   },
+   "driver": "build-search-index-sliced.js",
+   "governs": "the phase-2 search-index emit over intent_query (datasets-search-index.json + cluster splits): slices keyed by target page URL; owned per slice = the page's rows; per-slice serialized entries joined at assembly through the classic code",
+   "id": "build-search-index",
+   "proof": {
+    "date": "2026-11-24",
+    "driver_sha256": "148255866be4678b79381ab8c2352c3657c39fee56f5b02167b54cb85748f9c6",
+    "outputs_byte_identical": {
+     "datasets-search-index.json": "ee77639f9491e40d68b4aaccb9cffcaef5b13b75a82340129ac041b6b8f9a87a",
+     "datasets-search-index-clusters.json": "39a29d4dc8d9893e4f99eb92dcd7863cc3ba043605aabce0b663dc0f7dcd58bb",
+     "datasets-search-index-clusters-2.json": "7cb626fefdb474109341f091734e0957b829647d982edf4f96d023c84857372f",
+     "datasets-search-index-clusters-3.json": "7f044af56a59ea532c4668815a13cf0e68757306e853fe8940b96ca220add598"
+    },
+    "record": "out/a4-gates-2026-11-23/GATES-REPORT.md",
+    "rig": "A4 install rig copy \u2014 suite-adopt/a4-slices/install-rig, INSTALL-BRIEF section 5 gates 2-4 (fix cycle 2026-11-24/25). pair re-based in the fix cycle: classic = production 78f7fd4d (one line), sliced re-derived by a4-make-driver-si.py (diff vs prior sliced = that one line); cold sliced == new classic on all 4 outputs; jf plant rebuilt=1, dataset plant rebuilt=0, driver-edit plant cold-rebuilt 368 (gate 3); cache-tamper A4-CHANGESET-MISMATCH (gate 4)"
+   },
+   "seal_markers": {
+    "markers": [
+     "SI_DRIVER = \"build-search-index.js\" if A4_CLASSIC else \"build-search-index-sliced.js\"",
+     "_S(SI_DRIVER)",
+     "\"scripts/\" + SI_DRIVER"
+    ],
+    "seal_file": "scripts/seal.py"
+   },
+   "seal_step": "phase 2 derived loop + incr cluster search-index step + settle_consumers loops",
+   "seats": [
+    "scripts/build-search-index-sliced.js",
+    "repo-dir/build-search-index-sliced.js"
+   ]
+  },
+  {
+   "classic_fallback": {
+    "driver": "build-page-data.js",
+    "opt_out_env": "A4_CLASSIC=1",
+    "seats": [
+     "scripts/build-page-data.js",
+     "repo-dir/build-page-data.js"
+    ],
+    "sha256": "baca40e800bd3c7bb79a42e0f869aa622890c14bdd4b6c715a22e69692e5a5b8"
+   },
+   "driver": "build-page-data-sliced.js",
+   "governs": "the phase-4.5 page-data emit (per-page data.json/data.txt + scores + head-block manifest): slices keyed by page slug; owned per slice = the page's jf + its pool row; unchanged pages' values splice from cache",
+   "id": "build-page-data",
+   "proof": {
+    "date": "2026-11-24",
+    "driver_sha256": "8c128347482e61e2cd7976a34c99c94c475fdaef3b564d4bac7f75ac152f4f87",
+    "outputs_byte_identical": {
+     "page-data-scores.json": "bb6fa0cb7a862c4f6afaf4c0eba0028b11f851e1d2ad6da3897e6888bff3834d"
+    },
+    "record": "out/a4-gates-2026-11-23/GATES-REPORT.md",
+    "rig": "A4 install rig copy \u2014 suite-adopt/a4-slices/install-rig, INSTALL-BRIEF section 5 gates 2-4 (fix cycle 2026-11-24/25). cold sliced == classic on all 737 outputs (gate 2); jf plant rebuilt=1 with only the planted page's data.json/data.txt differing from baseline, dataset plant rebuilt=21, sliced==classic on both planted trees (gate 3); duplicate-URL plant throws A4-DOUBLE-CLAIM (gate 4)"
+   },
+   "seal_markers": {
+    "markers": [
+     "PD_DRIVER = \"build-page-data.js\" if A4_CLASSIC else \"build-page-data-sliced.js\"",
+     "_S(PD_DRIVER)",
+     "\"scripts/\" + PD_DRIVER"
+    ],
+    "seal_file": "scripts/seal.py"
+   },
+   "seal_step": "phase 4.5 (legacy main) + incr page-data step",
+   "seats": [
+    "scripts/build-page-data-sliced.js",
+    "repo-dir/build-page-data-sliced.js"
+   ]
+  },
+  {
+   "classic_fallback": {
+    "code_markers": [
+     "const A4_CLASSIC = process.env.A4_CLASSIC === '1';",
+     "function coverageSlices(gen) {",
+     "function a4CoverageFingerprint(svc, hubPage) {"
+    ],
+    "driver": "build-intent-rubric.js",
+    "mode": "env opt-out inside the same builder: A4_CLASSIC=1 restores the classic full datasetAggregates() pass verbatim (the classic path remains in the file, reachable, and is the fallback oracle)",
+    "opt_out_env": "A4_CLASSIC=1",
+    "seats": [
+     "scripts/build-intent-rubric.js",
+     "repo-dir/build-intent-rubric.js"
+    ],
+    "sha256": "1fc86efc85ced24b90872ca3bd3f6de6585c2e2a9b6ad2126bfd774c9ff269e6"
+   },
+   "driver": "build-intent-rubric.js (coverage seat, sliced internally)",
+   "governs": "the phase-1 coverage seat ONLY: the coverage document's (datasets-intent-coverage.json) per-service aggregates become per-service slices \u2014 fingerprint = the service's rows digest (A5 hex-dump aggregate over intent_query + intent_row_outcome, windowed, no row materialization) + the cited dataset digests (hub jf + DATASETS[service]) + the builder hash; cached per-service aggregate values splice into the coverage document; output byte-identical. The DB write path (writeDb .sql, rows file, intent parts) stays A6-windowed-full, untouched. Slicing lives INSIDE the governed builder \u2014 there is no separate sliced driver file and no seal command re-point; the seal marker is the A4-SLICED coverage note at the settle_intent invocation",
+   "id": "build-intent-rubric-coverage",
+   "proof": {
+    "date": "2026-11-24",
+    "driver_sha256": "1fc86efc85ced24b90872ca3bd3f6de6585c2e2a9b6ad2126bfd774c9ff269e6",
+    "outputs_byte_identical": {
+     "datasets-intent-coverage.json": "b44599b327e433f0a8ad4af4675cc20b11f363fa5f94fbe193c7ed3a3e3cf4b9"
+    },
+    "record": "out/a4-gates-2026-11-23/GATES-REPORT.md",
+    "rig": "A4 install rig copy \u2014 suite-adopt/a4-slices/install-rig, INSTALL-BRIEF section 5 gates 2-4 (fix cycle 2026-11-24/25). pair: classic 569c894fb1740c3b6a21dd7070d12952820ffc47394283f9cabaf1f661c47940 / sliced 1fc86efc (A4 block re-derived at module top level, replacing defective 3dc6ecf9); oracle == A4_CLASSIC=1 == sliced-cold on sql/rows/parts/coverage + DB meta, peaks 2.62/2.58 GB (gates 2+6); jf plant and dataset plant each rebuilt exactly 1 coverage slice, sliced==classic on both planted trees (gate 3)"
+   },
+   "seal_markers": {
+    "markers": [
+     "A4-SLICED: coverage - build-intent-rubric.js slices its coverage-document aggregates per service (A4_CLASSIC=1 = classic emit)"
+    ],
+    "seal_file": "scripts/seal.py"
+   },
+   "seal_step": "phase 1 intent (settle_intent, both seal paths)",
+   "seats": [
+    "scripts/build-intent-rubric.js",
+    "repo-dir/build-intent-rubric.js"
+   ]
+  }
+ ],
+ "gate": "predict.py check A1.8 (batch step 0 + publish step 0 backstop)",
+ "installed": "2026-11-24 (rig-copy gates proof; production install rides the coordinator's flip)",
+ "rule": "A builder is GOVERNED by this step when its emit is per-page or per-cell (one slice per registry page / per service) and the classic build recomputes every slice on every run. A governed builder may not run slice-scoped in a production seal until its sliced driver carries a rig proof recorded here: cold sliced build byte-identical to the classic on the same tree, the three plant shapes, and the fail-loud breaks (uncovered change, double-claim, undeclared drift). Any later edit to a governed sliced driver changes its sha256 and the A1.8 gate goes RED until a fresh proof is recorded. The classic seat stays byte-untouched as the fallback oracle; A4_CLASSIC=1 re-points every governed step at it.",
+ "slice_map": {
+  "expected_counts_at_draft": {
+   "answer-evidence": 368,
+   "coverage": 34,
+   "page-data": 368,
+   "search-index": 368
+  },
+  "generator": "scripts/build-slice-map.py",
+  "rule": "the production slice map is generated from data/pages.json + data/services.json + rubric.db metadata \u2014 never hand-listed; the A1.8 gate re-builds it dry and requires the partition check (no owned input claimed twice within a generator) and full registry coverage (every page an AE + search-index + page-data slice, every service a coverage slice)"
+ },
+ "step": "A4 \u2014 Sliced builds (Machine Software Suite, Component A)"
+}

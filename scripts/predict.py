@@ -47,6 +47,14 @@ paid for (A-DESIGN §1):
                        DCAT catalog's set/digests/sizes, the API
                        bullet's dataset figure, the MCP tool list,
                        the catalog resource count, the OpenAPI URL.
+  A1.8 sliced        — the A4 sliced-build step's gate: every builder
+                       in scripts/slice-builds.json must have its
+                       sliced driver installed at every seat
+                       (twin-identical), its classic fallback intact,
+                       a recorded rig proof whose driver sha matches
+                       the installed file, the seal markers present so
+                       the seal invokes the sliced driver, and pass a
+                       dry slice-map build (partition + coverage).
 
 Production seat (per A-DESIGN §1): scripts/predict.py, single seat.
 This rig build takes --root explicitly and loads audit-preflight.py
@@ -895,6 +903,187 @@ def check_splice_seats(ctx, root, pub, repo):
             f"its dataset file", [])
 
 
+# A1.8 — sliced builds (Component A, step A4): governed sliced
+# builders are proven, installed at every seat, twin-identical,
+# backed by an intact classic fallback, actually invoked by the
+# seal, and covered by a generated slice map that partitions the
+# estate (INSTALL-BRIEF section 3, items 1-6). The registry
+# (scripts/slice-builds.json) is shaped exactly like the A1.5
+# registry. A proof field that is missing or still carries the
+# draft placeholder TO-BE-RECORDED is a violation, never a silent
+# pass: an unproven sliced driver is RED here, before a seal is
+# spent — the same law as A1.5, one component over.
+# ------------------------------------------------------------------
+
+PROOF_PLACEHOLDER = "TO-BE-RECORDED"
+
+
+def _proof_sha_ok(value):
+    return isinstance(value, str) and \
+        re.fullmatch(r"[0-9a-f]{64}", value) is not None
+
+
+def check_slice_builds(root):
+    # Item 1: registry present and names >= 1 builder.
+    reg_path = os.path.join(root, "scripts", "slice-builds.json")
+    if not os.path.exists(reg_path):
+        return ("fail", "sliced-builder registry missing "
+                "(scripts/slice-builds.json) — the A4 sliced-build "
+                "step is not installed on this tree", [])
+    reg = json.load(open(reg_path, encoding="utf-8"))
+    builders = reg.get("builders", [])
+    if not builders:
+        return ("fail", "slice-builds registry names no governed "
+                "builders — the A4 step governs nothing", [])
+    failing = []
+    notes = []
+    for b in builders:
+        bid = b.get("id", "?")
+        seats = b.get("seats", [])
+        if len(seats) < 1:
+            failing.append(f"{bid}: registry declares no seats")
+            continue
+        # Item 2: every seat exists; twin seats byte-identical.
+        hashes = {}
+        texts = {}
+        for rel in seats:
+            p = os.path.join(root, rel)
+            if not os.path.exists(p):
+                failing.append(f"{bid}: seat missing ({rel})")
+                continue
+            hashes[rel] = sha256_file(p)
+            texts[rel] = open(p, encoding="utf-8",
+                              errors="replace").read()
+        if len(set(hashes.values())) > 1:
+            hs = ", ".join(f"{r}={h[:8]}…"
+                           for r, h in sorted(hashes.items()))
+            failing.append(f"{bid}: seats diverge ({hs}) — a governed "
+                           f"sliced builder changes in every seat in "
+                           f"the same pass (twin sweep)")
+            continue
+        if not hashes:
+            continue
+        installed = next(iter(hashes.values()))
+        # Item 3: the installed driver is the exact build the
+        # recorded rig proof covers. Missing / placeholder proof
+        # sha = RED, never a pass.
+        proof = b.get("proof", {})
+        proof_sha = proof.get("driver_sha256")
+        if not _proof_sha_ok(proof_sha):
+            failing.append(
+                f"{bid}: proof records no proven driver sha256 "
+                f"(driver_sha256 is {proof_sha!r}) — the sliced "
+                f"driver is unproven until the install rig gates "
+                f"record a real proof in scripts/slice-builds.json")
+        elif proof_sha != installed:
+            failing.append(
+                f"{bid}: installed driver sha256 {installed[:12]}… "
+                f"!= the rig-proven build {proof_sha[:12]}… — an "
+                f"edit to a governed sliced driver needs a fresh "
+                f"rig proof recorded in scripts/slice-builds.json "
+                f"before it may seal")
+        if not _proof_sha_ok(proof.get("outputs_byte_identical")) \
+                and not isinstance(proof.get("outputs_byte_identical"),
+                                   dict):
+            failing.append(f"{bid}: proof records no byte-identical "
+                           f"output hashes (outputs_byte_identical "
+                           f"is {proof.get('outputs_byte_identical')!r})")
+        record = proof.get("record")
+        if not record or record == PROOF_PLACEHOLDER or \
+                not os.path.exists(os.path.join(root, record)):
+            failing.append(f"{bid}: proof record not found "
+                           f"({record})")
+        # Item 4: the classic fallback seat exists and matches its
+        # recorded sha (file fallback), or — for the in-builder env
+        # opt-out (the coverage seat) — the classic path's code
+        # markers are present in the installed builder.
+        fb = b.get("classic_fallback", {})
+        fb_seats = fb.get("seats", [])
+        if not fb_seats:
+            failing.append(f"{bid}: registry declares no classic "
+                           f"fallback seats")
+        for rel in fb_seats:
+            p = os.path.join(root, rel)
+            if not os.path.exists(p):
+                failing.append(f"{bid}: classic fallback seat "
+                               f"missing ({rel})")
+        fb_sha = fb.get("sha256")
+        if not _proof_sha_ok(fb_sha):
+            failing.append(f"{bid}: classic fallback records no "
+                           f"sha256 (sha256 is {fb_sha!r})")
+        else:
+            for rel in fb_seats:
+                p = os.path.join(root, rel)
+                if os.path.exists(p) and sha256_file(p) != fb_sha:
+                    failing.append(
+                        f"{bid}: classic fallback seat {rel} sha256 "
+                        f"{sha256_file(p)[:12]}… != the recorded "
+                        f"classic {fb_sha[:12]}… — the fallback "
+                        f"oracle moved; re-prove before sealing")
+        for m in fb.get("code_markers", []):
+            if not any(m in t for t in texts.values()):
+                failing.append(f"{bid}: classic-path code marker "
+                               f"missing from the installed builder "
+                               f"(the A4_CLASSIC opt-out must stay "
+                               f"reachable): {m!r}")
+        # Item 5: seal.py carries the step markers proving the seal
+        # actually invokes the sliced driver — a silent re-point at
+        # the classic fails the gate.
+        sm = b.get("seal_markers", {})
+        seal_rel = sm.get("seal_file", "scripts/seal.py")
+        seal_path = os.path.join(root, seal_rel)
+        if not os.path.exists(seal_path):
+            failing.append(f"{bid}: seal file missing ({seal_rel})")
+        else:
+            seal_text = open(seal_path, encoding="utf-8",
+                             errors="replace").read()
+            for m in sm.get("markers", []):
+                if m not in seal_text:
+                    failing.append(f"{bid}: sliced driver not "
+                                   f"invoked — seal marker missing "
+                                   f"from {seal_rel}: {m!r}")
+        notes.append(f"{bid}: seats byte-identical at "
+                     f"{installed[:8]}…, classic fallback intact")
+    # Item 6: a dry slice-map build over the live registry passes
+    # the partition check (no owned input claimed twice within a
+    # generator) and covers every registry page + service.
+    sm_path = os.path.join(root, "scripts", "build-slice-map.py")
+    if not os.path.exists(sm_path):
+        failing.append("slice-map builder missing "
+                       "(scripts/build-slice-map.py) — the slice "
+                       "map cannot be generated, so coverage by "
+                       "construction is unproven")
+    else:
+        try:
+            sm_mod = load_module("build_slice_map", sm_path)
+            smap = sm_mod.build_slice_map(root)
+            for e in smap.get("partition_errors", []):
+                failing.append(f"slice map partition: {e}")
+            for e in smap.get("coverage_errors", []):
+                failing.append(f"slice map coverage: {e}")
+            counts = smap.get("counts", {})
+            notes.append("slice map dry build: " + ", ".join(
+                f"{g} {n}" for g, n in sorted(counts.items())) +
+                f"; partition + coverage clean over "
+                f"{smap.get('registry', {}).get('pages', '?')} pages / "
+                f"{smap.get('registry', {}).get('services', '?')} "
+                f"services")
+        except Exception as e:
+            failing.append(f"slice map dry build errored: {e!r}")
+    if failing:
+        shown, total = cap(failing)
+        return ("fail", f"{total} sliced-build violation(s) — a "
+                f"governed sliced builder is unproven, uninstalled, "
+                f"diverged, missing its classic fallback, not invoked "
+                f"by the seal, or the slice map does not partition "
+                f"the estate; fix at the step, not mid-seal", shown)
+    return ("pass", f"{len(builders)} governed sliced builder(s) "
+            f"proven + twin-identical + fallback-intact + "
+            f"seal-invoked ({'; '.join(notes)})", [])
+
+
+# ------------------------------------------------------------------
+
 def main():
     ap = argparse.ArgumentParser(
         description="A1 pre-seal prediction pass (Component A)")
@@ -994,6 +1183,9 @@ def main():
         "A1.7 Splice-seat freshness — llms/ai-sitemap census, "
         "intent landing figures, shell div duplicate-@id dates",
         lambda: check_splice_seats(ctx, root, pub, repo))
+    run("slice-builds",
+        "A1.8 Sliced builds (A4) — governed sliced builders proven + gated",
+        lambda: check_slice_builds(root))
 
     report = {
         "tool": "predict.py (Machine Software Suite, Component A1)",

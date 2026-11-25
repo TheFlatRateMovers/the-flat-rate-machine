@@ -7927,6 +7927,208 @@ function baseNode(id, type, name, description, keywords, about) {
   };
 }
 
+
+// --- A4 coverage slices (Component A4 — changed-slice rebuilds) ---
+// The coverage document's per-service aggregates (the values
+// datasetAggregates() derives for buildDataset: per-service counts /
+// per-class counts / source counts / enriched counts / first graph
+// node, plus the per-service outcome rollup and the per-service area
+// counts behind the totals node's rowsByArea) become per-service
+// slices. A slice's fingerprint is the service's rows digest (a
+// windowed hex-dump aggregate over the intent_query +
+// intent_row_outcome tables just written by writeDb — the A5
+// transport, windows of A4_COV_WIN rows, no row-set materialization)
+// + the digests of the dataset files the service's coverage node
+// cites (its hub per-page JSON + DATASETS[svc.id], read from live
+// bytes via pubFileDigest) + this builder's own sha256. On a
+// fingerprint match the cached aggregate values splice into the
+// coverage document in place of a fresh aggregate pass; on any miss
+// the values come from the classic datasetAggregates() pass (the
+// fallback oracle) and the cache is rewritten. The assembled
+// document is byte-identical either way: per-service values are the
+// same values, and the totals node's area map is re-assembled in
+// the classic first-occurrence order (each area's first row id is
+// unique across services, so ordering the merged map by it
+// reproduces the id-scan order exactly). The DB write path
+// (writeDb .sql, the rows file, the intent parts) is untouched —
+// slicing is emit-path-only, here in main(). A4_CLASSIC=1 restores
+// the classic full aggregate pass verbatim.
+const A4_CLASSIC = process.env.A4_CLASSIC === '1';
+const A4_COV_CACHE_DIR = process.env.A4_COV_CACHE_DIR ||
+  path.join(ROOT, 'out', 'seal-state', 'coverage-slices');
+const A4_COV_CACHE_VERSION = 1;
+const A4_COV_WIN = 5000;
+let _a4BuilderSha = null;
+function a4BuilderSha() {
+  if (_a4BuilderSha === null) {
+    _a4BuilderSha = crypto.createHash('sha256')
+      .update(fs.readFileSync(__filename)).digest('hex');
+  }
+  return _a4BuilderSha;
+}
+// Windowed per-service digest over the two row tables, hashing the
+// same canonical per-row serializations canonicalDigest() /
+// outcomeCanonicalDigest() hash for the whole set, restricted to
+// this service's rows in id order.
+function a4ServiceRowsDigest(svcId) {
+  const h = crypto.createHash('sha256');
+  const svcLit = sqlEsc(svcId);
+  h.update('rows[');
+  let lastId = 0; let first = true;
+  for (;;) {
+    const rows = sqlHex(DB_PATH,
+      'SELECT id, query_text, intent_class, service_id, area, target_url, target_json, dataset_ids, graph_node, cert_target_json_sha256, cert_dataset_digests, gate_page_in_registry, gate_target_in_signed_index, gate_datasets_in_signed_index, source, observation_ids FROM intent_query WHERE service_id = ' + svcLit + ' AND id > ' + lastId + ' ORDER BY id LIMIT ' + A4_COV_WIN + ';');
+    if (rows === null) throw new Error('a4ServiceRowsDigest: window read fell back (null)');
+    if (!rows.length) break;
+    for (const r of rows) {
+      if (!first) h.update(',');
+      first = false;
+      h.update(JSON.stringify([
+        r.query_text, r.intent_class, r.service_id, r.area, r.target_url, r.target_json,
+        JSON.parse(r.dataset_ids), r.graph_node, r.cert_target_json_sha256,
+        JSON.parse(r.cert_dataset_digests),
+        r.gate_page_in_registry, r.gate_target_in_signed_index, r.gate_datasets_in_signed_index,
+        r.source || 'generated', JSON.parse(r.observation_ids || '[]'),
+      ]));
+      lastId = r.id;
+    }
+    if (rows.length < A4_COV_WIN) break;
+  }
+  h.update(']outcomes[');
+  lastId = 0; first = true;
+  const gateCols = OUTCOME_GATES.map((g) => g + '_state').join(', ');
+  for (;;) {
+    const rows = sqlHex(DB_PATH,
+      'SELECT intent_query_id, query_text, service_id, ' + gateCols + ', highest_gate_passed, outcome_status FROM intent_row_outcome WHERE service_id = ' + svcLit + ' AND intent_query_id > ' + lastId + ' ORDER BY intent_query_id LIMIT ' + A4_COV_WIN + ';');
+    if (rows === null) throw new Error('a4ServiceRowsDigest: outcome window read fell back (null)');
+    if (!rows.length) break;
+    for (const r of rows) {
+      if (!first) h.update(',');
+      first = false;
+      h.update(JSON.stringify([r.query_text, r.service_id,
+        OUTCOME_GATES.map((g) => r[g + '_state']), r.highest_gate_passed, r.outcome_status]));
+      lastId = r.intent_query_id;
+    }
+    if (rows.length < A4_COV_WIN) break;
+  }
+  h.update(']');
+  return h.digest('hex');
+}
+function a4CoverageFingerprint(svc, hubPage) {
+  const h = crypto.createHash('sha256');
+  h.update('a4-coverage-slice v' + A4_COV_CACHE_VERSION + '\n');
+  h.update('service ' + svc.id + '\n');
+  h.update('rows ' + a4ServiceRowsDigest(svc.id) + '\n');
+  const cited = [];
+  if (hubPage) cited.push(resolveJsonFile(hubPage));
+  for (const f of (DATASETS[svc.id] || [])) cited.push(f);
+  for (const f of cited) {
+    h.update('cited ' + f + ' ' + (pubFileDigest(SITE + '/' + f) || 'MISSING') + '\n');
+  }
+  h.update('builder ' + a4BuilderSha() + '\n');
+  h.update('generator ' + GENERATOR + ' v' + GENERATOR_VERSION + '\n');
+  return h.digest('hex');
+}
+// Per-service area counts + each area's first row id within this
+// service (windowed; only computed for slices being rebuilt).
+function a4ServiceAreas(svcId) {
+  const counts = {}; const first = {};
+  let lastId = 0;
+  for (;;) {
+    const rows = sqlHex(DB_PATH,
+      'SELECT id, area FROM intent_query WHERE service_id = ' + sqlEsc(svcId) + ' AND id > ' + lastId + ' ORDER BY id LIMIT ' + A4_COV_WIN + ';');
+    if (rows === null) throw new Error('a4ServiceAreas: window read fell back (null)');
+    if (!rows.length) break;
+    for (const r of rows) {
+      if (r.area) {
+        counts[r.area] = (counts[r.area] || 0) + 1;
+        if (first[r.area] === undefined) first[r.area] = r.id;
+      }
+      lastId = r.id;
+    }
+    if (rows.length < A4_COV_WIN) break;
+  }
+  return { counts, first };
+}
+function a4CovCachePath(svcId) {
+  return path.join(A4_COV_CACHE_DIR, svcId + '.json');
+}
+function a4ReadCovCache(svcId, fp) {
+  try {
+    const c = JSON.parse(fs.readFileSync(a4CovCachePath(svcId), 'utf8'));
+    if (c && c.version === A4_COV_CACHE_VERSION && c.fingerprint === fp) return c.values;
+  } catch (_) { /* cold or stale cache: rebuild the slice */ }
+  return null;
+}
+// Resolve every service's coverage-slice values: cache hits splice,
+// misses rebuild from one classic datasetAggregates() pass (plus a
+// per-service area pass for the missed slices only) and re-cache.
+// Returns the dsAgg gen.dsAgg consumes + the spliced outcome map.
+function coverageSlices(gen) {
+  const R = gen.R;
+  const perService = {}; const outcomeByService = {};
+  const areaCount = {}; const areaFirst = {};
+  let total = 0; let rebuilt = 0; let cached = 0;
+  const pending = [];
+  const hits = {};
+  for (const svc of R.services.services) {
+    const hubPage = R.pages.pages.find((p) => p.slug === HUB[svc.id]);
+    const fp = a4CoverageFingerprint(svc, hubPage);
+    const hit = a4ReadCovCache(svc.id, fp);
+    if (hit) {
+      cached++;
+      hits[svc.id] = hit;
+      perService[svc.id] = hit.agg;
+      outcomeByService[svc.id] = hit.outcome;
+    } else {
+      pending.push({ svc, fp });
+    }
+  }
+  if (pending.length) {
+    const fresh = datasetAggregates();
+    fs.mkdirSync(A4_COV_CACHE_DIR, { recursive: true });
+    for (const { svc, fp } of pending) {
+      rebuilt++;
+      const values = {
+        agg: fresh.perService[svc.id] ||
+          { count: 0, perClass: {}, gscObserved: 0, enriched: 0, graphNode: null },
+        outcome: gen.outcomeByService[svc.id],
+        areas: a4ServiceAreas(svc.id),
+      };
+      fs.writeFileSync(a4CovCachePath(svc.id),
+        JSON.stringify({ version: A4_COV_CACHE_VERSION, service: svc.id, fingerprint: fp, values }, null, 1) + '\n');
+      perService[svc.id] = values.agg;
+      outcomeByService[svc.id] = values.outcome;
+      for (const [a, n] of Object.entries(values.areas.counts)) {
+        areaCount[a] = (areaCount[a] || 0) + n;
+        if (areaFirst[a] === undefined || values.areas.first[a] < areaFirst[a]) areaFirst[a] = values.areas.first[a];
+      }
+    }
+    if (!cached) {
+      // Cold run: the classic pass IS the aggregate source, byte
+      // order included; the caches written above serve the next run.
+      return { dsAgg: fresh, outcomeByService: gen.outcomeByService, rebuilt, cached };
+    }
+    // Partial run: totals/area map merge the fresh pass's values
+    // for rebuilt slices with the cached slices' stored area maps.
+    for (const [svcId, hit] of Object.entries(hits)) {
+      for (const [a, n] of Object.entries(hit.areas.counts)) {
+        areaCount[a] = (areaCount[a] || 0) + n;
+        if (areaFirst[a] === undefined || hit.areas.first[a] < areaFirst[a]) areaFirst[a] = hit.areas.first[a];
+      }
+    }
+  }
+  for (const svc of R.services.services) {
+    const sa = perService[svc.id];
+    if (sa) total += sa.count;
+  }
+  const areaRows = {};
+  for (const a of Object.keys(areaCount).sort((x, y) => areaFirst[x] - areaFirst[y])) {
+    areaRows[a] = areaCount[a];
+  }
+  return { dsAgg: { total, perService, areaRows }, outcomeByService, rebuilt, cached };
+}
+
 // Windowed aggregates for buildDataset (A5 install batch,
 // 2026-11-22): one pass over the intent_query table just written,
 // in ORDER BY id windows of 25,000 rows through the hex transport.
@@ -8445,9 +8647,23 @@ function main() {
   // the table just written, then release the rows before building
   // the dataset document — the emit's peak no longer stacks the
   // whole row set under the dataset build.
-  gen.dsAgg = datasetAggregates();
   const rowTotal = gen.rows.length;
   gen.rows = null;
+  if (A4_CLASSIC) {
+    // Classic path (A4 opt-out): the full windowed aggregate pass,
+    // exactly as before A4.
+    gen.dsAgg = datasetAggregates();
+  } else {
+    // A4 sliced path: per-service coverage slices splice cached
+    // aggregate values into the coverage document; only services
+    // whose slice fingerprint moved are rebuilt.
+    const cov = coverageSlices(gen);
+    gen.dsAgg = cov.dsAgg;
+    gen.outcomeByService = cov.outcomeByService;
+    console.error('A4-COVERAGE-SLICES: cached=' + cov.cached +
+      ' rebuilt=' + cov.rebuilt +
+      ' (A4_CLASSIC=1 restores the classic aggregate pass)');
+  }
   const dataset = buildDataset(gen);
   const datasetPath = path.join(workDir, 'datasets-intent-coverage.json');
   fs.writeFileSync(datasetPath, JSON.stringify(dataset, null, 2) + '\n');

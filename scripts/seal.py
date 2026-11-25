@@ -135,6 +135,21 @@ ROOT_FILES = ["ai-sitemap.json", "entity-graph.json",
 RUBRIC_DATE = os.environ.get("RUBRIC_DATE") or \
     datetime.now(ZoneInfo("America/New_York")).strftime("%Y-%m-%d")
 
+# A4 sliced drivers (Component A4 - changed-slice rebuilds): the
+# phase-2 derived loop, the consumer settle loops, the incr
+# cluster's search-index / answer-evidence steps and the phase-4.5
+# page-data step invoke the SLICED drivers by default. A4_CLASSIC=1
+# in the seal's environment re-points every one of them at the
+# classic driver (the fallback oracle) for this invocation. The
+# phase-1 coverage seat needs no re-point: build-intent-rubric.js
+# slices its coverage emit internally and reads the same
+# A4_CLASSIC opt-out itself (see the settle_intent marker).
+# predict.py A1.6 gates these markers at batch step 0.
+A4_CLASSIC = os.environ.get("A4_CLASSIC") == "1"
+AE_DRIVER = "build-answer-evidence.js" if A4_CLASSIC else "build-answer-evidence-sliced.js"
+SI_DRIVER = "build-search-index.js" if A4_CLASSIC else "build-search-index-sliced.js"
+PD_DRIVER = "build-page-data.js" if A4_CLASSIC else "build-page-data-sliced.js"
+
 TIMINGS = []
 
 
@@ -218,6 +233,7 @@ def settle_intent(tag):
     is byte-stable and is covered by the digest pass."""
     chk_env = {**os.environ, "RUBRIC_DATE": RUBRIC_DATE}
     for attempt in (1, 2):
+        # A4-SLICED: coverage - build-intent-rubric.js slices its coverage-document aggregates per service (A4_CLASSIC=1 = classic emit)
         run(["node", "scripts/build-intent-rubric.js"],
             env_extra={"RUBRIC_DATE": RUBRIC_DATE})
         install_intent()
@@ -302,7 +318,7 @@ def settle_consumers(tag):
             shutil.copyfile(src_p, dst_p)
             if sha(src_p) != sha(dst_p):
                 fail(f"FB-3 graph copy mismatch ({tag}): {g}")
-        for gen in ("build-search-index.js", "build-answer-evidence.js"):
+        for gen in (SI_DRIVER, AE_DRIVER):
             run(["node", f"scripts/{gen}"], env_extra=stamps_env)
         run(["node", "scripts/build-catalog-registry.js"],
             env_extra={"CATALOG_DATE": RUBRIC_DATE})
@@ -330,7 +346,7 @@ def settle_consumers(tag):
         # the round; verify.js AE-5 gates the result.
         run(["node", "scripts/sync-ae-landing.js"])
         h1 = {p: sha(p) for p in consumer_files}
-        for gen in ("build-search-index.js", "build-answer-evidence.js"):
+        for gen in (SI_DRIVER, AE_DRIVER):
             run(["node", f"scripts/{gen}"], env_extra=stamps_env)
         h2 = {p: sha(p) for p in consumer_files}
         chk = subprocess.run(
@@ -515,7 +531,7 @@ def main():
 
     phase("2. derived datasets (rubric.db / file readers, in order)")
     stamps_env = {"FB3_STAMPS": os.path.join(WORK, "stamps.json")}
-    for gen in ("build-search-index.js", "build-answer-evidence.js",
+    for gen in (SI_DRIVER, AE_DRIVER,
                 "build-local-graph.js", "build-archive-registry.js"):
         # Q124 (2026-11-03): all four derived-dataset generators now
         # consume FB3_STAMPS for their file-level dateModified stamps
@@ -525,7 +541,7 @@ def main():
         run(["node", f"scripts/{gen}"],
             env_extra=stamps_env if gen in (
                 "build-local-graph.js", "build-archive-registry.js",
-                "build-search-index.js", "build-answer-evidence.js")
+                SI_DRIVER, AE_DRIVER)
             else None)
     # FB-3 standing consequence (the FB-2 lesson): the dataset graph
     # sync runs INSIDE the seal with --resync — a seal that changes a
@@ -684,7 +700,7 @@ def main():
     # (gate PG-4), which fails the seal.
     phase("4.5. page data (pool draw -> per-page data.json/data.txt "
           "+ scores + head-block manifest)")
-    run(["node", "scripts/build-page-data.js",
+    run(["node", "scripts/" + PD_DRIVER,
          "--manifest", os.path.join(WORK, "page-data-manifest.json")],
         env_extra={"FB3_STAMPS": os.path.join(WORK, "stamps.json")})
 
@@ -2027,7 +2043,7 @@ def _incr_cluster(ix, tag, catalog_mode, check_gate=False):
                                      "best-json-entity-graph.json"))]
     si_outs = [("f", os.path.join(PUB, "datasets-search-index.json")),
                ("g", os.path.join(PUB, "datasets-search-index-clusters*.json"))]
-    si_in = (_S("build-search-index.js") + _LIBS + _DATA_X + _STAMPS
+    si_in = (_S(SI_DRIVER) + _LIBS + _DATA_X + _STAMPS
              + _SHELL + _HEAD_FN + _PUB_JSON
              + [("-g", os.path.join(PUB, "datasets-search-index*.json")),
                 ("f", os.path.join(PUB, "service-area.geojson")),
@@ -2036,7 +2052,7 @@ def _incr_cluster(ix, tag, catalog_mode, check_gate=False):
     ae_outs = [("f", os.path.join(PUB, "datasets-answer-evidence.json")),
                ("g", os.path.join(
                    PUB, "datasets-answer-evidence-questions*.json"))]
-    ae_in = (_S("build-answer-evidence.js") + _LIBS + _DATA_AE + _STAMPS
+    ae_in = (_S(AE_DRIVER) + _LIBS + _DATA_AE + _STAMPS
              + _SHELL + _HEAD_FN
              + [("f", os.path.join(PUB, "llms-full.txt"))]
              + _PUB_JSON
@@ -2070,13 +2086,13 @@ def _incr_cluster(ix, tag, catalog_mode, check_gate=False):
             lambda: run(["node", "scripts/build-archive-registry.js"],
                         env_extra=stamps_env))
         gated += ix.step("search-index", si_in, si_outs,
-                         lambda: run(["node", "scripts/build-search-index.js"],
+                         lambda: run(["node", "scripts/" + SI_DRIVER],
                                      env_extra=stamps_env),
                          env_extra="dbrows=" + ix.db_fp_rows()
                          + "|dbgsc=" + ix.db_fp_gsc())
         gated += ix.step("answer-evidence", ae_in, ae_outs,
                          lambda: run(["node",
-                                      "scripts/build-answer-evidence.js"],
+                                      "scripts/" + AE_DRIVER],
                                      env_extra=stamps_env),
                          env_extra="dbrows=" + ix.db_fp_rows())
         # Catalog registry: ALWAYS-RUN when due (live external
@@ -2404,12 +2420,12 @@ def main_incr():
     # bundle made every root rewrite anywhere in the seal a
     # false page-data invalidation.
     ix.step("page-data",
-            _S("build-page-data.js") + _LIBS + _DATA_X + _STAMPS + _HEAD_FN
+            _S(PD_DRIVER) + _LIBS + _DATA_X + _STAMPS + _HEAD_FN
             + _page_data_specs(),
             [("d", PUB, ("data.json", "data.txt"), True),
              ("f", os.path.join(PUB, "page-data-scores.json")),
              ("f", os.path.join(WORK, "page-data-manifest.json"))],
-            lambda: run(["node", "scripts/build-page-data.js",
+            lambda: run(["node", "scripts/" + PD_DRIVER,
                          "--manifest",
                          os.path.join(WORK, "page-data-manifest.json")],
                         env_extra=stamps_env),
