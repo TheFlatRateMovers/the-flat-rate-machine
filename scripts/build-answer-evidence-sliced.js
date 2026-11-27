@@ -965,6 +965,12 @@ function computeSlice(url, rows, cited) {
     fragByNormHeadingPage.get(key).push(f);
   }
   for (const list of fragByNormHeadingPage.values()) {
+    // Mirror the classic builder exactly: fragments are globally sorted
+    // by fragmentId before grouping, then each group is stably sorted
+    // faq-schema first — candidate order is (source rank, fragmentId),
+    // never per-page creation order (vault close, 2026-11-26: same-source
+    // candidates diverged, frag-vaulted-storage-8 vs -10).
+    list.sort((a, b) => (a.fragmentId < b.fragmentId ? -1 : 1));
     list.sort((a, b) => (a.source === b.source ? 0 : a.source === 'faq-schema' ? -1 : 1));
   }
   const hasSubstantive = localFragments.some((f) => f.substantive);

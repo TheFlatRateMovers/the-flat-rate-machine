@@ -19,7 +19,7 @@
     ],
     "seal_step": "intent"
    },
-   "governs": "the intent rubric emit over intent_query (518,217 rows at install): the writeDb .sql stream, the intent-rows file + parts, and the datasets-intent-coverage aggregates \u2014 the estate's known memory peak (un-windowed emit OOM-killed at exit -9/-6/137 in the A5 install batch, 2026-11-22)",
+   "governs": "the intent rubric emit over intent_query (518,217 rows at install): the writeDb .sql stream, the intent-rows file + parts, and the datasets-intent-coverage aggregates — the estate's known memory peak (un-windowed emit OOM-killed at exit -9/-6/137 in the A5 install batch, 2026-11-22)",
    "id": "build-intent-rubric",
    "markers": {
     "release_before_emit": [
@@ -44,26 +44,26 @@
     "bound": 3.0,
     "control_unwindowed_measured": 3.88,
     "convention": "GB as recorded by the A5 batch sampler (peak RSS KB / 1e6); bound sits below the un-windowed peak and leaves headroom under the box's ~6 GB shared limit",
-    "windowed_measured": 2.62
+    "windowed_measured": 2.74
    },
    "proof": {
-    "builder_sha256": "1fc86efc85ced24b90872ca3bd3f6de6585c2e2a9b6ad2126bfd774c9ff269e6",
+    "builder_sha256": "ea0668a3673173d1a116f67b517b214fcaaa324748ef28bc41abfb4a67c18203",
     "classic_sha256": "569c894fb1740c3b6a21dd7070d12952820ffc47394283f9cabaf1f661c47940",
     "control_builder_sha256": "569c894fb1740c3b6a21dd7070d12952820ffc47394283f9cabaf1f661c47940",
     "control_seat": "scripts/build-intent-rubric-classic.js",
-    "date": "2026-11-24",
+    "date": "2026-11-27",
     "db_meta_equal": {
-     "outcome_digest": "96c8f5ef9905de8dbc358231880748e774282a23f582bab4e109280deb7f7535",
-     "row_count": 518203,
-     "rows_digest": "eac69c6b293825a06d9666cd4848e26065d8152a1a60561f330a4c450529571f"
+     "outcome_digest": "084d45e01c1f758c504832ed1c70f73de8e075d1ef1f768306ee3aa858713c0a",
+     "row_count": 533927,
+     "rows_digest": "f7c240e41e05ff9bfcaeca2ecef6510fa65f34034d7e3cdbb130fb5f01bd6cab"
     },
     "outputs_byte_identical": {
-     "datasets-intent-coverage.json": "b44599b327e433f0a8ad4af4675cc20b11f363fa5f94fbe193c7ed3a3e3cf4b9",
-     "intent-rows.json": "2ec2658aa408b13b023fb43a968728c64f5d63e5c20f07f7c47a6605a9f52f13",
-     "intent-rubric.sql": "f95e5db4be0eec6bcac1d6d19a8b6d4f9488bc7d294e194354cb15f75b44a425"
+     "datasets-intent-coverage.json": "220e3ba1ff8c0c55dda6cc1bd2dd82e8021f6dcf8268ecf23ab7f4f15b3357c1",
+     "intent-rows.json": "350d75fcd0b47da80928009190553324b77a79c3edd659436befbe89020d0ae7",
+     "intent-rubric.sql": "83d2e73d16dfed31b659ac833f6177ee9facd0fd4f4e34c2dfeb1f0a1f6f8989"
     },
-    "record": "out/a4-gates-2026-11-23/A15-REPROOF.md",
-    "rig": "A4 install rig copy \u2014 suite-adopt/a4-slices/install-rig (oracle vs A4_CLASSIC=1 vs sliced-cold on identical tree + pristine DB snapshot restored before every arm; sql/rows/parts/coverage byte-identical, DB meta equal, peaks 2.62/2.58 GB under the 3.0 GB bound)"
+    "record": "out/vaulted-storage-batch-2026-11-25/INTENT-AREA-REPROOF.md",
+    "rig": "Vault close fix cycle 2026-11-27 — patch scope is the coverageSlices() cached-area merge ONLY (hoisted out of the pending block; windowed emit path, streamed writes, canonical digests and all A6 markers byte-untouched). Windowed outputs unchanged in kind: db_meta_equal re-verified against the live rubric.db 2026-11-27 (row_count 533,927, outcome_digest 084d45e01c1f758c… unchanged); the one output that moved is datasets-intent-coverage.json, whose rowsByArea now reconciles 21/21 with the DB (510,525 + 19,182 = 529,707 area-tagged rows) — the fix the windowed builder's own classic control always produced. Record: out/vaulted-storage-batch-2026-11-25/INTENT-AREA-REPROOF.md"
    },
    "seats": [
     "scripts/build-intent-rubric.js",
@@ -75,6 +75,6 @@
  ],
  "gate": "predict.py check A1.5 (batch step 0 + publish step 0 backstop)",
  "installed": "2026-11-22",
- "rule": "A builder is GOVERNED by this step when its emit phase materializes a data structure whose size scales with a full estate table \u2014 the row set, the statement list, a whole-set canonical string, or an aggregate pass over the table \u2014 so its peak memory grows with the census instead of with the batch delta. A governed builder may not run in a production seal until its windowed path carries a rig proof recorded here. A new builder that reads or emits a full estate table joins this registry BEFORE its first production seal.",
- "step": "A6 \u2014 Windowed builds (Machine Software Suite, Component A)"
+ "rule": "A builder is GOVERNED by this step when its emit phase materializes a data structure whose size scales with a full estate table — the row set, the statement list, a whole-set canonical string, or an aggregate pass over the table — so its peak memory grows with the census instead of with the batch delta. A governed builder may not run in a production seal until its windowed path carries a rig proof recorded here. A new builder that reads or emits a full estate table joins this registry BEFORE its first production seal.",
+ "step": "A6 — Windowed builds (Machine Software Suite, Component A)"
 }

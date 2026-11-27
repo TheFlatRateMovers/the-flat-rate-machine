@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /* build-coverage.js — Territory Matrix builder (PRODUCTION, P4 live batch 2026-11-09).
  *
- * Reads ONE source (service-area.geojson) + the 34-service registry + the
+ * Reads ONE source (service-area.geojson) + the 35-service registry + the
  * production alias map (data/coverage-alias-map.json), and emits the
  * Territory Matrix into the Pages public tree:
  *   datasets-coverage.json            — the coverage dataset file (summary
@@ -242,7 +242,7 @@ const datasetNode = {
   description:
     'The Flat Rate Movers service-coverage matrix: every place in the company footprint as a typed ' +
     'schema.org Place node with coordinates and branch binding (Winchester VA and Martinsburg WV), ' +
-    'the full feature-by-service coverage table reconciled to the 34-service registry, and the ' +
+    'the full feature-by-service coverage table reconciled to the 35-service registry, and the ' +
     'place-to-place distance table (centroid distances, computed and labeled as computed; road miles ' +
     'only where separately researched). A national layer records the company performed-work record at ' +
     'state level: State nodes for the 49 states where the company has moved clients and performed job ' +
@@ -338,7 +338,7 @@ T('T8 branch split post-expansion 2026-11-17: Winchester 267 / Martinsburg 89 / 
   features.filter(x => x.branch === 'both').length === 21);
 T('T9 GS-3: zero unresolved coverage cells (registry + alias map reconcile all)',
   unresolved.length === 0 && coverage.every(c => c.service_registry_id && regIds.has(c.service_registry_id)));
-T('T10 registry is 34 services', registry.length === 34);
+T('T10 registry is 35 services', registry.length === 35);
 T('T11 every feature has exactly one typed node (id set == feature set)',
   new Set(nodes.map(n => n['@id'])).size === 335 &&
   features.every(f => definedIds.has(`${BASE}/#${f.feature_id}`)));

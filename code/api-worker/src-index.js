@@ -160,6 +160,25 @@ function placeObj(id) {
   return pl ? { id: pl.id, name: pl.name, branch: pl.branch, state: pl.state, county: pl.county } : { id };
 }
 
+// Place-id resolution (fix, 2026-11-26): the coverage tables key places by
+// canonical feature id ("place-winchester-va", "county-berkeley-county"),
+// while callers — AI clients especially — use the rubric's bare area slug
+// ("winchester-va"). An exact-key lookup missed every bare slug, so
+// get_coverage answered services: [] even for the company's home town.
+// Resolve: exact id, then the place- prefixed form, then a match on the
+// slug with any kind prefix stripped from both sides.
+function resolvePlaceId(input) {
+  if (!input) return null;
+  const raw = String(input).trim().toLowerCase();
+  if (placeById.has(raw)) return raw;
+  if (placeById.has('place-' + raw)) return 'place-' + raw;
+  const bare = raw.replace(/^(place|county|city|town|port|corridor)-/, '');
+  for (const id of placeById.keys()) {
+    if (id.replace(/^(place|county|city|town|port|corridor)-/, '') === bare) return id;
+  }
+  return null;
+}
+
 function serviceDetail(s) {
   const placeIds = (COVERAGE.byService || {})[s.id] || [];
   return {
@@ -310,7 +329,7 @@ const TOOLS = [
   },
   {
     name: 'get_coverage',
-    description: 'Territory Matrix coverage: with no arguments, the coverage summary (place count, cell count, pair count, branch split). With "place" (a place id like "place-petersburg-wv"), the services offered at that place. With "service" (a service id), the places where that service is offered.',
+    description: 'Territory Matrix coverage: with no arguments, the coverage summary (place count, cell count, pair count, branch split). With "place" (a place id like "place-petersburg-wv", or the bare slug "petersburg-wv" — both forms are accepted), the services offered at that place. With "service" (a service id), the places where that service is offered. With both, whether that service is offered at that place.',
     inputSchema: { type: 'object', properties: { place: { type: 'string' }, service: { type: 'string' } } },
   },
   {
@@ -366,8 +385,12 @@ async function callTool(name, args) {
   switch (name) {
     case 'get_coverage': {
       if (args.place) {
-        const ids = (COVERAGE.byPlace || {})[args.place] || [];
-        return { place: placeById.get(args.place) || { id: args.place }, services: ids };
+        const pid = resolvePlaceId(args.place);
+        if (!pid) throw new Error(`unknown place: ${args.place}`);
+        const ids = (COVERAGE.byPlace || {})[pid] || [];
+        const out = { place: placeById.get(pid), services: ids };
+        if (args.service) out.service = { id: args.service, covered: ids.includes(args.service) };
+        return out;
       }
       if (args.service) {
         const ids = (COVERAGE.byService || {})[args.service] || [];
@@ -418,7 +441,71 @@ function rpcError(id, code, message) {
   return jsonResponse({ jsonrpc: '2.0', id, error: { code, message } });
 }
 
-async function handleMcp(request) {
+// ------------------------------------------------------- MCP call counting
+// (2026-11-26, per MCP-CALL-COUNTING-SPEC-2026-11-26.md): the worker keeps
+// its own daily counters in the MCP_STATS KV namespace, so "is AI using
+// the MCP" is answerable from our own records — no Cloudflare analytics
+// permission, no dashboard. Aggregates only: day total, per-method,
+// per-tool, per caller class. No IPs and no raw user agents are stored.
+// Counting is fail-soft: scheduled with ctx.waitUntil so it never delays
+// or breaks a response, and a no-op when the binding is absent (tests).
+const UA_BUCKETS = [
+  ['openai', ['chatgpt', 'openai', 'gptbot', 'oai-searchbot']],
+  ['anthropic', ['claude', 'anthropic']],
+  ['perplexity', ['perplexity']],
+  ['google-ai', ['gemini', 'google-ai', 'aistudio', 'googleother']],
+  ['meta-ai', ['meta-externalagent', 'meta-ai', 'facebookexternalhit']],
+  ['mistral', ['mistral']],
+  ['cohere', ['cohere']],
+  ['mcp-client', ['modelcontextprotocol', 'mcp-inspector', 'mcp-client']],
+  ['python', ['python', 'httpx', 'aiohttp']],
+  ['node', ['node-fetch', 'undici', 'axios', 'node.js']],
+  ['browser', ['mozilla']],
+];
+function uaBucket(ua) {
+  const s = String(ua || '').toLowerCase();
+  for (const [bucket, needles] of UA_BUCKETS) {
+    if (needles.some((n) => s.includes(n))) return bucket;
+  }
+  return 'other';
+}
+async function bumpStat(env, key) {
+  const cur = parseInt((await env.MCP_STATS.get(key)) || '0', 10) || 0;
+  await env.MCP_STATS.put(key, String(cur + 1));
+}
+async function countMcpCall(env, request, method, toolName) {
+  const day = new Date().toISOString().slice(0, 10);
+  const jobs = [
+    bumpStat(env, `mcp:${day}:total`),
+    bumpStat(env, `mcp:${day}:method:${method}`),
+    bumpStat(env, `mcp:${day}:ua:${uaBucket(request.headers.get('user-agent'))}`),
+  ];
+  if (toolName) jobs.push(bumpStat(env, `mcp:${day}:tool:${toolName}`));
+  await Promise.all(jobs);
+}
+async function mcpStats(env, daysWanted) {
+  const days = {};
+  if (!env || !env.MCP_STATS) return { counting: 'unavailable (MCP_STATS binding not configured)', days };
+  const now = new Date();
+  for (let i = 0; i < daysWanted; i++) {
+    const day = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() - i)).toISOString().slice(0, 10);
+    const list = await env.MCP_STATS.list({ prefix: `mcp:${day}:` });
+    if (!list.keys.length) continue;
+    const rec = { total: 0, methods: {}, tools: {}, callers: {} };
+    for (const k of list.keys) {
+      const v = parseInt((await env.MCP_STATS.get(k.name)) || '0', 10) || 0;
+      const rest = k.name.slice(`mcp:${day}:`.length);
+      if (rest === 'total') rec.total = v;
+      else if (rest.startsWith('method:')) rec.methods[rest.slice(7)] = v;
+      else if (rest.startsWith('tool:')) rec.tools[rest.slice(5)] = v;
+      else if (rest.startsWith('ua:')) rec.callers[rest.slice(3)] = v;
+    }
+    days[day] = rec;
+  }
+  return { counting: 'live', days };
+}
+
+async function handleMcp(request, env, ctx) {
   let msg;
   try {
     msg = await request.json();
@@ -429,6 +516,10 @@ async function handleMcp(request) {
   if (isNotification) {
     // Notifications (e.g. notifications/initialized) get no JSON-RPC body.
     return new Response(null, { status: 202, headers: { ...CORS } });
+  }
+  if (env && env.MCP_STATS && ctx && ['initialize', 'ping', 'tools/list', 'tools/call'].includes(msg.method)) {
+    const toolName = msg.method === 'tools/call' && msg.params ? msg.params.name : null;
+    ctx.waitUntil(countMcpCall(env, request, msg.method, toolName).catch(() => {}));
   }
   switch (msg.method) {
     case 'initialize':
@@ -519,6 +610,7 @@ The Flat Rate Movers, <em>Search Intent Coverage Dataset</em>,
 <li><code>GET /v1/verify?file={filename}</code> — live SHA-256 vs the signed index</li>
 <li><code>GET /openapi.json</code> — this API as an OpenAPI 3 document</li>
 <li><code>POST /mcp</code> — MCP JSON-RPC endpoint (tools: list_services, get_service, get_coverage, list_datasets, get_dataset, search_intent, verify_file)</li>
+<li><code>GET /v1/mcp-stats?days=30</code> — the MCP server's own daily call counters (totals, per-tool, per caller class), counted by the worker itself</li>
 </ul>
 <h2>Access, caching and limits</h2>
 <ul>
@@ -795,7 +887,7 @@ const OPENAPI = {
 
 // -------------------------------------------------------------------- main
 export default {
-  async fetch(request) {
+  async fetch(request, env, ctx) {
     const url = new URL(request.url);
     const path = url.pathname.replace(/\/+$/, '') || '/';
 
@@ -807,7 +899,7 @@ export default {
       if (request.method !== 'POST') {
         return errorJson('MCP endpoint accepts POST (stateless JSON-RPC).', 405);
       }
-      return handleMcp(request);
+      return handleMcp(request, env, ctx);
     }
     if (request.method !== 'GET') {
       return errorJson('Method not allowed', 405);
@@ -820,8 +912,9 @@ export default {
     if (path === '/bbf7b7d5281876c13897f6e1498f6cc56abb3487f12603698128f7b08bae3a6d.txt') return textResponse('bbf7b7d5281876c13897f6e1498f6cc56abb3487f12603698128f7b08bae3a6d', 'text/plain; charset=utf-8');
     if (path === '/openapi.json') return jsonResponse(OPENAPI);
     if (path === '/v1/services') {
-      const place = url.searchParams.get('place');
-      if (!place) return jsonResponse({ count: services.length, services: services.map(serviceSummary) });
+      const placeParam = url.searchParams.get('place');
+      if (!placeParam) return jsonResponse({ count: services.length, services: services.map(serviceSummary) });
+      const place = resolvePlaceId(placeParam) || placeParam;
       const ids = new Set((COVERAGE.byPlace || {})[place] || []);
       const list = services.filter((sv) => ids.has(sv.id)).map(serviceSummary);
       const out = { count: list.length, services: list };
@@ -1037,6 +1130,10 @@ export default {
       const file = url.searchParams.get('file');
       if (!file) return errorJson('missing ?file= parameter', 400);
       return jsonResponse(await verifyFile(file));
+    }
+    if (path === '/v1/mcp-stats') {
+      const daysWanted = Math.min(90, Math.max(1, parseInt(url.searchParams.get('days') || '30', 10) || 30));
+      return jsonResponse({ endpoint: 'mcp-stats', generatedAt: new Date().toISOString(), ...(await mcpStats(env, daysWanted)) });
     }
     return errorJson('not found', 404);
   },

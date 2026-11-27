@@ -2,8 +2,8 @@
  "actions": {
   "classic_fallback": "every governed step keeps its classic driver as the fallback oracle and the A4_CLASSIC=1 opt-out re-points the seal at it; rollback = remove the seal markers or run with A4_CLASSIC=1",
   "fail_loud": "a changed input claimed by no slice, an owned input claimed by two slices of one generator, or drift differing from the declared set stops the run BEFORE any output byte is written",
-  "generated_drivers": "sliced drivers are GENERATED from the then-current classic by a4-make-driver.py (anchors asserted) \u2014 never hand-copied; a classic that moved since the last derivation regenerates or the batch stops",
-  "slice_fingerprint": "each slice carries a fingerprint over its owned + shared inputs including the driver code hash; the fingerprint is the skip/rebuild authority \u2014 a slice rebuilds only when its fingerprint moved",
+  "generated_drivers": "sliced drivers are GENERATED from the then-current classic by a4-make-driver.py (anchors asserted) — never hand-copied; a classic that moved since the last derivation regenerates or the batch stops",
+  "slice_fingerprint": "each slice carries a fingerprint over its owned + shared inputs including the driver code hash; the fingerprint is the skip/rebuild authority — a slice rebuilds only when its fingerprint moved",
   "splice_from_cache": "unchanged slices' pre-serialized values splice into the prior output through the classic assembly code, unchanged; no cached value is re-serialized at merge time"
  },
  "builders": [
@@ -21,13 +21,13 @@
    "governs": "the phase-2 answer-evidence emit (datasets-answer-evidence.json + question splits): slices keyed by target page URL; owned per slice = the page's rubric rows in rubric order, its jf file, its shell div span; shared = panel questions designating the page + panel-present flag, cited dataset digests, llms-full probe results, driver code hash (the rig2 A4 block's five-input definition, unchanged)",
    "id": "build-answer-evidence",
    "proof": {
-    "date": "2026-11-24",
-    "driver_sha256": "0f13286b25f4556f96fe663dd68366c2ba7bdbba7cb49f52e1abdaca4e23097c",
+    "date": "2026-11-26",
+    "driver_sha256": "558e3f76074c9aceb94ae370390743921c82352c80ab8b7145c943744acee1ab",
     "outputs_byte_identical": {
-     "datasets-answer-evidence.json": "b4ef43cd766c292469835e849eb126f70d1b4288c0850cd74e2a92e1e262d291"
+     "datasets-answer-evidence.json": "e1447010810104c7c2bcabca64d9d436564970b2607e7eea60bac83d44df57df"
     },
-    "record": "out/a4-gates-2026-11-23/GATES-REPORT.md",
-    "rig": "A4 install rig copy \u2014 suite-adopt/a4-slices/install-rig, INSTALL-BRIEF section 5 gates 2-4 (fix cycle 2026-11-24/25). cold sliced == classic on all 10 outputs (gate 2, re-fire + fix-cycle baseline); jf plant rebuilt=1, dataset plant rebuilt=54, sliced==classic on both planted trees (gate 3)"
+    "record": "out/vaulted-storage-batch-2026-11-25/AE-DRIVER-REPROOF.md",
+    "rig": "Vault close fix cycle 2026-11-26 — candidate-order divergence (classic global fragmentId sort vs sliced per-page creation order) found at question-475249 / frag-vaulted-storage-8 vs -10; sliced binding patched to the classic two-step order in both seats; A/B on the live sealed estate: patched sliced write, then classic --check EXIT 0, all 10 outputs byte-identical (pre-patch control: exit 1)"
    },
    "seal_markers": {
     "markers": [
@@ -60,13 +60,13 @@
     "date": "2026-11-24",
     "driver_sha256": "148255866be4678b79381ab8c2352c3657c39fee56f5b02167b54cb85748f9c6",
     "outputs_byte_identical": {
-     "datasets-search-index.json": "ee77639f9491e40d68b4aaccb9cffcaef5b13b75a82340129ac041b6b8f9a87a",
-     "datasets-search-index-clusters.json": "39a29d4dc8d9893e4f99eb92dcd7863cc3ba043605aabce0b663dc0f7dcd58bb",
      "datasets-search-index-clusters-2.json": "7cb626fefdb474109341f091734e0957b829647d982edf4f96d023c84857372f",
-     "datasets-search-index-clusters-3.json": "7f044af56a59ea532c4668815a13cf0e68757306e853fe8940b96ca220add598"
+     "datasets-search-index-clusters-3.json": "7f044af56a59ea532c4668815a13cf0e68757306e853fe8940b96ca220add598",
+     "datasets-search-index-clusters.json": "39a29d4dc8d9893e4f99eb92dcd7863cc3ba043605aabce0b663dc0f7dcd58bb",
+     "datasets-search-index.json": "ee77639f9491e40d68b4aaccb9cffcaef5b13b75a82340129ac041b6b8f9a87a"
     },
     "record": "out/a4-gates-2026-11-23/GATES-REPORT.md",
-    "rig": "A4 install rig copy \u2014 suite-adopt/a4-slices/install-rig, INSTALL-BRIEF section 5 gates 2-4 (fix cycle 2026-11-24/25). pair re-based in the fix cycle: classic = production 78f7fd4d (one line), sliced re-derived by a4-make-driver-si.py (diff vs prior sliced = that one line); cold sliced == new classic on all 4 outputs; jf plant rebuilt=1, dataset plant rebuilt=0, driver-edit plant cold-rebuilt 368 (gate 3); cache-tamper A4-CHANGESET-MISMATCH (gate 4)"
+    "rig": "A4 install rig copy — suite-adopt/a4-slices/install-rig, INSTALL-BRIEF section 5 gates 2-4 (fix cycle 2026-11-24/25). pair re-based in the fix cycle: classic = production 78f7fd4d (one line), sliced re-derived by a4-make-driver-si.py (diff vs prior sliced = that one line); cold sliced == new classic on all 4 outputs; jf plant rebuilt=1, dataset plant rebuilt=0, driver-edit plant cold-rebuilt 368 (gate 3); cache-tamper A4-CHANGESET-MISMATCH (gate 4)"
    },
    "seal_markers": {
     "markers": [
@@ -102,7 +102,7 @@
      "page-data-scores.json": "bb6fa0cb7a862c4f6afaf4c0eba0028b11f851e1d2ad6da3897e6888bff3834d"
     },
     "record": "out/a4-gates-2026-11-23/GATES-REPORT.md",
-    "rig": "A4 install rig copy \u2014 suite-adopt/a4-slices/install-rig, INSTALL-BRIEF section 5 gates 2-4 (fix cycle 2026-11-24/25). cold sliced == classic on all 737 outputs (gate 2); jf plant rebuilt=1 with only the planted page's data.json/data.txt differing from baseline, dataset plant rebuilt=21, sliced==classic on both planted trees (gate 3); duplicate-URL plant throws A4-DOUBLE-CLAIM (gate 4)"
+    "rig": "A4 install rig copy — suite-adopt/a4-slices/install-rig, INSTALL-BRIEF section 5 gates 2-4 (fix cycle 2026-11-24/25). cold sliced == classic on all 737 outputs (gate 2); jf plant rebuilt=1 with only the planted page's data.json/data.txt differing from baseline, dataset plant rebuilt=21, sliced==classic on both planted trees (gate 3); duplicate-URL plant throws A4-DOUBLE-CLAIM (gate 4)"
    },
    "seal_markers": {
     "markers": [
@@ -132,19 +132,19 @@
      "scripts/build-intent-rubric.js",
      "repo-dir/build-intent-rubric.js"
     ],
-    "sha256": "1fc86efc85ced24b90872ca3bd3f6de6585c2e2a9b6ad2126bfd774c9ff269e6"
+    "sha256": "ea0668a3673173d1a116f67b517b214fcaaa324748ef28bc41abfb4a67c18203"
    },
    "driver": "build-intent-rubric.js (coverage seat, sliced internally)",
-   "governs": "the phase-1 coverage seat ONLY: the coverage document's (datasets-intent-coverage.json) per-service aggregates become per-service slices \u2014 fingerprint = the service's rows digest (A5 hex-dump aggregate over intent_query + intent_row_outcome, windowed, no row materialization) + the cited dataset digests (hub jf + DATASETS[service]) + the builder hash; cached per-service aggregate values splice into the coverage document; output byte-identical. The DB write path (writeDb .sql, rows file, intent parts) stays A6-windowed-full, untouched. Slicing lives INSIDE the governed builder \u2014 there is no separate sliced driver file and no seal command re-point; the seal marker is the A4-SLICED coverage note at the settle_intent invocation",
+   "governs": "the phase-1 coverage seat ONLY: the coverage document's (datasets-intent-coverage.json) per-service aggregates become per-service slices — fingerprint = the service's rows digest (A5 hex-dump aggregate over intent_query + intent_row_outcome, windowed, no row materialization) + the cited dataset digests (hub jf + DATASETS[service]) + the builder hash; cached per-service aggregate values splice into the coverage document; output byte-identical. The DB write path (writeDb .sql, rows file, intent parts) stays A6-windowed-full, untouched. Slicing lives INSIDE the governed builder — there is no separate sliced driver file and no seal command re-point; the seal marker is the A4-SLICED coverage note at the settle_intent invocation",
    "id": "build-intent-rubric-coverage",
    "proof": {
-    "date": "2026-11-24",
-    "driver_sha256": "1fc86efc85ced24b90872ca3bd3f6de6585c2e2a9b6ad2126bfd774c9ff269e6",
+    "date": "2026-11-27",
+    "driver_sha256": "ea0668a3673173d1a116f67b517b214fcaaa324748ef28bc41abfb4a67c18203",
     "outputs_byte_identical": {
-     "datasets-intent-coverage.json": "b44599b327e433f0a8ad4af4675cc20b11f363fa5f94fbe193c7ed3a3e3cf4b9"
+     "datasets-intent-coverage.json": "220e3ba1ff8c0c55dda6cc1bd2dd82e8021f6dcf8268ecf23ab7f4f15b3357c1"
     },
-    "record": "out/a4-gates-2026-11-23/GATES-REPORT.md",
-    "rig": "A4 install rig copy \u2014 suite-adopt/a4-slices/install-rig, INSTALL-BRIEF section 5 gates 2-4 (fix cycle 2026-11-24/25). pair: classic 569c894fb1740c3b6a21dd7070d12952820ffc47394283f9cabaf1f661c47940 / sliced 1fc86efc (A4 block re-derived at module top level, replacing defective 3dc6ecf9); oracle == A4_CLASSIC=1 == sliced-cold on sql/rows/parts/coverage + DB meta, peaks 2.62/2.58 GB (gates 2+6); jf plant and dataset plant each rebuilt exactly 1 coverage slice, sliced==classic on both planted trees (gate 3)"
+    "record": "out/vaulted-storage-batch-2026-11-25/INTENT-AREA-REPROOF.md",
+    "rig": "Vault close fix cycle 2026-11-27 — rowsByArea zeroed on fully-cached runs (cached-slice area merge sat inside the pending block in coverageSlices); merge hoisted to run unconditionally, both seats; patched builder work output reconciles 21/21 against rubric.db: rowsByArea 510,525 + rowsByNonFeatureArea 19,182 = 529,707 area-tagged rows, 533,927 total rows, 43 graph nodes (full reconciliation: out/vaulted-storage-batch-2026-11-25/i9-reconciliation-2026-11-27.md)"
    },
    "seal_markers": {
     "markers": [
@@ -170,7 +170,7 @@
    "search-index": 368
   },
   "generator": "scripts/build-slice-map.py",
-  "rule": "the production slice map is generated from data/pages.json + data/services.json + rubric.db metadata \u2014 never hand-listed; the A1.8 gate re-builds it dry and requires the partition check (no owned input claimed twice within a generator) and full registry coverage (every page an AE + search-index + page-data slice, every service a coverage slice)"
+  "rule": "the production slice map is generated from data/pages.json + data/services.json + rubric.db metadata — never hand-listed; the A1.8 gate re-builds it dry and requires the partition check (no owned input claimed twice within a generator) and full registry coverage (every page an AE + search-index + page-data slice, every service a coverage slice)"
  },
- "step": "A4 \u2014 Sliced builds (Machine Software Suite, Component A)"
+ "step": "A4 — Sliced builds (Machine Software Suite, Component A)"
 }

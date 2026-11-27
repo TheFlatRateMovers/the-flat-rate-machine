@@ -1,6 +1,6 @@
 {
  "type": "FeatureCollection",
- "name": "The Flat Rate Movers — Service Area GeoJSON",
+ "name": "The Flat Rate Movers \u2014 Service Area GeoJSON",
  "version": "2026-11-17",
  "dateModified": "2026-11-17",
  "organization": "The Flat Rate Movers LLC",
@@ -52,7 +52,7 @@
    "verified": "2026-10-28"
   },
   {
-   "claim": "Bristow, VA published as a Google Business Profile service area on the Winchester profile — 17 Winchester GBP service areas (Moorefield in both branches)",
+   "claim": "Bristow, VA published as a Google Business Profile service area on the Winchester profile \u2014 17 Winchester GBP service areas (Moorefield in both branches)",
    "source": "GBP Manager read-only verification 2026-10-30: 17 published areas on the Winchester profile, Bristow, VA, USA listed, no pending notice",
    "verified": "2026-10-30"
   }
@@ -129,7 +129,8 @@
      "data-center-relocation",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 3
    }
@@ -208,7 +209,8 @@
      "data-center-relocation",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 3
    }
@@ -284,7 +286,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 3
    }
@@ -360,7 +363,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 3
    }
@@ -436,7 +440,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 3
    }
@@ -512,7 +517,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 3
    }
@@ -588,7 +594,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 3
    }
@@ -664,7 +671,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 3
    }
@@ -740,7 +748,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 3
    }
@@ -816,7 +825,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 3
    }
@@ -892,7 +902,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 3
    }
@@ -968,7 +979,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 3
    }
@@ -1044,7 +1056,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 3
    }
@@ -1120,7 +1133,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 3
    }
@@ -1196,7 +1210,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 3
    }
@@ -1272,7 +1287,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 3
    }
@@ -1348,7 +1364,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 3
    }
@@ -1424,7 +1441,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 3
    }
@@ -1500,7 +1518,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 3
    }
@@ -1576,7 +1595,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 3
    }
@@ -1652,7 +1672,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 3
    }
@@ -1728,7 +1749,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 3
    }
@@ -1804,7 +1826,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 3
    }
@@ -1880,7 +1903,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 3
    }
@@ -1956,7 +1980,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 3
    }
@@ -2032,7 +2057,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 3
    }
@@ -2108,10 +2134,11 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 2,
-    "rubric_note": "Score 2: coordinates verified by map geocoding 2026-10-28, but this is an expansion city, not a GBP service area, and it has no dedicated page — so R3 visible-match and R4 source-check score 2. It is served as part of the branch footprint, not presented as a GBP area."
+    "rubric_note": "Score 2: coordinates verified by map geocoding 2026-10-28, but this is an expansion city, not a GBP service area, and it has no dedicated page \u2014 so R3 visible-match and R4 source-check score 2. It is served as part of the branch footprint, not presented as a GBP area."
    }
   },
   {
@@ -2185,10 +2212,11 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 2,
-    "rubric_note": "Score 2: coordinates verified by map geocoding 2026-10-28, but this is an expansion city, not a GBP service area, and it has no dedicated page — so R3 visible-match and R4 source-check score 2. It is served as part of the branch footprint, not presented as a GBP area."
+    "rubric_note": "Score 2: coordinates verified by map geocoding 2026-10-28, but this is an expansion city, not a GBP service area, and it has no dedicated page \u2014 so R3 visible-match and R4 source-check score 2. It is served as part of the branch footprint, not presented as a GBP area."
    }
   },
   {
@@ -2262,10 +2290,11 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 2,
-    "rubric_note": "Score 2: coordinates verified by map geocoding 2026-10-28, but this is an expansion city, not a GBP service area, and it has no dedicated page — so R3 visible-match and R4 source-check score 2. It is served as part of the branch footprint, not presented as a GBP area."
+    "rubric_note": "Score 2: coordinates verified by map geocoding 2026-10-28, but this is an expansion city, not a GBP service area, and it has no dedicated page \u2014 so R3 visible-match and R4 source-check score 2. It is served as part of the branch footprint, not presented as a GBP area."
    }
   },
   {
@@ -2282,7 +2311,7 @@
     "id": "place-bristow-va",
     "name": "Bristow, VA",
     "type": "city",
-    "source": "Google Business Profile service area — Bristow was assigned to the Winchester branch by owner ruling 2026-10-30 (closest branch); the service-area edit was published on the Winchester Google Business Profile on 2026-10-30 and verified in GBP Manager 2026-10-30. Coordinates via map geocoding 2026-10-30; branch coordinates via Places 2026-10-27.",
+    "source": "Google Business Profile service area \u2014 Bristow was assigned to the Winchester branch by owner ruling 2026-10-30 (closest branch); the service-area edit was published on the Winchester Google Business Profile on 2026-10-30 and verified in GBP Manager 2026-10-30. Coordinates via map geocoding 2026-10-30; branch coordinates via Places 2026-10-27.",
     "verified": "2026-10-30",
     "provider": "https://theflatratemovers.com/#organization",
     "citation": "https://theflatratemovers.com/service-area.geojson",
@@ -2339,10 +2368,11 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 2,
-    "rubric_note": "Score 2: coordinates verified by map geocoding 2026-10-30, and Bristow is a published Google Business Profile service area on the Winchester profile (published 2026-10-30), but it has no dedicated page — so R3 visible-match and R4 source-check score 2. It is served as part of the Winchester branch footprint and listed among the Winchester GBP service areas."
+    "rubric_note": "Score 2: coordinates verified by map geocoding 2026-10-30, and Bristow is a published Google Business Profile service area on the Winchester profile (published 2026-10-30), but it has no dedicated page \u2014 so R3 visible-match and R4 source-check score 2. It is served as part of the Winchester branch footprint and listed among the Winchester GBP service areas."
    }
   },
   {
@@ -2416,10 +2446,11 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 2,
-    "rubric_note": "Score 2: coordinates verified by map geocoding 2026-10-28, but this is an expansion city, not a GBP service area, and it has no dedicated page — so R3 visible-match and R4 source-check score 2. It is served as part of the branch footprint, not presented as a GBP area."
+    "rubric_note": "Score 2: coordinates verified by map geocoding 2026-10-28, but this is an expansion city, not a GBP service area, and it has no dedicated page \u2014 so R3 visible-match and R4 source-check score 2. It is served as part of the branch footprint, not presented as a GBP area."
    }
   },
   {
@@ -2493,10 +2524,11 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 2,
-    "rubric_note": "Score 2: coordinates verified by map geocoding 2026-10-28, but this is an expansion city, not a GBP service area, and it has no dedicated page — so R3 visible-match and R4 source-check score 2. It is served as part of the branch footprint, not presented as a GBP area."
+    "rubric_note": "Score 2: coordinates verified by map geocoding 2026-10-28, but this is an expansion city, not a GBP service area, and it has no dedicated page \u2014 so R3 visible-match and R4 source-check score 2. It is served as part of the branch footprint, not presented as a GBP area."
    }
   },
   {
@@ -2570,10 +2602,11 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 2,
-    "rubric_note": "Score 2: coordinates verified by map geocoding 2026-10-28, but this is an expansion city, not a GBP service area, and it has no dedicated page — so R3 visible-match and R4 source-check score 2. It is served as part of the branch footprint, not presented as a GBP area."
+    "rubric_note": "Score 2: coordinates verified by map geocoding 2026-10-28, but this is an expansion city, not a GBP service area, and it has no dedicated page \u2014 so R3 visible-match and R4 source-check score 2. It is served as part of the branch footprint, not presented as a GBP area."
    }
   },
   {
@@ -2647,10 +2680,11 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 2,
-    "rubric_note": "Score 2: coordinates verified by map geocoding 2026-10-28, but this is an expansion city, not a GBP service area, and it has no dedicated page — so R3 visible-match and R4 source-check score 2. It is served as part of the branch footprint, not presented as a GBP area."
+    "rubric_note": "Score 2: coordinates verified by map geocoding 2026-10-28, but this is an expansion city, not a GBP service area, and it has no dedicated page \u2014 so R3 visible-match and R4 source-check score 2. It is served as part of the branch footprint, not presented as a GBP area."
    }
   },
   {
@@ -2703,7 +2737,8 @@
      "long-distance",
      "moving-and-storage",
      "white-glove",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 3
    }
@@ -2758,7 +2793,8 @@
      "long-distance",
      "moving-and-storage",
      "white-glove",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 3
    }
@@ -2813,7 +2849,8 @@
      "long-distance",
      "moving-and-storage",
      "white-glove",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 3
    }
@@ -2868,7 +2905,8 @@
      "long-distance",
      "moving-and-storage",
      "white-glove",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 3
    }
@@ -2923,7 +2961,8 @@
      "long-distance",
      "moving-and-storage",
      "white-glove",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 3
    }
@@ -2978,7 +3017,8 @@
      "long-distance",
      "moving-and-storage",
      "white-glove",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 3
    }
@@ -3033,7 +3073,8 @@
      "long-distance",
      "moving-and-storage",
      "white-glove",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 3
    }
@@ -3088,7 +3129,8 @@
      "long-distance",
      "moving-and-storage",
      "white-glove",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 3
    }
@@ -3143,7 +3185,8 @@
      "long-distance",
      "moving-and-storage",
      "white-glove",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 3
    }
@@ -3198,7 +3241,8 @@
      "long-distance",
      "moving-and-storage",
      "white-glove",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 3
    }
@@ -3253,7 +3297,8 @@
      "long-distance",
      "moving-and-storage",
      "white-glove",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 3
    }
@@ -3308,7 +3353,8 @@
      "long-distance",
      "moving-and-storage",
      "white-glove",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 3
    }
@@ -3351,7 +3397,8 @@
      "custom-crating",
      "ispm15-export-packing",
      "final-mile",
-     "warehouse-distribution"
+     "warehouse-distribution",
+     "vaulted-storage"
     ],
     "rubric_score": 3
    }
@@ -3394,7 +3441,8 @@
      "custom-crating",
      "ispm15-export-packing",
      "final-mile",
-     "warehouse-distribution"
+     "warehouse-distribution",
+     "vaulted-storage"
     ],
     "rubric_score": 3
    }
@@ -3437,7 +3485,8 @@
      "custom-crating",
      "ispm15-export-packing",
      "final-mile",
-     "warehouse-distribution"
+     "warehouse-distribution",
+     "vaulted-storage"
     ],
     "rubric_score": 3
    }
@@ -3483,7 +3532,8 @@
      "custom-crating",
      "ispm15-export-packing",
      "final-mile",
-     "warehouse-distribution"
+     "warehouse-distribution",
+     "vaulted-storage"
     ],
     "rubric_score": 3
    }
@@ -3526,7 +3576,8 @@
      "custom-crating",
      "ispm15-export-packing",
      "final-mile",
-     "warehouse-distribution"
+     "warehouse-distribution",
+     "vaulted-storage"
     ],
     "rubric_score": 3
    }
@@ -3569,7 +3620,8 @@
      "custom-crating",
      "ispm15-export-packing",
      "final-mile",
-     "warehouse-distribution"
+     "warehouse-distribution",
+     "vaulted-storage"
     ],
     "rubric_score": 3
    }
@@ -3612,7 +3664,8 @@
      "custom-crating",
      "ispm15-export-packing",
      "final-mile",
-     "warehouse-distribution"
+     "warehouse-distribution",
+     "vaulted-storage"
     ],
     "rubric_score": 3
    }
@@ -3688,7 +3741,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 2
    }
@@ -3764,7 +3818,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 2
    }
@@ -3840,7 +3895,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 2
    }
@@ -3916,7 +3972,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 2
    }
@@ -3992,7 +4049,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 2
    }
@@ -4068,7 +4126,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 2
    }
@@ -4144,7 +4203,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 2
    }
@@ -4220,7 +4280,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 2
    }
@@ -4296,7 +4357,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 2
    }
@@ -4372,7 +4434,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 2
    }
@@ -4448,7 +4511,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 2
    }
@@ -4524,7 +4588,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 3
    }
@@ -4600,7 +4665,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 3
    }
@@ -4676,7 +4742,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 2
    }
@@ -4752,7 +4819,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 2
    }
@@ -4828,7 +4896,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 2
    }
@@ -4904,7 +4973,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 2
    }
@@ -4980,7 +5050,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 2
    }
@@ -4999,7 +5070,7 @@
     "id": "place-petersburg-wv",
     "name": "Petersburg, WV",
     "type": "city",
-    "source": "Territory expansion 2026-11-07 (WV-3 Moorefield / South Branch Valley cluster, owner-confirmed coverage — we serve all areas); coordinates via map geocoding 2026-11-07; branch bound to Winchester on owner direction",
+    "source": "Territory expansion 2026-11-07 (WV-3 Moorefield / South Branch Valley cluster, owner-confirmed coverage \u2014 we serve all areas); coordinates via map geocoding 2026-11-07; branch bound to Winchester on owner direction",
     "verified": "2026-11-07",
     "provider": "https://theflatratemovers.com/#organization",
     "citation": "https://theflatratemovers.com/service-area.geojson",
@@ -5056,7 +5127,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 2
    }
@@ -5075,7 +5147,7 @@
     "id": "place-keyser-wv",
     "name": "Keyser, WV",
     "type": "city",
-    "source": "Territory expansion 2026-11-07 (WV-3 Moorefield / South Branch Valley cluster, owner-confirmed coverage — we serve all areas); coordinates via map geocoding 2026-11-07; branch bound to Winchester on owner direction",
+    "source": "Territory expansion 2026-11-07 (WV-3 Moorefield / South Branch Valley cluster, owner-confirmed coverage \u2014 we serve all areas); coordinates via map geocoding 2026-11-07; branch bound to Winchester on owner direction",
     "verified": "2026-11-07",
     "provider": "https://theflatratemovers.com/#organization",
     "citation": "https://theflatratemovers.com/service-area.geojson",
@@ -5132,7 +5204,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 2
    }
@@ -5151,7 +5224,7 @@
     "id": "place-cumberland-md",
     "name": "Cumberland, MD",
     "type": "city",
-    "source": "Territory expansion 2026-11-07 (WV-3 Moorefield / South Branch Valley cluster, owner-confirmed coverage — we serve all areas); coordinates via map geocoding 2026-11-07; branch bound to Winchester on owner direction",
+    "source": "Territory expansion 2026-11-07 (WV-3 Moorefield / South Branch Valley cluster, owner-confirmed coverage \u2014 we serve all areas); coordinates via map geocoding 2026-11-07; branch bound to Winchester on owner direction",
     "verified": "2026-11-07",
     "provider": "https://theflatratemovers.com/#organization",
     "citation": "https://theflatratemovers.com/service-area.geojson",
@@ -5208,7 +5281,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 2
    }
@@ -5227,7 +5301,7 @@
     "id": "place-harrisonburg-va",
     "name": "Harrisonburg, VA",
     "type": "city",
-    "source": "Territory expansion 2026-11-07 (WV-3 Moorefield / South Branch Valley cluster, owner-confirmed coverage — we serve all areas); coordinates via map geocoding 2026-11-07; branch bound to Winchester on owner direction",
+    "source": "Territory expansion 2026-11-07 (WV-3 Moorefield / South Branch Valley cluster, owner-confirmed coverage \u2014 we serve all areas); coordinates via map geocoding 2026-11-07; branch bound to Winchester on owner direction",
     "verified": "2026-11-07",
     "provider": "https://theflatratemovers.com/#organization",
     "citation": "https://theflatratemovers.com/service-area.geojson",
@@ -5284,7 +5358,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 2
    }
@@ -5303,7 +5378,7 @@
     "id": "place-staunton-va",
     "name": "Staunton, VA",
     "type": "city",
-    "source": "Territory expansion 2026-11-07 (WV-3 Moorefield / South Branch Valley cluster, owner-confirmed coverage — we serve all areas); coordinates via map geocoding 2026-11-07; branch bound to Winchester on owner direction",
+    "source": "Territory expansion 2026-11-07 (WV-3 Moorefield / South Branch Valley cluster, owner-confirmed coverage \u2014 we serve all areas); coordinates via map geocoding 2026-11-07; branch bound to Winchester on owner direction",
     "verified": "2026-11-07",
     "provider": "https://theflatratemovers.com/#organization",
     "citation": "https://theflatratemovers.com/service-area.geojson",
@@ -5360,7 +5435,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 2
    }
@@ -5379,7 +5455,7 @@
     "id": "place-old-fields-wv",
     "name": "Old Fields, WV",
     "type": "city",
-    "source": "Territory expansion 2026-11-07 (WV-3 Moorefield / South Branch Valley cluster, owner-confirmed coverage — we serve all areas); coordinates via map geocoding 2026-11-07; branch bound to Winchester on owner direction",
+    "source": "Territory expansion 2026-11-07 (WV-3 Moorefield / South Branch Valley cluster, owner-confirmed coverage \u2014 we serve all areas); coordinates via map geocoding 2026-11-07; branch bound to Winchester on owner direction",
     "verified": "2026-11-07",
     "provider": "https://theflatratemovers.com/#organization",
     "citation": "https://theflatratemovers.com/service-area.geojson",
@@ -5436,7 +5512,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 2
    }
@@ -5455,7 +5532,7 @@
     "id": "place-fisher-wv",
     "name": "Fisher, WV",
     "type": "city",
-    "source": "Territory expansion 2026-11-07 (WV-3 Moorefield / South Branch Valley cluster, owner-confirmed coverage — we serve all areas); coordinates via map geocoding 2026-11-07; branch bound to Winchester on owner direction",
+    "source": "Territory expansion 2026-11-07 (WV-3 Moorefield / South Branch Valley cluster, owner-confirmed coverage \u2014 we serve all areas); coordinates via map geocoding 2026-11-07; branch bound to Winchester on owner direction",
     "verified": "2026-11-07",
     "provider": "https://theflatratemovers.com/#organization",
     "citation": "https://theflatratemovers.com/service-area.geojson",
@@ -5512,7 +5589,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 2
    }
@@ -5531,7 +5609,7 @@
     "id": "place-fort-run-wv",
     "name": "Fort Run, WV",
     "type": "city",
-    "source": "Territory expansion 2026-11-07 (WV-3 Moorefield / South Branch Valley cluster, owner-confirmed coverage — we serve all areas); coordinates via map geocoding 2026-11-07; branch bound to Winchester on owner direction",
+    "source": "Territory expansion 2026-11-07 (WV-3 Moorefield / South Branch Valley cluster, owner-confirmed coverage \u2014 we serve all areas); coordinates via map geocoding 2026-11-07; branch bound to Winchester on owner direction",
     "verified": "2026-11-07",
     "provider": "https://theflatratemovers.com/#organization",
     "citation": "https://theflatratemovers.com/service-area.geojson",
@@ -5588,7 +5666,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 2
    }
@@ -5607,7 +5686,7 @@
     "id": "place-durgon-wv",
     "name": "Durgon, WV",
     "type": "city",
-    "source": "Territory expansion 2026-11-07 (WV-3 Moorefield / South Branch Valley cluster, owner-confirmed coverage — we serve all areas); coordinates via map geocoding 2026-11-07; branch bound to Winchester on owner direction",
+    "source": "Territory expansion 2026-11-07 (WV-3 Moorefield / South Branch Valley cluster, owner-confirmed coverage \u2014 we serve all areas); coordinates via map geocoding 2026-11-07; branch bound to Winchester on owner direction",
     "verified": "2026-11-07",
     "provider": "https://theflatratemovers.com/#organization",
     "citation": "https://theflatratemovers.com/service-area.geojson",
@@ -5664,7 +5743,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 2
    }
@@ -5683,7 +5763,7 @@
     "id": "place-kessel-wv",
     "name": "Kessel, WV",
     "type": "city",
-    "source": "Territory expansion 2026-11-07 (WV-3 Moorefield / South Branch Valley cluster, owner-confirmed coverage — we serve all areas); coordinates via map geocoding 2026-11-07; branch bound to Winchester on owner direction",
+    "source": "Territory expansion 2026-11-07 (WV-3 Moorefield / South Branch Valley cluster, owner-confirmed coverage \u2014 we serve all areas); coordinates via map geocoding 2026-11-07; branch bound to Winchester on owner direction",
     "verified": "2026-11-07",
     "provider": "https://theflatratemovers.com/#organization",
     "citation": "https://theflatratemovers.com/service-area.geojson",
@@ -5740,7 +5820,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 2
    }
@@ -5816,7 +5897,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 2,
     "rubric_note": "Score 2: coordinates verified by map geocoding 2026-11-12; expansion city with a dedicated page, not a GBP service area. Served as part of the Winchester branch footprint, not presented as a GBP area."
@@ -5893,7 +5975,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 3
    }
@@ -5969,7 +6052,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 2
    }
@@ -6045,7 +6129,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 2
    }
@@ -6121,7 +6206,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 2
    }
@@ -6197,7 +6283,8 @@
      "industrial-rigging",
      "it-relocation",
      "vault-door",
-     "transloading-winchester"
+     "transloading-winchester",
+     "vaulted-storage"
     ],
     "rubric_score": 2
    }
@@ -6272,7 +6359,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Hampton Roads",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving, same method as the estate's prior bindings)"
@@ -6348,7 +6436,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Hampton Roads",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving, same method as the estate's prior bindings)"
@@ -6424,7 +6513,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Hampton Roads",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving, same method as the estate's prior bindings)"
@@ -6500,7 +6590,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Hampton Roads",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving, same method as the estate's prior bindings)"
@@ -6576,7 +6667,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Hampton Roads",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving, same method as the estate's prior bindings)"
@@ -6652,7 +6744,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Hampton Roads",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving, same method as the estate's prior bindings)"
@@ -6728,7 +6821,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Hampton Roads",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving, same method as the estate's prior bindings)"
@@ -6804,7 +6898,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Hampton Roads",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving, same method as the estate's prior bindings)"
@@ -6880,7 +6975,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Richmond metro",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving, same method as the estate's prior bindings)"
@@ -6956,7 +7052,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Richmond metro",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving, same method as the estate's prior bindings)"
@@ -7032,7 +7129,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Richmond metro",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving, same method as the estate's prior bindings)"
@@ -7108,7 +7206,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Richmond metro",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving, same method as the estate's prior bindings)"
@@ -7184,7 +7283,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "I-81 south",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving, same method as the estate's prior bindings)"
@@ -7260,7 +7360,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "I-81 south",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving, same method as the estate's prior bindings)"
@@ -7336,7 +7437,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "I-95 corridor",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving, same method as the estate's prior bindings)"
@@ -7412,7 +7514,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "I-95 corridor",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving, same method as the estate's prior bindings)"
@@ -7488,7 +7591,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Prince William ring",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving, same method as the estate's prior bindings)"
@@ -7564,7 +7668,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "DC metro",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving, same method as the estate's prior bindings)"
@@ -7640,7 +7745,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "DC metro",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving, same method as the estate's prior bindings)"
@@ -7716,7 +7822,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "DC metro",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving, same method as the estate's prior bindings)"
@@ -7792,7 +7899,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "I-81 north corridor",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving, same method as the estate's prior bindings)"
@@ -7868,7 +7976,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "I-81 north corridor",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving, same method as the estate's prior bindings)"
@@ -7944,7 +8053,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "I-81 north corridor",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving, same method as the estate's prior bindings)"
@@ -8020,7 +8130,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "West Virginia metros",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving, same method as the estate's prior bindings)"
@@ -8096,7 +8207,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "West Virginia metros",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving, same method as the estate's prior bindings)"
@@ -8172,7 +8284,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -8248,7 +8361,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -8324,7 +8438,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -8400,7 +8515,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -8476,7 +8592,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -8552,7 +8669,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -8628,7 +8746,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -8704,7 +8823,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -8780,7 +8900,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -8856,7 +8977,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -8932,7 +9054,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -9008,7 +9131,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -9084,7 +9208,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -9160,7 +9285,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -9236,7 +9362,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -9312,7 +9439,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -9388,7 +9516,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -9464,7 +9593,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -9540,7 +9670,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -9616,7 +9747,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -9692,7 +9824,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -9768,7 +9901,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -9844,7 +9978,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -9920,7 +10055,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -9996,7 +10132,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -10072,7 +10209,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -10148,7 +10286,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -10224,7 +10363,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -10300,7 +10440,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -10376,7 +10517,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -10452,7 +10594,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -10528,7 +10671,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -10604,7 +10748,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -10680,7 +10825,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -10756,7 +10902,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -10832,7 +10979,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -10908,7 +11056,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -10984,7 +11133,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -11060,7 +11210,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -11136,7 +11287,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -11212,7 +11364,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -11288,7 +11441,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -11364,7 +11518,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -11440,7 +11595,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -11516,7 +11672,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -11592,7 +11749,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -11668,7 +11826,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -11744,7 +11903,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -11820,7 +11980,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -11896,7 +12057,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -11972,7 +12134,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -12048,7 +12211,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -12124,7 +12288,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -12200,7 +12365,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -12276,7 +12442,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -12352,7 +12519,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -12428,7 +12596,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -12504,7 +12673,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -12580,7 +12750,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -12656,7 +12827,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -12732,7 +12904,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -12808,7 +12981,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -12884,7 +13058,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -12960,7 +13135,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -13036,7 +13212,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -13112,7 +13289,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -13188,7 +13366,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -13264,7 +13443,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -13340,7 +13520,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -13416,7 +13597,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -13492,7 +13674,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -13568,7 +13751,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -13644,7 +13828,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -13720,7 +13905,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -13796,7 +13982,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -13872,7 +14059,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -13948,7 +14136,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -14024,7 +14213,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -14100,7 +14290,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -14176,7 +14367,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -14252,7 +14444,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -14328,7 +14521,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -14404,7 +14598,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -14480,7 +14675,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -14556,7 +14752,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -14632,7 +14829,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -14708,7 +14906,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -14784,7 +14983,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -14860,7 +15060,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -14936,7 +15137,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -15012,7 +15214,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -15088,7 +15291,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -15164,7 +15368,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -15240,7 +15445,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -15316,7 +15522,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -15392,7 +15599,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -15468,7 +15676,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -15544,7 +15753,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -15620,7 +15830,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -15696,7 +15907,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -15772,7 +15984,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -15848,7 +16061,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -15924,7 +16138,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -16000,7 +16215,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -16076,7 +16292,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -16152,7 +16369,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -16228,7 +16446,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -16304,7 +16523,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -16380,7 +16600,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -16456,7 +16677,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -16532,7 +16754,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -16608,7 +16831,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -16684,7 +16908,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -16760,7 +16985,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -16836,7 +17062,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -16912,7 +17139,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -16988,7 +17216,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -17064,7 +17293,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -17140,7 +17370,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -17216,7 +17447,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -17292,7 +17524,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -17368,7 +17601,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -17444,7 +17678,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -17520,7 +17755,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -17596,7 +17832,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -17672,7 +17909,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -17748,7 +17986,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -17824,7 +18063,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -17900,7 +18140,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -17976,7 +18217,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -18052,7 +18294,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -18128,7 +18371,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -18204,7 +18448,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -18280,7 +18525,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -18356,7 +18602,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -18432,7 +18679,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -18508,7 +18756,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -18584,7 +18833,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -18660,7 +18910,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -18736,7 +18987,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -18812,7 +19064,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -18888,7 +19141,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -18964,7 +19218,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -19040,7 +19295,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -19116,7 +19372,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -19192,7 +19449,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -19268,7 +19526,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -19344,7 +19603,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -19420,7 +19680,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -19496,7 +19757,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -19572,7 +19834,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -19648,7 +19911,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -19724,7 +19988,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -19800,7 +20065,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -19876,7 +20142,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -19952,7 +20219,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -20028,7 +20296,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -20104,7 +20373,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -20180,7 +20450,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -20256,7 +20527,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -20332,7 +20604,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -20408,7 +20681,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -20484,7 +20758,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -20560,7 +20835,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -20636,7 +20912,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -20712,7 +20989,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -20788,7 +21066,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -20864,7 +21143,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -20940,7 +21220,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -21016,7 +21297,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -21092,7 +21374,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -21168,7 +21451,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -21244,7 +21528,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -21320,7 +21605,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -21396,7 +21682,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -21472,7 +21759,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -21548,7 +21836,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -21624,7 +21913,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -21700,7 +21990,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -21776,7 +22067,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -21852,7 +22144,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -21928,7 +22221,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -22004,7 +22298,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -22080,7 +22375,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -22156,7 +22452,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -22232,7 +22529,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -22308,7 +22606,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -22384,7 +22683,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -22460,7 +22760,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -22536,7 +22837,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -22612,7 +22914,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -22688,7 +22991,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -22764,7 +23068,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -22840,7 +23145,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -22916,7 +23222,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -22992,7 +23299,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -23068,7 +23376,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -23144,7 +23453,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -23220,7 +23530,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -23296,7 +23607,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -23372,7 +23684,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -23448,7 +23761,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -23524,7 +23838,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -23600,7 +23915,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -23676,7 +23992,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -23752,7 +24069,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -23828,7 +24146,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -23904,7 +24223,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -23980,7 +24300,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -24056,7 +24377,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -24132,7 +24454,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -24208,7 +24531,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -24284,7 +24608,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -24360,7 +24685,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -24436,7 +24762,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -24512,7 +24839,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -24588,7 +24916,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -24664,7 +24993,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -24740,7 +25070,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -24816,7 +25147,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -24892,7 +25224,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -24968,7 +25301,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -25044,7 +25378,8 @@
      "freight-rework",
      "industrial-rigging",
      "it-relocation",
-     "vault-door"
+     "vault-door",
+     "vaulted-storage"
     ],
     "expansion_cluster": "Home turf completion",
     "branch_binding_status": "OSRM road-measured 2026-11-17 (router.project-osrm.org route/v1/driving)"
@@ -25053,14 +25388,14 @@
  ],
  "rubric": {
   "version": "2026-10-28",
-  "note": "Rubric R1-R7 from rubric.html, applied site-wide 2026-10-28. Per-feature rubric_score: 3 = GBP area or branch, verified; 2 = expansion city, geocoded and verified, not a GBP area and without a dedicated page — see rubric_note on those features.",
-  "R1_audience_and_topic": "3 — every enriched main service page names its audience and service in the first section (gun safe, residential, commercial, office, long-distance, export, military, heavy, route81, winchester, martinsburg, exportpacking)",
-  "R2_node_chain": "3 — Organization https://theflatratemovers.com/#organization, Places #winchester / #martinsburg, Service -> provider -> Organization -> Place -> areaServed via this GeoJSON",
-  "R3_visible_matches_json": "3 — HTML hours, addresses, phone, service areas match GeoJSON branches block and GBP, per branch, never unified",
-  "R4_attestation": "3 — every fact in this file carries source + verified date; new 2026-10-28 source notes added for GBP products, GBP fixes, industrial page, page enrichment, quote capture, face-blurred photos",
-  "R5_no_invented_data": "3 — ratings only per-branch Google (Winchester 5.0/1, Martinsburg 4.7/6, never blended), price only $$, license details private, USDOT omitted, CWT rates only as supplied by Henry 2026-10-28",
-  "R6_images_honest": "3 — warehouse photos and the antique safe photo are Henry-supplied, faces blurred where people appear, captions say so; wrapped-furniture reference photos labelled Reference photo, with no third-party mover named in any caption (owner orders 2026-10-30)",
-  "R7_quote_path": "3 — CTAs Get My Flat Rate Quote / Get a flat rate quote only, Short default / Detailed toggle preserves From, To, What is moving; Worker no longer drops supplied contact/services/notes in Short mode (verified 2026-10-28)"
+  "note": "Rubric R1-R7 from rubric.html, applied site-wide 2026-10-28. Per-feature rubric_score: 3 = GBP area or branch, verified; 2 = expansion city, geocoded and verified, not a GBP area and without a dedicated page \u2014 see rubric_note on those features.",
+  "R1_audience_and_topic": "3 \u2014 every enriched main service page names its audience and service in the first section (gun safe, residential, commercial, office, long-distance, export, military, heavy, route81, winchester, martinsburg, exportpacking)",
+  "R2_node_chain": "3 \u2014 Organization https://theflatratemovers.com/#organization, Places #winchester / #martinsburg, Service -> provider -> Organization -> Place -> areaServed via this GeoJSON",
+  "R3_visible_matches_json": "3 \u2014 HTML hours, addresses, phone, service areas match GeoJSON branches block and GBP, per branch, never unified",
+  "R4_attestation": "3 \u2014 every fact in this file carries source + verified date; new 2026-10-28 source notes added for GBP products, GBP fixes, industrial page, page enrichment, quote capture, face-blurred photos",
+  "R5_no_invented_data": "3 \u2014 ratings only per-branch Google (Winchester 5.0/1, Martinsburg 4.7/6, never blended), price only $$, license details private, USDOT omitted, CWT rates only as supplied by Henry 2026-10-28",
+  "R6_images_honest": "3 \u2014 warehouse photos and the antique safe photo are Henry-supplied, faces blurred where people appear, captions say so; wrapped-furniture reference photos labelled Reference photo, with no third-party mover named in any caption (owner orders 2026-10-30)",
+  "R7_quote_path": "3 \u2014 CTAs Get My Flat Rate Quote / Get a flat rate quote only, Short default / Detailed toggle preserves From, To, What is moving; Worker no longer drops supplied contact/services/notes in Short mode (verified 2026-10-28)"
  },
  "corrections": [
   {
