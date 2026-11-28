@@ -1,0 +1,2247 @@
+{
+ "api": {
+  "datasets": 89,
+  "fetched_date": "2026-11-28",
+  "mcp_callers": {
+   "anthropic": 1,
+   "other": 7
+  },
+  "mcp_counting": "live",
+  "mcp_days": 2,
+  "mcp_total_calls": 8,
+  "mode": "live node fetch",
+  "services": 35
+ },
+ "census": {
+  "as_of": "2026-11-28T09:01:08Z",
+  "closing_seal": {
+   "as_of": "2026-11-27T21:10:39-0500",
+   "note": "batch vaulted-storage-batch-2026-11-25, state CLOSED",
+   "source": "the-flat-rate-machine/out/vaulted-storage-batch-2026-11-25/close-state.json (index_sha256)",
+   "value": "c95623f2a1ce9c3314b0efe51a7647a12906dc3496cc377c3e8782078fa12041"
+  },
+  "pages_count_field": 387,
+  "place_areas_per_service": [
+   317,
+   317
+  ],
+  "seal_lane_now": {
+   "as_of": "2026-11-28T09:38:40.922621+00:00",
+   "note": "mode incremental; arm batch winchester-hours-fix-2026-11-27 (running)",
+   "source": "the-flat-rate-machine/out/seal-state/seal-state.json",
+   "value": "sealing"
+  },
+  "slice_services": 35,
+  "sources": {
+   "datasets": "the-flat-rate-movers-pages/public/datasets-*.json",
+   "distributions": "the-flat-rate-movers-pages/public/ai-master-index.json",
+   "intent": "the-flat-rate-machine/out/seal-state/coverage-slices/service-*.json (\u03a3 agg.count)",
+   "pages": "the-flat-rate-machine/data/pages.json",
+   "seal": "the-flat-rate-machine/out/vaulted-storage-batch-2026-11-25/close-state.json (index_sha256)",
+   "services": "the-flat-rate-machine/data/services.json"
+  },
+  "total_areas_per_service": [
+   387,
+   439
+  ]
+ },
+ "feed": {
+  "accuracy": "every figure computed from its named source record at export time; unreadable source = value null + note, never an estimate",
+  "exporter": "g-build/feed-export.py (computations: board-export.py load())",
+  "generated_at": "2026-11-28T09:01:08Z",
+  "name": "master-dashboard-feed",
+  "raw_url": "https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/dashboard-feed.json",
+  "snapshot_id": "d9a1b89bf756a9febc6e50e8f0458dc46a499dea69c03fe8fd6aaf1695083658",
+  "version": 1
+ },
+ "geo": {
+  "places": {
+   "as_of": "2026-11-21T12:02:14Z",
+   "source": "the-flat-rate-machine/data/geo-enriched.json",
+   "value": 335
+  },
+  "pub_places": {
+   "as_of": "2026-11-21T12:02:14Z",
+   "source": "the-flat-rate-movers-pages/public/service-area.geojson",
+   "value": 335
+  },
+  "zip_assignments": {
+   "as_of": "2026-11-21T12:02:14Z",
+   "source": "the-flat-rate-machine/data/geo-enriched.json",
+   "value": 730
+  },
+  "zip_distinct": {
+   "as_of": "2026-11-21T12:02:14Z",
+   "source": "the-flat-rate-machine/data/geo-enriched.json",
+   "value": 550
+  }
+ },
+ "indexing": {
+  "as_of": "2026-11-27T15:45:11Z",
+  "crawled_not_indexed": {
+   "as_of": "2026-11-27",
+   "source": "goals/the-flat-rate-movers-website-migration/hidden_files/gsc-indexing-pass-2026-11-27.md",
+   "value": 54
+  },
+  "delta_from": {
+   "as_of": "2026-11-27",
+   "source": "goals/the-flat-rate-movers-website-migration/hidden_files/gsc-indexing-pass-2026-11-27.md",
+   "value": 294
+  },
+  "discovered_not_indexed": {
+   "as_of": "2026-11-27",
+   "source": "goals/the-flat-rate-movers-website-migration/hidden_files/gsc-indexing-pass-2026-11-27.md",
+   "value": 12
+  },
+  "indexed": {
+   "as_of": "2026-11-27",
+   "source": "goals/the-flat-rate-movers-website-migration/hidden_files/gsc-indexing-pass-2026-11-27.md",
+   "value": 296
+  },
+  "inspected": {
+   "as_of": "2026-11-27",
+   "source": "goals/the-flat-rate-movers-website-migration/hidden_files/gsc-indexing-pass-2026-11-27.md",
+   "value": 369
+  },
+  "noindex": {
+   "as_of": "2026-11-27",
+   "source": "goals/the-flat-rate-movers-website-migration/hidden_files/gsc-indexing-pass-2026-11-27.md",
+   "value": 1
+  },
+  "pass_date": "2026-11-27",
+  "undone": {
+   "as_of": "2026-11-27",
+   "source": "goals/the-flat-rate-movers-website-migration/hidden_files/gsc-2026-11-27-undone.txt",
+   "value": 53
+  },
+  "unknown": {
+   "as_of": "2026-11-27",
+   "source": "goals/the-flat-rate-movers-website-migration/hidden_files/gsc-indexing-pass-2026-11-27.md",
+   "value": 6
+  }
+ },
+ "metrics": {
+  "api_datasets": {
+   "as_of": "2026-11-28",
+   "source": "live API via node fetch (live node fetch)",
+   "value": 89
+  },
+  "api_services": {
+   "as_of": "2026-11-28",
+   "source": "live API via node fetch (live node fetch)",
+   "value": 35
+  },
+  "datasets": {
+   "as_of": "2026-11-28T09:01:08Z",
+   "source": "the-flat-rate-movers-pages/public/datasets-*.json",
+   "value": 89
+  },
+  "distributions": {
+   "as_of": "2026-11-28T09:01:08Z",
+   "source": "the-flat-rate-movers-pages/public/ai-master-index.json",
+   "value": 1715
+  },
+  "footprint_places": {
+   "as_of": "2026-11-21T12:02:14Z",
+   "source": "the-flat-rate-machine/data/geo-enriched.json",
+   "value": 335
+  },
+  "indexed": {
+   "as_of": "2026-11-27",
+   "note": "of 369 inspected in the 2026-11-27 pass",
+   "source": "goals/the-flat-rate-movers-website-migration/hidden_files/gsc-indexing-pass-2026-11-27.md",
+   "value": 296
+  },
+  "indexing_undone": {
+   "as_of": "2026-11-27",
+   "source": "goals/the-flat-rate-movers-website-migration/hidden_files/gsc-2026-11-27-undone.txt",
+   "value": 53
+  },
+  "inspected": {
+   "as_of": "2026-11-27",
+   "source": "goals/the-flat-rate-movers-website-migration/hidden_files/gsc-indexing-pass-2026-11-27.md",
+   "value": 369
+  },
+  "intent_questions": {
+   "as_of": "2026-11-28T09:01:08Z",
+   "source": "the-flat-rate-machine/out/seal-state/coverage-slices/service-*.json (\u03a3 agg.count)",
+   "value": 533927
+  },
+  "mcp_calls_30d": {
+   "as_of": "2026-11-28",
+   "note": "counting live; callers {'other': 7, 'anthropic': 1}; 2 days in window",
+   "source": "/v1/mcp-stats via node fetch",
+   "value": 8
+  },
+  "pages": {
+   "as_of": "2026-11-28T09:01:08Z",
+   "source": "the-flat-rate-machine/data/pages.json",
+   "value": 387
+  },
+  "services": {
+   "as_of": "2026-11-28T09:01:08Z",
+   "source": "the-flat-rate-machine/data/services.json",
+   "value": 35
+  }
+ },
+ "process": [
+  {
+   "date": "2026-11-22",
+   "name": "GEO CLEANUP",
+   "proof": "335 places \u00b7 730 place-ZIP assignments \u00b7 550 distinct ZIPs in verified sets \u00b7 corrected ZIPs in the record",
+   "source": "the-flat-rate-machine/data/geo-enriched.json",
+   "state": "CLOSED",
+   "verified": true
+  },
+  {
+   "date": "fix 2026-11-27",
+   "name": "RUBRICS CLEANUP",
+   "proof": "generator 3.2.0 \u00b7 rowsByArea per-area aggregation in the builder (5 seats) \u00b7 variant-family standard \u00b7 533,927 intent rows (\u03a3 coverage slices)",
+   "source": "the-flat-rate-machine/scripts/build-intent-rubric.js + coverage slices",
+   "state": "LIVE",
+   "verified": true
+  },
+  {
+   "date": "2026-11-26 / 2026-11-28",
+   "name": "MCP CLEANUP",
+   "proof": "coverage-slug resolver in the worker (3 seats) \u00b7 call-counting live \u00b7 enrichment rider staged + proven (proof file present) \u2014 rides the 3PL publish",
+   "source": "theflatratemovers/api-worker/src/index.js + out/3pl-installation-batch-2026-11-27/mcp-enrichment/PROOF.md",
+   "state": "FIX LIVE \u00b7 RIDER STAGED",
+   "verified": true
+  },
+  {
+   "date": "2026-11-25",
+   "name": "SPEED \u00b7 A4 SLICE SEALING",
+   "proof": "changed-slice sealing is the production default (slice-builds.json + seal.py slice path); classic builder is the rollback",
+   "source": "the-flat-rate-machine/scripts/slice-builds.json + the-flat-rate-machine/scripts/seal.py",
+   "state": "LIVE",
+   "verified": true
+  },
+  {
+   "date": "2026-11-24 \u2192 2026-11-27",
+   "name": "SPEED \u00b7 SUPERVISOR SELF-REPAIR",
+   "proof": "launch_env (NODE_OPTIONS + batch env at both launch sites) \u00b7 recover_hot_journals pre-launch \u00b7 align_embed_dates pre-launch \u2014 all three present in seal-supervisor.py",
+   "source": "the-flat-rate-machine/scripts/seal-supervisor.py",
+   "state": "LIVE",
+   "verified": true
+  },
+  {
+   "date": "2026-11-28",
+   "name": "SPEED \u00b7 PUSH-TRANSPORT FIX",
+   "proof": "GIT_SSH_COMMAND setdefault built into publish.py + push-mirrors.py \u2014 the route rides the tools; A/B proven from a clean env (bare git fails, tool route returns GitHub HEAD)",
+   "source": "the-flat-rate-machine/scripts/publish.py + the-flat-rate-machine/scripts/push-mirrors.py",
+   "state": "BUILT",
+   "verified": true
+  },
+  {
+   "date": "spec 2026-11-27",
+   "name": "SPEED \u00b7 SEAL CHECKPOINT FIX",
+   "proof": "SPEC.md written (per-step journal, byte-exact trust on relaunch); no journal code in seal.py yet \u2014 build + kill-test still owed",
+   "source": "the-flat-rate-machine/out/seal-checkpoint-fix-2026-11-27/SPEC.md",
+   "state": "SPEC ONLY \u2014 PENDING",
+   "verified": true
+  },
+  {
+   "date": "2026-11-25",
+   "name": "SPEED \u00b7 PREDICT GATE A1.8",
+   "proof": "sliced-build prediction checks present in predict.py \u2014 new-service problems caught before the first seal",
+   "source": "the-flat-rate-machine/scripts/predict.py",
+   "state": "LIVE",
+   "verified": true
+  },
+  {
+   "date": "2026-11-28",
+   "name": "FIVE DRAWING FORCES",
+   "proof": "exact words \u00b7 meaning match \u00b7 shape \u00b7 corroboration \u00b7 fresh crawl \u2014 every element full and recursive, in addition to the \u00a70\u2013\u00a718 process",
+   "source": "MEMORY.md (standing law)",
+   "state": "BUILD LAW",
+   "verified": true
+  },
+  {
+   "date": "2026-11-28",
+   "name": "MONEY SLICE ADVANTAGE",
+   "proof": "10-item checklist per money page (admission \u2192 \u00a718 read) over the 55 money pages; new rows only where a cell census proves thin",
+   "source": "the-flat-rate-machine/out/money-slice-advantage-2026-11-28/CHECKLIST.md",
+   "state": "QUEUED",
+   "verified": true
+  }
+ ],
+ "queue": [
+  {
+   "item": "Winchester Saturday-hours fix",
+   "src": "the-flat-rate-machine/out/seal-state/supervisor-arm.json + the-flat-rate-machine/out/seal-state/seal-state.json",
+   "state": "IN FLIGHT \u2014 arm running, seal sealing since 2026-11-28T09:38Z"
+  },
+  {
+   "item": "3PL + Installation build (service #36) + MCP rider",
+   "src": "the-flat-rate-machine/out/3pl-installation-batch-2026-11-27",
+   "state": "STAGED \u2014 gated on the hours close; rider staged + proven"
+  },
+  {
+   "item": "Signal summaries \u2014 Google review with Henry",
+   "src": "the-flat-rate-machine/out/signal-data-2026-11-28/signal-all.jsonl",
+   "state": "HELD FOR REVIEW \u2014 bank screened clean, nothing publishes before it"
+  },
+  {
+   "item": "Money Slice Advantage (55 money pages)",
+   "src": "the-flat-rate-machine/out/money-slice-advantage-2026-11-28/CHECKLIST.md",
+   "state": "QUEUED \u2014 checklist written"
+  },
+  {
+   "item": "Dulles Greenway (service #37)",
+   "src": "the-flat-rate-machine/out/dulles-greenway-2026-11-23",
+   "state": "STAGED COMPLETE"
+  },
+  {
+   "item": "Bethesda takeover",
+   "src": "the-flat-rate-machine/out/geo-introduction-2026-11-18/bethesda-staging",
+   "state": "PACKET STAGED"
+  },
+  {
+   "item": "Middleburg takeover",
+   "src": "the-flat-rate-machine/out/middleburg-rebuild-2026-11-19",
+   "state": "PACKET STAGED"
+  },
+  {
+   "item": "Bristow takeover",
+   "src": "the-flat-rate-machine/out/bristow-haymarket-2026-11-20",
+   "state": "PACKET STAGED"
+  },
+  {
+   "item": "Haymarket takeover",
+   "src": "the-flat-rate-machine/out/bristow-haymarket-2026-11-20",
+   "state": "PACKET STAGED"
+  },
+  {
+   "item": "Hoarding takeover",
+   "src": "the-flat-rate-machine/out/hoarding-prep-2026-11-20",
+   "state": "PREP STAGED"
+  },
+  {
+   "item": "Ports re-attack (\u00a718: 0 of 8 closed)",
+   "src": "the-flat-rate-machine/out/ports-reattack-2026-11-20",
+   "state": "PACKET STAGED"
+  }
+ ],
+ "rankings": {
+  "as_of": "2026-11-24T21:36:30Z",
+  "date": "2026-11-24",
+  "s187": "every term above stays OPEN while its pack is rival-held \u2014 0 of 6 terms fully closed this read; 3 of 6 won organic + AIO.",
+  "src": "theflatratemovers/retrieval-machine/aio-reprobe-log.md",
+  "terms": [
+   {
+    "term": "gun safe movers Virginia Beach VA",
+    "verdict": "WON organic + AIO (was ABSENT page 1 on 2026-11-23). Term stays OPEN per \u00a718.7 \u2014 pack rival-held.",
+    "won": true
+   },
+   {
+    "term": "data center movers Leesburg VA",
+    "verdict": "WON organic + AIO (was general page #8 only on 2026-11-23). Term stays OPEN per \u00a718.7 \u2014 pack rival-held.",
+    "won": true
+   },
+   {
+    "term": "white glove delivery Potomac MD",
+    "verdict": "WON organic + AIO. Term stays OPEN per \u00a718.7 \u2014 pack rival-held.",
+    "won": true
+   },
+   {
+    "term": "movers Potomac MD",
+    "verdict": "OPEN \u2014 improved from ABSENT everywhere on 2026-11-23 to organic #6; AIO and pack still rival-held.",
+    "won": false
+   },
+   {
+    "term": "movers Leesburg VA",
+    "verdict": "OPEN \u2014 the new /movers-leesburg-va/ page went live today with this batch; first read is absence, as expected pre-indexing. Re-crawl asks ride the 2026-11-25 GSC pass.",
+    "won": false
+   },
+   {
+    "term": "gun safe installation near Berkeley County WV",
+    "verdict": "STILL ABSENT \u2014 unchanged from the 2026-11-23 loss read (AIO + organic #5 \u2192 absent). Row remains OPEN as attack item #1 with its designed fix live in this batch (Berkeley installation content on /gun-safe-movers-martinsburg-wv/, served-proof confirmed). Re-reads booked: GSC pass 2026-11-25 carries the re-crawl asks; weekly re-probe Monday.",
+    "won": false
+   }
+  ]
+ },
+ "scorecard": {
+  "as_of": "2026-11-26T14:42:47Z",
+  "building4": "1",
+  "building_landing": "6",
+  "building_pkg": "22",
+  "controlled_n": "5",
+  "date": "2026-11-25",
+  "ports_closed": "0",
+  "rows": [
+   {
+    "cells": [
+     "Y",
+     "P",
+     "N",
+     "P",
+     "Y"
+    ],
+    "note": "Hub /residential-moving/ is \"Crawled \u2013 not indexed\" in the Nov 24 pass \u2014 C2 fails at hub level",
+    "score": 2,
+    "service": "Residential Moving"
+   },
+   {
+    "cells": [
+     "Y",
+     "Y",
+     "N",
+     "P",
+     "Y"
+    ],
+    "note": "Flagship post indexed (crawl 2026-11-23)",
+    "score": 3,
+    "service": "Long-Distance Moving"
+   },
+   {
+    "cells": [
+     "Y",
+     "Y",
+     "N",
+     "P",
+     "Y"
+    ],
+    "note": "Tier 0 hub indexed",
+    "score": 3,
+    "service": "Office Moving"
+   },
+   {
+    "cells": [
+     "Y",
+     "P",
+     "N",
+     "N",
+     "Y"
+    ],
+    "note": "Dataset landing /datasets/industrial-offices/ in the not-indexed undone set",
+    "score": 2,
+    "service": "Industrial Offices"
+   },
+   {
+    "cells": [
+     "Y",
+     "Y",
+     "N",
+     "P",
+     "Y"
+    ],
+    "note": "Tier 0 hub indexed",
+    "score": 3,
+    "service": "Government Moving"
+   },
+   {
+    "cells": [
+     "Y",
+     "Y",
+     "N",
+     "N",
+     "Y"
+    ],
+    "note": "No category-specific AIO probe on file",
+    "score": 3,
+    "service": "Senior Moving"
+   },
+   {
+    "cells": [
+     "Y",
+     "Y",
+     "N",
+     "P",
+     "Y"
+    ],
+    "note": "Tier 0-adjacent hub indexed",
+    "score": 3,
+    "service": "Packing & Unpacking"
+   },
+   {
+    "cells": [
+     "Y",
+     "Y",
+     "Y",
+     "Y",
+     "Y"
+    ],
+    "note": "AIO diagnostics run weekly; transloading presence measured, place-layer gap diagnosed Nov 2 and built out since",
+    "score": 5,
+    "service": "Loading / Transloading / Container"
+   },
+   {
+    "cells": [
+     "Y",
+     "P",
+     "N",
+     "N",
+     "Y"
+    ],
+    "note": "Dataset landing /datasets/moving-and-storage/ in the not-indexed undone set",
+    "score": 2,
+    "service": "Moving & Storage"
+   },
+   {
+    "cells": [
+     "Y",
+     "P",
+     "N",
+     "N",
+     "Y"
+    ],
+    "note": "Dataset landing /datasets/junk-removal/ in the not-indexed undone set",
+    "score": 2,
+    "service": "Junk Removal"
+   },
+   {
+    "cells": [
+     "Y",
+     "Y",
+     "N",
+     "P",
+     "Y"
+    ],
+    "note": "Tier 0 hub indexed",
+    "score": 3,
+    "service": "Piano / Antique / White-Glove Moving"
+   },
+   {
+    "cells": [
+     "Y",
+     "Y",
+     "Y",
+     "Y",
+     "Y"
+    ],
+    "note": "Potomac term won #1 + AIO 2026-11-24; Tier 0 hub indexed",
+    "score": 5,
+    "service": "White-Glove Delivery"
+   },
+   {
+    "cells": [
+     "Y",
+     "Y",
+     "Y",
+     "Y",
+     "Y"
+    ],
+    "note": "Virginia Beach won #1 + AIO; Berkeley County installation OPEN (Attack Item #1) \u2014 category not closed",
+    "score": 5,
+    "service": "Gun Safe Moving"
+   },
+   {
+    "cells": [
+     "Y",
+     "P",
+     "Y",
+     "Y",
+     "Y"
+    ],
+    "note": "Panel defines SIR as ours (Nov 2); dataset landing /datasets/sir-heavy/ was Unknown/Discovered in Nov 24 pass",
+    "score": 4,
+    "service": "SIR Heavy Asset (KIM-GS)"
+   },
+   {
+    "cells": [
+     "Y",
+     "P",
+     "N",
+     "N",
+     "Y"
+    ],
+    "note": "Dataset landing /datasets/medical-lab-relocation/ in the not-indexed undone set",
+    "score": 2,
+    "service": "Medical & Lab Equipment"
+   },
+   {
+    "cells": [
+     "Y",
+     "Y",
+     "Y",
+     "Y",
+     "Y"
+    ],
+    "note": "Leesburg term won #1 + AIO 2026-11-24; real hub is /data-center-relocation/ (indexed, re-crawled 2026-11-22)",
+    "score": 5,
+    "service": "Data Center Relocation"
+   },
+   {
+    "cells": [
+     "Y",
+     "Y",
+     "N",
+     "P",
+     "Y"
+    ],
+    "note": "Hub indexed (crawl 2026-11-10)",
+    "score": 3,
+    "service": "FF&E Logistics"
+   },
+   {
+    "cells": [
+     "Y",
+     "Y",
+     "N",
+     "P",
+     "Y"
+    ],
+    "note": "Tier 0 hub indexed",
+    "score": 3,
+    "service": "Custom Crating"
+   },
+   {
+    "cells": [
+     "Y",
+     "Y",
+     "Y",
+     "Y",
+     "Y"
+    ],
+    "note": "Scored with the Loading/Transloading family above; kept as its own registry service",
+    "score": 5,
+    "service": "Transloading (Winchester hub)"
+   },
+   {
+    "cells": [
+     "Y",
+     "Y",
+     "Y",
+     "Y",
+     "Y"
+    ],
+    "note": "Tier 0 hub indexed; Inland Port final-mile probed in panel/AIO work",
+    "score": 5,
+    "service": "Final-Mile Delivery"
+   },
+   {
+    "cells": [
+     "Y",
+     "Y",
+     "N",
+     "N",
+     "Y"
+    ],
+    "note": "No category-specific AIO probe on file",
+    "score": 3,
+    "service": "Route 81 Corridor"
+   },
+   {
+    "cells": [
+     "Y",
+     "Y",
+     "N",
+     "N",
+     "Y"
+    ],
+    "note": "Live today (200); ports-wave service, probing belongs to ports close-out",
+    "score": 3,
+    "service": "Logistics Project Management (#31)"
+   },
+   {
+    "cells": [
+     "Y",
+     "Y",
+     "N",
+     "P",
+     "Y"
+    ],
+    "note": "Live today (200); Tier 0-adjacent page indexed in Nov 24 regression watch",
+    "score": 3,
+    "service": "3PL Support Services (#32)"
+   },
+   {
+    "cells": [
+     "Y",
+     "Y",
+     "N",
+     "N",
+     "Y"
+    ],
+    "note": "Live today (200); newer service, no AIO probe yet \u2014 gap, not a failure",
+    "score": 3,
+    "service": "Hoarding Cleanup"
+   },
+   {
+    "cells": [
+     "Y",
+     "Y",
+     "N",
+     "N",
+     "Y"
+    ],
+    "note": "Case-study post live; no AIO probe yet",
+    "score": 3,
+    "service": "Vault Door Relocation"
+   },
+   {
+    "cells": [
+     "Y",
+     "Y",
+     "N",
+     "P",
+     "Y"
+    ],
+    "note": "Live today (200); indexed in Nov 24 regression watch",
+    "score": 3,
+    "service": "Cross-Docking (ports addition)"
+   }
+  ],
+  "src": "theflatratemovers/takeover-scorecard-2026-11-25.md"
+ },
+ "tracks": [
+  {
+   "as_of": "2026-11-20T17:35:07Z",
+   "closing_seal": null,
+   "done": 11,
+   "id": "vaulted-storage",
+   "open_rows": [
+    {
+     "element": "0.2",
+     "evidence": [],
+     "gate": "source-register",
+     "open_reason": "no source register artifact in the packet \u2014 sources are cited inline only",
+     "owner": "build",
+     "section": "0",
+     "title": "Source register with dates",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "0.3",
+     "evidence": [
+      "live: vault jf fetch 404; api_services carries no vault service"
+     ],
+     "gate": "estate-artifacts-parsed",
+     "open_reason": "no estate artifacts exist for this service to parse (jf 404; service absent from geo/matrix/API)",
+     "owner": "build",
+     "section": "0",
+     "title": "Estate artifacts parsed",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "0.4",
+     "evidence": [],
+     "gate": "no-invented-data",
+     "open_reason": "no batch record exists to carry the signed no-invention statement (packet fact discipline lives in BRIEF.md only)",
+     "owner": "build",
+     "section": "0",
+     "title": "No invented data",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "0.5",
+     "evidence": [
+      "live: signed index carries no vault distribution"
+     ],
+     "gate": "one-register",
+     "open_reason": "the service has no register entry on any surface \u2014 absence does not earn the one-register element",
+     "owner": "build",
+     "section": "0",
+     "title": "One register per surface",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "0.6",
+     "evidence": [],
+     "gate": "census-from-files",
+     "open_reason": "page not in the standing census \u2014 live signed index (1,627 distributions) carries no vault entry; packet census is a projection (368 -> 385), not a state",
+     "owner": "build",
+     "section": "0",
+     "title": "Standing census computed from files",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "1.1",
+     "evidence": [],
+     "gate": "terms-frozen",
+     "open_reason": "terms are researched, not frozen: VAULT-BUILD-NOTES step 2 runs the freeze at batch time from the probe record \u2014 it has not run",
+     "owner": "build",
+     "section": "1",
+     "title": "Target terms frozen",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "1.3",
+     "evidence": [],
+     "gate": "pack-read",
+     "open_reason": "pack presence/holders are recorded, but the holders' GBP state and our own town x service profile state were never read as one \u00a71.3 record",
+     "owner": "build",
+     "section": "1",
+     "title": "Pack read",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "1.5",
+     "evidence": [],
+     "gate": "ai-engines-read",
+     "open_reason": "no ChatGPT/Gemini/Perplexity/Copilot reads exist for this takeover",
+     "owner": "build",
+     "section": "1",
+     "title": "AI-engine surfaces read",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "1.6",
+     "evidence": [],
+     "gate": "other-engines-read",
+     "open_reason": "no Bing/Yahoo/DuckDuckGo first-page SERP reads exist in the record",
+     "owner": "build",
+     "section": "1",
+     "title": "Other engines read",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "1.7",
+     "evidence": [],
+     "gate": "rival-pages-read",
+     "open_reason": "rival reads incomplete \u2014 the record itself logs 2 not retrieved (moversalexandriava.com vaults page; Stewart Moving & Storage), OPEN for the batch's \u00a71 refresh",
+     "owner": "build",
+     "section": "1",
+     "title": "Rival pages read in full",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "2.1",
+     "evidence": [],
+     "gate": "answer-block",
+     "open_reason": "no estate page exists \u2014 live GET /vaulted-storage/ = 404",
+     "owner": "build",
+     "section": "2",
+     "title": "Answer block",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "2.2",
+     "evidence": [],
+     "gate": "faq-matches-visible",
+     "open_reason": "no estate page exists \u2014 live GET /vaulted-storage/ = 404",
+     "owner": "build",
+     "section": "2",
+     "title": "FAQ matches visible",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "2.3",
+     "evidence": [],
+     "gate": "trust-strip",
+     "open_reason": "no estate page exists \u2014 live GET /vaulted-storage/ = 404",
+     "owner": "build",
+     "section": "2",
+     "title": "Trust strip",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "2.4",
+     "evidence": [],
+     "gate": "page-head",
+     "open_reason": "no estate page exists \u2014 live GET /vaulted-storage/ = 404",
+     "owner": "build",
+     "section": "2",
+     "title": "Page head",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "2.5",
+     "evidence": [],
+     "gate": "body-hygiene",
+     "open_reason": "no estate page exists \u2014 live GET /vaulted-storage/ = 404",
+     "owner": "build",
+     "section": "2",
+     "title": "Page body hygiene",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "3.1",
+     "evidence": [],
+     "gate": "head-term-ownership",
+     "open_reason": "no page exists; the hub assignment lives only in the packet drafts",
+     "owner": "build",
+     "section": "3",
+     "title": "Head-term ownership",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "3.2",
+     "evidence": [
+      "the generator emit gate emits nothing without a jf in PUB"
+     ],
+     "gate": "cell-ownership",
+     "open_reason": "no rubric rows bind to a vault page \u2014 live answer-evidence scan: 0 vault rows",
+     "owner": "build",
+     "section": "3",
+     "title": "Cell ownership",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "3.3",
+     "evidence": [],
+     "gate": "internal-links",
+     "open_reason": "no page exists \u2014 PD-3 unmet by absence",
+     "owner": "build",
+     "section": "3",
+     "title": "Internal links",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "4.1",
+     "evidence": [],
+     "gate": "geo-feature-complete",
+     "open_reason": "service-vaulted-storage is not in service-area.geojson (335 features carry no vault service)",
+     "owner": "build",
+     "section": "4",
+     "title": "Geo feature complete",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "4.2",
+     "evidence": [],
+     "gate": "branch-binding",
+     "open_reason": "no geo feature for the service \u2014 no branch binding exists",
+     "owner": "build",
+     "section": "4",
+     "title": "Branch binding",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "4.3",
+     "evidence": [],
+     "gate": "gbp-area-decision",
+     "open_reason": "no gbp_service_area decision recorded for any vault place",
+     "owner": "build",
+     "section": "4",
+     "title": "GBP service-area decision recorded",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "4.4",
+     "evidence": [],
+     "gate": "geo-signed",
+     "open_reason": "the service's geo layer is not in the signed index (no vault distribution in the live JWS payload)",
+     "owner": "build",
+     "section": "4",
+     "title": "Geo layer signed",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "4.5",
+     "evidence": [],
+     "gate": "area-chips",
+     "open_reason": "no page exists \u2014 no area chips",
+     "owner": "build",
+     "section": "4",
+     "title": "Area chips",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "5.1",
+     "evidence": [],
+     "gate": "coverage-layer",
+     "open_reason": "coverage API carries no vaulted-storage coverage \u2014 the service is absent from the matrix (live: api_services carries no vault service)",
+     "owner": "build",
+     "section": "5",
+     "title": "Coverage layer",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "5.2",
+     "evidence": [],
+     "gate": "coverage-answers",
+     "open_reason": "entry unmet: 5.1 \u2014 coverage API carries no vaulted-storage coverage \u2014 the service is absent from the matrix (live: api_services carries no vault service)",
+     "owner": "build",
+     "section": "5",
+     "title": "Coverage answers",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "5.3",
+     "evidence": [],
+     "gate": "route-pairs",
+     "open_reason": "entry unmet: 5.1 \u2014 coverage API carries no vaulted-storage coverage \u2014 the service is absent from the matrix (live: api_services carries no vault service)",
+     "owner": "build",
+     "section": "5",
+     "title": "Route pairs",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "5.4",
+     "evidence": [],
+     "gate": "national-layer",
+     "open_reason": "entry unmet: 5.1 \u2014 coverage API carries no vaulted-storage coverage \u2014 the service is absent from the matrix (live: api_services carries no vault service)",
+     "owner": "build",
+     "section": "5",
+     "title": "National layer",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "5.5",
+     "evidence": [],
+     "gate": "area-served-shape",
+     "open_reason": "entry unmet: 5.1 \u2014 coverage API carries no vaulted-storage coverage \u2014 the service is absent from the matrix (live: api_services carries no vault service)",
+     "owner": "build",
+     "section": "5",
+     "title": "Area-served shape (GS-1)",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "6.2",
+     "evidence": [],
+     "gate": "bank-depth",
+     "open_reason": "per-place depth far under the town standard: max 58 clean rows for one place vs the ~405-row standard (SCREENING-REPORT-VAULT per-place table)",
+     "owner": "build",
+     "section": "6",
+     "title": "Bank depth",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "6.3",
+     "evidence": [],
+     "gate": "variant-families",
+     "open_reason": "radius (13) and zip (21) families are a floor, never the target \u2014 the generator build-up runs at batch time (VAULT-BUILD-NOTES); it has not run",
+     "owner": "build",
+     "section": "6",
+     "title": "Variant families generated",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "6.4",
+     "evidence": [],
+     "gate": "cells-assigned",
+     "open_reason": "no cells assigned \u2014 live intent-coverage scan: 0 vault references",
+     "owner": "build",
+     "section": "6",
+     "title": "Cells assigned",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "6.5",
+     "evidence": [],
+     "gate": "targets-correct",
+     "open_reason": "no rows target a vault page \u2014 no page exists; live answer-evidence scan: 0 vault rows",
+     "owner": "build",
+     "section": "6",
+     "title": "Targets correct",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "6.6",
+     "evidence": [],
+     "gate": "intent-current",
+     "open_reason": "intent layer carries no vault entries",
+     "owner": "build",
+     "section": "6",
+     "title": "Intent layer current",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "6.7",
+     "evidence": [],
+     "gate": "evidence-current",
+     "open_reason": "answer-evidence layer carries no vault rows",
+     "owner": "build",
+     "section": "6",
+     "title": "Evidence layer current",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "7.1",
+     "evidence": [],
+     "gate": "dataset-standard",
+     "open_reason": "no dataset file exists for the service (absent from the signed index and the API datasets list)",
+     "owner": "build",
+     "section": "7",
+     "title": "Dataset parses to the standard",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "7.2",
+     "evidence": [],
+     "gate": "three-seats",
+     "open_reason": "entry unmet: 7.1 \u2014 no dataset file exists for the service (absent from the signed index and the API datasets list)",
+     "owner": "build",
+     "section": "7",
+     "title": "Three seats identical",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "7.3",
+     "evidence": [],
+     "gate": "download-digests",
+     "open_reason": "entry unmet: 7.1 \u2014 no dataset file exists for the service (absent from the signed index and the API datasets list)",
+     "owner": "build",
+     "section": "7",
+     "title": "Download digests match",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "7.4",
+     "evidence": [],
+     "gate": "pool-layers",
+     "open_reason": "entry unmet: 7.1 \u2014 no dataset file exists for the service (absent from the signed index and the API datasets list)",
+     "owner": "build",
+     "section": "7",
+     "title": "Pool layers carry the page",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "7.5",
+     "evidence": [],
+     "gate": "dates-agree",
+     "open_reason": "entry unmet: 7.1 \u2014 no dataset file exists for the service (absent from the signed index and the API datasets list)",
+     "owner": "build",
+     "section": "7",
+     "title": "Dates agree",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "8.1",
+     "evidence": [],
+     "gate": "jf-layer",
+     "open_reason": "no per-page JSON exists for the page (live jf fetch 404; absent from the signed index)",
+     "owner": "build",
+     "section": "8",
+     "title": "Per-page JSON carries its layer",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "8.2",
+     "evidence": [],
+     "gate": "head-carries",
+     "open_reason": "no head bake carries the page \u2014 the page does not exist",
+     "owner": "build",
+     "section": "8",
+     "title": "Head carries the page",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "8.3",
+     "evidence": [],
+     "gate": "head-graph",
+     "open_reason": "no head graph carries the page",
+     "owner": "build",
+     "section": "8",
+     "title": "Head graph carries the page",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "8.4",
+     "evidence": [],
+     "gate": "machine-graphs",
+     "open_reason": "live parse: neither machine graph carries a vault node (0 vault references in both graphs)",
+     "owner": "build",
+     "section": "8",
+     "title": "Machine graphs carry the page",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "8.5",
+     "evidence": [],
+     "gate": "page-data-valid",
+     "open_reason": "no page-data record exists for the page",
+     "owner": "build",
+     "section": "8",
+     "title": "Page-data valid",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "9.1",
+     "evidence": [],
+     "gate": "route-docs",
+     "open_reason": "no route document exists (live page 404)",
+     "owner": "build",
+     "section": "9",
+     "title": "Route documents carry the page",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "9.2",
+     "evidence": [],
+     "gate": "router-carries",
+     "open_reason": "router carries no vault route",
+     "owner": "build",
+     "section": "9",
+     "title": "Router carries the page",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "9.3",
+     "evidence": [],
+     "gate": "canonical-consistent",
+     "open_reason": "no canonical URL exists for the page",
+     "owner": "build",
+     "section": "9",
+     "title": "Canonical self-consistent",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "9.4",
+     "evidence": [],
+     "gate": "sitemaps-carry",
+     "open_reason": "sitemaps carry no vault row (live pages.xml scan: absent)",
+     "owner": "build",
+     "section": "9",
+     "title": "Sitemaps carry the page",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "9.5",
+     "evidence": [],
+     "gate": "ai-sitemap-carries",
+     "open_reason": "AI sitemap carries no vault entry (live scan: absent)",
+     "owner": "build",
+     "section": "9",
+     "title": "AI sitemap carries the page",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "10.1",
+     "evidence": [],
+     "gate": "registration-complete",
+     "open_reason": "no batch record exists \u2014 nothing was built, registered, sealed, or verified for this service",
+     "owner": "build",
+     "section": "10",
+     "title": "Registration complete",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "10.2",
+     "evidence": [],
+     "gate": "sealed",
+     "open_reason": "no batch record exists \u2014 nothing was built, registered, sealed, or verified for this service",
+     "owner": "build",
+     "section": "10",
+     "title": "Sealed",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "10.3",
+     "evidence": [],
+     "gate": "local-verify",
+     "open_reason": "no batch record exists \u2014 nothing was built, registered, sealed, or verified for this service",
+     "owner": "build",
+     "section": "10",
+     "title": "Local verify green",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "10.4",
+     "evidence": [],
+     "gate": "deployment-verify",
+     "open_reason": "no batch record exists \u2014 nothing was built, registered, sealed, or verified for this service",
+     "owner": "build",
+     "section": "10",
+     "title": "Deployment verify green",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "11.3",
+     "evidence": [],
+     "gate": "index-carries",
+     "open_reason": "the signed index does not carry the page (live JWS payload: no vault distribution)",
+     "owner": "build",
+     "section": "11",
+     "title": "Index carries the page",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "11.6",
+     "evidence": [],
+     "gate": "packages-carry",
+     "open_reason": "no vault closing seal exists for the registry packages to carry (Kaggle v34 / Zenodo v32 carry seal 19a32662, which contains no vault content)",
+     "owner": "build",
+     "section": "11",
+     "title": "Packages carry the seal",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "11.7",
+     "evidence": [],
+     "gate": "certificate-endpoint",
+     "open_reason": "standing estate gap: the API has no certificate endpoint \u2014 live GET /v1/openapi.json = 404 and no cert route exists (/v1/verify is a digest lookup). Owner: suite Component F",
+     "owner": "suite-f",
+     "section": "11",
+     "title": "Certificate endpoint live",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "12.1",
+     "evidence": [],
+     "gate": "preflight",
+     "open_reason": "nothing published for this service \u2014 the page is not live (404) and no publish step has ever run for it",
+     "owner": "build",
+     "section": "12",
+     "title": "Preflight green",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "12.2",
+     "evidence": [],
+     "gate": "page-live",
+     "open_reason": "nothing published for this service \u2014 the page is not live (404) and no publish step has ever run for it",
+     "owner": "build",
+     "section": "12",
+     "title": "Page live",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "12.3",
+     "evidence": [],
+     "gate": "mirrors-pushed",
+     "open_reason": "nothing published for this service \u2014 the page is not live (404) and no publish step has ever run for it",
+     "owner": "build",
+     "section": "12",
+     "title": "Mirrors pushed",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "12.4",
+     "evidence": [],
+     "gate": "live-verify",
+     "open_reason": "nothing published for this service \u2014 the page is not live (404) and no publish step has ever run for it",
+     "owner": "build",
+     "section": "12",
+     "title": "Live verify green",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "12.5",
+     "evidence": [],
+     "gate": "alias-verify",
+     "open_reason": "nothing published for this service \u2014 the page is not live (404) and no publish step has ever run for it",
+     "owner": "build",
+     "section": "12",
+     "title": "Alias verify green",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "12.6",
+     "evidence": [],
+     "gate": "pulse",
+     "open_reason": "nothing published for this service \u2014 the page is not live (404) and no publish step has ever run for it",
+     "owner": "build",
+     "section": "12",
+     "title": "Pulse accepted",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "12.7",
+     "evidence": [],
+     "gate": "sitemaps-submitted",
+     "open_reason": "nothing published for this service \u2014 the page is not live (404) and no publish step has ever run for it",
+     "owner": "build",
+     "section": "12",
+     "title": "Sitemaps submitted",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "12.8",
+     "evidence": [],
+     "gate": "schema-validated",
+     "open_reason": "no schema-validator run is recorded for this page in the batch record or the daily logs",
+     "owner": "build",
+     "section": "12",
+     "title": "Schema validated",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "13.1",
+     "evidence": [],
+     "gate": "api-index",
+     "open_reason": "API index carries no vault entry (live /v1/index scan)",
+     "owner": "build",
+     "section": "13",
+     "title": "API index carries the page",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "13.2",
+     "evidence": [],
+     "gate": "api-page-data",
+     "open_reason": "API page-data carries no vault page record",
+     "owner": "build",
+     "section": "13",
+     "title": "API page-data answers",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "13.3",
+     "evidence": [],
+     "gate": "api-coverage",
+     "open_reason": "API coverage carries no vault service",
+     "owner": "build",
+     "section": "13",
+     "title": "API coverage answers",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "13.4",
+     "evidence": [],
+     "gate": "api-seal",
+     "open_reason": "no closing seal exists for the API to carry",
+     "owner": "build",
+     "section": "13",
+     "title": "API on the closing seal",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "13.5",
+     "evidence": [],
+     "gate": "api-tests",
+     "open_reason": "no API test run covers a vault seal",
+     "owner": "build",
+     "section": "13",
+     "title": "API tests pass",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "14.1",
+     "evidence": [],
+     "gate": "indexing-queue",
+     "open_reason": "entry unmet: 12.2 \u2014 nothing published for this service \u2014 the page is not live (404) and no publish step has ever run for it",
+     "owner": "daily-pass",
+     "section": "14",
+     "title": "Indexing API queue",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "14.2",
+     "evidence": [],
+     "gate": "console-cycle",
+     "open_reason": "entry unmet: 12.2 \u2014 nothing published for this service \u2014 the page is not live (404) and no publish step has ever run for it",
+     "owner": "daily-pass",
+     "section": "14",
+     "title": "Console inspection cycle",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "14.3",
+     "evidence": [],
+     "gate": "console-sitemaps",
+     "open_reason": "entry unmet: 12.2 \u2014 nothing published for this service \u2014 the page is not live (404) and no publish step has ever run for it",
+     "owner": "daily-pass",
+     "section": "14",
+     "title": "Console sitemaps healthy",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "14.4",
+     "evidence": [],
+     "gate": "crawler-hints",
+     "open_reason": "entry unmet: 12.2 \u2014 nothing published for this service \u2014 the page is not live (404) and no publish step has ever run for it",
+     "owner": "daily-pass",
+     "section": "14",
+     "title": "Crawler hints",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "14.5",
+     "evidence": [],
+     "gate": "impersonation-watch",
+     "open_reason": "entry unmet: 12.2 \u2014 nothing published for this service \u2014 the page is not live (404) and no publish step has ever run for it",
+     "owner": "daily-pass",
+     "section": "14",
+     "title": "Impersonation watch",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "15.1",
+     "evidence": [],
+     "gate": "gbp-category-audit",
+     "open_reason": "entry unmet: 10.2 \u2014 no batch record exists \u2014 nothing was built, registered, sealed, or verified for this service",
+     "owner": "parent-browser",
+     "section": "15",
+     "title": "GBP category audit",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "15.2",
+     "evidence": [],
+     "gate": "gbp-service-lines",
+     "open_reason": "entry unmet: 10.2 \u2014 no batch record exists \u2014 nothing was built, registered, sealed, or verified for this service",
+     "owner": "parent-browser",
+     "section": "15",
+     "title": "GBP service lines",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "15.3",
+     "evidence": [],
+     "gate": "gbp-service-area",
+     "open_reason": "entry unmet: 10.2 \u2014 no batch record exists \u2014 nothing was built, registered, sealed, or verified for this service",
+     "owner": "parent-browser",
+     "section": "15",
+     "title": "GBP service-area decision",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "15.4",
+     "evidence": [],
+     "gate": "gbp-posts-policy",
+     "open_reason": "entry unmet: 10.2 \u2014 no batch record exists \u2014 nothing was built, registered, sealed, or verified for this service",
+     "owner": "parent-browser",
+     "section": "15",
+     "title": "GBP posts within policy",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "16.1",
+     "evidence": [],
+     "gate": "kaggle-carries",
+     "open_reason": "Kaggle v34 carries seal 19a32662 \u2014 no vault content exists in that seal",
+     "owner": "build",
+     "section": "16",
+     "title": "Kaggle carries the seal",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "16.2",
+     "evidence": [],
+     "gate": "zenodo-carries",
+     "open_reason": "Zenodo v32 (record 24397451) carries seal 19a32662 \u2014 no vault content",
+     "owner": "build",
+     "section": "16",
+     "title": "Zenodo carries the seal",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "16.3",
+     "evidence": [],
+     "gate": "ai-sitemap-page",
+     "open_reason": "AI sitemap carries no vault page (live scan)",
+     "owner": "build",
+     "section": "16",
+     "title": "AI sitemap carries the page",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "16.4",
+     "evidence": [],
+     "gate": "blog-carries",
+     "open_reason": "blog ledger carries no entry for this takeover (its 'vault' rows are the vault-DOOR service's posts \u2014 a different service)",
+     "owner": "build",
+     "section": "16",
+     "title": "Blog carries the page",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "16.5",
+     "evidence": [],
+     "gate": "citation-fabric",
+     "open_reason": "no citation placement exists for vault town x service cells",
+     "owner": "build",
+     "section": "16",
+     "title": "Citation fabric placed",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "16.6",
+     "evidence": [],
+     "gate": "social-carries",
+     "open_reason": "no social post carrying this page/service is recorded",
+     "owner": "build",
+     "section": "16",
+     "title": "Social carries the page",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "16.7",
+     "evidence": [],
+     "gate": "reclamation",
+     "open_reason": "no reclamation action is recorded for these terms",
+     "owner": "build",
+     "section": "16",
+     "title": "Reclamation run",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "17.1",
+     "evidence": [],
+     "gate": "organic-1-google",
+     "open_reason": "entry unmet: 0.6 \u2014 page not in the standing census \u2014 live signed index (1,627 distributions) carries no vault entry; packet census is a projection (368 -> 385), not a state",
+     "owner": "probe-cycle",
+     "section": "17",
+     "title": "Organic #1 on Google",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "17.2",
+     "evidence": [],
+     "gate": "in-pack",
+     "open_reason": "entry unmet: 0.6 \u2014 page not in the standing census \u2014 live signed index (1,627 distributions) carries no vault entry; packet census is a projection (368 -> 385), not a state",
+     "owner": "probe-cycle",
+     "section": "17",
+     "title": "In the pack",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "17.3",
+     "evidence": [],
+     "gate": "aio-cited",
+     "open_reason": "entry unmet: 0.6 \u2014 page not in the standing census \u2014 live signed index (1,627 distributions) carries no vault entry; packet census is a projection (368 -> 385), not a state",
+     "owner": "probe-cycle",
+     "section": "17",
+     "title": "Cited in the AI Overview",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "17.4",
+     "evidence": [],
+     "gate": "ai-mode-named",
+     "open_reason": "entry unmet: 0.6 \u2014 page not in the standing census \u2014 live signed index (1,627 distributions) carries no vault entry; packet census is a projection (368 -> 385), not a state",
+     "owner": "probe-cycle",
+     "section": "17",
+     "title": "Named in AI Mode",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "17.5",
+     "evidence": [],
+     "gate": "chatgpt-cited",
+     "open_reason": "entry unmet: 0.6 \u2014 page not in the standing census \u2014 live signed index (1,627 distributions) carries no vault entry; packet census is a projection (368 -> 385), not a state",
+     "owner": "probe-cycle",
+     "section": "17",
+     "title": "Cited on ChatGPT",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "17.6",
+     "evidence": [],
+     "gate": "gemini-cited",
+     "open_reason": "entry unmet: 0.6 \u2014 page not in the standing census \u2014 live signed index (1,627 distributions) carries no vault entry; packet census is a projection (368 -> 385), not a state",
+     "owner": "probe-cycle",
+     "section": "17",
+     "title": "Cited on Gemini",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "17.7",
+     "evidence": [],
+     "gate": "perplexity-cited",
+     "open_reason": "entry unmet: 0.6 \u2014 page not in the standing census \u2014 live signed index (1,627 distributions) carries no vault entry; packet census is a projection (368 -> 385), not a state",
+     "owner": "probe-cycle",
+     "section": "17",
+     "title": "Cited on Perplexity",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "17.8",
+     "evidence": [],
+     "gate": "copilot-cited",
+     "open_reason": "entry unmet: 0.6 \u2014 page not in the standing census \u2014 live signed index (1,627 distributions) carries no vault entry; packet census is a projection (368 -> 385), not a state",
+     "owner": "probe-cycle",
+     "section": "17",
+     "title": "Cited on Copilot",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "17.9",
+     "evidence": [],
+     "gate": "other-engines-p1",
+     "open_reason": "entry unmet: 0.6 \u2014 page not in the standing census \u2014 live signed index (1,627 distributions) carries no vault entry; packet census is a projection (368 -> 385), not a state",
+     "owner": "probe-cycle",
+     "section": "17",
+     "title": "Page 1 on Bing/Yahoo/DuckDuckGo",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "17.10",
+     "evidence": [],
+     "gate": "card-converts",
+     "open_reason": "entry unmet: 0.6 \u2014 page not in the standing census \u2014 live signed index (1,627 distributions) carries no vault entry; packet census is a projection (368 -> 385), not a state",
+     "owner": "probe-cycle",
+     "section": "17",
+     "title": "Listing card converts",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "18.1",
+     "evidence": [],
+     "gate": "snippet-duel",
+     "open_reason": "no snippet duel has fired \u2014 the page does not exist; the packet drafts the counters only",
+     "owner": "probe-cycle",
+     "section": "18",
+     "title": "Snippet duel",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "18.2",
+     "evidence": [],
+     "gate": "full-serp-record",
+     "open_reason": "baseline full-SERP record exists in the probe record, but no counter-asset has fired (no page)",
+     "owner": "probe-cycle",
+     "section": "18",
+     "title": "Full-SERP record",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "18.3",
+     "evidence": [],
+     "gate": "click-proof",
+     "open_reason": "no GSC query x page data exists for the page",
+     "owner": "probe-cycle",
+     "section": "18",
+     "title": "Click proof",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "18.4",
+     "evidence": [],
+     "gate": "pack-attack",
+     "open_reason": "pack baseline: FRM absent; no pack fix has fired",
+     "owner": "probe-cycle",
+     "section": "18",
+     "title": "Pack attack",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "18.5",
+     "evidence": [],
+     "gate": "answer-shape",
+     "open_reason": "no page exists for the AI Overview to cite",
+     "owner": "probe-cycle",
+     "section": "18",
+     "title": "Answer-shape gate",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "18.5b",
+     "evidence": [],
+     "gate": "blurb-gate",
+     "open_reason": "entry unmet: 2.1 \u2014 no estate page exists \u2014 live GET /vaulted-storage/ = 404",
+     "owner": "build",
+     "section": "18",
+     "title": "Conversion blurb gate",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "18.6",
+     "evidence": [],
+     "gate": "link-gravity",
+     "open_reason": "entry unmet: 2.1 \u2014 no estate page exists \u2014 live GET /vaulted-storage/ = 404",
+     "owner": "build",
+     "section": "18",
+     "title": "Link gravity",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "18.7",
+     "evidence": [],
+     "gate": "displacement-ledger",
+     "open_reason": "displacement rows are rival-held on every surface per the baseline record",
+     "owner": "probe-cycle",
+     "section": "18",
+     "title": "Displacement ledger",
+     "verdict": "OPEN"
+    }
+   ],
+   "page": "vaulted-storage",
+   "sections": {
+    "0": {
+     "done": 1,
+     "total": 6
+    },
+    "1": {
+     "done": 5,
+     "total": 10
+    },
+    "10": {
+     "done": 0,
+     "total": 4
+    },
+    "11": {
+     "done": 4,
+     "total": 7
+    },
+    "12": {
+     "done": 0,
+     "total": 8
+    },
+    "13": {
+     "done": 0,
+     "total": 5
+    },
+    "14": {
+     "done": 0,
+     "total": 5
+    },
+    "15": {
+     "done": 0,
+     "total": 4
+    },
+    "16": {
+     "done": 0,
+     "total": 7
+    },
+    "17": {
+     "done": 0,
+     "total": 10
+    },
+    "18": {
+     "done": 0,
+     "total": 8
+    },
+    "2": {
+     "done": 0,
+     "total": 5
+    },
+    "3": {
+     "done": 0,
+     "total": 3
+    },
+    "4": {
+     "done": 0,
+     "total": 5
+    },
+    "5": {
+     "done": 0,
+     "total": 5
+    },
+    "6": {
+     "done": 1,
+     "total": 7
+    },
+    "7": {
+     "done": 0,
+     "total": 5
+    },
+    "8": {
+     "done": 0,
+     "total": 5
+    },
+    "9": {
+     "done": 0,
+     "total": 5
+    }
+   },
+   "src": "seal-test/suite-b/out/vaulted-storage/states.json",
+   "total": 114,
+   "url": "https://theflatratemovers.com/vaulted-storage/",
+   "verdict": "OPEN"
+  },
+  {
+   "as_of": "2026-11-20T17:35:07Z",
+   "closing_seal": "19a32662",
+   "done": 81,
+   "id": "potomac",
+   "open_rows": [
+    {
+     "element": "1.3",
+     "evidence": [],
+     "gate": "pack-read",
+     "open_reason": "pack presence/holders are recorded, but the holders' GBP state and our own town x service profile state were never read as one \u00a71.3 record",
+     "owner": "build",
+     "section": "1",
+     "title": "Pack read",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "1.5",
+     "evidence": [],
+     "gate": "ai-engines-read",
+     "open_reason": "no ChatGPT/Gemini/Perplexity/Copilot reads exist for this takeover \u2014 INTRODUCTION-RECORD states it plainly: 'UNREAD for Potomac specifically (never guessed)'",
+     "owner": "build",
+     "section": "1",
+     "title": "AI-engine surfaces read",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "1.6",
+     "evidence": [],
+     "gate": "other-engines-read",
+     "open_reason": "no Bing/Yahoo/DuckDuckGo first-page SERP reads exist in the record",
+     "owner": "build",
+     "section": "1",
+     "title": "Other engines read",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "4.5",
+     "evidence": [],
+     "gate": "area-chips",
+     "open_reason": "the page carries no area chips \u2014 live parse: 0 anchors matching geo feature names (a vacuous element is not rounded up)",
+     "owner": "build",
+     "section": "4",
+     "title": "Area chips",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "7.2",
+     "evidence": [
+      "file canonical hash 77edec8ab77d9879 != landing ba155439c14f7ea8; 11 nodes differ"
+     ],
+     "gate": "three-seats",
+     "open_reason": "the three seats are NOT identical \u2014 canonical diff over the 11-node graph: dateModified differs on all 11 nodes (file 2026-11-20; landing 2026-11-19/2026-11-06), areaServed serialization differs on the operations node, 2 descriptions differ past char 120. The landing embed is one seal behind the file",
+     "owner": "build",
+     "section": "7",
+     "title": "Three seats identical",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "8.4",
+     "evidence": [],
+     "gate": "machine-graphs",
+     "open_reason": "FINDING: neither machine graph carries the flagship's place or page node \u2014 live parse: entity graph 246 nodes / best graph 305 nodes, 0 'potomac' references, while other towns' place nodes are present (#winchester, #washington-va; #middleburg in the best graph). The batch record is silent on graph carriage",
+     "owner": "build",
+     "section": "8",
+     "title": "Machine graphs carry the page",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "11.7",
+     "evidence": [],
+     "gate": "certificate-endpoint",
+     "open_reason": "standing estate gap: the API has no certificate endpoint \u2014 live GET /v1/openapi.json = 404 and no cert route exists (/v1/verify is a digest lookup). Owner: suite Component F",
+     "owner": "suite-f",
+     "section": "11",
+     "title": "Certificate endpoint live",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "12.8",
+     "evidence": [],
+     "gate": "schema-validated",
+     "open_reason": "no schema-validator run is recorded for this page in the batch record or the daily logs",
+     "owner": "build",
+     "section": "12",
+     "title": "Schema validated",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "14.1",
+     "evidence": [],
+     "gate": "indexing-queue",
+     "open_reason": "the flagship is absent from the indexing-api queue.json and done.json \u2014 the Indexing API lane never carried this page",
+     "owner": "daily-pass",
+     "section": "14",
+     "title": "Indexing API queue",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "14.2",
+     "evidence": [],
+     "gate": "console-cycle",
+     "open_reason": "console cycle incomplete: inspected 2026-11-20, verdict NEUTRAL ('Discovered - currently not indexed') \u2014 not indexed, and never requested (the pass's re-rank rule does not request Discovered pages; the element's third action has not happened)",
+     "owner": "daily-pass",
+     "section": "14",
+     "title": "Console inspection cycle",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "14.4",
+     "evidence": [],
+     "gate": "crawler-hints",
+     "open_reason": "no Crawler Hints confirmation record exists for the page",
+     "owner": "daily-pass",
+     "section": "14",
+     "title": "Crawler hints",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "15.1",
+     "evidence": [],
+     "gate": "gbp-category-audit",
+     "open_reason": "GBP audits on record are branch-level (2026-11-19, both profiles); no Potomac town x service category audit exists",
+     "owner": "parent-browser",
+     "section": "15",
+     "title": "GBP category audit",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "15.3",
+     "evidence": [],
+     "gate": "gbp-service-area",
+     "open_reason": "no GBP service-area decision for Potomac is recorded (the geo feature's gbp_service_area: false is a data flag, not a profile-level decision)",
+     "owner": "parent-browser",
+     "section": "15",
+     "title": "GBP service-area decision",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "16.4",
+     "evidence": [],
+     "gate": "blog-carries",
+     "open_reason": "blog ledger carries no Potomac entry",
+     "owner": "build",
+     "section": "16",
+     "title": "Blog carries the page",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "16.5",
+     "evidence": [],
+     "gate": "citation-fabric",
+     "open_reason": "citation fabric partial: the P1 Bing Places placement landed 2026-11-18 for the Martinsburg identity; Apple in review; the introduction record states 'Citations: 0 placed by this pass' for the research pass and the remaining directory fabric for Potomac is not completed",
+     "owner": "build",
+     "section": "16",
+     "title": "Citation fabric placed",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "16.6",
+     "evidence": [],
+     "gate": "social-carries",
+     "open_reason": "no social post carrying this page/service is recorded",
+     "owner": "build",
+     "section": "16",
+     "title": "Social carries the page",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "16.7",
+     "evidence": [],
+     "gate": "reclamation",
+     "open_reason": "no reclamation action is recorded for these terms",
+     "owner": "build",
+     "section": "16",
+     "title": "Reclamation run",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "17.1",
+     "evidence": [],
+     "gate": "organic-1-google",
+     "open_reason": "no post-live capture shows the page at organic #1 \u2014 only evidence is the 2026-11-20 03:43 baseline (FRM absent) \u2014 a baseline is \u00a71 evidence, never \u00a717 capture; first seizure read booked Mon 2026-11-23",
+     "owner": "probe-cycle",
+     "section": "17",
+     "title": "Organic #1 on Google",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "17.2",
+     "evidence": [],
+     "gate": "in-pack",
+     "open_reason": "baseline: FRM absent from the pack on both head terms; no later capture \u2014 only evidence is the 2026-11-20 03:43 baseline (FRM absent) \u2014 a baseline is \u00a71 evidence, never \u00a717 capture; first seizure read booked Mon 2026-11-23",
+     "owner": "probe-cycle",
+     "section": "17",
+     "title": "In the pack",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "17.3",
+     "evidence": [],
+     "gate": "aio-cited",
+     "open_reason": "baseline: the AI Overview does not cite the page; no later capture \u2014 only evidence is the 2026-11-20 03:43 baseline (FRM absent) \u2014 a baseline is \u00a71 evidence, never \u00a717 capture; first seizure read booked Mon 2026-11-23",
+     "owner": "probe-cycle",
+     "section": "17",
+     "title": "Cited in the AI Overview",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "17.4",
+     "evidence": [],
+     "gate": "ai-mode-named",
+     "open_reason": "no AI Mode read exists for the Potomac terms",
+     "owner": "probe-cycle",
+     "section": "17",
+     "title": "Named in AI Mode",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "17.5",
+     "evidence": [],
+     "gate": "chatgpt-cited",
+     "open_reason": "no ChatGPT read exists for the Potomac terms",
+     "owner": "probe-cycle",
+     "section": "17",
+     "title": "Cited on ChatGPT",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "17.6",
+     "evidence": [],
+     "gate": "gemini-cited",
+     "open_reason": "no Gemini read exists for the Potomac terms",
+     "owner": "probe-cycle",
+     "section": "17",
+     "title": "Cited on Gemini",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "17.7",
+     "evidence": [],
+     "gate": "perplexity-cited",
+     "open_reason": "no Perplexity read exists for the Potomac terms",
+     "owner": "probe-cycle",
+     "section": "17",
+     "title": "Cited on Perplexity",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "17.8",
+     "evidence": [],
+     "gate": "copilot-cited",
+     "open_reason": "no Copilot read exists for the Potomac terms",
+     "owner": "probe-cycle",
+     "section": "17",
+     "title": "Cited on Copilot",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "17.9",
+     "evidence": [],
+     "gate": "other-engines-p1",
+     "open_reason": "no Bing/Yahoo/DuckDuckGo seizure read exists",
+     "owner": "probe-cycle",
+     "section": "17",
+     "title": "Page 1 on Bing/Yahoo/DuckDuckGo",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "17.10",
+     "evidence": [],
+     "gate": "card-converts",
+     "open_reason": "no listing-card conversion read exists for the Potomac terms (baseline: FRM absent everywhere)",
+     "owner": "probe-cycle",
+     "section": "17",
+     "title": "Listing card converts",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "18.1",
+     "evidence": [],
+     "gate": "snippet-duel",
+     "open_reason": "snippet duels are planned in the packet (Red Cat / BoxStar / Elite / Hoarding Cleanup Pros) \u2014 none has fired post-live; current holder inputs stand at the baseline",
+     "owner": "probe-cycle",
+     "section": "18",
+     "title": "Snippet duel",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "18.2",
+     "evidence": [],
+     "gate": "full-serp-record",
+     "open_reason": "a baseline full-SERP record exists; no counter-asset has fired against it",
+     "owner": "probe-cycle",
+     "section": "18",
+     "title": "Full-SERP record",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "18.3",
+     "evidence": [],
+     "gate": "click-proof",
+     "open_reason": "no GSC query x page performance data has landed for the page (the Nov 20 pass was inspection-only)",
+     "owner": "probe-cycle",
+     "section": "18",
+     "title": "Click proof",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "18.4",
+     "evidence": [],
+     "gate": "pack-attack",
+     "open_reason": "pack attack not fired: baseline pack = FRM absent; no fix recorded",
+     "owner": "probe-cycle",
+     "section": "18",
+     "title": "Pack attack",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "18.5",
+     "evidence": [],
+     "gate": "answer-shape",
+     "open_reason": "the AI Overview does not cite the page (absent at baseline); the page-citation upgrade is open",
+     "owner": "probe-cycle",
+     "section": "18",
+     "title": "Answer-shape gate",
+     "verdict": "OPEN"
+    },
+    {
+     "element": "18.7",
+     "evidence": [],
+     "gate": "displacement-ledger",
+     "open_reason": "displacement ledger: baseline rows are rival-held on every surface (introduction record: all rows OPEN)",
+     "owner": "probe-cycle",
+     "section": "18",
+     "title": "Displacement ledger",
+     "verdict": "OPEN"
+    }
+   ],
+   "page": "movers-potomac-md",
+   "sections": {
+    "0": {
+     "done": 6,
+     "total": 6
+    },
+    "1": {
+     "done": 7,
+     "total": 10
+    },
+    "10": {
+     "done": 4,
+     "total": 4
+    },
+    "11": {
+     "done": 6,
+     "total": 7
+    },
+    "12": {
+     "done": 7,
+     "total": 8
+    },
+    "13": {
+     "done": 5,
+     "total": 5
+    },
+    "14": {
+     "done": 2,
+     "total": 5
+    },
+    "15": {
+     "done": 2,
+     "total": 4
+    },
+    "16": {
+     "done": 3,
+     "total": 7
+    },
+    "17": {
+     "done": 0,
+     "total": 10
+    },
+    "18": {
+     "done": 2,
+     "total": 8
+    },
+    "2": {
+     "done": 5,
+     "total": 5
+    },
+    "3": {
+     "done": 3,
+     "total": 3
+    },
+    "4": {
+     "done": 4,
+     "total": 5
+    },
+    "5": {
+     "done": 5,
+     "total": 5
+    },
+    "6": {
+     "done": 7,
+     "total": 7
+    },
+    "7": {
+     "done": 4,
+     "total": 5
+    },
+    "8": {
+     "done": 4,
+     "total": 5
+    },
+    "9": {
+     "done": 5,
+     "total": 5
+    }
+   },
+   "src": "seal-test/suite-b/out/potomac/states.json",
+   "total": 114,
+   "url": "https://theflatratemovers.com/movers-potomac-md/",
+   "verdict": "OPEN"
+  }
+ ],
+ "vault_close": {
+  "finished_at": "2026-11-27T21:10:39-0500",
+  "message": "Vaulted Storage #35: new vaulted storage service hub, sixteen market pages, wooden storage vault supply and military non-temporary storage Norfolk, plus the Vaulted Storage dataset and its dataset landing \u2014 387 pages, 35 services, flat rate in writing",
+  "seal": "c95623f2a1ce9c3314b0efe51a7647a12906dc3496cc377c3e8782078fa12041",
+  "src": "the-flat-rate-machine/out/vaulted-storage-batch-2026-11-25/close-state.json",
+  "state": "CLOSED"
+ }
+}
