@@ -13,25 +13,25 @@
   "services": 35
  },
  "census": {
-  "as_of": "2026-11-28T14:22:18Z",
+  "as_of": "2026-11-28T15:15:10Z",
   "closing_seal": {
    "as_of": "2026-11-27T21:10:39-0500",
    "note": "batch vaulted-storage-batch-2026-11-25, state CLOSED",
    "source": "the-flat-rate-machine/out/vaulted-storage-batch-2026-11-25/close-state.json (index_sha256)",
    "value": "c95623f2a1ce9c3314b0efe51a7647a12906dc3496cc377c3e8782078fa12041"
   },
-  "pages_count_field": 387,
+  "pages_count_field": 401,
   "place_areas_per_service": [
-   317,
+   0,
    317
   ],
   "seal_lane_now": {
-   "as_of": "2026-11-28T13:30:50.531433+00:00",
-   "note": "mode incremental; arm batch winchester-hours-fix-2026-11-27 (running)",
+   "as_of": null,
+   "note": "mode incremental; arm batch winchester-hours-fix-2026-11-27 (complete)",
    "source": "the-flat-rate-machine/out/seal-state/seal-state.json",
-   "value": "sealing"
+   "value": "sealed"
   },
-  "slice_services": 35,
+  "slice_services": 36,
   "sources": {
    "datasets": "the-flat-rate-movers-pages/public/datasets-*.json",
    "distributions": "the-flat-rate-movers-pages/public/ai-master-index.json",
@@ -41,17 +41,17 @@
    "services": "the-flat-rate-machine/data/services.json"
   },
   "total_areas_per_service": [
-   387,
+   0,
    439
   ]
  },
  "feed": {
   "accuracy": "every figure computed from its named source record at export time; unreadable source = value null + note, never an estimate",
   "exporter": "g-build/feed-export.py (computations: board-export.py load())",
-  "generated_at": "2026-11-28T14:22:18Z",
+  "generated_at": "2026-11-28T15:15:10Z",
   "name": "master-dashboard-feed",
   "raw_url": "https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/dashboard-feed.json",
-  "snapshot_id": "8fa17fc54dba7428a1f90972cbe4e46646b2038aa955816b07ecbe7c5c8c82bd",
+  "snapshot_id": "47515609dc51eea20f2f144f7d014c3cde61a972e6d9929b11a2b8a4487629e4",
   "version": 1
  },
  "geo": {
@@ -132,14 +132,14 @@
    "value": 35
   },
   "datasets": {
-   "as_of": "2026-11-28T14:22:18Z",
+   "as_of": "2026-11-28T15:15:10Z",
    "source": "the-flat-rate-movers-pages/public/datasets-*.json",
-   "value": 89
+   "value": 91
   },
   "distributions": {
-   "as_of": "2026-11-28T14:22:18Z",
+   "as_of": "2026-11-28T15:15:10Z",
    "source": "the-flat-rate-movers-pages/public/ai-master-index.json",
-   "value": 1715
+   "value": 1731
   },
   "footprint_places": {
    "as_of": "2026-11-21T12:02:14Z",
@@ -147,10 +147,10 @@
    "value": 335
   },
   "geo_features_covered": {
-   "as_of": "2026-11-28T14:22:18Z",
-   "note": "of 335 geo features: (place areas 317 \u2212 1 rubric seat) + 12 counties + 3 landmark seats, uniform per service; the 4 held-out features are region/corridor landmarks carried as scope areas (reconciliation 2026-11-28)",
+   "as_of": "2026-11-28T15:15:10Z",
+   "note": "of 335 geo features: (place areas 0 \u2212 1 rubric seat) + 0 counties + 0 landmark seats, uniform per service; the 4 held-out features are region/corridor landmarks carried as scope areas (reconciliation 2026-11-28)",
    "source": "the-flat-rate-machine/out/seal-state/coverage-slices/service-*.json + the-flat-rate-machine/out/money-slice-advantage-2026-11-28/COVERAGE-RECONCILIATION.md",
-   "value": 331
+   "value": -1
   },
   "indexed": {
    "as_of": "2026-11-27",
@@ -169,9 +169,9 @@
    "value": 369
   },
   "intent_questions": {
-   "as_of": "2026-11-28T14:22:18Z",
+   "as_of": "2026-11-28T15:15:10Z",
    "source": "the-flat-rate-machine/out/seal-state/coverage-slices/service-*.json (\u03a3 agg.count)",
-   "value": 533927
+   "value": 551414
   },
   "mcp_calls_30d": {
    "as_of": "2026-11-28",
@@ -186,20 +186,20 @@
    "value": 55
   },
   "pages": {
-   "as_of": "2026-11-28T14:22:18Z",
+   "as_of": "2026-11-28T15:15:10Z",
    "source": "the-flat-rate-machine/data/pages.json",
-   "value": 387
+   "value": 401
   },
   "services": {
-   "as_of": "2026-11-28T14:22:18Z",
+   "as_of": "2026-11-28T15:15:10Z",
    "source": "the-flat-rate-machine/data/services.json",
-   "value": 35
+   "value": 36
   },
   "states_worked": {
-   "as_of": "2026-11-28T14:22:18Z",
-   "note": "every state except Hawaii",
+   "as_of": "2026-11-28T15:15:10Z",
+   "note": "state areas carried per service in the sealed slices",
    "source": "the-flat-rate-machine/out/seal-state/coverage-slices/service-*.json (state-* areas per service)",
-   "value": 49
+   "value": 0
   }
  },
  "process": [
@@ -214,7 +214,7 @@
   {
    "date": "fix 2026-11-27",
    "name": "RUBRICS CLEANUP",
-   "proof": "generator 3.2.0 \u00b7 rowsByArea per-area aggregation in the builder (5 seats) \u00b7 variant-family standard \u00b7 533,927 intent rows (\u03a3 coverage slices)",
+   "proof": "generator 3.2.0 \u00b7 rowsByArea per-area aggregation in the builder (5 seats) \u00b7 variant-family standard \u00b7 551,414 intent rows (\u03a3 coverage slices)",
    "source": "the-flat-rate-machine/scripts/build-intent-rubric.js + coverage slices",
    "state": "LIVE",
    "verified": true
@@ -288,7 +288,7 @@
   {
    "item": "Winchester Saturday-hours fix",
    "src": "the-flat-rate-machine/out/seal-state/supervisor-arm.json + the-flat-rate-machine/out/seal-state/seal-state.json",
-   "state": "IN FLIGHT \u2014 arm running, seal sealing since 2026-11-28T13:30Z"
+   "state": "IN FLIGHT \u2014 arm complete, seal sealed since Z"
   },
   {
    "item": "3PL + Installation build (service #36) + MCP rider",
