@@ -13,7 +13,7 @@
   "services": 35
  },
  "census": {
-  "as_of": "2026-11-28T18:35:08Z",
+  "as_of": "2026-11-28T19:40:39Z",
   "closing_seal": {
    "as_of": "2026-11-27T21:10:39-0500",
    "note": "batch vaulted-storage-batch-2026-11-25, state CLOSED",
@@ -48,10 +48,10 @@
  "feed": {
   "accuracy": "every figure computed from its named source record at export time; unreadable source = value null + note, never an estimate",
   "exporter": "g-build/feed-export.py (computations: board-export.py load())",
-  "generated_at": "2026-11-28T18:35:08Z",
+  "generated_at": "2026-11-28T19:40:39Z",
   "name": "master-dashboard-feed",
   "raw_url": "https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/dashboard-feed.json",
-  "snapshot_id": "b132177d59d881030a5896676cbc04c985ff2d8114199d05c12179fbca21aff6",
+  "snapshot_id": "6e589435fa6ca3a67aec3d6874f0c72f2cd3583a40dc7c54e46acedc02f4c6ea",
   "version": 1
  },
  "geo": {
@@ -132,12 +132,12 @@
    "value": 35
   },
   "datasets": {
-   "as_of": "2026-11-28T18:35:08Z",
+   "as_of": "2026-11-28T19:40:39Z",
    "source": "the-flat-rate-movers-pages/public/datasets-*.json",
    "value": 93
   },
   "distributions": {
-   "as_of": "2026-11-28T18:35:08Z",
+   "as_of": "2026-11-28T19:40:39Z",
    "source": "the-flat-rate-movers-pages/public/ai-master-index.json",
    "value": 1748
   },
@@ -147,7 +147,7 @@
    "value": 335
   },
   "geo_features_covered": {
-   "as_of": "2026-11-28T18:35:08Z",
+   "as_of": "2026-11-28T19:40:39Z",
    "note": "of 335 geo features: (place areas 317 \u2212 1 rubric seat) + 12 counties + 3 landmark seats, uniform per service; the 4 held-out features are region/corridor landmarks carried as scope areas (reconciliation 2026-11-28)",
    "source": "the-flat-rate-machine/out/seal-state/coverage-slices/service-*.json + the-flat-rate-machine/out/money-slice-advantage-2026-11-28/COVERAGE-RECONCILIATION.md",
    "value": 331
@@ -169,7 +169,7 @@
    "value": 369
   },
   "intent_questions": {
-   "as_of": "2026-11-28T18:35:08Z",
+   "as_of": "2026-11-28T19:40:39Z",
    "source": "the-flat-rate-machine/out/seal-state/coverage-slices/service-*.json (\u03a3 agg.count)",
    "value": 572128
   },
@@ -186,17 +186,17 @@
    "value": 55
   },
   "pages": {
-   "as_of": "2026-11-28T18:35:08Z",
+   "as_of": "2026-11-28T19:40:39Z",
    "source": "the-flat-rate-machine/data/pages.json",
    "value": 401
   },
   "services": {
-   "as_of": "2026-11-28T18:35:08Z",
+   "as_of": "2026-11-28T19:40:39Z",
    "source": "the-flat-rate-machine/data/services.json",
    "value": 36
   },
   "states_worked": {
-   "as_of": "2026-11-28T18:35:08Z",
+   "as_of": "2026-11-28T19:40:39Z",
    "note": "every state except Hawaii",
    "source": "the-flat-rate-machine/out/seal-state/coverage-slices/service-*.json (state-* areas per service)",
    "value": 49
