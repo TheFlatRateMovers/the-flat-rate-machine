@@ -26,7 +26,7 @@
    317
   ],
   "seal_lane_now": {
-   "as_of": "2026-11-28T18:38:37.080948+00:00",
+   "as_of": "2026-11-28T20:47:30.090884+00:00",
    "note": "mode incremental; arm batch 3pl-installation-batch-2026-11-27 (running)",
    "source": "the-flat-rate-machine/out/seal-state/seal-state.json",
    "value": "sealing"
@@ -51,7 +51,7 @@
   "generated_at": "2026-11-28T19:40:39Z",
   "name": "master-dashboard-feed",
   "raw_url": "https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/dashboard-feed.json",
-  "snapshot_id": "6e589435fa6ca3a67aec3d6874f0c72f2cd3583a40dc7c54e46acedc02f4c6ea",
+  "snapshot_id": "e8d0d7854d52e89bfb456a4e72321c6b77a717c207555a6b873e8843924ecd3d",
   "version": 1
  },
  "geo": {
@@ -288,7 +288,7 @@
   {
    "item": "Winchester Saturday-hours fix",
    "src": "the-flat-rate-machine/out/seal-state/supervisor-arm.json + the-flat-rate-machine/out/seal-state/seal-state.json",
-   "state": "IN FLIGHT \u2014 arm running, seal sealing since 2026-11-28T18:38Z"
+   "state": "IN FLIGHT \u2014 arm running, seal sealing since 2026-11-28T20:47Z"
   },
   {
    "item": "3PL + Installation build (service #36) + MCP rider",
