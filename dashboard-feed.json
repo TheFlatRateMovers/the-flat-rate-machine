@@ -51,7 +51,7 @@
   "generated_at": "2026-11-28T16:43:32Z",
   "name": "master-dashboard-feed",
   "raw_url": "https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/dashboard-feed.json",
-  "snapshot_id": "6e9872ca8428c56be68d916fe8f2184d02fd2ecb31ab4e3605fcd209371cf609",
+  "snapshot_id": "2989ef776f76a0dd83f6c69467c2ff8a6b03ad179fad2b4d70863a1a349ae4b6",
   "version": 1
  },
  "geo": {
@@ -134,7 +134,7 @@
   "datasets": {
    "as_of": "2026-11-28T16:43:32Z",
    "source": "the-flat-rate-movers-pages/public/datasets-*.json",
-   "value": 92
+   "value": 93
   },
   "distributions": {
    "as_of": "2026-11-28T16:43:32Z",
