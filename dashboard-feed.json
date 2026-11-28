@@ -13,7 +13,7 @@
   "services": 35
  },
  "census": {
-  "as_of": "2026-11-28T15:15:10Z",
+  "as_of": "2026-11-28T16:09:00Z",
   "closing_seal": {
    "as_of": "2026-11-27T21:10:39-0500",
    "note": "batch vaulted-storage-batch-2026-11-25, state CLOSED",
@@ -22,7 +22,7 @@
   },
   "pages_count_field": 401,
   "place_areas_per_service": [
-   0,
+   317,
    317
   ],
   "seal_lane_now": {
@@ -41,17 +41,17 @@
    "services": "the-flat-rate-machine/data/services.json"
   },
   "total_areas_per_service": [
-   0,
+   387,
    439
   ]
  },
  "feed": {
   "accuracy": "every figure computed from its named source record at export time; unreadable source = value null + note, never an estimate",
   "exporter": "g-build/feed-export.py (computations: board-export.py load())",
-  "generated_at": "2026-11-28T15:15:10Z",
+  "generated_at": "2026-11-28T16:09:00Z",
   "name": "master-dashboard-feed",
   "raw_url": "https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/dashboard-feed.json",
-  "snapshot_id": "47515609dc51eea20f2f144f7d014c3cde61a972e6d9929b11a2b8a4487629e4",
+  "snapshot_id": "beda2ababff2ef7758d62dfcfe882b0943b3a923aca86f61ce34f88ce6a16c38",
   "version": 1
  },
  "geo": {
@@ -132,14 +132,14 @@
    "value": 35
   },
   "datasets": {
-   "as_of": "2026-11-28T15:15:10Z",
+   "as_of": "2026-11-28T16:09:00Z",
    "source": "the-flat-rate-movers-pages/public/datasets-*.json",
    "value": 91
   },
   "distributions": {
-   "as_of": "2026-11-28T15:15:10Z",
+   "as_of": "2026-11-28T16:09:00Z",
    "source": "the-flat-rate-movers-pages/public/ai-master-index.json",
-   "value": 1731
+   "value": 1732
   },
   "footprint_places": {
    "as_of": "2026-11-21T12:02:14Z",
@@ -147,10 +147,10 @@
    "value": 335
   },
   "geo_features_covered": {
-   "as_of": "2026-11-28T15:15:10Z",
-   "note": "of 335 geo features: (place areas 0 \u2212 1 rubric seat) + 0 counties + 0 landmark seats, uniform per service; the 4 held-out features are region/corridor landmarks carried as scope areas (reconciliation 2026-11-28)",
+   "as_of": "2026-11-28T16:09:00Z",
+   "note": "of 335 geo features: (place areas 317 \u2212 1 rubric seat) + 12 counties + 3 landmark seats, uniform per service; the 4 held-out features are region/corridor landmarks carried as scope areas (reconciliation 2026-11-28)",
    "source": "the-flat-rate-machine/out/seal-state/coverage-slices/service-*.json + the-flat-rate-machine/out/money-slice-advantage-2026-11-28/COVERAGE-RECONCILIATION.md",
-   "value": -1
+   "value": 331
   },
   "indexed": {
    "as_of": "2026-11-27",
@@ -169,9 +169,9 @@
    "value": 369
   },
   "intent_questions": {
-   "as_of": "2026-11-28T15:15:10Z",
+   "as_of": "2026-11-28T16:09:00Z",
    "source": "the-flat-rate-machine/out/seal-state/coverage-slices/service-*.json (\u03a3 agg.count)",
-   "value": 551414
+   "value": 572128
   },
   "mcp_calls_30d": {
    "as_of": "2026-11-28",
@@ -186,20 +186,20 @@
    "value": 55
   },
   "pages": {
-   "as_of": "2026-11-28T15:15:10Z",
+   "as_of": "2026-11-28T16:09:00Z",
    "source": "the-flat-rate-machine/data/pages.json",
    "value": 401
   },
   "services": {
-   "as_of": "2026-11-28T15:15:10Z",
+   "as_of": "2026-11-28T16:09:00Z",
    "source": "the-flat-rate-machine/data/services.json",
    "value": 36
   },
   "states_worked": {
-   "as_of": "2026-11-28T15:15:10Z",
-   "note": "state areas carried per service in the sealed slices",
+   "as_of": "2026-11-28T16:09:00Z",
+   "note": "every state except Hawaii",
    "source": "the-flat-rate-machine/out/seal-state/coverage-slices/service-*.json (state-* areas per service)",
-   "value": 0
+   "value": 49
   }
  },
  "process": [
@@ -214,7 +214,7 @@
   {
    "date": "fix 2026-11-27",
    "name": "RUBRICS CLEANUP",
-   "proof": "generator 3.2.0 \u00b7 rowsByArea per-area aggregation in the builder (5 seats) \u00b7 variant-family standard \u00b7 551,414 intent rows (\u03a3 coverage slices)",
+   "proof": "generator 3.2.0 \u00b7 rowsByArea per-area aggregation in the builder (5 seats) \u00b7 variant-family standard \u00b7 572,128 intent rows (\u03a3 coverage slices)",
    "source": "the-flat-rate-machine/scripts/build-intent-rubric.js + coverage slices",
    "state": "LIVE",
    "verified": true
