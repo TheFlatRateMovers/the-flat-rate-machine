@@ -51,7 +51,7 @@
   "generated_at": "2026-11-28T09:01:08Z",
   "name": "master-dashboard-feed",
   "raw_url": "https://raw.githubusercontent.com/TheFlatRateMovers/the-flat-rate-machine/main/dashboard-feed.json",
-  "snapshot_id": "d9a1b89bf756a9febc6e50e8f0458dc46a499dea69c03fe8fd6aaf1695083658",
+  "snapshot_id": "a02aa9c0ec9466ab87afc24ea0a7d969e89b7c9c5d4f8fa66c1ac08fcdcfe64e",
   "version": 1
  },
  "geo": {
@@ -146,6 +146,12 @@
    "source": "the-flat-rate-machine/data/geo-enriched.json",
    "value": 335
   },
+  "geo_features_covered": {
+   "as_of": "2026-11-28T09:01:08Z",
+   "note": "of 335 geo features: (place areas 317 \u2212 1 rubric seat) + 12 counties + 3 landmark seats, uniform per service; the 4 held-out features are region/corridor landmarks carried as scope areas (reconciliation 2026-11-28)",
+   "source": "the-flat-rate-machine/out/seal-state/coverage-slices/service-*.json + the-flat-rate-machine/out/money-slice-advantage-2026-11-28/COVERAGE-RECONCILIATION.md",
+   "value": 331
+  },
   "indexed": {
    "as_of": "2026-11-27",
    "note": "of 369 inspected in the 2026-11-27 pass",
@@ -173,6 +179,12 @@
    "source": "/v1/mcp-stats via node fetch",
    "value": 8
   },
+  "money_pages": {
+   "as_of": "2026-11-28T09:05:22Z",
+   "note": "scope of the Money Slice Advantage program, per its checklist record",
+   "source": "the-flat-rate-machine/out/money-slice-advantage-2026-11-28/CHECKLIST.md",
+   "value": 55
+  },
   "pages": {
    "as_of": "2026-11-28T09:01:08Z",
    "source": "the-flat-rate-machine/data/pages.json",
@@ -182,6 +194,12 @@
    "as_of": "2026-11-28T09:01:08Z",
    "source": "the-flat-rate-machine/data/services.json",
    "value": 35
+  },
+  "states_worked": {
+   "as_of": "2026-11-28T09:01:08Z",
+   "note": "every state except Hawaii",
+   "source": "the-flat-rate-machine/out/seal-state/coverage-slices/service-*.json (state-* areas per service)",
+   "value": 49
   }
  },
  "process": [
